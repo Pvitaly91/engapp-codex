@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62579,
+        "uuid": "qnq-negative-questions-a2-g04",
+        "question": "{a1} stop here tonight?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 463,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedNegativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Won't the last bus",
+                "Doesn't the last bus",
+                "Isn't the last bus"
+            ]
+        },
+        "theory_text_block_uuid": "9c44271a-5eaf-5ed5-ba06-921becdbd041",
+        "created_at": "2026-10-30T13:53:09.000000Z",
+        "updated_at": "2026-10-30T13:53:09.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 463,
+        "name": "Questions and Negations Quality: Negative Questions: заперечні питання",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 289,
+                "name": "Negative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62579,
+                "tag_id": 289,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57184,
+                "option": "Won't the last bus",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62579,
+                "option_id": 57184,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57186,
+                "option": "Doesn't the last bus",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62579,
+                "option_id": 57186,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57187,
+                "option": "Isn't the last bus",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 62579,
+                "option_id": 57187,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332242,
+                "question_id": 62579,
+                "marker": "a1",
+                "option_id": 57184,
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "option": {
+                "id": 57184,
+                "option": "Won't the last bus",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49576,
+                "question_id": 62579,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57185,
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            },
+            "option": {
+                "id": 57185,
+                "option": "Умова вимагає майбутню дію зі звичайним допоміжним дієсловом майбутнього. Підмет для введення: останній автобус.",
+                "created_at": "2026-10-30T13:53:09.000000Z",
+                "updated_at": "2026-10-30T13:53:09.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54594,
+            "question_id": 62579,
+            "text": "{a1} stop here tonight?",
+            "created_at": "2026-10-30T13:53:09.000000Z",
+            "updated_at": "2026-10-30T13:53:09.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60412,
+        "uuid": "beq-questions-a1-g03",
+        "question": "Are the children cold? — Yes, {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 13,
+        "source_id": 423,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "they are",
+                "they is",
+                "are they"
+            ]
+        },
+        "theory_text_block_uuid": "5ae6ea1f-b728-5f9e-829a-a4cfee22ea86",
+        "created_at": "2026-10-27T13:05:09.000000Z",
+        "updated_at": "2026-10-27T13:05:09.000000Z"
+    },
+    "category": {
+        "id": 13,
+        "name": "Базова граматика / Verb to Be",
+        "created_at": "2026-04-23T14:42:10.000000Z",
+        "updated_at": "2026-04-23T14:42:10.000000Z"
+    },
+    "source": {
+        "id": 423,
+        "name": "Verb to Be Quality: Питання та короткі відповіді з дієсловом бути",
+        "created_at": "2026-10-27T13:05:09.000000Z",
+        "updated_at": "2026-10-27T13:05:09.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 100,
+                "name": "Verb to be — questions",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60412,
+                "tag_id": 100,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4562,
+                "option": "they are",
+                "created_at": "2026-04-23T14:40:42.000000Z",
+                "updated_at": "2026-04-23T14:40:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 60412,
+                "option_id": 4562,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5725,
+                "option": "are they",
+                "created_at": "2026-04-23T14:43:01.000000Z",
+                "updated_at": "2026-04-23T14:43:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 60412,
+                "option_id": 5725,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52777,
+                "option": "they is",
+                "created_at": "2026-10-27T13:05:09.000000Z",
+                "updated_at": "2026-10-27T13:05:09.000000Z"
+            },
+            "pivot": {
+                "question_id": 60412,
+                "option_id": 52777,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 324843,
+                "question_id": 60412,
+                "marker": "a1",
+                "option_id": 4562,
+                "created_at": "2026-10-27T13:05:09.000000Z",
+                "updated_at": "2026-10-27T13:05:09.000000Z"
+            },
+            "option": {
+                "id": 4562,
+                "option": "they are",
+                "created_at": "2026-04-23T14:40:42.000000Z",
+                "updated_at": "2026-04-23T14:40:42.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 42177,
+                "question_id": 60412,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 52776,
+                "created_at": "2026-10-27T13:05:09.000000Z",
+                "updated_at": "2026-10-27T13:05:09.000000Z"
+            },
+            "option": {
+                "id": 52776,
+                "option": "Підтвердь у короткій відповіді стан кількох дітей, назвавши їх займенником.",
+                "created_at": "2026-10-27T13:05:09.000000Z",
+                "updated_at": "2026-10-27T13:05:09.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52427,
+            "question_id": 60412,
+            "text": "Are the children cold? — Yes, {a1}.",
+            "created_at": "2026-10-27T13:05:09.000000Z",
+            "updated_at": "2026-10-27T13:05:09.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

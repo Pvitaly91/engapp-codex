@@ -1,0 +1,4322 @@
+{
+  "schema_version": 1,
+  "content_type": "M56_gerund_simple_passives_bank_audit",
+  "status": "reviewed-frozen-before-apply",
+  "independent_before": {
+    "path": "storage/app/seo-m56-local/before-v1.json",
+    "sha256": "8198c1bcff87fbf270ab5d71a7d6c3343b728846ce9cc7be59e1ff44e5bee406"
+  },
+  "selection_policy": "page-wide question_theory_text_blocks -> type4 -> exact thematic seeder -> exact B2/A2/A2 -> exact-bound Gerund exclusions 02/05/07 -> questions.uuid ascending -> limit5",
+  "source_token_validation": {
+    "exact_level_questions_checked": 36,
+    "selected_questions_checked": 15,
+    "source_answers_equal_tokens": true,
+    "strict_native_case_drifts": 0,
+    "selected_empty_hints": 15,
+    "selected_empty_verb_hints": 15,
+    "source_options_have_required_spellings": true
+  },
+  "decision": {
+    "existing_banks_reused": 3,
+    "new_questions_proposed": 0,
+    "new_answers_options_links_proposed": 0,
+    "old_bank_payload_rewrites": 0,
+    "grader_or_engine_changes": 0,
+    "case_projection_needed": false,
+    "selection_projection_needed": true,
+    "condition_projection_records": 4,
+    "main_author_review_date": "2026-10-15"
+  },
+  "pending": [],
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/InfinitivesGerund/PassiveVoicePassiveGerundTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/passive-voice-infinitives-gerund/theory-passive-voice-passive-gerund",
+      "level": "B2",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder"
+      ],
+      "page_id": 102,
+      "category_id": 17,
+      "category_ancestry": [
+        {
+          "id": 1,
+          "title": "Passive Voice",
+          "slug": "passive-voice",
+          "language": "uk",
+          "type": "theory",
+          "parent_id": null,
+          "seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder",
+          "created_at": "2026-04-23 15:59:15",
+          "updated_at": "2026-05-26 15:14:03"
+        },
+        {
+          "id": 17,
+          "title": "Інфінітив та герундій у пасиві",
+          "slug": "passive-voice-infinitives-gerund",
+          "language": "uk",
+          "type": "theory",
+          "parent_id": 1,
+          "seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoiceInfinitivesGerundCategorySeeder",
+          "created_at": "2026-04-23 17:32:49",
+          "updated_at": "2026-04-23 17:36:07"
+        }
+      ],
+      "locale": "uk",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder/definition.json",
+      "bank_definition_sha256": "d304482c9d38d7f8196fae06652e2efcb6ed9451f9ff235358b55b6b55924eb4",
+      "link_manifest": "database/seeders/V3/TheoryLinks/data/passive-voice-passive-gerund-theory-links.json",
+      "link_manifest_sha256": "ce75fbb444a8f50b9154d062219db8155a6e8f9bfff4c21f92f8e7e9d76dadf7",
+      "source_total_questions": 72,
+      "source_exact_level_count": 12,
+      "live_pagewide_count": 72,
+      "live_eligible_count": 12,
+      "live_eligible_ids_uuid_order": [
+        39123,
+        39124,
+        39125,
+        39126,
+        39127,
+        39128,
+        39129,
+        39130,
+        39131,
+        39132,
+        39133,
+        39134
+      ],
+      "before_default_selected_ids": [
+        39123,
+        39124,
+        39125,
+        39126,
+        39127
+      ],
+      "expected_existing_selected_ids": [
+        39123,
+        39125,
+        39126,
+        39128,
+        39130
+      ],
+      "expected_selected_uuids": [
+        "pvpg-poly-b2-01",
+        "pvpg-poly-b2-03",
+        "pvpg-poly-b2-04",
+        "pvpg-poly-b2-06",
+        "pvpg-poly-b2-08"
+      ],
+      "pool_review": [
+        {
+          "uuid": "pvpg-poly-b2-01",
+          "source_condition_uk": "Він не любить, коли його критикують.",
+          "source_key": "He does not like being criticized.",
+          "selected": true,
+          "decision": "Придатне доповнення після like; finite UK prefix явно задає -ing, не забороняє інфінітив узагалі."
+        },
+        {
+          "uuid": "pvpg-poly-b2-02",
+          "source_condition_uk": "Після того як його попередили, він став обережнішим.",
+          "source_key": "Having been warned, he became more careful.",
+          "selected": false,
+          "decision": "Граматично можливий окремий participle clause, не обраний як основне gerund-доповнення."
+        },
+        {
+          "uuid": "pvpg-poly-b2-03",
+          "source_condition_uk": "Вона пішла непомітно.",
+          "source_key": "She left without being noticed.",
+          "selected": true,
+          "decision": "Придатна пасивна -ing-форма після without; дію зазнає She."
+        },
+        {
+          "uuid": "pvpg-poly-b2-04",
+          "source_condition_uk": "Я пам’ятаю, що мені казали про це.",
+          "source_key": "I remember being told about it.",
+          "selected": true,
+          "decision": "Придатне доповнення після remember; контекст вимагає simple passive -ing."
+        },
+        {
+          "uuid": "pvpg-poly-b2-05",
+          "source_condition_uk": "Цю книгу варто прочитати.",
+          "source_key": "The book is worth being read.",
+          "selected": false,
+          "decision": "Не обрано: worth reading природніше; не виправдовувати awkward key довгою умовою."
+        },
+        {
+          "uuid": "pvpg-poly-b2-06",
+          "source_condition_uk": "Коли за тобою спостерігають, це може напружувати.",
+          "source_key": "Being watched can be stressful.",
+          "selected": true,
+          "decision": "Придатна пасивна -ing-конструкція як підмет, не fronted participle clause."
+        },
+        {
+          "uuid": "pvpg-poly-b2-07",
+          "source_condition_uk": "Вона уникає, щоб її фотографували репортери.",
+          "source_key": "She avoids being photographed by reporters.",
+          "selected": false,
+          "decision": "Придатний avoid + passive -ing, але не обрано заради різних функцій та perfect coverage."
+        },
+        {
+          "uuid": "pvpg-poly-b2-08",
+          "source_condition_uk": "Він пишався тим, що його обрали.",
+          "source_key": "He was proud of having been chosen.",
+          "selected": true,
+          "decision": "Придатне perfect passive -ing доповнення після of; попередність задано явно."
+        },
+        {
+          "uuid": "pvpg-poly-b2-09",
+          "source_condition_uk": "Йому подобається, коли йому допомагають.",
+          "source_key": "He likes being helped.",
+          "selected": false,
+          "decision": "Придатне like + passive -ing, але повторює функцію 01."
+        },
+        {
+          "uuid": "pvpg-poly-b2-10",
+          "source_condition_uk": "Їй подобається, коли її хвалять.",
+          "source_key": "She enjoys being praised.",
+          "selected": false,
+          "decision": "Придатне enjoy + passive -ing, але п’ятірка вже охоплює complement/preposition/subject/perfect."
+        },
+        {
+          "uuid": "pvpg-poly-b2-11",
+          "source_condition_uk": "Після того як заявку відхилили, вона подала її знову.",
+          "source_key": "After being rejected, she applied again.",
+          "selected": false,
+          "decision": "Не обрано: UK каже про відхилену заявку, EN rejected логічно стосується She, ролі не збігаються."
+        },
+        {
+          "uuid": "pvpg-poly-b2-12",
+          "source_condition_uk": "Попри те що її попередили, вона проігнорувала пораду.",
+          "source_key": "Despite having been warned, she ignored the advice.",
+          "selected": false,
+          "decision": "Придатна perfect passive -ing після despite; не обрано заради не лише fronted examples."
+        }
+      ],
+      "first_five": [
+        {
+          "id": 39123,
+          "uuid": "pvpg-poly-b2-01",
+          "condition_uk": "Він не любить, коли його критикують.",
+          "visible_condition_uk": "Після дієслова «любити» використай пасивну -ing-форму. Він не любить, коли його критикують.",
+          "source_key": "He does not like being criticized.",
+          "correct_tokens": [
+            "He",
+            "does",
+            "not",
+            "like",
+            "being",
+            "criticized",
+            "."
+          ],
+          "source_definition_question_id": 37,
+          "ordered_answer_snapshot": [
+            {
+              "id": 205482,
+              "marker": "a1",
+              "position": null,
+              "option_id": 18,
+              "option": "He"
+            },
+            {
+              "id": 205483,
+              "marker": "a2",
+              "position": null,
+              "option_id": 127,
+              "option": "does"
+            },
+            {
+              "id": 205484,
+              "marker": "a3",
+              "position": null,
+              "option_id": 41,
+              "option": "not"
+            },
+            {
+              "id": 205485,
+              "marker": "a4",
+              "position": null,
+              "option_id": 441,
+              "option": "like"
+            },
+            {
+              "id": 205486,
+              "marker": "a5",
+              "position": null,
+              "option_id": 637,
+              "option": "being"
+            },
+            {
+              "id": 205487,
+              "marker": "a6",
+              "position": null,
+              "option_id": 16504,
+              "option": "criticized"
+            },
+            {
+              "id": 205488,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 18,
+              "option": "He"
+            },
+            {
+              "id": 22,
+              "option": "to"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 25,
+              "option": "before"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 96,
+              "option": "am"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 183,
+              "option": "get"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 323,
+              "option": "with"
+            },
+            {
+              "id": 436,
+              "option": "got"
+            },
+            {
+              "id": 441,
+              "option": "like"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 922,
+              "option": "having"
+            },
+            {
+              "id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 3175,
+              "option": "despite"
+            },
+            {
+              "id": 4025,
+              "option": "gets"
+            },
+            {
+              "id": 16504,
+              "option": "criticized"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "37a79b2b09fbaa4f0c3424898a633cf7d2b58218e1583a0793bb8bd048fca99c",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "He",
+            "does",
+            "not",
+            "like",
+            "being",
+            "criticized",
+            "."
+          ],
+          "strict_native_tokens": [
+            "He",
+            "does",
+            "not",
+            "like",
+            "being",
+            "criticized",
+            "."
+          ],
+          "condition_semantics": "Придатне доповнення після like; finite UK prefix явно задає -ing, не забороняє інфінітив узагалі.",
+          "answers": {
+            "a1": "He",
+            "a2": "does",
+            "a3": "not",
+            "a4": "like",
+            "a5": "being",
+            "a6": "criticized",
+            "a7": "."
+          },
+          "source_options": [
+            "He",
+            "does",
+            "not",
+            "like",
+            "being",
+            "criticized",
+            ".",
+            "am",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "having",
+            "have",
+            "has",
+            "had",
+            "by",
+            "with",
+            "without",
+            "after",
+            "before",
+            "despite",
+            "to",
+            "get",
+            "got",
+            "gets",
+            "do",
+            "did"
+          ]
+        },
+        {
+          "id": 39125,
+          "uuid": "pvpg-poly-b2-03",
+          "condition_uk": "Вона пішла непомітно.",
+          "visible_condition_uk": "Вона пішла непомітно.",
+          "source_key": "She left without being noticed.",
+          "correct_tokens": [
+            "She",
+            "left",
+            "without",
+            "being",
+            "noticed",
+            "."
+          ],
+          "source_definition_question_id": 39,
+          "ordered_answer_snapshot": [
+            {
+              "id": 205498,
+              "marker": "a1",
+              "position": null,
+              "option_id": 9,
+              "option": "She"
+            },
+            {
+              "id": 205499,
+              "marker": "a2",
+              "position": null,
+              "option_id": 113,
+              "option": "left"
+            },
+            {
+              "id": 205500,
+              "marker": "a3",
+              "position": null,
+              "option_id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 205501,
+              "marker": "a4",
+              "position": null,
+              "option_id": 637,
+              "option": "being"
+            },
+            {
+              "id": 205502,
+              "marker": "a5",
+              "position": null,
+              "option_id": 2515,
+              "option": "noticed"
+            },
+            {
+              "id": 205503,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 9,
+              "option": "She"
+            },
+            {
+              "id": 22,
+              "option": "to"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 25,
+              "option": "before"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 96,
+              "option": "am"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 113,
+              "option": "left"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 183,
+              "option": "get"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 323,
+              "option": "with"
+            },
+            {
+              "id": 436,
+              "option": "got"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 922,
+              "option": "having"
+            },
+            {
+              "id": 2515,
+              "option": "noticed"
+            },
+            {
+              "id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 3175,
+              "option": "despite"
+            },
+            {
+              "id": 4025,
+              "option": "gets"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "1eed36ff8551a7e4d0f8cab566e3f196b9daa6c4fa2ea2fba890153edc5dc81e",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "She",
+            "left",
+            "without",
+            "being",
+            "noticed",
+            "."
+          ],
+          "strict_native_tokens": [
+            "She",
+            "left",
+            "without",
+            "being",
+            "noticed",
+            "."
+          ],
+          "condition_semantics": "Придатна пасивна -ing-форма після without; дію зазнає She.",
+          "answers": {
+            "a1": "She",
+            "a2": "left",
+            "a3": "without",
+            "a4": "being",
+            "a5": "noticed",
+            "a6": "."
+          },
+          "source_options": [
+            "She",
+            "left",
+            "without",
+            "being",
+            "noticed",
+            ".",
+            "am",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "having",
+            "have",
+            "has",
+            "had",
+            "not",
+            "by",
+            "with",
+            "after",
+            "before",
+            "despite",
+            "to",
+            "get",
+            "got",
+            "gets",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 39126,
+          "uuid": "pvpg-poly-b2-04",
+          "condition_uk": "Я пам’ятаю, що мені казали про це.",
+          "visible_condition_uk": "Використай просту пасивну -ing-форму після «пам’ятати». Я пам’ятаю, що мені казали про це.",
+          "source_key": "I remember being told about it.",
+          "correct_tokens": [
+            "I",
+            "remember",
+            "being",
+            "told",
+            "about",
+            "it",
+            "."
+          ],
+          "source_definition_question_id": 40,
+          "ordered_answer_snapshot": [
+            {
+              "id": 205504,
+              "marker": "a1",
+              "position": null,
+              "option_id": 1,
+              "option": "I"
+            },
+            {
+              "id": 205505,
+              "marker": "a2",
+              "position": null,
+              "option_id": 386,
+              "option": "remember"
+            },
+            {
+              "id": 205506,
+              "marker": "a3",
+              "position": null,
+              "option_id": 637,
+              "option": "being"
+            },
+            {
+              "id": 205507,
+              "marker": "a4",
+              "position": null,
+              "option_id": 527,
+              "option": "told"
+            },
+            {
+              "id": 205508,
+              "marker": "a5",
+              "position": null,
+              "option_id": 254,
+              "option": "about"
+            },
+            {
+              "id": 205509,
+              "marker": "a6",
+              "position": null,
+              "option_id": 92,
+              "option": "it"
+            },
+            {
+              "id": 205510,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 1,
+              "option": "I"
+            },
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 22,
+              "option": "to"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 25,
+              "option": "before"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 92,
+              "option": "it"
+            },
+            {
+              "id": 96,
+              "option": "am"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 183,
+              "option": "get"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 254,
+              "option": "about"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 323,
+              "option": "with"
+            },
+            {
+              "id": 386,
+              "option": "remember"
+            },
+            {
+              "id": 436,
+              "option": "got"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 527,
+              "option": "told"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 922,
+              "option": "having"
+            },
+            {
+              "id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 3175,
+              "option": "despite"
+            },
+            {
+              "id": 4025,
+              "option": "gets"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "acadbbabed33ca4db90facff74583347cf05f24e4a157c32f6698c57bcb2ad70",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "I",
+            "remember",
+            "being",
+            "told",
+            "about",
+            "it",
+            "."
+          ],
+          "strict_native_tokens": [
+            "I",
+            "remember",
+            "being",
+            "told",
+            "about",
+            "it",
+            "."
+          ],
+          "condition_semantics": "Придатне доповнення після remember; контекст вимагає simple passive -ing.",
+          "answers": {
+            "a1": "I",
+            "a2": "remember",
+            "a3": "being",
+            "a4": "told",
+            "a5": "about",
+            "a6": "it",
+            "a7": "."
+          },
+          "source_options": [
+            "I",
+            "remember",
+            "being",
+            "told",
+            "about",
+            "it",
+            ".",
+            "am",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "having",
+            "have",
+            "has",
+            "had",
+            "not",
+            "by",
+            "with",
+            "without",
+            "after",
+            "before",
+            "despite",
+            "to",
+            "get",
+            "got",
+            "gets",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 39128,
+          "uuid": "pvpg-poly-b2-06",
+          "condition_uk": "Коли за тобою спостерігають, це може напружувати.",
+          "visible_condition_uk": "Почни з пасивної -ing-конструкції як підмета. Коли за тобою спостерігають, це може напружувати.",
+          "source_key": "Being watched can be stressful.",
+          "correct_tokens": [
+            "Being",
+            "watched",
+            "can",
+            "be",
+            "stressful",
+            "."
+          ],
+          "source_definition_question_id": 42,
+          "ordered_answer_snapshot": [
+            {
+              "id": 205518,
+              "marker": "a1",
+              "position": null,
+              "option_id": 637,
+              "option": "being"
+            },
+            {
+              "id": 205519,
+              "marker": "a2",
+              "position": null,
+              "option_id": 379,
+              "option": "watched"
+            },
+            {
+              "id": 205520,
+              "marker": "a3",
+              "position": null,
+              "option_id": 218,
+              "option": "can"
+            },
+            {
+              "id": 205521,
+              "marker": "a4",
+              "position": null,
+              "option_id": 207,
+              "option": "be"
+            },
+            {
+              "id": 205522,
+              "marker": "a5",
+              "position": null,
+              "option_id": 24068,
+              "option": "stressful"
+            },
+            {
+              "id": 205523,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 22,
+              "option": "to"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 25,
+              "option": "before"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 96,
+              "option": "am"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 183,
+              "option": "get"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 323,
+              "option": "with"
+            },
+            {
+              "id": 379,
+              "option": "watched"
+            },
+            {
+              "id": 436,
+              "option": "got"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 922,
+              "option": "having"
+            },
+            {
+              "id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 3175,
+              "option": "despite"
+            },
+            {
+              "id": 4025,
+              "option": "gets"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            },
+            {
+              "id": 24068,
+              "option": "stressful"
+            }
+          ],
+          "question_options_by_marker_sha256": "4fcc5799ce26a2ea340c144d2075aee318b5e440c4546e2e4c72b8d5be9ff1be",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "being",
+            "watched",
+            "can",
+            "be",
+            "stressful",
+            "."
+          ],
+          "strict_native_tokens": [
+            "Being",
+            "watched",
+            "can",
+            "be",
+            "stressful",
+            "."
+          ],
+          "condition_semantics": "Придатна пасивна -ing-конструкція як підмет, не fronted participle clause.",
+          "answers": {
+            "a1": "Being",
+            "a2": "watched",
+            "a3": "can",
+            "a4": "be",
+            "a5": "stressful",
+            "a6": "."
+          },
+          "source_options": [
+            "Being",
+            "watched",
+            "can",
+            "be",
+            "stressful",
+            ".",
+            "am",
+            "is",
+            "are",
+            "was",
+            "were",
+            "being",
+            "been",
+            "having",
+            "have",
+            "has",
+            "had",
+            "not",
+            "by",
+            "with",
+            "without",
+            "after",
+            "before",
+            "despite",
+            "to",
+            "get",
+            "got",
+            "gets",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 39130,
+          "uuid": "pvpg-poly-b2-08",
+          "condition_uk": "Він пишався тим, що його обрали.",
+          "visible_condition_uk": "Підкресли попередність перфектною пасивною -ing-формою. Він пишався тим, що його обрали.",
+          "source_key": "He was proud of having been chosen.",
+          "correct_tokens": [
+            "He",
+            "was",
+            "proud",
+            "of",
+            "having",
+            "been",
+            "chosen",
+            "."
+          ],
+          "source_definition_question_id": 44,
+          "ordered_answer_snapshot": [
+            {
+              "id": 205531,
+              "marker": "a1",
+              "position": null,
+              "option_id": 18,
+              "option": "He"
+            },
+            {
+              "id": 205532,
+              "marker": "a2",
+              "position": null,
+              "option_id": 26,
+              "option": "was"
+            },
+            {
+              "id": 205533,
+              "marker": "a3",
+              "position": null,
+              "option_id": 24071,
+              "option": "proud"
+            },
+            {
+              "id": 205534,
+              "marker": "a4",
+              "position": null,
+              "option_id": 353,
+              "option": "of"
+            },
+            {
+              "id": 205535,
+              "marker": "a5",
+              "position": null,
+              "option_id": 922,
+              "option": "having"
+            },
+            {
+              "id": 205536,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23,
+              "option": "been"
+            },
+            {
+              "id": 205537,
+              "marker": "a7",
+              "position": null,
+              "option_id": 4611,
+              "option": "chosen"
+            },
+            {
+              "id": 205538,
+              "marker": "a8",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 18,
+              "option": "He"
+            },
+            {
+              "id": 22,
+              "option": "to"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 25,
+              "option": "before"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 96,
+              "option": "am"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 183,
+              "option": "get"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 323,
+              "option": "with"
+            },
+            {
+              "id": 353,
+              "option": "of"
+            },
+            {
+              "id": 436,
+              "option": "got"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 922,
+              "option": "having"
+            },
+            {
+              "id": 2862,
+              "option": "without"
+            },
+            {
+              "id": 3175,
+              "option": "despite"
+            },
+            {
+              "id": 4025,
+              "option": "gets"
+            },
+            {
+              "id": 4611,
+              "option": "chosen"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            },
+            {
+              "id": 24071,
+              "option": "proud"
+            }
+          ],
+          "question_options_by_marker_sha256": "fcbadb240ae1ecc77e5c299841c79b5bab318bb19dc3abce665e6df37bbcf66f",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "He",
+            "was",
+            "proud",
+            "of",
+            "having",
+            "been",
+            "chosen",
+            "."
+          ],
+          "strict_native_tokens": [
+            "He",
+            "was",
+            "proud",
+            "of",
+            "having",
+            "been",
+            "chosen",
+            "."
+          ],
+          "condition_semantics": "Придатне perfect passive -ing доповнення після of; попередність задано явно.",
+          "answers": {
+            "a1": "He",
+            "a2": "was",
+            "a3": "proud",
+            "a4": "of",
+            "a5": "having",
+            "a6": "been",
+            "a7": "chosen",
+            "a8": "."
+          },
+          "source_options": [
+            "He",
+            "was",
+            "proud",
+            "of",
+            "having",
+            "been",
+            "chosen",
+            ".",
+            "am",
+            "is",
+            "are",
+            "were",
+            "be",
+            "being",
+            "have",
+            "has",
+            "had",
+            "not",
+            "by",
+            "with",
+            "without",
+            "after",
+            "before",
+            "despite",
+            "to",
+            "get",
+            "got",
+            "gets",
+            "do",
+            "does",
+            "did"
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePresentSimpleTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-present-simple",
+      "level": "A2",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePresentSimpleAllLevelsLessonSeeder"
+      ],
+      "page_id": 113,
+      "category_id": 1,
+      "category_ancestry": [
+        {
+          "id": 1,
+          "title": "Passive Voice",
+          "slug": "passive-voice",
+          "language": "uk",
+          "type": "theory",
+          "parent_id": null,
+          "seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder",
+          "created_at": "2026-04-23 15:59:15",
+          "updated_at": "2026-05-26 15:14:03"
+        }
+      ],
+      "locale": "uk",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoicePresentSimpleAllLevelsLessonSeeder/definition.json",
+      "bank_definition_sha256": "415b34e71e7a1ce0c04085e42160b1b616ff576f1467d4e4a48a5abda9878ae2",
+      "link_manifest": "database/seeders/V3/TheoryLinks/data/passive-voice-present-simple-theory-links.json",
+      "link_manifest_sha256": "b5d941066718ce969549b21ecf5c6e5b47ab2ff23ea530a3c7876a388df4bc8c",
+      "source_total_questions": 72,
+      "source_exact_level_count": 12,
+      "live_pagewide_count": 72,
+      "live_eligible_count": 12,
+      "live_eligible_ids_uuid_order": [
+        36003,
+        36004,
+        36005,
+        36006,
+        36007,
+        36008,
+        36009,
+        36010,
+        36011,
+        36012,
+        36013,
+        36014
+      ],
+      "before_default_selected_ids": [
+        36003,
+        36004,
+        36005,
+        36006,
+        36007
+      ],
+      "expected_existing_selected_ids": [
+        36003,
+        36004,
+        36005,
+        36006,
+        36007
+      ],
+      "expected_selected_uuids": [
+        "pvps-poly-a2-01",
+        "pvps-poly-a2-02",
+        "pvps-poly-a2-03",
+        "pvps-poly-a2-04",
+        "pvps-poly-a2-05"
+      ],
+      "pool_review": [
+        {
+          "uuid": "pvps-poly-a2-01",
+          "source_condition_uk": "Ці листи надсилають щодня.",
+          "source_key": "These letters are sent every day.",
+          "selected": true,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-02",
+          "source_condition_uk": "Каву вирощують у Бразилії.",
+          "source_key": "Coffee is grown in Brazil.",
+          "selected": true,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-03",
+          "source_condition_uk": "Кімнати прибирають щоранку.",
+          "source_key": "The rooms are cleaned every morning.",
+          "selected": true,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-04",
+          "source_condition_uk": "Англійською говорять у багатьох країнах.",
+          "source_key": "English is spoken in many countries.",
+          "selected": true,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-05",
+          "source_condition_uk": "Звіт щотижня перевіряє Анна.",
+          "source_key": "The report is checked by Anna every week.",
+          "selected": true,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-06",
+          "source_condition_uk": "Двері зачиняють о десятій.",
+          "source_key": "The doors are locked at ten.",
+          "selected": false,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-07",
+          "source_condition_uk": "Цим додатком користуються багато студентів.",
+          "source_key": "This app is used by many students.",
+          "selected": false,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-08",
+          "source_condition_uk": "Свіжий хліб печуть тут щоранку.",
+          "source_key": "Fresh bread is baked here every morning.",
+          "selected": false,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-09",
+          "source_condition_uk": "Квитки продають онлайн.",
+          "source_key": "The tickets are sold online.",
+          "selected": false,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        },
+        {
+          "uuid": "pvps-poly-a2-10",
+          "source_condition_uk": "В активному реченні додаток стає підметом у пасиві.",
+          "source_key": "The object becomes the subject in the passive.",
+          "selected": false,
+          "decision": "Не обрано: метаграматичний коментар у active, а не цільова present passive дія."
+        },
+        {
+          "uuid": "pvps-poly-a2-11",
+          "source_condition_uk": "Для одного підмета у пасиві теперішнього часу використовують форму є.",
+          "source_key": "A singular subject is used with is in the present passive.",
+          "selected": false,
+          "decision": "Не обрано: метаграматична фраза з нечітким singular-rule; I/you не узгоджуються універсально з is."
+        },
+        {
+          "uuid": "pvps-poly-a2-12",
+          "source_condition_uk": "Кімнату прибирають щодня.",
+          "source_key": "The room is cleaned every day.",
+          "selected": false,
+          "decision": "Придатний типовий present passive; перевірено контекст і ролі."
+        }
+      ],
+      "first_five": [
+        {
+          "id": 36003,
+          "uuid": "pvps-poly-a2-01",
+          "condition_uk": "Ці листи надсилають щодня.",
+          "visible_condition_uk": "Ці листи надсилають щодня.",
+          "source_key": "These letters are sent every day.",
+          "correct_tokens": [
+            "These",
+            "letters",
+            "are",
+            "sent",
+            "every",
+            "day",
+            "."
+          ],
+          "source_definition_question_id": 13,
+          "ordered_answer_snapshot": [
+            {
+              "id": 188424,
+              "marker": "a1",
+              "position": null,
+              "option_id": 408,
+              "option": "These"
+            },
+            {
+              "id": 188425,
+              "marker": "a2",
+              "position": null,
+              "option_id": 54,
+              "option": "letters"
+            },
+            {
+              "id": 188426,
+              "marker": "a3",
+              "position": null,
+              "option_id": 101,
+              "option": "are"
+            },
+            {
+              "id": 188427,
+              "marker": "a4",
+              "position": null,
+              "option_id": 2550,
+              "option": "sent"
+            },
+            {
+              "id": 188428,
+              "marker": "a5",
+              "position": null,
+              "option_id": 258,
+              "option": "every"
+            },
+            {
+              "id": 188429,
+              "marker": "a6",
+              "position": null,
+              "option_id": 225,
+              "option": "day"
+            },
+            {
+              "id": 188430,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 54,
+              "option": "letters"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 225,
+              "option": "day"
+            },
+            {
+              "id": 258,
+              "option": "every"
+            },
+            {
+              "id": 408,
+              "option": "These"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2550,
+              "option": "sent"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "f0c31502acb2856406ee73ad48b8ccce79dfe7b6f42d84c2afaa075672c8274f",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "These",
+            "letters",
+            "are",
+            "sent",
+            "every",
+            "day",
+            "."
+          ],
+          "strict_native_tokens": [
+            "These",
+            "letters",
+            "are",
+            "sent",
+            "every",
+            "day",
+            "."
+          ],
+          "condition_semantics": "Придатний типовий present passive; перевірено контекст і ролі.",
+          "answers": {
+            "a1": "These",
+            "a2": "letters",
+            "a3": "are",
+            "a4": "sent",
+            "a5": "every",
+            "a6": "day",
+            "a7": "."
+          },
+          "source_options": [
+            "These",
+            "letters",
+            "are",
+            "sent",
+            "every",
+            "day",
+            ".",
+            "is",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36004,
+          "uuid": "pvps-poly-a2-02",
+          "condition_uk": "Каву вирощують у Бразилії.",
+          "visible_condition_uk": "Каву вирощують у Бразилії.",
+          "source_key": "Coffee is grown in Brazil.",
+          "correct_tokens": [
+            "Coffee",
+            "is",
+            "grown",
+            "in",
+            "Brazil",
+            "."
+          ],
+          "source_definition_question_id": 14,
+          "ordered_answer_snapshot": [
+            {
+              "id": 188431,
+              "marker": "a1",
+              "position": null,
+              "option_id": 442,
+              "option": "coffee"
+            },
+            {
+              "id": 188432,
+              "marker": "a2",
+              "position": null,
+              "option_id": 107,
+              "option": "is"
+            },
+            {
+              "id": 188433,
+              "marker": "a3",
+              "position": null,
+              "option_id": 410,
+              "option": "grown"
+            },
+            {
+              "id": 188434,
+              "marker": "a4",
+              "position": null,
+              "option_id": 27,
+              "option": "in"
+            },
+            {
+              "id": 188435,
+              "marker": "a5",
+              "position": null,
+              "option_id": 7299,
+              "option": "Brazil"
+            },
+            {
+              "id": 188436,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 27,
+              "option": "in"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 410,
+              "option": "grown"
+            },
+            {
+              "id": 442,
+              "option": "coffee"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 7299,
+              "option": "Brazil"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "90307b3f65706cb9fab7c36542bc36c8544e1aab9fd5baf8cad91cb832aafcd4",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "coffee",
+            "is",
+            "grown",
+            "in",
+            "Brazil",
+            "."
+          ],
+          "strict_native_tokens": [
+            "Coffee",
+            "is",
+            "grown",
+            "in",
+            "Brazil",
+            "."
+          ],
+          "condition_semantics": "Придатний типовий present passive; перевірено контекст і ролі.",
+          "answers": {
+            "a1": "Coffee",
+            "a2": "is",
+            "a3": "grown",
+            "a4": "in",
+            "a5": "Brazil",
+            "a6": "."
+          },
+          "source_options": [
+            "Coffee",
+            "is",
+            "grown",
+            "in",
+            "Brazil",
+            ".",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36005,
+          "uuid": "pvps-poly-a2-03",
+          "condition_uk": "Кімнати прибирають щоранку.",
+          "visible_condition_uk": "Кімнати прибирають щоранку.",
+          "source_key": "The rooms are cleaned every morning.",
+          "correct_tokens": [
+            "The",
+            "rooms",
+            "are",
+            "cleaned",
+            "every",
+            "morning",
+            "."
+          ],
+          "source_definition_question_id": 15,
+          "ordered_answer_snapshot": [
+            {
+              "id": 188437,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 188438,
+              "marker": "a2",
+              "position": null,
+              "option_id": 435,
+              "option": "rooms"
+            },
+            {
+              "id": 188439,
+              "marker": "a3",
+              "position": null,
+              "option_id": 101,
+              "option": "are"
+            },
+            {
+              "id": 188440,
+              "marker": "a4",
+              "position": null,
+              "option_id": 61,
+              "option": "cleaned"
+            },
+            {
+              "id": 188441,
+              "marker": "a5",
+              "position": null,
+              "option_id": 258,
+              "option": "every"
+            },
+            {
+              "id": 188442,
+              "marker": "a6",
+              "position": null,
+              "option_id": 305,
+              "option": "morning"
+            },
+            {
+              "id": 188443,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 61,
+              "option": "cleaned"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 258,
+              "option": "every"
+            },
+            {
+              "id": 305,
+              "option": "morning"
+            },
+            {
+              "id": 435,
+              "option": "rooms"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "d0c93b0413507996187676414cee63d8cfedce7c9b2fb2c6f1847728e2605fc0",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "rooms",
+            "are",
+            "cleaned",
+            "every",
+            "morning",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "rooms",
+            "are",
+            "cleaned",
+            "every",
+            "morning",
+            "."
+          ],
+          "condition_semantics": "Придатний типовий present passive; перевірено контекст і ролі.",
+          "answers": {
+            "a1": "The",
+            "a2": "rooms",
+            "a3": "are",
+            "a4": "cleaned",
+            "a5": "every",
+            "a6": "morning",
+            "a7": "."
+          },
+          "source_options": [
+            "The",
+            "rooms",
+            "are",
+            "cleaned",
+            "every",
+            "morning",
+            ".",
+            "is",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36006,
+          "uuid": "pvps-poly-a2-04",
+          "condition_uk": "Англійською говорять у багатьох країнах.",
+          "visible_condition_uk": "Англійською говорять у багатьох країнах.",
+          "source_key": "English is spoken in many countries.",
+          "correct_tokens": [
+            "English",
+            "is",
+            "spoken",
+            "in",
+            "many",
+            "countries",
+            "."
+          ],
+          "source_definition_question_id": 16,
+          "ordered_answer_snapshot": [
+            {
+              "id": 188444,
+              "marker": "a1",
+              "position": null,
+              "option_id": 257,
+              "option": "English"
+            },
+            {
+              "id": 188445,
+              "marker": "a2",
+              "position": null,
+              "option_id": 107,
+              "option": "is"
+            },
+            {
+              "id": 188446,
+              "marker": "a3",
+              "position": null,
+              "option_id": 16537,
+              "option": "spoken"
+            },
+            {
+              "id": 188447,
+              "marker": "a4",
+              "position": null,
+              "option_id": 27,
+              "option": "in"
+            },
+            {
+              "id": 188448,
+              "marker": "a5",
+              "position": null,
+              "option_id": 53,
+              "option": "many"
+            },
+            {
+              "id": 188449,
+              "marker": "a6",
+              "position": null,
+              "option_id": 4328,
+              "option": "countries"
+            },
+            {
+              "id": 188450,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 27,
+              "option": "in"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 53,
+              "option": "many"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 257,
+              "option": "English"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 4328,
+              "option": "countries"
+            },
+            {
+              "id": 16537,
+              "option": "spoken"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "383e6d4eca7dbd2a4d175a08acb872a0a59e94e5ddb15b1907df8b58ed6d3a77",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "English",
+            "is",
+            "spoken",
+            "in",
+            "many",
+            "countries",
+            "."
+          ],
+          "strict_native_tokens": [
+            "English",
+            "is",
+            "spoken",
+            "in",
+            "many",
+            "countries",
+            "."
+          ],
+          "condition_semantics": "Придатний типовий present passive; перевірено контекст і ролі.",
+          "answers": {
+            "a1": "English",
+            "a2": "is",
+            "a3": "spoken",
+            "a4": "in",
+            "a5": "many",
+            "a6": "countries",
+            "a7": "."
+          },
+          "source_options": [
+            "English",
+            "is",
+            "spoken",
+            "in",
+            "many",
+            "countries",
+            ".",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36007,
+          "uuid": "pvps-poly-a2-05",
+          "condition_uk": "Звіт щотижня перевіряє Анна.",
+          "visible_condition_uk": "Звіт щотижня перевіряє Анна.",
+          "source_key": "The report is checked by Anna every week.",
+          "correct_tokens": [
+            "The",
+            "report",
+            "is",
+            "checked",
+            "by",
+            "Anna",
+            "every",
+            "week",
+            "."
+          ],
+          "source_definition_question_id": 17,
+          "ordered_answer_snapshot": [
+            {
+              "id": 188451,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 188452,
+              "marker": "a2",
+              "position": null,
+              "option_id": 227,
+              "option": "report"
+            },
+            {
+              "id": 188453,
+              "marker": "a3",
+              "position": null,
+              "option_id": 107,
+              "option": "is"
+            },
+            {
+              "id": 188454,
+              "marker": "a4",
+              "position": null,
+              "option_id": 2442,
+              "option": "checked"
+            },
+            {
+              "id": 188455,
+              "marker": "a5",
+              "position": null,
+              "option_id": 156,
+              "option": "by"
+            },
+            {
+              "id": 188456,
+              "marker": "a6",
+              "position": null,
+              "option_id": 121,
+              "option": "Anna"
+            },
+            {
+              "id": 188457,
+              "marker": "a7",
+              "position": null,
+              "option_id": 258,
+              "option": "every"
+            },
+            {
+              "id": 188458,
+              "marker": "a8",
+              "position": null,
+              "option_id": 70,
+              "option": "week"
+            },
+            {
+              "id": 188459,
+              "marker": "a9",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 70,
+              "option": "week"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 121,
+              "option": "Anna"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 227,
+              "option": "report"
+            },
+            {
+              "id": 258,
+              "option": "every"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2442,
+              "option": "checked"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "6910b0d7445e8c7a16084e428c8edfd3c7fe5bf7f8838831c7e69979b4fcd2f5",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "report",
+            "is",
+            "checked",
+            "by",
+            "Anna",
+            "every",
+            "week",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "report",
+            "is",
+            "checked",
+            "by",
+            "Anna",
+            "every",
+            "week",
+            "."
+          ],
+          "condition_semantics": "Придатний типовий present passive; перевірено контекст і ролі.",
+          "answers": {
+            "a1": "The",
+            "a2": "report",
+            "a3": "is",
+            "a4": "checked",
+            "a5": "by",
+            "a6": "Anna",
+            "a7": "every",
+            "a8": "week",
+            "a9": "."
+          },
+          "source_options": [
+            "The",
+            "report",
+            "is",
+            "checked",
+            "by",
+            "Anna",
+            "every",
+            "week",
+            ".",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePastSimpleTheorySeeder",
+      "definition": "database/seeders/Page_V3/PassiveVoice/Tenses/PassiveVoicePastSimpleTheorySeeder/definition.json",
+      "local_url": "http://gramlyze.loc/theory/passive-voice/theory-passive-voice-past-simple",
+      "level": "A2",
+      "bank_seeders": [
+        "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePastSimpleAllLevelsLessonSeeder"
+      ],
+      "page_id": 110,
+      "category_id": 1,
+      "category_ancestry": [
+        {
+          "id": 1,
+          "title": "Passive Voice",
+          "slug": "passive-voice",
+          "language": "uk",
+          "type": "theory",
+          "parent_id": null,
+          "seeder": "Database\\Seeders\\Page_V3\\PassiveVoice\\PassiveVoiceCategorySeeder",
+          "created_at": "2026-04-23 15:59:15",
+          "updated_at": "2026-05-26 15:14:03"
+        }
+      ],
+      "locale": "uk",
+      "bank_definition": "database/seeders/V3/Polyglot/PolyglotPassiveVoicePastSimpleAllLevelsLessonSeeder/definition.json",
+      "bank_definition_sha256": "af98145c3b715b1375ffae5cf4575d4dfa6c5fc8ae91a594e6914f9a4738ffe7",
+      "link_manifest": "database/seeders/V3/TheoryLinks/data/passive-voice-past-simple-theory-links.json",
+      "link_manifest_sha256": "b603c2c777a1b6121292219cd44f6fb9fceef5b1054c4332a616c9bfd4f3bad4",
+      "source_total_questions": 72,
+      "source_exact_level_count": 12,
+      "live_pagewide_count": 72,
+      "live_eligible_count": 12,
+      "live_eligible_ids_uuid_order": [
+        36075,
+        36076,
+        36077,
+        36078,
+        36079,
+        36080,
+        36081,
+        36082,
+        36083,
+        36084,
+        36085,
+        36086
+      ],
+      "before_default_selected_ids": [
+        36075,
+        36076,
+        36077,
+        36078,
+        36079
+      ],
+      "expected_existing_selected_ids": [
+        36075,
+        36076,
+        36077,
+        36078,
+        36079
+      ],
+      "expected_selected_uuids": [
+        "pvpa-poly-a2-01",
+        "pvpa-poly-a2-02",
+        "pvpa-poly-a2-03",
+        "pvpa-poly-a2-04",
+        "pvpa-poly-a2-05"
+      ],
+      "pool_review": [
+        {
+          "uuid": "pvpa-poly-a2-01",
+          "source_condition_uk": "Міст побудували у 1998 році.",
+          "source_key": "The bridge was built in 1998.",
+          "selected": true,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-02",
+          "source_condition_uk": "Вікна помили вчора.",
+          "source_key": "The windows were washed yesterday.",
+          "selected": true,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-03",
+          "source_condition_uk": "Книжку написав молодий автор.",
+          "source_key": "The book was written by a young writer.",
+          "selected": true,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-04",
+          "source_condition_uk": "Ключі знайшли після зустрічі.",
+          "source_key": "The keys were found after the meeting.",
+          "selected": true,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-05",
+          "source_condition_uk": "Стару школу закрили минулого року.",
+          "source_key": "The old school was closed last year.",
+          "selected": true,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-06",
+          "source_condition_uk": "Кілька листів видалили помилково.",
+          "source_key": "Several emails were deleted by mistake.",
+          "selected": false,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-07",
+          "source_condition_uk": "Вікно розбили під час бурі.",
+          "source_key": "The window was broken during the storm.",
+          "selected": false,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-08",
+          "source_condition_uk": "Страву приготував мій батько.",
+          "source_key": "The meal was cooked by my father.",
+          "selected": false,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-09",
+          "source_condition_uk": "Запрошення надіслали у понеділок.",
+          "source_key": "The invitations were sent on Monday.",
+          "selected": false,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        },
+        {
+          "uuid": "pvpa-poly-a2-10",
+          "source_condition_uk": "У пасиві колишній додаток став підметом.",
+          "source_key": "The old object became the subject in the passive.",
+          "selected": false,
+          "decision": "Не обрано: метаграматичний коментар у active, а не цільова past passive дія."
+        },
+        {
+          "uuid": "pvpa-poly-a2-11",
+          "source_condition_uk": "Для множини у минулому пасиві використовують форму були.",
+          "source_key": "A plural subject was used with were in the past passive.",
+          "selected": false,
+          "decision": "Не обрано: метаграматична фраза не є прозорою тематичною подією A2."
+        },
+        {
+          "uuid": "pvpa-poly-a2-12",
+          "source_condition_uk": "Будинок продали у 2005 році.",
+          "source_key": "The house was sold in 2005.",
+          "selected": false,
+          "decision": "Придатний past passive у заданому минулому контексті; без доданих наслідків."
+        }
+      ],
+      "first_five": [
+        {
+          "id": 36075,
+          "uuid": "pvpa-poly-a2-01",
+          "condition_uk": "Міст побудували у 1998 році.",
+          "visible_condition_uk": "Міст побудували у 1998 році.",
+          "source_key": "The bridge was built in 1998.",
+          "correct_tokens": [
+            "The",
+            "bridge",
+            "was",
+            "built",
+            "in",
+            "1998",
+            "."
+          ],
+          "source_definition_question_id": 13,
+          "ordered_answer_snapshot": [
+            {
+              "id": 189202,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189203,
+              "marker": "a2",
+              "position": null,
+              "option_id": 413,
+              "option": "bridge"
+            },
+            {
+              "id": 189204,
+              "marker": "a3",
+              "position": null,
+              "option_id": 26,
+              "option": "was"
+            },
+            {
+              "id": 189205,
+              "marker": "a4",
+              "position": null,
+              "option_id": 414,
+              "option": "built"
+            },
+            {
+              "id": 189206,
+              "marker": "a5",
+              "position": null,
+              "option_id": 27,
+              "option": "in"
+            },
+            {
+              "id": 189207,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23477,
+              "option": "1998"
+            },
+            {
+              "id": 189208,
+              "marker": "a7",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 27,
+              "option": "in"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 413,
+              "option": "bridge"
+            },
+            {
+              "id": 414,
+              "option": "built"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            },
+            {
+              "id": 23477,
+              "option": "1998"
+            }
+          ],
+          "question_options_by_marker_sha256": "c32fc54fe016b63f67f1562b06412e7e131155703b2a35d0706679a2af5ea74d",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "bridge",
+            "was",
+            "built",
+            "in",
+            "1998",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "bridge",
+            "was",
+            "built",
+            "in",
+            "1998",
+            "."
+          ],
+          "condition_semantics": "Придатний past passive у заданому минулому контексті; без доданих наслідків.",
+          "answers": {
+            "a1": "The",
+            "a2": "bridge",
+            "a3": "was",
+            "a4": "built",
+            "a5": "in",
+            "a6": "1998",
+            "a7": "."
+          },
+          "source_options": [
+            "The",
+            "bridge",
+            "was",
+            "built",
+            "in",
+            "1998",
+            ".",
+            "is",
+            "are",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36076,
+          "uuid": "pvpa-poly-a2-02",
+          "condition_uk": "Вікна помили вчора.",
+          "visible_condition_uk": "Вікна помили вчора.",
+          "source_key": "The windows were washed yesterday.",
+          "correct_tokens": [
+            "The",
+            "windows",
+            "were",
+            "washed",
+            "yesterday",
+            "."
+          ],
+          "source_definition_question_id": 14,
+          "ordered_answer_snapshot": [
+            {
+              "id": 189209,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189210,
+              "marker": "a2",
+              "position": null,
+              "option_id": 418,
+              "option": "windows"
+            },
+            {
+              "id": 189211,
+              "marker": "a3",
+              "position": null,
+              "option_id": 71,
+              "option": "were"
+            },
+            {
+              "id": 189212,
+              "marker": "a4",
+              "position": null,
+              "option_id": 419,
+              "option": "washed"
+            },
+            {
+              "id": 189213,
+              "marker": "a5",
+              "position": null,
+              "option_id": 57,
+              "option": "yesterday"
+            },
+            {
+              "id": 189214,
+              "marker": "a6",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 57,
+              "option": "yesterday"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 418,
+              "option": "windows"
+            },
+            {
+              "id": 419,
+              "option": "washed"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "8705b13058289d7b3df79b2df96241c9159b3096dcce36a923ef2a58972f37ad",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "windows",
+            "were",
+            "washed",
+            "yesterday",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "windows",
+            "were",
+            "washed",
+            "yesterday",
+            "."
+          ],
+          "condition_semantics": "Придатний past passive у заданому минулому контексті; без доданих наслідків.",
+          "answers": {
+            "a1": "The",
+            "a2": "windows",
+            "a3": "were",
+            "a4": "washed",
+            "a5": "yesterday",
+            "a6": "."
+          },
+          "source_options": [
+            "The",
+            "windows",
+            "were",
+            "washed",
+            "yesterday",
+            ".",
+            "is",
+            "are",
+            "was",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36077,
+          "uuid": "pvpa-poly-a2-03",
+          "condition_uk": "Книжку написав молодий автор.",
+          "visible_condition_uk": "Книжку написав молодий автор.",
+          "source_key": "The book was written by a young writer.",
+          "correct_tokens": [
+            "The",
+            "book",
+            "was",
+            "written",
+            "by",
+            "a",
+            "young",
+            "writer",
+            "."
+          ],
+          "source_definition_question_id": 15,
+          "ordered_answer_snapshot": [
+            {
+              "id": 189215,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189216,
+              "marker": "a2",
+              "position": null,
+              "option_id": 210,
+              "option": "book"
+            },
+            {
+              "id": 189217,
+              "marker": "a3",
+              "position": null,
+              "option_id": 26,
+              "option": "was"
+            },
+            {
+              "id": 189218,
+              "marker": "a4",
+              "position": null,
+              "option_id": 10,
+              "option": "written"
+            },
+            {
+              "id": 189219,
+              "marker": "a5",
+              "position": null,
+              "option_id": 156,
+              "option": "by"
+            },
+            {
+              "id": 189220,
+              "marker": "a6",
+              "position": null,
+              "option_id": 11,
+              "option": "a"
+            },
+            {
+              "id": 189221,
+              "marker": "a7",
+              "position": null,
+              "option_id": 487,
+              "option": "young"
+            },
+            {
+              "id": 189222,
+              "marker": "a8",
+              "position": null,
+              "option_id": 16502,
+              "option": "writer"
+            },
+            {
+              "id": 189223,
+              "marker": "a9",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 10,
+              "option": "written"
+            },
+            {
+              "id": 11,
+              "option": "a"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 210,
+              "option": "book"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 487,
+              "option": "young"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 16502,
+              "option": "writer"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "727c4c51e1bf3aeb67d49e351b6fade946db4c896d5d985f9c1e9c98e843852e",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "book",
+            "was",
+            "written",
+            "by",
+            "a",
+            "young",
+            "writer",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "book",
+            "was",
+            "written",
+            "by",
+            "a",
+            "young",
+            "writer",
+            "."
+          ],
+          "condition_semantics": "Придатний past passive у заданому минулому контексті; без доданих наслідків.",
+          "answers": {
+            "a1": "The",
+            "a2": "book",
+            "a3": "was",
+            "a4": "written",
+            "a5": "by",
+            "a6": "a",
+            "a7": "young",
+            "a8": "writer",
+            "a9": "."
+          },
+          "source_options": [
+            "The",
+            "book",
+            "was",
+            "written",
+            "by",
+            "a",
+            "young",
+            "writer",
+            ".",
+            "is",
+            "are",
+            "were",
+            "be",
+            "been",
+            "being",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36078,
+          "uuid": "pvpa-poly-a2-04",
+          "condition_uk": "Ключі знайшли після зустрічі.",
+          "visible_condition_uk": "Ключі знайшли після зустрічі.",
+          "source_key": "The keys were found after the meeting.",
+          "correct_tokens": [
+            "The",
+            "keys",
+            "were",
+            "found",
+            "after",
+            "the",
+            "meeting",
+            "."
+          ],
+          "source_definition_question_id": 16,
+          "ordered_answer_snapshot": [
+            {
+              "id": 189224,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189225,
+              "marker": "a2",
+              "position": null,
+              "option_id": 2559,
+              "option": "keys"
+            },
+            {
+              "id": 189226,
+              "marker": "a3",
+              "position": null,
+              "option_id": 71,
+              "option": "were"
+            },
+            {
+              "id": 189227,
+              "marker": "a4",
+              "position": null,
+              "option_id": 38,
+              "option": "found"
+            },
+            {
+              "id": 189228,
+              "marker": "a5",
+              "position": null,
+              "option_id": 297,
+              "option": "after"
+            },
+            {
+              "id": 189229,
+              "marker": "a6",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189230,
+              "marker": "a7",
+              "position": null,
+              "option_id": 178,
+              "option": "meeting"
+            },
+            {
+              "id": 189231,
+              "marker": "a8",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 38,
+              "option": "found"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 178,
+              "option": "meeting"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 297,
+              "option": "after"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2559,
+              "option": "keys"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "5cd9b41197708dc17c3c3b0af2bf562fb886ebf3241789586db24967c7910ff7",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "keys",
+            "were",
+            "found",
+            "after",
+            "the",
+            "meeting",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "keys",
+            "were",
+            "found",
+            "after",
+            "the",
+            "meeting",
+            "."
+          ],
+          "condition_semantics": "Придатний past passive у заданому минулому контексті; без доданих наслідків.",
+          "answers": {
+            "a1": "The",
+            "a2": "keys",
+            "a3": "were",
+            "a4": "found",
+            "a5": "after",
+            "a6": "the",
+            "a7": "meeting",
+            "a8": "."
+          },
+          "source_options": [
+            "The",
+            "keys",
+            "were",
+            "found",
+            "after",
+            "the",
+            "meeting",
+            ".",
+            "is",
+            "are",
+            "was",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        },
+        {
+          "id": 36079,
+          "uuid": "pvpa-poly-a2-05",
+          "condition_uk": "Стару школу закрили минулого року.",
+          "visible_condition_uk": "Стару школу закрили минулого року.",
+          "source_key": "The old school was closed last year.",
+          "correct_tokens": [
+            "The",
+            "old",
+            "school",
+            "was",
+            "closed",
+            "last",
+            "year",
+            "."
+          ],
+          "source_definition_question_id": 17,
+          "ordered_answer_snapshot": [
+            {
+              "id": 189232,
+              "marker": "a1",
+              "position": null,
+              "option_id": 8,
+              "option": "the"
+            },
+            {
+              "id": 189233,
+              "marker": "a2",
+              "position": null,
+              "option_id": 378,
+              "option": "old"
+            },
+            {
+              "id": 189234,
+              "marker": "a3",
+              "position": null,
+              "option_id": 150,
+              "option": "school"
+            },
+            {
+              "id": 189235,
+              "marker": "a4",
+              "position": null,
+              "option_id": 26,
+              "option": "was"
+            },
+            {
+              "id": 189236,
+              "marker": "a5",
+              "position": null,
+              "option_id": 471,
+              "option": "closed"
+            },
+            {
+              "id": 189237,
+              "marker": "a6",
+              "position": null,
+              "option_id": 60,
+              "option": "last"
+            },
+            {
+              "id": 189238,
+              "marker": "a7",
+              "position": null,
+              "option_id": 344,
+              "option": "year"
+            },
+            {
+              "id": 189239,
+              "marker": "a8",
+              "position": null,
+              "option_id": 23475,
+              "option": "."
+            }
+          ],
+          "original_options_snapshot": [
+            {
+              "id": 2,
+              "option": "have"
+            },
+            {
+              "id": 6,
+              "option": "has"
+            },
+            {
+              "id": 8,
+              "option": "the"
+            },
+            {
+              "id": 23,
+              "option": "been"
+            },
+            {
+              "id": 26,
+              "option": "was"
+            },
+            {
+              "id": 41,
+              "option": "not"
+            },
+            {
+              "id": 49,
+              "option": "did"
+            },
+            {
+              "id": 60,
+              "option": "last"
+            },
+            {
+              "id": 71,
+              "option": "were"
+            },
+            {
+              "id": 84,
+              "option": "do"
+            },
+            {
+              "id": 88,
+              "option": "will"
+            },
+            {
+              "id": 101,
+              "option": "are"
+            },
+            {
+              "id": 107,
+              "option": "is"
+            },
+            {
+              "id": 127,
+              "option": "does"
+            },
+            {
+              "id": 150,
+              "option": "school"
+            },
+            {
+              "id": 156,
+              "option": "by"
+            },
+            {
+              "id": 179,
+              "option": "should"
+            },
+            {
+              "id": 182,
+              "option": "must"
+            },
+            {
+              "id": 207,
+              "option": "be"
+            },
+            {
+              "id": 218,
+              "option": "can"
+            },
+            {
+              "id": 344,
+              "option": "year"
+            },
+            {
+              "id": 378,
+              "option": "old"
+            },
+            {
+              "id": 458,
+              "option": "had"
+            },
+            {
+              "id": 471,
+              "option": "closed"
+            },
+            {
+              "id": 637,
+              "option": "being"
+            },
+            {
+              "id": 2588,
+              "option": "may"
+            },
+            {
+              "id": 23475,
+              "option": "."
+            }
+          ],
+          "question_options_by_marker_sha256": "0800c2ba5c83433e20ed607eecc6b9ed70017c77b1586087c285bfa270dfa329",
+          "hints": [],
+          "verb_hints": [],
+          "raw_native_tokens": [
+            "the",
+            "old",
+            "school",
+            "was",
+            "closed",
+            "last",
+            "year",
+            "."
+          ],
+          "strict_native_tokens": [
+            "The",
+            "old",
+            "school",
+            "was",
+            "closed",
+            "last",
+            "year",
+            "."
+          ],
+          "condition_semantics": "Придатний past passive у заданому минулому контексті; без доданих наслідків.",
+          "answers": {
+            "a1": "The",
+            "a2": "old",
+            "a3": "school",
+            "a4": "was",
+            "a5": "closed",
+            "a6": "last",
+            "a7": "year",
+            "a8": "."
+          },
+          "source_options": [
+            "The",
+            "old",
+            "school",
+            "was",
+            "closed",
+            "last",
+            "year",
+            ".",
+            "is",
+            "are",
+            "were",
+            "be",
+            "been",
+            "being",
+            "by",
+            "not",
+            "will",
+            "has",
+            "have",
+            "had",
+            "must",
+            "can",
+            "should",
+            "may",
+            "do",
+            "does",
+            "did"
+          ]
+        }
+      ]
+    }
+  ],
+  "practice_bindings": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+      "page_id": 102,
+      "category_id": 17,
+      "locale": "uk",
+      "level": "B2",
+      "type": "practice-set",
+      "uuid": "a3b3c3c3-4047-5794-a13e-2db18b57bf24",
+      "source_index": 10,
+      "column": "left",
+      "heading": null,
+      "css_class": null,
+      "body_sha256": "5e7745f53024f423cf1394b72741da3ae17730c9b921015c750485bbfede5088",
+      "linked_practice": {
+        "source": "theory_links",
+        "question_types": [
+          "4"
+        ],
+        "seeder_classes": [
+          "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder"
+        ],
+        "title": "Вправа 4. Побудуй речення",
+        "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Збережи задану конструкцію, ролі учасників і всі обставини.",
+        "footer": "Завдання підібрані лише для цієї теми."
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePresentSimpleTheorySeeder",
+      "page_id": 113,
+      "category_id": 1,
+      "locale": "uk",
+      "level": "A2",
+      "type": "practice-set",
+      "uuid": "d70401dc-cefd-5b86-af69-084629f63663",
+      "source_index": 9,
+      "column": "left",
+      "heading": null,
+      "css_class": null,
+      "body_sha256": "9f69f3e7ce1a0ebedd902f3cc3f4008e9144adef5ac775fb840a81adde680f48",
+      "linked_practice": {
+        "source": "theory_links",
+        "question_types": [
+          "4"
+        ],
+        "seeder_classes": [
+          "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePresentSimpleAllLevelsLessonSeeder"
+        ],
+        "title": "Вправа 4. Побудуй речення",
+        "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Перевір am/is/are, V3 і частоту дії.",
+        "footer": "Завдання підібрані лише для цієї теми."
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Tenses\\PassiveVoicePastSimpleTheorySeeder",
+      "page_id": 110,
+      "category_id": 1,
+      "locale": "uk",
+      "level": "A2",
+      "type": "practice-set",
+      "uuid": "14bdb806-7325-5ec6-bab4-8f857a1f1769",
+      "source_index": 10,
+      "column": "left",
+      "heading": null,
+      "css_class": null,
+      "body_sha256": "8a57040fcdff30835c3ae58b24ad34fee508c889c8fbedeaef5d30cde01760d4",
+      "linked_practice": {
+        "source": "theory_links",
+        "question_types": [
+          "4"
+        ],
+        "seeder_classes": [
+          "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePastSimpleAllLevelsLessonSeeder"
+        ],
+        "title": "Вправа 4. Побудуй речення",
+        "intro": "Склади англійське речення за українською умовою, клікаючи на слова. Перевір was/were, V3, минулий контекст і потрібного виконавця.",
+        "footer": "Завдання підібрані лише для цієї теми."
+      }
+    }
+  ],
+  "selection_projection": {
+    "scope": "theory-canonical-reviewed-exclusions-only",
+    "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+    "page_id": 102,
+    "category_id": 17,
+    "locale": "uk",
+    "level": "B2",
+    "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder",
+    "excluded_question_ids": [
+      39124,
+      39127,
+      39129
+    ],
+    "excluded_question_uuids": [
+      "pvpg-poly-b2-02",
+      "pvpg-poly-b2-05",
+      "pvpg-poly-b2-07"
+    ],
+    "expected_selected_ids": [
+      39123,
+      39125,
+      39126,
+      39128,
+      39130
+    ],
+    "ancestry_slugs": [
+      "passive-voice",
+      "passive-voice-infinitives-gerund"
+    ]
+  },
+  "condition_projection": {
+    "scope": "theory-canonical-question-context-only",
+    "identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\InfinitivesGerund\\PassiveVoicePassiveGerundTheorySeeder",
+    "page_id": 102,
+    "category_id": 17,
+    "locale": "uk",
+    "level": "B2",
+    "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoicePassiveGerundAllLevelsLessonSeeder",
+    "records": [
+      {
+        "question_id": 39123,
+        "question_uuid": "pvpg-poly-b2-01",
+        "before_condition_uk": "Він не любить, коли його критикують.",
+        "context_prefix_uk": "Після дієслова «любити» використай пасивну -ing-форму.",
+        "condition_uk": "Після дієслова «любити» використай пасивну -ing-форму. Він не любить, коли його критикують."
+      },
+      {
+        "question_id": 39126,
+        "question_uuid": "pvpg-poly-b2-04",
+        "before_condition_uk": "Я пам’ятаю, що мені казали про це.",
+        "context_prefix_uk": "Використай просту пасивну -ing-форму після «пам’ятати».",
+        "condition_uk": "Використай просту пасивну -ing-форму після «пам’ятати». Я пам’ятаю, що мені казали про це."
+      },
+      {
+        "question_id": 39128,
+        "question_uuid": "pvpg-poly-b2-06",
+        "before_condition_uk": "Коли за тобою спостерігають, це може напружувати.",
+        "context_prefix_uk": "Почни з пасивної -ing-конструкції як підмета.",
+        "condition_uk": "Почни з пасивної -ing-конструкції як підмета. Коли за тобою спостерігають, це може напружувати."
+      },
+      {
+        "question_id": 39130,
+        "question_uuid": "pvpg-poly-b2-08",
+        "before_condition_uk": "Він пишався тим, що його обрали.",
+        "context_prefix_uk": "Підкресли попередність перфектною пасивною -ing-формою.",
+        "condition_uk": "Підкресли попередність перфектною пасивною -ing-формою. Він пишався тим, що його обрали."
+      }
+    ],
+    "expected_selected_ids": [
+      39123,
+      39125,
+      39126,
+      39128,
+      39130
+    ]
+  },
+  "builder_contract": {
+    "path": "docs/content/theory-sentence-builders/m56-gerund-simple-passives.v1.json",
+    "sha256": "dd724a1d5faf6d4f8e52b9986c7674e46813dbfcda0d7ada7c6d69e95e01b7fa"
+  }
+}

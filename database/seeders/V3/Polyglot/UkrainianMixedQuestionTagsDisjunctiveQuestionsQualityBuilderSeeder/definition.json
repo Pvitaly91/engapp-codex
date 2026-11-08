@@ -1,0 +1,3809 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/tags.v1.json",
+        "sha256": "98a7475a1a5be26abd6c7dc408943f3bfc2edd96649a55651f666bcb95d2b187"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-tags-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_tags": {
+            "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення"
+        }
+    },
+    "tags": {
+        "polyglot_question_tags_disjunctive_questions": {
+            "name": "Question Tags",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "positive_negative_tag": {
+            "name": "Positive Statement Negative Tag",
+            "category": "topic"
+        },
+        "negative_positive_tag": {
+            "name": "Negative Statement Positive Tag",
+            "category": "topic"
+        },
+        "matching_auxiliary": {
+            "name": "Matching Auxiliary",
+            "category": "topic"
+        },
+        "to_be_tags": {
+            "name": "To Be Tags",
+            "category": "topic"
+        },
+        "do_does_did_tags": {
+            "name": "Do Does Did Tags",
+            "category": "topic"
+        },
+        "modal_tags": {
+            "name": "Modal Tags",
+            "category": "topic"
+        },
+        "perfect_auxiliary_tags": {
+            "name": "Perfect Auxiliary Tags",
+            "category": "topic"
+        },
+        "imperative_tags": {
+            "name": "Imperative Tags",
+            "category": "topic"
+        },
+        "lets_shall_we": {
+            "name": "Lets Shall We",
+            "category": "topic"
+        },
+        "arent_i": {
+            "name": "Arent I",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_question_tags_disjunctive_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-tags-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Чайник порожній, чи не так?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Чайник порожній, чи не так?",
+            "target_text": "The kettle is empty, isn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "kettle",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "kettle",
+                        "curator",
+                        "gardener",
+                        "neighbour"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "empty,",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "empty",
+                        "asleep",
+                        "puppy",
+                        "ticket"
+                    ]
+                },
+                "a5": {
+                    "answer": "isn't",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "isn't",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a6": {
+                    "answer": "it?",
+                    "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+                    "options": [
+                        "it",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи твердження та заперечний хвостик для однини.",
+            "accepted_target_texts": [
+                "The kettle is empty, isn't it?",
+                "The kettle is empty, is it not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The kettle",
+                "is empty,",
+                "isn't it?"
+            ],
+            "token_groups": [
+                "The kettle",
+                "is empty,",
+                "isn't it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "kettle",
+                "is",
+                "empty,",
+                "isn't",
+                "it?"
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "kettle",
+                "curator",
+                "gardener",
+                "neighbour",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "empty",
+                "asleep",
+                "puppy",
+                "ticket",
+                "isn't",
+                "are",
+                "was",
+                "were",
+                "it",
+                "him",
+                "us",
+                "them"
+            ],
+            "source_text_uk": "Чайник порожній, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "kettle",
+                    "curator",
+                    "gardener",
+                    "neighbour"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "empty",
+                    "asleep",
+                    "puppy",
+                    "ticket"
+                ],
+                "a5": [
+                    "isn't",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a6": [
+                    "it",
+                    "him",
+                    "us",
+                    "them"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "tag",
+                "a6": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-tags-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Твої двоюрідні брати люблять персики, чи не так?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Твої двоюрідні брати люблять персики, чи не так?",
+            "target_text": "Your cousins like peaches, don't they?",
+            "markers": {
+                "a1": {
+                    "answer": "Your",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "Your",
+                        "My",
+                        "His",
+                        "Her"
+                    ]
+                },
+                "a2": {
+                    "answer": "cousins",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "cousins",
+                        "visitors",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a3": {
+                    "answer": "like",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "like",
+                        "close",
+                        "help",
+                        "wait"
+                    ]
+                },
+                "a4": {
+                    "answer": "peaches,",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "peaches",
+                        "men",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a5": {
+                    "answer": "don't",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "don't",
+                        "hadn't",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a6": {
+                    "answer": "they?",
+                    "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+                    "options": [
+                        "they",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                }
+            },
+            "verb_hint": "Після звичайного дієслова у множині додай заперечний хвостик.",
+            "accepted_target_texts": [
+                "Your cousins like peaches, don't they?",
+                "Your cousins like peaches, do they not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your cousins",
+                "like peaches,",
+                "don't they?"
+            ],
+            "token_groups": [
+                "Your cousins",
+                "like peaches,",
+                "don't they?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Your",
+                "cousins",
+                "like",
+                "peaches,",
+                "don't",
+                "they?"
+            ],
+            "options": [
+                "Your",
+                "My",
+                "His",
+                "Her",
+                "cousins",
+                "visitors",
+                "phones",
+                "children",
+                "like",
+                "close",
+                "help",
+                "wait",
+                "peaches",
+                "men",
+                "women",
+                "bikes",
+                "don't",
+                "hadn't",
+                "does",
+                "did",
+                "they",
+                "them",
+                "myself",
+                "yourself"
+            ],
+            "source_text_uk": "Твої двоюрідні брати люблять персики, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "Your",
+                    "My",
+                    "His",
+                    "Her"
+                ],
+                "a2": [
+                    "cousins",
+                    "visitors",
+                    "phones",
+                    "children"
+                ],
+                "a3": [
+                    "like",
+                    "close",
+                    "help",
+                    "wait"
+                ],
+                "a4": [
+                    "peaches",
+                    "men",
+                    "women",
+                    "bikes"
+                ],
+                "a5": [
+                    "don't",
+                    "hadn't",
+                    "does",
+                    "did"
+                ],
+                "a6": [
+                    "they",
+                    "them",
+                    "myself",
+                    "yourself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "tag",
+                "a6": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-tags-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Цуценя не спить, чи не так?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Цуценя не спить, чи не так?",
+            "target_text": "The puppy isn't asleep, is it?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "puppy",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "puppy",
+                        "gardener",
+                        "neighbour",
+                        "librarian"
+                    ]
+                },
+                "a3": {
+                    "answer": "isn't",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "isn't",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "asleep,",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "asleep",
+                        "empty",
+                        "kettle",
+                        "letter"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "it?",
+                    "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+                    "options": [
+                        "it",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                }
+            },
+            "verb_hint": "Після заперечної головної частини хвостик має бути стверджувальним.",
+            "accepted_target_texts": [
+                "The puppy isn't asleep, is it?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puppy",
+                "isn't asleep,",
+                "is it?"
+            ],
+            "token_groups": [
+                "The puppy",
+                "isn't asleep,",
+                "is it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "puppy",
+                "isn't",
+                "asleep,",
+                "is",
+                "it?"
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "puppy",
+                "gardener",
+                "neighbour",
+                "librarian",
+                "isn't",
+                "are",
+                "was",
+                "were",
+                "asleep",
+                "empty",
+                "kettle",
+                "letter",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "it",
+                "me",
+                "him",
+                "us"
+            ],
+            "source_text_uk": "Цуценя не спить, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "puppy",
+                    "gardener",
+                    "neighbour",
+                    "librarian"
+                ],
+                "a3": [
+                    "isn't",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "asleep",
+                    "empty",
+                    "kettle",
+                    "letter"
+                ],
+                "a5": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "it",
+                    "me",
+                    "him",
+                    "us"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "positive_tag",
+                "a6": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-tags-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Туристи знайшли водоспад, чи не так?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Туристи знайшли водоспад, чи не так?",
+            "target_text": "The hikers found the waterfall, didn't they?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "hikers",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "hikers",
+                        "visitors",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a3": {
+                    "answer": "found",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "found",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "waterfall,",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "waterfall",
+                        "porch",
+                        "tent",
+                        "key"
+                    ]
+                },
+                "a6": {
+                    "answer": "didn't",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "didn't",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "they?",
+                    "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+                    "options": [
+                        "they",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                }
+            },
+            "verb_hint": "Минулу завершену дію підтвердь заперечним хвостиком.",
+            "accepted_target_texts": [
+                "The hikers found the waterfall, didn't they?",
+                "The hikers found the waterfall, did they not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hikers",
+                "found the waterfall,",
+                "didn't they?"
+            ],
+            "token_groups": [
+                "The hikers",
+                "found the waterfall,",
+                "didn't they?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "hikers",
+                "found",
+                "the",
+                "waterfall,",
+                "didn't",
+                "they?"
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "hikers",
+                "visitors",
+                "phones",
+                "children",
+                "found",
+                "needed",
+                "liked",
+                "wanted",
+                "the",
+                "all",
+                "both",
+                "a",
+                "waterfall",
+                "porch",
+                "tent",
+                "key",
+                "didn't",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "they",
+                "yourself",
+                "herself",
+                "ourselves"
+            ],
+            "source_text_uk": "Туристи знайшли водоспад, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "hikers",
+                    "visitors",
+                    "phones",
+                    "children"
+                ],
+                "a3": [
+                    "found",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "waterfall",
+                    "porch",
+                    "tent",
+                    "key"
+                ],
+                "a6": [
+                    "didn't",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a7": [
+                    "they",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "tag",
+                "a7": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-tags-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ти вже спакував намет, чи не так?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ти вже спакував намет, чи не так?",
+            "target_text": "You have packed the tent, haven't you?",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "You",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a3": {
+                    "answer": "packed",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "packed",
+                        "found",
+                        "brought",
+                        "taken"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "tent,",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "tent",
+                        "waterfall",
+                        "porch",
+                        "friend"
+                    ]
+                },
+                "a6": {
+                    "answer": "haven't",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "haven't",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a7": {
+                    "answer": "you?",
+                    "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи доконану форму та її допоміжне дієслово у хвостику.",
+            "accepted_target_texts": [
+                "You have packed the tent, haven't you?",
+                "You have packed the tent, have you not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "have packed",
+                "the tent,",
+                "haven't you?"
+            ],
+            "token_groups": [
+                "You",
+                "have packed",
+                "the tent,",
+                "haven't you?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "You",
+                "have",
+                "packed",
+                "the",
+                "tent,",
+                "haven't",
+                "you?"
+            ],
+            "options": [
+                "You",
+                "They",
+                "Me",
+                "Him",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "packed",
+                "found",
+                "brought",
+                "taken",
+                "the",
+                "that",
+                "these",
+                "those",
+                "tent",
+                "waterfall",
+                "porch",
+                "friend",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "do",
+                "you",
+                "us",
+                "them",
+                "myself"
+            ],
+            "source_text_uk": "Ти вже спакував намет, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a3": [
+                    "packed",
+                    "found",
+                    "brought",
+                    "taken"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "tent",
+                    "waterfall",
+                    "porch",
+                    "friend"
+                ],
+                "a6": [
+                    "haven't",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a7": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "tag",
+                "a7": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-tags-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Залиш світло на ґанку увімкненим, гаразд?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Залиш світло на ґанку увімкненим, гаразд?",
+            "target_text": "Leave the porch light on, will you?",
+            "markers": {
+                "a1": {
+                    "answer": "Leave",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "Leave",
+                        "Study",
+                        "Live",
+                        "Buy"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "porch",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "porch",
+                        "whole",
+                        "quieter",
+                        "legal"
+                    ]
+                },
+                "a4": {
+                    "answer": "light",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "light",
+                        "sad",
+                        "easy",
+                        "difficult"
+                    ]
+                },
+                "a5": {
+                    "answer": "on,",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "on",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "will",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "will",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "you?",
+                    "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+                    "options": [
+                        "you",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з прохання та додай звичайний ввічливий хвостик.",
+            "accepted_target_texts": [
+                "Leave the porch light on, will you?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leave",
+                "the porch light",
+                "on,",
+                "will you?"
+            ],
+            "token_groups": [
+                "Leave",
+                "the porch light",
+                "on,",
+                "will you?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Leave",
+                "the",
+                "porch",
+                "light",
+                "on,",
+                "will",
+                "you?"
+            ],
+            "options": [
+                "Leave",
+                "Study",
+                "Live",
+                "Buy",
+                "the",
+                "no",
+                "another",
+                "either",
+                "porch",
+                "whole",
+                "quieter",
+                "legal",
+                "light",
+                "sad",
+                "easy",
+                "difficult",
+                "on",
+                "over",
+                "under",
+                "through",
+                "will",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "you",
+                "myself",
+                "yourself",
+                "herself"
+            ],
+            "source_text_uk": "Залиш світло на ґанку увімкненим, гаразд?",
+            "options_by_marker": {
+                "a1": [
+                    "Leave",
+                    "Study",
+                    "Live",
+                    "Buy"
+                ],
+                "a2": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "porch",
+                    "whole",
+                    "quieter",
+                    "legal"
+                ],
+                "a4": [
+                    "light",
+                    "sad",
+                    "easy",
+                    "difficult"
+                ],
+                "a5": [
+                    "on",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "will",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a7": [
+                    "you",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "adverb_phrase",
+                "a6": "positive_tag",
+                "a7": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-tags-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Була черга, чи не так?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Була черга, чи не так?",
+            "target_text": "There was a queue, wasn't there?",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "There",
+                        "Nobody",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "queue,",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "queue",
+                        "spare",
+                        "key",
+                        "ticket"
+                    ]
+                },
+                "a5": {
+                    "answer": "wasn't",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "wasn't",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "there?",
+                    "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+                    "options": [
+                        "there",
+                        "they",
+                        "she",
+                        "it"
+                    ]
+                }
+            },
+            "verb_hint": "У хвостику повтори формальне слово конструкції існування.",
+            "accepted_target_texts": [
+                "There was a queue, wasn't there?",
+                "There was a queue, was there not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There",
+                "was a queue,",
+                "wasn't there?"
+            ],
+            "token_groups": [
+                "There",
+                "was a queue,",
+                "wasn't there?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "There",
+                "was",
+                "a",
+                "queue,",
+                "wasn't",
+                "there?"
+            ],
+            "options": [
+                "There",
+                "Nobody",
+                "I",
+                "You",
+                "was",
+                "be",
+                "been",
+                "being",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "queue",
+                "spare",
+                "key",
+                "ticket",
+                "wasn't",
+                "weren't",
+                "am",
+                "is",
+                "there",
+                "they",
+                "she",
+                "it"
+            ],
+            "source_text_uk": "Була черга, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Nobody",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "queue",
+                    "spare",
+                    "key",
+                    "ticket"
+                ],
+                "a5": [
+                    "wasn't",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "there",
+                    "they",
+                    "she",
+                    "it"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "finite_clause",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "tag",
+                "a6": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-tags-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ніхто не взяв запасного ключа, чи не так?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ніхто не взяв запасного ключа, чи не так?",
+            "target_text": "Nobody has taken the spare key, have they?",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "Nobody",
+                        "He",
+                        "You",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "has",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "taken",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "taken",
+                        "brought",
+                        "written",
+                        "ridden"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "spare",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "spare",
+                        "legal",
+                        "original",
+                        "window"
+                    ]
+                },
+                "a6": {
+                    "answer": "key,",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "key",
+                        "opinion",
+                        "draft",
+                        "settlement"
+                    ]
+                },
+                "a7": {
+                    "answer": "have",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a8": {
+                    "answer": "they?",
+                    "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+                    "options": [
+                        "they",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                }
+            },
+            "verb_hint": "Врахуй заперечний зміст підмета та нейтральний займенник хвостика.",
+            "accepted_target_texts": [
+                "Nobody has taken the spare key, have they?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "has taken",
+                "the spare key,",
+                "have they?"
+            ],
+            "token_groups": [
+                "Nobody",
+                "has taken",
+                "the spare key,",
+                "have they?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Nobody",
+                "has",
+                "taken",
+                "the",
+                "spare",
+                "key,",
+                "have",
+                "they?"
+            ],
+            "options": [
+                "Nobody",
+                "He",
+                "You",
+                "She",
+                "has",
+                "had",
+                "haven't",
+                "hasn't",
+                "taken",
+                "brought",
+                "written",
+                "ridden",
+                "the",
+                "each",
+                "every",
+                "no",
+                "spare",
+                "legal",
+                "original",
+                "window",
+                "key",
+                "opinion",
+                "draft",
+                "settlement",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "they",
+                "myself",
+                "yourself",
+                "herself"
+            ],
+            "source_text_uk": "Ніхто не взяв запасного ключа, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "He",
+                    "You",
+                    "She"
+                ],
+                "a2": [
+                    "has",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "taken",
+                    "brought",
+                    "written",
+                    "ridden"
+                ],
+                "a4": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "spare",
+                    "legal",
+                    "original",
+                    "window"
+                ],
+                "a6": [
+                    "key",
+                    "opinion",
+                    "draft",
+                    "settlement"
+                ],
+                "a7": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a8": [
+                    "they",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "positive_tag",
+                "a8": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-tags-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Я досі маю право брати участь, чи не так?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Я досі маю право брати участь, чи не так?",
+            "target_text": "I am still eligible, aren't I?",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "I",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "am",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "still",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "still",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a4": {
+                    "answer": "eligible,",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "eligible",
+                        "good",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a5": {
+                    "answer": "aren't",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "aren't",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "I?",
+                    "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+                    "options": [
+                        "I",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                }
+            },
+            "verb_hint": "Для першої особи використай усталений заперечний хвостик.",
+            "accepted_target_texts": [
+                "I am still eligible, aren't I?",
+                "I am still eligible, am I not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am still eligible,",
+                "aren't I?"
+            ],
+            "token_groups": [
+                "I",
+                "am still eligible,",
+                "aren't I?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "still",
+                "eligible,",
+                "aren't",
+                "I?"
+            ],
+            "options": [
+                "I",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "am",
+                "was",
+                "were",
+                "be",
+                "still",
+                "rarely",
+                "only",
+                "even",
+                "eligible",
+                "good",
+                "bad",
+                "friendly",
+                "aren't",
+                "been",
+                "being",
+                "isn't",
+                "He",
+                "She",
+                "It"
+            ],
+            "source_text_uk": "Я досі маю право брати участь, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "am",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "still",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a4": [
+                    "eligible",
+                    "good",
+                    "bad",
+                    "friendly"
+                ],
+                "a5": [
+                    "aren't",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "I",
+                    "He",
+                    "She",
+                    "It"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "finite_clause",
+                "a3": "finite_clause",
+                "a4": "finite_clause",
+                "a5": "tag",
+                "a6": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-tags-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Доповідачка рідко відхиляється від своїх нотаток, чи не так?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Доповідачка рідко відхиляється від своїх нотаток, чи не так?",
+            "target_text": "The speaker rarely deviates from her notes, does she?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "speaker",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "speaker",
+                        "panel",
+                        "witness",
+                        "librarian"
+                    ]
+                },
+                "a3": {
+                    "answer": "rarely",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "rarely",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a4": {
+                    "answer": "deviates",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "deviates",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "from",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a6": {
+                    "answer": "her",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "her",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a7": {
+                    "answer": "notes,",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "notes",
+                        "conditions",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a8": {
+                    "answer": "does",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "does",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "she?",
+                    "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+                    "options": [
+                        "she",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                }
+            },
+            "verb_hint": "Рідкісність має заперечний відтінок, тому хвостик стверджувальний.",
+            "accepted_target_texts": [
+                "The speaker rarely deviates from her notes, does she?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The speaker",
+                "rarely deviates",
+                "from her notes,",
+                "does she?"
+            ],
+            "token_groups": [
+                "The speaker",
+                "rarely deviates",
+                "from her notes,",
+                "does she?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "speaker",
+                "rarely",
+                "deviates",
+                "from",
+                "her",
+                "notes,",
+                "does",
+                "she?"
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "speaker",
+                "panel",
+                "witness",
+                "librarian",
+                "rarely",
+                "just",
+                "also",
+                "usually",
+                "deviates",
+                "keys",
+                "rooms",
+                "maps",
+                "from",
+                "for",
+                "of",
+                "in",
+                "her",
+                "ours",
+                "theirs",
+                "whose",
+                "notes",
+                "conditions",
+                "phones",
+                "children",
+                "does",
+                "did",
+                "don't",
+                "doesn't",
+                "she",
+                "it",
+                "we",
+                "they"
+            ],
+            "source_text_uk": "Доповідачка рідко відхиляється від своїх нотаток, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "speaker",
+                    "panel",
+                    "witness",
+                    "librarian"
+                ],
+                "a3": [
+                    "rarely",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a4": [
+                    "deviates",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ],
+                "a5": [
+                    "from",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a6": [
+                    "her",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a7": [
+                    "notes",
+                    "conditions",
+                    "phones",
+                    "children"
+                ],
+                "a8": [
+                    "does",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a9": [
+                    "she",
+                    "it",
+                    "we",
+                    "they"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "adverb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "positive_tag",
+                "a9": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-tags-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Хтось має стежити за входом, чи не так?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Хтось має стежити за входом, чи не так?",
+            "target_text": "Somebody must be monitoring the entrance, mustn't they?",
+            "markers": {
+                "a1": {
+                    "answer": "Somebody",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "Somebody",
+                        "We",
+                        "Someone",
+                        "Anybody"
+                    ]
+                },
+                "a2": {
+                    "answer": "must",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "must",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "be",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "monitoring",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "monitoring",
+                        "booking",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "entrance,",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "entrance",
+                        "negotiate",
+                        "speaker",
+                        "rather"
+                    ]
+                },
+                "a7": {
+                    "answer": "mustn't",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "mustn't",
+                        "shouldn't",
+                        "wouldn't",
+                        "doesn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "they?",
+                    "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+                    "options": [
+                        "they",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                }
+            },
+            "verb_hint": "Тут ідеться про обов’язок; повтори модальне дієслово в хвостику.",
+            "accepted_target_texts": [
+                "Somebody must be monitoring the entrance, mustn't they?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Somebody",
+                "must be monitoring",
+                "the entrance,",
+                "mustn't they?"
+            ],
+            "token_groups": [
+                "Somebody",
+                "must be monitoring",
+                "the entrance,",
+                "mustn't they?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Somebody",
+                "must",
+                "be",
+                "monitoring",
+                "the",
+                "entrance,",
+                "mustn't",
+                "they?"
+            ],
+            "options": [
+                "Somebody",
+                "We",
+                "Someone",
+                "Anybody",
+                "must",
+                "will",
+                "would",
+                "shall",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "monitoring",
+                "booking",
+                "taking",
+                "working",
+                "the",
+                "some",
+                "any",
+                "this",
+                "entrance",
+                "negotiate",
+                "speaker",
+                "rather",
+                "mustn't",
+                "shouldn't",
+                "wouldn't",
+                "doesn't",
+                "they",
+                "me",
+                "him",
+                "us"
+            ],
+            "source_text_uk": "Хтось має стежити за входом, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "Somebody",
+                    "We",
+                    "Someone",
+                    "Anybody"
+                ],
+                "a2": [
+                    "must",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a3": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "monitoring",
+                    "booking",
+                    "taking",
+                    "working"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "entrance",
+                    "negotiate",
+                    "speaker",
+                    "rather"
+                ],
+                "a7": [
+                    "mustn't",
+                    "shouldn't",
+                    "wouldn't",
+                    "doesn't"
+                ],
+                "a8": [
+                    "they",
+                    "me",
+                    "him",
+                    "us"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "tag",
+                "a8": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-tags-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ми воліли б домовлятися, чи не так?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Ми воліли б домовлятися, чи не так?",
+            "target_text": "We would rather negotiate, wouldn't we?",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "We",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "would",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "rather",
+                        "be",
+                        "the",
+                        "a"
+                    ]
+                },
+                "a4": {
+                    "answer": "negotiate,",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "negotiate",
+                        "meter",
+                        "notice",
+                        "porter"
+                    ]
+                },
+                "a5": {
+                    "answer": "wouldn't",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a6": {
+                    "answer": "we?",
+                    "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+                    "options": [
+                        "we",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи конструкцію переваги та повтори її допоміжне дієслово.",
+            "accepted_target_texts": [
+                "We would rather negotiate, wouldn't we?",
+                "We would rather negotiate, would we not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "would rather negotiate,",
+                "wouldn't we?"
+            ],
+            "token_groups": [
+                "We",
+                "would rather negotiate,",
+                "wouldn't we?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "negotiate,",
+                "wouldn't",
+                "we?"
+            ],
+            "options": [
+                "We",
+                "Us",
+                "Them",
+                "Myself",
+                "would",
+                "can't",
+                "couldn't",
+                "won't",
+                "rather",
+                "be",
+                "the",
+                "a",
+                "negotiate",
+                "meter",
+                "notice",
+                "porter",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "can",
+                "we",
+                "yourself",
+                "herself",
+                "ourselves"
+            ],
+            "source_text_uk": "Ми воліли б домовлятися, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "would",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "rather",
+                    "be",
+                    "the",
+                    "a"
+                ],
+                "a4": [
+                    "negotiate",
+                    "meter",
+                    "notice",
+                    "porter"
+                ],
+                "a5": [
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a6": [
+                    "we",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "tag",
+                "a6": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-tags-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Поправка майже не змінила балансу, чи не так?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Поправка майже не змінила балансу, чи не так?",
+            "target_text": "The amendment has scarcely altered the balance, has it?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "amendment",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "amendment",
+                        "driver",
+                        "curator",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "has",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "has",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a4": {
+                    "answer": "scarcely",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "scarcely",
+                        "quietly",
+                        "slowly",
+                        "quickly"
+                    ]
+                },
+                "a5": {
+                    "answer": "altered",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "altered",
+                        "briefed",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "balance,",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "balance",
+                        "exception",
+                        "consultant",
+                        "better"
+                    ]
+                },
+                "a8": {
+                    "answer": "has",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "has",
+                        "have",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a9": {
+                    "answer": "it?",
+                    "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+                    "options": [
+                        "it",
+                        "he",
+                        "she",
+                        "we"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечний відтінок прислівника потребує стверджувального хвостика.",
+            "accepted_target_texts": [
+                "The amendment has scarcely altered the balance, has it?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The amendment",
+                "has scarcely altered",
+                "the balance,",
+                "has it?"
+            ],
+            "token_groups": [
+                "The amendment",
+                "has scarcely altered",
+                "the balance,",
+                "has it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "amendment",
+                "has",
+                "scarcely",
+                "altered",
+                "the",
+                "balance,",
+                "has",
+                "it?"
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "amendment",
+                "driver",
+                "curator",
+                "assistant",
+                "has",
+                "hasn't",
+                "hadn't",
+                "do",
+                "scarcely",
+                "quietly",
+                "slowly",
+                "quickly",
+                "altered",
+                "briefed",
+                "took",
+                "wrote",
+                "the",
+                "every",
+                "no",
+                "another",
+                "balance",
+                "exception",
+                "consultant",
+                "better",
+                "have",
+                "had",
+                "haven't",
+                "it",
+                "he",
+                "she",
+                "we"
+            ],
+            "source_text_uk": "Поправка майже не змінила балансу, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "amendment",
+                    "driver",
+                    "curator",
+                    "assistant"
+                ],
+                "a3": [
+                    "has",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a4": [
+                    "scarcely",
+                    "quietly",
+                    "slowly",
+                    "quickly"
+                ],
+                "a5": [
+                    "altered",
+                    "briefed",
+                    "took",
+                    "wrote"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "balance",
+                    "exception",
+                    "consultant",
+                    "better"
+                ],
+                "a8": [
+                    "has",
+                    "have",
+                    "had",
+                    "haven't"
+                ],
+                "a9": [
+                    "it",
+                    "he",
+                    "she",
+                    "we"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "positive_tag",
+                "a9": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-tags-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Жодного з двох консультантів не проінструктували, чи не так?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Жодного з двох консультантів не проінструктували, чи не так?",
+            "target_text": "Neither consultant had been briefed, had they?",
+            "markers": {
+                "a1": {
+                    "answer": "Neither",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "Neither",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "consultant",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "consultant",
+                        "gardener",
+                        "neighbour",
+                        "librarian"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "briefed,",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "briefed",
+                        "altered",
+                        "helped",
+                        "watched"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a7": {
+                    "answer": "they?",
+                    "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+                    "options": [
+                        "they",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минулий доконаний пасив та нейтральне посилання на людей.",
+            "accepted_target_texts": [
+                "Neither consultant had been briefed, had they?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither consultant",
+                "had been briefed,",
+                "had they?"
+            ],
+            "token_groups": [
+                "Neither consultant",
+                "had been briefed,",
+                "had they?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Neither",
+                "consultant",
+                "had",
+                "been",
+                "briefed,",
+                "had",
+                "they?"
+            ],
+            "options": [
+                "Neither",
+                "All",
+                "Both",
+                "A",
+                "consultant",
+                "gardener",
+                "neighbour",
+                "librarian",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "briefed",
+                "altered",
+                "helped",
+                "watched",
+                "hasn't",
+                "hadn't",
+                "do",
+                "they",
+                "him",
+                "us",
+                "them"
+            ],
+            "source_text_uk": "Жодного з двох консультантів не проінструктували, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "Neither",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "consultant",
+                    "gardener",
+                    "neighbour",
+                    "librarian"
+                ],
+                "a3": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a4": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a5": [
+                    "briefed",
+                    "altered",
+                    "helped",
+                    "watched"
+                ],
+                "a6": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a7": [
+                    "they",
+                    "him",
+                    "us",
+                    "them"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "positive_tag",
+                "a7": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-tags-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Тобі краще задокументувати цей виняток, чи не так?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Тобі краще задокументувати цей виняток, чи не так?",
+            "target_text": "You had better document that exception, hadn't you?",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "You",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a3": {
+                    "answer": "better",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "better",
+                        "the",
+                        "a",
+                        "consultant"
+                    ]
+                },
+                "a4": {
+                    "answer": "document",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "document",
+                        "book",
+                        "letter",
+                        "report"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "exception,",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "exception",
+                        "balance",
+                        "amendment",
+                        "ticket"
+                    ]
+                },
+                "a7": {
+                    "answer": "hadn't",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "hadn't",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a8": {
+                    "answer": "you?",
+                    "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+                    "options": [
+                        "you",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                }
+            },
+            "verb_hint": "Повтори допоміжне дієслово усталеної конструкції поради.",
+            "accepted_target_texts": [
+                "You had better document that exception, hadn't you?",
+                "You had better document that exception, had you not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "had better document",
+                "that exception,",
+                "hadn't you?"
+            ],
+            "token_groups": [
+                "You",
+                "had better document",
+                "that exception,",
+                "hadn't you?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "You",
+                "had",
+                "better",
+                "document",
+                "that",
+                "exception,",
+                "hadn't",
+                "you?"
+            ],
+            "options": [
+                "You",
+                "She",
+                "It",
+                "We",
+                "had",
+                "do",
+                "does",
+                "did",
+                "better",
+                "the",
+                "a",
+                "consultant",
+                "document",
+                "book",
+                "letter",
+                "report",
+                "that",
+                "some",
+                "any",
+                "this",
+                "exception",
+                "balance",
+                "amendment",
+                "ticket",
+                "hadn't",
+                "doesn't",
+                "didn't",
+                "have",
+                "you",
+                "herself",
+                "ourselves",
+                "themselves"
+            ],
+            "source_text_uk": "Тобі краще задокументувати цей виняток, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a3": [
+                    "better",
+                    "the",
+                    "a",
+                    "consultant"
+                ],
+                "a4": [
+                    "document",
+                    "book",
+                    "letter",
+                    "report"
+                ],
+                "a5": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "exception",
+                    "balance",
+                    "amendment",
+                    "ticket"
+                ],
+                "a7": [
+                    "hadn't",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a8": [
+                    "you",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "tag",
+                "a8": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-tags-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Зобов’язання навряд чи могло б бути чіткішим, чи не так?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Зобов’язання навряд чи могло б бути чіткішим, чи не так?",
+            "target_text": "The undertaking could scarcely be more explicit, could it?",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "undertaking",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "undertaking",
+                        "binding",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "could",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a4": {
+                    "answer": "scarcely",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "scarcely",
+                        "safely",
+                        "happily",
+                        "easily"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "more",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "more",
+                        "before",
+                        "at",
+                        "assessment"
+                    ]
+                },
+                "a7": {
+                    "answer": "explicit,",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "explicit",
+                        "dawn",
+                        "lunch",
+                        "assurance"
+                    ]
+                },
+                "a8": {
+                    "answer": "could",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a9": {
+                    "answer": "it?",
+                    "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+                    "options": [
+                        "it",
+                        "he",
+                        "she",
+                        "we"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечний відтінок і стверджувальний модальний хвостик.",
+            "accepted_target_texts": [
+                "The undertaking could scarcely be more explicit, could it?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The undertaking",
+                "could scarcely be",
+                "more explicit,",
+                "could it?"
+            ],
+            "token_groups": [
+                "The undertaking",
+                "could scarcely be",
+                "more explicit,",
+                "could it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "undertaking",
+                "could",
+                "scarcely",
+                "be",
+                "more",
+                "explicit,",
+                "could",
+                "it?"
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "undertaking",
+                "binding",
+                "helping",
+                "waiting",
+                "could",
+                "can't",
+                "couldn't",
+                "won't",
+                "scarcely",
+                "safely",
+                "happily",
+                "easily",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "more",
+                "before",
+                "at",
+                "assessment",
+                "explicit",
+                "dawn",
+                "lunch",
+                "assurance",
+                "shouldn't",
+                "cannot",
+                "can",
+                "it",
+                "he",
+                "she",
+                "we"
+            ],
+            "source_text_uk": "Зобов’язання навряд чи могло б бути чіткішим, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "undertaking",
+                    "binding",
+                    "helping",
+                    "waiting"
+                ],
+                "a3": [
+                    "could",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a4": [
+                    "scarcely",
+                    "safely",
+                    "happily",
+                    "easily"
+                ],
+                "a5": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "more",
+                    "before",
+                    "at",
+                    "assessment"
+                ],
+                "a7": [
+                    "explicit",
+                    "dawn",
+                    "lunch",
+                    "assurance"
+                ],
+                "a8": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a9": [
+                    "it",
+                    "he",
+                    "she",
+                    "we"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "positive_tag",
+                "a9": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-tags-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Те, що вони пропустили, мало суттєве значення для оцінювання, чи не так?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Те, що вони пропустили, мало суттєве значення для оцінювання, чи не так?",
+            "target_text": "What they omitted was material to the assessment, wasn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "What",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "they",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a3": {
+                    "answer": "omitted",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "omitted",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "was",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "material",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "material",
+                        "assurance",
+                        "more",
+                        "explicit"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "assessment,",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "assessment",
+                        "friday",
+                        "interval",
+                        "notice"
+                    ]
+                },
+                "a9": {
+                    "answer": "wasn't",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "wasn't",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a10": {
+                    "answer": "it?",
+                    "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+                    "options": [
+                        "it",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                }
+            },
+            "verb_hint": "Підтверджуй всю підметову частину як єдиний предмет.",
+            "accepted_target_texts": [
+                "What they omitted was material to the assessment, wasn't it?",
+                "What they omitted was material to the assessment, was it not?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What they omitted",
+                "was material",
+                "to the assessment,",
+                "wasn't it?"
+            ],
+            "token_groups": [
+                "What they omitted",
+                "was material",
+                "to the assessment,",
+                "wasn't it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "they",
+                "omitted",
+                "was",
+                "material",
+                "to",
+                "the",
+                "assessment,",
+                "wasn't",
+                "it?"
+            ],
+            "options": [
+                "What",
+                "How",
+                "Whoever",
+                "Whatever",
+                "they",
+                "you",
+                "he",
+                "she",
+                "omitted",
+                "cooked",
+                "found",
+                "brought",
+                "was",
+                "weren't",
+                "am",
+                "is",
+                "material",
+                "assurance",
+                "more",
+                "explicit",
+                "to",
+                "with",
+                "without",
+                "into",
+                "the",
+                "all",
+                "both",
+                "a",
+                "assessment",
+                "friday",
+                "interval",
+                "notice",
+                "wasn't",
+                "are",
+                "were",
+                "be",
+                "it",
+                "them",
+                "myself",
+                "yourself"
+            ],
+            "source_text_uk": "Те, що вони пропустили, мало суттєве значення для оцінювання, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "they",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a3": [
+                    "omitted",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a4": [
+                    "was",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "material",
+                    "assurance",
+                    "more",
+                    "explicit"
+                ],
+                "a6": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "assessment",
+                    "friday",
+                    "interval",
+                    "notice"
+                ],
+                "a9": [
+                    "wasn't",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a10": [
+                    "it",
+                    "them",
+                    "myself",
+                    "yourself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "adverb_phrase",
+                "a7": "adverb_phrase",
+                "a8": "adverb_phrase",
+                "a9": "tag",
+                "a10": "tag"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-tags-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Жодних обов’язкових запевнень поки не надали, чи не так?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_tags",
+            "translation_uk": "Жодних обов’язкових запевнень поки не надали, чи не так?",
+            "target_text": "No binding assurance has yet been given, has it?",
+            "markers": {
+                "a1": {
+                    "answer": "No",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "No",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "binding",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "binding",
+                        "undertaking",
+                        "buying",
+                        "giving"
+                    ]
+                },
+                "a3": {
+                    "answer": "assurance",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "assurance",
+                        "more",
+                        "explicit",
+                        "material"
+                    ]
+                },
+                "a4": {
+                    "answer": "has",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "has",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a5": {
+                    "answer": "yet",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "yet",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "given,",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "given",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a8": {
+                    "answer": "has",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "has",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "it?",
+                    "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+                    "options": [
+                        "it",
+                        "she",
+                        "we",
+                        "they"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечну іменну групу та допоміжне дієслово доконаного пасиву.",
+            "accepted_target_texts": [
+                "No binding assurance has yet been given, has it?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No binding assurance",
+                "has yet been",
+                "given,",
+                "has it?"
+            ],
+            "token_groups": [
+                "No binding assurance",
+                "has yet been",
+                "given,",
+                "has it?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "No",
+                "binding",
+                "assurance",
+                "has",
+                "yet",
+                "been",
+                "given,",
+                "has",
+                "it?"
+            ],
+            "options": [
+                "No",
+                "Some",
+                "Any",
+                "This",
+                "binding",
+                "undertaking",
+                "buying",
+                "giving",
+                "assurance",
+                "more",
+                "explicit",
+                "material",
+                "has",
+                "do",
+                "does",
+                "did",
+                "yet",
+                "unless",
+                "whereas",
+                "while",
+                "been",
+                "are",
+                "was",
+                "were",
+                "given",
+                "cooked",
+                "found",
+                "brought",
+                "don't",
+                "doesn't",
+                "didn't",
+                "it",
+                "she",
+                "we",
+                "they"
+            ],
+            "source_text_uk": "Жодних обов’язкових запевнень поки не надали, чи не так?",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "binding",
+                    "undertaking",
+                    "buying",
+                    "giving"
+                ],
+                "a3": [
+                    "assurance",
+                    "more",
+                    "explicit",
+                    "material"
+                ],
+                "a4": [
+                    "has",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a5": [
+                    "yet",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a6": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "given",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a8": [
+                    "has",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a9": [
+                    "it",
+                    "she",
+                    "we",
+                    "they"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "positive_tag",
+                "a9": "positive_tag"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

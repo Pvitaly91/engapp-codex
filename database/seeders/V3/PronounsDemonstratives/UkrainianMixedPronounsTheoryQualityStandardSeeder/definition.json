@@ -1,0 +1,1701 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/pronouns-overview.v1.json",
+        "sha256": "35b975deeca138dc581e184feee80b222c3c1ded58214fe0285cfcb3b580a93b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\UkrainianMixedPronounsTheoryQualityStandardSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-pronouns-overview-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_pronouns_overview": {
+            "name": "Pronouns and Demonstratives Quality: Займенники: роль, форма й точне посилання"
+        }
+    },
+    "tags": {
+        "pronouns_theory": {
+            "name": "Pronouns Theory",
+            "category": "pronouns_demonstratives"
+        },
+        "subject_pronouns": {
+            "name": "Subject Pronouns",
+            "category": "topic"
+        },
+        "object_pronouns": {
+            "name": "Object Pronouns",
+            "category": "topic"
+        },
+        "possessive_adjectives": {
+            "name": "Possessive Adjectives",
+            "category": "topic"
+        },
+        "possessive_pronouns": {
+            "name": "Possessive Pronouns",
+            "category": "topic"
+        },
+        "reflexive_pronouns": {
+            "name": "Reflexive Pronouns",
+            "category": "topic"
+        },
+        "demonstrative_pronouns": {
+            "name": "Demonstrative Pronouns",
+            "category": "topic"
+        },
+        "pronoun_replaces_noun": {
+            "name": "Pronoun Replaces Noun",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "pronouns_theory"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-pronouns-overview-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The cup is hot. Please do not touch {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Чашка гаряча. Будь ласка, не торкайся її.",
+            "target_text": "The cup is hot. Please do not touch it.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "them",
+                        "us"
+                    ],
+                    "verb_hint": "Заміни вже названу одну чашку займенником у додатку; предмет не називай повторно."
+                }
+            },
+            "verb_hint": "Заміни вже названу одну чашку займенником у додатку; предмет не називай повторно.",
+            "accepted_target_texts": [
+                "The cup is hot. Please do not touch it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cup",
+                "is hot.",
+                "Please do not",
+                "touch it."
+            ],
+            "token_groups": [
+                "The cup",
+                "is hot.",
+                "Please do not",
+                "touch it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-pronouns-overview-a1-g02",
+            "author_id": "A1-g02",
+            "question": "My brother is hungry. {a1} wants an apple.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Мій брат голодний. Він хоче яблуко.",
+            "target_text": "My brother is hungry. He wants an apple.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "options": [
+                        "He",
+                        "She",
+                        "They"
+                    ],
+                    "verb_hint": "Назви чоловічу особу, про яку вже йдеться, займенником у підметі."
+                }
+            },
+            "verb_hint": "Назви чоловічу особу, про яку вже йдеться, займенником у підметі.",
+            "accepted_target_texts": [
+                "My brother is hungry. He wants an apple."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My brother",
+                "is hungry.",
+                "He wants",
+                "an apple."
+            ],
+            "token_groups": [
+                "My brother",
+                "is hungry.",
+                "He wants",
+                "an apple."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-pronouns-overview-a1-g03",
+            "author_id": "A1-g03",
+            "question": "This scarf belongs to me. It is {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Цей шарф належить мені. Він мій.",
+            "target_text": "This scarf belongs to me. It is mine.",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "hers",
+                        "ours"
+                    ],
+                    "verb_hint": "Назви належність мені самостійною формою без повторення назви шарфа."
+                }
+            },
+            "verb_hint": "Назви належність мені самостійною формою без повторення назви шарфа.",
+            "accepted_target_texts": [
+                "This scarf belongs to me. It is mine."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This scarf",
+                "belongs to me.",
+                "It is mine."
+            ],
+            "token_groups": [
+                "This scarf",
+                "belongs to me.",
+                "It is mine."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-pronouns-overview-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The birds are thirsty. Give {a1} some water.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Птахи хочуть пити. Дай їм трохи води.",
+            "target_text": "The birds are thirsty. Give them some water.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "it",
+                        "her"
+                    ],
+                    "verb_hint": "Заміни кількох уже названих птахів займенником після дії давання."
+                }
+            },
+            "verb_hint": "Заміни кількох уже названих птахів займенником після дії давання.",
+            "accepted_target_texts": [
+                "The birds are thirsty. Give them some water."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The birds",
+                "are thirsty.",
+                "Give them",
+                "some water."
+            ],
+            "token_groups": [
+                "The birds",
+                "are thirsty.",
+                "Give them",
+                "some water."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-pronouns-overview-a1-g05",
+            "author_id": "A1-g05",
+            "question": "I cannot find {a1} gloves. They belong to me.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Я не можу знайти свої рукавички. Вони належать мені.",
+            "target_text": "I cannot find my gloves. They belong to me.",
+            "markers": {
+                "a1": {
+                    "answer": "my",
+                    "options": [
+                        "my",
+                        "your",
+                        "his"
+                    ],
+                    "verb_hint": "Покажи належність мені перед уже наведеною назвою рукавичок."
+                }
+            },
+            "verb_hint": "Покажи належність мені перед уже наведеною назвою рукавичок.",
+            "accepted_target_texts": [
+                "I cannot find my gloves. They belong to me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot find",
+                "my gloves.",
+                "They belong",
+                "to me."
+            ],
+            "token_groups": [
+                "I cannot find",
+                "my gloves.",
+                "They belong",
+                "to me."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-pronouns-overview-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Lena is here, and {a1} sister is outside.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Лена тут, а її сестра надворі.",
+            "target_text": "Lena is here, and her sister is outside.",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "his",
+                        "their"
+                    ],
+                    "verb_hint": "Покажи належність уже названій дівчині перед назвою сестри."
+                }
+            },
+            "verb_hint": "Покажи належність уже названій дівчині перед назвою сестри.",
+            "accepted_target_texts": [
+                "Lena is here, and her sister is outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lena is here,",
+                "and her sister",
+                "is outside."
+            ],
+            "token_groups": [
+                "Lena is here,",
+                "and her sister",
+                "is outside."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-pronouns-overview-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The suitcase is heavy, but I can carry {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Валіза важка, але я можу її нести.",
+            "target_text": "The suitcase is heavy, but I can carry it.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "them",
+                        "us"
+                    ],
+                    "verb_hint": "Повернися до однієї вже названої валізи формою додатка."
+                }
+            },
+            "verb_hint": "Повернися до однієї вже названої валізи формою додатка.",
+            "accepted_target_texts": [
+                "The suitcase is heavy, but I can carry it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The suitcase",
+                "is heavy,",
+                "but I can",
+                "carry it."
+            ],
+            "token_groups": [
+                "The suitcase",
+                "is heavy,",
+                "but I can",
+                "carry it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-pronouns-overview-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Olia and Taras have arrived. {a1} are putting away their coats.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Оля й Тарас прибули. Вони прибирають свої пальта.",
+            "target_text": "Olia and Taras have arrived. They are putting away their coats.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "options": [
+                        "They",
+                        "We",
+                        "She"
+                    ],
+                    "verb_hint": "Назви обох уже згаданих людей як підмет наступного повідомлення, не включаючи мовця."
+                }
+            },
+            "verb_hint": "Назви обох уже згаданих людей як підмет наступного повідомлення, не включаючи мовця.",
+            "accepted_target_texts": [
+                "Olia and Taras have arrived. They are putting away their coats."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Olia and Taras",
+                "have arrived.",
+                "They are",
+                "putting away",
+                "their coats."
+            ],
+            "token_groups": [
+                "Olia and Taras",
+                "have arrived.",
+                "They are",
+                "putting away",
+                "their coats."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-pronouns-overview-a2-g03",
+            "author_id": "A2-g03",
+            "question": "I made this bookmark {a1}, without any help.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Я зробив цю закладку сам, без допомоги.",
+            "target_text": "I made this bookmark myself, without any help.",
+            "markers": {
+                "a1": {
+                    "answer": "myself",
+                    "options": [
+                        "myself",
+                        "herself",
+                        "themselves"
+                    ],
+                    "verb_hint": "Підкресли особисте виконання мовцем дії без допомоги, не іншого виконавця."
+                }
+            },
+            "verb_hint": "Підкресли особисте виконання мовцем дії без допомоги, не іншого виконавця.",
+            "accepted_target_texts": [
+                "I made this bookmark myself, without any help."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I made",
+                "this bookmark myself,",
+                "without any help."
+            ],
+            "token_groups": [
+                "I made",
+                "this bookmark myself,",
+                "without any help."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-pronouns-overview-a2-g04",
+            "author_id": "A2-g04",
+            "question": "My coat is black. The green one is {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Моє пальто чорне. Зелене — її.",
+            "target_text": "My coat is black. The green one is hers.",
+            "markers": {
+                "a1": {
+                    "answer": "hers",
+                    "options": [
+                        "hers",
+                        "mine",
+                        "ours"
+                    ],
+                    "verb_hint": "Назви належність іншій дівчині самостійною формою; назва пальта вже замінена."
+                }
+            },
+            "verb_hint": "Назви належність іншій дівчині самостійною формою; назва пальта вже замінена.",
+            "accepted_target_texts": [
+                "My coat is black. The green one is hers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My coat",
+                "is black.",
+                "The green one",
+                "is hers."
+            ],
+            "token_groups": [
+                "My coat",
+                "is black.",
+                "The green one",
+                "is hers."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-pronouns-overview-a2-g05",
+            "author_id": "A2-g05",
+            "question": "We cannot use this path. {a1} is closed for repairs.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Ми не можемо користуватися цією стежкою. Її закрили на ремонт.",
+            "target_text": "We cannot use this path. It is closed for repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "options": [
+                        "It",
+                        "They",
+                        "He"
+                    ],
+                    "verb_hint": "Заміни одну названу стежку займенником у підметі, не множиною."
+                }
+            },
+            "verb_hint": "Заміни одну названу стежку займенником у підметі, не множиною.",
+            "accepted_target_texts": [
+                "We cannot use this path. It is closed for repairs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We cannot use",
+                "this path.",
+                "It is closed",
+                "for repairs."
+            ],
+            "token_groups": [
+                "We cannot use",
+                "this path.",
+                "It is closed",
+                "for repairs."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-pronouns-overview-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Marta has lost her ticket, so I will lend her {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Марта загубила квиток, тож я позичу їй свій.",
+            "target_text": "Marta has lost her ticket, so I will lend her mine.",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "hers",
+                        "theirs"
+                    ],
+                    "verb_hint": "Назви квиток мовця самостійною формою належності; не повторюй назву предмета."
+                }
+            },
+            "verb_hint": "Назви квиток мовця самостійною формою належності; не повторюй назву предмета.",
+            "accepted_target_texts": [
+                "Marta has lost her ticket, so I will lend her mine."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta has lost",
+                "her ticket,",
+                "so I will",
+                "lend her mine."
+            ],
+            "token_groups": [
+                "Marta has lost",
+                "her ticket,",
+                "so I will",
+                "lend her mine."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-pronouns-overview-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The lift stopped between floors. {a1} frightened the passengers.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Ліфт зупинився між поверхами. Це налякало пасажирів.",
+            "target_text": "The lift stopped between floors. That frightened the passengers.",
+            "markers": {
+                "a1": {
+                    "answer": "That",
+                    "options": [
+                        "That",
+                        "Those",
+                        "They"
+                    ],
+                    "verb_hint": "Пошлися на всю попередню подію, а не на пасажирів або окремі поверхи."
+                }
+            },
+            "verb_hint": "Пошлися на всю попередню подію, а не на пасажирів або окремі поверхи.",
+            "accepted_target_texts": [
+                "The lift stopped between floors. That frightened the passengers.",
+                "The lift stopped between floors. This frightened the passengers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "This"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "This"
+                ]
+            },
+            "reorder_groups": [
+                "The lift stopped",
+                "between floors.",
+                "That frightened",
+                "the passengers."
+            ],
+            "token_groups": [
+                "The lift stopped",
+                "between floors.",
+                "That frightened",
+                "the passengers."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-pronouns-overview-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I have checked my figures. Have you checked {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Я перевірив свої числа. Ти перевірив свої?",
+            "target_text": "I have checked my figures. Have you checked yours?",
+            "markers": {
+                "a1": {
+                    "answer": "yours",
+                    "options": [
+                        "yours",
+                        "mine",
+                        "ours"
+                    ],
+                    "verb_hint": "Назви числа співрозмовника самостійною формою належності; не повторюй іменник."
+                }
+            },
+            "verb_hint": "Назви числа співрозмовника самостійною формою належності; не повторюй іменник.",
+            "accepted_target_texts": [
+                "I have checked my figures. Have you checked yours?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have checked",
+                "my figures.",
+                "Have you",
+                "checked yours?"
+            ],
+            "token_groups": [
+                "I have checked",
+                "my figures.",
+                "Have you",
+                "checked yours?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-pronouns-overview-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The researcher introduced {a1} before explaining the experiment.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Дослідниця представилася перед поясненням експерименту.",
+            "target_text": "The researcher introduced herself before explaining the experiment.",
+            "markers": {
+                "a1": {
+                    "answer": "herself",
+                    "options": [
+                        "herself",
+                        "itself",
+                        "ourselves"
+                    ],
+                    "verb_hint": "Дослідниця називає власне ім’я; потрібна зворотна форма для однієї жінки."
+                }
+            },
+            "verb_hint": "Дослідниця називає власне ім’я; потрібна зворотна форма для однієї жінки.",
+            "accepted_target_texts": [
+                "The researcher introduced herself before explaining the experiment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The researcher",
+                "introduced herself",
+                "before explaining",
+                "the experiment."
+            ],
+            "token_groups": [
+                "The researcher",
+                "introduced herself",
+                "before explaining",
+                "the experiment."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-pronouns-overview-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The two rooms look similar, but {a1} has a different purpose.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Ці дві кімнати схожі, але кожна має інше призначення.",
+            "target_text": "The two rooms look similar, but each has a different purpose.",
+            "markers": {
+                "a1": {
+                    "answer": "each",
+                    "options": [
+                        "each",
+                        "all",
+                        "both"
+                    ],
+                    "verb_hint": "Розглянь дві вже названі кімнати окремо; однина присудка вже наведена."
+                }
+            },
+            "verb_hint": "Розглянь дві вже названі кімнати окремо; однина присудка вже наведена.",
+            "accepted_target_texts": [
+                "The two rooms look similar, but each has a different purpose."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two rooms",
+                "look similar,",
+                "but each has",
+                "a different purpose."
+            ],
+            "token_groups": [
+                "The two rooms",
+                "look similar,",
+                "but each has",
+                "a different purpose."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-pronouns-overview-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The guests were told to leave their luggage where {a1} could see it.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Гостям сказали залишити багаж там, де вони зможуть його бачити.",
+            "target_text": "The guests were told to leave their luggage where they could see it.",
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "we",
+                        "she"
+                    ],
+                    "verb_hint": "Повернися до гостей як підмета підрядної частини; не вводь нову групу людей."
+                }
+            },
+            "verb_hint": "Повернися до гостей як підмета підрядної частини; не вводь нову групу людей.",
+            "accepted_target_texts": [
+                "The guests were told to leave their luggage where they could see it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "were told",
+                "to leave",
+                "their luggage",
+                "where they",
+                "could see it."
+            ],
+            "token_groups": [
+                "The guests",
+                "were told",
+                "to leave",
+                "their luggage",
+                "where they",
+                "could see it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-pronouns-overview-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Neither invitation mentions a dress code, and {a1} gives a contact number.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Жодне із двох запрошень не містить вимог до одягу, і жодне не дає контактного номера.",
+            "target_text": "Neither invitation mentions a dress code, and neither gives a contact number.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "both",
+                        "either"
+                    ],
+                    "verb_hint": "Повторно запереч наявність інформації в кожному з рівно двох документів самостійним словом."
+                }
+            },
+            "verb_hint": "Повторно запереч наявність інформації в кожному з рівно двох документів самостійним словом.",
+            "accepted_target_texts": [
+                "Neither invitation mentions a dress code, and neither gives a contact number."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither invitation",
+                "mentions",
+                "a dress code,",
+                "and neither gives",
+                "a contact number."
+            ],
+            "token_groups": [
+                "Neither invitation",
+                "mentions",
+                "a dress code,",
+                "and neither gives",
+                "a contact number."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pdqq-pronouns-overview-b2-g01",
+            "author_id": "B2-g01",
+            "question": "A participant may withdraw whenever {a1} no longer wish to continue.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Учасник може відмовитися від участі, щойно більше не захоче продовжувати.",
+            "target_text": "A participant may withdraw whenever they no longer wish to continue.",
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "we",
+                        "it"
+                    ],
+                    "verb_hint": "Збережи нейтральне посилання на людину невідомої статі; не замінюй її предметом."
+                }
+            },
+            "verb_hint": "Збережи нейтральне посилання на людину невідомої статі; не замінюй її предметом.",
+            "accepted_target_texts": [
+                "A participant may withdraw whenever they no longer wish to continue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A participant",
+                "may withdraw",
+                "whenever they",
+                "no longer wish",
+                "to continue."
+            ],
+            "token_groups": [
+                "A participant",
+                "may withdraw",
+                "whenever they",
+                "no longer wish",
+                "to continue."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pdqq-pronouns-overview-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The revised diagram is clearer than {a1} published in the preliminary report.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Переглянута схема зрозуміліша за ту, яку опублікували в попередньому звіті.",
+            "target_text": "The revised diagram is clearer than that published in the preliminary report.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "these"
+                    ],
+                    "verb_hint": "Заміни одну схему формальним самостійним вказівним словом; її визначення йде далі."
+                }
+            },
+            "verb_hint": "Заміни одну схему формальним самостійним вказівним словом; її визначення йде далі.",
+            "accepted_target_texts": [
+                "The revised diagram is clearer than that published in the preliminary report."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised diagram",
+                "is clearer",
+                "than that published",
+                "in",
+                "the preliminary report."
+            ],
+            "token_groups": [
+                "The revised diagram",
+                "is clearer",
+                "than that published",
+                "in",
+                "the preliminary report."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pdqq-pronouns-overview-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The witnesses described the same event, but their accounts contradicted {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Свідки описали ту саму подію, але їхні свідчення суперечили одне одному.",
+            "target_text": "The witnesses described the same event, but their accounts contradicted each other.",
+            "markers": {
+                "a1": {
+                    "answer": "each other",
+                    "options": [
+                        "each other",
+                        "itself",
+                        "myself"
+                    ],
+                    "verb_hint": "Передай взаємний зв’язок між двома або кількома викладами, не дію кожного на самого себе."
+                }
+            },
+            "verb_hint": "Передай взаємний зв’язок між двома або кількома викладами, не дію кожного на самого себе.",
+            "accepted_target_texts": [
+                "The witnesses described the same event, but their accounts contradicted each other.",
+                "The witnesses described the same event, but their accounts contradicted one another."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "one another"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "one another"
+                ]
+            },
+            "reorder_groups": [
+                "The witnesses",
+                "described",
+                "the same event,",
+                "but their accounts",
+                "contradicted each other."
+            ],
+            "token_groups": [
+                "The witnesses",
+                "described",
+                "the same event,",
+                "but their accounts",
+                "contradicted each other."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pdqq-pronouns-overview-b2-g04",
+            "author_id": "B2-g04",
+            "question": "I accept the criticism, but the final decision was not {a1} alone.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Я приймаю критику, але остаточне рішення було не лише моїм.",
+            "target_text": "I accept the criticism, but the final decision was not mine alone.",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "me",
+                        "my"
+                    ],
+                    "verb_hint": "Назви належність рішення мовцеві самостійною формою; назву рішення вже наведено."
+                }
+            },
+            "verb_hint": "Назви належність рішення мовцеві самостійною формою; назву рішення вже наведено.",
+            "accepted_target_texts": [
+                "I accept the criticism, but the final decision was not mine alone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I accept",
+                "the criticism,",
+                "but",
+                "the final decision",
+                "was not",
+                "mine alone."
+            ],
+            "token_groups": [
+                "I accept",
+                "the criticism,",
+                "but",
+                "the final decision",
+                "was not",
+                "mine alone."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pdqq-pronouns-overview-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The procedure {a1} is straightforward; the uncertainty concerns when it may be used.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Сама процедура проста; невизначеність стосується того, коли її можна застосовувати.",
+            "target_text": "The procedure itself is straightforward; the uncertainty concerns when it may be used.",
+            "markers": {
+                "a1": {
+                    "answer": "itself",
+                    "options": [
+                        "itself",
+                        "themselves",
+                        "ourselves"
+                    ],
+                    "verb_hint": "Виділи саме одну названу процедуру, не виконавців чи окремі її частини."
+                }
+            },
+            "verb_hint": "Виділи саме одну названу процедуру, не виконавців чи окремі її частини.",
+            "accepted_target_texts": [
+                "The procedure itself is straightforward; the uncertainty concerns when it may be used."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The procedure itself",
+                "is straightforward;",
+                "the uncertainty concerns",
+                "when it",
+                "may be used."
+            ],
+            "token_groups": [
+                "The procedure itself",
+                "is straightforward;",
+                "the uncertainty concerns",
+                "when it",
+                "may be used."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pdqq-pronouns-overview-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The two estimates differ because {a1} is based on a different definition of cost.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Ці дві оцінки різняться, бо кожна ґрунтується на іншому визначенні вартості.",
+            "target_text": "The two estimates differ because each is based on a different definition of cost.",
+            "markers": {
+                "a1": {
+                    "answer": "each",
+                    "options": [
+                        "each",
+                        "all",
+                        "both"
+                    ],
+                    "verb_hint": "Розглянь дві оцінки окремо самостійним словом; граматична однина вже задана."
+                }
+            },
+            "verb_hint": "Розглянь дві оцінки окремо самостійним словом; граматична однина вже задана.",
+            "accepted_target_texts": [
+                "The two estimates differ because each is based on a different definition of cost."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two estimates",
+                "differ because",
+                "each is based",
+                "on",
+                "a different definition",
+                "of cost."
+            ],
+            "token_groups": [
+                "The two estimates",
+                "differ because",
+                "each is based",
+                "on",
+                "a different definition",
+                "of cost."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pdqq-pronouns-overview-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The figures in the annex are inconsistent with {a1} cited in the conclusion.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Числа в додатку не узгоджуються з тими, що наведені у висновку.",
+            "target_text": "The figures in the annex are inconsistent with those cited in the conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Заміни вже названі числа у множині формальним самостійним вказівним словом."
+                }
+            },
+            "verb_hint": "Заміни вже названі числа у множині формальним самостійним вказівним словом.",
+            "accepted_target_texts": [
+                "The figures in the annex are inconsistent with those cited in the conclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The figures",
+                "in the annex",
+                "are inconsistent",
+                "with those cited",
+                "in the conclusion."
+            ],
+            "token_groups": [
+                "The figures",
+                "in the annex",
+                "are inconsistent",
+                "with those cited",
+                "in the conclusion."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pdqq-pronouns-overview-c1-g02",
+            "author_id": "C1-g02",
+            "question": "If one rejects the premise, {a1} must also reconsider the conclusion drawn from it.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Якщо відкинути передумову, потрібно також переглянути висновок, виведений із неї.",
+            "target_text": "If one rejects the premise, one must also reconsider the conclusion drawn from it.",
+            "markers": {
+                "a1": {
+                    "answer": "one",
+                    "options": [
+                        "one",
+                        "we",
+                        "it"
+                    ],
+                    "verb_hint": "Збережи послідовність уже обраного формального узагальненого займенника для людини."
+                }
+            },
+            "verb_hint": "Збережи послідовність уже обраного формального узагальненого займенника для людини.",
+            "accepted_target_texts": [
+                "If one rejects the premise, one must also reconsider the conclusion drawn from it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If one rejects",
+                "the premise,",
+                "one must",
+                "also reconsider",
+                "the conclusion drawn",
+                "from it."
+            ],
+            "token_groups": [
+                "If one rejects",
+                "the premise,",
+                "one must",
+                "also reconsider",
+                "the conclusion drawn",
+                "from it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pdqq-pronouns-overview-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The omission was not deliberate, but {a1} does not make its consequences negligible.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Пропуск не був навмисним, але це не робить його наслідки незначними.",
+            "target_text": "The omission was not deliberate, but that does not make its consequences negligible.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "those",
+                        "they"
+                    ],
+                    "verb_hint": "Повернися до всієї обставини ненавмисності, а не до кількох наслідків."
+                }
+            },
+            "verb_hint": "Повернися до всієї обставини ненавмисності, а не до кількох наслідків.",
+            "accepted_target_texts": [
+                "The omission was not deliberate, but that does not make its consequences negligible.",
+                "The omission was not deliberate, but this does not make its consequences negligible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "this"
+                ]
+            },
+            "reorder_groups": [
+                "The omission",
+                "was not deliberate,",
+                "but that",
+                "does not make",
+                "its consequences negligible."
+            ],
+            "token_groups": [
+                "The omission",
+                "was not deliberate,",
+                "but that",
+                "does not make",
+                "its consequences negligible."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pdqq-pronouns-overview-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The parties should disclose any interest that might compromise {a1} impartiality.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Сторони мають розкрити будь-який інтерес, що може поставити під сумнів їхню неупередженість.",
+            "target_text": "The parties should disclose any interest that might compromise their impartiality.",
+            "markers": {
+                "a1": {
+                    "answer": "their",
+                    "options": [
+                        "their",
+                        "its",
+                        "hers"
+                    ],
+                    "verb_hint": "Покажи належність неупередженості вже названим сторонам, не одному інтересу."
+                }
+            },
+            "verb_hint": "Покажи належність неупередженості вже названим сторонам, не одному інтересу.",
+            "accepted_target_texts": [
+                "The parties should disclose any interest that might compromise their impartiality."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parties",
+                "should disclose",
+                "any interest",
+                "that might compromise",
+                "their impartiality."
+            ],
+            "token_groups": [
+                "The parties",
+                "should disclose",
+                "any interest",
+                "that might compromise",
+                "their impartiality."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pdqq-pronouns-overview-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The legal position is one thing; whether the policy is desirable is {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Правове становище — одне, а бажаність політики — інше.",
+            "target_text": "The legal position is one thing; whether the policy is desirable is another.",
+            "markers": {
+                "a1": {
+                    "answer": "another",
+                    "options": [
+                        "another",
+                        "others",
+                        "the others"
+                    ],
+                    "verb_hint": "Назви інше окреме питання самостійною формою однини, не невизначених людей."
+                }
+            },
+            "verb_hint": "Назви інше окреме питання самостійною формою однини, не невизначених людей.",
+            "accepted_target_texts": [
+                "The legal position is one thing; whether the policy is desirable is another."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The legal position",
+                "is one thing;",
+                "whether the policy",
+                "is desirable",
+                "is another."
+            ],
+            "token_groups": [
+                "The legal position",
+                "is one thing;",
+                "whether the policy",
+                "is desirable",
+                "is another."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pdqq-pronouns-overview-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The proposal is defensible on its own terms, even if {a1} remain controversial.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Пропозицію можна обґрунтувати в її власних рамках, хоча самі ці рамки лишаються спірними.",
+            "target_text": "The proposal is defensible on its own terms, even if they remain controversial.",
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "it",
+                        "he"
+                    ],
+                    "verb_hint": "Повернися саме до вже названих рамок у множині, не до самої пропозиції."
+                }
+            },
+            "verb_hint": "Повернися саме до вже названих рамок у множині, не до самої пропозиції.",
+            "accepted_target_texts": [
+                "The proposal is defensible on its own terms, even if they remain controversial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "is defensible",
+                "on",
+                "its own terms,",
+                "even if they",
+                "remain controversial."
+            ],
+            "token_groups": [
+                "The proposal",
+                "is defensible",
+                "on",
+                "its own terms,",
+                "even if they",
+                "remain controversial."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pdqq-pronouns-overview-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The report distinguishes the authority to act from the justification for {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Звіт розрізняє повноваження діяти та обґрунтування такої дії.",
+            "target_text": "The report distinguishes the authority to act from the justification for doing so.",
+            "markers": {
+                "a1": {
+                    "answer": "doing so",
+                    "options": [
+                        "doing so",
+                        "doing them",
+                        "doing herself"
+                    ],
+                    "verb_hint": "Заміни вже названу дію усталеним дієслівним посиланням, не займенником для кількох предметів."
+                }
+            },
+            "verb_hint": "Заміни вже названу дію усталеним дієслівним посиланням, не займенником для кількох предметів.",
+            "accepted_target_texts": [
+                "The report distinguishes the authority to act from the justification for doing so."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report distinguishes",
+                "the authority",
+                "to act",
+                "from",
+                "the justification",
+                "for doing so."
+            ],
+            "token_groups": [
+                "The report distinguishes",
+                "the authority",
+                "to act",
+                "from",
+                "the justification",
+                "for doing so."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pdqq-pronouns-overview-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The doctrine presupposes a stable public interest, but does not explain how {a1} is to be identified.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Доктрина припускає сталий суспільний інтерес, але не пояснює, як його слід визначати.",
+            "target_text": "The doctrine presupposes a stable public interest, but does not explain how it is to be identified.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "they",
+                        "them"
+                    ],
+                    "verb_hint": "Повернися до одного вже введеного суспільного інтересу як підмета пасивної конструкції."
+                }
+            },
+            "verb_hint": "Повернися до одного вже введеного суспільного інтересу як підмета пасивної конструкції.",
+            "accepted_target_texts": [
+                "The doctrine presupposes a stable public interest, but does not explain how it is to be identified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The doctrine presupposes",
+                "a stable",
+                "public interest,",
+                "but does not",
+                "explain how",
+                "it is to",
+                "be identified."
+            ],
+            "token_groups": [
+                "The doctrine presupposes",
+                "a stable",
+                "public interest,",
+                "but does not",
+                "explain how",
+                "it is to",
+                "be identified."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pdqq-pronouns-overview-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The qualifications attached to the undertaking limit its scope without defeating {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Застереження до зобов’язання обмежують його обсяг, не зводячи саме зобов’язання нанівець.",
+            "target_text": "The qualifications attached to the undertaking limit its scope without defeating it.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "them",
+                        "us"
+                    ],
+                    "verb_hint": "Додаток має повертатися до самого одного зобов’язання, не до кількох застережень."
+                }
+            },
+            "verb_hint": "Додаток має повертатися до самого одного зобов’язання, не до кількох застережень.",
+            "accepted_target_texts": [
+                "The qualifications attached to the undertaking limit its scope without defeating it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The qualifications attached",
+                "to the undertaking",
+                "limit its scope",
+                "without defeating it."
+            ],
+            "token_groups": [
+                "The qualifications attached",
+                "to the undertaking",
+                "limit its scope",
+                "without defeating it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pdqq-pronouns-overview-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The two constructions cannot both be correct, yet {a1} can be dismissed without further analysis.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Обидва тлумачення не можуть бути правильними, але жодне не можна відкинути без подальшого аналізу.",
+            "target_text": "The two constructions cannot both be correct, yet neither can be dismissed without further analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "neither",
+                    "options": [
+                        "neither",
+                        "either",
+                        "both"
+                    ],
+                    "verb_hint": "Запереч можливість необґрунтовано відкинути кожне із двох тлумачень; не стверджуй їхню спільну істинність."
+                }
+            },
+            "verb_hint": "Запереч можливість необґрунтовано відкинути кожне із двох тлумачень; не стверджуй їхню спільну істинність.",
+            "accepted_target_texts": [
+                "The two constructions cannot both be correct, yet neither can be dismissed without further analysis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The two constructions",
+                "cannot both",
+                "be correct,",
+                "yet neither",
+                "can be dismissed",
+                "without further analysis."
+            ],
+            "token_groups": [
+                "The two constructions",
+                "cannot both",
+                "be correct,",
+                "yet neither",
+                "can be dismissed",
+                "without further analysis."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pdqq-pronouns-overview-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The account treats institutional continuity as though {a1} guaranteed continuity of purpose.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Виклад трактує інституційну наступність так, ніби вона гарантує наступність мети.",
+            "target_text": "The account treats institutional continuity as though it guaranteed continuity of purpose.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "they",
+                        "them"
+                    ],
+                    "verb_hint": "Повернися до одного абстрактного поняття інституційної наступності як виконавця припущеної дії."
+                }
+            },
+            "verb_hint": "Повернися до одного абстрактного поняття інституційної наступності як виконавця припущеної дії.",
+            "accepted_target_texts": [
+                "The account treats institutional continuity as though it guaranteed continuity of purpose."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The account treats",
+                "institutional continuity",
+                "as though it",
+                "guaranteed continuity",
+                "of purpose."
+            ],
+            "token_groups": [
+                "The account treats",
+                "institutional continuity",
+                "as though it",
+                "guaranteed continuity",
+                "of purpose."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pdqq-pronouns-overview-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The reasons advanced by the majority are stronger than {a1} on which the earlier ruling depended.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_pronouns_overview",
+            "translation_uk": "Підстави, наведені більшістю, сильніші за ті, на які спиралося попереднє рішення.",
+            "target_text": "The reasons advanced by the majority are stronger than those on which the earlier ruling depended.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Самостійно заміни кілька раніше названих підстав перед відносним уточненням; збережи множину."
+                }
+            },
+            "verb_hint": "Самостійно заміни кілька раніше названих підстав перед відносним уточненням; збережи множину.",
+            "accepted_target_texts": [
+                "The reasons advanced by the majority are stronger than those on which the earlier ruling depended."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reasons advanced",
+                "by the majority",
+                "are stronger",
+                "than those",
+                "on which",
+                "the earlier ruling",
+                "depended."
+            ],
+            "token_groups": [
+                "The reasons advanced",
+                "by the majority",
+                "are stronger",
+                "than those",
+                "on which",
+                "the earlier ruling",
+                "depended."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        }
+    ]
+}

@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 63083,
+        "uuid": "aaq-order-c1-g04",
+        "question": "He wore a {a1} charcoal wool winter coat.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 6,
+        "source_id": 472,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedOrderOfAdjectivesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "tailored",
+                "tailoring",
+                "tailor"
+            ]
+        },
+        "theory_text_block_uuid": "ccc6b6e2-a3f2-5e95-908c-e9af29245a01",
+        "created_at": "2026-10-30T16:07:45.000000Z",
+        "updated_at": "2026-10-30T16:07:45.000000Z"
+    },
+    "category": {
+        "id": 6,
+        "name": "Adjectives and Adverbs",
+        "created_at": "2026-04-23T14:17:03.000000Z",
+        "updated_at": "2026-04-23T14:17:03.000000Z"
+    },
+    "source": {
+        "id": 472,
+        "name": "Adjectives and Adverbs Quality: Порядок прикметників перед іменником",
+        "created_at": "2026-10-30T16:07:44.000000Z",
+        "updated_at": "2026-10-30T16:07:44.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 165,
+                "name": "Adjectives and adverbs usage",
+                "category": null,
+                "created_at": "2026-04-23T14:15:34.000000Z",
+                "updated_at": "2026-04-23T14:15:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 63083,
+                "tag_id": 165,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 199,
+                "name": "Order of Adjectives",
+                "category": null,
+                "created_at": "2026-04-23T14:15:45.000000Z",
+                "updated_at": "2026-04-23T14:15:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 63083,
+                "tag_id": 199,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 3591,
+                "option": "tailored",
+                "created_at": "2026-04-23T14:19:42.000000Z",
+                "updated_at": "2026-04-23T14:19:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 63083,
+                "option_id": 3591,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 58779,
+                "option": "tailoring",
+                "created_at": "2026-10-30T16:07:45.000000Z",
+                "updated_at": "2026-10-30T16:07:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 63083,
+                "option_id": 58779,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 58780,
+                "option": "tailor",
+                "created_at": "2026-10-30T16:07:45.000000Z",
+                "updated_at": "2026-10-30T16:07:45.000000Z"
+            },
+            "pivot": {
+                "question_id": 63083,
+                "option_id": 58780,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 333237,
+                "question_id": 63083,
+                "marker": "a1",
+                "option_id": 3591,
+                "created_at": "2026-10-30T16:07:45.000000Z",
+                "updated_at": "2026-10-30T16:07:45.000000Z"
+            },
+            "option": {
+                "id": 3591,
+                "option": "tailored",
+                "created_at": "2026-04-23T14:19:42.000000Z",
+                "updated_at": "2026-04-23T14:19:42.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50571,
+                "question_id": 63083,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58778,
+                "created_at": "2026-10-30T16:07:45.000000Z",
+                "updated_at": "2026-10-30T16:07:45.000000Z"
+            },
+            "option": {
+                "id": 58778,
+                "option": "Приталене, пошите по фігурі пальто: крій перед темно-сірим кольором, вовною й зимовим призначенням.",
+                "created_at": "2026-10-30T16:07:45.000000Z",
+                "updated_at": "2026-10-30T16:07:45.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55098,
+            "question_id": 63083,
+            "text": "He wore a {a1} charcoal wool winter coat.",
+            "created_at": "2026-10-30T16:07:45.000000Z",
+            "updated_at": "2026-10-30T16:07:45.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

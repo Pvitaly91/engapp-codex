@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60538,
+        "uuid": "beq-future-b2-g03",
+        "question": "Whether the plan succeeds {a1} apparent within a month.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 13,
+        "source_id": 425,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBeFutureQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "will be",
+                "will is",
+                "will been"
+            ]
+        },
+        "theory_text_block_uuid": "d2a6a54f-7b28-512a-8deb-8b40897e2aa2",
+        "created_at": "2026-10-27T13:05:25.000000Z",
+        "updated_at": "2026-10-27T13:05:25.000000Z"
+    },
+    "category": {
+        "id": 13,
+        "name": "Базова граматика / Verb to Be",
+        "created_at": "2026-04-23T14:42:10.000000Z",
+        "updated_at": "2026-04-23T14:42:10.000000Z"
+    },
+    "source": {
+        "id": 425,
+        "name": "Verb to Be Quality: Майбутні форми дієслова бути",
+        "created_at": "2026-10-27T13:05:23.000000Z",
+        "updated_at": "2026-10-27T13:05:23.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 98,
+                "name": "Verb to Be: Future (will be / won't be)",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60538,
+                "tag_id": 98,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4464,
+                "option": "will be",
+                "created_at": "2026-04-23T14:40:28.000000Z",
+                "updated_at": "2026-04-23T14:40:28.000000Z"
+            },
+            "pivot": {
+                "question_id": 60538,
+                "option_id": 4464,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 5492,
+                "option": "will is",
+                "created_at": "2026-04-23T14:42:10.000000Z",
+                "updated_at": "2026-04-23T14:42:10.000000Z"
+            },
+            "pivot": {
+                "question_id": 60538,
+                "option_id": 5492,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52961,
+                "option": "will been",
+                "created_at": "2026-10-27T13:05:25.000000Z",
+                "updated_at": "2026-10-27T13:05:25.000000Z"
+            },
+            "pivot": {
+                "question_id": 60538,
+                "option_id": 52961,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325267,
+                "question_id": 60538,
+                "marker": "a1",
+                "option_id": 4464,
+                "created_at": "2026-10-27T13:05:25.000000Z",
+                "updated_at": "2026-10-27T13:05:25.000000Z"
+            },
+            "option": {
+                "id": 4464,
+                "option": "will be",
+                "created_at": "2026-04-23T14:40:28.000000Z",
+                "updated_at": "2026-04-23T14:40:28.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 42601,
+                "question_id": 60538,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 52972,
+                "created_at": "2026-10-27T13:05:25.000000Z",
+                "updated_at": "2026-10-27T13:05:25.000000Z"
+            },
+            "option": {
+                "id": 52972,
+                "option": "Ціла підметова частина потребує головної майбутньої конструкції «бути».",
+                "created_at": "2026-10-27T13:05:25.000000Z",
+                "updated_at": "2026-10-27T13:05:25.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52553,
+            "question_id": 60538,
+            "text": "Whether the plan succeeds {a1} apparent within a month.",
+            "created_at": "2026-10-27T13:05:25.000000Z",
+            "updated_at": "2026-10-27T13:05:25.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

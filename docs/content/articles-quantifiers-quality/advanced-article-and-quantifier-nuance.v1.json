@@ -1,0 +1,620 @@
+{
+    "schema_version": 1,
+    "topic_key": "advanced-article-and-quantifier-nuance",
+    "title": "Advanced Article and Quantifier Nuance",
+    "choice_pools": {
+        "aone_subject": [
+            "A nurse",
+            "A farmer",
+            "A painter",
+            "A driver",
+            "A baker",
+            "A sailor"
+        ],
+        "aone_verb": [
+            "is standing",
+            "was standing",
+            "is sitting",
+            "will stand",
+            "has stood",
+            "is running"
+        ],
+        "aone_object": [
+            "at the gate.",
+            "by the lake",
+            "in the yard",
+            "on the bridge",
+            "near the shop",
+            "at the station"
+        ],
+        "atwo_subject": [
+            "I",
+            "She",
+            "We",
+            "He",
+            "They",
+            "You"
+        ],
+        "atwo_verb": [
+            "bought",
+            "buy",
+            "will buy",
+            "am buying",
+            "have bought",
+            "was buying"
+        ],
+        "atwo_object": [
+            "a loaf",
+            "a slice",
+            "a packet",
+            "a bottle",
+            "a bar",
+            "a jar"
+        ],
+        "atwo_context": [
+            "of bread.",
+            "of cheese",
+            "of rice",
+            "of chocolate",
+            "of jam",
+            "of milk"
+        ],
+        "bone_subject": [
+            "The advice",
+            "The warning",
+            "The message",
+            "The invitation",
+            "The answer",
+            "The report"
+        ],
+        "bone_verb": [
+            "you gave me",
+            "you sent her",
+            "I gave him",
+            "they brought us",
+            "we showed them",
+            "she told you"
+        ],
+        "bone_object": [
+            "was useful.",
+            "was confusing",
+            "was unnecessary",
+            "was incomplete",
+            "was misleading",
+            "was irrelevant"
+        ],
+        "btwo_subject": [
+            "We received",
+            "They received",
+            "She submitted",
+            "I recorded",
+            "He discussed",
+            "You rejected"
+        ],
+        "btwo_verb": [
+            "several complaints",
+            "numerous compliments",
+            "three invitations",
+            "several enquiries",
+            "some suggestions",
+            "many recommendations"
+        ],
+        "btwo_object": [
+            "about the noise.",
+            "about the price",
+            "about the delay",
+            "about the service",
+            "about the food",
+            "about the weather"
+        ],
+        "cone_subject": [
+            "Much of",
+            "None of",
+            "A little of",
+            "Very little of",
+            "Most of",
+            "Some of"
+        ],
+        "cone_verb": [
+            "the equipment",
+            "the furniture",
+            "the machinery",
+            "the material",
+            "the clothing",
+            "the software"
+        ],
+        "cone_object": [
+            "remains unused.",
+            "remains damaged",
+            "has been repaired",
+            "was recently replaced",
+            "is being tested",
+            "needs replacing"
+        ],
+        "ctwo_subject": [
+            "Not all",
+            "None",
+            "Every one",
+            "Both",
+            "Each one",
+            "All"
+        ],
+        "ctwo_verb": [
+            "of the seemingly",
+            "of the evidently",
+            "of the increasingly",
+            "of the demonstrably",
+            "of the potentially",
+            "of the initially"
+        ],
+        "ctwo_object": [
+            "minor deviations",
+            "major discrepancies",
+            "fundamental differences",
+            "serious omissions",
+            "substantial changes",
+            "structural defects"
+        ],
+        "ctwo_context": [
+            "are harmless.",
+            "are inevitable",
+            "are reversible",
+            "are intentional",
+            "are permanent",
+            "are significant"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "There is {a1} orange on the tray.",
+            "answer": "an",
+            "options": [
+                "an",
+                "a",
+                "some"
+            ],
+            "target": "There is an orange on the tray.",
+            "groups": [
+                "There is",
+                "an orange",
+                "on the tray."
+            ],
+            "uk": "На таці є апельсин.",
+            "hint_uk": "Назви один уперше згаданий плід; потрібен артикль перед голосним звуком."
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "We need {a1} water for the puppy.",
+            "answer": "some",
+            "options": [
+                "some",
+                "a",
+                "many"
+            ],
+            "target": "We need some water for the puppy.",
+            "groups": [
+                "We need",
+                "some water",
+                "for the puppy."
+            ],
+            "uk": "Нам потрібно трохи води для цуценяти.",
+            "hint_uk": "Передай невизначену невелику кількість води, не окрему пляшку чи склянку; приймаються дві природні кількісні форми.",
+            "answer_synonyms": ["a little"]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Медсестра стоїть біля воріт.",
+            "target": "A nurse is standing at the gate.",
+            "groups": [
+                "A nurse",
+                "is standing",
+                "at the gate."
+            ],
+            "compose_slots": [
+                "A nurse",
+                "is standing",
+                "at the gate."
+            ],
+            "slot_roles": [
+                "aone_subject",
+                "aone_verb",
+                "aone_object"
+            ],
+            "uk": "Медсестра стоїть біля воріт.",
+            "hint_uk": "Почни з однієї ще не названої медсестри; передай, що вона зараз стоїть біля воріт."
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "How {a1} juice is left in the jug?",
+            "answer": "much",
+            "options": [
+                "much",
+                "many",
+                "few"
+            ],
+            "target": "How much juice is left in the jug?",
+            "groups": [
+                "How much juice",
+                "is left",
+                "in the jug?"
+            ],
+            "uk": "Скільки соку залишилося у глечику?",
+            "hint_uk": "Запитай про кількість соку як рідини; питальне слово вже наведене."
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "There are {a1} stamps in my desk.",
+            "answer": "a few",
+            "options": [
+                "a few",
+                "a little",
+                "much"
+            ],
+            "target": "There are a few stamps in my desk.",
+            "groups": [
+                "There are",
+                "a few stamps",
+                "in my desk."
+            ],
+            "uk": "У моєму письмовому столі є кілька марок.",
+            "hint_uk": "Передай кілька окремих марок, а не малу кількість речовини; приймаються два кількісні відповідники.",
+            "answer_synonyms": ["several"]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Я купив буханець хліба.",
+            "target": "I bought a loaf of bread.",
+            "groups": [
+                "I",
+                "bought",
+                "a loaf",
+                "of bread."
+            ],
+            "compose_slots": [
+                "I",
+                "bought",
+                "a loaf",
+                "of bread."
+            ],
+            "slot_roles": [
+                "atwo_subject",
+                "atwo_verb",
+                "atwo_object",
+                "atwo_context"
+            ],
+            "uk": "Я купив буханець хліба.",
+            "hint_uk": "Збережи минулий час і одну цілу хлібину; дієслово купівлі має два прийнятні відповідники.",
+            "display_synonyms": {
+                "bought": [
+                    "purchased"
+                ]
+            },
+            "accepted_targets": [
+                "I purchased a loaf of bread."
+            ]
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "We have {a1} petrol, but not enough to reach the next town.",
+            "answer": "a little",
+            "options": [
+                "a little",
+                "a few",
+                "many"
+            ],
+            "target": "We have a little petrol, but not enough to reach the next town.",
+            "groups": [
+                "We have",
+                "a little petrol,",
+                "but not enough",
+                "to reach",
+                "the next town."
+            ],
+            "uk": "У нас є трохи бензину, але його недостатньо, щоб дістатися наступного міста.",
+            "hint_uk": "Передай наявність невеликого запасу пального; його недостатність уже названа далі. Приймаються дві природні кількісні форми.",
+            "answer_synonyms": ["some"]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "A number of volunteers {a1} waiting outside.",
+            "answer": "are",
+            "options": [
+                "are",
+                "is",
+                "was"
+            ],
+            "target": "A number of volunteers are waiting outside.",
+            "groups": [
+                "A number",
+                "of volunteers",
+                "are waiting outside."
+            ],
+            "uk": "Низка волонтерів чекає надворі.",
+            "hint_uk": "Узгодь присудок із кількома волонтерами, а не з числом як одним показником."
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Порада, яку ти мені дав, була корисною.",
+            "target": "The advice you gave me was useful.",
+            "groups": [
+                "The advice",
+                "you gave me",
+                "was useful."
+            ],
+            "compose_slots": [
+                "The advice",
+                "you gave me",
+                "was useful."
+            ],
+            "slot_roles": [
+                "bone_subject",
+                "bone_verb",
+                "bone_object"
+            ],
+            "uk": "Порада, яку ти мені дав, була корисною.",
+            "hint_uk": "Почни з конкретної поради; збережи того, хто її дав, і минулу оцінку користі. Корисність можна передати двома прикметниками.",
+            "display_synonyms": {
+                "was useful.": [
+                    "was helpful."
+                ]
+            },
+            "accepted_targets": [
+                "The advice you gave me was helpful."
+            ]
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Very {a1} applicants met all four conditions, so interviews ended early.",
+            "answer": "few",
+            "options": [
+                "few",
+                "little",
+                "much"
+            ],
+            "target": "Very few applicants met all four conditions, so interviews ended early.",
+            "groups": [
+                "Very few applicants",
+                "met all",
+                "four conditions,",
+                "so interviews",
+                "ended early."
+            ],
+            "uk": "Дуже мало претендентів відповідали всім чотирьом умовам, тому співбесіди закінчилися рано.",
+            "hint_uk": "Підкресли малу кількість окремих претендентів; підсилювальне слово вже наведене."
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "She has {a1} Swedish.",
+            "answer": "an excellent command of",
+            "options": [
+                "an excellent command of",
+                "an excellent command for",
+                "a excellent command of"
+            ],
+            "target": "She has an excellent command of Swedish.",
+            "groups": [
+                "She has",
+                "an excellent",
+                "command of Swedish."
+            ],
+            "uk": "Вона чудово володіє шведською.",
+            "hint_uk": "Передай чудове володіння мовою через іменник зі значенням опанування та потрібний прийменник."
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Ми отримали кілька скарг на шум.",
+            "target": "We received several complaints about the noise.",
+            "groups": [
+                "We received",
+                "several complaints",
+                "about the noise."
+            ],
+            "compose_slots": [
+                "We received",
+                "several complaints",
+                "about the noise."
+            ],
+            "slot_roles": [
+                "btwo_subject",
+                "btwo_verb",
+                "btwo_object"
+            ],
+            "uk": "Ми отримали кілька скарг на шум.",
+            "hint_uk": "Почни з нас як одержувачів; назви кілька скарг без точного числа та збережи їхню причину. Отримання й кількість мають по два природні відповідники.",
+            "display_synonyms": {"We received": ["We got"], "several complaints": ["a few complaints"]},
+            "accepted_targets": [
+                "We got several complaints about the noise.",
+                "We received a few complaints about the noise.",
+                "We got a few complaints about the noise."
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "There is {a1} room for error in this procedure.",
+            "answer": "little",
+            "options": [
+                "little",
+                "few",
+                "a few"
+            ],
+            "target": "There is little room for error in this procedure.",
+            "groups": [
+                "There is",
+                "little room",
+                "for error",
+                "in this procedure."
+            ],
+            "uk": "У цій процедурі майже немає права на помилку.",
+            "hint_uk": "Передай дуже обмежену можливість помилитися; простір тут не означає окремі кімнати. Приймаються чотири природні кількісні форми без абсолютного нуля.",
+            "answer_synonyms": ["not much", "very little", "hardly any"]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The number of missing entries {a1} sharply.",
+            "answer": "has fallen",
+            "options": [
+                "has fallen",
+                "have fallen",
+                "has fell"
+            ],
+            "target": "The number of missing entries has fallen sharply.",
+            "groups": [
+                "The number",
+                "of missing entries",
+                "has fallen sharply."
+            ],
+            "uk": "Кількість відсутніх записів різко зменшилася.",
+            "hint_uk": "Передай завершене до теперішнього скорочення самого числового показника; потрібне узгодження в однині. Приймаються чотири природні дієслівні відповідники.",
+            "answer_synonyms": ["has decreased", "has dropped", "has declined"]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Значна частина обладнання залишається невикористаною.",
+            "target": "Much of the equipment remains unused.",
+            "groups": [
+                "Much of",
+                "the equipment",
+                "remains unused."
+            ],
+            "compose_slots": [
+                "Much of",
+                "the equipment",
+                "remains unused."
+            ],
+            "slot_roles": [
+                "cone_subject",
+                "cone_verb",
+                "cone_object"
+            ],
+            "uk": "Значна частина обладнання залишається невикористаною.",
+            "hint_uk": "Збережи значний обсяг, конкретне обладнання та його невикористаний стан; обладнання допускає два відповідники.",
+            "display_synonyms": {
+                "the equipment": [
+                    "the apparatus"
+                ],
+                "remains unused.": [
+                    "is still unused."
+                ]
+            },
+            "accepted_targets": [
+                "Much of the apparatus remains unused.",
+                "Much of the equipment is still unused.",
+                "Much of the apparatus is still unused."
+            ]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "There is {a1} evidence that either estimate can support so precise a claim.",
+            "answer": "insufficient",
+            "options": [
+                "insufficient",
+                "conclusive",
+                "overwhelming"
+            ],
+            "target": "There is insufficient evidence that either estimate can support so precise a claim.",
+            "groups": [
+                "There is",
+                "insufficient evidence",
+                "that either estimate",
+                "can support",
+                "so precise",
+                "a claim."
+            ],
+            "uk": "Недостатньо свідчень того, що хоча б одна з двох оцінок здатна підтвердити настільки точне твердження.",
+            "hint_uk": "Назви недостатню доказову підтримку, а не її повну відсутність; приймаються два близькі прикметники.",
+            "answer_synonyms": [
+                "inadequate"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "Many a promising proposal {a1} for lack of evidence.",
+            "answer": "has failed",
+            "options": [
+                "has failed",
+                "have failed",
+                "has fail"
+            ],
+            "target": "Many a promising proposal has failed for lack of evidence.",
+            "groups": [
+                "Many a",
+                "promising proposal",
+                "has failed",
+                "for lack",
+                "of evidence."
+            ],
+            "uk": "Чимало перспективних пропозицій зазнали невдачі через брак доказів.",
+            "hint_uk": "Узгодь завершений до теперішнього результат з одниною після формальної кількісної конструкції."
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Не всі зовні незначні відхилення є нешкідливими.",
+            "target": "Not all of the seemingly minor deviations are harmless.",
+            "groups": [
+                "Not all",
+                "of the seemingly",
+                "minor deviations",
+                "are harmless."
+            ],
+            "compose_slots": [
+                "Not all",
+                "of the seemingly",
+                "minor deviations",
+                "are harmless."
+            ],
+            "slot_roles": [
+                "ctwo_subject",
+                "ctwo_verb",
+                "ctwo_object",
+                "ctwo_context"
+            ],
+            "uk": "Не всі зовні незначні відхилення є нешкідливими.",
+            "hint_uk": "Збережи часткове, а не повне заперечення, зовнішню незначність і оцінку нешкідливості; остання допускає два прикметники.",
+            "display_synonyms": {
+                "are harmless.": [
+                    "are innocuous."
+                ]
+            },
+            "accepted_targets": [
+                "Not all of the seemingly minor deviations are innocuous."
+            ]
+        }
+    ]
+}

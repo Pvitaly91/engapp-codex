@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62534,
+        "uuid": "qnq-tags-b2-g01",
+        "question": "The auditor hardly spoke, {a1}?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 60,
+        "source_id": 462,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionTagsDisjunctiveQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "did she",
+                "didn't she",
+                "has she"
+            ]
+        },
+        "theory_text_block_uuid": "3d3c00b9-03cd-5348-bc97-b50bdbf6a62f",
+        "created_at": "2026-10-30T13:53:00.000000Z",
+        "updated_at": "2026-10-30T13:53:00.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 462,
+        "name": "Questions and Negations Quality: Question Tags: підтвердження та уточнення",
+        "created_at": "2026-10-30T13:52:57.000000Z",
+        "updated_at": "2026-10-30T13:52:57.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 288,
+                "name": "Question Tags",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62534,
+                "tag_id": 288,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 6381,
+                "option": "didn't she",
+                "created_at": "2026-04-23T14:44:48.000000Z",
+                "updated_at": "2026-04-23T14:44:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 62534,
+                "option_id": 6381,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6483,
+                "option": "did she",
+                "created_at": "2026-04-23T14:45:37.000000Z",
+                "updated_at": "2026-04-23T14:45:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 62534,
+                "option_id": 6483,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57007,
+                "option": "has she",
+                "created_at": "2026-10-30T13:53:00.000000Z",
+                "updated_at": "2026-10-30T13:53:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 62534,
+                "option_id": 57007,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332151,
+                "question_id": 62534,
+                "marker": "a1",
+                "option_id": 6483,
+                "created_at": "2026-10-30T13:53:00.000000Z",
+                "updated_at": "2026-10-30T13:53:00.000000Z"
+            },
+            "option": {
+                "id": 6483,
+                "option": "did she",
+                "created_at": "2026-04-23T14:45:37.000000Z",
+                "updated_at": "2026-04-23T14:45:37.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49485,
+                "question_id": 62534,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57006,
+                "created_at": "2026-10-30T13:53:00.000000Z",
+                "updated_at": "2026-10-30T13:53:00.000000Z"
+            },
+            "option": {
+                "id": 57006,
+                "option": "Прислівник із заперечним змістом робить хвостик стверджувальним.",
+                "created_at": "2026-10-30T13:53:00.000000Z",
+                "updated_at": "2026-10-30T13:53:00.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54549,
+            "question_id": 62534,
+            "text": "The auditor hardly spoke, {a1}?",
+            "created_at": "2026-10-30T13:53:00.000000Z",
+            "updated_at": "2026-10-30T13:53:00.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

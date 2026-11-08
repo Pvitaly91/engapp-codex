@@ -1,0 +1,1650 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/mistakes.v1.json",
+        "sha256": "3b1e4ccace358d294a447b5c3853e35e4ec0a5be80f3f494d0b4a399556a9e77"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceCommonMistakesQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-mistakes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_mistakes": {
+            "name": "Passive Voice Quality: Типові помилки в пасивному стані"
+        }
+    },
+    "tags": {
+        "passive_voice_common_mistakes": {
+            "name": "Passive Voice Common Mistakes",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "missing_be": {
+            "name": "Missing Be",
+            "category": "topic"
+        },
+        "wrong_v3": {
+            "name": "Wrong V3",
+            "category": "topic"
+        },
+        "wrong_tense": {
+            "name": "Wrong Tense",
+            "category": "topic"
+        },
+        "active_instead_passive": {
+            "name": "Active Instead Passive",
+            "category": "topic"
+        },
+        "wrong_agreement": {
+            "name": "Wrong Agreement",
+            "category": "topic"
+        },
+        "by_agent_overuse": {
+            "name": "By Agent Overuse",
+            "category": "topic"
+        },
+        "intransitive_verbs": {
+            "name": "Intransitive Verbs",
+            "category": "topic"
+        },
+        "incorrect_modal_passive": {
+            "name": "Incorrect Modal Passive",
+            "category": "topic"
+        },
+        "style_register": {
+            "name": "Style Register",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-mistakes-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The cups {a1} after lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Чашки миють після обіду.",
+            "target_text": "The cups are washed after lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "are washed",
+                    "options": [
+                        "are washed",
+                        "is washed",
+                        "are wash"
+                    ],
+                    "verb_hint": "Миють після обіду; це звична дія у множині."
+                }
+            },
+            "verb_hint": "Миють після обіду; це звична дія у множині.",
+            "accepted_target_texts": [
+                "The cups are washed after lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cups",
+                "are washed",
+                "after lunch."
+            ],
+            "token_groups": [
+                "The cups",
+                "are washed",
+                "after lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-mistakes-a1-g02",
+            "author_id": "A1-g02",
+            "question": "This jacket {a1} of wool.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Цю куртку виготовлено з вовни.",
+            "target_text": "This jacket is made of wool.",
+            "markers": {
+                "a1": {
+                    "answer": "is made",
+                    "options": [
+                        "is made",
+                        "is make",
+                        "makes"
+                    ],
+                    "verb_hint": "Виготовлено з вовни."
+                }
+            },
+            "verb_hint": "Виготовлено з вовни.",
+            "accepted_target_texts": [
+                "This jacket is made of wool."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This jacket",
+                "is made",
+                "of wool."
+            ],
+            "token_groups": [
+                "This jacket",
+                "is made",
+                "of wool."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-mistakes-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Our classroom {a1} at lunchtime.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Наш клас не замикають в обідню перерву.",
+            "target_text": "Our classroom is not locked at lunchtime.",
+            "markers": {
+                "a1": {
+                    "answer": "is not locked",
+                    "options": [
+                        "is not locked",
+                        "does not locked",
+                        "not is locked"
+                    ],
+                    "verb_hint": "Не замикають в обідню перерву."
+                }
+            },
+            "verb_hint": "Не замикають в обідню перерву.",
+            "accepted_target_texts": [
+                "Our classroom is not locked at lunchtime."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our classroom",
+                "is not locked",
+                "at lunchtime."
+            ],
+            "token_groups": [
+                "Our classroom",
+                "is not locked",
+                "at lunchtime."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-mistakes-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} the cake sold here?",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Чи продають тут цей торт?",
+            "target_text": "Is the cake sold here?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Do"
+                    ],
+                    "verb_hint": "Питаємо про продаж торта тут; потрібен початок пасивного питання."
+                }
+            },
+            "verb_hint": "Питаємо про продаж торта тут; потрібен початок пасивного питання.",
+            "accepted_target_texts": [
+                "Is the cake sold here?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the cake",
+                "sold here?"
+            ],
+            "token_groups": [
+                "Is",
+                "the cake",
+                "sold here?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-mistakes-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The buses {a1} yellow.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Автобуси фарбують у жовтий колір.",
+            "target_text": "The buses are painted yellow.",
+            "markers": {
+                "a1": {
+                    "answer": "are painted",
+                    "options": [
+                        "are painted",
+                        "is painted",
+                        "are painting"
+                    ],
+                    "verb_hint": "Фарбують у жовтий колір."
+                }
+            },
+            "verb_hint": "Фарбують у жовтий колір.",
+            "accepted_target_texts": [
+                "The buses are painted yellow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The buses",
+                "are painted",
+                "yellow."
+            ],
+            "token_groups": [
+                "The buses",
+                "are painted",
+                "yellow."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-mistakes-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The surname is {a1} with a hyphen.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Прізвище пишуть через дефіс.",
+            "target_text": "The surname is spelled with a hyphen.",
+            "markers": {
+                "a1": {
+                    "answer": "spelled",
+                    "options": [
+                        "spelled",
+                        "spell",
+                        "spelling"
+                    ],
+                    "verb_hint": "Пишуть через дефіс."
+                }
+            },
+            "verb_hint": "Пишуть через дефіс.",
+            "accepted_target_texts": [
+                "The surname is spelled with a hyphen.",
+                "The surname is spelt with a hyphen."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "spelt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "spelt"
+                ]
+            },
+            "reorder_groups": [
+                "The surname",
+                "is spelled",
+                "with a hyphen."
+            ],
+            "token_groups": [
+                "The surname",
+                "is spelled",
+                "with a hyphen."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-mistakes-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The wallet {a1} near a green bench.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Гаманець знайшли біля зеленої лавки.",
+            "target_text": "The wallet was found near a green bench.",
+            "markers": {
+                "a1": {
+                    "answer": "was found",
+                    "options": [
+                        "was found",
+                        "were found",
+                        "was find"
+                    ],
+                    "verb_hint": "Знайшли біля зеленої лавки."
+                }
+            },
+            "verb_hint": "Знайшли біля зеленої лавки.",
+            "accepted_target_texts": [
+                "The wallet was found near a green bench."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wallet",
+                "was found",
+                "near",
+                "a green bench."
+            ],
+            "token_groups": [
+                "The wallet",
+                "was found",
+                "near",
+                "a green bench."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-mistakes-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Those boots {a1} in April.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Ті черевики купили у квітні.",
+            "target_text": "Those boots were bought in April.",
+            "markers": {
+                "a1": {
+                    "answer": "were bought",
+                    "options": [
+                        "were bought",
+                        "was bought",
+                        "were buy"
+                    ],
+                    "verb_hint": "Купили у квітні."
+                }
+            },
+            "verb_hint": "Купили у квітні.",
+            "accepted_target_texts": [
+                "Those boots were bought in April."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those boots",
+                "were bought",
+                "in April."
+            ],
+            "token_groups": [
+                "Those boots",
+                "were bought",
+                "in April."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-mistakes-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The juice {a1} with ice.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Сік не подавали з льодом.",
+            "target_text": "The juice was not served with ice.",
+            "markers": {
+                "a1": {
+                    "answer": "was not served",
+                    "options": [
+                        "was not served",
+                        "did not served",
+                        "not was served"
+                    ],
+                    "verb_hint": "Не подавали з льодом."
+                }
+            },
+            "verb_hint": "Не подавали з льодом.",
+            "accepted_target_texts": [
+                "The juice was not served with ice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The juice",
+                "was not served",
+                "with ice."
+            ],
+            "token_groups": [
+                "The juice",
+                "was not served",
+                "with ice."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-mistakes-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} the tickets printed yesterday?",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Чи надрукували квитки вчора?",
+            "target_text": "Were the tickets printed yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "options": [
+                        "Were",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Питаємо про вчорашній друк квитків; підмет у множині."
+                }
+            },
+            "verb_hint": "Питаємо про вчорашній друк квитків; підмет у множині.",
+            "accepted_target_texts": [
+                "Were the tickets printed yesterday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were",
+                "the tickets",
+                "printed yesterday?"
+            ],
+            "token_groups": [
+                "Were",
+                "the tickets",
+                "printed yesterday?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-mistakes-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The scarf was {a1} to my aunt.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Шарф подарували моїй тітці.",
+            "target_text": "The scarf was given to my aunt.",
+            "markers": {
+                "a1": {
+                    "answer": "given",
+                    "options": [
+                        "given",
+                        "gave",
+                        "give"
+                    ],
+                    "verb_hint": "Подарували моїй тітці."
+                }
+            },
+            "verb_hint": "Подарували моїй тітці.",
+            "accepted_target_texts": [
+                "The scarf was given to my aunt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The scarf",
+                "was given",
+                "to my aunt."
+            ],
+            "token_groups": [
+                "The scarf",
+                "was given",
+                "to my aunt."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-mistakes-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The washing machine {a1} down last night.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Пральна машина зламалася минулої ночі.",
+            "target_text": "The washing machine broke down last night.",
+            "markers": {
+                "a1": {
+                    "answer": "broke",
+                    "options": [
+                        "broke",
+                        "was broken down",
+                        "was break"
+                    ],
+                    "verb_hint": "Зламалася минулої ночі; тут дія неперехідна."
+                }
+            },
+            "verb_hint": "Зламалася минулої ночі; тут дія неперехідна.",
+            "accepted_target_texts": [
+                "The washing machine broke down last night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The washing machine",
+                "broke",
+                "down last",
+                "night."
+            ],
+            "token_groups": [
+                "The washing machine",
+                "broke",
+                "down last",
+                "night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-mistakes-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The missing ring has {a1} to its owner.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Загублену каблучку вже повернули власникові.",
+            "target_text": "The missing ring has been returned to its owner.",
+            "markers": {
+                "a1": {
+                    "answer": "been returned",
+                    "options": [
+                        "been returned",
+                        "being returned",
+                        "be returned"
+                    ],
+                    "verb_hint": "Вже повернули власникові."
+                }
+            },
+            "verb_hint": "Вже повернули власникові.",
+            "accepted_target_texts": [
+                "The missing ring has been returned to its owner."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing ring",
+                "has",
+                "been returned",
+                "to its owner."
+            ],
+            "token_groups": [
+                "The missing ring",
+                "has",
+                "been returned",
+                "to its owner."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-mistakes-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The invoices {a1} by email.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Рахунки вже надіслали електронною поштою.",
+            "target_text": "The invoices have been sent by email.",
+            "markers": {
+                "a1": {
+                    "answer": "have been sent",
+                    "options": [
+                        "have been sent",
+                        "has been sent",
+                        "have being sent"
+                    ],
+                    "verb_hint": "Вже надіслали електронною поштою."
+                }
+            },
+            "verb_hint": "Вже надіслали електронною поштою.",
+            "accepted_target_texts": [
+                "The invoices have been sent by email."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The invoices",
+                "have been sent",
+                "by email."
+            ],
+            "token_groups": [
+                "The invoices",
+                "have been sent",
+                "by email."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-mistakes-b1-g03",
+            "author_id": "B1-g03",
+            "question": "This password must {a1} before login.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Цей пароль треба змінити перед входом.",
+            "target_text": "This password must be changed before login.",
+            "markers": {
+                "a1": {
+                    "answer": "be changed",
+                    "options": [
+                        "be changed",
+                        "been changed",
+                        "be change"
+                    ],
+                    "verb_hint": "Треба змінити перед входом."
+                }
+            },
+            "verb_hint": "Треба змінити перед входом.",
+            "accepted_target_texts": [
+                "This password must be changed before login."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This password",
+                "must be changed",
+                "before login."
+            ],
+            "token_groups": [
+                "This password",
+                "must be changed",
+                "before login."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-mistakes-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The injured runner is {a1} right now.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Травмованого бігуна оглядають саме зараз.",
+            "target_text": "The injured runner is being examined right now.",
+            "markers": {
+                "a1": {
+                    "answer": "being examined",
+                    "options": [
+                        "being examined",
+                        "been examined",
+                        "being examine"
+                    ],
+                    "verb_hint": "Оглядають саме зараз."
+                }
+            },
+            "verb_hint": "Оглядають саме зараз.",
+            "accepted_target_texts": [
+                "The injured runner is being examined right now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The injured runner",
+                "is",
+                "being examined",
+                "right now."
+            ],
+            "token_groups": [
+                "The injured runner",
+                "is",
+                "being examined",
+                "right now."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-mistakes-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Why {a1} the meeting postponed until Tuesday?",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Чому зустріч перенесли на вівторок?",
+            "target_text": "Why was the meeting postponed until Tuesday?",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "does"
+                    ],
+                    "verb_hint": "Питаємо про минуле перенесення зустрічі; питальне слово вже наведене."
+                }
+            },
+            "verb_hint": "Питаємо про минуле перенесення зустрічі; питальне слово вже наведене.",
+            "accepted_target_texts": [
+                "Why was the meeting postponed until Tuesday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why was",
+                "the meeting",
+                "postponed until",
+                "Tuesday?"
+            ],
+            "token_groups": [
+                "Why was",
+                "the meeting",
+                "postponed until",
+                "Tuesday?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-mistakes-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The old coins were placed {a1} a glass case.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Старі монети поклали у скляну вітрину.",
+            "target_text": "The old coins were placed in a glass case.",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "by",
+                        "with"
+                    ],
+                    "verb_hint": "Поклали у скляну вітрину; потрібен прийменник місця."
+                }
+            },
+            "verb_hint": "Поклали у скляну вітрину; потрібен прийменник місця.",
+            "accepted_target_texts": [
+                "The old coins were placed in a glass case."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The old coins",
+                "were",
+                "placed in",
+                "a glass",
+                "case."
+            ],
+            "token_groups": [
+                "The old coins",
+                "were",
+                "placed in",
+                "a glass",
+                "case."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-mistakes-b2-g01",
+            "author_id": "B2-g01",
+            "question": "By the time we arrived, the exhibition had {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Коли ми прибули, виставку вже демонтували.",
+            "target_text": "By the time we arrived, the exhibition had been dismantled.",
+            "markers": {
+                "a1": {
+                    "answer": "been dismantled",
+                    "options": [
+                        "been dismantled",
+                        "being dismantled",
+                        "be dismantled"
+                    ],
+                    "verb_hint": "Вже демонтували."
+                }
+            },
+            "verb_hint": "Вже демонтували.",
+            "accepted_target_texts": [
+                "By the time we arrived, the exhibition had been dismantled."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By the time",
+                "we arrived,",
+                "the exhibition",
+                "had been dismantled."
+            ],
+            "token_groups": [
+                "By the time",
+                "we arrived,",
+                "the exhibition",
+                "had been dismantled."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-mistakes-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The restrictions should have {a1} last month.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Обмеження слід було скасувати минулого місяця.",
+            "target_text": "The restrictions should have been lifted last month.",
+            "markers": {
+                "a1": {
+                    "answer": "been lifted",
+                    "options": [
+                        "been lifted",
+                        "be lifted",
+                        "been lift"
+                    ],
+                    "verb_hint": "Слід було скасувати минулого місяця."
+                }
+            },
+            "verb_hint": "Слід було скасувати минулого місяця.",
+            "accepted_target_texts": [
+                "The restrictions should have been lifted last month."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restrictions",
+                "should have",
+                "been lifted",
+                "last month."
+            ],
+            "token_groups": [
+                "The restrictions",
+                "should have",
+                "been lifted",
+                "last month."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-mistakes-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Several applicants {a1} when the alarm rang.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "З кількома заявниками саме проводили співбесіду, коли пролунав сигнал.",
+            "target_text": "Several applicants were being interviewed when the alarm rang.",
+            "markers": {
+                "a1": {
+                    "answer": "were being interviewed",
+                    "options": [
+                        "were being interviewed",
+                        "was being interviewed",
+                        "were been interviewed"
+                    ],
+                    "verb_hint": "Саме проводили співбесіду, коли пролунав сигнал; минулий процес у множині."
+                }
+            },
+            "verb_hint": "Саме проводили співбесіду, коли пролунав сигнал; минулий процес у множині.",
+            "accepted_target_texts": [
+                "Several applicants were being interviewed when the alarm rang."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several applicants",
+                "were being interviewed",
+                "when the",
+                "alarm rang."
+            ],
+            "token_groups": [
+                "Several applicants",
+                "were being interviewed",
+                "when the",
+                "alarm rang."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-mistakes-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The proposal is expected {a1} broad support.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Очікують, що пропозиція отримає широку підтримку.",
+            "target_text": "The proposal is expected to receive broad support.",
+            "markers": {
+                "a1": {
+                    "answer": "to receive",
+                    "options": [
+                        "to receive",
+                        "to be received",
+                        "receiving"
+                    ],
+                    "verb_hint": "Отримає широку підтримку; інфінітив активний."
+                }
+            },
+            "verb_hint": "Отримає широку підтримку; інфінітив активний.",
+            "accepted_target_texts": [
+                "The proposal is expected to receive broad support."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "is expected",
+                "to receive",
+                "broad support."
+            ],
+            "token_groups": [
+                "The proposal",
+                "is expected",
+                "to receive",
+                "broad support."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-mistakes-b2-g05",
+            "author_id": "B2-g05",
+            "question": "No explanation {a1} for the discrepancy.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Жодного пояснення розбіжності не запропонували.",
+            "target_text": "No explanation was offered for the discrepancy.",
+            "markers": {
+                "a1": {
+                    "answer": "was offered",
+                    "options": [
+                        "was offered",
+                        "were offered",
+                        "was offering"
+                    ],
+                    "verb_hint": "Розбіжності не запропонували."
+                }
+            },
+            "verb_hint": "Розбіжності не запропонували.",
+            "accepted_target_texts": [
+                "No explanation was offered for the discrepancy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No explanation",
+                "was offered",
+                "for the discrepancy."
+            ],
+            "token_groups": [
+                "No explanation",
+                "was offered",
+                "for the discrepancy."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-mistakes-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The negotiations {a1} without agreement.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Переговори завершилися без угоди.",
+            "target_text": "The negotiations ended without agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "ended",
+                    "options": [
+                        "ended",
+                        "were ended down",
+                        "were end"
+                    ],
+                    "verb_hint": "Завершилися без угоди; тут дія неперехідна."
+                }
+            },
+            "verb_hint": "Завершилися без угоди; тут дія неперехідна.",
+            "accepted_target_texts": [
+                "The negotiations ended without agreement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The negotiations",
+                "ended",
+                "without agreement."
+            ],
+            "token_groups": [
+                "The negotiations",
+                "ended",
+                "without agreement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-mistakes-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The consultant is believed {a1} a crucial detail.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Вважають, що консультант не помітив важливої деталі.",
+            "target_text": "The consultant is believed to have overlooked a crucial detail.",
+            "markers": {
+                "a1": {
+                    "answer": "to have overlooked",
+                    "options": [
+                        "to have overlooked",
+                        "to has overlooked",
+                        "having overlooked"
+                    ],
+                    "verb_hint": "Не помітив важливої деталі."
+                }
+            },
+            "verb_hint": "Не помітив важливої деталі.",
+            "accepted_target_texts": [
+                "The consultant is believed to have overlooked a crucial detail.",
+                "The consultant is believed to have missed a crucial detail."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to have missed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to have missed"
+                ]
+            },
+            "reorder_groups": [
+                "The consultant",
+                "is believed",
+                "to have overlooked",
+                "a crucial",
+                "detail."
+            ],
+            "token_groups": [
+                "The consultant",
+                "is believed",
+                "to have overlooked",
+                "a crucial",
+                "detail."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-mistakes-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The revised statute has yet {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Переглянутий статут іще має бути ратифікований.",
+            "target_text": "The revised statute has yet to be ratified.",
+            "markers": {
+                "a1": {
+                    "answer": "to be ratified",
+                    "options": [
+                        "to be ratified",
+                        "to being ratified",
+                        "be ratified"
+                    ],
+                    "verb_hint": "Іще має бути ратифікований."
+                }
+            },
+            "verb_hint": "Іще має бути ратифікований.",
+            "accepted_target_texts": [
+                "The revised statute has yet to be ratified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised statute",
+                "has",
+                "yet to be",
+                "ratified."
+            ],
+            "token_groups": [
+                "The revised statute",
+                "has",
+                "yet to be",
+                "ratified."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-mistakes-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Had the defect {a1} earlier, costs would have fallen.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Якби дефект виявили раніше, витрати були б меншими.",
+            "target_text": "Had the defect been detected earlier, costs would have fallen.",
+            "markers": {
+                "a1": {
+                    "answer": "been detected",
+                    "options": [
+                        "been detected",
+                        "being detected",
+                        "be detected"
+                    ],
+                    "verb_hint": "Виявили раніше, витрати були б меншими."
+                }
+            },
+            "verb_hint": "Виявили раніше, витрати були б меншими.",
+            "accepted_target_texts": [
+                "Had the defect been detected earlier, costs would have fallen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had",
+                "the defect",
+                "been detected",
+                "earlier,",
+                "costs",
+                "would have fallen."
+            ],
+            "token_groups": [
+                "Had",
+                "the defect",
+                "been detected",
+                "earlier,",
+                "costs",
+                "would have fallen."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-mistakes-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The figures are said {a1} misinterpreted deliberately.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Кажуть, що цифри навмисно неправильно витлумачили.",
+            "target_text": "The figures are said to have been misinterpreted deliberately.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Навмисно неправильно витлумачили."
+                }
+            },
+            "verb_hint": "Навмисно неправильно витлумачили.",
+            "accepted_target_texts": [
+                "The figures are said to have been misinterpreted deliberately."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The figures",
+                "are said",
+                "to have been",
+                "misinterpreted deliberately."
+            ],
+            "token_groups": [
+                "The figures",
+                "are said",
+                "to have been",
+                "misinterpreted deliberately."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-mistakes-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The delegation objected to {a1} from consultations.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Делегація заперечувала проти усунення від консультацій.",
+            "target_text": "The delegation objected to being excluded from consultations.",
+            "markers": {
+                "a1": {
+                    "answer": "being excluded",
+                    "options": [
+                        "being excluded",
+                        "be excluded",
+                        "been excluded"
+                    ],
+                    "verb_hint": "Заперечувала проти усунення від консультацій."
+                }
+            },
+            "verb_hint": "Заперечувала проти усунення від консультацій.",
+            "accepted_target_texts": [
+                "The delegation objected to being excluded from consultations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "objected to",
+                "being excluded",
+                "from consultations."
+            ],
+            "token_groups": [
+                "The delegation",
+                "objected to",
+                "being excluded",
+                "from consultations."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-mistakes-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The judgment cannot {a1} in this jurisdiction.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "У цій юрисдикції рішення не можна оскаржити.",
+            "target_text": "The judgment cannot be appealed in this jurisdiction.",
+            "markers": {
+                "a1": {
+                    "answer": "be appealed",
+                    "options": [
+                        "be appealed",
+                        "been appealed",
+                        "be appeal"
+                    ],
+                    "verb_hint": "Не можна оскаржити."
+                }
+            },
+            "verb_hint": "Не можна оскаржити.",
+            "accepted_target_texts": [
+                "The judgment cannot be appealed in this jurisdiction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judgment",
+                "cannot be appealed",
+                "in this jurisdiction."
+            ],
+            "token_groups": [
+                "The judgment",
+                "cannot be appealed",
+                "in this jurisdiction."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-mistakes-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The concession is understood {a1} withdrawn tacitly.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Вважається, що поступку мовчазно відкликали.",
+            "target_text": "The concession is understood to have been withdrawn tacitly.",
+            "markers": {
+                "a1": {
+                    "answer": "to have been",
+                    "options": [
+                        "to have been",
+                        "to has been",
+                        "having been"
+                    ],
+                    "verb_hint": "Мовчазно відкликали."
+                }
+            },
+            "verb_hint": "Мовчазно відкликали.",
+            "accepted_target_texts": [
+                "The concession is understood to have been withdrawn tacitly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "is understood",
+                "to have been",
+                "withdrawn tacitly."
+            ],
+            "token_groups": [
+                "The concession",
+                "is understood",
+                "to have been",
+                "withdrawn tacitly."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-mistakes-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The claimant resented {a1} in the submission.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Позивач обурювався, що в поданні його раніше неправильно процитували.",
+            "target_text": "The claimant resented having been misquoted in the submission.",
+            "markers": {
+                "a1": {
+                    "answer": "having been misquoted",
+                    "options": [
+                        "having been misquoted",
+                        "have been misquoted",
+                        "having being misquoted"
+                    ],
+                    "verb_hint": "Обурювався, що в поданні його раніше неправильно процитували."
+                }
+            },
+            "verb_hint": "Обурювався, що в поданні його раніше неправильно процитували.",
+            "accepted_target_texts": [
+                "The claimant resented having been misquoted in the submission."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The claimant",
+                "resented having been",
+                "misquoted",
+                "in the submission."
+            ],
+            "token_groups": [
+                "The claimant",
+                "resented having been",
+                "misquoted",
+                "in the submission."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-mistakes-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Were the exemption {a1}, implementation would cease.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Якби виняток скасували, виконання припинилося б.",
+            "target_text": "Were the exemption to be revoked, implementation would cease.",
+            "markers": {
+                "a1": {
+                    "answer": "to be revoked",
+                    "options": [
+                        "to be revoked",
+                        "to being revoked",
+                        "be revoked"
+                    ],
+                    "verb_hint": "Скасували, виконання припинилося б."
+                }
+            },
+            "verb_hint": "Скасували, виконання припинилося б.",
+            "accepted_target_texts": [
+                "Were the exemption to be revoked, implementation would cease."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Were",
+                "the exemption",
+                "to be revoked,",
+                "implementation",
+                "would cease."
+            ],
+            "token_groups": [
+                "Were",
+                "the exemption",
+                "to be revoked,",
+                "implementation",
+                "would cease."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-mistakes-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The breach might never have {a1} without judicial intervention.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Без судового втручання порушення могли б ніколи не розкрити.",
+            "target_text": "The breach might never have been disclosed without judicial intervention.",
+            "markers": {
+                "a1": {
+                    "answer": "been disclosed",
+                    "options": [
+                        "been disclosed",
+                        "being disclosed",
+                        "be disclosed"
+                    ],
+                    "verb_hint": "Могли б ніколи не розкрити."
+                }
+            },
+            "verb_hint": "Могли б ніколи не розкрити.",
+            "accepted_target_texts": [
+                "The breach might never have been disclosed without judicial intervention."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The breach",
+                "might never",
+                "have been disclosed",
+                "without judicial intervention."
+            ],
+            "token_groups": [
+                "The breach",
+                "might never",
+                "have been disclosed",
+                "without judicial intervention."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-mistakes-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The artefacts are believed {a1} the settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Вважають, що артефакти давніші за поселення.",
+            "target_text": "The artefacts are believed to predate the settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "to predate",
+                    "options": [
+                        "to predate",
+                        "to be predated",
+                        "predating"
+                    ],
+                    "verb_hint": "Давніші за поселення; інфінітив активний."
+                }
+            },
+            "verb_hint": "Давніші за поселення; інфінітив активний.",
+            "accepted_target_texts": [
+                "The artefacts are believed to predate the settlement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The artefacts",
+                "are believed",
+                "to predate",
+                "the settlement."
+            ],
+            "token_groups": [
+                "The artefacts",
+                "are believed",
+                "to predate",
+                "the settlement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-mistakes-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The discrepancy was attributed {a1} a methodological flaw.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_mistakes",
+            "translation_uk": "Розбіжність пояснили методологічною вадою.",
+            "target_text": "The discrepancy was attributed to a methodological flaw.",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "by",
+                        "with"
+                    ],
+                    "verb_hint": "Пояснили методологічною вадою."
+                }
+            },
+            "verb_hint": "Пояснили методологічною вадою.",
+            "accepted_target_texts": [
+                "The discrepancy was attributed to a methodological flaw."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "was attributed",
+                "to",
+                "a methodological",
+                "flaw."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "was attributed",
+                "to",
+                "a methodological",
+                "flaw."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

@@ -1,0 +1,599 @@
+{
+    "schema_version": 1,
+    "topic_key": "relative-clauses",
+    "title": "Relative Clauses",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The woman {a1} next door is a nurse.",
+            "target": "The woman who lives next door is a nurse.",
+            "uk": "Жінка, яка живе поруч, — медсестра.",
+            "hint_uk": "Яка живе; зв’яжи назву людини з її місцем проживання.",
+            "groups": [
+                "The woman",
+                "who lives",
+                "next door",
+                "is a nurse."
+            ],
+            "answer": "who lives",
+            "options": [
+                "who lives",
+                "which lives",
+                "who live"
+            ],
+            "answer_synonyms": [
+                "that lives"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The cat {a1} on our wall is black.",
+            "target": "The cat that sits on our wall is black.",
+            "uk": "Кіт, який сидить на нашому мурі, чорний.",
+            "hint_uk": "Який сидить; відносне слово називає тварину, а дієслово стосується одного кота.",
+            "groups": [
+                "The cat",
+                "that sits",
+                "on our wall",
+                "is black."
+            ],
+            "answer": "that sits",
+            "options": [
+                "that sits",
+                "whose sits",
+                "that sit"
+            ],
+            "answer_synonyms": [
+                "which sits"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Це хлопчик, який годує качок.",
+            "target": "This is the boy who feeds the ducks.",
+            "uk": "Це хлопчик, який годує качок.",
+            "hint_uk": "Почни зі слів це є; далі назви хлопчика й його звичну дію.",
+            "groups": [
+                "This is",
+                "the boy",
+                "who feeds",
+                "the ducks."
+            ],
+            "compose_slots": [
+                "This is",
+                "the boy",
+                "who feeds",
+                "the ducks."
+            ],
+            "slot_roles": [
+                "verb_phrase",
+                "noun_phrase",
+                "relative_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "This is the boy that feeds the ducks."
+            ],
+            "display_synonyms": {
+                "who feeds": [
+                    "that feeds"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The biscuits {a1} yesterday taste of lemon.",
+            "target": "The biscuits which we baked yesterday taste of lemon.",
+            "uk": "Печиво, яке ми спекли вчора, має смак лимона.",
+            "hint_uk": "Яке ми спекли; після відносного слова збережи виконавця перед минулим дієсловом.",
+            "groups": [
+                "The biscuits",
+                "which we baked",
+                "yesterday",
+                "taste of lemon."
+            ],
+            "answer": "which we baked",
+            "options": [
+                "which we baked",
+                "who we baked",
+                "which baked we"
+            ],
+            "answer_synonyms": [
+                "that we baked",
+                "we baked"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "I know the girl {a1} won the race.",
+            "target": "I know the girl whose brother won the race.",
+            "uk": "Я знаю дівчинку, чий брат виграв забіг.",
+            "hint_uk": "Чий брат; потрібна присвійна відносна форма без додаткового займенника.",
+            "groups": [
+                "I know",
+                "the girl",
+                "whose brother",
+                "won the race."
+            ],
+            "answer": "whose brother",
+            "options": [
+                "whose brother",
+                "which brother",
+                "who her brother"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Де парасоля, яку ти позичив мені?",
+            "target": "Where is the umbrella that you lent me?",
+            "uk": "Де парасоля, яку ти позичив мені?",
+            "hint_uk": "Побудуй питання про місце парасолі; у підрядній частині збережи одержувача.",
+            "groups": [
+                "Where is",
+                "the umbrella",
+                "that you",
+                "lent me?"
+            ],
+            "compose_slots": [
+                "Where is",
+                "the umbrella",
+                "that you",
+                "lent me?"
+            ],
+            "slot_roles": [
+                "verb_phrase",
+                "noun_phrase",
+                "relative_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "Where is the umbrella that you loaned me?",
+                "Where is the umbrella which you lent me?",
+                "Where is the umbrella which you loaned me?",
+                "Where is the umbrella you lent me?",
+                "Where is the umbrella you loaned me?"
+            ],
+            "display_synonyms": {
+                "that you": [
+                    "which you",
+                    "you"
+                ],
+                "lent me?": [
+                    "loaned me?"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The workshop {a1} repaired my cello has moved.",
+            "target": "The workshop that repaired my cello has moved.",
+            "uk": "Майстерня, яка відремонтувала мою віолончель, переїхала.",
+            "hint_uk": "Яка відремонтувала; відносне слово саме є підметом, тому не пропускай його.",
+            "groups": [
+                "The workshop",
+                "that",
+                "repaired my cello",
+                "has moved."
+            ],
+            "answer": "that",
+            "options": [
+                "that",
+                "whose",
+                "what"
+            ],
+            "answer_synonyms": [
+                "which"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The path {a1} the lake is closed after sunset.",
+            "target": "The path which leads to the lake is closed after sunset.",
+            "uk": "Стежка, яка веде до озера, зачинена після заходу сонця.",
+            "hint_uk": "Яка веде до; узгодь дієслово з однією стежкою та збережи напрямок.",
+            "groups": [
+                "The path",
+                "which leads to",
+                "the lake",
+                "is closed",
+                "after sunset."
+            ],
+            "answer": "which leads to",
+            "options": [
+                "which leads to",
+                "which lead to",
+                "whose leads to"
+            ],
+            "answer_synonyms": [
+                "that leads to"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Будинок, дах якого пошкодила буря, тепер порожній.",
+            "target": "The house whose roof the storm damaged is empty now.",
+            "uk": "Будинок, дах якого пошкодила буря, тепер порожній.",
+            "hint_uk": "Назви будинок, потім його дах як предмет пошкодження; не додавай другого власника.",
+            "groups": [
+                "The house",
+                "whose roof",
+                "the storm",
+                "damaged",
+                "is empty",
+                "now."
+            ],
+            "compose_slots": [
+                "The house",
+                "whose roof",
+                "the storm",
+                "damaged",
+                "is empty",
+                "now."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The year {a1} the observatory reopened was unusually cold.",
+            "target": "The year in which the observatory reopened was unusually cold.",
+            "uk": "Рік, у який обсерваторія знову відкрилася, був незвично холодним.",
+            "hint_uk": "У який; збережи вже включений до відповіді прийменник перед відносним словом.",
+            "groups": [
+                "The year",
+                "in which",
+                "the observatory",
+                "reopened",
+                "was unusually cold."
+            ],
+            "answer": "in which",
+            "options": [
+                "in which",
+                "in whose",
+                "in what"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The translator {a1} the publisher relied was unavailable.",
+            "target": "The translator on whom the publisher relied was unavailable.",
+            "uk": "Перекладач, на якого покладався видавець, був недоступний.",
+            "hint_uk": "На якого; після винесеного прийменника назви людину об’єктною відносною формою.",
+            "groups": [
+                "The translator",
+                "on whom",
+                "the publisher",
+                "relied",
+                "was unavailable."
+            ],
+            "answer": "on whom",
+            "options": [
+                "on whom",
+                "on whose",
+                "on which"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Лабораторія, у якій ми випробували датчик, працює цілодобово.",
+            "target": "The laboratory in which we tested the sensor operates around the clock.",
+            "uk": "Лабораторія, у якій ми випробували датчик, працює цілодобово.",
+            "hint_uk": "Почни з лабораторії; використай прийменник перед відносним словом і збережи минуле випробування.",
+            "groups": [
+                "The laboratory",
+                "in which",
+                "we tested",
+                "the sensor",
+                "operates",
+                "around the clock."
+            ],
+            "compose_slots": [
+                "The laboratory",
+                "in which",
+                "we tested",
+                "the sensor",
+                "operates",
+                "around the clock."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "The lab in which we tested the sensor operates around the clock."
+            ],
+            "display_synonyms": {
+                "The laboratory": [
+                    "The lab"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The testimony {a1} the prosecution rested was later withdrawn.",
+            "target": "The testimony on which the prosecution rested was later withdrawn.",
+            "uk": "Свідчення, на яких ґрунтувалося обвинувачення, пізніше відкликали.",
+            "hint_uk": "На яких; відносне слово відсилає до свідчень, а не до людини.",
+            "groups": [
+                "The testimony",
+                "on which",
+                "the prosecution",
+                "rested",
+                "was later withdrawn."
+            ],
+            "answer": "on which",
+            "options": [
+                "on which",
+                "on whom",
+                "on whose"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The curator rejected the attribution, {a1} surprised the donor.",
+            "target": "The curator rejected the attribution, which surprised the donor.",
+            "uk": "Куратор відхилив атрибуцію, що здивувало дарувальника.",
+            "hint_uk": "Що здивувало; додаткова частина коментує цілу попередню подію.",
+            "groups": [
+                "The curator",
+                "rejected the attribution,",
+                "which",
+                "surprised the donor."
+            ],
+            "answer": "which",
+            "options": [
+                "which",
+                "that",
+                "what"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Комітет, рекомендації якого ми переглянули, не підтримав зміну.",
+            "target": "The committee whose recommendations we reviewed did not support the change.",
+            "uk": "Комітет, рекомендації якого ми переглянули, не підтримав зміну.",
+            "hint_uk": "Збережи належність рекомендацій комітетові та заперечення його підтримки.",
+            "groups": [
+                "The committee",
+                "whose recommendations",
+                "we reviewed",
+                "did not support",
+                "the change."
+            ],
+            "compose_slots": [
+                "The committee",
+                "whose recommendations",
+                "we reviewed",
+                "did not support",
+                "the change."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The distinction {a1} the judgement turns is easily overlooked.",
+            "target": "The distinction on which the judgement turns is easily overlooked.",
+            "uk": "Відмінність, від якої залежить судове рішення, легко не помітити.",
+            "hint_uk": "Від якої залежить; збережи сталий зв’язок дієслова залежності з винесеним прийменником.",
+            "groups": [
+                "The distinction",
+                "on which",
+                "the judgement",
+                "turns",
+                "is easily overlooked."
+            ],
+            "answer": "on which",
+            "options": [
+                "on which",
+                "at whom",
+                "whose"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "She restored the marginal notes, {a1} had been mistaken for stains.",
+            "target": "She restored the marginal notes, several of which had been mistaken for stains.",
+            "uk": "Вона відновила примітки на полях, кілька з яких помилково прийняли за плями.",
+            "hint_uk": "Кілька з яких; потрібна часткова група, що відсилає до вже названих приміток.",
+            "groups": [
+                "She restored",
+                "the marginal notes,",
+                "several of which",
+                "had been mistaken",
+                "for stains."
+            ],
+            "answer": "several of which",
+            "options": [
+                "several of which",
+                "several of that",
+                "several of whose"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Положення, застосовність якого сторони оспорювали, залишилося без змін.",
+            "target": "The provision whose applicability the parties disputed remained unchanged.",
+            "uk": "Положення, застосовність якого сторони оспорювали, залишилося без змін.",
+            "hint_uk": "Збережи належність застосовності положенню та минуле оспорювання без додаткового факту.",
+            "groups": [
+                "The provision",
+                "whose applicability",
+                "the parties",
+                "disputed",
+                "remained unchanged."
+            ],
+            "compose_slots": [
+                "The provision",
+                "whose applicability",
+                "the parties",
+                "disputed",
+                "remained unchanged."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

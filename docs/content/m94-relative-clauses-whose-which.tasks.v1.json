@@ -1,0 +1,206 @@
+{
+    "schema_version": 1,
+    "rows": [
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m94-form-whose-gallery",
+                "source_index": 0,
+                "label": "<p>Колекція належить названій галереї, не іншій установі. Передай цей зв’язок перед іменником collection.</p><p lang=\"en\">I visited a gallery ___ collection includes local ceramics.</p>",
+                "prompt": "I visited a gallery ______ collection includes local ceramics.",
+                "options": [
+                    "which",
+                    "whose",
+                    "who's"
+                ],
+                "answer": "whose",
+                "accepted": [
+                    "whose"
+                ],
+                "feedback": {
+                    "whose": "I visited a gallery whose collection includes local ceramics. — Я відвідав галерею, до колекції якої входить місцева кераміка. Whose collection пов’язує колекцію з галереєю; неістота може бути таким референтом.",
+                    "which": "Правильно: I visited a gallery whose collection includes local ceramics. — Я відвідав галерею, до колекції якої входить місцева кераміка. Тут перед collection потрібна форма належності whose; саме which не визначає цю іменникову групу.",
+                    "who's": "Правильно: I visited a gallery whose collection includes local ceramics. — Я відвідав галерею, до колекції якої входить місцева кераміка. Who’s — who is або who has, не форма належності до collection."
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m94-form-which-subject",
+                "source_index": 1,
+                "label": "<p>Маленький проєктор уже визначений у розмові. Підрядна частина додає факт про його поломку вчора; сам займенник виконує роль підмета stopped.</p><p lang=\"en\">The small projector, ___ stopped working yesterday, is under repair.</p>",
+                "prompt": "The small projector, ______ stopped working yesterday, is under repair.",
+                "options": [
+                    "which it",
+                    "that",
+                    "which"
+                ],
+                "answer": "which",
+                "accepted": [
+                    "which"
+                ],
+                "feedback": {
+                    "which": "The small projector, which stopped working yesterday, is under repair. — Маленький проєктор, який учора перестав працювати, ремонтують. Which — підмет stopped у заданій додатковій частині; ще одне it не потрібне.",
+                    "which it": "Правильно: The small projector, which stopped working yesterday, is under repair. — Маленький проєктор, який учора перестав працювати, ремонтують. Which уже є підметом; it дублює цю роль.",
+                    "that": "Правильно: The small projector, which stopped working yesterday, is under repair. — Маленький проєктор, який учора перестав працювати, ремонтують. Для явно заданої non-defining моделі потрібне which, не that; це не загальна заборона that у defining clauses."
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "grammar_form",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m94-meaning-defining-context",
+                "source_index": 2,
+                "label": "<p>Автор починає розповідь про шість коробок на столі, не про вже відібрану пару. Дві пошкоджені, чотири цілі. Постачальникові повернули лише дві пошкоджені. Яке пояснення вибору передає ці факти?</p><p lang=\"en\">A. The boxes which were damaged were sent back.<br>B. The boxes, which were damaged, were sent back.</p>",
+                "options": [
+                    "A відбирає пошкоджені коробки з шести. B у заданому контексті додавав би пошкодження як відомість про всі шість, що суперечить фактам.",
+                    "B обов’язкове, тому що which у будь-якому реченні потребує ком; усі шість тоді все одно залишаються цілими.",
+                    "A автоматично доводить, що жодної іншої пошкодженої коробки у світі немає."
+                ],
+                "answer": "A відбирає пошкоджені коробки з шести. B у заданому контексті додавав би пошкодження як відомість про всі шість, що суперечить фактам.",
+                "accepted": [
+                    "A відбирає пошкоджені коробки з шести. B у заданому контексті додавав би пошкодження як відомість про всі шість, що суперечить фактам."
+                ],
+                "feedback": {
+                    "a відбирає пошкоджені коробки з шести. b у заданому контексті додавав би пошкодження як відомість про всі шість, що суперечить фактам.": "The boxes which were damaged were sent back. — Пошкоджені коробки повернули постачальникові. Defining частина визначає потрібні дві з шести. Про чотири цілі відомо з умови, не з самого правила defining. B може бути граматичним в іншому контексті, але тут змінило б заданий зміст.",
+                    "b обов’язкове, тому що which у будь-якому реченні потребує ком; усі шість тоді все одно залишаються цілими.": "Правильно A: The boxes which were damaged were sent back. — Пошкоджені коробки повернули. Which можливе без ком у defining clause. Додаткова частина B при відсиланні до всієї названої групи повідомляла б про пошкодження всіх шести, не про те, що вони цілі.",
+                    "a автоматично доводить, що жодної іншої пошкодженої коробки у світі немає.": "Правильно A: The boxes which were damaged were sent back. — Пошкоджені коробки повернули. Вибір у цьому контексті стосується шести коробок на столі; він не є твердженням про всі коробки світу."
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "meaning",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m94-meaning-whole-situation",
+                "source_index": 3,
+                "label": "<p>Софія закрила склад завчасно. Саме через дострокове закриття кур’єри чекали надворі; будівля сама по собі не створювала перешкоди. До чого відсилає which?</p><p lang=\"en\">Sofia closed the warehouse early, which forced the couriers to wait outside.</p>",
+                "options": [
+                    "Лише до будівлі складу: сама будівля змусила кур’єрів чекати, а факт закриття не має значення.",
+                    "До факту, що Софія закрила склад завчасно; саме ця попередня ситуація спричинила очікування.",
+                    "До кур’єрів: which тут називає людей, які зачинили склад."
+                ],
+                "answer": "До факту, що Софія закрила склад завчасно; саме ця попередня ситуація спричинила очікування.",
+                "accepted": [
+                    "До факту, що Софія закрила склад завчасно; саме ця попередня ситуація спричинила очікування."
+                ],
+                "feedback": {
+                    "до факту, що софія закрила склад завчасно; саме ця попередня ситуація спричинила очікування.": "Sofia closed the warehouse early, which forced the couriers to wait outside. — Софія закрила склад завчасно, що змусило кур’єрів чекати надворі. Which коментує дострокове закриття, а не механічно найближче слово warehouse.",
+                    "лише до будівлі складу: сама будівля змусила кур’єрів чекати, а факт закриття не має значення.": "Which стосується дострокового закриття: Sofia closed the warehouse early, which forced the couriers to wait outside. — Софія закрила склад завчасно, що змусило кур’єрів чекати надворі. Умова прямо називає причину очікування, не властивість будівлі.",
+                    "до кур’єрів: which тут називає людей, які зачинили склад.": "Which стосується попереднього факту: Sofia closed the warehouse early, which forced the couriers to wait outside. — Софія закрила склад завчасно, що змусило кур’єрів чекати надворі. Склад закрила Софія, а кур’єри є тими, хто чекав."
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "meaning",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "after_task": {
+                "id": "m94-full-whose-studio",
+                "source_index": 4,
+                "before": "next month. / whose owner / will open / The studio / we interviewed",
+                "after": "Є кілька студій. Ми взяли інтерв’ю у власника однієї з них; саме ця студія відкриється наступного місяця. Склади одне речення з whose, почавши з The studio. Про інтерв’ю скажи в Past Simple, а про відкриття — через will. Студія пов’язана зі своїм власником, не з власником іншого закладу.",
+                "answer": "The studio whose owner we interviewed will open next month.",
+                "accepted": [
+                    "The studio whose owner we interviewed will open next month."
+                ],
+                "hint_uk": "Ідеться про власника саме цієї студії; інтерв’ю вже відбулося, а відкриття ще попереду.",
+                "feedback": {
+                    "the studio whose owner we interviewed will open next month.": "The studio whose owner we interviewed will open next month. — Студія, у власника якої ми взяли інтерв’ю, відкриється наступного місяця. Whose owner стосується студії й є додатком interviewed; у підрядній частині є власний підмет we."
+                },
+                "alias_modes": {
+                    "canonical": [
+                        "manual",
+                        "token"
+                    ]
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        },
+        {
+            "old_block_source_index": null,
+            "old_group": null,
+            "old_group_index": null,
+            "old_task": null,
+            "after_block_source_index": 7,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "after_task": {
+                "id": "m94-full-which-bus",
+                "source_index": 5,
+                "before": "which delayed / the last bus, / our arrival. / We missed",
+                "after": "Ми пропустили останній автобус і через це прибули пізніше запланованого. Склади: «Ми пропустили останній автобус, що затримало наше прибуття». Почни з We, ужий Past Simple; which має коментувати попередню ситуацію. Ключ показує кому, але бал за це поле окремо її не оцінює.",
+                "answer": "We missed the last bus, which delayed our arrival.",
+                "accepted": [
+                    "We missed the last bus, which delayed our arrival.",
+                    "We missed the last bus, which made us arrive late."
+                ],
+                "hint_uk": "Причина затримки — пропущений останній автобус; не приписуй іншої дії автобусу або іншій особі.",
+                "feedback": {
+                    "we missed the last bus, which delayed our arrival.": "We missed the last bus, which delayed our arrival. — Ми пропустили останній автобус, що затримало наше прибуття. Which стосується факту пропуску автобуса. Бал за слова й порядок не доводить окремого вміння ставити кому.",
+                    "we missed the last bus, which made us arrive late.": "We missed the last bus, which made us arrive late. — Ми пропустили останній автобус, через що прибули із запізненням. Цей ручний варіант зберігає прямо задані причину й запізнення; слів для нього немає в канонічному банку токенів."
+                },
+                "alias_modes": {
+                    "canonical": [
+                        "manual",
+                        "token"
+                    ],
+                    "We missed the last bus, which made us arrive late.": [
+                        "manual"
+                    ]
+                }
+            },
+            "classification": "new",
+            "graded": true,
+            "assessed_role": "full_sentence",
+            "change_reason": "У старому source і свіжому SQL BEFORE практики немає. Це нове авторське завдання з явною умовою, ключем та українським поясненням."
+        }
+    ]
+}

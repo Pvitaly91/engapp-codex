@@ -246,6 +246,14 @@ class PageController extends Controller
         $practiceBlocks = new \Illuminate\Database\Eloquent\Collection(
             $blocks->where('type', 'practice-set')->values()->all()
         );
+        if ($this->pageType === 'theory' && $this->showView === 'theory.show') {
+            // Matching-only clones opt these exact accepted practices into their
+            // existing linked pools; stored blocks and other callers stay unchanged.
+            $practiceBlocks = new \Illuminate\Database\Eloquent\Collection(
+                $practiceBlocks->map(static fn (TextBlock $block): TextBlock =>
+                    \App\Support\PracticeCompletionLinkedPractice::matchingBlock($block, true))->all()
+            );
+        }
         $practiceQuestionsByBlock = $practiceBlocks->isEmpty()
             ? []
             : $this->textBlockToQuestionsMatcherService->findQuestionsForTextBlocks($practiceBlocks, 5);
@@ -604,6 +612,11 @@ class PageController extends Controller
 
             foreach ($locales as $locale) {
                 $localizedTitle = $localizedTitles[$modelId][$locale] ?? null;
+
+                if ($model instanceof Page) {
+                    $localizedTitle = \App\Support\M50ObligationAdvicePackage::displayTitle($model, $locale, $this->routePrefix)
+                        ?? \App\Support\M45FutureComparisonsPackage::displayTitle($model, $locale) ?? $localizedTitle;
+                }
 
                 if (is_string($localizedTitle) && $localizedTitle !== '') {
                     $model->setAttribute('title', $localizedTitle);

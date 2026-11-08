@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "topic_key": "ellipsis-substitution-and-reference",
+  "title": "Ellipsis, Substitution and Reference",
+  "choice_pools": {
+    "aone_part_one": [
+      "I have",
+      "You have",
+      "We have",
+      "They have",
+      "She has",
+      "He has"
+    ],
+    "aone_part_two": [
+      "a red cap",
+      "a black cap",
+      "a green cap",
+      "a grey cap",
+      "a blue cap",
+      "a white cap"
+    ],
+    "aone_part_three": [
+      "and",
+      "but",
+      "or",
+      "with",
+      "without",
+      "beside"
+    ],
+    "aone_part_four": [
+      "a blue one.",
+      "a red one.",
+      "a green one.",
+      "a white one.",
+      "a black one.",
+      "a yellow one."
+    ],
+    "atwo_part_one": [
+      "Sofia likes jazz,",
+      "Sofia likes pop,",
+      "Sofia likes rock,",
+      "Sofia likes blues,",
+      "Sofia likes folk,",
+      "Sofia likes opera,"
+    ],
+    "atwo_part_two": [
+      "and so",
+      "but so",
+      "and neither",
+      "but neither",
+      "and now",
+      "and usually"
+    ],
+    "atwo_part_three": [
+      "do I.",
+      "did I.",
+      "does he.",
+      "do we.",
+      "do they.",
+      "does she."
+    ],
+    "bone_part_one": [
+      "Will the meeting",
+      "Will the lesson",
+      "Will the concert",
+      "Will the interview",
+      "Will the workshop",
+      "Will the ceremony"
+    ],
+    "bone_part_two": [
+      "finish before lunch?",
+      "start before lunch?",
+      "continue after lunch?",
+      "finish after dinner?",
+      "start after breakfast?",
+      "end before midnight?"
+    ],
+    "bone_part_three": [
+      "We hope so.",
+      "We think so.",
+      "We suppose so.",
+      "We believe so.",
+      "We assume so.",
+      "We fear so."
+    ],
+    "btwo_part_one": [
+      "Ruta thought",
+      "Ruta knew",
+      "Ruta discovered",
+      "Ruta assumed",
+      "Ruta realised",
+      "Ruta confirmed"
+    ],
+    "btwo_part_two": [
+      "the file",
+      "the document",
+      "the folder",
+      "the message",
+      "the image",
+      "the recording"
+    ],
+    "btwo_part_three": [
+      "had been saved,",
+      "had been deleted,",
+      "had been copied,",
+      "had been renamed,",
+      "had been moved,",
+      "had been printed,"
+    ],
+    "btwo_part_four": [
+      "but I",
+      "but he",
+      "but she",
+      "but we",
+      "but they",
+      "but you"
+    ],
+    "btwo_part_five": [
+      "thought not.",
+      "thought so.",
+      "was certain.",
+      "agreed then.",
+      "said yes.",
+      "remained silent."
+    ],
+    "cone_part_one": [
+      "Marta could have",
+      "Marta should have",
+      "Marta would have",
+      "Marta must have",
+      "Marta might have",
+      "Marta may have"
+    ],
+    "cone_part_two": [
+      "cancelled the booking,",
+      "confirmed the booking,",
+      "changed the booking,",
+      "extended the booking,",
+      "checked the booking,",
+      "made the booking,"
+    ],
+    "cone_part_three": [
+      "but chose",
+      "but promised",
+      "but planned",
+      "but hoped",
+      "but agreed",
+      "but offered"
+    ],
+    "cone_part_four": [
+      "not to.",
+      "to anyway.",
+      "to later.",
+      "to immediately.",
+      "to eventually.",
+      "to reluctantly."
+    ],
+    "ctwo_part_one": [
+      "The researchers",
+      "The teachers",
+      "The engineers",
+      "The editors",
+      "The auditors",
+      "The consultants"
+    ],
+    "ctwo_part_two": [
+      "need not disclose",
+      "must not disclose",
+      "should not disclose",
+      "cannot yet disclose",
+      "will soon disclose",
+      "have already disclosed"
+    ],
+    "ctwo_part_three": [
+      "the raw data,",
+      "the final results,",
+      "the revised figures,",
+      "the complete report,",
+      "the interim findings,",
+      "the original recordings,"
+    ],
+    "ctwo_part_four": [
+      "although they may",
+      "although they must",
+      "although they should",
+      "although they will",
+      "although they can",
+      "although they might"
+    ],
+    "ctwo_part_five": [
+      "do so.",
+      "do otherwise.",
+      "avoid that.",
+      "decline permission.",
+      "request access.",
+      "ask questions."
+    ]
+  },
+  "questions": [
+    {
+      "id": "A1-g01",
+      "level": "A1",
+      "kind": "gap",
+      "question": "I am hungry, and Leo is {a1}.",
+      "answer": "too",
+      "options": [
+        "too",
+        "either",
+        "neither"
+      ],
+      "target": "I am hungry, and Leo is too.",
+      "groups": [
+        "I am hungry,",
+        "and Leo",
+        "is too."
+      ],
+      "uk": "Я голодний, і Лео теж.",
+      "hint_uk": "Передай «теж» у стверджувальній частині; дієслово вже наведене.",
+      "answer_synonyms": [
+        "as well"
+      ]
+    },
+    {
+      "id": "A1-g02",
+      "level": "A1",
+      "kind": "gap",
+      "question": "I like carrots, but my brother {a1}.",
+      "answer": "does not",
+      "options": [
+        "does not",
+        "do not",
+        "is not"
+      ],
+      "target": "I like carrots, but my brother does not.",
+      "groups": [
+        "I like carrots,",
+        "but my brother",
+        "does not."
+      ],
+      "uk": "Я люблю моркву, а мій брат — ні.",
+      "hint_uk": "Запереч уподобання брата допоміжною формою; основну дію вдруге не називай.",
+      "answer_synonyms": [
+        "doesn't"
+      ]
+    },
+    {
+      "id": "A1-c01",
+      "level": "A1",
+      "kind": "compose",
+      "question": "У мене є червона кепка й синя.",
+      "target": "I have a red cap and a blue one.",
+      "groups": [
+        "I have",
+        "a red cap",
+        "and",
+        "a blue one."
+      ],
+      "compose_slots": [
+        "I have",
+        "a red cap",
+        "and",
+        "a blue one."
+      ],
+      "slot_roles": [
+        "aone_part_one",
+        "aone_part_two",
+        "aone_part_three",
+        "aone_part_four"
+      ],
+      "uk": "У мене є червона кепка й синя.",
+      "hint_uk": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+      "display_synonyms": {
+        "I have": [
+          "I have got"
+        ]
+      },
+      "accepted_targets": [
+        "I have got a red cap and a blue one."
+      ]
+    },
+    {
+      "id": "A2-g01",
+      "level": "A2",
+      "kind": "gap",
+      "question": "I needed a larger suitcase, so I bought {a1}.",
+      "answer": "one",
+      "options": [
+        "one",
+        "ones",
+        "them"
+      ],
+      "target": "I needed a larger suitcase, so I bought one.",
+      "groups": [
+        "I needed",
+        "a larger suitcase,",
+        "so I",
+        "bought one."
+      ],
+      "uk": "Мені була потрібна більша валіза, тож я купив таку.",
+      "hint_uk": "Назви одну валізу потрібного розміру замінником, не повторюючи її назву."
+    },
+    {
+      "id": "A2-g02",
+      "level": "A2",
+      "kind": "gap",
+      "question": "Our cousins can stay until Friday, but we {a1}.",
+      "answer": "cannot",
+      "options": [
+        "cannot",
+        "do not",
+        "are not"
+      ],
+      "target": "Our cousins can stay until Friday, but we cannot.",
+      "groups": [
+        "Our cousins",
+        "can stay",
+        "until Friday,",
+        "but we cannot."
+      ],
+      "uk": "Наші двоюрідні родичі можуть залишитися до п’ятниці, а ми — ні.",
+      "hint_uk": "Збережи заперечення можливості залишитися; не повторюй саму дію.",
+      "answer_synonyms": [
+        "can't",
+        "can not"
+      ]
+    },
+    {
+      "id": "A2-c01",
+      "level": "A2",
+      "kind": "compose",
+      "question": "Софія любить джаз, і я теж.",
+      "target": "Sofia likes jazz, and so do I.",
+      "groups": [
+        "Sofia likes jazz,",
+        "and so",
+        "do I."
+      ],
+      "compose_slots": [
+        "Sofia likes jazz,",
+        "and so",
+        "do I."
+      ],
+      "slot_roles": [
+        "atwo_part_one",
+        "atwo_part_two",
+        "atwo_part_three"
+      ],
+      "uk": "Софія любить джаз, і я теж.",
+      "hint_uk": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+      "display_synonyms": {
+        "Sofia likes jazz,": [
+          "Sofiia likes jazz,",
+          "Sophia likes jazz,",
+          "Sofia enjoys jazz,",
+          "Sofiia enjoys jazz,",
+          "Sophia enjoys jazz,"
+        ]
+      },
+      "accepted_targets": [
+        "Sofiia likes jazz, and so do I.",
+        "Sophia likes jazz, and so do I.",
+        "Sofia enjoys jazz, and so do I.",
+        "Sofiia enjoys jazz, and so do I.",
+        "Sophia enjoys jazz, and so do I."
+      ]
+    },
+    {
+      "id": "B1-g01",
+      "level": "B1",
+      "kind": "gap",
+      "question": "Has the train left? I think {a1}.",
+      "answer": "so",
+      "options": [
+        "so",
+        "that",
+        "one"
+      ],
+      "target": "Has the train left? I think so.",
+      "groups": [
+        "Has the train",
+        "left? I",
+        "think so."
+      ],
+      "uk": "Поїзд уже вирушив? Думаю, що так.",
+      "hint_uk": "Ствердно відсилай до цілої думки про відправлення поїзда, не повторюючи її."
+    },
+    {
+      "id": "B1-g02",
+      "level": "B1",
+      "kind": "gap",
+      "question": "Some guests ordered soup; others {a1}.",
+      "answer": "salad",
+      "options": [
+        "salad",
+        "coffee",
+        "dessert"
+      ],
+      "target": "Some guests ordered soup; others salad.",
+      "groups": [
+        "Some guests",
+        "ordered soup;",
+        "others salad."
+      ],
+      "uk": "Деякі гості замовили суп, а інші — салат.",
+      "hint_uk": "Назви салат для інших гостей; уже названу дію замовлення не повторюй.",
+      "answer_synonyms": [
+        "a salad"
+      ]
+    },
+    {
+      "id": "B1-c01",
+      "level": "B1",
+      "kind": "compose",
+      "question": "Зустріч закінчиться до обіду? — Сподіваємося, що так.",
+      "target": "Will the meeting finish before lunch? We hope so.",
+      "groups": [
+        "Will the meeting",
+        "finish before lunch?",
+        "We hope so."
+      ],
+      "compose_slots": [
+        "Will the meeting",
+        "finish before lunch?",
+        "We hope so."
+      ],
+      "slot_roles": [
+        "bone_part_one",
+        "bone_part_two",
+        "bone_part_three"
+      ],
+      "uk": "Зустріч закінчиться до обіду? — Сподіваємося, що так.",
+      "hint_uk": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+      "display_synonyms": {
+        "finish before lunch?": [
+          "end before lunch?"
+        ]
+      },
+      "accepted_targets": [
+        "Will the meeting end before lunch? We hope so."
+      ]
+    },
+    {
+      "id": "B2-g01",
+      "level": "B2",
+      "kind": "gap",
+      "question": "The editor checked the references, and the interns {a1} too.",
+      "answer": "did",
+      "options": [
+        "did",
+        "were",
+        "had"
+      ],
+      "target": "The editor checked the references, and the interns did too.",
+      "groups": [
+        "The editor",
+        "checked the references,",
+        "and the interns",
+        "did too."
+      ],
+      "uk": "Редактор перевірив посилання, і стажери теж.",
+      "hint_uk": "Одним допоміжним дієсловом повтори перевірку в минулому; самі посилання знову не називай."
+    },
+    {
+      "id": "B2-g02",
+      "level": "B2",
+      "kind": "gap",
+      "question": "The team chose a compact projector rather than a heavy {a1}.",
+      "answer": "one",
+      "options": [
+        "one",
+        "ones",
+        "so"
+      ],
+      "target": "The team chose a compact projector rather than a heavy one.",
+      "groups": [
+        "The team chose",
+        "a compact projector",
+        "rather than",
+        "a heavy one."
+      ],
+      "uk": "Команда обрала компактний проєктор, а не важкий.",
+      "hint_uk": "Заміни повторну назву одного проєктора після вже наведеного прикметника."
+    },
+    {
+      "id": "B2-c01",
+      "level": "B2",
+      "kind": "compose",
+      "question": "Рута думала, що файл зберегли, а я думав, що ні.",
+      "target": "Ruta thought the file had been saved, but I thought not.",
+      "groups": [
+        "Ruta thought",
+        "the file",
+        "had been saved,",
+        "but I",
+        "thought not."
+      ],
+      "compose_slots": [
+        "Ruta thought",
+        "the file",
+        "had been saved,",
+        "but I",
+        "thought not."
+      ],
+      "slot_roles": [
+        "btwo_part_one",
+        "btwo_part_two",
+        "btwo_part_three",
+        "btwo_part_four",
+        "btwo_part_five"
+      ],
+      "uk": "Рута думала, що файл зберегли, а я думав, що ні.",
+      "hint_uk": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення."
+    },
+    {
+      "id": "C1-g01",
+      "level": "C1",
+      "kind": "gap",
+      "question": "The committee may revise the timetable, but it has not yet decided whether {a1}.",
+      "answer": "to",
+      "options": [
+        "to",
+        "so",
+        "that"
+      ],
+      "target": "The committee may revise the timetable, but it has not yet decided whether to.",
+      "groups": [
+        "The committee",
+        "may revise",
+        "the timetable,",
+        "but it",
+        "has not yet",
+        "decided whether to."
+      ],
+      "uk": "Комітет може переглянути графік, але ще не вирішив, чи робити це.",
+      "hint_uk": "Залиш інфінітивний маркер, який дозволяє відновити вже названу дію перегляду."
+    },
+    {
+      "id": "C1-g02",
+      "level": "C1",
+      "kind": "gap",
+      "question": "The keynote speaker addressed funding; the moderator, by contrast, {a1}.",
+      "answer": "ethics",
+      "options": [
+        "ethics",
+        "governance",
+        "accessibility"
+      ],
+      "target": "The keynote speaker addressed funding; the moderator, by contrast, ethics.",
+      "groups": [
+        "The keynote speaker",
+        "addressed funding;",
+        "the moderator,",
+        "by contrast,",
+        "ethics."
+      ],
+      "uk": "Основний доповідач порушив питання фінансування, а модератор, натомість, — етики.",
+      "hint_uk": "Назви етику як тему модератора; дію з першої частини залиш відновлюваною."
+    },
+    {
+      "id": "C1-c01",
+      "level": "C1",
+      "kind": "compose",
+      "question": "Марта могла скасувати бронювання, але вирішила цього не робити.",
+      "target": "Marta could have cancelled the booking, but chose not to.",
+      "groups": [
+        "Marta could have",
+        "cancelled the booking,",
+        "but chose",
+        "not to."
+      ],
+      "compose_slots": [
+        "Marta could have",
+        "cancelled the booking,",
+        "but chose",
+        "not to."
+      ],
+      "slot_roles": [
+        "cone_part_one",
+        "cone_part_two",
+        "cone_part_three",
+        "cone_part_four"
+      ],
+      "uk": "Марта могла скасувати бронювання, але вирішила цього не робити.",
+      "hint_uk": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+      "display_synonyms": {
+        "cancelled the booking,": [
+          "canceled the booking,",
+          "cancelled the reservation,",
+          "canceled the reservation,"
+        ],
+        "but chose": [
+          "but decided"
+        ]
+      },
+      "accepted_targets": [
+        "Marta could have cancelled the booking, but decided not to.",
+        "Marta could have canceled the booking, but chose not to.",
+        "Marta could have canceled the booking, but decided not to.",
+        "Marta could have cancelled the reservation, but chose not to.",
+        "Marta could have cancelled the reservation, but decided not to.",
+        "Marta could have canceled the reservation, but chose not to.",
+        "Marta could have canceled the reservation, but decided not to."
+      ]
+    },
+    {
+      "id": "C2-g01",
+      "level": "C2",
+      "kind": "gap",
+      "question": "The board was expected to endorse the proposal, but {a1} would have prejudged the review.",
+      "answer": "doing so",
+      "options": [
+        "doing so",
+        "do so",
+        "done so"
+      ],
+      "target": "The board was expected to endorse the proposal, but doing so would have prejudged the review.",
+      "groups": [
+        "The board",
+        "was expected",
+        "to endorse",
+        "the proposal,",
+        "but doing so",
+        "would have prejudged",
+        "the review."
+      ],
+      "uk": "Очікували, що рада підтримає пропозицію, але така дія наперед визначила б висновок перегляду.",
+      "hint_uk": "Назви саму дію підтримки зворотом, що може бути підметом; передай відсилання до попередньої дії.",
+      "answer_synonyms": [
+        "doing that",
+        "doing this"
+      ]
+    },
+    {
+      "id": "C2-g02",
+      "level": "C2",
+      "kind": "gap",
+      "question": "We compared a phased withdrawal with an immediate suspension; the {a1} preserved continuity.",
+      "answer": "former",
+      "options": [
+        "former",
+        "latter",
+        "other"
+      ],
+      "target": "We compared a phased withdrawal with an immediate suspension; the former preserved continuity.",
+      "groups": [
+        "We compared",
+        "a phased withdrawal",
+        "with an immediate",
+        "suspension;",
+        "the former",
+        "preserved continuity."
+      ],
+      "uk": "Ми порівняли поступовий вихід із негайним призупиненням; перший варіант зберігав безперервність.",
+      "hint_uk": "Відсилай до першого з двох названих варіантів, не повторюючи його довгу назву.",
+      "answer_synonyms": [
+        "first"
+      ]
+    },
+    {
+      "id": "C2-c01",
+      "level": "C2",
+      "kind": "compose",
+      "question": "Науковці не зобов’язані оприлюднювати вихідні дані, хоча мають право це зробити.",
+      "target": "The researchers need not disclose the raw data, although they may do so.",
+      "groups": [
+        "The researchers",
+        "need not disclose",
+        "the raw data,",
+        "although they may",
+        "do so."
+      ],
+      "compose_slots": [
+        "The researchers",
+        "need not disclose",
+        "the raw data,",
+        "although they may",
+        "do so."
+      ],
+      "slot_roles": [
+        "ctwo_part_one",
+        "ctwo_part_two",
+        "ctwo_part_three",
+        "ctwo_part_four",
+        "ctwo_part_five"
+      ],
+      "uk": "Науковці не зобов’язані оприлюднювати вихідні дані, хоча мають право це зробити.",
+      "hint_uk": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+      "display_synonyms": {
+        "The researchers": [
+          "The scientists"
+        ],
+        "need not disclose": [
+          "need not release",
+          "need not publish"
+        ],
+        "although they may": [
+          "though they may",
+          "although they can",
+          "though they can"
+        ],
+        "do so.": [
+          "do that."
+        ]
+      },
+      "accepted_targets": [
+        "The researchers need not disclose the raw data, although they may do that.",
+        "The researchers need not disclose the raw data, though they may do so.",
+        "The researchers need not disclose the raw data, though they may do that.",
+        "The researchers need not disclose the raw data, although they can do so.",
+        "The researchers need not disclose the raw data, although they can do that.",
+        "The researchers need not disclose the raw data, though they can do so.",
+        "The researchers need not disclose the raw data, though they can do that.",
+        "The researchers need not release the raw data, although they may do so.",
+        "The researchers need not release the raw data, although they may do that.",
+        "The researchers need not release the raw data, though they may do so.",
+        "The researchers need not release the raw data, though they may do that.",
+        "The researchers need not release the raw data, although they can do so.",
+        "The researchers need not release the raw data, although they can do that.",
+        "The researchers need not release the raw data, though they can do so.",
+        "The researchers need not release the raw data, though they can do that.",
+        "The researchers need not publish the raw data, although they may do so.",
+        "The researchers need not publish the raw data, although they may do that.",
+        "The researchers need not publish the raw data, though they may do so.",
+        "The researchers need not publish the raw data, though they may do that.",
+        "The researchers need not publish the raw data, although they can do so.",
+        "The researchers need not publish the raw data, although they can do that.",
+        "The researchers need not publish the raw data, though they can do so.",
+        "The researchers need not publish the raw data, though they can do that.",
+        "The scientists need not disclose the raw data, although they may do so.",
+        "The scientists need not disclose the raw data, although they may do that.",
+        "The scientists need not disclose the raw data, though they may do so.",
+        "The scientists need not disclose the raw data, though they may do that.",
+        "The scientists need not disclose the raw data, although they can do so.",
+        "The scientists need not disclose the raw data, although they can do that.",
+        "The scientists need not disclose the raw data, though they can do so.",
+        "The scientists need not disclose the raw data, though they can do that.",
+        "The scientists need not release the raw data, although they may do so.",
+        "The scientists need not release the raw data, although they may do that.",
+        "The scientists need not release the raw data, though they may do so.",
+        "The scientists need not release the raw data, though they may do that.",
+        "The scientists need not release the raw data, although they can do so.",
+        "The scientists need not release the raw data, although they can do that.",
+        "The scientists need not release the raw data, though they can do so.",
+        "The scientists need not release the raw data, though they can do that.",
+        "The scientists need not publish the raw data, although they may do so.",
+        "The scientists need not publish the raw data, although they may do that.",
+        "The scientists need not publish the raw data, though they may do so.",
+        "The scientists need not publish the raw data, though they may do that.",
+        "The scientists need not publish the raw data, although they can do so.",
+        "The scientists need not publish the raw data, although they can do that.",
+        "The scientists need not publish the raw data, though they can do so.",
+        "The scientists need not publish the raw data, though they can do that."
+      ]
+    }
+  ]
+}

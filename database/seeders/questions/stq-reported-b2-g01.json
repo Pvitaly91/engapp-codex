@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67166,
+        "uuid": "stq-reported-b2-g01",
+        "question": "The engineer said that they {a1} it for two days.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 63,
+        "source_id": 574,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqReportedSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had been investigating",
+                "have been investigating",
+                "had investigating"
+            ]
+        },
+        "theory_text_block_uuid": "3bbe3eae-de1f-546b-aa69-c2df4e53b382",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 574,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 46088,
+                "option": "had been investigating",
+                "created_at": "2026-10-04T22:48:55.000000Z",
+                "updated_at": "2026-10-04T22:48:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 67166,
+                "option_id": 46088,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 46090,
+                "option": "had investigating",
+                "created_at": "2026-10-04T22:48:55.000000Z",
+                "updated_at": "2026-10-04T22:48:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 67166,
+                "option_id": 46090,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71272,
+                "option": "have been investigating",
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 67166,
+                "option_id": 71272,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343239,
+                "question_id": 67166,
+                "marker": "a1",
+                "option_id": 46088,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 46088,
+                "option": "had been investigating",
+                "created_at": "2026-10-04T22:48:55.000000Z",
+                "updated_at": "2026-10-04T22:48:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60573,
+                "question_id": 67166,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71271,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 71271,
+                "option": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше». Передай тривалість дослідження до минулого повідомлення.",
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59181,
+            "question_id": 67166,
+            "text": "The engineer said that they {a1} it for two days.",
+            "created_at": "2026-11-03T01:30:42.000000Z",
+            "updated_at": "2026-11-03T01:30:42.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

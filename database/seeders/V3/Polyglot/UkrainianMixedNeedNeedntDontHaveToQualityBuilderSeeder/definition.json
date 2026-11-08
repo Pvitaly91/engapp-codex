@@ -1,0 +1,4042 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mvq-v1",
+    "compiled_from": {
+        "path": "docs/content/modal-verbs-quality/need-neednt-dont-have-to.v1.json",
+        "sha256": "26391eab861a3ae82586d9541386a998f95a81d305f1e9ba8245326c89512211"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedNeedNeedntDontHaveToQualityBuilderSeeder",
+        "uuid_namespace": "modal-verbs-quality-need-neednt-dont-have-to-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "modal_verbs_quality_need_neednt_dont_have_to": {
+            "name": "Modal Verbs Quality: Потреба, відсутність потреби та виконання дії"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_need_neednt_dont_have_to": {
+            "name": "Need / Needn't / Don't have to",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_need_neednt_dont_have_to"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mvq-need-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Нам потрібно купити хліб.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам потрібно купити хліб.",
+            "target_text": "We need to buy bread.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+                    "options": [
+                        "need",
+                        "went",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a4": {
+                    "answer": "buy",
+                    "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+                    "options": [
+                        "buy",
+                        "visit",
+                        "close",
+                        "leave"
+                    ]
+                },
+                "a5": {
+                    "answer": "bread.",
+                    "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+                    "options": [
+                        "bread",
+                        "sugar",
+                        "salt",
+                        "butter"
+                    ]
+                }
+            },
+            "verb_hint": "Постав звичайне дієслово потреби; «купити» також можна передати як «придбати».",
+            "accepted_target_texts": [
+                "We need to buy bread.",
+                "We need to purchase bread."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "purchase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "purchase"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "need to",
+                "buy",
+                "bread."
+            ],
+            "token_groups": [
+                "We",
+                "need to",
+                "buy",
+                "bread."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "need",
+                "to",
+                "buy",
+                "bread."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "need",
+                "went",
+                "saw",
+                "needed",
+                "to",
+                "among",
+                "about",
+                "during",
+                "buy",
+                "visit",
+                "close",
+                "leave",
+                "bread",
+                "sugar",
+                "salt",
+                "butter"
+            ],
+            "source_text_uk": "Нам потрібно купити хліб.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "need",
+                    "went",
+                    "saw",
+                    "needed"
+                ],
+                "a3": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a4": [
+                    "buy",
+                    "visit",
+                    "close",
+                    "leave"
+                ],
+                "a5": [
+                    "bread",
+                    "sugar",
+                    "salt",
+                    "butter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "to_frame",
+                "a3": "to_frame",
+                "a4": "verb",
+                "a5": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mvq-need-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Відвідувачці потрібно зарядити свій телефон.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Відвідувачці потрібно зарядити свій телефон.",
+            "target_text": "The visitor needs to charge her phone.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "visitor",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "visitor",
+                        "worker",
+                        "teacher",
+                        "friend"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "buys",
+                        "gives"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "charge",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "charge",
+                        "record",
+                        "review",
+                        "repair"
+                    ]
+                },
+                "a6": {
+                    "answer": "her",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "her",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a7": {
+                    "answer": "phone.",
+                    "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+                    "options": [
+                        "phone",
+                        "register",
+                        "notice",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Передай потребу через звичайне дієслово в однині; збережи належність телефона.",
+            "accepted_target_texts": [
+                "The visitor needs to charge her phone."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visitor",
+                "needs to",
+                "charge",
+                "her phone."
+            ],
+            "token_groups": [
+                "The visitor",
+                "needs to",
+                "charge",
+                "her phone."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "visitor",
+                "needs",
+                "to",
+                "charge",
+                "her",
+                "phone."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "visitor",
+                "worker",
+                "teacher",
+                "friend",
+                "needs",
+                "wants",
+                "buys",
+                "gives",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "charge",
+                "record",
+                "review",
+                "repair",
+                "her",
+                "yours",
+                "hers",
+                "ours",
+                "phone",
+                "register",
+                "notice",
+                "window"
+            ],
+            "source_text_uk": "Відвідувачці потрібно зарядити свій телефон.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "visitor",
+                    "worker",
+                    "teacher",
+                    "friend"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "buys",
+                    "gives"
+                ],
+                "a4": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "charge",
+                    "record",
+                    "review",
+                    "repair"
+                ],
+                "a6": [
+                    "her",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a7": [
+                    "phone",
+                    "register",
+                    "notice",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mvq-need-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Тобі не потрібно приносити тарілку.",
+            "level": "A1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Тобі не потрібно приносити тарілку.",
+            "target_text": "You need not bring a plate.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "You",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "need",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "bring",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "bring",
+                        "calling",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "plate.",
+                    "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+                    "options": [
+                        "plate",
+                        "report",
+                        "register",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Використай модальну відсутність потреби без допоміжного заперечення; це не заборона.",
+            "accepted_target_texts": [
+                "You need not bring a plate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "need not",
+                "bring",
+                "a plate."
+            ],
+            "token_groups": [
+                "You",
+                "need not",
+                "bring",
+                "a plate."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "need",
+                "not",
+                "bring",
+                "a",
+                "plate."
+            ],
+            "options": [
+                "You",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "need",
+                "brought",
+                "took",
+                "wrote",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "bring",
+                "calling",
+                "walking",
+                "opening",
+                "a",
+                "every",
+                "no",
+                "another",
+                "plate",
+                "report",
+                "register",
+                "notice"
+            ],
+            "source_text_uk": "Тобі не потрібно приносити тарілку.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "need",
+                    "brought",
+                    "took",
+                    "wrote"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "bring",
+                    "calling",
+                    "walking",
+                    "opening"
+                ],
+                "a5": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "plate",
+                    "report",
+                    "register",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "object",
+                "a6": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mvq-need-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Пекареві потрібно замовити більше борошна.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Пекареві потрібно замовити більше борошна.",
+            "target_text": "The baker needs to order more flour.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "baker",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "baker",
+                        "teacher",
+                        "friend",
+                        "manager"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "tells",
+                        "leaves"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a5": {
+                    "answer": "order",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "order",
+                        "cancel",
+                        "check",
+                        "inspect"
+                    ]
+                },
+                "a6": {
+                    "answer": "more",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "more",
+                        "your",
+                        "her",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "flour.",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+                    "options": [
+                        "flour",
+                        "evidence",
+                        "register",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби в однині; йдеться про додаткове борошно.",
+            "accepted_target_texts": [
+                "The baker needs to order more flour."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baker",
+                "needs to",
+                "order",
+                "more flour."
+            ],
+            "token_groups": [
+                "The baker",
+                "needs to",
+                "order",
+                "more flour."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "baker",
+                "needs",
+                "to",
+                "order",
+                "more",
+                "flour."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "baker",
+                "teacher",
+                "friend",
+                "manager",
+                "needs",
+                "wants",
+                "tells",
+                "leaves",
+                "to",
+                "for",
+                "of",
+                "in",
+                "order",
+                "cancel",
+                "check",
+                "inspect",
+                "more",
+                "your",
+                "her",
+                "a",
+                "flour",
+                "evidence",
+                "register",
+                "notice"
+            ],
+            "source_text_uk": "Пекареві потрібно замовити більше борошна.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "baker",
+                    "teacher",
+                    "friend",
+                    "manager"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "tells",
+                    "leaves"
+                ],
+                "a4": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a5": [
+                    "order",
+                    "cancel",
+                    "check",
+                    "inspect"
+                ],
+                "a6": [
+                    "more",
+                    "your",
+                    "her",
+                    "a"
+                ],
+                "a7": [
+                    "flour",
+                    "evidence",
+                    "register",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mvq-need-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Нам не потрібно пакувати додаткові ковдри.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не потрібно пакувати додаткові ковдри.",
+            "target_text": "We do not need to pack extra blankets.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "We",
+                        "It",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "do",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a4": {
+                    "answer": "need",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "need",
+                        "played",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a6": {
+                    "answer": "pack",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "pack",
+                        "presuppose",
+                        "order",
+                        "remove"
+                    ]
+                },
+                "a7": {
+                    "answer": "extra",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "extra",
+                        "another",
+                        "your",
+                        "more"
+                    ]
+                },
+                "a8": {
+                    "answer": "blankets.",
+                    "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+                    "options": [
+                        "blankets",
+                        "shoes",
+                        "chairs",
+                        "tables"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй заперечення звичайного дієслова потреби; це не заборона пакування.",
+            "accepted_target_texts": [
+                "We do not need to pack extra blankets."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not",
+                "need to",
+                "pack",
+                "extra blankets."
+            ],
+            "token_groups": [
+                "We",
+                "do not",
+                "need to",
+                "pack",
+                "extra blankets."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "do",
+                "not",
+                "need",
+                "to",
+                "pack",
+                "extra",
+                "blankets."
+            ],
+            "options": [
+                "We",
+                "It",
+                "They",
+                "Me",
+                "do",
+                "doesn't",
+                "didn't",
+                "have",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "need",
+                "played",
+                "called",
+                "walked",
+                "to",
+                "about",
+                "during",
+                "from",
+                "pack",
+                "presuppose",
+                "order",
+                "remove",
+                "extra",
+                "another",
+                "your",
+                "more",
+                "blankets",
+                "shoes",
+                "chairs",
+                "tables"
+            ],
+            "source_text_uk": "Нам не потрібно пакувати додаткові ковдри.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "It",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "do",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a3": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a4": [
+                    "need",
+                    "played",
+                    "called",
+                    "walked"
+                ],
+                "a5": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a6": [
+                    "pack",
+                    "presuppose",
+                    "order",
+                    "remove"
+                ],
+                "a7": [
+                    "extra",
+                    "another",
+                    "your",
+                    "more"
+                ],
+                "a8": [
+                    "blankets",
+                    "shoes",
+                    "chairs",
+                    "tables"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "to_frame",
+                "a5": "to_frame",
+                "a6": "verb",
+                "a7": "object",
+                "a8": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mvq-need-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Тобі не потрібно знімати взуття надворі.",
+            "level": "A2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Тобі не потрібно знімати взуття надворі.",
+            "target_text": "You need not remove your shoes outside.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "You",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "need",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "remove",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "remove",
+                        "consider",
+                        "compare",
+                        "charge"
+                    ]
+                },
+                "a5": {
+                    "answer": "your",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "your",
+                        "ours",
+                        "theirs",
+                        "whose"
+                    ]
+                },
+                "a6": {
+                    "answer": "shoes",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "shoes",
+                        "blankets",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a7": {
+                    "answer": "outside.",
+                    "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+                    "options": [
+                        "outside",
+                        "nearby",
+                        "pack",
+                        "extra"
+                    ]
+                }
+            },
+            "verb_hint": "Передай модальну відсутність потреби; назви місце надворі.",
+            "accepted_target_texts": [
+                "You need not remove your shoes outside."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "need not",
+                "remove",
+                "your shoes",
+                "outside."
+            ],
+            "token_groups": [
+                "You",
+                "need not",
+                "remove",
+                "your shoes",
+                "outside."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "You",
+                "need",
+                "not",
+                "remove",
+                "your",
+                "shoes",
+                "outside."
+            ],
+            "options": [
+                "You",
+                "Us",
+                "Them",
+                "Myself",
+                "need",
+                "cooked",
+                "found",
+                "brought",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "remove",
+                "consider",
+                "compare",
+                "charge",
+                "your",
+                "ours",
+                "theirs",
+                "whose",
+                "shoes",
+                "blankets",
+                "teachers",
+                "schools",
+                "outside",
+                "nearby",
+                "pack",
+                "extra"
+            ],
+            "source_text_uk": "Тобі не потрібно знімати взуття надворі.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "need",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "remove",
+                    "consider",
+                    "compare",
+                    "charge"
+                ],
+                "a5": [
+                    "your",
+                    "ours",
+                    "theirs",
+                    "whose"
+                ],
+                "a6": [
+                    "shoes",
+                    "blankets",
+                    "teachers",
+                    "schools"
+                ],
+                "a7": [
+                    "outside",
+                    "nearby",
+                    "pack",
+                    "extra"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "object",
+                "a6": "object",
+                "a7": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "mvq-need-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Технікові потрібно замінити тріснуту лінзу.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Технікові потрібно замінити тріснуту лінзу.",
+            "target_text": "The technician needs to replace the cracked lens.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "technician",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "technician",
+                        "coordinator",
+                        "authority",
+                        "guide"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "brings",
+                        "takes"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a5": {
+                    "answer": "replace",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "replace",
+                        "send",
+                        "remove",
+                        "consider"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "cracked",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "cracked",
+                        "revised",
+                        "contested",
+                        "need"
+                    ]
+                },
+                "a8": {
+                    "answer": "lens.",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+                    "options": [
+                        "lens",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби в однині; назви саме тріснуту лінзу.",
+            "accepted_target_texts": [
+                "The technician needs to replace the cracked lens."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technician",
+                "needs to",
+                "replace",
+                "the cracked lens."
+            ],
+            "token_groups": [
+                "The technician",
+                "needs to",
+                "replace",
+                "the cracked lens."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "technician",
+                "needs",
+                "to",
+                "replace",
+                "the",
+                "cracked",
+                "lens."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "technician",
+                "coordinator",
+                "authority",
+                "guide",
+                "needs",
+                "wants",
+                "brings",
+                "takes",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "replace",
+                "send",
+                "remove",
+                "consider",
+                "the",
+                "these",
+                "those",
+                "each",
+                "cracked",
+                "revised",
+                "contested",
+                "need",
+                "lens",
+                "keys",
+                "rooms",
+                "maps"
+            ],
+            "source_text_uk": "Технікові потрібно замінити тріснуту лінзу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "technician",
+                    "coordinator",
+                    "authority",
+                    "guide"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "brings",
+                    "takes"
+                ],
+                "a4": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a5": [
+                    "replace",
+                    "send",
+                    "remove",
+                    "consider"
+                ],
+                "a6": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a7": [
+                    "cracked",
+                    "revised",
+                    "contested",
+                    "need"
+                ],
+                "a8": [
+                    "lens",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object",
+                "a8": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "mvq-need-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Їм не потрібно було скасовувати репетицію.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Їм не потрібно було скасовувати репетицію.",
+            "target_text": "They did not need to cancel the rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "They",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "did",
+                        "do",
+                        "does",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a4": {
+                    "answer": "need",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "need",
+                        "cracked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "cancel",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "cancel",
+                        "inspect",
+                        "examine",
+                        "carry"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "rehearsal.",
+                    "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+                    "options": [
+                        "rehearsal",
+                        "flour",
+                        "translation",
+                        "register"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч минулу необхідність звичайним дієсловом; факт скасування не встановлено.",
+            "accepted_target_texts": [
+                "They did not need to cancel the rehearsal."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "did not",
+                "need to",
+                "cancel",
+                "the rehearsal."
+            ],
+            "token_groups": [
+                "They",
+                "did not",
+                "need to",
+                "cancel",
+                "the rehearsal."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "They",
+                "did",
+                "not",
+                "need",
+                "to",
+                "cancel",
+                "the",
+                "rehearsal."
+            ],
+            "options": [
+                "They",
+                "He",
+                "She",
+                "It",
+                "did",
+                "do",
+                "does",
+                "don't",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "need",
+                "cracked",
+                "played",
+                "called",
+                "to",
+                "on",
+                "at",
+                "by",
+                "cancel",
+                "inspect",
+                "examine",
+                "carry",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "rehearsal",
+                "flour",
+                "translation",
+                "register"
+            ],
+            "source_text_uk": "Їм не потрібно було скасовувати репетицію.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "did",
+                    "do",
+                    "does",
+                    "don't"
+                ],
+                "a3": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a4": [
+                    "need",
+                    "cracked",
+                    "played",
+                    "called"
+                ],
+                "a5": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "cancel",
+                    "inspect",
+                    "examine",
+                    "carry"
+                ],
+                "a7": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "rehearsal",
+                    "flour",
+                    "translation",
+                    "register"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "to_frame",
+                "a5": "to_frame",
+                "a6": "verb",
+                "a7": "object",
+                "a8": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "mvq-need-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Нам не потрібно надавати власне обладнання.",
+            "level": "B1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не потрібно надавати власне обладнання.",
+            "target_text": "We need not supply our own equipment.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "We",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "need",
+                        "cracked",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "supply",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "supply",
+                        "clearly",
+                        "safely",
+                        "happily"
+                    ]
+                },
+                "a5": {
+                    "answer": "our",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "our",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a6": {
+                    "answer": "own",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "own",
+                        "duplicate",
+                        "proportionality",
+                        "insurance"
+                    ]
+                },
+                "a7": {
+                    "answer": "equipment.",
+                    "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+                    "options": [
+                        "equipment",
+                        "test",
+                        "taxonomy",
+                        "objection"
+                    ]
+                }
+            },
+            "verb_hint": "Передай модальну відсутність потреби у власному обладнанні; «надати» також можна передати як «забезпечити».",
+            "accepted_target_texts": [
+                "We need not supply our own equipment.",
+                "We need not provide our own equipment."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "provide"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "provide"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "need not",
+                "supply",
+                "our own equipment."
+            ],
+            "token_groups": [
+                "We",
+                "need not",
+                "supply",
+                "our own equipment."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "need",
+                "not",
+                "supply",
+                "our",
+                "own",
+                "equipment."
+            ],
+            "options": [
+                "We",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "need",
+                "cracked",
+                "needed",
+                "liked",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "supply",
+                "clearly",
+                "safely",
+                "happily",
+                "our",
+                "his",
+                "her",
+                "its",
+                "own",
+                "duplicate",
+                "proportionality",
+                "insurance",
+                "equipment",
+                "test",
+                "taxonomy",
+                "objection"
+            ],
+            "source_text_uk": "Нам не потрібно надавати власне обладнання.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "need",
+                    "cracked",
+                    "needed",
+                    "liked"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "supply",
+                    "clearly",
+                    "safely",
+                    "happily"
+                ],
+                "a5": [
+                    "our",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a6": [
+                    "own",
+                    "duplicate",
+                    "proportionality",
+                    "insurance"
+                ],
+                "a7": [
+                    "equipment",
+                    "test",
+                    "taxonomy",
+                    "objection"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "modal",
+                "a3": "modal",
+                "a4": "verb",
+                "a5": "object",
+                "a6": "object",
+                "a7": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "mvq-need-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Організаторові потрібно перевірити страхове покриття до погодження.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Організаторові потрібно перевірити страхове покриття до погодження.",
+            "target_text": "The organiser needs to verify the insurance cover before approval.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "organiser",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "organiser",
+                        "panel",
+                        "archivist",
+                        "reviewer"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "closes",
+                        "helps"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "verify",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "verify",
+                        "record",
+                        "review",
+                        "repair"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "the",
+                        "some",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "insurance",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "insurance",
+                        "proportionality",
+                        "duplicate",
+                        "own"
+                    ]
+                },
+                "a8": {
+                    "answer": "cover",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "cover",
+                        "taxonomy",
+                        "objection",
+                        "estimate"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "before",
+                        "after",
+                        "last",
+                        "by"
+                    ]
+                },
+                "a10": {
+                    "answer": "approval.",
+                    "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+                    "options": [
+                        "approval",
+                        "noon",
+                        "dawn",
+                        "lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби; «перевірити» також можна передати як «підтвердити перевіркою».",
+            "accepted_target_texts": [
+                "The organiser needs to verify the insurance cover before approval.",
+                "The organiser needs to check the insurance cover before approval."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "check"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "check"
+                ]
+            },
+            "reorder_groups": [
+                "The organiser",
+                "needs to",
+                "verify",
+                "the insurance cover",
+                "before approval."
+            ],
+            "token_groups": [
+                "The organiser",
+                "needs to",
+                "verify",
+                "the insurance cover",
+                "before approval."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "organiser",
+                "needs",
+                "to",
+                "verify",
+                "the",
+                "insurance",
+                "cover",
+                "before",
+                "approval."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "organiser",
+                "panel",
+                "archivist",
+                "reviewer",
+                "needs",
+                "wants",
+                "closes",
+                "helps",
+                "to",
+                "in",
+                "on",
+                "at",
+                "verify",
+                "record",
+                "review",
+                "repair",
+                "the",
+                "some",
+                "these",
+                "those",
+                "insurance",
+                "proportionality",
+                "duplicate",
+                "own",
+                "cover",
+                "taxonomy",
+                "objection",
+                "estimate",
+                "before",
+                "after",
+                "last",
+                "by",
+                "approval",
+                "noon",
+                "dawn",
+                "lunch"
+            ],
+            "source_text_uk": "Організаторові потрібно перевірити страхове покриття до погодження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "organiser",
+                    "panel",
+                    "archivist",
+                    "reviewer"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "closes",
+                    "helps"
+                ],
+                "a4": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "verify",
+                    "record",
+                    "review",
+                    "repair"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "insurance",
+                    "proportionality",
+                    "duplicate",
+                    "own"
+                ],
+                "a8": [
+                    "cover",
+                    "taxonomy",
+                    "objection",
+                    "estimate"
+                ],
+                "a9": [
+                    "before",
+                    "after",
+                    "last",
+                    "by"
+                ],
+                "a10": [
+                    "approval",
+                    "noon",
+                    "dawn",
+                    "lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object",
+                "a8": "object",
+                "a9": "time",
+                "a10": "time"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "mvq-need-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Нам не обов’язково приймати переглянутий кошторис.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не обов’язково приймати переглянутий кошторис.",
+            "target_text": "We do not have to accept the revised estimate.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "do",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "does"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a6": {
+                    "answer": "accept",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "accept",
+                        "order",
+                        "pack",
+                        "replace"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "revised",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "revised",
+                        "contested",
+                        "cracked",
+                        "need"
+                    ]
+                },
+                "a9": {
+                    "answer": "estimate.",
+                    "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+                    "options": [
+                        "estimate",
+                        "test",
+                        "equipment",
+                        "threshold"
+                    ]
+                }
+            },
+            "verb_hint": "Передай відсутність обов’язку через конструкцію з допоміжним запереченням; прийняття не заборонено.",
+            "accepted_target_texts": [
+                "We do not have to accept the revised estimate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not",
+                "have to",
+                "accept",
+                "the revised estimate."
+            ],
+            "token_groups": [
+                "We",
+                "do not",
+                "have to",
+                "accept",
+                "the revised estimate."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "do",
+                "not",
+                "have",
+                "to",
+                "accept",
+                "the",
+                "revised",
+                "estimate."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "do",
+                "didn't",
+                "has",
+                "had",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "have",
+                "hasn't",
+                "hadn't",
+                "does",
+                "to",
+                "for",
+                "of",
+                "in",
+                "accept",
+                "order",
+                "pack",
+                "replace",
+                "the",
+                "an",
+                "some",
+                "any",
+                "revised",
+                "contested",
+                "cracked",
+                "need",
+                "estimate",
+                "test",
+                "equipment",
+                "threshold"
+            ],
+            "source_text_uk": "Нам не обов’язково приймати переглянутий кошторис.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "do",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a3": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a4": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "does"
+                ],
+                "a5": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a6": [
+                    "accept",
+                    "order",
+                    "pack",
+                    "replace"
+                ],
+                "a7": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "revised",
+                    "contested",
+                    "cracked",
+                    "need"
+                ],
+                "a9": [
+                    "estimate",
+                    "test",
+                    "equipment",
+                    "threshold"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "to_frame",
+                "a5": "to_frame",
+                "a6": "verb",
+                "a7": "object",
+                "a8": "object",
+                "a9": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "mvq-need-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Архівіст відсканував копію квитанції, хоча потреби в цьому не було.",
+            "level": "B2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Архівіст відсканував копію квитанції, хоча потреби в цьому не було.",
+            "target_text": "The archivist need not have scanned the duplicate receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "archivist",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "archivist",
+                        "baker",
+                        "guide",
+                        "cyclist"
+                    ]
+                },
+                "a3": {
+                    "answer": "need",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "need",
+                        "revised",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a6": {
+                    "answer": "scanned",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "scanned",
+                        "opened",
+                        "brought",
+                        "carried"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "duplicate",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "duplicate",
+                        "own",
+                        "proportionality",
+                        "insurance"
+                    ]
+                },
+                "a9": {
+                    "answer": "receipt.",
+                    "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+                    "options": [
+                        "receipt",
+                        "equipment",
+                        "threshold",
+                        "statement"
+                    ]
+                }
+            },
+            "verb_hint": "Передай вже виконану зайву дію перфектною модальною формою; не заперечуй факту сканування.",
+            "accepted_target_texts": [
+                "The archivist need not have scanned the duplicate receipt."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archivist",
+                "need not have",
+                "scanned",
+                "the duplicate receipt."
+            ],
+            "token_groups": [
+                "The archivist",
+                "need not have",
+                "scanned",
+                "the duplicate receipt."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "archivist",
+                "need",
+                "not",
+                "have",
+                "scanned",
+                "the",
+                "duplicate",
+                "receipt."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "archivist",
+                "baker",
+                "guide",
+                "cyclist",
+                "need",
+                "revised",
+                "worked",
+                "played",
+                "not",
+                "already",
+                "still",
+                "just",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "scanned",
+                "opened",
+                "brought",
+                "carried",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "duplicate",
+                "own",
+                "proportionality",
+                "insurance",
+                "receipt",
+                "equipment",
+                "threshold",
+                "statement"
+            ],
+            "source_text_uk": "Архівіст відсканував копію квитанції, хоча потреби в цьому не було.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "archivist",
+                    "baker",
+                    "guide",
+                    "cyclist"
+                ],
+                "a3": [
+                    "need",
+                    "revised",
+                    "worked",
+                    "played"
+                ],
+                "a4": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a5": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a6": [
+                    "scanned",
+                    "opened",
+                    "brought",
+                    "carried"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "duplicate",
+                    "own",
+                    "proportionality",
+                    "insurance"
+                ],
+                "a9": [
+                    "receipt",
+                    "equipment",
+                    "threshold",
+                    "statement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "perfect_modal",
+                "a4": "perfect_modal",
+                "a5": "perfect_modal",
+                "a6": "participle",
+                "a7": "object",
+                "a8": "object",
+                "a9": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "mvq-need-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Регуляторові потрібно уточнити поріг звітування.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Регуляторові потрібно уточнити поріг звітування.",
+            "target_text": "The regulator needs to clarify the reporting threshold.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "regulator",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "regulator",
+                        "coordinator",
+                        "archivist",
+                        "authority"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "helps",
+                        "waits"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a5": {
+                    "answer": "clarify",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "clarify",
+                        "remove",
+                        "consider",
+                        "compare"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "reporting",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "reporting",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a8": {
+                    "answer": "threshold.",
+                    "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+                    "options": [
+                        "threshold",
+                        "estimate",
+                        "receipt",
+                        "test"
+                    ]
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби в однині; збережи предмет уточнення.",
+            "accepted_target_texts": [
+                "The regulator needs to clarify the reporting threshold."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The regulator",
+                "needs to",
+                "clarify",
+                "the reporting threshold."
+            ],
+            "token_groups": [
+                "The regulator",
+                "needs to",
+                "clarify",
+                "the reporting threshold."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "regulator",
+                "needs",
+                "to",
+                "clarify",
+                "the",
+                "reporting",
+                "threshold."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "regulator",
+                "coordinator",
+                "archivist",
+                "authority",
+                "needs",
+                "wants",
+                "helps",
+                "waits",
+                "to",
+                "among",
+                "about",
+                "during",
+                "clarify",
+                "remove",
+                "consider",
+                "compare",
+                "the",
+                "another",
+                "either",
+                "a",
+                "reporting",
+                "studying",
+                "living",
+                "buying",
+                "threshold",
+                "estimate",
+                "receipt",
+                "test"
+            ],
+            "source_text_uk": "Регуляторові потрібно уточнити поріг звітування.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "regulator",
+                    "coordinator",
+                    "archivist",
+                    "authority"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "helps",
+                    "waits"
+                ],
+                "a4": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a5": [
+                    "clarify",
+                    "remove",
+                    "consider",
+                    "compare"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "a"
+                ],
+                "a7": [
+                    "reporting",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a8": [
+                    "threshold",
+                    "estimate",
+                    "receipt",
+                    "test"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object",
+                "a8": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "mvq-need-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Нам не потрібно дослівно відтворювати спірне твердження.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не потрібно дослівно відтворювати спірне твердження.",
+            "target_text": "We do not need to reproduce the contested statement verbatim.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "do",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a4": {
+                    "answer": "need",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "need",
+                        "wrote",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "reproduce",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "reproduce",
+                        "carry",
+                        "record",
+                        "review"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "contested",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "contested",
+                        "cracked",
+                        "revised",
+                        "waited"
+                    ]
+                },
+                "a9": {
+                    "answer": "statement",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "statement",
+                        "threshold",
+                        "equipment",
+                        "cover"
+                    ]
+                },
+                "a10": {
+                    "answer": "verbatim.",
+                    "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+                    "options": [
+                        "verbatim",
+                        "independently",
+                        "promptly",
+                        "explicitly"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч необхідність звичайним дієсловом; збережи ознаку дослівності.",
+            "accepted_target_texts": [
+                "We do not need to reproduce the contested statement verbatim."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not",
+                "need to",
+                "reproduce",
+                "the contested statement",
+                "verbatim."
+            ],
+            "token_groups": [
+                "We",
+                "do not",
+                "need to",
+                "reproduce",
+                "the contested statement",
+                "verbatim."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "do",
+                "not",
+                "need",
+                "to",
+                "reproduce",
+                "the",
+                "contested",
+                "statement",
+                "verbatim."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "do",
+                "has",
+                "had",
+                "haven't",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "need",
+                "wrote",
+                "rode",
+                "drove",
+                "to",
+                "from",
+                "for",
+                "of",
+                "reproduce",
+                "carry",
+                "record",
+                "review",
+                "the",
+                "some",
+                "any",
+                "this",
+                "contested",
+                "cracked",
+                "revised",
+                "waited",
+                "statement",
+                "threshold",
+                "equipment",
+                "cover",
+                "verbatim",
+                "independently",
+                "promptly",
+                "explicitly"
+            ],
+            "source_text_uk": "Нам не потрібно дослівно відтворювати спірне твердження.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "do",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a3": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a4": [
+                    "need",
+                    "wrote",
+                    "rode",
+                    "drove"
+                ],
+                "a5": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "reproduce",
+                    "carry",
+                    "record",
+                    "review"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "contested",
+                    "cracked",
+                    "revised",
+                    "waited"
+                ],
+                "a9": [
+                    "statement",
+                    "threshold",
+                    "equipment",
+                    "cover"
+                ],
+                "a10": [
+                    "verbatim",
+                    "independently",
+                    "promptly",
+                    "explicitly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "to_frame",
+                "a5": "to_frame",
+                "a6": "verb",
+                "a7": "object",
+                "a8": "object",
+                "a9": "object",
+                "a10": "manner"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "mvq-need-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Координатор замовив ще один переклад, хоча потреби в цьому не було.",
+            "level": "C1",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Координатор замовив ще один переклад, хоча потреби в цьому не було.",
+            "target_text": "The coordinator need not have commissioned another translation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "coordinator",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "coordinator",
+                        "guide",
+                        "cyclist",
+                        "neighbour"
+                    ]
+                },
+                "a3": {
+                    "answer": "need",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "need",
+                        "contested",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "commissioned",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "commissioned",
+                        "closed",
+                        "left",
+                        "recorded"
+                    ]
+                },
+                "a7": {
+                    "answer": "another",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "another",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "translation.",
+                    "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+                    "options": [
+                        "translation",
+                        "gate",
+                        "corridor",
+                        "diagram"
+                    ]
+                }
+            },
+            "verb_hint": "Передай вже виконане зайве замовлення; не стверджуй, що переклад не замовляли.",
+            "accepted_target_texts": [
+                "The coordinator need not have commissioned another translation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coordinator",
+                "need not have",
+                "commissioned",
+                "another translation."
+            ],
+            "token_groups": [
+                "The coordinator",
+                "need not have",
+                "commissioned",
+                "another translation."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "coordinator",
+                "need",
+                "not",
+                "have",
+                "commissioned",
+                "another",
+                "translation."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "coordinator",
+                "guide",
+                "cyclist",
+                "neighbour",
+                "need",
+                "contested",
+                "wanted",
+                "worked",
+                "not",
+                "never",
+                "always",
+                "often",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "commissioned",
+                "closed",
+                "left",
+                "recorded",
+                "another",
+                "both",
+                "a",
+                "an",
+                "translation",
+                "gate",
+                "corridor",
+                "diagram"
+            ],
+            "source_text_uk": "Координатор замовив ще один переклад, хоча потреби в цьому не було.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "coordinator",
+                    "guide",
+                    "cyclist",
+                    "neighbour"
+                ],
+                "a3": [
+                    "need",
+                    "contested",
+                    "wanted",
+                    "worked"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "commissioned",
+                    "closed",
+                    "left",
+                    "recorded"
+                ],
+                "a7": [
+                    "another",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "translation",
+                    "gate",
+                    "corridor",
+                    "diagram"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "perfect_modal",
+                "a4": "perfect_modal",
+                "a5": "perfect_modal",
+                "a6": "participle",
+                "a7": "object",
+                "a8": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "mvq-need-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Органові влади потрібно точно сформулювати тест пропорційності.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Органові влади потрібно точно сформулювати тест пропорційності.",
+            "target_text": "The authority needs to articulate the proportionality test precisely.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "authority",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "authority",
+                        "volunteer",
+                        "reviewer",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "needs",
+                        "wants",
+                        "meets",
+                        "uses"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a5": {
+                    "answer": "articulate",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "articulate",
+                        "check",
+                        "inspect",
+                        "examine"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "proportionality",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "proportionality",
+                        "insurance",
+                        "duplicate",
+                        "own"
+                    ]
+                },
+                "a8": {
+                    "answer": "test",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "test",
+                        "taxonomy",
+                        "equipment",
+                        "cover"
+                    ]
+                },
+                "a9": {
+                    "answer": "precisely.",
+                    "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+                    "options": [
+                        "precisely",
+                        "promptly",
+                        "explicitly",
+                        "verbatim"
+                    ]
+                }
+            },
+            "verb_hint": "Використай звичайне дієслово потреби; збережи точність формулювання.",
+            "accepted_target_texts": [
+                "The authority needs to articulate the proportionality test precisely."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authority",
+                "needs to",
+                "articulate",
+                "the proportionality test",
+                "precisely."
+            ],
+            "token_groups": [
+                "The authority",
+                "needs to",
+                "articulate",
+                "the proportionality test",
+                "precisely."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "authority",
+                "needs",
+                "to",
+                "articulate",
+                "the",
+                "proportionality",
+                "test",
+                "precisely."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "authority",
+                "volunteer",
+                "reviewer",
+                "visitor",
+                "needs",
+                "wants",
+                "meets",
+                "uses",
+                "to",
+                "during",
+                "from",
+                "for",
+                "articulate",
+                "check",
+                "inspect",
+                "examine",
+                "the",
+                "some",
+                "any",
+                "this",
+                "proportionality",
+                "insurance",
+                "duplicate",
+                "own",
+                "test",
+                "taxonomy",
+                "equipment",
+                "cover",
+                "precisely",
+                "promptly",
+                "explicitly",
+                "verbatim"
+            ],
+            "source_text_uk": "Органові влади потрібно точно сформулювати тест пропорційності.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "authority",
+                    "volunteer",
+                    "reviewer",
+                    "visitor"
+                ],
+                "a3": [
+                    "needs",
+                    "wants",
+                    "meets",
+                    "uses"
+                ],
+                "a4": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a5": [
+                    "articulate",
+                    "check",
+                    "inspect",
+                    "examine"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "proportionality",
+                    "insurance",
+                    "duplicate",
+                    "own"
+                ],
+                "a8": [
+                    "test",
+                    "taxonomy",
+                    "equipment",
+                    "cover"
+                ],
+                "a9": [
+                    "precisely",
+                    "promptly",
+                    "explicitly",
+                    "verbatim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "to_frame",
+                "a4": "to_frame",
+                "a5": "verb",
+                "a6": "object",
+                "a7": "object",
+                "a8": "object",
+                "a9": "manner"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "mvq-need-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Нам не обов’язково наперед припускати вичерпну класифікацію.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Нам не обов’язково наперед припускати вичерпну класифікацію.",
+            "target_text": "We do not have to presuppose an exhaustive taxonomy.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "do",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "presuppose",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "presuppose",
+                        "check",
+                        "inspect",
+                        "examine"
+                    ]
+                },
+                "a7": {
+                    "answer": "an",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "an",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "exhaustive",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "exhaustive",
+                        "hypothetical",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a9": {
+                    "answer": "taxonomy.",
+                    "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+                    "options": [
+                        "taxonomy",
+                        "threshold",
+                        "statement",
+                        "objection"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч необхідність передумови через конструкцію обов’язку, не оголошуючи її неможливою.",
+            "accepted_target_texts": [
+                "We do not have to presuppose an exhaustive taxonomy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not",
+                "have to",
+                "presuppose",
+                "an exhaustive taxonomy."
+            ],
+            "token_groups": [
+                "We",
+                "do not",
+                "have to",
+                "presuppose",
+                "an exhaustive taxonomy."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "We",
+                "do",
+                "not",
+                "have",
+                "to",
+                "presuppose",
+                "an",
+                "exhaustive",
+                "taxonomy."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "do",
+                "does",
+                "did",
+                "don't",
+                "not",
+                "never",
+                "always",
+                "often",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "to",
+                "by",
+                "with",
+                "without",
+                "presuppose",
+                "check",
+                "inspect",
+                "examine",
+                "an",
+                "that",
+                "these",
+                "those",
+                "exhaustive",
+                "hypothetical",
+                "friendly",
+                "lovely",
+                "taxonomy",
+                "threshold",
+                "statement",
+                "objection"
+            ],
+            "source_text_uk": "Нам не обов’язково наперед припускати вичерпну класифікацію.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "do",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a5": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "presuppose",
+                    "check",
+                    "inspect",
+                    "examine"
+                ],
+                "a7": [
+                    "an",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "exhaustive",
+                    "hypothetical",
+                    "friendly",
+                    "lovely"
+                ],
+                "a9": [
+                    "taxonomy",
+                    "threshold",
+                    "statement",
+                    "objection"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "auxiliary",
+                "a3": "auxiliary",
+                "a4": "to_frame",
+                "a5": "to_frame",
+                "a6": "verb",
+                "a7": "object",
+                "a8": "object",
+                "a9": "object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "mvq-need-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Комісія розглянула гіпотетичне заперечення, хоча потреби в цьому не було.",
+            "level": "C2",
+            "type": 4,
+            "source": "modal_verbs_quality_need_neednt_dont_have_to",
+            "translation_uk": "Комісія розглянула гіпотетичне заперечення, хоча потреби в цьому не було.",
+            "target_text": "The panel need not have addressed the hypothetical objection.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "panel",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "panel",
+                        "gardener",
+                        "visitor",
+                        "baker"
+                    ]
+                },
+                "a3": {
+                    "answer": "need",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "need",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a6": {
+                    "answer": "addressed",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "addressed",
+                        "scanned",
+                        "commissioned",
+                        "considered"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a8": {
+                    "answer": "hypothetical",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "hypothetical",
+                        "exhaustive",
+                        "simple",
+                        "happy"
+                    ]
+                },
+                "a9": {
+                    "answer": "objection.",
+                    "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+                    "options": [
+                        "objection",
+                        "test",
+                        "equipment",
+                        "cover"
+                    ]
+                }
+            },
+            "verb_hint": "Передай вже виконаний зайвий розгляд перфектною модальною формою; не заперечуй факту розгляду.",
+            "accepted_target_texts": [
+                "The panel need not have addressed the hypothetical objection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "need not have",
+                "addressed",
+                "the hypothetical objection."
+            ],
+            "token_groups": [
+                "The panel",
+                "need not have",
+                "addressed",
+                "the hypothetical objection."
+            ],
+            "quality_revision": "mvq-v1",
+            "tokens_correct": [
+                "The",
+                "panel",
+                "need",
+                "not",
+                "have",
+                "addressed",
+                "the",
+                "hypothetical",
+                "objection."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "panel",
+                "gardener",
+                "visitor",
+                "baker",
+                "need",
+                "visited",
+                "cooked",
+                "found",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "addressed",
+                "scanned",
+                "commissioned",
+                "considered",
+                "the",
+                "each",
+                "every",
+                "no",
+                "hypothetical",
+                "exhaustive",
+                "simple",
+                "happy",
+                "objection",
+                "test",
+                "equipment",
+                "cover"
+            ],
+            "source_text_uk": "Комісія розглянула гіпотетичне заперечення, хоча потреби в цьому не було.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "panel",
+                    "gardener",
+                    "visitor",
+                    "baker"
+                ],
+                "a3": [
+                    "need",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a5": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a6": [
+                    "addressed",
+                    "scanned",
+                    "commissioned",
+                    "considered"
+                ],
+                "a7": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a8": [
+                    "hypothetical",
+                    "exhaustive",
+                    "simple",
+                    "happy"
+                ],
+                "a9": [
+                    "objection",
+                    "test",
+                    "equipment",
+                    "cover"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_subject",
+                "a2": "third_subject",
+                "a3": "perfect_modal",
+                "a4": "perfect_modal",
+                "a5": "perfect_modal",
+                "a6": "participle",
+                "a7": "object",
+                "a8": "object",
+                "a9": "object"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

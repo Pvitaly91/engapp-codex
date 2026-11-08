@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60658,
+        "uuid": "bgq-parts-of-speech-c2-g03",
+        "question": "Its apparent {a1} conceals a series of contingent choices.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "inevitability",
+                "inevitable",
+                "inevitably"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:49.000000Z",
+        "updated_at": "2026-10-27T15:50:49.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60658,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 28125,
+                "option": "inevitably",
+                "created_at": "2026-06-28T17:53:02.000000Z",
+                "updated_at": "2026-06-28T17:53:02.000000Z"
+            },
+            "pivot": {
+                "question_id": 60658,
+                "option_id": 28125,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53168,
+                "option": "inevitability",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 60658,
+                "option_id": 53168,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53170,
+                "option": "inevitable",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 60658,
+                "option_id": 53170,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325713,
+                "question_id": 60658,
+                "marker": "a1",
+                "option_id": 53168,
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "option": {
+                "id": 53168,
+                "option": "inevitability",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43047,
+                "question_id": 60658,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53169,
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "option": {
+                "id": 53169,
+                "option": "Потрібний зміст: «Неминучість». У підметовій групі потрібна назва неминучості як іменник.",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52673,
+            "question_id": 60658,
+            "text": "Its apparent {a1} conceals a series of contingent choices.",
+            "created_at": "2026-10-27T15:50:49.000000Z",
+            "updated_at": "2026-10-27T15:50:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,1850 @@
+{
+    "schema_version": 1,
+    "topic_key": "equality",
+    "title": "Порівняння рівності: as … as / not as … as",
+    "choice_pools": {
+        "noun_phrase": [
+            "The old bridge",
+            "Her first answer",
+            "My neighbour",
+            "The final draft",
+            "the narrow path",
+            "Our new office",
+            "This proposal",
+            "His explanation",
+            "the red chair",
+            "the available evidence",
+            "the external reviewer",
+            "the main entrance"
+        ],
+        "adjunct": [
+            "after the outage",
+            "after the meeting",
+            "in the hall",
+            "under pressure",
+            "after lunch",
+            "by the proposal",
+            "after the concert",
+            "in the classroom",
+            "by the findings",
+            "after the journey"
+        ],
+        "equality_phrase": [
+            "as bright as",
+            "as calmly as",
+            "as helpful as",
+            "as clear as",
+            "as durable as",
+            "as carefully as",
+            "as accurate as",
+            "as much as",
+            "as strong as",
+            "as old as",
+            "as reliable as",
+            "as friendly as"
+        ],
+        "negative_as_link": [
+            "is not as",
+            "was not as",
+            "are not as",
+            "were not as",
+            "seems not as",
+            "proved not as",
+            "became not as"
+        ],
+        "negative_degree_link": [
+            "is not quite",
+            "was not nearly",
+            "was not half",
+            "is nowhere near",
+            "is not remotely",
+            "was not remotely",
+            "are not nearly",
+            "were not quite"
+        ],
+        "equal_predicate": [
+            "is as clear",
+            "was as good",
+            "were as calm",
+            "is as heavy",
+            "was as bright",
+            "is as friendly",
+            "were as careful",
+            "was as old",
+            "is as durable"
+        ],
+        "every_bit_link": [
+            "was every bit",
+            "is every bit",
+            "were every bit",
+            "are every bit",
+            "seems every bit",
+            "became every bit",
+            "remained every bit"
+        ],
+        "just_as_link": [
+            "proved just as",
+            "is just as",
+            "was just as",
+            "were just as",
+            "are just as",
+            "remained just as",
+            "seemed just as",
+            "became just as"
+        ],
+        "quality_as": [
+            "long as",
+            "stable as",
+            "subtle as",
+            "clear as",
+            "bright as",
+            "accurate as",
+            "careful as",
+            "old as"
+        ],
+        "quality_pronoun": [
+            "bright as yours",
+            "clear as mine",
+            "old as hers",
+            "wide as ours",
+            "strong as his",
+            "quiet as theirs",
+            "tall as that",
+            "fast as this"
+        ],
+        "comparison_pronoun": [
+            "as yours",
+            "as theirs",
+            "as his",
+            "as hers",
+            "as ours",
+            "as mine",
+            "as its"
+        ],
+        "comparison_noun": [
+            "as your coffee",
+            "as the bridge",
+            "as our office",
+            "as his answer",
+            "as these plans",
+            "as that model",
+            "as the draft"
+        ],
+        "action_clause": [
+            "The children finished",
+            "The interns worked",
+            "Their team responded",
+            "The visitors arrived",
+            "Our group performed",
+            "The students practised",
+            "My colleagues reacted",
+            "The engineer replied"
+        ],
+        "copular_subject": [
+            "Their explanation sounded",
+            "Her tone remained",
+            "Her position remained",
+            "His answer seemed",
+            "Their proposal sounded",
+            "Our position appeared",
+            "The system proved",
+            "This account looked",
+            "Your argument became",
+            "Their plan seemed"
+        ],
+        "comparison_clause": [
+            "the teacher expected",
+            "we had prepared",
+            "they had promised",
+            "the committee claimed",
+            "our guide predicted",
+            "the evidence suggested",
+            "the circumstances allowed",
+            "the evidence required",
+            "it first appears"
+        ],
+        "pronoun": [
+            "ours",
+            "yours",
+            "theirs",
+            "his",
+            "hers",
+            "mine",
+            "that",
+            "this"
+        ],
+        "indefinite_pronoun": [
+            "anything",
+            "something",
+            "nothing",
+            "everything",
+            "whichever",
+            "whatever"
+        ],
+        "linker": [
+            "as",
+            "than",
+            "but",
+            "and",
+            "while",
+            "because",
+            "although"
+        ],
+        "past_verb": [
+            "finished",
+            "worked",
+            "responded",
+            "arrived",
+            "reacted",
+            "acted",
+            "practised",
+            "performed"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "My bag is as {a1} as yours.",
+            "target": "My bag is as heavy as yours.",
+            "uk": "Моя сумка така ж важка, як твоя.",
+            "hint_uk": "Важкий: у порівнянні рівності потрібна початкова форма прикметника.",
+            "groups": [
+                "My bag",
+                "is as heavy",
+                "as yours."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-01",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "heavy",
+            "options": [
+                "heavy",
+                "heavier",
+                "heaviest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This room is not as {a1} as the kitchen.",
+            "target": "This room is not as warm as the kitchen.",
+            "uk": "Ця кімната не така тепла, як кухня.",
+            "hint_uk": "Теплий: після заперечення збережи початкову форму прикметника.",
+            "groups": [
+                "This room",
+                "is not as",
+                "warm as",
+                "the kitchen."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-02",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "warm",
+            "options": [
+                "warm",
+                "warmer",
+                "warmest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g03",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Her dog is as {a1} as our cat.",
+            "target": "Her dog is as friendly as our cat.",
+            "uk": "Її пес такий же дружній, як наш кіт.",
+            "hint_uk": "Дружній: назви рису характеру, не утворюй вищого ступеня.",
+            "groups": [
+                "Her dog",
+                "is as friendly",
+                "as our cat."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-03",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "friendly",
+            "options": [
+                "friendly",
+                "friendlier",
+                "friendliest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g04",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Today is not as {a1} as yesterday.",
+            "target": "Today is not as cold as yesterday.",
+            "uk": "Сьогодні не так холодно, як учора.",
+            "hint_uk": "Холодний: між двома частинами порівняння потрібна початкова форма.",
+            "groups": [
+                "Today",
+                "is not as",
+                "cold as yesterday."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "cold",
+            "options": [
+                "cold",
+                "colder",
+                "coldest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g05",
+            "level": "A1",
+            "kind": "gap",
+            "question": "This chair is as {a1} as that one.",
+            "target": "This chair is as comfortable as that one.",
+            "uk": "Цей стілець такий же зручний, як той.",
+            "hint_uk": "Зручний: порівняй однаковий рівень комфорту без вищого ступеня.",
+            "groups": [
+                "This chair",
+                "is as comfortable",
+                "as that one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-05",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "comfortable",
+            "options": [
+                "comfortable",
+                "more comfortable",
+                "most comfortable"
+            ],
+            "answer_synonyms": [
+                "comfy"
+            ]
+        },
+        {
+            "id": "A1-g06",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The red box is not as {a1} as the blue one.",
+            "target": "The red box is not as large as the blue one.",
+            "uk": "Червона коробка не така велика, як синя.",
+            "hint_uk": "Великий: потрібна початкова форма; можна також передати значення словом «великий» у значенні розміру.",
+            "groups": [
+                "The red box",
+                "is not as",
+                "large as",
+                "the blue one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "large",
+            "options": [
+                "large",
+                "larger",
+                "largest"
+            ],
+            "answer_synonyms": [
+                "big"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Його відповідь була такою ж доброю, як моя.",
+            "target": "His answer was as good as mine.",
+            "uk": "Його відповідь була такою ж доброю, як моя.",
+            "hint_uk": "Порівняй якість двох відповідей: однакова оцінка, минулий час.",
+            "groups": [
+                "His answer",
+                "was as good",
+                "as mine."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-07",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "His answer",
+                "was as good",
+                "as mine."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "equal_predicate",
+                "comparison_pronoun"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "A1-c02",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Та дорога не така довга, як головна дорога.",
+            "target": "That road is not as long as the main road.",
+            "uk": "Та дорога не така довга, як головна дорога.",
+            "hint_uk": "Запереч рівність довжини; назву дороги збережи в обох частинах.",
+            "groups": [
+                "That road",
+                "is not as",
+                "long as",
+                "the main road."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-08",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "That road",
+                "is not as",
+                "long as",
+                "the main road."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "negative_as_link",
+                "quality_as",
+                "noun_phrase"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "A1-c03",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Мій чай такий же гарячий, як твоя кава.",
+            "target": "My tea is as hot as your coffee.",
+            "uk": "Мій чай такий же гарячий, як твоя кава.",
+            "hint_uk": "Порівняй однакову температуру чаю й кави; почни з чаю.",
+            "groups": [
+                "My tea",
+                "is as hot",
+                "as your coffee."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a1-09",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "My tea",
+                "is as hot",
+                "as your coffee."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "equal_predicate",
+                "comparison_noun"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "My train was not as {a1} as yours.",
+            "target": "My train was not as late as yours.",
+            "uk": "Мій потяг не так запізнився, як твій.",
+            "hint_uk": "Пізній: йдеться про запізнення потяга, а не про тривалість подорожі.",
+            "groups": [
+                "My train",
+                "was not as",
+                "late as yours."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "late",
+            "options": [
+                "late",
+                "later",
+                "latest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "This hotel is not as {a1} as the photos suggest.",
+            "target": "This hotel is not as luxurious as the photos suggest.",
+            "uk": "Цей готель не такий розкішний, як можна подумати з фотографій.",
+            "hint_uk": "Розкішний: початкова форма прикметника після запереченого порівняння.",
+            "groups": [
+                "This hotel",
+                "is not as",
+                "luxurious as",
+                "the photos suggest."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "luxurious",
+            "options": [
+                "luxurious",
+                "more luxurious",
+                "most luxurious"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g03",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The baby slept as {a1} as last night.",
+            "target": "The baby slept as peacefully as last night.",
+            "uk": "Немовля спало так само спокійно, як минулої ночі.",
+            "hint_uk": "Спокійно: потрібен прислівник, що описує сон, не прикметник.",
+            "groups": [
+                "The baby slept",
+                "as peacefully as",
+                "last night."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-08",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "peacefully",
+            "options": [
+                "peacefully",
+                "more peacefully",
+                "most peacefully"
+            ],
+            "answer_synonyms": [
+                "calmly"
+            ]
+        },
+        {
+            "id": "A2-g04",
+            "level": "A2",
+            "kind": "gap",
+            "question": "She answered as {a1} as she could.",
+            "target": "She answered as politely as she could.",
+            "uk": "Вона відповіла так ввічливо, як тільки могла.",
+            "hint_uk": "Ввічливо: утвори прислівник способу дії, не вищий ступінь.",
+            "groups": [
+                "She answered",
+                "as politely as",
+                "she could."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-10",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "politely",
+            "options": [
+                "politely",
+                "politer",
+                "politest"
+            ],
+            "answer_synonyms": [
+                "courteously"
+            ]
+        },
+        {
+            "id": "A2-g05",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The route was not as {a1} as we had planned.",
+            "target": "The route was not as short as we had planned.",
+            "uk": "Маршрут був не таким коротким, як ми планували.",
+            "hint_uk": "Короткий: порівняй довжину маршруту із запланованою.",
+            "groups": [
+                "The route",
+                "was not as",
+                "short as",
+                "we had planned."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-11",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "short",
+            "options": [
+                "short",
+                "shorter",
+                "shortest"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g06",
+            "level": "A2",
+            "kind": "gap",
+            "question": "His new plan is as {a1} as the old one.",
+            "target": "His new plan is as practical as the old one.",
+            "uk": "Його новий план такий же практичний, як старий.",
+            "hint_uk": "Практичний: початкова форма описує придатність плану до виконання.",
+            "groups": [
+                "His new plan",
+                "is as practical",
+                "as the old",
+                "one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-12",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "practical",
+            "options": [
+                "practical",
+                "more practical",
+                "most practical"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Діти закінчили роботу так старанно, як очікував учитель.",
+            "target": "The children finished as carefully as the teacher expected.",
+            "uk": "Діти закінчили роботу так старанно, як очікував учитель.",
+            "hint_uk": "Почни з дітей; збережи прислівник старанного виконання та очікування вчителя.",
+            "groups": [
+                "The children",
+                "finished",
+                "as carefully as",
+                "the teacher expected."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-a2-05",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "The children",
+                "finished",
+                "as carefully as",
+                "the teacher expected."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "past_verb",
+                "equality_phrase",
+                "comparison_clause"
+            ],
+            "display_synonyms": {
+                "as carefully as": [
+                    "as diligently as"
+                ]
+            },
+            "accepted_targets": [
+                "The children finished as diligently as the teacher expected."
+            ]
+        },
+        {
+            "id": "A2-c02",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Мій велосипед такий же старий, як твій.",
+            "target": "My bicycle is as old as yours.",
+            "uk": "Мій велосипед такий же старий, як твій.",
+            "hint_uk": "Порівняй однаковий вік велосипедів, почавши з мого.",
+            "groups": [
+                "My bicycle",
+                "is as old",
+                "as yours."
+            ],
+            "compose_slots": [
+                "My bicycle",
+                "is as old",
+                "as yours."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "equal_predicate",
+                "comparison_pronoun"
+            ],
+            "display_synonyms": {
+                "My bicycle": [
+                    "My bike"
+                ]
+            },
+            "accepted_targets": [
+                "My bike is as old as yours."
+            ]
+        },
+        {
+            "id": "A2-c03",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Наша зала не така світла, як їхня.",
+            "target": "Our hall is not as bright as theirs.",
+            "uk": "Наша зала не така світла, як їхня.",
+            "hint_uk": "Порівняй освітленість зал; збережи заперечення та почни з нашої зали.",
+            "groups": [
+                "Our hall",
+                "is not as",
+                "bright as theirs."
+            ],
+            "compose_slots": [
+                "Our hall",
+                "is not as",
+                "bright as theirs."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "negative_as_link",
+                "quality_pronoun"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The sequel was not nearly as {a1} as the original.",
+            "target": "The sequel was not nearly as gripping as the original.",
+            "uk": "Продовження було зовсім не таким захопливим, як оригінал.",
+            "hint_uk": "Захопливий, такий, що тримає увагу: збережи посилене заперечення рівності.",
+            "groups": [
+                "The sequel",
+                "was not nearly",
+                "as gripping as",
+                "the original."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-01",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "gripping",
+            "options": [
+                "gripping",
+                "more gripping",
+                "most gripping"
+            ],
+            "answer_synonyms": [
+                "engaging"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "She completed the form just as {a1} as the clerk asked.",
+            "target": "She completed the form just as carefully as the clerk asked.",
+            "uk": "Вона заповнила форму саме так уважно, як просив клерк.",
+            "hint_uk": "Уважно: потрібен прислівник способу заповнення форми.",
+            "groups": [
+                "She completed",
+                "the form",
+                "just as carefully",
+                "as the clerk",
+                "asked."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-02",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "carefully",
+            "options": [
+                "carefully",
+                "careful",
+                "most carefully"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g03",
+            "level": "B1",
+            "kind": "gap",
+            "question": "My flat is twice as {a1} as my old room.",
+            "target": "My flat is twice as large as my old room.",
+            "uk": "Моя квартира вдвічі більша за мою стару кімнату.",
+            "hint_uk": "Великий: після множника «вдвічі» й першої частини порівняння збережи початкову форму.",
+            "groups": [
+                "My flat",
+                "is twice as",
+                "large as",
+                "my old room."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-03",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "large",
+            "options": [
+                "large",
+                "larger",
+                "largest"
+            ],
+            "answer_synonyms": [
+                "big"
+            ]
+        },
+        {
+            "id": "B1-g04",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The speech was not half as {a1} as people expected.",
+            "target": "The speech was not half as boring as people expected.",
+            "uk": "Промова була й наполовину не така нудна, як очікували люди.",
+            "hint_uk": "Нудний: описуй враження від промови, а не почуття слухача.",
+            "groups": [
+                "The speech",
+                "was not half",
+                "as boring as",
+                "people expected."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "boring",
+            "options": [
+                "boring",
+                "more boring",
+                "most boring"
+            ],
+            "answer_synonyms": [
+                "dull"
+            ]
+        },
+        {
+            "id": "B1-g05",
+            "level": "B1",
+            "kind": "gap",
+            "question": "He reacted as {a1} as his manager under pressure.",
+            "target": "He reacted as calmly as his manager under pressure.",
+            "uk": "Під тиском він відреагував так само спокійно, як його менеджер.",
+            "hint_uk": "Спокійно: потрібен прислівник реакції, не прикметник стану.",
+            "groups": [
+                "He reacted",
+                "as calmly as",
+                "his manager",
+                "under pressure."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-05",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "calmly",
+            "options": [
+                "calmly",
+                "calm",
+                "calmer"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g06",
+            "level": "B1",
+            "kind": "gap",
+            "question": "This route is almost as {a1} as the motorway.",
+            "target": "This route is almost as fast as the motorway.",
+            "uk": "Цей маршрут майже такий самий швидкий, як автострада.",
+            "hint_uk": "Швидкий: порівняй швидкість маршруту, зберігши значення «майже».",
+            "groups": [
+                "This route",
+                "is almost as",
+                "fast as",
+                "the motorway."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "fast",
+            "options": [
+                "fast",
+                "faster",
+                "fastest"
+            ],
+            "answer_synonyms": [
+                "quick"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Їхній підсумок був анітрохи не менш корисним, ніж повний звіт.",
+            "target": "Their summary was every bit as useful as the full report.",
+            "uk": "Їхній підсумок був анітрохи не менш корисним, ніж повний звіт.",
+            "hint_uk": "Почни з їхнього підсумку; передай повну рівність підсиленням «у всіх відношеннях так само».",
+            "groups": [
+                "Their summary",
+                "was every bit",
+                "as useful as",
+                "the full report."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-07",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Their summary",
+                "was every bit",
+                "as useful as",
+                "the full report."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "every_bit_link",
+                "equality_phrase",
+                "noun_phrase"
+            ],
+            "display_synonyms": {
+                "as useful as": [
+                    "as helpful as"
+                ]
+            },
+            "accepted_targets": [
+                "Their summary was every bit as helpful as the full report."
+            ]
+        },
+        {
+            "id": "B1-c02",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Стажери працювали так само ефективно, як старші співробітники.",
+            "target": "The interns worked as efficiently as the senior staff.",
+            "uk": "Стажери працювали так само ефективно, як старші співробітники.",
+            "hint_uk": "Почни зі стажерів; порівняй спосіб виконання роботи в минулому.",
+            "groups": [
+                "The interns worked",
+                "as efficiently as",
+                "the senior staff."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-08",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "The interns worked",
+                "as efficiently as",
+                "the senior staff."
+            ],
+            "slot_roles": [
+                "action_clause",
+                "equality_phrase",
+                "noun_phrase"
+            ],
+            "display_synonyms": {
+                "as efficiently as": [
+                    "as effectively as"
+                ]
+            },
+            "accepted_targets": [
+                "The interns worked as effectively as the senior staff."
+            ]
+        },
+        {
+            "id": "B1-c03",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Її остання стаття не зовсім така переконлива, як попередня.",
+            "target": "Her latest article is not quite as persuasive as the previous one.",
+            "uk": "Її остання стаття не зовсім така переконлива, як попередня.",
+            "hint_uk": "Почни з останньої статті; збережи послаблене заперечення «не зовсім».",
+            "groups": [
+                "Her latest article",
+                "is not quite",
+                "as persuasive as",
+                "the previous one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b1-09",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Her latest article",
+                "is not quite",
+                "as persuasive as",
+                "the previous one."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "negative_degree_link",
+                "equality_phrase",
+                "noun_phrase"
+            ],
+            "display_synonyms": {
+                "as persuasive as": [
+                    "as convincing as"
+                ]
+            },
+            "accepted_targets": [
+                "Her latest article is not quite as convincing as the previous one."
+            ]
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The temporary fix is nowhere near as {a1} as a full replacement.",
+            "target": "The temporary fix is nowhere near as reliable as a full replacement.",
+            "uk": "Тимчасове виправлення далеко не таке надійне, як повна заміна.",
+            "hint_uk": "Надійний: назви властивість рішення після сильного заперечення рівності.",
+            "groups": [
+                "The temporary fix",
+                "is nowhere near",
+                "as reliable as",
+                "a full replacement."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-01",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "reliable",
+            "options": [
+                "reliable",
+                "more reliable",
+                "most reliable"
+            ],
+            "answer_synonyms": [
+                "dependable"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "She handled the interview just as {a1} as any senior candidate.",
+            "target": "She handled the interview just as confidently as any senior candidate.",
+            "uk": "Вона пройшла співбесіду так само впевнено, як будь-який досвідчений кандидат.",
+            "hint_uk": "Впевнено: прислівник описує спосіб проходження співбесіди.",
+            "groups": [
+                "She handled",
+                "the interview",
+                "just as confidently",
+                "as any senior",
+                "candidate."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-02",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "confidently",
+            "options": [
+                "confidently",
+                "confident",
+                "more confidently"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g03",
+            "level": "B2",
+            "kind": "gap",
+            "question": "His revised answer was every bit as {a1} as the model response.",
+            "target": "His revised answer was every bit as coherent as the model response.",
+            "uk": "Його перероблена відповідь була анітрохи не менш зв'язною, ніж зразкова.",
+            "hint_uk": "Зв'язний, логічно цілісний: початкова форма прикметника якості відповіді.",
+            "groups": [
+                "His revised answer",
+                "was every bit",
+                "as coherent as",
+                "the model response."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "coherent",
+            "options": [
+                "coherent",
+                "more coherent",
+                "most coherent"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g04",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The side entrance is not remotely as {a1} as the main one.",
+            "target": "The side entrance is not remotely as convenient as the main one.",
+            "uk": "Бічний вхід зовсім не такий зручний, як головний.",
+            "hint_uk": "Зручний для користування: не плутай із затишним або м'яким.",
+            "groups": [
+                "The side entrance",
+                "is not remotely",
+                "as convenient as",
+                "the main one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-05",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "convenient",
+            "options": [
+                "convenient",
+                "more convenient",
+                "most convenient"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g05",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Their bid was almost as {a1} as ours but less flexible.",
+            "target": "Their bid was almost as competitive as ours but less flexible.",
+            "uk": "Їхня заявка була майже такою ж конкурентоспроможною, як наша, але менш гнучкою.",
+            "hint_uk": "Конкурентоспроможний: порівняй привабливість заявки, зберігаючи наступне протиставлення.",
+            "groups": [
+                "Their bid",
+                "was almost as",
+                "competitive as ours",
+                "but less flexible."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "competitive",
+            "options": [
+                "competitive",
+                "more competitive",
+                "most competitive"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g06",
+            "level": "B2",
+            "kind": "gap",
+            "question": "This manual is not quite as {a1} as the previous edition.",
+            "target": "This manual is not quite as detailed as the previous edition.",
+            "uk": "Цей посібник не зовсім такий детальний, як попереднє видання.",
+            "hint_uk": "Детальний: початкова форма прикметника описує повноту викладу.",
+            "groups": [
+                "This manual",
+                "is not quite",
+                "as detailed as",
+                "the previous edition."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-08",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "detailed",
+            "options": [
+                "detailed",
+                "more detailed",
+                "most detailed"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Її заключні слова запам'яталися так само, як головна промова.",
+            "target": "Her closing remarks were as memorable as the keynote speech.",
+            "uk": "Її заключні слова запам'яталися так само, як головна промова.",
+            "hint_uk": "Почни з її заключних слів; передай властивість, завдяки якій вони запам'яталися.",
+            "groups": [
+                "Her closing remarks",
+                "were as memorable",
+                "as",
+                "the keynote speech."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-09",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Her closing remarks",
+                "were as memorable",
+                "as",
+                "the keynote speech."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "equal_predicate",
+                "linker",
+                "noun_phrase"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "B2-c02",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Резервна система виявилася такою ж стабільною, як основна.",
+            "target": "The backup system proved just as stable as the primary one.",
+            "uk": "Резервна система виявилася такою ж стабільною, як основна.",
+            "hint_uk": "Почни з резервної системи; збережи значення перевіреного результату в минулому.",
+            "groups": [
+                "The backup system",
+                "proved just as",
+                "stable as",
+                "the primary one."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-10",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "The backup system",
+                "proved just as",
+                "stable as",
+                "the primary one."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "just_as_link",
+                "quality_as",
+                "noun_phrase"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "B2-c03",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Їхня команда відреагувала після збою так само швидко, як наша.",
+            "target": "Their team responded as rapidly as ours after the outage.",
+            "uk": "Їхня команда відреагувала після збою так само швидко, як наша.",
+            "hint_uk": "Почни з їхньої команди; обставину збою постав у кінці.",
+            "groups": [
+                "Their team responded",
+                "as rapidly as",
+                "ours",
+                "after the outage."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-b2-12",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Their team responded",
+                "as rapidly as",
+                "ours",
+                "after the outage."
+            ],
+            "slot_roles": [
+                "action_clause",
+                "equality_phrase",
+                "pronoun",
+                "adjunct"
+            ],
+            "display_synonyms": {
+                "as rapidly as": [
+                    "as quickly as"
+                ]
+            },
+            "accepted_targets": [
+                "Their team responded as quickly as ours after the outage."
+            ]
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The interim report is not nearly as {a1} as the final audit.",
+            "target": "The interim report is not nearly as comprehensive as the final audit.",
+            "uk": "Проміжний звіт зовсім не такий всеохопний, як фінальний аудит.",
+            "hint_uk": "Всеохопний: ідеться про повноту охоплення, а не просто довжину.",
+            "groups": [
+                "The interim report",
+                "is not nearly",
+                "as comprehensive as",
+                "the final audit."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-01",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "comprehensive",
+            "options": [
+                "comprehensive",
+                "more comprehensive",
+                "most comprehensive"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "She argued every bit as {a1} as the external consultant.",
+            "target": "She argued every bit as persuasively as the external consultant.",
+            "uk": "Вона аргументувала свою позицію анітрохи не менш переконливо, ніж зовнішній консультант.",
+            "hint_uk": "Переконливо: прислівник описує спосіб аргументації.",
+            "groups": [
+                "She argued",
+                "every bit as",
+                "persuasively as",
+                "the external consultant."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-02",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "persuasively",
+            "options": [
+                "persuasively",
+                "more persuasively",
+                "most persuasively"
+            ],
+            "answer_synonyms": [
+                "convincingly"
+            ]
+        },
+        {
+            "id": "C1-g03",
+            "level": "C1",
+            "kind": "gap",
+            "question": "His summary was not half as {a1} as the source material.",
+            "target": "His summary was not half as nuanced as the source material.",
+            "uk": "Його підсумок і наполовину не передавав стільки нюансів, скільки вихідний матеріал.",
+            "hint_uk": "Тонкий, із багатьма відтінками значення: потрібен прикметник якості підсумку.",
+            "groups": [
+                "His summary",
+                "was not half",
+                "as nuanced as",
+                "the source material."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "nuanced",
+            "options": [
+                "nuanced",
+                "more nuanced",
+                "most nuanced"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g04",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The committee was as {a1} as the press about the delay.",
+            "target": "The committee was as concerned as the press about the delay.",
+            "uk": "Комітет був так само стурбований затримкою, як і преса.",
+            "hint_uk": "Стурбований: описуй почуття учасників, не причину занепокоєння.",
+            "groups": [
+                "The committee",
+                "was as concerned",
+                "as the press",
+                "about the delay."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-05",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "concerned",
+            "options": [
+                "concerned",
+                "more concerned",
+                "most concerned"
+            ],
+            "answer_synonyms": [
+                "worried"
+            ]
+        },
+        {
+            "id": "C1-g05",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The policy is nowhere near as {a1} as its defenders claim.",
+            "target": "The policy is nowhere near as coherent as its defenders claim.",
+            "uk": "Політика далеко не така послідовна, як стверджують її захисники.",
+            "hint_uk": "Послідовний, логічно цілісний: прикметник характеризує узгодженість політики.",
+            "groups": [
+                "The policy",
+                "is nowhere near",
+                "as coherent as",
+                "its defenders claim."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "coherent",
+            "options": [
+                "coherent",
+                "more coherent",
+                "most coherent"
+            ],
+            "answer_synonyms": [
+                "consistent"
+            ]
+        },
+        {
+            "id": "C1-g06",
+            "level": "C1",
+            "kind": "gap",
+            "question": "This account is just as {a1} as the official record in key details.",
+            "target": "This account is just as revealing as the official record in key details.",
+            "uk": "У ключових деталях цей виклад такий же промовистий, як офіційний запис.",
+            "hint_uk": "Промовистий, такий, що розкриває важливі відомості: потрібна ознака самого викладу.",
+            "groups": [
+                "This account",
+                "is just as",
+                "revealing as",
+                "the official record",
+                "in key details."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-07",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "revealing",
+            "options": [
+                "revealing",
+                "more revealing",
+                "most revealing"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Їхнє пояснення звучало так само розумно, як будь-що з того, що ми підготували.",
+            "target": "Their explanation sounded as reasonable as anything we had prepared.",
+            "uk": "Їхнє пояснення звучало так само розумно, як будь-що з того, що ми підготували.",
+            "hint_uk": "Почни з їхнього пояснення; після дієслова сприйняття використай прикметник.",
+            "groups": [
+                "Their explanation sounded",
+                "as reasonable as",
+                "anything",
+                "we had prepared."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-08",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Their explanation sounded",
+                "as reasonable as",
+                "anything",
+                "we had prepared."
+            ],
+            "slot_roles": [
+                "copular_subject",
+                "equality_phrase",
+                "indefinite_pronoun",
+                "comparison_clause"
+            ],
+            "display_synonyms": {
+                "as reasonable as": [
+                    "as sensible as"
+                ]
+            },
+            "accepted_targets": [
+                "Their explanation sounded as sensible as anything we had prepared."
+            ]
+        },
+        {
+            "id": "C1-c02",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Другий брифінг був зовсім не таким зосередженим на суті, як перший.",
+            "target": "The second briefing was not nearly as focused as the first.",
+            "uk": "Другий брифінг був зовсім не таким зосередженим на суті, як перший.",
+            "hint_uk": "Почни з другого брифінгу; збережи сильне заперечення та минулий час.",
+            "groups": [
+                "The second briefing",
+                "was not nearly",
+                "as focused as",
+                "the first."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-09",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "The second briefing",
+                "was not nearly",
+                "as focused as",
+                "the first."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "negative_degree_link",
+                "equality_phrase",
+                "noun_phrase"
+            ],
+            "display_synonyms": {
+                "as focused as": [
+                    "as focussed as"
+                ]
+            },
+            "accepted_targets": [
+                "The second briefing was not nearly as focussed as the first."
+            ]
+        },
+        {
+            "id": "C1-c03",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Її тон залишався таким же стриманим, як дозволяли обставини.",
+            "target": "Her tone remained as measured as the circumstances allowed.",
+            "uk": "Її тон залишався таким же стриманим, як дозволяли обставини.",
+            "hint_uk": "Почни з її тону; передай стриманість, а не фізичне вимірювання.",
+            "groups": [
+                "Her tone remained",
+                "as measured as",
+                "the circumstances allowed."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c1-11",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Her tone remained",
+                "as measured as",
+                "the circumstances allowed."
+            ],
+            "slot_roles": [
+                "copular_subject",
+                "equality_phrase",
+                "comparison_clause"
+            ],
+            "display_synonyms": {
+                "as measured as": [
+                    "as restrained as"
+                ]
+            },
+            "accepted_targets": [
+                "Her tone remained as restrained as the circumstances allowed."
+            ]
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The amended clause is every bit as {a1} as the original provision.",
+            "target": "The amended clause is every bit as restrictive as the original provision.",
+            "uk": "Змінений пункт цілком такий самий обмежувальний, як початкове положення.",
+            "hint_uk": "Обмежувальний: прикметник характеризує силу встановлених обмежень.",
+            "groups": [
+                "The amended clause",
+                "is every bit",
+                "as restrictive as",
+                "the original provision."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-01",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "restrictive",
+            "options": [
+                "restrictive",
+                "more restrictive",
+                "most restrictive"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "She responded not nearly as {a1} as the accusation deserved.",
+            "target": "She responded not nearly as sharply as the accusation deserved.",
+            "uk": "Вона відповіла далеко не так різко, як того заслуговувало звинувачення.",
+            "hint_uk": "Різко: прислівник тону відповіді після посиленого заперечення рівності.",
+            "groups": [
+                "She responded",
+                "not nearly as",
+                "sharply as",
+                "the accusation deserved."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-02",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "sharply",
+            "options": [
+                "sharply",
+                "sharper",
+                "sharpest"
+            ],
+            "answer_synonyms": [
+                "harshly"
+            ]
+        },
+        {
+            "id": "C2-g03",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The memoir is as {a1} as any recent political history.",
+            "target": "The memoir is as revealing as any recent political history.",
+            "uk": "Мемуари такі ж промовисті, як будь-яка недавня праця з політичної історії.",
+            "hint_uk": "Промовистий, такий, що багато розкриває: потрібна ознака мемуарів.",
+            "groups": [
+                "The memoir",
+                "is as revealing",
+                "as any recent",
+                "political history."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-03",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "revealing",
+            "options": [
+                "revealing",
+                "more revealing",
+                "most revealing"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g04",
+            "level": "C2",
+            "kind": "gap",
+            "question": "This solution is nowhere near as {a1} as its advocates maintain.",
+            "target": "This solution is nowhere near as elegant as its advocates maintain.",
+            "uk": "Це рішення далеко не таке елегантне, як стверджують його прихильники.",
+            "hint_uk": "Елегантний у значенні вдалого, витонченого розв'язання: початкова форма прикметника.",
+            "groups": [
+                "This solution",
+                "is nowhere near",
+                "as elegant as",
+                "its advocates maintain."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-04",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "elegant",
+            "options": [
+                "elegant",
+                "more elegant",
+                "most elegant"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g05",
+            "level": "C2",
+            "kind": "gap",
+            "question": "His remarks were not half as {a1} as the press release suggested.",
+            "target": "His remarks were not half as conciliatory as the press release suggested.",
+            "uk": "Його слова й наполовину не були такими примирливими, як можна було подумати з пресрелізу.",
+            "hint_uk": "Примирливий: прикметник описує готовність пом'якшити суперечку.",
+            "groups": [
+                "His remarks",
+                "were not half",
+                "as conciliatory as",
+                "the press release",
+                "suggested."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-06",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "conciliatory",
+            "options": [
+                "conciliatory",
+                "more conciliatory",
+                "most conciliatory"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g06",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The manuscript proved every bit as {a1} as the archival notes.",
+            "target": "The manuscript proved every bit as valuable as the archival notes.",
+            "uk": "Рукопис виявився анітрохи не менш цінним, ніж архівні нотатки.",
+            "hint_uk": "Цінний: ідеться про значущість документа, не лише про його ціну.",
+            "groups": [
+                "The manuscript proved",
+                "every bit as",
+                "valuable as",
+                "the archival notes."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-07",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "answer": "valuable",
+            "options": [
+                "valuable",
+                "more valuable",
+                "most valuable"
+            ],
+            "answer_synonyms": [
+                "important"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Їхній захист далеко не такий бездоганно обґрунтований, як спершу здається.",
+            "target": "Their defence is not remotely as airtight as it first appears.",
+            "uk": "Їхній захист далеко не такий бездоганно обґрунтований, як спершу здається.",
+            "hint_uk": "Почни з їхнього захисту; передай відсутність вразливих місць як одну ознаку.",
+            "groups": [
+                "Their defence",
+                "is not remotely",
+                "as airtight as",
+                "it first appears."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-09",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Their defence",
+                "is not remotely",
+                "as airtight as",
+                "it first appears."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "negative_degree_link",
+                "equality_phrase",
+                "comparison_clause"
+            ],
+            "display_synonyms": {
+                "Their defence": [
+                    "Their defense"
+                ]
+            },
+            "accepted_targets": [
+                "Their defense is not remotely as airtight as it first appears."
+            ]
+        },
+        {
+            "id": "C2-c02",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Перероблений аргумент такий же тонкий за змістом, як класичне формулювання.",
+            "target": "The revised argument is just as subtle as the classic formulation.",
+            "uk": "Перероблений аргумент такий же тонкий за змістом, як класичне формулювання.",
+            "hint_uk": "Почни з переробленого аргументу; збережи рівність смислової тонкості.",
+            "groups": [
+                "The revised argument",
+                "is just as",
+                "subtle as",
+                "the classic formulation."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-10",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "The revised argument",
+                "is just as",
+                "subtle as",
+                "the classic formulation."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "just_as_link",
+                "quality_as",
+                "noun_phrase"
+            ],
+            "display_synonyms": [],
+            "accepted_targets": []
+        },
+        {
+            "id": "C2-c03",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Її позиція залишалася такою ж обережною, як вимагали докази.",
+            "target": "Her position remained as cautious as the evidence required.",
+            "uk": "Її позиція залишалася такою ж обережною, як вимагали докази.",
+            "hint_uk": "Почни з її позиції; збережи минулий час і залежність від доказів.",
+            "groups": [
+                "Her position remained",
+                "as cautious as",
+                "the evidence required."
+            ],
+            "provenance": {
+                "legacy_uuid": "eqcomp-v3-c2-12",
+                "legacy_bank": "EqualityComparisonAsAsNotAsAsAllLevelsV3Seeder",
+                "reviewed": true
+            },
+            "compose_slots": [
+                "Her position remained",
+                "as cautious as",
+                "the evidence required."
+            ],
+            "slot_roles": [
+                "copular_subject",
+                "equality_phrase",
+                "comparison_clause"
+            ],
+            "display_synonyms": {
+                "as cautious as": [
+                    "as careful as"
+                ]
+            },
+            "accepted_targets": [
+                "Her position remained as careful as the evidence required."
+            ]
+        }
+    ]
+}

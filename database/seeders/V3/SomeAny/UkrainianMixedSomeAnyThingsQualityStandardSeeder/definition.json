@@ -1,0 +1,1665 @@
+{
+    "schema_version": 1,
+    "quality_revision": "saq-v1",
+    "compiled_from": {
+        "path": "docs/content/some-any-quality/things.v1.json",
+        "sha256": "52a059a7f134e74ed6ac83931d91ff2173f8288711afd9bc84cee2bb5b44e763"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SomeAny\\UkrainianMixedSomeAnyThingsQualityStandardSeeder",
+        "uuid_namespace": "some-any-quality-things-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Some / Any"
+    },
+    "sources": {
+        "some_any_quality_things": {
+            "name": "Some / Any Quality: Some / Any — Things"
+        }
+    },
+    "tags": {
+        "some_any_theme": {
+            "name": "Some / Any — people, places and things",
+            "category": "topic"
+        },
+        "some_any_reference": {
+            "name": "Some / Any reference",
+            "category": "topic"
+        },
+        "some_any_page": {
+            "name": "Some / Any",
+            "category": "topic"
+        },
+        "things_page": {
+            "name": "Things",
+            "category": "pattern"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "some_any_theme",
+        "some_any_reference",
+        "some_any_page",
+        "things_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "saq-things-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is {a1} in your hair.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У тебе щось у волоссі.",
+            "target_text": "There is something in your hair.",
+            "markers": {
+                "a1": {
+                    "answer": "something",
+                    "options": [
+                        "something",
+                        "anything",
+                        "nothing"
+                    ],
+                    "verb_hint": "У волоссі є якийсь предмет, але його ще не названо; потрібне слово зі стверджувальним значенням щось."
+                }
+            },
+            "verb_hint": "У волоссі є якийсь предмет, але його ще не названо; потрібне слово зі стверджувальним значенням щось.",
+            "accepted_target_texts": [
+                "There is something in your hair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "something",
+                "in your hair."
+            ],
+            "token_groups": [
+                "There is",
+                "something",
+                "in your hair."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "saq-things-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I cannot carry {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Я більше нічого не можу нести.",
+            "target_text": "I cannot carry anything else.",
+            "markers": {
+                "a1": {
+                    "answer": "anything else",
+                    "options": [
+                        "anything else",
+                        "something else",
+                        "nothing else"
+                    ],
+                    "verb_hint": "Більше нічого не можу взяти: заперечення вже наведене; слово ще або більше також належить до відповіді."
+                }
+            },
+            "verb_hint": "Більше нічого не можу взяти: заперечення вже наведене; слово ще або більше також належить до відповіді.",
+            "accepted_target_texts": [
+                "I cannot carry anything else."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot",
+                "carry",
+                "anything else."
+            ],
+            "token_groups": [
+                "I cannot",
+                "carry",
+                "anything else."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "saq-things-a1-g03",
+            "author_id": "A1-g03",
+            "question": "{a1} is in the basket.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У кошику нічого немає.",
+            "target_text": "Nothing is in the basket.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Кошик повністю порожній; заперечне значення передає підмет, а дієслово залишається стверджувальним."
+                }
+            },
+            "verb_hint": "Кошик повністю порожній; заперечне значення передає підмет, а дієслово залишається стверджувальним.",
+            "accepted_target_texts": [
+                "Nothing is in the basket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "is",
+                "in the basket."
+            ],
+            "token_groups": [
+                "Nothing",
+                "is",
+                "in the basket."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "saq-things-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} in this shop costs one pound.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе в цій крамниці коштує один фунт.",
+            "target_text": "Everything in this shop costs one pound.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Кожен товар у крамниці без винятку має ту саму ціну; потрібен підмет зі значенням усе та дієслово в однині."
+                }
+            },
+            "verb_hint": "Кожен товар у крамниці без винятку має ту саму ціну; потрібен підмет зі значенням усе та дієслово в однині.",
+            "accepted_target_texts": [
+                "Everything in this shop costs one pound."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "in this shop",
+                "costs one pound."
+            ],
+            "token_groups": [
+                "Everything",
+                "in this shop",
+                "costs one pound."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "saq-things-a1-g05",
+            "author_id": "A1-g05",
+            "question": "We bought {a1} for breakfast.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ми купили трохи хліба на сніданок.",
+            "target_text": "We bought some bread for breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "some bread",
+                    "options": [
+                        "some bread",
+                        "any bread",
+                        "no bread"
+                    ],
+                    "verb_hint": "Трохи хліба вже куплено; стверджується невизначена додатна кількість незлічуваного продукту."
+                }
+            },
+            "verb_hint": "Трохи хліба вже куплено; стверджується невизначена додатна кількість незлічуваного продукту.",
+            "accepted_target_texts": [
+                "We bought some bread for breakfast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We bought",
+                "some bread",
+                "for breakfast."
+            ],
+            "token_groups": [
+                "We bought",
+                "some bread",
+                "for breakfast."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "saq-things-a1-g06",
+            "author_id": "A1-g06",
+            "question": "She does not have {a1} in her bag.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У неї в сумці немає жодних олівців.",
+            "target_text": "She does not have any pencils in her bag.",
+            "markers": {
+                "a1": {
+                    "answer": "any pencils",
+                    "options": [
+                        "any pencils",
+                        "some pencils",
+                        "no pencils"
+                    ],
+                    "verb_hint": "Жодних олівців у сумці немає; дієслово вже заперечене, у пропуску потрібна повна фраза з назвою предметів."
+                }
+            },
+            "verb_hint": "Жодних олівців у сумці немає; дієслово вже заперечене, у пропуску потрібна повна фраза з назвою предметів.",
+            "accepted_target_texts": [
+                "She does not have any pencils in her bag."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She does not",
+                "have",
+                "any pencils",
+                "in her bag."
+            ],
+            "token_groups": [
+                "She does not",
+                "have",
+                "any pencils",
+                "in her bag."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "saq-things-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Would you like {a1} after dinner?",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Хочеш чогось солодкого після вечері?",
+            "target_text": "Would you like something sweet after dinner?",
+            "markers": {
+                "a1": {
+                    "answer": "something sweet",
+                    "options": [
+                        "something sweet",
+                        "everything sweet",
+                        "nothing sweet"
+                    ],
+                    "verb_hint": "Це доброзичлива пропозиція солодкого, з очікуванням можливої згоди, а не нейтральне запитання про будь-який предмет."
+                }
+            },
+            "verb_hint": "Це доброзичлива пропозиція солодкого, з очікуванням можливої згоди, а не нейтральне запитання про будь-який предмет.",
+            "accepted_target_texts": [
+                "Would you like something sweet after dinner?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you like",
+                "something sweet",
+                "after dinner?"
+            ],
+            "token_groups": [
+                "Would you like",
+                "something sweet",
+                "after dinner?"
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "saq-things-a2-g02",
+            "author_id": "A2-g02",
+            "question": "They did not bring {a1} for the walk.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Вони не взяли жодної води на прогулянку.",
+            "target_text": "They did not bring any water for the walk.",
+            "markers": {
+                "a1": {
+                    "answer": "any water",
+                    "options": [
+                        "any water",
+                        "some water",
+                        "no water"
+                    ],
+                    "verb_hint": "Води зовсім не взяли; заперечення вже наведене, а в пропуску потрібні і визначник, і незлічуваний іменник."
+                }
+            },
+            "verb_hint": "Води зовсім не взяли; заперечення вже наведене, а в пропуску потрібні і визначник, і незлічуваний іменник.",
+            "accepted_target_texts": [
+                "They did not bring any water for the walk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They did not",
+                "bring",
+                "any water",
+                "for the walk."
+            ],
+            "token_groups": [
+                "They did not",
+                "bring",
+                "any water",
+                "for the walk."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "saq-things-a2-g03",
+            "author_id": "A2-g03",
+            "question": "{a1} on this shelf is for sale.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ніщо на цій полиці не продається.",
+            "target_text": "Nothing on this shelf is for sale.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Жоден предмет на полиці не виставлений на продаж; заперечне значення передає підмет без другого заперечення."
+                }
+            },
+            "verb_hint": "Жоден предмет на полиці не виставлений на продаж; заперечне значення передає підмет без другого заперечення.",
+            "accepted_target_texts": [
+                "Nothing on this shelf is for sale."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "on this shelf",
+                "is for sale."
+            ],
+            "token_groups": [
+                "Nothing",
+                "on this shelf",
+                "is for sale."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "saq-things-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} we ordered arrived yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе, що ми замовили, прибуло вчора.",
+            "target_text": "Everything we ordered arrived yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Прибули всі замовлені речі без винятку; потрібен узагальнювальний займенник зі значенням усе."
+                }
+            },
+            "verb_hint": "Прибули всі замовлені речі без винятку; потрібен узагальнювальний займенник зі значенням усе.",
+            "accepted_target_texts": [
+                "Everything we ordered arrived yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "we ordered",
+                "arrived yesterday."
+            ],
+            "token_groups": [
+                "Everything",
+                "we ordered",
+                "arrived yesterday."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "saq-things-a2-g05",
+            "author_id": "A2-g05",
+            "question": "I packed {a1} for the mountains.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Я спакував трохи теплого одягу для гір.",
+            "target_text": "I packed some warm clothes for the mountains.",
+            "markers": {
+                "a1": {
+                    "answer": "some warm clothes",
+                    "options": [
+                        "some warm clothes",
+                        "any warm clothes",
+                        "no warm clothes"
+                    ],
+                    "verb_hint": "Теплий одяг уже покладено в речі; у відповіді потрібна вся трислівна фраза з невизначеною додатною кількістю."
+                }
+            },
+            "verb_hint": "Теплий одяг уже покладено в речі; у відповіді потрібна вся трислівна фраза з невизначеною додатною кількістю.",
+            "accepted_target_texts": [
+                "I packed some warm clothes for the mountains."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I packed",
+                "some warm clothes",
+                "for the mountains."
+            ],
+            "token_groups": [
+                "I packed",
+                "some warm clothes",
+                "for the mountains."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "saq-things-a2-g06",
+            "author_id": "A2-g06",
+            "question": "There is not {a1} on television tonight.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Сьогодні ввечері по телевізору немає нічого цікавого.",
+            "target_text": "There is not anything interesting on television tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "anything interesting",
+                    "options": [
+                        "anything interesting",
+                        "something interesting",
+                        "nothing interesting"
+                    ],
+                    "verb_hint": "Нічого цікавого не показують; заперечення вже стоїть перед пропуском, а прикметник має стояти після займенника."
+                }
+            },
+            "verb_hint": "Нічого цікавого не показують; заперечення вже стоїть перед пропуском, а прикметник має стояти після займенника.",
+            "accepted_target_texts": [
+                "There is not anything interesting on television tonight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "not",
+                "anything interesting",
+                "on television tonight."
+            ],
+            "token_groups": [
+                "There is",
+                "not",
+                "anything interesting",
+                "on television tonight."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "saq-things-b1-g01",
+            "author_id": "B1-g01",
+            "question": "We need {a1} to back up these files.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Нам потрібно щось надійне для резервного копіювання цих файлів.",
+            "target_text": "We need something reliable to back up these files.",
+            "markers": {
+                "a1": {
+                    "answer": "something reliable",
+                    "options": [
+                        "something reliable",
+                        "everything reliable",
+                        "nothing reliable"
+                    ],
+                    "verb_hint": "Стверджується потреба в одному невизначеному надійному засобі; прикметник надійний іде після займенника й має синонім."
+                }
+            },
+            "verb_hint": "Стверджується потреба в одному невизначеному надійному засобі; прикметник надійний іде після займенника й має синонім.",
+            "accepted_target_texts": [
+                "We need something reliable to back up these files.",
+                "We need something dependable to back up these files."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "something dependable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "something dependable"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "something reliable",
+                "to back up",
+                "these files."
+            ],
+            "token_groups": [
+                "We need",
+                "something reliable",
+                "to back up",
+                "these files."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "saq-things-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The technician did not find {a1} with the battery.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Технік не знайшов нічого несправного в акумуляторі.",
+            "target_text": "The technician did not find anything wrong with the battery.",
+            "markers": {
+                "a1": {
+                    "answer": "anything wrong",
+                    "options": [
+                        "anything wrong",
+                        "something wrong",
+                        "nothing wrong"
+                    ],
+                    "verb_hint": "Жодної несправності в акумуляторі не виявлено; заперечення вже наведене, у пропуску потрібна повна фраза зі значенням щось негаразд."
+                }
+            },
+            "verb_hint": "Жодної несправності в акумуляторі не виявлено; заперечення вже наведене, у пропуску потрібна повна фраза зі значенням щось негаразд.",
+            "accepted_target_texts": [
+                "The technician did not find anything wrong with the battery.",
+                "The technician did not find anything faulty with the battery."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anything faulty"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anything faulty"
+                ]
+            },
+            "reorder_groups": [
+                "The technician",
+                "did not find",
+                "anything wrong",
+                "with the battery."
+            ],
+            "token_groups": [
+                "The technician",
+                "did not find",
+                "anything wrong",
+                "with the battery."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "saq-things-b1-g03",
+            "author_id": "B1-g03",
+            "question": "{a1} in the contract mentions a cancellation fee.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ніщо в договорі не згадує плату за скасування.",
+            "target_text": "Nothing in the contract mentions a cancellation fee.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Жодна частина договору не містить згадки про плату; заперечний підмет не потребує заперечення дієслова."
+                }
+            },
+            "verb_hint": "Жодна частина договору не містить згадки про плату; заперечний підмет не потребує заперечення дієслова.",
+            "accepted_target_texts": [
+                "Nothing in the contract mentions a cancellation fee."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "in the contract",
+                "mentions",
+                "a cancellation fee."
+            ],
+            "token_groups": [
+                "Nothing",
+                "in the contract",
+                "mentions",
+                "a cancellation fee."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "saq-things-b1-g04",
+            "author_id": "B1-g04",
+            "question": "{a1} on the checklist has been tested.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе з контрольного списку перевірили.",
+            "target_text": "Everything on the checklist has been tested.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Перевірено кожен пункт контрольного списку без винятку; підмет охоплює все й узгоджується з одниною."
+                }
+            },
+            "verb_hint": "Перевірено кожен пункт контрольного списку без винятку; підмет охоплює все й узгоджується з одниною.",
+            "accepted_target_texts": [
+                "Everything on the checklist has been tested."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "on the checklist",
+                "has been tested."
+            ],
+            "token_groups": [
+                "Everything",
+                "on the checklist",
+                "has been tested."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "saq-things-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} are still missing from the booking confirmation.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У підтвердженні бронювання ще бракує деяких подробиць.",
+            "target_text": "Some details are still missing from the booking confirmation.",
+            "markers": {
+                "a1": {
+                    "answer": "Some details",
+                    "options": [
+                        "Some details",
+                        "Any details",
+                        "No details"
+                    ],
+                    "verb_hint": "Лише деякі подробиці відсутні, тоді як решта вже є; потрібна невизначена додатна кількість деталей."
+                }
+            },
+            "verb_hint": "Лише деякі подробиці відсутні, тоді як решта вже є; потрібна невизначена додатна кількість деталей.",
+            "accepted_target_texts": [
+                "Some details are still missing from the booking confirmation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Some details",
+                "are still missing",
+                "from the",
+                "booking confirmation."
+            ],
+            "token_groups": [
+                "Some details",
+                "are still missing",
+                "from the",
+                "booking confirmation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "saq-things-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You may choose {a1} from the vegetarian menu.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Можна вибрати будь-що з вегетаріанського меню.",
+            "target_text": "You may choose anything from the vegetarian menu.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ],
+                    "verb_hint": "Дозволено вільно вибрати будь-яку страву з цього меню; потрібне значення необмеженого вибору, не невідомої конкретної речі."
+                }
+            },
+            "verb_hint": "Дозволено вільно вибрати будь-яку страву з цього меню; потрібне значення необмеженого вибору, не невідомої конкретної речі.",
+            "accepted_target_texts": [
+                "You may choose anything from the vegetarian menu."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You may choose",
+                "anything",
+                "from the",
+                "vegetarian menu."
+            ],
+            "token_groups": [
+                "You may choose",
+                "anything",
+                "from the",
+                "vegetarian menu."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "saq-things-b2-g01",
+            "author_id": "B2-g01",
+            "question": "There is {a1} about the sudden resignation.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У раптовій відставці є щось тривожне.",
+            "target_text": "There is something troubling about the sudden resignation.",
+            "markers": {
+                "a1": {
+                    "answer": "something troubling",
+                    "options": [
+                        "something troubling",
+                        "anything troubling",
+                        "nothing troubling"
+                    ],
+                    "verb_hint": "Раптова відставка має невизначену тривожну рису; стверджується її наявність, а тривожний має природний синонім."
+                }
+            },
+            "verb_hint": "Раптова відставка має невизначену тривожну рису; стверджується її наявність, а тривожний має природний синонім.",
+            "accepted_target_texts": [
+                "There is something troubling about the sudden resignation.",
+                "There is something disturbing about the sudden resignation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "something disturbing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "something disturbing"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "something troubling",
+                "about the",
+                "sudden resignation."
+            ],
+            "token_groups": [
+                "There is",
+                "something troubling",
+                "about the",
+                "sudden resignation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "saq-things-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We cannot release {a1} without written consent.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ми не можемо розголошувати жодної конфіденційної інформації без письмової згоди.",
+            "target_text": "We cannot release any confidential information without written consent.",
+            "markers": {
+                "a1": {
+                    "answer": "any confidential information",
+                    "options": [
+                        "any confidential information",
+                        "some confidential information",
+                        "no confidential information"
+                    ],
+                    "verb_hint": "Розголошення будь-якої конфіденційної інформації заборонене без згоди; заперечення вже є, у пропуску потрібні всі три слова."
+                }
+            },
+            "verb_hint": "Розголошення будь-якої конфіденційної інформації заборонене без згоди; заперечення вже є, у пропуску потрібні всі три слова.",
+            "accepted_target_texts": [
+                "We cannot release any confidential information without written consent.",
+                "We cannot release any confidential data without written consent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "any confidential data"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "any confidential data"
+                ]
+            },
+            "reorder_groups": [
+                "We cannot",
+                "release",
+                "any confidential information",
+                "without written consent."
+            ],
+            "token_groups": [
+                "We cannot",
+                "release",
+                "any confidential information",
+                "without written consent."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "saq-things-b2-g03",
+            "author_id": "B2-g03",
+            "question": "{a1} in the footage supports the initial allegation.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ніщо на відеозаписі не підтверджує початкового звинувачення.",
+            "target_text": "Nothing in the footage supports the initial allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Жодна деталь відеозапису не є підтвердженням; заперечне значення міститься в підметі, а не в дієслові."
+                }
+            },
+            "verb_hint": "Жодна деталь відеозапису не є підтвердженням; заперечне значення міститься в підметі, а не в дієслові.",
+            "accepted_target_texts": [
+                "Nothing in the footage supports the initial allegation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "in the footage",
+                "supports",
+                "the initial allegation."
+            ],
+            "token_groups": [
+                "Nothing",
+                "in the footage",
+                "supports",
+                "the initial allegation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "saq-things-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} discussed in confidence must remain off the record.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе, що обговорювали конфіденційно, не можна оприлюднювати.",
+            "target_text": "Everything discussed in confidence must remain off the record.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Заборона публікації стосується всього обговореного конфіденційно без винятку; потрібен узагальнювальний займенник."
+                }
+            },
+            "verb_hint": "Заборона публікації стосується всього обговореного конфіденційно без винятку; потрібен узагальнювальний займенник.",
+            "accepted_target_texts": [
+                "Everything discussed in confidence must remain off the record."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "discussed in confidence",
+                "must remain",
+                "off the record."
+            ],
+            "token_groups": [
+                "Everything",
+                "discussed in confidence",
+                "must remain",
+                "off the record."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "saq-things-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Only {a1} apply retrospectively to existing contracts.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Лише деякі положення мають зворотну дію щодо чинних договорів.",
+            "target_text": "Only some provisions apply retrospectively to existing contracts.",
+            "markers": {
+                "a1": {
+                    "answer": "some provisions",
+                    "options": [
+                        "some provisions",
+                        "any provisions",
+                        "no provisions"
+                    ],
+                    "verb_hint": "Зворотну дію мають лише окремі положення, а не всі й не жодне; потрібна невизначена додатна частина."
+                }
+            },
+            "verb_hint": "Зворотну дію мають лише окремі положення, а не всі й не жодне; потрібна невизначена додатна частина.",
+            "accepted_target_texts": [
+                "Only some provisions apply retrospectively to existing contracts."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only",
+                "some provisions",
+                "apply retrospectively",
+                "to existing contracts."
+            ],
+            "token_groups": [
+                "Only",
+                "some provisions",
+                "apply retrospectively",
+                "to existing contracts."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "saq-things-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The panel will consider {a1} that materially affects public safety.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Комісія розгляне будь-що, що істотно впливає на громадську безпеку.",
+            "target_text": "The panel will consider anything that materially affects public safety.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ],
+                    "verb_hint": "Комісія не обмежує вид питань, якщо виконано умову впливу на безпеку; потрібне значення будь-що без обмежень."
+                }
+            },
+            "verb_hint": "Комісія не обмежує вид питань, якщо виконано умову впливу на безпеку; потрібне значення будь-що без обмежень.",
+            "accepted_target_texts": [
+                "The panel will consider anything that materially affects public safety."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "will consider",
+                "anything",
+                "that materially",
+                "affects public safety."
+            ],
+            "token_groups": [
+                "The panel",
+                "will consider",
+                "anything",
+                "that materially",
+                "affects public safety."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "saq-things-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} about the revised estimate warrants independent scrutiny.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Щось у переглянутому кошторисі заслуговує на незалежну перевірку.",
+            "target_text": "Something about the revised estimate warrants independent scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "Something",
+                    "options": [
+                        "Something",
+                        "Anything",
+                        "Nothing"
+                    ],
+                    "verb_hint": "У кошторисі є невизначена риса, яка справді потребує перевірки; стверджується її наявність, а не вільний вибір об’єкта."
+                }
+            },
+            "verb_hint": "У кошторисі є невизначена риса, яка справді потребує перевірки; стверджується її наявність, а не вільний вибір об’єкта.",
+            "accepted_target_texts": [
+                "Something about the revised estimate warrants independent scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Something",
+                "about the",
+                "revised estimate",
+                "warrants independent scrutiny."
+            ],
+            "token_groups": [
+                "Something",
+                "about the",
+                "revised estimate",
+                "warrants independent scrutiny."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "saq-things-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The inquiry has yet to establish {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Розслідування ще не встановило нічого остаточного.",
+            "target_text": "The inquiry has yet to establish anything conclusive.",
+            "markers": {
+                "a1": {
+                    "answer": "anything conclusive",
+                    "options": [
+                        "anything conclusive",
+                        "something conclusive",
+                        "nothing conclusive"
+                    ],
+                    "verb_hint": "Остаточних висновків досі немає: конструкція ще належить встановити має заперечний зміст; прикметник іде після займенника."
+                }
+            },
+            "verb_hint": "Остаточних висновків досі немає: конструкція ще належить встановити має заперечний зміст; прикметник іде після займенника.",
+            "accepted_target_texts": [
+                "The inquiry has yet to establish anything conclusive.",
+                "The inquiry has yet to establish anything definitive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anything definitive"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anything definitive"
+                ]
+            },
+            "reorder_groups": [
+                "The inquiry",
+                "has yet",
+                "to establish",
+                "anything conclusive."
+            ],
+            "token_groups": [
+                "The inquiry",
+                "has yet",
+                "to establish",
+                "anything conclusive."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "saq-things-c1-g03",
+            "author_id": "C1-g03",
+            "question": "{a1} short of full disclosure will restore trust.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ніщо, крім повного розкриття інформації, не відновить довіри.",
+            "target_text": "Nothing short of full disclosure will restore trust.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Лише повне розкриття може відновити довіру; початкова заперечна конструкція виключає будь-який менший захід."
+                }
+            },
+            "verb_hint": "Лише повне розкриття може відновити довіру; початкова заперечна конструкція виключає будь-який менший захід.",
+            "accepted_target_texts": [
+                "Nothing short of full disclosure will restore trust."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "short of",
+                "full disclosure",
+                "will restore trust."
+            ],
+            "token_groups": [
+                "Nothing",
+                "short of",
+                "full disclosure",
+                "will restore trust."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "saq-things-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} submitted after the statutory deadline was excluded.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе подане після встановленого законом строку відхилили.",
+            "target_text": "Everything submitted after the statutory deadline was excluded.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Відхилено всі матеріали, подані із запізненням, без винятку; потрібен підмет повного охоплення."
+                }
+            },
+            "verb_hint": "Відхилено всі матеріали, подані із запізненням, без винятку; потрібен підмет повного охоплення.",
+            "accepted_target_texts": [
+                "Everything submitted after the statutory deadline was excluded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "submitted after",
+                "the statutory deadline",
+                "was excluded."
+            ],
+            "token_groups": [
+                "Everything",
+                "submitted after",
+                "the statutory deadline",
+                "was excluded."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "saq-things-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} underpinning the model remain empirically untested.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Деякі припущення, на яких ґрунтується модель, досі не перевірені емпірично.",
+            "target_text": "Some assumptions underpinning the model remain empirically untested.",
+            "markers": {
+                "a1": {
+                    "answer": "Some assumptions",
+                    "options": [
+                        "Some assumptions",
+                        "Any assumptions",
+                        "No assumptions"
+                    ],
+                    "verb_hint": "Не перевірена лише частина вихідних припущень моделі; потрібна невизначена додатна кількість, не повна відсутність."
+                }
+            },
+            "verb_hint": "Не перевірена лише частина вихідних припущень моделі; потрібна невизначена додатна кількість, не повна відсутність.",
+            "accepted_target_texts": [
+                "Some assumptions underpinning the model remain empirically untested."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Some assumptions",
+                "underpinning the model",
+                "remain",
+                "empirically untested."
+            ],
+            "token_groups": [
+                "Some assumptions",
+                "underpinning the model",
+                "remain",
+                "empirically untested."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "saq-things-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The review may encompass {a1} deemed relevant to institutional accountability.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Перегляд може охоплювати будь-що, визнане доречним для підзвітності установи.",
+            "target_text": "The review may encompass anything deemed relevant to institutional accountability.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ],
+                    "verb_hint": "Будь-який матеріал дозволено включити, якщо він доречний для підзвітності; потрібне значення необмеженого вибору в межах умови."
+                }
+            },
+            "verb_hint": "Будь-який матеріал дозволено включити, якщо він доречний для підзвітності; потрібне значення необмеженого вибору в межах умови.",
+            "accepted_target_texts": [
+                "The review may encompass anything deemed relevant to institutional accountability."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The review",
+                "may encompass",
+                "anything",
+                "deemed relevant",
+                "to institutional accountability."
+            ],
+            "token_groups": [
+                "The review",
+                "may encompass",
+                "anything",
+                "deemed relevant",
+                "to institutional accountability."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "saq-things-c2-g01",
+            "author_id": "C2-g01",
+            "question": "There is {a1} in the purportedly universal exemption.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "У нібито універсальному винятку є щось внутрішньо суперечливе.",
+            "target_text": "There is something inherently contradictory in the purportedly universal exemption.",
+            "markers": {
+                "a1": {
+                    "answer": "something inherently contradictory",
+                    "options": [
+                        "something inherently contradictory",
+                        "anything inherently contradictory",
+                        "nothing inherently contradictory"
+                    ],
+                    "verb_hint": "Стверджується невизначена, але реально наявна внутрішня суперечність; у пропуску потрібні займенник і обидва уточнювальні слова."
+                }
+            },
+            "verb_hint": "Стверджується невизначена, але реально наявна внутрішня суперечність; у пропуску потрібні займенник і обидва уточнювальні слова.",
+            "accepted_target_texts": [
+                "There is something inherently contradictory in the purportedly universal exemption.",
+                "There is something intrinsically contradictory in the purportedly universal exemption."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "something intrinsically contradictory"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "something intrinsically contradictory"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "something inherently contradictory",
+                "in the",
+                "purportedly universal exemption."
+            ],
+            "token_groups": [
+                "There is",
+                "something inherently contradictory",
+                "in the",
+                "purportedly universal exemption."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "saq-things-c2-g02",
+            "author_id": "C2-g02",
+            "question": "We would scarcely endorse {a1} predicated on such circular reasoning.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ми навряд чи підтримали б будь-що, що ґрунтується на такому коловому міркуванні.",
+            "target_text": "We would scarcely endorse anything predicated on such circular reasoning.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ],
+                    "verb_hint": "Навряд чи підтримали б бодай якусь пропозицію з такою основою; обмежувальний прислівник надає заперечного змісту без другого заперечення."
+                }
+            },
+            "verb_hint": "Навряд чи підтримали б бодай якусь пропозицію з такою основою; обмежувальний прислівник надає заперечного змісту без другого заперечення.",
+            "accepted_target_texts": [
+                "We would scarcely endorse anything predicated on such circular reasoning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would",
+                "scarcely endorse",
+                "anything",
+                "predicated on",
+                "such circular reasoning."
+            ],
+            "token_groups": [
+                "We would",
+                "scarcely endorse",
+                "anything",
+                "predicated on",
+                "such circular reasoning."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "saq-things-c2-g03",
+            "author_id": "C2-g03",
+            "question": "{a1} in the putative justification withstands rigorous epistemic scrutiny.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Ніщо в гаданому обґрунтуванні не витримує суворої епістемічної перевірки.",
+            "target_text": "Nothing in the putative justification withstands rigorous epistemic scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "options": [
+                        "Nothing",
+                        "Something",
+                        "Everything"
+                    ],
+                    "verb_hint": "Жоден елемент гаданого обґрунтування не витримує перевірки; заперечне значення міститься в підметі, не в дієслові."
+                }
+            },
+            "verb_hint": "Жоден елемент гаданого обґрунтування не витримує перевірки; заперечне значення міститься в підметі, не в дієслові.",
+            "accepted_target_texts": [
+                "Nothing in the putative justification withstands rigorous epistemic scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "in the",
+                "putative justification",
+                "withstands rigorous",
+                "epistemic scrutiny."
+            ],
+            "token_groups": [
+                "Nothing",
+                "in the",
+                "putative justification",
+                "withstands rigorous",
+                "epistemic scrutiny."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "saq-things-c2-g04",
+            "author_id": "C2-g04",
+            "question": "{a1} conceded during the preliminary exchanges remains legally non-binding.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Усе погоджене під час попередніх обмінів думками залишається юридично необов’язковим.",
+            "target_text": "Everything conceded during the preliminary exchanges remains legally non-binding.",
+            "markers": {
+                "a1": {
+                    "answer": "Everything",
+                    "options": [
+                        "Everything",
+                        "Something",
+                        "Nothing"
+                    ],
+                    "verb_hint": "Юридична необов’язковість стосується всіх попередніх поступок без винятку; підмет узагальнює весь матеріал."
+                }
+            },
+            "verb_hint": "Юридична необов’язковість стосується всіх попередніх поступок без винятку; підмет узагальнює весь матеріал.",
+            "accepted_target_texts": [
+                "Everything conceded during the preliminary exchanges remains legally non-binding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Everything",
+                "conceded during",
+                "the preliminary exchanges",
+                "remains legally",
+                "non-binding."
+            ],
+            "token_groups": [
+                "Everything",
+                "conceded during",
+                "the preliminary exchanges",
+                "remains legally",
+                "non-binding."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "saq-things-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} to the doctrine were deliberately left implicit.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Деякі застереження до доктрини навмисно залишили неявними.",
+            "target_text": "Some qualifications to the doctrine were deliberately left implicit.",
+            "markers": {
+                "a1": {
+                    "answer": "Some qualifications",
+                    "options": [
+                        "Some qualifications",
+                        "Any qualifications",
+                        "No qualifications"
+                    ],
+                    "verb_hint": "Лише частину застережень не висловили прямо; потрібна невизначена додатна кількість, не повне заперечення їх існування."
+                }
+            },
+            "verb_hint": "Лише частину застережень не висловили прямо; потрібна невизначена додатна кількість, не повне заперечення їх існування.",
+            "accepted_target_texts": [
+                "Some qualifications to the doctrine were deliberately left implicit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Some qualifications",
+                "to the",
+                "doctrine were",
+                "deliberately left implicit."
+            ],
+            "token_groups": [
+                "Some qualifications",
+                "to the",
+                "doctrine were",
+                "deliberately left implicit."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "saq-things-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The adjudicator may disregard {a1} obtained through demonstrable procedural impropriety.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_things",
+            "translation_uk": "Арбітр може не брати до уваги будь-що, отримане через доведене процедурне порушення.",
+            "target_text": "The adjudicator may disregard anything obtained through demonstrable procedural impropriety.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "something",
+                        "nothing"
+                    ],
+                    "verb_hint": "Будь-який матеріал такого походження можна відхилити без обмежень за видом; потрібне значення вільного охоплення будь-чого."
+                }
+            },
+            "verb_hint": "Будь-який матеріал такого походження можна відхилити без обмежень за видом; потрібне значення вільного охоплення будь-чого.",
+            "accepted_target_texts": [
+                "The adjudicator may disregard anything obtained through demonstrable procedural impropriety."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The adjudicator",
+                "may disregard",
+                "anything",
+                "obtained through",
+                "demonstrable procedural impropriety."
+            ],
+            "token_groups": [
+                "The adjudicator",
+                "may disregard",
+                "anything",
+                "obtained through",
+                "demonstrable procedural impropriety."
+            ],
+            "quality_revision": "saq-v1"
+        }
+    ]
+}

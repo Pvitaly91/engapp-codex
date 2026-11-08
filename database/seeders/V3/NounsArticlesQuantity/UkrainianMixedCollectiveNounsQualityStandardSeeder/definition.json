@@ -1,0 +1,1756 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/collective-nouns.v1.json",
+        "sha256": "1acc4764297aec12f3923f403641506d73b8cf527c0ed50df518c74aab0367bf"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedCollectiveNounsQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-collective-nouns-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_collective_nouns": {
+            "name": "Nouns Articles Quantity Quality: Збірні назви: група як ціле та її учасники"
+        }
+    },
+    "tags": {
+        "collective_nouns": {
+            "name": "Collective Nouns",
+            "category": "nouns_articles_quantity"
+        },
+        "one_unit": {
+            "name": "One Unit",
+            "category": "topic"
+        },
+        "individuals": {
+            "name": "Individuals",
+            "category": "topic"
+        },
+        "singular_verb": {
+            "name": "Singular Verb",
+            "category": "topic"
+        },
+        "plural_meaning": {
+            "name": "Plural Meaning",
+            "category": "topic"
+        },
+        "pronoun_agreement": {
+            "name": "Pronoun Agreement",
+            "category": "topic"
+        },
+        "group_of_plural": {
+            "name": "Group Of Plural",
+            "category": "topic"
+        },
+        "collective_phrases": {
+            "name": "Collective Phrases",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "collective_nouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-collective-nouns-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Our class {a1} small this year.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Цього року наш клас нечисленний.",
+            "target_text": "Our class is small this year.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Передай теперішню однину: оцінюємо розмір однієї групи як цілого, не зріст її учасників."
+                }
+            },
+            "verb_hint": "Передай теперішню однину: оцінюємо розмір однієї групи як цілого, не зріст її учасників.",
+            "accepted_target_texts": [
+                "Our class is small this year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our class",
+                "is small",
+                "this year."
+            ],
+            "token_groups": [
+                "Our class",
+                "is small",
+                "this year."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-collective-nouns-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The police {a1} outside the station.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Поліцейські біля відділку.",
+            "target_text": "The police are outside the station.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Потрібна теперішня множина: ця назва поліції в стандартній англійській позначає людей у множині."
+                }
+            },
+            "verb_hint": "Потрібна теперішня множина: ця назва поліції в стандартній англійській позначає людей у множині.",
+            "accepted_target_texts": [
+                "The police are outside the station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The police",
+                "are outside",
+                "the station."
+            ],
+            "token_groups": [
+                "The police",
+                "are outside",
+                "the station."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-collective-nouns-a1-g03",
+            "author_id": "A1-g03",
+            "question": "A team of helpers {a1} ready to start.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Команда помічників готова починати.",
+            "target_text": "A team of helpers is ready to start.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Передай теперішню готовність групи; нейтральна однина й британське змістове узгодження у множині доречні."
+                }
+            },
+            "verb_hint": "Передай теперішню готовність групи; нейтральна однина й британське змістове узгодження у множині доречні.",
+            "accepted_target_texts": [
+                "A team of helpers is ready to start.",
+                "A team of helpers are ready to start."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "reorder_groups": [
+                "A team",
+                "of helpers",
+                "is ready",
+                "to start."
+            ],
+            "token_groups": [
+                "A team",
+                "of helpers",
+                "is ready",
+                "to start."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-collective-nouns-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The cattle {a1} thirsty after the journey.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Худоба хоче пити після дороги.",
+            "target_text": "The cattle are thirsty after the journey.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Назва великої рогатої худоби в цьому живому значенні має граматичну множину."
+                }
+            },
+            "verb_hint": "Назва великої рогатої худоби в цьому живому значенні має граматичну множину.",
+            "accepted_target_texts": [
+                "The cattle are thirsty after the journey."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cattle",
+                "are thirsty",
+                "after the journey."
+            ],
+            "token_groups": [
+                "The cattle",
+                "are thirsty",
+                "after the journey."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-collective-nouns-a1-g05",
+            "author_id": "A1-g05",
+            "question": "A flock of birds {a1} above the field.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Зграя птахів над полем.",
+            "target_text": "A flock of birds is above the field.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Назви теперішнє місце групи; звичайну однину або британську множину за учасниками приймаємо."
+                }
+            },
+            "verb_hint": "Назви теперішнє місце групи; звичайну однину або британську множину за учасниками приймаємо.",
+            "accepted_target_texts": [
+                "A flock of birds is above the field.",
+                "A flock of birds are above the field."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "reorder_groups": [
+                "A flock",
+                "of birds",
+                "is above",
+                "the field."
+            ],
+            "token_groups": [
+                "A flock",
+                "of birds",
+                "is above",
+                "the field."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-collective-nouns-a1-g06",
+            "author_id": "A1-g06",
+            "question": "This furniture {a1} very heavy.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Ці меблі дуже важкі.",
+            "target_text": "This furniture is very heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Потрібна теперішня однина: назва меблів незлічувана, хоча предметів може бути кілька."
+                }
+            },
+            "verb_hint": "Потрібна теперішня однина: назва меблів незлічувана, хоча предметів може бути кілька.",
+            "accepted_target_texts": [
+                "This furniture is very heavy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This furniture",
+                "is very heavy."
+            ],
+            "token_groups": [
+                "This furniture",
+                "is very heavy."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-collective-nouns-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The audience {a1} clapping when the lights came on.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Публіка аплодувала, коли ввімкнулося світло.",
+            "target_text": "The audience was clapping when the lights came on.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Передай минулий процес; допускаються однина для групи або британська множина за глядачами."
+                }
+            },
+            "verb_hint": "Передай минулий процес; допускаються однина для групи або британська множина за глядачами.",
+            "accepted_target_texts": [
+                "The audience was clapping when the lights came on.",
+                "The audience were clapping when the lights came on."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were"
+                ]
+            },
+            "reorder_groups": [
+                "The audience",
+                "was clapping",
+                "when the lights",
+                "came on."
+            ],
+            "token_groups": [
+                "The audience",
+                "was clapping",
+                "when the lights",
+                "came on."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-collective-nouns-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The jury {a1} a group of twelve people in this trial.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "У цьому процесі суд присяжних — група з дванадцяти людей.",
+            "target_text": "The jury is a group of twelve people in this trial.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Потрібна однина: даємо визначення одній групі як цілісній одиниці."
+                }
+            },
+            "verb_hint": "Потрібна однина: даємо визначення одній групі як цілісній одиниці.",
+            "accepted_target_texts": [
+                "The jury is a group of twelve people in this trial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jury",
+                "is a group",
+                "of twelve people",
+                "in this trial."
+            ],
+            "token_groups": [
+                "The jury",
+                "is a group",
+                "of twelve people",
+                "in this trial."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-collective-nouns-a2-g03",
+            "author_id": "A2-g03",
+            "question": "All the staff {a1} received a copy of the new timetable.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Усі працівники отримали копію нового розкладу.",
+            "target_text": "All the staff have received a copy of the new timetable.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "is",
+                        "was"
+                    ],
+                    "verb_hint": "Передай отриманий результат до тепер; множина за працівниками й американська однина для колективу прийнятні."
+                }
+            },
+            "verb_hint": "Передай отриманий результат до тепер; множина за працівниками й американська однина для колективу прийнятні.",
+            "accepted_target_texts": [
+                "All the staff have received a copy of the new timetable.",
+                "All the staff has received a copy of the new timetable."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has"
+                ]
+            },
+            "reorder_groups": [
+                "All the staff",
+                "have received",
+                "a copy",
+                "of",
+                "the new timetable."
+            ],
+            "token_groups": [
+                "All the staff",
+                "have received",
+                "a copy",
+                "of",
+                "the new timetable."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-collective-nouns-a2-g04",
+            "author_id": "A2-g04",
+            "question": "A herd of goats {a1} blocking the narrow path.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Стадо кіз перегороджувало вузьку стежку.",
+            "target_text": "A herd of goats was blocking the narrow path.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Передай минулий процес; допускаються однина для стада та британська множина за тваринами."
+                }
+            },
+            "verb_hint": "Передай минулий процес; допускаються однина для стада та британська множина за тваринами.",
+            "accepted_target_texts": [
+                "A herd of goats was blocking the narrow path.",
+                "A herd of goats were blocking the narrow path."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were"
+                ]
+            },
+            "reorder_groups": [
+                "A herd",
+                "of goats",
+                "was blocking",
+                "the narrow path."
+            ],
+            "token_groups": [
+                "A herd",
+                "of goats",
+                "was blocking",
+                "the narrow path."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-collective-nouns-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The equipment {a1} packed in three separate boxes.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Обладнання запаковане в три окремі коробки.",
+            "target_text": "The equipment is packed in three separate boxes.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Узгодь теперішню однину з незлічуваною назвою обладнання; число коробок не змінює підмет."
+                }
+            },
+            "verb_hint": "Узгодь теперішню однину з незлічуваною назвою обладнання; число коробок не змінює підмет.",
+            "accepted_target_texts": [
+                "The equipment is packed in three separate boxes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The equipment",
+                "is packed",
+                "in three",
+                "separate boxes."
+            ],
+            "token_groups": [
+                "The equipment",
+                "is packed",
+                "in three",
+                "separate boxes."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-collective-nouns-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The committee {a1} meeting again next Thursday.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Комітет знову збирається наступного четверга.",
+            "target_text": "The committee is meeting again next Thursday.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Передай вже узгоджену зустріч групи; однину та британське змістове узгодження у множині допускаємо."
+                }
+            },
+            "verb_hint": "Передай вже узгоджену зустріч групи; однину та британське змістове узгодження у множині допускаємо.",
+            "accepted_target_texts": [
+                "The committee is meeting again next Thursday.",
+                "The committee are meeting again next Thursday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "is meeting again",
+                "next Thursday."
+            ],
+            "token_groups": [
+                "The committee",
+                "is meeting again",
+                "next Thursday."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-collective-nouns-b1-g01",
+            "author_id": "B1-g01",
+            "question": "For registration purposes, the partnership {a1} one legal entity.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Для реєстрації партнерство є однією юридичною особою.",
+            "target_text": "For registration purposes, the partnership is one legal entity.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Потрібна однина, бо підмет у цьому повідомленні означає одну юридичну одиницю, не партнерів окремо."
+                }
+            },
+            "verb_hint": "Потрібна однина, бо підмет у цьому повідомленні означає одну юридичну одиницю, не партнерів окремо.",
+            "accepted_target_texts": [
+                "For registration purposes, the partnership is one legal entity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "For registration purposes,",
+                "the partnership",
+                "is",
+                "one legal entity."
+            ],
+            "token_groups": [
+                "For registration purposes,",
+                "the partnership",
+                "is",
+                "one legal entity."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-collective-nouns-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The police {a1} asked witnesses to contact them directly.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Поліцейські попросили свідків звертатися до них безпосередньо.",
+            "target_text": "The police have asked witnesses to contact them directly.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is"
+                    ],
+                    "verb_hint": "Передай результат звернення до теперішнього моменту; ця назва людей потребує множини допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Передай результат звернення до теперішнього моменту; ця назва людей потребує множини допоміжного дієслова.",
+            "accepted_target_texts": [
+                "The police have asked witnesses to contact them directly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The police",
+                "have asked witnesses",
+                "to contact",
+                "them directly."
+            ],
+            "token_groups": [
+                "The police",
+                "have asked witnesses",
+                "to contact",
+                "them directly."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-collective-nouns-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The family {a1} agreed to share the cost of the journey.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Родина погодилася поділити витрати на подорож.",
+            "target_text": "The family has agreed to share the cost of the journey.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "was"
+                    ],
+                    "verb_hint": "Передай досягнуту домовленість; однина для сім’ї та британська множина за її членами прийнятні."
+                }
+            },
+            "verb_hint": "Передай досягнуту домовленість; однина для сім’ї та британська множина за її членами прийнятні.",
+            "accepted_target_texts": [
+                "The family has agreed to share the cost of the journey.",
+                "The family have agreed to share the cost of the journey."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have"
+                ]
+            },
+            "reorder_groups": [
+                "The family",
+                "has agreed",
+                "to share",
+                "the cost",
+                "of the journey."
+            ],
+            "token_groups": [
+                "The family",
+                "has agreed",
+                "to share",
+                "the cost",
+                "of the journey."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-collective-nouns-b1-g04",
+            "author_id": "B1-g04",
+            "question": "A collection of rare coins {a1} displayed in the entrance hall.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Колекція рідкісних монет виставлена у вхідній залі.",
+            "target_text": "A collection of rare coins is displayed in the entrance hall.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Підмет — одна колекція; множина назви її складників не змінює граматичного центру в цій нейтральній письмовій моделі."
+                }
+            },
+            "verb_hint": "Підмет — одна колекція; множина назви її складників не змінює граматичного центру в цій нейтральній письмовій моделі.",
+            "accepted_target_texts": [
+                "A collection of rare coins is displayed in the entrance hall."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A collection",
+                "of rare coins",
+                "is displayed",
+                "in",
+                "the entrance hall."
+            ],
+            "token_groups": [
+                "A collection",
+                "of rare coins",
+                "is displayed",
+                "in",
+                "the entrance hall."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-collective-nouns-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The staff {a1} wearing different badges for the two sessions yesterday.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Учора працівники носили різні бейджі для двох засідань.",
+            "target_text": "The staff were wearing different badges for the two sessions yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "are",
+                        "have"
+                    ],
+                    "verb_hint": "Передай минулий процес за працівниками; американська однина для колективу також допустима."
+                }
+            },
+            "verb_hint": "Передай минулий процес за працівниками; американська однина для колективу також допустима.",
+            "accepted_target_texts": [
+                "The staff were wearing different badges for the two sessions yesterday.",
+                "The staff was wearing different badges for the two sessions yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "The staff",
+                "were wearing",
+                "different badges",
+                "for",
+                "the two sessions",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The staff",
+                "were wearing",
+                "different badges",
+                "for",
+                "the two sessions",
+                "yesterday."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-collective-nouns-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The committee {a1} reached its decision after reviewing all the submissions.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Комітет ухвалив своє рішення після розгляду всіх подань.",
+            "target_text": "The committee has reached its decision after reviewing all the submissions.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "У цій формальній моделі група діє як одиниця, а наступний присвійний займенник уже стоїть в однині."
+                }
+            },
+            "verb_hint": "У цій формальній моделі група діє як одиниця, а наступний присвійний займенник уже стоїть в однині.",
+            "accepted_target_texts": [
+                "The committee has reached its decision after reviewing all the submissions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "has reached",
+                "its decision",
+                "after reviewing",
+                "all the submissions."
+            ],
+            "token_groups": [
+                "The committee",
+                "has reached",
+                "its decision",
+                "after reviewing",
+                "all the submissions."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-collective-nouns-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The board {a1} issued its formal response to the allegations.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Рада оприлюднила свою офіційну відповідь на звинувачення.",
+            "target_text": "The board has issued its formal response to the allegations.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Збережи формальну модель однини для органу як одиниці; присвійний займенник у наступній групі вже узгоджений з нею."
+                }
+            },
+            "verb_hint": "Збережи формальну модель однини для органу як одиниці; присвійний займенник у наступній групі вже узгоджений з нею.",
+            "accepted_target_texts": [
+                "The board has issued its formal response to the allegations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The board",
+                "has issued",
+                "its formal response",
+                "to the allegations."
+            ],
+            "token_groups": [
+                "The board",
+                "has issued",
+                "its formal response",
+                "to the allegations."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-collective-nouns-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The cattle on the northern farm {a1} been moved to higher ground.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Худобу на північній фермі перевели на вищу місцевість.",
+            "target_text": "The cattle on the northern farm have been moved to higher ground.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is"
+                    ],
+                    "verb_hint": "Передай завершений результат у пасиві; назва живої худоби потребує множини, віддалене означення цього не змінює."
+                }
+            },
+            "verb_hint": "Передай завершений результат у пасиві; назва живої худоби потребує множини, віддалене означення цього не змінює.",
+            "accepted_target_texts": [
+                "The cattle on the northern farm have been moved to higher ground."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cattle",
+                "on",
+                "the northern farm",
+                "have been moved",
+                "to higher ground."
+            ],
+            "token_groups": [
+                "The cattle",
+                "on",
+                "the northern farm",
+                "have been moved",
+                "to higher ground."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-collective-nouns-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The jury {a1} unable to agree, and its deliberations continued the next day.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Суд присяжних не зміг дійти згоди, і його нарада продовжилася наступного дня.",
+            "target_text": "The jury was unable to agree, and its deliberations continued the next day.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "are"
+                    ],
+                    "verb_hint": "Для цієї вправи збережи послідовну формальну однину групи, на яку вже вказує присвійний займенник; дія минула."
+                }
+            },
+            "verb_hint": "Для цієї вправи збережи послідовну формальну однину групи, на яку вже вказує присвійний займенник; дія минула.",
+            "accepted_target_texts": [
+                "The jury was unable to agree, and its deliberations continued the next day."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jury",
+                "was unable",
+                "to agree,",
+                "and its deliberations",
+                "continued",
+                "the next day."
+            ],
+            "token_groups": [
+                "The jury",
+                "was unable",
+                "to agree,",
+                "and its deliberations",
+                "continued",
+                "the next day."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-collective-nouns-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The staff {a1} submitted their individual travel claims before the deadline.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Працівники подали свої окремі заявки на відшкодування витрат до кінцевого строку.",
+            "target_text": "The staff have submitted their individual travel claims before the deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "is",
+                        "were"
+                    ],
+                    "verb_hint": "Наголоси на працівниках і їхніх окремих заявках; передай результат до тепер у звичайній британській множині."
+                }
+            },
+            "verb_hint": "Наголоси на працівниках і їхніх окремих заявках; передай результат до тепер у звичайній британській множині.",
+            "accepted_target_texts": [
+                "The staff have submitted their individual travel claims before the deadline."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The staff",
+                "have submitted",
+                "their individual",
+                "travel claims",
+                "before the deadline."
+            ],
+            "token_groups": [
+                "The staff",
+                "have submitted",
+                "their individual",
+                "travel claims",
+                "before the deadline."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-collective-nouns-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The committee’s membership {a1} changed substantially since the last election.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Склад комітету істотно змінився після останніх виборів.",
+            "target_text": "The committee’s membership has changed substantially since the last election.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Граматичний центр — одна назва складу органу, а не самі його члени; потрібна однина допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Граматичний центр — одна назва складу органу, а не самі його члени; потрібна однина допоміжного дієслова.",
+            "accepted_target_texts": [
+                "The committee’s membership has changed substantially since the last election."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee’s membership",
+                "has changed substantially",
+                "since",
+                "the last election."
+            ],
+            "token_groups": [
+                "The committee’s membership",
+                "has changed substantially",
+                "since",
+                "the last election."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-collective-nouns-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The public {a1} becoming increasingly impatient with the delays.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Громадськість стає дедалі нетерплячішою через затримки.",
+            "target_text": "The public is becoming increasingly impatient with the delays.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Покажи процес зміни; нейтральна однина та британська змістова множина обидві прийнятні."
+                }
+            },
+            "verb_hint": "Покажи процес зміни; нейтральна однина та британська змістова множина обидві прийнятні.",
+            "accepted_target_texts": [
+                "The public is becoming increasingly impatient with the delays.",
+                "The public are becoming increasingly impatient with the delays."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "reorder_groups": [
+                "The public",
+                "is becoming",
+                "increasingly impatient",
+                "with the delays."
+            ],
+            "token_groups": [
+                "The public",
+                "is becoming",
+                "increasingly impatient",
+                "with the delays."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-collective-nouns-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The clergy {a1} publicly opposed the closure of the community centre.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Духовенство публічно виступило проти закриття громадського центру.",
+            "target_text": "The clergy have publicly opposed the closure of the community centre.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is"
+                    ],
+                    "verb_hint": "У цій стандартній британській моделі назва духовенства означає людей у множині; передай результат до тепер."
+                }
+            },
+            "verb_hint": "У цій стандартній британській моделі назва духовенства означає людей у множині; передай результат до тепер.",
+            "accepted_target_texts": [
+                "The clergy have publicly opposed the closure of the community centre."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clergy",
+                "have publicly opposed",
+                "the closure",
+                "of",
+                "the community centre."
+            ],
+            "token_groups": [
+                "The clergy",
+                "have publicly opposed",
+                "the closure",
+                "of",
+                "the community centre."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-collective-nouns-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Poultry sold as meat {a1} subject to the same storage requirements.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "М’ясо свійської птиці підлягає тим самим вимогам зберігання.",
+            "target_text": "Poultry sold as meat is subject to the same storage requirements.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Йдеться про м’ясо як незлічуваний продукт, не про живих птахів; потрібна однина."
+                }
+            },
+            "verb_hint": "Йдеться про м’ясо як незлічуваний продукт, не про живих птахів; потрібна однина.",
+            "accepted_target_texts": [
+                "Poultry sold as meat is subject to the same storage requirements."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Poultry sold",
+                "as meat",
+                "is subject to",
+                "the same",
+                "storage requirements."
+            ],
+            "token_groups": [
+                "Poultry sold",
+                "as meat",
+                "is subject to",
+                "the same",
+                "storage requirements."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-collective-nouns-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The electorate {a1} divided on the constitutional question.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Виборці поділяються в поглядах на конституційне питання.",
+            "target_text": "The electorate is divided on the constitutional question.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Передай теперішній стан сукупності виборців; звичайна однина й британська множина прийнятні."
+                }
+            },
+            "verb_hint": "Передай теперішній стан сукупності виборців; звичайна однина й британська множина прийнятні.",
+            "accepted_target_texts": [
+                "The electorate is divided on the constitutional question.",
+                "The electorate are divided on the constitutional question."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are"
+                ]
+            },
+            "reorder_groups": [
+                "The electorate",
+                "is divided",
+                "on",
+                "the constitutional question."
+            ],
+            "token_groups": [
+                "The electorate",
+                "is divided",
+                "on",
+                "the constitutional question."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-collective-nouns-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The panel of external advisers {a1} a temporary body with no executive powers.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Група зовнішніх радників є тимчасовим органом без виконавчих повноважень.",
+            "target_text": "The panel of external advisers is a temporary body with no executive powers.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "am"
+                    ],
+                    "verb_hint": "Даємо визначення одному тимчасовому органу; назва кількох радників усередині підмета не змінює цього значення."
+                }
+            },
+            "verb_hint": "Даємо визначення одному тимчасовому органу; назва кількох радників усередині підмета не змінює цього значення.",
+            "accepted_target_texts": [
+                "The panel of external advisers is a temporary body with no executive powers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "of external advisers",
+                "is",
+                "a temporary body",
+                "with",
+                "no executive powers."
+            ],
+            "token_groups": [
+                "The panel",
+                "of external advisers",
+                "is",
+                "a temporary body",
+                "with",
+                "no executive powers."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-collective-nouns-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The gentry {a1} retained considerable influence over local appointments.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Дрібне дворянство зберегло значний вплив на місцеві призначення.",
+            "target_text": "The gentry have retained considerable influence over local appointments.",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "is"
+                    ],
+                    "verb_hint": "У цьому історичному британському контексті збірна назва суспільного стану має граматичну множину."
+                }
+            },
+            "verb_hint": "У цьому історичному британському контексті збірна назва суспільного стану має граматичну множину.",
+            "accepted_target_texts": [
+                "The gentry have retained considerable influence over local appointments."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The gentry",
+                "have retained",
+                "considerable influence",
+                "over local appointments."
+            ],
+            "token_groups": [
+                "The gentry",
+                "have retained",
+                "considerable influence",
+                "over local appointments."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-collective-nouns-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The correspondence received from several agencies {a1} been placed in a single file.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Листування з кількома установами зібрали в одну справу.",
+            "target_text": "The correspondence received from several agencies has been placed in a single file.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Граматичний центр — незлічувана назва листування; множина установ усередині означення не визначає узгодження."
+                }
+            },
+            "verb_hint": "Граматичний центр — незлічувана назва листування; множина установ усередині означення не визначає узгодження.",
+            "accepted_target_texts": [
+                "The correspondence received from several agencies has been placed in a single file."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The correspondence",
+                "received from",
+                "several agencies",
+                "has been placed",
+                "in",
+                "a single file."
+            ],
+            "token_groups": [
+                "The correspondence",
+                "received from",
+                "several agencies",
+                "has been placed",
+                "in",
+                "a single file."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-collective-nouns-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The succession of advisory bodies {a1} obscured, rather than clarified, the allocation of responsibility.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Послідовна зміна дорадчих органів приховала, а не прояснила розподіл відповідальності.",
+            "target_text": "The succession of advisory bodies has obscured, rather than clarified, the allocation of responsibility.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Підмет називає одну послідовність змін як ціле; не узгоджуй допоміжне слово з множиною органів у залежній групі."
+                }
+            },
+            "verb_hint": "Підмет називає одну послідовність змін як ціле; не узгоджуй допоміжне слово з множиною органів у залежній групі.",
+            "accepted_target_texts": [
+                "The succession of advisory bodies has obscured, rather than clarified, the allocation of responsibility."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The succession",
+                "of advisory bodies",
+                "has obscured,",
+                "rather than clarified,",
+                "the allocation",
+                "of responsibility."
+            ],
+            "token_groups": [
+                "The succession",
+                "of advisory bodies",
+                "has obscured,",
+                "rather than clarified,",
+                "the allocation",
+                "of responsibility."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-collective-nouns-c2-g02",
+            "author_id": "C2-g02",
+            "question": "This series of apparently minor concessions {a1} a substantial alteration of the original settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Ця серія позірно дрібних поступок становить істотну зміну початкової домовленості.",
+            "target_text": "This series of apparently minor concessions constitutes a substantial alteration of the original settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "constitutes",
+                    "options": [
+                        "constitutes",
+                        "constitute",
+                        "constituting"
+                    ],
+                    "verb_hint": "Потрібне теперішнє дієслово зі значенням «становить» для однієї серії; вказівне слово однини вже наведене."
+                }
+            },
+            "verb_hint": "Потрібне теперішнє дієслово зі значенням «становить» для однієї серії; вказівне слово однини вже наведене.",
+            "accepted_target_texts": [
+                "This series of apparently minor concessions constitutes a substantial alteration of the original settlement.",
+                "This series of apparently minor concessions represents a substantial alteration of the original settlement.",
+                "This series of apparently minor concessions amounts to a substantial alteration of the original settlement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "represents",
+                    "amounts to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "represents",
+                    "amounts to"
+                ]
+            },
+            "reorder_groups": [
+                "This series",
+                "of",
+                "apparently minor concessions",
+                "constitutes",
+                "a substantial alteration",
+                "of",
+                "the original settlement."
+            ],
+            "token_groups": [
+                "This series",
+                "of",
+                "apparently minor concessions",
+                "constitutes",
+                "a substantial alteration",
+                "of",
+                "the original settlement."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-collective-nouns-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The people affected by the restrictions {a1} entitled to reasons for their imposition.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Люди, яких стосуються обмеження, мають право знати підстави їх запровадження.",
+            "target_text": "The people affected by the restrictions are entitled to reasons for their imposition.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Назва тут означає кількох людей, не народ як одну націю; потрібна множина."
+                }
+            },
+            "verb_hint": "Назва тут означає кількох людей, не народ як одну націю; потрібна множина.",
+            "accepted_target_texts": [
+                "The people affected by the restrictions are entitled to reasons for their imposition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The people affected",
+                "by the restrictions",
+                "are entitled",
+                "to reasons",
+                "for their imposition."
+            ],
+            "token_groups": [
+                "The people affected",
+                "by the restrictions",
+                "are entitled",
+                "to reasons",
+                "for their imposition."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-collective-nouns-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The consortium {a1} retained its separate legal identity despite the withdrawal of two members.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Консорціум зберіг свою окрему юридичну ідентичність попри вихід двох членів.",
+            "target_text": "The consortium has retained its separate legal identity despite the withdrawal of two members.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Передай результат для однієї юридичної одиниці й збережи однину, уже позначену присвійним займенником."
+                }
+            },
+            "verb_hint": "Передай результат для однієї юридичної одиниці й збережи однину, уже позначену присвійним займенником.",
+            "accepted_target_texts": [
+                "The consortium has retained its separate legal identity despite the withdrawal of two members."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium",
+                "has retained",
+                "its separate",
+                "legal identity",
+                "despite the withdrawal",
+                "of two members."
+            ],
+            "token_groups": [
+                "The consortium",
+                "has retained",
+                "its separate",
+                "legal identity",
+                "despite the withdrawal",
+                "of two members."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-collective-nouns-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The totality of the available material {a1} to be considered before any isolated statement is treated as decisive.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Увесь доступний матеріал слід розглянути, перш ніж визнавати окрему заяву вирішальною.",
+            "target_text": "The totality of the available material has to be considered before any isolated statement is treated as decisive.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Граматичний центр — одна сукупність матеріалу; потрібна форма однини у конструкції необхідності."
+                }
+            },
+            "verb_hint": "Граматичний центр — одна сукупність матеріалу; потрібна форма однини у конструкції необхідності.",
+            "accepted_target_texts": [
+                "The totality of the available material has to be considered before any isolated statement is treated as decisive."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The totality",
+                "of",
+                "the available material",
+                "has to",
+                "be considered",
+                "before",
+                "any isolated statement",
+                "is treated",
+                "as decisive."
+            ],
+            "token_groups": [
+                "The totality",
+                "of",
+                "the available material",
+                "has to",
+                "be considered",
+                "before",
+                "any isolated statement",
+                "is treated",
+                "as decisive."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-collective-nouns-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The police, notwithstanding the breadth of their discretion, {a1} bound by the same procedural safeguards.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_collective_nouns",
+            "translation_uk": "Поліція, попри широту своїх дискреційних повноважень, зв’язана тими самими процедурними гарантіями.",
+            "target_text": "The police, notwithstanding the breadth of their discretion, are bound by the same procedural safeguards.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "am"
+                    ],
+                    "verb_hint": "Віддалене вставне уточнення не змінює множини назви людей, які становлять поліцію."
+                }
+            },
+            "verb_hint": "Віддалене вставне уточнення не змінює множини назви людей, які становлять поліцію.",
+            "accepted_target_texts": [
+                "The police, notwithstanding the breadth of their discretion, are bound by the same procedural safeguards."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The police,",
+                "notwithstanding the breadth",
+                "of their discretion,",
+                "are bound",
+                "by",
+                "the same",
+                "procedural safeguards."
+            ],
+            "token_groups": [
+                "The police,",
+                "notwithstanding the breadth",
+                "of their discretion,",
+                "are bound",
+                "by",
+                "the same",
+                "procedural safeguards."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

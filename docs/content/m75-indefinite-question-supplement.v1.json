@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "package": "m75-indefinite-question-supplement",
+  "version": "1.0.0",
+  "status": "frozen",
+  "locale": "uk",
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\M75IndefinitePronounsSupplementSeeder"
+  },
+  "scope": {
+    "page_identity": "Database\\Seeders\\Page_V3\\PronounsDemonstratives\\PronounsDemonstrativesIndefinitePronounsTheorySeeder",
+    "page_id": 122,
+    "page_category_id": 20,
+    "locale": "uk",
+    "practice_uuid": "57ef1463-3d71-5a26-971a-53022c7be0b7",
+    "practice_level": null,
+    "question_level": "A2",
+    "new_question_rows": 2,
+    "new_option_rows": 0,
+    "old_question_updates": 0,
+    "old_option_updates": 0,
+    "old_answer_updates": 0,
+    "old_theory_link_updates_or_deletes": 0,
+    "saved_test_rows": 0,
+    "saved_test_question_rows": 0,
+    "question_tag_rows": 0,
+    "question_marker_tag_rows": 0,
+    "verb_hint_rows": 0,
+    "question_hint_rows": 0,
+    "question_variant_rows": 0,
+    "progress_writes": 0
+  },
+  "editorial_review": {
+    "decision": "Two real thematic/visible-case coverage gaps; preserve all 72 existing questions and shared options.",
+    "nothing": "No canonical nothing target in the complete original bank.",
+    "anyone": "All twelve original anyone targets contain an internal shared Anyone not normalized by the unchanged native helper. Use an original free-choice subject, not a formatter repair.",
+    "shared_options": "All canonical words and distractors independently observed; actual complete SQL collation matches must pass fresh inventory and transactional checks.",
+    "human_review": "No external human reviewer is claimed.",
+    "visual_changes": 0,
+    "formatter_changes": 0,
+    "grader_changes": 0
+  },
+  "questions": [
+    {
+      "uuid": "m75-indefinite-a2-01",
+      "source_uid": "m75-indefinite-a2-01",
+      "level": "A2",
+      "type": 4,
+      "question": "На полиці нічого немає. Почни з Nothing, щоб назвати відсутність будь-якої речі на цій полиці.",
+      "source_text_uk": "На полиці нічого немає. Почни з Nothing, щоб назвати відсутність будь-якої речі на цій полиці.",
+      "translation_uk": "На полиці нічого немає.",
+      "context_uk": "Ідеться про одну визначену полицю; на ній немає жодної речі.",
+      "criterion_uk": "Підметом назви відсутність речей за допомогою Nothing; не додавай друге заперечення.",
+      "ambiguity_note_uk": "Інші природні перефразування поза лексичною моделлю цієї вправи не є її ключем; умова явно називає початкову форму.",
+      "target_text": "Nothing is on the shelf",
+      "canonical_en": "Nothing is on the shelf.",
+      "tokens_correct": [
+        "Nothing",
+        "is",
+        "on",
+        "the",
+        "shelf"
+      ],
+      "tokens_shuffled": [
+        "shelf",
+        "the",
+        "Nothing",
+        "on",
+        "is"
+      ],
+      "distractors": [
+        "Something",
+        "Everything",
+        "are"
+      ],
+      "answers": {
+        "a1": "Nothing",
+        "a2": "is",
+        "a3": "on",
+        "a4": "the",
+        "a5": "shelf"
+      },
+      "options": [
+        "Nothing",
+        "is",
+        "on",
+        "the",
+        "shelf",
+        "Something",
+        "Everything",
+        "are"
+      ],
+      "learning_requirements": [
+        "Ніщо як підмет для речей",
+        "Однина is",
+        "Без додаткового not",
+        "Збережене обмежене місце"
+      ]
+    },
+    {
+      "uuid": "m75-indefinite-a2-02",
+      "source_uid": "m75-indefinite-a2-02",
+      "level": "A2",
+      "type": 4,
+      "question": "Будь-хто може скористатися цим комп’ютером. Це дозвіл кожному охочому, не повідомлення, що всі вже ним скористалися. Почни з Anyone.",
+      "source_text_uk": "Будь-хто може скористатися цим комп’ютером. Це дозвіл кожному охочому, не повідомлення, що всі вже ним скористалися. Почни з Anyone.",
+      "translation_uk": "Будь-хто може скористатися цим комп’ютером.",
+      "context_uk": "Установлений комп’ютер доступний кожному охочому.",
+      "criterion_uk": "Використай Anyone як підмет зі значенням вільного вибору та назви дозвіл через can.",
+      "ambiguity_note_uk": "Anybody може передавати той самий зміст поза цим банком; для точного складання тут явно задано форму Anyone. Дозвіл не доводить, що дію вже виконано.",
+      "target_text": "Anyone can use this computer",
+      "canonical_en": "Anyone can use this computer.",
+      "tokens_correct": [
+        "Anyone",
+        "can",
+        "use",
+        "this",
+        "computer"
+      ],
+      "tokens_shuffled": [
+        "use",
+        "computer",
+        "Anyone",
+        "this",
+        "can"
+      ],
+      "distractors": [
+        "Nobody",
+        "Nothing",
+        "uses"
+      ],
+      "answers": {
+        "a1": "Anyone",
+        "a2": "can",
+        "a3": "use",
+        "a4": "this",
+        "a5": "computer"
+      },
+      "options": [
+        "Anyone",
+        "can",
+        "use",
+        "this",
+        "computer",
+        "Nobody",
+        "Nothing",
+        "uses"
+      ],
+      "learning_requirements": [
+        "Вільний вибір людини",
+        "Дозвіл, не виконаний факт",
+        "Can плюс початкова форма",
+        "Anyone природно на початку"
+      ]
+    }
+  ]
+}
+

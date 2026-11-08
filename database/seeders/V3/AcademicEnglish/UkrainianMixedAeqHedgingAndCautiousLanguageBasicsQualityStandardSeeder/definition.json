@@ -1,0 +1,723 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aeq-v1",
+    "compiled_from": {
+        "path": "docs/content/academic-english-quality/hedging-and-cautious-language-basics.v1.json",
+        "sha256": "5972967538bf64454689be963bfecf9becd06f977d0f9887e1aba6d10cba106e"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\AcademicEnglish\\UkrainianMixedAeqHedgingAndCautiousLanguageBasicsQualityStandardSeeder",
+        "uuid_namespace": "academic-english-quality-hedging-and-cautious-language-basics-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Academic English"
+    },
+    "sources": {
+        "academic_english_quality_hedging_and_cautious_language_basics": {
+            "name": "Academic English Quality: Hedging and Cautious Language Basics"
+        }
+    },
+    "tags": {
+        "hclb_topic": {
+            "name": "hedging and cautious language basics",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "basic_hedging": {
+            "name": "basic hedging",
+            "category": "academic-english"
+        },
+        "cautious_claims": {
+            "name": "cautious claims",
+            "category": "academic-english"
+        },
+        "modal_hedging": {
+            "name": "may might could for cautious possibility",
+            "category": "academic-english"
+        },
+        "appear_seem": {
+            "name": "appear and seem",
+            "category": "academic-english"
+        },
+        "tend_to": {
+            "name": "tend to",
+            "category": "academic-english"
+        },
+        "likely_unlikely": {
+            "name": "likely and unlikely",
+            "category": "academic-english"
+        },
+        "suggest_indicate": {
+            "name": "suggest and indicate",
+            "category": "academic-english"
+        },
+        "limiting_claims": {
+            "name": "limiting claims",
+            "category": "academic-english"
+        },
+        "avoid_overstatement": {
+            "name": "avoiding overstatement",
+            "category": "academic-english"
+        },
+        "academic_tone": {
+            "name": "cautious academic tone",
+            "category": "academic-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "academic-english"
+        }
+    },
+    "default_tag_keys": [
+        "hclb_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aeq-hcb-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} the bus is late.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Можливо, автобус запізнюється.",
+            "target_text": "Maybe the bus is late.",
+            "markers": {
+                "a1": {
+                    "answer": "Maybe",
+                    "options": [
+                        "Maybe",
+                        "I know",
+                        "I see"
+                    ],
+                    "verb_hint": "Передай припущення, а не знання про факт; уведи лише вступне слово зі значенням «можливо»."
+                }
+            },
+            "verb_hint": "Передай припущення, а не знання про факт; уведи лише вступне слово зі значенням «можливо».",
+            "accepted_target_texts": [
+                "Maybe the bus is late.",
+                "Perhaps the bus is late."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Perhaps"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Perhaps"
+                ]
+            },
+            "reorder_groups": [
+                "Maybe the bus",
+                "is late."
+            ],
+            "token_groups": [
+                "Maybe the bus",
+                "is late."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aeq-hcb-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The red box {a1} heavy.",
+            "level": "A1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Червона коробка на вигляд важка.",
+            "target_text": "The red box looks heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "looks",
+                    "options": [
+                        "looks",
+                        "feels",
+                        "is"
+                    ],
+                    "verb_hint": "Назви оцінку за зовнішнім виглядом, а не встановлену вагу чи відчуття на дотик."
+                }
+            },
+            "verb_hint": "Назви оцінку за зовнішнім виглядом, а не встановлену вагу чи відчуття на дотик.",
+            "accepted_target_texts": [
+                "The red box looks heavy.",
+                "The red box seems heavy.",
+                "The red box appears heavy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "seems",
+                    "appears"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "seems",
+                    "appears"
+                ]
+            },
+            "reorder_groups": [
+                "The red box",
+                "looks heavy."
+            ],
+            "token_groups": [
+                "The red box",
+                "looks heavy."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aeq-hcb-a2-g01",
+            "author_id": "A2-g01",
+            "question": "These boots {a1} too small for me.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Ці черевики здаються мені замалими.",
+            "target_text": "These boots seem too small for me.",
+            "markers": {
+                "a1": {
+                    "answer": "seem",
+                    "options": [
+                        "seem",
+                        "are",
+                        "feel"
+                    ],
+                    "verb_hint": "Передай враження від вигляду розміру; не стверджуй остаточного результату примірювання."
+                }
+            },
+            "verb_hint": "Передай враження від вигляду розміру; не стверджуй остаточного результату примірювання.",
+            "accepted_target_texts": [
+                "These boots seem too small for me.",
+                "These boots look too small for me.",
+                "These boots appear too small for me."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "look",
+                    "appear"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "look",
+                    "appear"
+                ]
+            },
+            "reorder_groups": [
+                "These boots",
+                "seem too small",
+                "for me."
+            ],
+            "token_groups": [
+                "These boots",
+                "seem too small",
+                "for me."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aeq-hcb-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The pool is {a1} closed on Mondays.",
+            "level": "A2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Басейн зазвичай зачинений у понеділок.",
+            "target_text": "The pool is usually closed on Mondays.",
+            "markers": {
+                "a1": {
+                    "answer": "usually",
+                    "options": [
+                        "usually",
+                        "always",
+                        "never"
+                    ],
+                    "verb_hint": "Познач типовий стан, який допускає винятки; не роби його незмінним правилом."
+                }
+            },
+            "verb_hint": "Познач типовий стан, який допускає винятки; не роби його незмінним правилом.",
+            "accepted_target_texts": [
+                "The pool is usually closed on Mondays.",
+                "The pool is generally closed on Mondays.",
+                "The pool is normally closed on Mondays."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "generally",
+                    "normally"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "generally",
+                    "normally"
+                ]
+            },
+            "reorder_groups": [
+                "The pool",
+                "is usually closed",
+                "on Mondays."
+            ],
+            "token_groups": [
+                "The pool",
+                "is usually closed",
+                "on Mondays."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aeq-hcb-b1-g01",
+            "author_id": "B1-g01",
+            "question": "His handwritten notes {a1} to be brief.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Його рукописні нотатки зазвичай короткі.",
+            "target_text": "His handwritten notes tend to be brief.",
+            "markers": {
+                "a1": {
+                    "answer": "tend",
+                    "options": [
+                        "tend",
+                        "need",
+                        "fail"
+                    ],
+                    "verb_hint": "Назви звичайну тенденцію; наступний інфінітив уже наведено, тому не повторюй його."
+                }
+            },
+            "verb_hint": "Назви звичайну тенденцію; наступний інфінітив уже наведено, тому не повторюй його.",
+            "accepted_target_texts": [
+                "His handwritten notes tend to be brief."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "His handwritten notes",
+                "tend to be",
+                "brief."
+            ],
+            "token_groups": [
+                "His handwritten notes",
+                "tend to be",
+                "brief."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aeq-hcb-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The loose screw may {a1} the rattle, but we have not tested it.",
+            "level": "B1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Незатягнутий гвинт може пояснювати деренчання, але ми ще не перевірили це.",
+            "target_text": "The loose screw may explain the rattle, but we have not tested it.",
+            "markers": {
+                "a1": {
+                    "answer": "explain",
+                    "options": [
+                        "explain",
+                        "worsen",
+                        "reduce"
+                    ],
+                    "verb_hint": "Назви можливе пояснення звуку; допоміжне слово й застереження вже наведено, тому не повторюй їх."
+                }
+            },
+            "verb_hint": "Назви можливе пояснення звуку; допоміжне слово й застереження вже наведено, тому не повторюй їх.",
+            "accepted_target_texts": [
+                "The loose screw may explain the rattle, but we have not tested it.",
+                "The loose screw may account for the rattle, but we have not tested it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "account for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "account for"
+                ]
+            },
+            "reorder_groups": [
+                "The loose screw",
+                "may explain",
+                "the rattle,",
+                "but we",
+                "have not tested",
+                "it."
+            ],
+            "token_groups": [
+                "The loose screw",
+                "may explain",
+                "the rattle,",
+                "but we",
+                "have not tested",
+                "it."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aeq-hcb-b2-g01",
+            "author_id": "B2-g01",
+            "question": "In this mock survey, cycling was {a1} with lower reported stress.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "У цьому навчальному опитуванні їзда на велосипеді була пов’язана з нижчим рівнем заявленого стресу.",
+            "target_text": "In this mock survey, cycling was associated with lower reported stress.",
+            "markers": {
+                "a1": {
+                    "answer": "associated",
+                    "options": [
+                        "associated",
+                        "equated",
+                        "compared"
+                    ],
+                    "verb_hint": "Познач зв’язок двох показників, не доведену причинність; прийменник уже наведено."
+                }
+            },
+            "verb_hint": "Познач зв’язок двох показників, не доведену причинність; прийменник уже наведено.",
+            "accepted_target_texts": [
+                "In this mock survey, cycling was associated with lower reported stress.",
+                "In this mock survey, cycling was linked with lower reported stress.",
+                "In this mock survey, cycling was correlated with lower reported stress."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "linked",
+                    "correlated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "linked",
+                    "correlated"
+                ]
+            },
+            "reorder_groups": [
+                "In this mock",
+                "survey, cycling",
+                "was associated with",
+                "lower reported stress."
+            ],
+            "token_groups": [
+                "In this mock",
+                "survey, cycling",
+                "was associated with",
+                "lower reported stress."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aeq-hcb-b2-g02",
+            "author_id": "B2-g02",
+            "question": "At this club, attendance {a1} be higher during shorter sessions, though there are exceptions.",
+            "level": "B2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "У цьому клубі відвідуваність зазвичай вища на коротших заняттях, хоча трапляються винятки.",
+            "target_text": "At this club, attendance tends to be higher during shorter sessions, though there are exceptions.",
+            "markers": {
+                "a1": {
+                    "answer": "tends to",
+                    "options": [
+                        "tends to",
+                        "has to",
+                        "used to"
+                    ],
+                    "verb_hint": "Передай звичну тенденцію, а не обов’язок чи лише минулий стан; наступне дієслово не повторюй."
+                }
+            },
+            "verb_hint": "Передай звичну тенденцію, а не обов’язок чи лише минулий стан; наступне дієслово не повторюй.",
+            "accepted_target_texts": [
+                "At this club, attendance tends to be higher during shorter sessions, though there are exceptions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At this club,",
+                "attendance",
+                "tends to be",
+                "higher during",
+                "shorter sessions,",
+                "though there",
+                "are exceptions."
+            ],
+            "token_groups": [
+                "At this club,",
+                "attendance",
+                "tends to be",
+                "higher during",
+                "shorter sessions,",
+                "though there",
+                "are exceptions."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aeq-hcb-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Interval estimates {a1} across the three sampling methods.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Інтервальні оцінки значно відрізняються для трьох методів формування вибірки.",
+            "target_text": "Interval estimates vary considerably across the three sampling methods.",
+            "markers": {
+                "a1": {
+                    "answer": "vary considerably",
+                    "options": [
+                        "vary considerably",
+                        "agree completely",
+                        "remain identical"
+                    ],
+                    "verb_hint": "Назви значну мінливість між методами, а не повний збіг; підмет уже наведений у множині."
+                }
+            },
+            "verb_hint": "Назви значну мінливість між методами, а не повний збіг; підмет уже наведений у множині.",
+            "accepted_target_texts": [
+                "Interval estimates vary considerably across the three sampling methods.",
+                "Interval estimates differ considerably across the three sampling methods.",
+                "Interval estimates vary substantially across the three sampling methods.",
+                "Interval estimates differ substantially across the three sampling methods."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "differ considerably",
+                    "vary substantially",
+                    "differ substantially"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "differ considerably",
+                    "vary substantially",
+                    "differ substantially"
+                ]
+            },
+            "reorder_groups": [
+                "Interval estimates",
+                "vary considerably",
+                "across the three",
+                "sampling methods."
+            ],
+            "token_groups": [
+                "Interval estimates",
+                "vary considerably",
+                "across the three",
+                "sampling methods."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aeq-hcb-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The interviews offer {a1} support for a link between shift patterns and fatigue.",
+            "level": "C1",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Інтерв’ю дають попередні підстави припускати зв’язок між графіками змін і втомою.",
+            "target_text": "The interviews offer tentative support for a link between shift patterns and fatigue.",
+            "markers": {
+                "a1": {
+                    "answer": "tentative",
+                    "options": [
+                        "tentative",
+                        "conclusive",
+                        "unconditional"
+                    ],
+                    "verb_hint": "Охарактеризуй підтримку припущення як неостаточну; не перетворюй її на вирішальний доказ."
+                }
+            },
+            "verb_hint": "Охарактеризуй підтримку припущення як неостаточну; не перетворюй її на вирішальний доказ.",
+            "accepted_target_texts": [
+                "The interviews offer tentative support for a link between shift patterns and fatigue.",
+                "The interviews offer provisional support for a link between shift patterns and fatigue."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "provisional"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "provisional"
+                ]
+            },
+            "reorder_groups": [
+                "The interviews",
+                "offer tentative support",
+                "for a link",
+                "between shift patterns",
+                "and fatigue."
+            ],
+            "token_groups": [
+                "The interviews",
+                "offer tentative support",
+                "for a link",
+                "between shift patterns",
+                "and fatigue."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aeq-hcb-c2-g01",
+            "author_id": "C2-g01",
+            "question": "It would be {a1} to infer a population-wide effect from these three cases alone.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Було б передчасно робити висновок про ефект для всієї популяції лише з цих трьох випадків.",
+            "target_text": "It would be premature to infer a population-wide effect from these three cases alone.",
+            "markers": {
+                "a1": {
+                    "answer": "premature",
+                    "options": [
+                        "premature",
+                        "reasonable",
+                        "essential"
+                    ],
+                    "verb_hint": "Оціни висновок як передчасний через недостатній обсяг підстав; не заперечуй можливість самого ефекту."
+                }
+            },
+            "verb_hint": "Оціни висновок як передчасний через недостатній обсяг підстав; не заперечуй можливість самого ефекту.",
+            "accepted_target_texts": [
+                "It would be premature to infer a population-wide effect from these three cases alone.",
+                "It would be too early to infer a population-wide effect from these three cases alone."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "too early"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "too early"
+                ]
+            },
+            "reorder_groups": [
+                "It would be",
+                "premature to infer",
+                "a population-wide effect",
+                "from these three",
+                "cases alone."
+            ],
+            "token_groups": [
+                "It would be",
+                "premature to infer",
+                "a population-wide effect",
+                "from these three",
+                "cases alone."
+            ],
+            "quality_revision": "aeq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aeq-hcb-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The alternative explanation cannot {a1} on the strength of this pilot alone.",
+            "level": "C2",
+            "type": 0,
+            "source": "academic_english_quality_hedging_and_cautious_language_basics",
+            "translation_uk": "Лише на підставі цього пілотного дослідження неможливо виключити альтернативне пояснення.",
+            "target_text": "The alternative explanation cannot be ruled out on the strength of this pilot alone.",
+            "markers": {
+                "a1": {
+                    "answer": "be ruled out",
+                    "options": [
+                        "be ruled out",
+                        "have been established",
+                        "be taken for granted"
+                    ],
+                    "verb_hint": "Передай неможливість відкинути пояснення пасивною конструкцією; уже наведене заперечення не повторюй."
+                }
+            },
+            "verb_hint": "Передай неможливість відкинути пояснення пасивною конструкцією; уже наведене заперечення не повторюй.",
+            "accepted_target_texts": [
+                "The alternative explanation cannot be ruled out on the strength of this pilot alone.",
+                "The alternative explanation cannot be excluded on the strength of this pilot alone.",
+                "The alternative explanation cannot be dismissed on the strength of this pilot alone."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be excluded",
+                    "be dismissed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be excluded",
+                    "be dismissed"
+                ]
+            },
+            "reorder_groups": [
+                "The alternative explanation",
+                "cannot be ruled",
+                "out",
+                "on the strength",
+                "of this pilot",
+                "alone."
+            ],
+            "token_groups": [
+                "The alternative explanation",
+                "cannot be ruled",
+                "out",
+                "on the strength",
+                "of this pilot",
+                "alone."
+            ],
+            "quality_revision": "aeq-v1"
+        }
+    ]
+}

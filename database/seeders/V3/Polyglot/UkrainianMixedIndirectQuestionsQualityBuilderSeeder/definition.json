@@ -1,0 +1,4580 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/indirect.v1.json",
+        "sha256": "ae9eb89547325f3b46c2986509cd67363e29014ff570fb8e3d48389df48cdec7"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedIndirectQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-indirect-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_indirect": {
+            "name": "Questions and Negations Quality: Indirect Questions: ввічливі непрямі питання"
+        }
+    },
+    "tags": {
+        "polyglot_indirect_questions": {
+            "name": "Indirect Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polite_frame": {
+            "name": "Polite Frame",
+            "category": "topic"
+        },
+        "could_you_tell_me": {
+            "name": "Could You Tell Me",
+            "category": "topic"
+        },
+        "do_you_know": {
+            "name": "Do You Know",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "indirect_wh": {
+            "name": "Indirect Wh",
+            "category": "topic"
+        },
+        "indirect_if_whether": {
+            "name": "Indirect If Whether",
+            "category": "topic"
+        },
+        "no_extra_auxiliary": {
+            "name": "No Extra Auxiliary",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_indirect_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-indirect-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Можеш сказати мені, де басейн?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш сказати мені, де басейн?",
+            "target_text": "Can you tell me where the pool is?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "Can",
+                        "Would",
+                        "Shall",
+                        "Should"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "you",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a3": {
+                    "answer": "tell",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "tell",
+                        "know",
+                        "say",
+                        "wait"
+                    ]
+                },
+                "a4": {
+                    "answer": "me",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "me",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a5": {
+                    "answer": "where",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "where",
+                        "whatever",
+                        "wherever",
+                        "whenever"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "pool",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "pool",
+                        "shop",
+                        "painter",
+                        "train"
+                    ]
+                },
+                "a8": {
+                    "answer": "is?",
+                    "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "verb_hint": "Після ввічливого вступу використай слово місця та прямий порядок.",
+            "accepted_target_texts": [
+                "Can you tell me where the pool is?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you tell",
+                "me",
+                "where",
+                "the pool is?"
+            ],
+            "token_groups": [
+                "Can you tell",
+                "me",
+                "where",
+                "the pool is?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Can",
+                "you",
+                "tell",
+                "me",
+                "where",
+                "the",
+                "pool",
+                "is?"
+            ],
+            "options": [
+                "Can",
+                "Would",
+                "Shall",
+                "Should",
+                "you",
+                "them",
+                "myself",
+                "yourself",
+                "tell",
+                "know",
+                "say",
+                "wait",
+                "me",
+                "she",
+                "it",
+                "we",
+                "where",
+                "whatever",
+                "wherever",
+                "whenever",
+                "the",
+                "some",
+                "any",
+                "this",
+                "pool",
+                "shop",
+                "painter",
+                "train",
+                "is",
+                "being",
+                "isn't",
+                "aren't"
+            ],
+            "source_text_uk": "Можеш сказати мені, де басейн?",
+            "options_by_marker": {
+                "a1": [
+                    "Can",
+                    "Would",
+                    "Shall",
+                    "Should"
+                ],
+                "a2": [
+                    "you",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a3": [
+                    "tell",
+                    "know",
+                    "say",
+                    "wait"
+                ],
+                "a4": [
+                    "me",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a5": [
+                    "where",
+                    "whatever",
+                    "wherever",
+                    "whenever"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "pool",
+                    "shop",
+                    "painter",
+                    "train"
+                ],
+                "a8": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "pronoun",
+                "a5": "question_word",
+                "a6": "finite_clause",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-indirect-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ти знаєш, що робить ця кнопка?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти знаєш, що робить ця кнопка?",
+            "target_text": "Do you know what this button does?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "Do",
+                        "Had",
+                        "Haven't",
+                        "Hasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "you",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a3": {
+                    "answer": "know",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "know",
+                        "say",
+                        "tell",
+                        "want"
+                    ]
+                },
+                "a4": {
+                    "answer": "what",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "what",
+                        "who",
+                        "whom",
+                        "which"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "this",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "button",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "button",
+                        "curator",
+                        "committee",
+                        "pool"
+                    ]
+                },
+                "a7": {
+                    "answer": "does?",
+                    "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+                    "options": [
+                        "does",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                }
+            },
+            "verb_hint": "Не додавай допоміжного питального дієслова до внутрішньої частини.",
+            "accepted_target_texts": [
+                "Do you know what this button does?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "what",
+                "this button does?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "what",
+                "this button does?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "know",
+                "what",
+                "this",
+                "button",
+                "does?"
+            ],
+            "options": [
+                "Do",
+                "Had",
+                "Haven't",
+                "Hasn't",
+                "you",
+                "ourselves",
+                "themselves",
+                "I",
+                "know",
+                "say",
+                "tell",
+                "want",
+                "what",
+                "who",
+                "whom",
+                "which",
+                "this",
+                "each",
+                "every",
+                "no",
+                "button",
+                "curator",
+                "committee",
+                "pool",
+                "does",
+                "didn't",
+                "have",
+                "has"
+            ],
+            "source_text_uk": "Ти знаєш, що робить ця кнопка?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Had",
+                    "Haven't",
+                    "Hasn't"
+                ],
+                "a2": [
+                    "you",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a3": [
+                    "know",
+                    "say",
+                    "tell",
+                    "want"
+                ],
+                "a4": [
+                    "what",
+                    "who",
+                    "whom",
+                    "which"
+                ],
+                "a5": [
+                    "this",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "button",
+                    "curator",
+                    "committee",
+                    "pool"
+                ],
+                "a7": [
+                    "does",
+                    "didn't",
+                    "have",
+                    "has"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "finite_clause",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-indirect-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Будь ласка, скажи мені, чи крамниця відчинена.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Будь ласка, скажи мені, чи крамниця відчинена.",
+            "target_text": "Please tell me if the shop is open.",
+            "markers": {
+                "a1": {
+                    "answer": "Please",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "Please",
+                        "Might",
+                        "Do",
+                        "Can"
+                    ]
+                },
+                "a2": {
+                    "answer": "tell",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "tell",
+                        "know",
+                        "use",
+                        "need"
+                    ]
+                },
+                "a3": {
+                    "answer": "me",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "me",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "if",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "if",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "shop",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "shop",
+                        "editor",
+                        "solicitor",
+                        "panel"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "open.",
+                    "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+                    "options": [
+                        "open",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Після сполучника невизначеного вибору підмет стоїть перед зв’язкою.",
+            "accepted_target_texts": [
+                "Please tell me if the shop is open."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please tell me",
+                "if",
+                "the shop",
+                "is open."
+            ],
+            "token_groups": [
+                "Please tell me",
+                "if",
+                "the shop",
+                "is open."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Please",
+                "tell",
+                "me",
+                "if",
+                "the",
+                "shop",
+                "is",
+                "open."
+            ],
+            "options": [
+                "Please",
+                "Might",
+                "Do",
+                "Can",
+                "tell",
+                "know",
+                "use",
+                "need",
+                "me",
+                "herself",
+                "ourselves",
+                "themselves",
+                "if",
+                "because",
+                "although",
+                "though",
+                "the",
+                "this",
+                "that",
+                "these",
+                "shop",
+                "editor",
+                "solicitor",
+                "panel",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "open",
+                "visited",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Будь ласка, скажи мені, чи крамниця відчинена.",
+            "options_by_marker": {
+                "a1": [
+                    "Please",
+                    "Might",
+                    "Do",
+                    "Can"
+                ],
+                "a2": [
+                    "tell",
+                    "know",
+                    "use",
+                    "need"
+                ],
+                "a3": [
+                    "me",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "if",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a5": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a6": [
+                    "shop",
+                    "editor",
+                    "solicitor",
+                    "panel"
+                ],
+                "a7": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a8": [
+                    "open",
+                    "visited",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "connector",
+                "a5": "subject",
+                "a6": "subject",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-indirect-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Можеш пояснити, як працює духовка?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш пояснити, як працює духовка?",
+            "target_text": "Could you explain how the oven works?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "Could",
+                        "Couldn't",
+                        "Won't",
+                        "Wouldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "you",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "explain",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "explain",
+                        "ask",
+                        "recall",
+                        "clarify"
+                    ]
+                },
+                "a4": {
+                    "answer": "how",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "how",
+                        "whatever",
+                        "wherever",
+                        "whenever"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "oven",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "oven",
+                        "walked",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a7": {
+                    "answer": "works?",
+                    "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+                    "options": [
+                        "works",
+                        "opens",
+                        "closes",
+                        "leaves"
+                    ]
+                }
+            },
+            "verb_hint": "У непрямому питанні не використовуй інверсії з допоміжним дієсловом.",
+            "accepted_target_texts": [
+                "Could you explain how the oven works?",
+                "Could you explain how the oven operates?"
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "operates?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "operates?"
+                ]
+            },
+            "reorder_groups": [
+                "Could you explain",
+                "how",
+                "the oven works?"
+            ],
+            "token_groups": [
+                "Could you explain",
+                "how",
+                "the oven works?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "explain",
+                "how",
+                "the",
+                "oven",
+                "works?"
+            ],
+            "options": [
+                "Could",
+                "Couldn't",
+                "Won't",
+                "Wouldn't",
+                "you",
+                "yourself",
+                "herself",
+                "ourselves",
+                "explain",
+                "ask",
+                "recall",
+                "clarify",
+                "how",
+                "whatever",
+                "wherever",
+                "whenever",
+                "the",
+                "these",
+                "those",
+                "each",
+                "oven",
+                "walked",
+                "opened",
+                "closed",
+                "works",
+                "opens",
+                "closes",
+                "leaves"
+            ],
+            "source_text_uk": "Можеш пояснити, як працює духовка?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Couldn't",
+                    "Won't",
+                    "Wouldn't"
+                ],
+                "a2": [
+                    "you",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a3": [
+                    "explain",
+                    "ask",
+                    "recall",
+                    "clarify"
+                ],
+                "a4": [
+                    "how",
+                    "whatever",
+                    "wherever",
+                    "whenever"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "oven",
+                    "walked",
+                    "opened",
+                    "closed"
+                ],
+                "a7": [
+                    "works",
+                    "opens",
+                    "closes",
+                    "leaves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "finite_clause",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-indirect-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Можна запитати, коли закінчується матч?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можна запитати, коли закінчується матч?",
+            "target_text": "May I ask when the match ends?",
+            "markers": {
+                "a1": {
+                    "answer": "May",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "May",
+                        "Wouldn't",
+                        "Shouldn't",
+                        "Cannot"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a3": {
+                    "answer": "ask",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "ask",
+                        "recall",
+                        "clarify",
+                        "confirm"
+                    ]
+                },
+                "a4": {
+                    "answer": "when",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "when",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "match",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "match",
+                        "lift",
+                        "guard",
+                        "session"
+                    ]
+                },
+                "a7": {
+                    "answer": "ends?",
+                    "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+                    "options": [
+                        "ends",
+                        "restarts",
+                        "stops",
+                        "arrives"
+                    ]
+                }
+            },
+            "verb_hint": "Внутрішня частина має прямий порядок теперішнього простого часу.",
+            "accepted_target_texts": [
+                "May I ask when the match ends?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "May I ask",
+                "when",
+                "the match ends?"
+            ],
+            "token_groups": [
+                "May I ask",
+                "when",
+                "the match ends?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "May",
+                "I",
+                "ask",
+                "when",
+                "the",
+                "match",
+                "ends?"
+            ],
+            "options": [
+                "May",
+                "Wouldn't",
+                "Shouldn't",
+                "Cannot",
+                "I",
+                "She",
+                "It",
+                "We",
+                "ask",
+                "recall",
+                "clarify",
+                "confirm",
+                "when",
+                "why",
+                "how",
+                "whoever",
+                "the",
+                "those",
+                "each",
+                "every",
+                "match",
+                "lift",
+                "guard",
+                "session",
+                "ends",
+                "restarts",
+                "stops",
+                "arrives"
+            ],
+            "source_text_uk": "Можна запитати, коли закінчується матч?",
+            "options_by_marker": {
+                "a1": [
+                    "May",
+                    "Wouldn't",
+                    "Shouldn't",
+                    "Cannot"
+                ],
+                "a2": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a3": [
+                    "ask",
+                    "recall",
+                    "clarify",
+                    "confirm"
+                ],
+                "a4": [
+                    "when",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a5": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "match",
+                    "lift",
+                    "guard",
+                    "session"
+                ],
+                "a7": [
+                    "ends",
+                    "restarts",
+                    "stops",
+                    "arrives"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "finite_clause",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-indirect-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Скажеш мені, чи вартість проїзду включає багаж?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Скажеш мені, чи вартість проїзду включає багаж?",
+            "target_text": "Would you tell me whether the fare includes luggage?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "Would",
+                        "Couldn't",
+                        "Won't",
+                        "Wouldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "you",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "tell",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "tell",
+                        "say",
+                        "like",
+                        "know"
+                    ]
+                },
+                "a4": {
+                    "answer": "me",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "me",
+                        "themselves",
+                        "I",
+                        "he"
+                    ]
+                },
+                "a5": {
+                    "answer": "whether",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "whether",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "fare",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "fare",
+                        "match",
+                        "explain",
+                        "ask"
+                    ]
+                },
+                "a8": {
+                    "answer": "includes",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "includes",
+                        "ends",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a9": {
+                    "answer": "luggage?",
+                    "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+                    "options": [
+                        "luggage",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Сполучник невизначеного вибору передує підмету та звичайному дієслову.",
+            "accepted_target_texts": [
+                "Would you tell me whether the fare includes luggage?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you tell",
+                "me",
+                "whether",
+                "the fare",
+                "includes luggage?"
+            ],
+            "token_groups": [
+                "Would you tell",
+                "me",
+                "whether",
+                "the fare",
+                "includes luggage?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "tell",
+                "me",
+                "whether",
+                "the",
+                "fare",
+                "includes",
+                "luggage?"
+            ],
+            "options": [
+                "Would",
+                "Couldn't",
+                "Won't",
+                "Wouldn't",
+                "you",
+                "she",
+                "it",
+                "we",
+                "tell",
+                "say",
+                "like",
+                "know",
+                "me",
+                "themselves",
+                "I",
+                "he",
+                "whether",
+                "whereas",
+                "while",
+                "if",
+                "the",
+                "this",
+                "that",
+                "these",
+                "fare",
+                "match",
+                "explain",
+                "ask",
+                "includes",
+                "ends",
+                "schools",
+                "friends",
+                "luggage",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Скажеш мені, чи вартість проїзду включає багаж?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Couldn't",
+                    "Won't",
+                    "Wouldn't"
+                ],
+                "a2": [
+                    "you",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "tell",
+                    "say",
+                    "like",
+                    "know"
+                ],
+                "a4": [
+                    "me",
+                    "themselves",
+                    "I",
+                    "he"
+                ],
+                "a5": [
+                    "whether",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a6": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "fare",
+                    "match",
+                    "explain",
+                    "ask"
+                ],
+                "a8": [
+                    "includes",
+                    "ends",
+                    "schools",
+                    "friends"
+                ],
+                "a9": [
+                    "luggage",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "pronoun",
+                "a5": "connector",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "finite_clause",
+                "a9": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-indirect-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Можеш підтвердити, чи повернули завдаток?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш підтвердити, чи повернули завдаток?",
+            "target_text": "Could you confirm whether the deposit has been returned?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "Could",
+                        "Couldn't",
+                        "Won't",
+                        "Wouldn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "you",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a3": {
+                    "answer": "confirm",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "confirm",
+                        "clarify",
+                        "remember",
+                        "me"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "whether",
+                        "while",
+                        "if",
+                        "and"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "deposit",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "deposit",
+                        "route",
+                        "mind",
+                        "recommend"
+                    ]
+                },
+                "a7": {
+                    "answer": "has",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "has",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a9": {
+                    "answer": "returned?",
+                    "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+                    "options": [
+                        "returned",
+                        "altered",
+                        "called",
+                        "opened"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прямий порядок доконаного пасиву у внутрішній частині.",
+            "accepted_target_texts": [
+                "Could you confirm whether the deposit has been returned?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you confirm",
+                "whether",
+                "the deposit",
+                "has been returned?"
+            ],
+            "token_groups": [
+                "Could you confirm",
+                "whether",
+                "the deposit",
+                "has been returned?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "confirm",
+                "whether",
+                "the",
+                "deposit",
+                "has",
+                "been",
+                "returned?"
+            ],
+            "options": [
+                "Could",
+                "Couldn't",
+                "Won't",
+                "Wouldn't",
+                "you",
+                "us",
+                "them",
+                "myself",
+                "confirm",
+                "clarify",
+                "remember",
+                "me",
+                "whether",
+                "while",
+                "if",
+                "and",
+                "the",
+                "an",
+                "some",
+                "any",
+                "deposit",
+                "route",
+                "mind",
+                "recommend",
+                "has",
+                "do",
+                "does",
+                "did",
+                "been",
+                "is",
+                "are",
+                "was",
+                "returned",
+                "altered",
+                "called",
+                "opened"
+            ],
+            "source_text_uk": "Можеш підтвердити, чи повернули завдаток?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Couldn't",
+                    "Won't",
+                    "Wouldn't"
+                ],
+                "a2": [
+                    "you",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a3": [
+                    "confirm",
+                    "clarify",
+                    "remember",
+                    "me"
+                ],
+                "a4": [
+                    "whether",
+                    "while",
+                    "if",
+                    "and"
+                ],
+                "a5": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "deposit",
+                    "route",
+                    "mind",
+                    "recommend"
+                ],
+                "a7": [
+                    "has",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a8": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a9": [
+                    "returned",
+                    "altered",
+                    "called",
+                    "opened"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "connector",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "finite_clause",
+                "a8": "finite_clause",
+                "a9": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-indirect-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ти не проти пояснити, чому змінили маршрут?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Ти не проти пояснити, чому змінили маршрут?",
+            "target_text": "Would you mind explaining why the route was altered?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "Would",
+                        "Shall",
+                        "Should",
+                        "May"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "you",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                },
+                "a3": {
+                    "answer": "mind",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "mind",
+                        "explain",
+                        "recall",
+                        "clarify"
+                    ]
+                },
+                "a4": {
+                    "answer": "explaining",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "explaining",
+                        "wondering",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a5": {
+                    "answer": "why",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "why",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "route",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "route",
+                        "deposit",
+                        "recommend",
+                        "local"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a9": {
+                    "answer": "altered?",
+                    "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+                    "options": [
+                        "altered",
+                        "returned",
+                        "written",
+                        "ridden"
+                    ]
+                }
+            },
+            "verb_hint": "Після ввічливого вступу додай герундій пояснення; внутрішня частина має прямий порядок пасиву.",
+            "accepted_target_texts": [
+                "Would you mind explaining why the route was altered?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you mind",
+                "explaining why",
+                "the route",
+                "was altered?"
+            ],
+            "token_groups": [
+                "Would you mind",
+                "explaining why",
+                "the route",
+                "was altered?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "mind",
+                "explaining",
+                "why",
+                "the",
+                "route",
+                "was",
+                "altered?"
+            ],
+            "options": [
+                "Would",
+                "Shall",
+                "Should",
+                "May",
+                "you",
+                "we",
+                "they",
+                "me",
+                "mind",
+                "explain",
+                "recall",
+                "clarify",
+                "explaining",
+                "wondering",
+                "living",
+                "buying",
+                "why",
+                "wherever",
+                "whenever",
+                "who",
+                "the",
+                "both",
+                "a",
+                "an",
+                "route",
+                "deposit",
+                "recommend",
+                "local",
+                "was",
+                "were",
+                "be",
+                "been",
+                "altered",
+                "returned",
+                "written",
+                "ridden"
+            ],
+            "source_text_uk": "Ти не проти пояснити, чому змінили маршрут?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Shall",
+                    "Should",
+                    "May"
+                ],
+                "a2": [
+                    "you",
+                    "we",
+                    "they",
+                    "me"
+                ],
+                "a3": [
+                    "mind",
+                    "explain",
+                    "recall",
+                    "clarify"
+                ],
+                "a4": [
+                    "explaining",
+                    "wondering",
+                    "living",
+                    "buying"
+                ],
+                "a5": [
+                    "why",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a7": [
+                    "route",
+                    "deposit",
+                    "recommend",
+                    "local"
+                ],
+                "a8": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a9": [
+                    "altered",
+                    "returned",
+                    "written",
+                    "ridden"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "finite_clause",
+                "a9": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-indirect-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Я хотів би дізнатися, чи можеш ти порадити місцевого механіка.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я хотів би дізнатися, чи можеш ти порадити місцевого механіка.",
+            "target_text": "I was wondering if you could recommend a local mechanic.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "wondering",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "wondering",
+                        "explaining",
+                        "calling",
+                        "walking"
+                    ]
+                },
+                "a4": {
+                    "answer": "if",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "if",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a5": {
+                    "answer": "you",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "you",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a6": {
+                    "answer": "could",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "could",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a7": {
+                    "answer": "recommend",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "recommend",
+                        "why",
+                        "confirm",
+                        "deposit"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a9": {
+                    "answer": "local",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "local",
+                        "window",
+                        "spare",
+                        "whole"
+                    ]
+                },
+                "a10": {
+                    "answer": "mechanic.",
+                    "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+                    "options": [
+                        "mechanic",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи непряме ввічливе прохання та модальне дієслово після займенника.",
+            "accepted_target_texts": [
+                "I was wondering if you could recommend a local mechanic.",
+                "I was wondering if you could recommend a nearby mechanic."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "nearby"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "nearby"
+                ]
+            },
+            "reorder_groups": [
+                "I was wondering",
+                "if",
+                "you",
+                "could recommend",
+                "a local mechanic."
+            ],
+            "token_groups": [
+                "I was wondering",
+                "if",
+                "you",
+                "could recommend",
+                "a local mechanic."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "was",
+                "wondering",
+                "if",
+                "you",
+                "could",
+                "recommend",
+                "a",
+                "local",
+                "mechanic."
+            ],
+            "options": [
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "wondering",
+                "explaining",
+                "calling",
+                "walking",
+                "if",
+                "or",
+                "nor",
+                "so",
+                "you",
+                "it",
+                "we",
+                "they",
+                "could",
+                "would",
+                "shall",
+                "should",
+                "recommend",
+                "why",
+                "confirm",
+                "deposit",
+                "a",
+                "both",
+                "an",
+                "the",
+                "local",
+                "window",
+                "spare",
+                "whole",
+                "mechanic",
+                "dark",
+                "heavy",
+                "light"
+            ],
+            "source_text_uk": "Я хотів би дізнатися, чи можеш ти порадити місцевого механіка.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a3": [
+                    "wondering",
+                    "explaining",
+                    "calling",
+                    "walking"
+                ],
+                "a4": [
+                    "if",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a5": [
+                    "you",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a6": [
+                    "could",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a7": [
+                    "recommend",
+                    "why",
+                    "confirm",
+                    "deposit"
+                ],
+                "a8": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a9": [
+                    "local",
+                    "window",
+                    "spare",
+                    "whole"
+                ],
+                "a10": [
+                    "mechanic",
+                    "dark",
+                    "heavy",
+                    "light"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "connector",
+                "a5": "pronoun",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-indirect-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Можеш уточнити, на якій підставі надали продовження?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можеш уточнити, на якій підставі надали продовження?",
+            "target_text": "Could you clarify on what basis the extension was granted?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "Could",
+                        "Wouldn't",
+                        "Shouldn't",
+                        "Cannot"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "you",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "clarify",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "clarify",
+                        "enquire",
+                        "indicate",
+                        "me"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "on",
+                        "of",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "what",
+                        "who",
+                        "whom",
+                        "which"
+                    ]
+                },
+                "a6": {
+                    "answer": "basis",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "basis",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "extension",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "extension",
+                        "assessment",
+                        "transfer",
+                        "much"
+                    ]
+                },
+                "a9": {
+                    "answer": "was",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a10": {
+                    "answer": "granted?",
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+                    "options": [
+                        "granted",
+                        "done",
+                        "needed",
+                        "liked"
+                    ]
+                }
+            },
+            "verb_hint": "Складна питальна група не змінює прямого порядку внутрішнього пасиву.",
+            "accepted_target_texts": [
+                "Could you clarify on what basis the extension was granted?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you clarify",
+                "on what basis",
+                "the extension",
+                "was granted?"
+            ],
+            "token_groups": [
+                "Could you clarify",
+                "on what basis",
+                "the extension",
+                "was granted?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "clarify",
+                "on",
+                "what",
+                "basis",
+                "the",
+                "extension",
+                "was",
+                "granted?"
+            ],
+            "options": [
+                "Could",
+                "Wouldn't",
+                "Shouldn't",
+                "Cannot",
+                "you",
+                "herself",
+                "ourselves",
+                "themselves",
+                "clarify",
+                "enquire",
+                "indicate",
+                "me",
+                "on",
+                "of",
+                "in",
+                "at",
+                "what",
+                "who",
+                "whom",
+                "which",
+                "basis",
+                "cats",
+                "people",
+                "men",
+                "the",
+                "no",
+                "another",
+                "either",
+                "extension",
+                "assessment",
+                "transfer",
+                "much",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "granted",
+                "done",
+                "needed",
+                "liked"
+            ],
+            "source_text_uk": "Можеш уточнити, на якій підставі надали продовження?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Wouldn't",
+                    "Shouldn't",
+                    "Cannot"
+                ],
+                "a2": [
+                    "you",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "clarify",
+                    "enquire",
+                    "indicate",
+                    "me"
+                ],
+                "a4": [
+                    "on",
+                    "of",
+                    "in",
+                    "at"
+                ],
+                "a5": [
+                    "what",
+                    "who",
+                    "whom",
+                    "which"
+                ],
+                "a6": [
+                    "basis",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "extension",
+                    "assessment",
+                    "transfer",
+                    "much"
+                ],
+                "a9": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a10": [
+                    "granted",
+                    "done",
+                    "needed",
+                    "liked"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-indirect-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Дозвольте поцікавитися, хто дозволив переказ.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте поцікавитися, хто дозволив переказ.",
+            "target_text": "May I enquire who authorised the transfer?",
+            "markers": {
+                "a1": {
+                    "answer": "May",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "May",
+                        "Wouldn't",
+                        "Shouldn't",
+                        "Cannot"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "I",
+                        "Ourselves",
+                        "Themselves",
+                        "You"
+                    ]
+                },
+                "a3": {
+                    "answer": "enquire",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "enquire",
+                        "explain",
+                        "recall",
+                        "confirm"
+                    ]
+                },
+                "a4": {
+                    "answer": "who",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "who",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a5": {
+                    "answer": "authorised",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "authorised",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "transfer?",
+                    "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+                    "options": [
+                        "transfer",
+                        "much",
+                        "time",
+                        "assessment"
+                    ]
+                }
+            },
+            "verb_hint": "Питальне слово є підметом, тому не додавай питального допоміжного дієслова.",
+            "accepted_target_texts": [
+                "May I enquire who authorised the transfer?",
+                "May I enquire who authorized the transfer?",
+                "May I enquire who permitted the transfer?"
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "authorized",
+                    "permitted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "authorized",
+                    "permitted"
+                ]
+            },
+            "reorder_groups": [
+                "May I enquire",
+                "who",
+                "authorised the transfer?"
+            ],
+            "token_groups": [
+                "May I enquire",
+                "who",
+                "authorised the transfer?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "May",
+                "I",
+                "enquire",
+                "who",
+                "authorised",
+                "the",
+                "transfer?"
+            ],
+            "options": [
+                "May",
+                "Wouldn't",
+                "Shouldn't",
+                "Cannot",
+                "I",
+                "Ourselves",
+                "Themselves",
+                "You",
+                "enquire",
+                "explain",
+                "recall",
+                "confirm",
+                "who",
+                "which",
+                "where",
+                "when",
+                "authorised",
+                "took",
+                "wrote",
+                "rode",
+                "the",
+                "that",
+                "these",
+                "those",
+                "transfer",
+                "much",
+                "time",
+                "assessment"
+            ],
+            "source_text_uk": "Дозвольте поцікавитися, хто дозволив переказ.",
+            "options_by_marker": {
+                "a1": [
+                    "May",
+                    "Wouldn't",
+                    "Shouldn't",
+                    "Cannot"
+                ],
+                "a2": [
+                    "I",
+                    "Ourselves",
+                    "Themselves",
+                    "You"
+                ],
+                "a3": [
+                    "enquire",
+                    "explain",
+                    "recall",
+                    "confirm"
+                ],
+                "a4": [
+                    "who",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a5": [
+                    "authorised",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "transfer",
+                    "much",
+                    "time",
+                    "assessment"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "finite_clause",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-indirect-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Чи не вкажете, скільки часу, ймовірно, потребуватиме оцінювання?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи не вкажете, скільки часу, ймовірно, потребуватиме оцінювання?",
+            "target_text": "Would you indicate how much time the assessment is likely to require?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "Would",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "you",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a3": {
+                    "answer": "indicate",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "indicate",
+                        "explain",
+                        "recall",
+                        "confirm"
+                    ]
+                },
+                "a4": {
+                    "answer": "how",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "how",
+                        "when",
+                        "why",
+                        "whoever"
+                    ]
+                },
+                "a5": {
+                    "answer": "much",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "much",
+                        "what",
+                        "extension",
+                        "enquire"
+                    ]
+                },
+                "a6": {
+                    "answer": "time",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "time",
+                        "transfer",
+                        "clarify",
+                        "water"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "assessment",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "assessment",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a10": {
+                    "answer": "likely",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "likely",
+                        "easily",
+                        "politely",
+                        "loudly"
+                    ]
+                },
+                "a11": {
+                    "answer": "to",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a12": {
+                    "answer": "require?",
+                    "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+                    "options": [
+                        "require",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                }
+            },
+            "verb_hint": "Після групи кількості збережи прямий порядок та конструкцію ймовірності.",
+            "accepted_target_texts": [
+                "Would you indicate how much time the assessment is likely to require?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you indicate",
+                "how much time",
+                "the assessment",
+                "is likely",
+                "to require?"
+            ],
+            "token_groups": [
+                "Would you indicate",
+                "how much time",
+                "the assessment",
+                "is likely",
+                "to require?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "indicate",
+                "how",
+                "much",
+                "time",
+                "the",
+                "assessment",
+                "is",
+                "likely",
+                "to",
+                "require?"
+            ],
+            "options": [
+                "Would",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "you",
+                "they",
+                "me",
+                "him",
+                "indicate",
+                "explain",
+                "recall",
+                "confirm",
+                "how",
+                "when",
+                "why",
+                "whoever",
+                "much",
+                "what",
+                "extension",
+                "enquire",
+                "time",
+                "transfer",
+                "clarify",
+                "water",
+                "the",
+                "no",
+                "another",
+                "either",
+                "assessment",
+                "picture",
+                "child",
+                "teacher",
+                "is",
+                "are",
+                "was",
+                "were",
+                "likely",
+                "easily",
+                "politely",
+                "loudly",
+                "to",
+                "from",
+                "for",
+                "of",
+                "require",
+                "key",
+                "room",
+                "map"
+            ],
+            "source_text_uk": "Чи не вкажете, скільки часу, ймовірно, потребуватиме оцінювання?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "you",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a3": [
+                    "indicate",
+                    "explain",
+                    "recall",
+                    "confirm"
+                ],
+                "a4": [
+                    "how",
+                    "when",
+                    "why",
+                    "whoever"
+                ],
+                "a5": [
+                    "much",
+                    "what",
+                    "extension",
+                    "enquire"
+                ],
+                "a6": [
+                    "time",
+                    "transfer",
+                    "clarify",
+                    "water"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "assessment",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a9": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a10": [
+                    "likely",
+                    "easily",
+                    "politely",
+                    "loudly"
+                ],
+                "a11": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a12": [
+                    "require",
+                    "key",
+                    "room",
+                    "map"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause",
+                "a11": "verb_phrase",
+                "a12": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-indirect-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Дозвольте запитати, якою мірою поступка впливає на майбутні вимоги.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Дозвольте запитати, якою мірою поступка впливає на майбутні вимоги.",
+            "target_text": "Might I ask to what extent the concession affects future claims?",
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "Might",
+                        "Can",
+                        "Could",
+                        "Will"
+                    ]
+                },
+                "a2": {
+                    "answer": "I",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a3": {
+                    "answer": "ask",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "ask",
+                        "explain",
+                        "recall",
+                        "clarify"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "what",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a6": {
+                    "answer": "extent",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "extent",
+                        "out",
+                        "welcome",
+                        "clarification"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "concession",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "concession",
+                        "assurance",
+                        "elaborate",
+                        "room"
+                    ]
+                },
+                "a9": {
+                    "answer": "affects",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "affects",
+                        "was",
+                        "remains",
+                        "maps"
+                    ]
+                },
+                "a10": {
+                    "answer": "future",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "future",
+                        "bus",
+                        "door",
+                        "shop"
+                    ]
+                },
+                "a11": {
+                    "answer": "claims?",
+                    "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+                    "options": [
+                        "claims",
+                        "restarts",
+                        "ends",
+                        "agrees"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи формальну ввічливість та прямий порядок після складної питальної групи.",
+            "accepted_target_texts": [
+                "Might I ask to what extent the concession affects future claims?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might I ask",
+                "to what extent",
+                "the concession",
+                "affects future claims?"
+            ],
+            "token_groups": [
+                "Might I ask",
+                "to what extent",
+                "the concession",
+                "affects future claims?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Might",
+                "I",
+                "ask",
+                "to",
+                "what",
+                "extent",
+                "the",
+                "concession",
+                "affects",
+                "future",
+                "claims?"
+            ],
+            "options": [
+                "Might",
+                "Can",
+                "Could",
+                "Will",
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "ask",
+                "explain",
+                "recall",
+                "clarify",
+                "to",
+                "from",
+                "for",
+                "of",
+                "what",
+                "why",
+                "how",
+                "whoever",
+                "extent",
+                "out",
+                "welcome",
+                "clarification",
+                "the",
+                "these",
+                "those",
+                "each",
+                "concession",
+                "assurance",
+                "elaborate",
+                "room",
+                "affects",
+                "was",
+                "remains",
+                "maps",
+                "future",
+                "bus",
+                "door",
+                "shop",
+                "claims",
+                "restarts",
+                "ends",
+                "agrees"
+            ],
+            "source_text_uk": "Дозвольте запитати, якою мірою поступка впливає на майбутні вимоги.",
+            "options_by_marker": {
+                "a1": [
+                    "Might",
+                    "Can",
+                    "Could",
+                    "Will"
+                ],
+                "a2": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a3": [
+                    "ask",
+                    "explain",
+                    "recall",
+                    "clarify"
+                ],
+                "a4": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "what",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a6": [
+                    "extent",
+                    "out",
+                    "welcome",
+                    "clarification"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "concession",
+                    "assurance",
+                    "elaborate",
+                    "room"
+                ],
+                "a9": [
+                    "affects",
+                    "was",
+                    "remains",
+                    "maps"
+                ],
+                "a10": [
+                    "future",
+                    "bus",
+                    "door",
+                    "shop"
+                ],
+                "a11": [
+                    "claims",
+                    "restarts",
+                    "ends",
+                    "agrees"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause",
+                "a11": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-indirect-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Можете докладніше пояснити, чому альтернативу відхилили?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Можете докладніше пояснити, чому альтернативу відхилили?",
+            "target_text": "Could you elaborate on why the alternative was ruled out?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "Could",
+                        "Wouldn't",
+                        "Shouldn't",
+                        "Cannot"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "you",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a3": {
+                    "answer": "elaborate",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "elaborate",
+                        "clarify",
+                        "confirm",
+                        "remember"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "on",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a5": {
+                    "answer": "why",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "why",
+                        "who",
+                        "whom",
+                        "what"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "alternative",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "alternative",
+                        "old",
+                        "young",
+                        "cold"
+                    ]
+                },
+                "a8": {
+                    "answer": "was",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a9": {
+                    "answer": "ruled",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "ruled",
+                        "taken",
+                        "written",
+                        "ridden"
+                    ]
+                },
+                "a10": {
+                    "answer": "out?",
+                    "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+                    "options": [
+                        "out",
+                        "ask",
+                        "extent",
+                        "concession"
+                    ]
+                }
+            },
+            "verb_hint": "Внутрішня частина має прямий порядок минулого пасиву з фразовим дієсловом.",
+            "accepted_target_texts": [
+                "Could you elaborate on why the alternative was ruled out?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you elaborate",
+                "on why",
+                "the alternative",
+                "was ruled out?"
+            ],
+            "token_groups": [
+                "Could you elaborate",
+                "on why",
+                "the alternative",
+                "was ruled out?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "elaborate",
+                "on",
+                "why",
+                "the",
+                "alternative",
+                "was",
+                "ruled",
+                "out?"
+            ],
+            "options": [
+                "Could",
+                "Wouldn't",
+                "Shouldn't",
+                "Cannot",
+                "you",
+                "them",
+                "myself",
+                "yourself",
+                "elaborate",
+                "clarify",
+                "confirm",
+                "remember",
+                "on",
+                "among",
+                "about",
+                "during",
+                "why",
+                "who",
+                "whom",
+                "what",
+                "the",
+                "a",
+                "an",
+                "some",
+                "alternative",
+                "old",
+                "young",
+                "cold",
+                "was",
+                "be",
+                "been",
+                "being",
+                "ruled",
+                "taken",
+                "written",
+                "ridden",
+                "out",
+                "ask",
+                "extent",
+                "concession"
+            ],
+            "source_text_uk": "Можете докладніше пояснити, чому альтернативу відхилили?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Wouldn't",
+                    "Shouldn't",
+                    "Cannot"
+                ],
+                "a2": [
+                    "you",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a3": [
+                    "elaborate",
+                    "clarify",
+                    "confirm",
+                    "remember"
+                ],
+                "a4": [
+                    "on",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a5": [
+                    "why",
+                    "who",
+                    "whom",
+                    "what"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "alternative",
+                    "old",
+                    "young",
+                    "cold"
+                ],
+                "a8": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a9": [
+                    "ruled",
+                    "taken",
+                    "written",
+                    "ridden"
+                ],
+                "a10": [
+                    "out",
+                    "ask",
+                    "extent",
+                    "concession"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "finite_clause",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-indirect-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Я був би вдячний за уточнення, чи запевнення залишається обов’язковим.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний за уточнення, чи запевнення залишається обов’язковим.",
+            "target_text": "I should welcome clarification of whether the assurance remains binding.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "I",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "should",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a3": {
+                    "answer": "welcome",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "welcome",
+                        "mind",
+                        "elaborate",
+                        "ask"
+                    ]
+                },
+                "a4": {
+                    "answer": "clarification",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "clarification",
+                        "future",
+                        "out",
+                        "extent"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "whether",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "whether",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "assurance",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "assurance",
+                        "concession",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a9": {
+                    "answer": "remains",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "remains",
+                        "affects",
+                        "claims",
+                        "bikes"
+                    ]
+                },
+                "a10": {
+                    "answer": "binding.",
+                    "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+                    "options": [
+                        "binding",
+                        "living",
+                        "buying",
+                        "giving"
+                    ]
+                }
+            },
+            "verb_hint": "Оформи прохання про уточнення як непряме питання без інверсії.",
+            "accepted_target_texts": [
+                "I should welcome clarification of whether the assurance remains binding."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I should welcome",
+                "clarification of",
+                "whether",
+                "the assurance",
+                "remains binding."
+            ],
+            "token_groups": [
+                "I should welcome",
+                "clarification of",
+                "whether",
+                "the assurance",
+                "remains binding."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "should",
+                "welcome",
+                "clarification",
+                "of",
+                "whether",
+                "the",
+                "assurance",
+                "remains",
+                "binding."
+            ],
+            "options": [
+                "I",
+                "We",
+                "They",
+                "Me",
+                "should",
+                "may",
+                "might",
+                "must",
+                "welcome",
+                "mind",
+                "elaborate",
+                "ask",
+                "clarification",
+                "future",
+                "out",
+                "extent",
+                "of",
+                "across",
+                "between",
+                "among",
+                "whether",
+                "so",
+                "yet",
+                "because",
+                "the",
+                "no",
+                "another",
+                "either",
+                "assurance",
+                "concession",
+                "room",
+                "map",
+                "remains",
+                "affects",
+                "claims",
+                "bikes",
+                "binding",
+                "living",
+                "buying",
+                "giving"
+            ],
+            "source_text_uk": "Я був би вдячний за уточнення, чи запевнення залишається обов’язковим.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "should",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a3": [
+                    "welcome",
+                    "mind",
+                    "elaborate",
+                    "ask"
+                ],
+                "a4": [
+                    "clarification",
+                    "future",
+                    "out",
+                    "extent"
+                ],
+                "a5": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "whether",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "assurance",
+                    "concession",
+                    "room",
+                    "map"
+                ],
+                "a9": [
+                    "remains",
+                    "affects",
+                    "claims",
+                    "bikes"
+                ],
+                "a10": [
+                    "binding",
+                    "living",
+                    "buying",
+                    "giving"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "connector",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-indirect-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Чи могли б ви пояснити, у чиїх інтересах здійснюють ці повноваження?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи могли б ви пояснити, у чиїх інтересах здійснюють ці повноваження?",
+            "target_text": "Might you explain in whose interests the discretion is exercised?",
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "Might",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "explain",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "explain",
+                        "ask",
+                        "remember",
+                        "me"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a5": {
+                    "answer": "whose",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "whose",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a6": {
+                    "answer": "interests",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "interests",
+                        "qualifies",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "discretion",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "discretion",
+                        "reservation",
+                        "indication",
+                        "appreciate"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a10": {
+                    "answer": "exercised?",
+                    "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+                    "options": [
+                        "exercised",
+                        "remedied",
+                        "built",
+                        "bought"
+                    ]
+                }
+            },
+            "verb_hint": "Після групи належності інтересів збережи прямий порядок пасивної частини.",
+            "accepted_target_texts": [
+                "Might you explain in whose interests the discretion is exercised?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might you explain",
+                "in whose interests",
+                "the discretion",
+                "is exercised?"
+            ],
+            "token_groups": [
+                "Might you explain",
+                "in whose interests",
+                "the discretion",
+                "is exercised?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Might",
+                "you",
+                "explain",
+                "in",
+                "whose",
+                "interests",
+                "the",
+                "discretion",
+                "is",
+                "exercised?"
+            ],
+            "options": [
+                "Might",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "you",
+                "he",
+                "she",
+                "it",
+                "explain",
+                "ask",
+                "remember",
+                "me",
+                "in",
+                "over",
+                "under",
+                "through",
+                "whose",
+                "hers",
+                "ours",
+                "theirs",
+                "interests",
+                "qualifies",
+                "tickets",
+                "cups",
+                "the",
+                "some",
+                "any",
+                "this",
+                "discretion",
+                "reservation",
+                "indication",
+                "appreciate",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "exercised",
+                "remedied",
+                "built",
+                "bought"
+            ],
+            "source_text_uk": "Чи могли б ви пояснити, у чиїх інтересах здійснюють ці повноваження?",
+            "options_by_marker": {
+                "a1": [
+                    "Might",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "explain",
+                    "ask",
+                    "remember",
+                    "me"
+                ],
+                "a4": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a5": [
+                    "whose",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a6": [
+                    "interests",
+                    "qualifies",
+                    "tickets",
+                    "cups"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "discretion",
+                    "reservation",
+                    "indication",
+                    "appreciate"
+                ],
+                "a9": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a10": [
+                    "exercised",
+                    "remedied",
+                    "built",
+                    "bought"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-indirect-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Чи не уточните ви, якою мірою застереження обмежує цю згоду?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Чи не уточните ви, якою мірою застереження обмежує цю згоду?",
+            "target_text": "Would you clarify how far the reservation qualifies that consent?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "Would",
+                        "Might",
+                        "Must",
+                        "Can't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "you",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "clarify",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "clarify",
+                        "me",
+                        "mind",
+                        "appreciate"
+                    ]
+                },
+                "a4": {
+                    "answer": "how",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "how",
+                        "whenever",
+                        "who",
+                        "whom"
+                    ]
+                },
+                "a5": {
+                    "answer": "far",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "far",
+                        "gap",
+                        "explain",
+                        "discretion"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "reservation",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "reservation",
+                        "indication",
+                        "evidential",
+                        "sister"
+                    ]
+                },
+                "a8": {
+                    "answer": "qualifies",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "qualifies",
+                        "interests",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a10": {
+                    "answer": "consent?",
+                    "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+                    "options": [
+                        "consent",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                }
+            },
+            "verb_hint": "Не роби інверсії у внутрішній частині про міру обмеження.",
+            "accepted_target_texts": [
+                "Would you clarify how far the reservation qualifies that consent?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you clarify",
+                "how far",
+                "the reservation",
+                "qualifies that consent?"
+            ],
+            "token_groups": [
+                "Would you clarify",
+                "how far",
+                "the reservation",
+                "qualifies that consent?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "clarify",
+                "how",
+                "far",
+                "the",
+                "reservation",
+                "qualifies",
+                "that",
+                "consent?"
+            ],
+            "options": [
+                "Would",
+                "Might",
+                "Must",
+                "Can't",
+                "you",
+                "yourself",
+                "herself",
+                "ourselves",
+                "clarify",
+                "me",
+                "mind",
+                "appreciate",
+                "how",
+                "whenever",
+                "who",
+                "whom",
+                "far",
+                "gap",
+                "explain",
+                "discretion",
+                "the",
+                "every",
+                "no",
+                "another",
+                "reservation",
+                "indication",
+                "evidential",
+                "sister",
+                "qualifies",
+                "interests",
+                "cats",
+                "people",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "consent",
+                "car",
+                "bag",
+                "book"
+            ],
+            "source_text_uk": "Чи не уточните ви, якою мірою застереження обмежує цю згоду?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Might",
+                    "Must",
+                    "Can't"
+                ],
+                "a2": [
+                    "you",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a3": [
+                    "clarify",
+                    "me",
+                    "mind",
+                    "appreciate"
+                ],
+                "a4": [
+                    "how",
+                    "whenever",
+                    "who",
+                    "whom"
+                ],
+                "a5": [
+                    "far",
+                    "gap",
+                    "explain",
+                    "discretion"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "reservation",
+                    "indication",
+                    "evidential",
+                    "sister"
+                ],
+                "a8": [
+                    "qualifies",
+                    "interests",
+                    "cats",
+                    "people"
+                ],
+                "a9": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a10": [
+                    "consent",
+                    "car",
+                    "bag",
+                    "book"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "finite_clause",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-indirect-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Я був би вдячний за інформацію, чи можна усунути прогалину в доказах.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_indirect",
+            "translation_uk": "Я був би вдячний за інформацію, чи можна усунути прогалину в доказах.",
+            "target_text": "I should appreciate an indication of whether the evidential gap can be remedied.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "should",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "appreciate",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "appreciate",
+                        "ask",
+                        "me",
+                        "specify"
+                    ]
+                },
+                "a4": {
+                    "answer": "an",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "an",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "indication",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "indication",
+                        "reservation",
+                        "discretion",
+                        "explain"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "of",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "whether",
+                        "while",
+                        "if",
+                        "and"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "the",
+                        "any",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a9": {
+                    "answer": "evidential",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "evidential",
+                        "legal",
+                        "original",
+                        "spare"
+                    ]
+                },
+                "a10": {
+                    "answer": "gap",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "gap",
+                        "key",
+                        "lamp",
+                        "clock"
+                    ]
+                },
+                "a11": {
+                    "answer": "can",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "can",
+                        "could",
+                        "will",
+                        "would"
+                    ]
+                },
+                "a12": {
+                    "answer": "be",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "be",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a13": {
+                    "answer": "remedied.",
+                    "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+                    "options": [
+                        "remedied",
+                        "exercised",
+                        "made",
+                        "left"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи формальний вступ і прямий порядок модального пасиву.",
+            "accepted_target_texts": [
+                "I should appreciate an indication of whether the evidential gap can be remedied.",
+                "I should appreciate an indication of whether the evidential gap can be resolved."
+            ],
+            "answer_synonyms": {
+                "a13": [
+                    "resolved."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a13": [
+                    "resolved."
+                ]
+            },
+            "reorder_groups": [
+                "I should appreciate",
+                "an indication",
+                "of whether",
+                "the evidential gap",
+                "can be remedied."
+            ],
+            "token_groups": [
+                "I should appreciate",
+                "an indication",
+                "of whether",
+                "the evidential gap",
+                "can be remedied."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "should",
+                "appreciate",
+                "an",
+                "indication",
+                "of",
+                "whether",
+                "the",
+                "evidential",
+                "gap",
+                "can",
+                "be",
+                "remedied."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "should",
+                "can't",
+                "couldn't",
+                "won't",
+                "appreciate",
+                "ask",
+                "me",
+                "specify",
+                "an",
+                "this",
+                "that",
+                "these",
+                "indication",
+                "reservation",
+                "discretion",
+                "explain",
+                "of",
+                "between",
+                "among",
+                "about",
+                "whether",
+                "while",
+                "if",
+                "and",
+                "the",
+                "any",
+                "those",
+                "each",
+                "evidential",
+                "legal",
+                "original",
+                "spare",
+                "gap",
+                "key",
+                "lamp",
+                "clock",
+                "can",
+                "could",
+                "will",
+                "would",
+                "be",
+                "been",
+                "being",
+                "isn't",
+                "remedied",
+                "exercised",
+                "made",
+                "left"
+            ],
+            "source_text_uk": "Я був би вдячний за інформацію, чи можна усунути прогалину в доказах.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "should",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "appreciate",
+                    "ask",
+                    "me",
+                    "specify"
+                ],
+                "a4": [
+                    "an",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "indication",
+                    "reservation",
+                    "discretion",
+                    "explain"
+                ],
+                "a6": [
+                    "of",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "whether",
+                    "while",
+                    "if",
+                    "and"
+                ],
+                "a8": [
+                    "the",
+                    "any",
+                    "those",
+                    "each"
+                ],
+                "a9": [
+                    "evidential",
+                    "legal",
+                    "original",
+                    "spare"
+                ],
+                "a10": [
+                    "gap",
+                    "key",
+                    "lamp",
+                    "clock"
+                ],
+                "a11": [
+                    "can",
+                    "could",
+                    "will",
+                    "would"
+                ],
+                "a12": [
+                    "be",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a13": [
+                    "remedied",
+                    "exercised",
+                    "made",
+                    "left"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "intro",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "connector",
+                "a7": "connector",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "finite_clause",
+                "a12": "finite_clause",
+                "a13": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

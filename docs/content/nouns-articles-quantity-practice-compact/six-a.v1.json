@@ -1,0 +1,1784 @@
+{
+  "schema_version": 1,
+  "package": "nouns-articles-quantity-native-practice-compact",
+  "source": {
+    "path": "docs/content/nouns-articles-quantity-practice-supplement.v1.json",
+    "sha256": "51b50d2140d1297716017473c51dab12703b7ad112058dd1265c03fb01ecaa47"
+  },
+  "targets": [
+    {
+      "topic": "generic-reference",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityAdvancedArticlesGenericReferenceTheorySeeder",
+        "page_id": 80,
+        "page_category_id": 16,
+        "uuid": "4ec54834-db1f-55f8-983a-e6537527e477",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 12,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "b7f153f77b41d41e04ccc8ad88f9c4d10ece06e850a84750f6b12cc718bf4156"
+      },
+      "after_data_sha256": "d9cea188da85bc2fceb31f13e4d9dceb0053bb27468c99cb267bb16343eb96ba",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "selects-2",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-gap-2",
+          "kind": "inputs",
+          "indices": [
+            5,
+            6
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            7,
+            8
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Виправ речення",
+          "instruction": "Виконай коротку умову кожного пункту.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "2b2354791eea0ebe91bf60d8ce0264ec5062e65c7015bb3d26f75a8243e51e3e",
+            "instruction_uk": "Передай загальну потребу дітей, не окремого класу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ need education."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "822c1e2d2c0f80a550fcdcb0722ccd6926ac799ed14f31e8e9ba2cc716536747",
+            "instruction_uk": "Назви групу людей за моделлю з rich.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Багаті стають багатшими."
+              },
+              {
+                "lang": "en",
+                "text": "___ are getting richer."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "ddaeb16b5659d82aade378417ac7ea49d57c58d1ee8a555fd0d098d99e872983",
+            "instruction_uk": "Подай тип пристрою через одного представника.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Комп’ютер може зберігати дані."
+              },
+              {
+                "lang": "en",
+                "text": "___ can store data."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "8dc9a3f20bdb58378da99419c75abf14d317f7bd796694366069b1dee2fd0693",
+            "instruction_uk": "Обери усталену назву народу, не мови.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Розділ присвячений японцям."
+              },
+              {
+                "lang": "en",
+                "text": "___ are the subject of this chapter."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "c50d3210a2b4468576eccd402ae24dacd97d88ec394f996a80f7bbf625f1eec6",
+            "instruction_uk": "Обери пояснення загальної характеристики, не статистики.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Good teachers listen to their students."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Загальна характеристика; точних кількості й частоти не названо."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Кожен учитель завжди слухає кожного учня."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "a7fe2bbfbc455ed831ee4b188bc7ac6728f3729ada624754cd5f6474996656bb",
+            "instruction_uk": "Про кого повідомлено?",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Мовець указує на визначених учасників зустрічі за одним столом."
+              },
+              {
+                "lang": "en",
+                "text": "The Ukrainians at this table are translators."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Про всіх українців у світі."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Про визначених українських учасників за цим столом."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "fc9bed4aede7717c21719d1606846e7e7d4e6808f6003b11deb9645b0dc3274e",
+            "instruction_uk": "Введи артикль для назви групи людей із прикметником.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ poor need help."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "fe81a32d4e73a65a52a8c3a8cae54909853e6d04fea3d515506c0f84182448f8",
+            "instruction_uk": "Назви винахід як тип за моделлю the + однина.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ computer has changed our lives."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "924e0f407bebcc9e9b800f8621c1bd5d9091f3409771889d164cbb929fe3fadb",
+            "instruction_uk": "Введи «Без артикля», не порожній рядок.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Йдеться про книжки загалом."
+              },
+              {
+                "lang": "en",
+                "text": "___ books can be useful."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "6a74e2f6d3f32235dd53315588085c761c63e3284d207581ea6bc288d15297d5",
+            "instruction_uk": "Почни з Digital; збережи every, не значення «жоден».",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Цифрові словники не замінюють кожен друкований словник."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "d8a81b453ec60086f2198a93b9af29ada0313cdbb6a9e43e0b8ef6f6d017fdbf",
+            "instruction_uk": "Почни з The; ужий have chosen, збережи ту саму тему й обидва артиклі.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Італійці з нашої групи обрали ту саму тему."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "5700d905129ea127fe04d7f1f1c46e70aa8567cb5807d2869f91bce4b2159378",
+            "instruction_uk": "Назви молодих людей як групу з прикметником.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "____ young sometimes question old customs."
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "source_item_sha256": "ee4c93d97face99822b71121157a5b92c6b0f6ed9af8cdcc88455136e4f733e8",
+            "instruction_uk": "Назви вид за моделлю the + однина.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "____ eagle has excellent eyesight."
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "source_item_sha256": "b584f54bbd8cfd2dad9270cde28eb5623ed09385116e212185d5703a7d780e84",
+            "instruction_uk": "Переклади загальну характеристику виду; почни з множини без артикля.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Жирафи мають довгі шиї."
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "source_item_sha256": "787a8c3fc1f7c8af6d721390eacd436393d8db9fd14759211c31bad81463dfec",
+            "instruction_uk": "Назви винахід як тип: the + однина; далі — минула зміна.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Телефон змінив спілкування."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "ab73d024d75d48a6cd909667621254cffc2a9b3cb21a259d88ffe5be1e56eded",
+            "instruction_uk": "Зразок: узгодження назви групи людей.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The rich is getting richer."
+              },
+              {
+                "lang": "en",
+                "text": "→ The rich are getting richer."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "0d86a1f4613c1cae7c82c3e8b385a9d46cf59009bbd15adb0e32bf1cbf852d3a",
+            "instruction_uk": "Передай загальну множину інструкцій; зміни лише артикль.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The manuals can be useful."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "6bb9fcc8f0ecf25da166f3165c3a19fce34ea973a80dac0c5d8d31f5a067d369",
+            "instruction_uk": "Назви українців загалом множиною без артикля; решту збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The Ukrainians can apply for this programme."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "another-other-the-other",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityAnotherOtherTheOtherTheorySeeder",
+        "page_id": 81,
+        "page_category_id": 16,
+        "uuid": "19b7df8b-7c55-5725-a78f-f5935f988baa",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 7,
+        "level": "B1",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "659bd7d475c905f8c10970526913a64f04026f7f2d470d2de0c51d517be5af68"
+      },
+      "after_data_sha256": "072b7c6c22648a839f7d5569e649c7d36801eec9c1eefab0380360e2ea374fb4",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            4,
+            5
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "01088ca5c895b93df2b3cdb587931136720644aa003358646391249fd3541239",
+            "instruction_uk": "Назви один додатковий квиток, не другий із відомої пари.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Відвідувач просить ще один квиток для друга."
+              },
+              {
+                "lang": "en",
+                "text": "Could I have ___ ticket, please?"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "40901f395022cfb2575577308947760a768c9ce98a6da9592fd5a54567b23d89",
+            "instruction_uk": "Назви решту відомих книжок; артикль уже надруковано.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Із п’яти книжок дві на столі, решта три — на полиці."
+              },
+              {
+                "lang": "en",
+                "text": "The ___ books are on the shelf."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "7015158a6a82d3d27ffb5372f61d955dbe3ed82fdfad4b8f668b09a87a69d14f",
+            "instruction_uk": "Обери висновок за ситуацією заміни холодної кави гарячою.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Could I have another coffee, please?"
+              },
+              {
+                "lang": "uk",
+                "text": "А: Просять заміну; невідомо, чи першу чашку випили."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Першу чашку вже випито, а другу обов’язково вип’ють."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "f8471e1d377592a7e62b54192721b6b536b78c3024f80aafba7ef8f3bf68123b",
+            "instruction_uk": "Кого позначає the others?",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Зареєстровано шестеро: двоє тут, решта четверо запізнюються."
+              },
+              {
+                "lang": "en",
+                "text": "Two people are here; the others are late."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Будь-яких людей поза цією шісткою."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Чотирьох інших зареєстрованих людей із цієї шістки."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "f295a0ff57ccf075010dc5feaf455f355b19207cccbbee7c8bc0542195fde03e",
+            "instruction_uk": "Почни з I; після need ужий some, не повторюй cups.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ці чашки замалі. Мені потрібні інші."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "64b9b8e0cca203c92babc278e1e5d0904eb1d3ffbf9a7bc924b3fa3ad9fb6f3d",
+            "instruction_uk": "Почни з The; збережи chairs, обидва артиклі та by для «біля».",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Із п’яти стільців два біля дверей. Решта стільців біля вікна."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "b7327e778738222368f29d3ecd3584f88f5fed7de407ec38c51fd4495a8f68bd",
+            "instruction_uk": "Назви одну іншу пару замість надто малої.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "These gloves are too small. May I try ____ pair?"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "5d0da91ccb3b0c67be444c830377275462d55bd49dc00e1ff587c5027e267d7b",
+            "instruction_uk": "Назви другу з двох коробок; іменник не повторюй.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "There are two boxes. One is full; ____ is empty."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "17c576ea8d5d53ab7eeacfd1ab12dcecd1328244b3cd880f71a26e3dfeb230d0",
+            "instruction_uk": "Переклади команду з other перед plates; решта тарілок і полиця вже відомі.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Постав решту тарілок на полицю."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "e1661135e2058097a8b986a3d3662c8fb07fa8c84997d912799deb5ae0ad1963",
+            "instruction_uk": "Передай ввічливе бажання додаткової скибки, не заміни.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я хотів би ще одну скибку хліба."
+              }
+            ]
+          }
+        ],
+        "rephrase": []
+      }
+    },
+    {
+      "topic": "articles",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityArticlesTheorySeeder",
+        "page_id": 82,
+        "page_category_id": 16,
+        "uuid": "f1edde68-82a6-56d6-8aed-7b5dc7b969c0",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 11,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "5a7aee02b98ec58bfdf36ed5f66a12f4b146472715102f2543158d18f565d9d4"
+      },
+      "after_data_sha256": "2bfe43b08ce9eef879d2275b1f4187c6e6736d7619e49df74a93774927aa0136",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "selects-2",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Склади іменникову групу",
+          "instruction": "Введи всі слова разом з артиклем."
+        },
+        {
+          "key": "inputs-gap-2",
+          "kind": "inputs",
+          "indices": [
+            5,
+            6
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            7,
+            8
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Виправ речення",
+          "instruction": "Виконай коротку умову кожного пункту.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "769ec86b01c37f05eb847e2442b348b92fcef48f59babfc64cccb8737a2b093b",
+            "instruction_uk": "Назви професію, не вже відому інженерку.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона інженерка."
+              },
+              {
+                "lang": "en",
+                "text": "She is ___ engineer."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "42bfc4dc6ee44b427bc2fad95c4979ba8dbace3698166f3522787a4e9879f55d",
+            "instruction_uk": "Йдеться про сонце на земному небі.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I saw ___ sun today."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "cb4c5947f71c00f44b4c5538a277eb33067ee6146e0fb3d7ead5ad4c1a9774e8",
+            "instruction_uk": "Передай загальну характеристику собак, не окремої зграї.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ dogs are loyal animals."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "f5c7e98e9b3c67be81f8c0a4b05ee01c713b56479d378c3042c0788d58de941b",
+            "instruction_uk": "Назви одну невизначену годину часу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I need ___ hour to finish."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "d484daf51cd7dc850908bbffab7f6403e8ee56bfd89781b9c75d2a10bc4f2886",
+            "instruction_uk": "Що передає the у проханні?",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Обоє бачать одну синю папку на столі."
+              },
+              {
+                "lang": "en",
+                "text": "Please bring the blue folder."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "3a2fff2bd38b08df193707501f126691b44c44aea7d26ded2703b408f64a3a4f",
+            "instruction_uk": "Обери зміст про конкретну музику на вечірці.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I love the music."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "f5b81c8ba8172e42a97b10254bdbfe2e44e8b27068d6de0a403703c238af25e3",
+            "instruction_uk": "Введи всю групу з неозначеним артиклем; перший звук /j/.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Університет."
+              },
+              {
+                "lang": "en",
+                "text": "university"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "e15dccdb96336a61e73fb9228404a5c11a49ed724cdac456d734e98c9fcac4e2",
+            "instruction_uk": "Введи всю групу з неозначеним артиклем; h не вимовляється.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Чесна відповідь."
+              },
+              {
+                "lang": "en",
+                "text": "honest answer"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "a8fd072c8b074582d82ced6d4e07cd755e1530d9089b60fe3ab44fb273dfbda8",
+            "instruction_uk": "Введи всю групу з неозначеним артиклем; перший звук /j/.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Європейська країна."
+              },
+              {
+                "lang": "en",
+                "text": "European country"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "01fe65595d56aff6dd152ea05e348f9d48220e819d20a4278875a550ee6b5729",
+            "instruction_uk": "Почни з I; ужий bought та bicycle, велосипед згадують уперше.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я купила старий велосипед."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "e15f45db627d80e7545f057011dfa230f57f54be772cd772b0e0420594368202",
+            "instruction_uk": "Почни з Can; ужий close та door в однині для відомих обом дверей.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Можеш зачинити двері?"
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "eb003a066d90f70b942a78adeca097ef048a4885c058663cff4fee76fe1c0de1",
+            "instruction_uk": "Кошеня згадують уперше; обери артикль перед голосним звуком.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She adopted ____ orange kitten."
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "source_item_sha256": "cd697cf44612d96d284ad981dd84de68e5e33550df1c847633579cb36e1b488a",
+            "instruction_uk": "Попроси конкретну сіль біля тарілки співрозмовника.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Please pass ____ salt beside your plate."
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "source_item_sha256": "1fadedc35c1497e74e3667d1b63ac06e75663e9d7f24625ed6b16b6104b47926",
+            "instruction_uk": "Почни з конструкції наявності; шарф згадують уперше, лавка відома.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "На лавці лежить зелений шарф."
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "source_item_sha256": "6b0cb09429fc301a41dfc7d7844fc74f0ce13d029201165a6c1b953dac1209a0",
+            "instruction_uk": "Почни зі ввічливого слова; лампа відома обом.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Будь ласка, вимкни лампу."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "6c3ffaacfef595b2aa715c2c871623a7d4c73fda8828bf107bd13e71e82d2603",
+            "instruction_uk": "Зразок: назва професії.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "He is teacher."
+              },
+              {
+                "lang": "en",
+                "text": "→ He is a teacher."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "27400e8cddea5b49595d2dcc0e1c42553afa111446077d77b5cd79d54679fe05",
+            "instruction_uk": "Передай любов до музики загалом; зміни лише артикль.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I love the music."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "987ce4576d4bebb7b0430f57b44fa40dc434bd6fd368b2321d5889df0424c46e",
+            "instruction_uk": "Виправ лише артикль перед звичайною назвою країни.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She lives in the France."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "geographical-articles",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityArticlesWithGeographicalNamesTheorySeeder",
+        "page_id": 83,
+        "page_category_id": 16,
+        "uuid": "63edb425-3ba4-59e1-bfcd-aa676eac86a1",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 14,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "a31afd3acc8e1e4aea0be87101a33de9e6a7e6643aecca2d707d226fae1e6d61"
+      },
+      "after_data_sha256": "99269e315936de602f3473e1fd4d1cff05fd89803659cdfcb5db8807b7e5c56e",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "selects-2",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            5,
+            6
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-order-2",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            7,
+            8
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Виправ речення",
+          "instruction": "Виконай коротку умову кожного пункту.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "fd0c639ddc852210728afca75e734b062fe7aac90c34c68e36945f951aec0f69",
+            "instruction_uk": "Обери артикль або «Без артикля» для океану.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ Pacific Ocean"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "cc336885d5efe7b25f23e9a66742d40aff7fee402f9803795bc5f5afa695bc7a",
+            "instruction_uk": "Обери артикль або «Без артикля» для міста.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ London"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "380357b24e820cbade1ee8b53f98b62d407ece2cb8d165c9250d590144173030",
+            "instruction_uk": "Назви гірську систему, не одну вершину.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ Alps"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "0b71bcccf50a6fe98623a851fa110ea180800a60891d9a7be8c4213462af71d1",
+            "instruction_uk": "Обери артикль для скороченої назви країни.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "___ USA"
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "9d91b5098f62ddba2c8d438f71848b39305239eaf3861b6ca54f365e9eb09a3f",
+            "instruction_uk": "Обери пояснення різних географічних об’єктів.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Dnipro is a city. The Dnipro is a river."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "976546a28179344b7889eec53833e9a75ebb05e7174a39064afb3bebd5043339",
+            "instruction_uk": "Що відбувається з артиклем без слова Lake?",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Обидві назви стосуються озера Верхнього."
+              },
+              {
+                "lang": "en",
+                "text": "Lake Superior / Superior"
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "e28870ea802b89e35d6e674149f9e02c995625eb373b3d5d8ff24589b5c3b963",
+            "instruction_uk": "Збережи I live in та Ukraine; склади повне речення.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я живу в Україні."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "71c364ded5ae6cfa131aa39219901cc32abf5964200eb072eb3784587ef76ef6",
+            "instruction_uk": "Збережи Dnipro is a beautiful river; додай потрібний артикль.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Дніпро — красива річка, не місто."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "fdf5548be7833cc6f0278841b38b6045408a322004657481419e5eb2badfab65",
+            "instruction_uk": "Збережи I climbed і повну назву Mount Everest.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Я піднявся на Еверест."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "9c734d7a0944f8d0a6bf6289d18d4b3d1603f5c4a6da6dc5a9af24911c2e1de2",
+            "instruction_uk": "Переклади, починаючи з She; використай Netherlands.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона живе в Нідерландах."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "3861a75c5340dfb3d9fe5c323055be7881ef2af9ab0b9b153790cbcaf55f7ebb",
+            "instruction_uk": "Переклади, починаючи з We; збережи повну назву Lake Geneva.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ми відвідали Женевське озеро."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "62496f392080a0f2fde1b0f30657c8ff4bf87af233c2f2d28fbe1cf70a205fd3",
+            "instruction_uk": "Доповни звичайну назву річки Дунай.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "They crossed ____ Danube at sunset."
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "source_item_sha256": "81dbc38b081da97496bf852d130b113a9aac5f170ce71556b190c950671a9716",
+            "instruction_uk": "Доповни повну назву Сполученого Королівства.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "They arrived in ____ United Kingdom yesterday."
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "source_item_sha256": "5eb749c01d6f49336027207dce731435508b73d1638a391377a4f1ff253c9888",
+            "instruction_uk": "Почни з Ліни; використай коротку назву країни.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ліна провела тиждень у Португалії."
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "source_item_sha256": "b9b01577289a4c6028ac685cfad54bac19b4370db68af2ebf43321602eb426d8",
+            "instruction_uk": "Почни з нас; місяць постав наприкінці.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ми фотографували Піренеї в липні."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "c3270513d0c38f15552dde0b8cd6f81fa87dac80d6f66892f6ddd9411c9475d8",
+            "instruction_uk": "Зразок: звичайна назва сучасної країни.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I live in the Ukraine."
+              },
+              {
+                "lang": "en",
+                "text": "→ I live in Ukraine."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "b1eb31f0a7f0912631f2d0ee9f6bce2c4a98dd4e0eb7c2ce3955c4935a3261e6",
+            "instruction_uk": "Виправ лише артикль перед назвою річки.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Thames is a long river."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "4bdfc902301e012fa9961219e049e687730e00c9f070dca1b18a4164029ba762",
+            "instruction_uk": "Зміни лише артикль; збережи повну назву вершини.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I visited the Mount Everest."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "collective-nouns",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityCollectiveNounsTheorySeeder",
+        "page_id": 84,
+        "page_category_id": 16,
+        "uuid": "da76d650-7531-58f0-afca-0c6187764073",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 7,
+        "level": "B1",
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "db8b48ca64add90a467482a960a21126f12f0f6ba13d5220695dc57ea63bb8c1"
+      },
+      "after_data_sha256": "ffbd58c551c0172d3490af872f95601c1b95af320def7993dc8e3b4edeacce21",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            4,
+            5
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "e6ead07b7e670bdc11c1d11a91975fe35436e1f10f981974ec295fed953a22ac",
+            "instruction_uk": "Збережи однину колективу й its.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The committee ___ finished its report."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "3a59cf465e43d886fab70b9bf2745023d5f7a7a73aa5505fd68946f545a55991",
+            "instruction_uk": "Назви поліцейських, не будівлю; обери теперішнє дієслово.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The police ___ near the gate."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "2b1c9cacaf03fd76d739497fac3294cc6789aebe7de9a346dfe3888aa52c1bf2",
+            "instruction_uk": "Що можна визначити про кількість?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Two teams share the room."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Є дві команди; кількості учасників не названо."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: В одній команді рівно двоє людей."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "0cfe33ad954a7f20b3d7020782582239bb177a9c4e2a8d4abf406435cef294f5",
+            "instruction_uk": "Обери висновок за наведеними фактами.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "У комітеті п’ятеро: троє за, двоє проти; рішення ухвалюють більшістю."
+              },
+              {
+                "lang": "en",
+                "text": "The committee has made its decision."
+              },
+              {
+                "lang": "uk",
+                "text": "А: Форма has доводить одностайність усіх п’ятьох."
+              },
+              {
+                "lang": "uk",
+                "text": "Б: Рішення є, але його підтримали не всі."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "e53a131a73be5297903c213770645312b78ec42fc6b59cfff9fc9bdf6d5c430a",
+            "instruction_uk": "Почни з These; збережи кілька сімей та окремі квитки.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ці сім’ї мають окремі квитки."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "5c465fd17b04fdaa7e3904933f8e31a87510ce7bd7af46763cd967612c11d288",
+            "instruction_uk": "Почни з The; використай узгоджену пару are/their або is/its.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Команда пакує свої сумки."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "04f25b3eeb45cc29755042f3e4be710775a66605d612926b1ddb71cc0d8ba843",
+            "instruction_uk": "Подай комітет як одну установу.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The committee ____ meeting as one body today."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "cca77f309e79cb070bd79e048426f8616f7b682b0d875a21e88688f980d62f2e",
+            "instruction_uk": "Використай британську множину про окремих працівників.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "In this British report, the staff ____ checking their individual schedules."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "cb429a48000a599dd0cd7935737a7038b10b600ef9a31e7bace8fdb67bd27610",
+            "instruction_uk": "Подай журі як одну установу; використай теперішній доконаний час.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Журі ухвалило своє рішення."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "cc2c21076d432d3b411504cfedfa2b92dd7578277a3a02e28fca3cfa9478fb12",
+            "instruction_uk": "Назви хор збірним іменником; ужий британську множину для учасників і теперішній тривалий час.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Хористи займають свої місця."
+              }
+            ]
+          }
+        ],
+        "rephrase": []
+      }
+    },
+    {
+      "topic": "countable-uncountable",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\NounsArticlesQuantity\\NounsArticlesQuantityCountableUncountableNounsTheorySeeder",
+        "page_id": 85,
+        "page_category_id": 16,
+        "uuid": "132a698f-082e-5722-8315-bbea0dcbb824",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 11,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "c77b7a6ddb587fd619be5d5a5c86df0b73e38525185aba2caf914ff266d4c5db"
+      },
+      "after_data_sha256": "12a60fc53fdcdf8e4ff0d9e3ac0a26c2b83b15c5a0ef1bd0e2981e3f44a183e2",
+      "groups": [
+        {
+          "key": "selects-1",
+          "kind": "selects",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "selects-2",
+          "kind": "selects",
+          "indices": [
+            2,
+            3
+          ],
+          "title": "Обери форму",
+          "instruction": "Обери одну допустиму форму."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-gap-2",
+          "kind": "inputs",
+          "indices": [
+            5,
+            6
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи лише пропущені слова."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            7,
+            8
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Виправ речення",
+          "instruction": "Виконай коротку умову кожного пункту.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "09114a722ac9b1ee36e2715528bf53710575248720458d1514abe667c3cef107",
+            "instruction_uk": "Визнач злічуваність water як речовини, не порції.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Water is important."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "eae44b63a1ad393e78f6a4b782b574a8e5c8c0a5b7869bc6fb10f905717eed71",
+            "instruction_uk": "Визнач злічуваність book.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I need a book."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "3dd784c8827ce8adc11c3f352673f793bf5e275f77ae6df4f5593692b1db3c93",
+            "instruction_uk": "Визнач злічуваність information.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "This information is useful."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "0fc9f45e8c1900a32ae61d2f20e60bd1683b450fb001b957f23adaae36230166",
+            "instruction_uk": "Визнач злічуваність apple.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "There is an apple on the plate."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "301e33ce7d6e81bc2e72ed158a2222f9b8891a6708a6f01f18940415d76b35d9",
+            "instruction_uk": "Що означає coffees у замовленні напою?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Two coffees, please."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "c0c118d6f4389bec466ca6674a2a66e018598aa5e134d57c6a4f05c2ae0785d4",
+            "instruction_uk": "Що безпосередньо пораховано?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Two cups of coffee are on the tray."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "a72c2fd60f4972dba476682388ae99c7e871439f8d49d1c902c1af93a2180f53",
+            "instruction_uk": "Обери лише many або much.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Скільки в тебе книжок?"
+              },
+              {
+                "lang": "en",
+                "text": "How ____ books do you have?"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "60b5a5b46d83ec096e62baa9a325f4c59f8a5420321188e638981bcff2baff21",
+            "instruction_uk": "Обери лише many або much.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "У мене небагато часу."
+              },
+              {
+                "lang": "en",
+                "text": "I do not have ____ time."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "ab469a32dfcf01c7aa1bbd1c35dde52608e566cc3a9413c8a109258003b8c097",
+            "instruction_uk": "Обери лише many або much.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Тут багато людей."
+              },
+              {
+                "lang": "en",
+                "text": "There are ____ people here."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "a45045b67a11ff878c3a59800f9ff7cb0adb82d17eeba0675d4e5ec4b371addb",
+            "instruction_uk": "Почни з I; використай some та незлічуване advice.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Мені потрібна порада."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "78caf3b95ed4cf7d9ba26d1dbd9a449f84717316e3e3703fe713366f118db38d",
+            "instruction_uk": "Почни з двох пляшок; назви вміст і місце.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "На столі дві пляшки води."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "75cab67783b09187bba6bf79d5f98bb8f7163afadf99f8e5040eb9573858a294",
+            "instruction_uk": "Передай зовсім малу кількість солі.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "There is very ____ salt left."
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "source_item_sha256": "28dbecc9d963eb8ed6c65ed469d2f72284d40961662b2c9c307e7e99be44f60c",
+            "instruction_uk": "Назви аркуші або шматки паперу в множині.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I need two ____ of paper."
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "source_item_sha256": "ced50648c273efaf1e9de4695aebf47cd65b635d055fe5b8578b063fefb31db6",
+            "instruction_uk": "Почни зі вказівки на відоме борошно.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Це борошно дуже сухе."
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "source_item_sha256": "3e9ee8de3c31b5a9e76bed2d78c5002affb353a48c47150525bff34248907273",
+            "instruction_uk": "Почни з конструкції наявності; кошик уже відомий.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "У кошику чотири лимони."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "d3d6b02336fe277af464ca33cf42e6a30f4e5a76712f95bb2b58757e4e5087ff",
+            "instruction_uk": "Зразок: невизначена кількість або окрема одиниця поради.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I need a advice."
+              },
+              {
+                "lang": "en",
+                "text": "→ I need some advice."
+              },
+              {
+                "lang": "en",
+                "text": "→ I need a piece of advice."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "f10748b0100b80c099030391debda4ab1030f73f5a2947830515bb852783b801",
+            "instruction_uk": "Виправ many informations, зберігши значення «багато» й решту слів.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона дала мені багато інформації."
+              },
+              {
+                "lang": "en",
+                "text": "She gave me many informations."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "bc11c4980d84ee5d2ecbf584c602229d58dcdd4400755bf6cb9d4e94a5cd5b13",
+            "instruction_uk": "Перебудуй із some; почни з Can і збережи решту питання.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Просять трохи молока з глечика, не окрему порцію."
+              },
+              {
+                "lang": "en",
+                "text": "Can I have a milk?"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

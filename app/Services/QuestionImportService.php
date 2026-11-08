@@ -12,6 +12,9 @@ use App\Models\QuestionVariant;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Models\VerbHint;
+use App\Support\LocalizedComposeText;
+use App\Support\PpcOrderedTheoryLinks;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -25,7 +28,7 @@ class QuestionImportService
      */
     public function restoreAll(bool $includeDeleted = false): array
     {
-        $directory = database_path('seeders/questions');
+        $directory = config('questions.export_path', database_path('seeders/questions'));
 
         if (! File::isDirectory($directory)) {
             return [
@@ -88,7 +91,7 @@ class QuestionImportService
             throw new RuntimeException('UUID не може бути порожнім.');
         }
 
-        $path = database_path('seeders/questions/' . $trimmed . '.json');
+        $path = rtrim(config('questions.export_path', database_path('seeders/questions')), '/\\') . DIRECTORY_SEPARATOR . $trimmed . '.json';
 
         if (! File::exists($path)) {
             throw new RuntimeException('Файл дампу для вказаного UUID не знайдено.');
@@ -132,9 +135,6 @@ class QuestionImportService
         return DB::transaction(function () use ($payload, $questionData, $uuid) {
             $question = Question::query()->firstOrNew(['uuid' => $uuid]);
 
-            $categoryId = $this->resolveCategoryId($questionData, Arr::get($payload, 'category'));
-            $sourceId = $this->resolveSourceId($questionData, Arr::get($payload, 'source'));
-
             $question->fill([
                 'uuid' => $uuid,
                 'question' => Arr::get($questionData, 'question'),
@@ -143,10 +143,36 @@ class QuestionImportService
                 'flag' => Arr::get($questionData, 'flag'),
             ]);
 
-            $question->category_id = $categoryId;
-            $question->source_id = $sourceId;
+            // New exports preserve the renderer and marker contract; old exports
+            // leave those attributes untouched instead of silently resetting them.
+            foreach (['type', 'seeder', 'options_by_marker', 'theory_text_block_uuid'] as $key) {
+                if (array_key_exists($key, $questionData) && Schema::hasColumn('questions', $key)) {
+                    $question->setAttribute($key, $questionData[$key]);
+                }
+            }
 
-            $question->save();
+            $theoryLinks = null;
+            if (array_key_exists(PpcOrderedTheoryLinks::FIELD, $payload)) {
+                // Eligibility is based on the incoming canonical seeder and
+                // prompt provider, including when the question does not exist yet.
+                $incoming = new Question([
+                    'seeder' => Arr::get($questionData, 'seeder', $question->seeder),
+                    'theory_text_block_uuid' => Arr::get($questionData, 'theory_text_block_uuid', $question->theory_text_block_uuid),
+                ]);
+                $incoming->setRelation('hints', new Collection(collect(Arr::get($payload, 'hints', []))
+                    ->filter(fn ($hint): bool => is_array($hint))
+                    ->map(fn (array $hint): QuestionHint => new QuestionHint($hint))->all()));
+                if (LocalizedComposeText::revisionEligible($incoming)) {
+                    $theoryLinks = PpcOrderedTheoryLinks::validate($incoming, $payload[PpcOrderedTheoryLinks::FIELD]);
+                }
+            }
+
+            $question->category_id = $this->resolveCategoryId($questionData, Arr::get($payload, 'category'));
+            $question->source_id = $this->resolveSourceId($questionData, Arr::get($payload, 'source'));
+
+            // The ordinary observer exports synchronously before relation sync.
+            // Only new finite ordered transfers defer that export until commit.
+            $theoryLinks === null ? $question->save() : $question->saveQuietly();
 
             $tagIds = $this->resolveTagIds(Arr::get($payload, 'tags', []));
             $question->tags()->sync($tagIds);
@@ -158,6 +184,14 @@ class QuestionImportService
             $this->syncVariants($question, Arr::get($payload, 'variants', []));
             $this->syncHints($question, Arr::get($payload, 'hints', []));
             $this->syncChatGptExplanations($question, Arr::get($payload, 'chatgpt_explanations', []));
+
+            if ($theoryLinks !== null) {
+                $question->load('hints');
+                PpcOrderedTheoryLinks::replace($question, $theoryLinks);
+                DB::afterCommit(static function () use ($question): void {
+                    app(QuestionExportService::class)->export($question->fresh());
+                });
+            }
 
             return $question->fresh();
         });
@@ -541,7 +575,7 @@ class QuestionImportService
 
     protected function readDeletedUuids(): array
     {
-        $path = database_path('seeders/questions/deleted-questions.json');
+        $path = rtrim(config('questions.export_path', database_path('seeders/questions')), '/\\') . DIRECTORY_SEPARATOR . 'deleted-questions.json';
 
         if (! File::exists($path)) {
             return [];

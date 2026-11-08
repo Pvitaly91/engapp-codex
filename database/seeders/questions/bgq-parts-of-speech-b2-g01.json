@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60644,
+        "uuid": "bgq-parts-of-speech-b2-g01",
+        "question": "The committee questioned the proposal's {a1}.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "feasibility",
+                "feasible",
+                "feasibly"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:48.000000Z",
+        "updated_at": "2026-10-27T15:50:48.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60644,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 3715,
+                "option": "feasible",
+                "created_at": "2026-04-23T14:20:04.000000Z",
+                "updated_at": "2026-04-23T14:20:04.000000Z"
+            },
+            "pivot": {
+                "question_id": 60644,
+                "option_id": 3715,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 20312,
+                "option": "feasibility",
+                "created_at": "2026-05-17T13:08:28.000000Z",
+                "updated_at": "2026-05-17T13:08:28.000000Z"
+            },
+            "pivot": {
+                "question_id": 60644,
+                "option_id": 20312,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53132,
+                "option": "feasibly",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60644,
+                "option_id": 53132,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325699,
+                "question_id": 60644,
+                "marker": "a1",
+                "option_id": 20312,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 20312,
+                "option": "feasibility",
+                "created_at": "2026-05-17T13:08:28.000000Z",
+                "updated_at": "2026-05-17T13:08:28.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43033,
+                "question_id": 60644,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53131,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53131,
+                "option": "Потрібний зміст: «Здійсненність». Після присвійної форми потрібна назва властивості як іменник.",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52659,
+            "question_id": 60644,
+            "text": "The committee questioned the proposal's {a1}.",
+            "created_at": "2026-10-27T15:50:48.000000Z",
+            "updated_at": "2026-10-27T15:50:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

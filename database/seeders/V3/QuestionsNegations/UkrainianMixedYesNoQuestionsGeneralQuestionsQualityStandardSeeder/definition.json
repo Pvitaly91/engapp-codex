@@ -1,0 +1,1678 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/yes-no.v1.json",
+        "sha256": "ecdc1ef96c3131c9282940251760793445d553850cb914337b064dede5525a30"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedYesNoQuestionsGeneralQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-yes-no-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_yes_no": {
+            "name": "Questions and Negations Quality: Yes / No Questions"
+        }
+    },
+    "tags": {
+        "yes_no_questions": {
+            "name": "Yes / No Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "yes_no_structure": {
+            "name": "Yes No Structure",
+            "category": "topic"
+        },
+        "auxiliary_subject": {
+            "name": "Auxiliary Subject",
+            "category": "topic"
+        },
+        "do_does_did_simple": {
+            "name": "Do Does Did Simple",
+            "category": "topic"
+        },
+        "to_be_inversion": {
+            "name": "To Be Inversion",
+            "category": "topic"
+        },
+        "modal_inversion": {
+            "name": "Modal Inversion",
+            "category": "topic"
+        },
+        "perfect_auxiliary_inversion": {
+            "name": "Perfect Auxiliary Inversion",
+            "category": "topic"
+        },
+        "short_answers": {
+            "name": "Short Answers",
+            "category": "topic"
+        },
+        "no_wh_word": {
+            "name": "No Wh Word",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "yes_no_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-yes-no-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} your blue scarf in the drawer?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Твій синій шарф у шухляді?",
+            "target_text": "Is your blue scarf in the drawer?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Do"
+                    ],
+                    "verb_hint": "Запитай про місце однієї речі в теперішньому часі."
+                }
+            },
+            "verb_hint": "Запитай про місце однієї речі в теперішньому часі.",
+            "accepted_target_texts": [
+                "Is your blue scarf in the drawer?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "your blue scarf",
+                "in the drawer?"
+            ],
+            "token_groups": [
+                "Is",
+                "your blue scarf",
+                "in the drawer?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-yes-no-a1-g02",
+            "author_id": "A1-g02",
+            "question": "{a1} the twins walk to school?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Близнюки ходять до школи пішки?",
+            "target_text": "Do the twins walk to school?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Does",
+                        "Are"
+                    ],
+                    "verb_hint": "Запитай про звичну дію двох людей."
+                }
+            },
+            "verb_hint": "Запитай про звичну дію двох людей.",
+            "accepted_target_texts": [
+                "Do the twins walk to school?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do",
+                "the twins",
+                "walk",
+                "to school?"
+            ],
+            "token_groups": [
+                "Do",
+                "the twins",
+                "walk",
+                "to school?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-yes-no-a1-g03",
+            "author_id": "A1-g03",
+            "question": "{a1} this ferry stop here?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Цей пором тут зупиняється?",
+            "target_text": "Does this ferry stop here?",
+            "markers": {
+                "a1": {
+                    "answer": "Does",
+                    "options": [
+                        "Does",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "Запитай про звичну дію одного транспортного засобу."
+                }
+            },
+            "verb_hint": "Запитай про звичну дію одного транспортного засобу.",
+            "accepted_target_texts": [
+                "Does this ferry stop here?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Does",
+                "this ferry",
+                "stop here?"
+            ],
+            "token_groups": [
+                "Does",
+                "this ferry",
+                "stop here?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-yes-no-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} these grapes fresh?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Цей виноград свіжий?",
+            "target_text": "Are these grapes fresh?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do"
+                    ],
+                    "verb_hint": "Запитай про ознаку кількох ягід; потрібна множина."
+                }
+            },
+            "verb_hint": "Запитай про ознаку кількох ягід; потрібна множина.",
+            "accepted_target_texts": [
+                "Are these grapes fresh?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "these grapes",
+                "fresh?"
+            ],
+            "token_groups": [
+                "Are",
+                "these grapes",
+                "fresh?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-yes-no-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Can your baby {a1} yet?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Твоє немовля вже вміє сидіти?",
+            "target_text": "Can your baby sit yet?",
+            "markers": {
+                "a1": {
+                    "answer": "sit",
+                    "options": [
+                        "sit",
+                        "sits",
+                        "sitting"
+                    ],
+                    "verb_hint": "Сидіти: після дієслова можливості потрібна початкова форма."
+                }
+            },
+            "verb_hint": "Сидіти: після дієслова можливості потрібна початкова форма.",
+            "accepted_target_texts": [
+                "Can your baby sit yet?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "your baby",
+                "sit yet?"
+            ],
+            "token_groups": [
+                "Can",
+                "your baby",
+                "sit yet?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-yes-no-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Does Lena {a1} her lunch?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Лена приносить свій обід?",
+            "target_text": "Does Lena bring her lunch?",
+            "markers": {
+                "a1": {
+                    "answer": "bring",
+                    "options": [
+                        "bring",
+                        "brings",
+                        "bringing"
+                    ],
+                    "verb_hint": "Приносити: показник особи вже є в допоміжному дієслові."
+                }
+            },
+            "verb_hint": "Приносити: показник особи вже є в допоміжному дієслові.",
+            "accepted_target_texts": [
+                "Does Lena bring her lunch?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Does",
+                "Lena",
+                "bring",
+                "her lunch?"
+            ],
+            "token_groups": [
+                "Does",
+                "Lena",
+                "bring",
+                "her lunch?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-yes-no-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} the last bus leave at nine yesterday?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Останній автобус учора вирушив о дев’ятій?",
+            "target_text": "Did the last bus leave at nine yesterday?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Does",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про завершену вчорашню подію."
+                }
+            },
+            "verb_hint": "Запитай про завершену вчорашню подію.",
+            "accepted_target_texts": [
+                "Did the last bus leave at nine yesterday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did",
+                "the last bus",
+                "leave",
+                "at nine yesterday?"
+            ],
+            "token_groups": [
+                "Did",
+                "the last bus",
+                "leave",
+                "at nine yesterday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-yes-no-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} your cousins staying with you this week?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Твої двоюрідні брати й сестри гостюють у тебе цього тижня?",
+            "target_text": "Are your cousins staying with you this week?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Do",
+                        "Is"
+                    ],
+                    "verb_hint": "Запитай про тимчасову дію кількох людей."
+                }
+            },
+            "verb_hint": "Запитай про тимчасову дію кількох людей.",
+            "accepted_target_texts": [
+                "Are your cousins staying with you this week?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "your cousins",
+                "staying with you",
+                "this week?"
+            ],
+            "token_groups": [
+                "Are",
+                "your cousins",
+                "staying with you",
+                "this week?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-yes-no-a2-g03",
+            "author_id": "A2-g03",
+            "question": "{a1} our tickets valid tomorrow?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Наші квитки дійсні завтра?",
+            "target_text": "Are our tickets valid tomorrow?",
+            "markers": {
+                "a1": {
+                    "answer": "Are",
+                    "options": [
+                        "Are",
+                        "Is",
+                        "Do"
+                    ],
+                    "verb_hint": "Запитай про чинність кількох квитків."
+                }
+            },
+            "verb_hint": "Запитай про чинність кількох квитків.",
+            "accepted_target_texts": [
+                "Are our tickets valid tomorrow?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "our tickets",
+                "valid tomorrow?"
+            ],
+            "token_groups": [
+                "Are",
+                "our tickets",
+                "valid tomorrow?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-yes-no-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Will the driver {a1} us outside?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Водій зустріне нас надворі?",
+            "target_text": "Will the driver meet us outside?",
+            "markers": {
+                "a1": {
+                    "answer": "meet",
+                    "options": [
+                        "meet",
+                        "meets",
+                        "meeting"
+                    ],
+                    "verb_hint": "Зустріти: після показника майбутнього потрібна початкова форма."
+                }
+            },
+            "verb_hint": "Зустріти: після показника майбутнього потрібна початкова форма.",
+            "accepted_target_texts": [
+                "Will the driver meet us outside?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the driver",
+                "meet us",
+                "outside?"
+            ],
+            "token_groups": [
+                "Will",
+                "the driver",
+                "meet us",
+                "outside?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-yes-no-a2-g05",
+            "author_id": "A2-g05",
+            "question": "{a1} the platform crowded when you arrived?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Коли ти прийшов, на платформі було людно?",
+            "target_text": "Was the platform crowded when you arrived?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про минулий стан одного місця."
+                }
+            },
+            "verb_hint": "Запитай про минулий стан одного місця.",
+            "accepted_target_texts": [
+                "Was the platform crowded when you arrived?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was",
+                "the platform",
+                "crowded",
+                "when you arrived?"
+            ],
+            "token_groups": [
+                "Was",
+                "the platform",
+                "crowded",
+                "when you arrived?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-yes-no-a2-g06",
+            "author_id": "A2-g06",
+            "question": "{a1} you ever missed a flight?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Ти коли-небудь пропускав авіарейс?",
+            "target_text": "Have you ever missed a flight?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "options": [
+                        "Have",
+                        "Did",
+                        "Were"
+                    ],
+                    "verb_hint": "Запитай про досвід до теперішнього моменту."
+                }
+            },
+            "verb_hint": "Запитай про досвід до теперішнього моменту.",
+            "accepted_target_texts": [
+                "Have you ever missed a flight?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "you ever",
+                "missed a flight?"
+            ],
+            "token_groups": [
+                "Have",
+                "you ever",
+                "missed a flight?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-yes-no-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} the tour guide shown you the castle yet?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Екскурсовод уже показав вам замок?",
+            "target_text": "Has the tour guide shown you the castle yet?",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Is"
+                    ],
+                    "verb_hint": "Запитай про вже отриманий результат до теперішнього моменту."
+                }
+            },
+            "verb_hint": "Запитай про вже отриманий результат до теперішнього моменту.",
+            "accepted_target_texts": [
+                "Has the tour guide shown you the castle yet?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has",
+                "the tour guide",
+                "shown you",
+                "the castle yet?"
+            ],
+            "token_groups": [
+                "Has",
+                "the tour guide",
+                "shown you",
+                "the castle yet?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-yes-no-b1-g02",
+            "author_id": "B1-g02",
+            "question": "{a1} your suitcase weighed at check-in?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Твою валізу зважили під час реєстрації?",
+            "target_text": "Was your suitcase weighed at check-in?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "options": [
+                        "Was",
+                        "Did",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про минулу дію над багажем у пасиві."
+                }
+            },
+            "verb_hint": "Запитай про минулу дію над багажем у пасиві.",
+            "accepted_target_texts": [
+                "Was your suitcase weighed at check-in?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was",
+                "your suitcase",
+                "weighed",
+                "at check-in?"
+            ],
+            "token_groups": [
+                "Was",
+                "your suitcase",
+                "weighed",
+                "at check-in?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-yes-no-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Could the guests {a1} the entrance easily?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи могли гості легко знайти вхід?",
+            "target_text": "Could the guests find the entrance easily?",
+            "markers": {
+                "a1": {
+                    "answer": "find",
+                    "options": [
+                        "find",
+                        "found",
+                        "finding"
+                    ],
+                    "verb_hint": "Знайти: після модального дієслова не вживай минулу форму."
+                }
+            },
+            "verb_hint": "Знайти: після модального дієслова не вживай минулу форму.",
+            "accepted_target_texts": [
+                "Could the guests find the entrance easily?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the guests",
+                "find the entrance",
+                "easily?"
+            ],
+            "token_groups": [
+                "Could",
+                "the guests",
+                "find the entrance",
+                "easily?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-yes-no-b1-g04",
+            "author_id": "B1-g04",
+            "question": "{a1} the family been living abroad for long?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Ця родина давно живе за кордоном?",
+            "target_text": "Has the family been living abroad for long?",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Is",
+                        "Does"
+                    ],
+                    "verb_hint": "Запитай про процес, що почався раніше й триває досі."
+                }
+            },
+            "verb_hint": "Запитай про процес, що почався раніше й триває досі.",
+            "accepted_target_texts": [
+                "Has the family been living abroad for long?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has",
+                "the family",
+                "been living abroad",
+                "for long?"
+            ],
+            "token_groups": [
+                "Has",
+                "the family",
+                "been living abroad",
+                "for long?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-yes-no-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} you lend me your adapter if I need it?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Ти позичив би мені свій адаптер, якби він мені знадобився?",
+            "target_text": "Would you lend me your adapter if I need it?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Are",
+                        "Had"
+                    ],
+                    "verb_hint": "Передай умовне прохання про можливу допомогу."
+                }
+            },
+            "verb_hint": "Передай умовне прохання про можливу допомогу.",
+            "accepted_target_texts": [
+                "Would you lend me your adapter if I need it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "you",
+                "lend me",
+                "your adapter",
+                "if I need",
+                "it?"
+            ],
+            "token_groups": [
+                "Would",
+                "you",
+                "lend me",
+                "your adapter",
+                "if I need",
+                "it?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-yes-no-b1-g06",
+            "author_id": "B1-g06",
+            "question": "{a1} the passports have to be renewed soon?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Паспорти незабаром потрібно поновлювати?",
+            "target_text": "Do the passports have to be renewed soon?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Are",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про необхідність; основна конструкція не є перфектним часом."
+                }
+            },
+            "verb_hint": "Запитай про необхідність; основна конструкція не є перфектним часом.",
+            "accepted_target_texts": [
+                "Do the passports have to be renewed soon?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do",
+                "the passports",
+                "have to be",
+                "renewed soon?"
+            ],
+            "token_groups": [
+                "Do",
+                "the passports",
+                "have to be",
+                "renewed soon?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-yes-no-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} the coach been delayed by the roadworks?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Автобус затримали дорожні роботи?",
+            "target_text": "Has the coach been delayed by the roadworks?",
+            "markers": {
+                "a1": {
+                    "answer": "Has",
+                    "options": [
+                        "Has",
+                        "Did",
+                        "Is"
+                    ],
+                    "verb_hint": "Запитай про наявний результат дії над транспортом."
+                }
+            },
+            "verb_hint": "Запитай про наявний результат дії над транспортом.",
+            "accepted_target_texts": [
+                "Has the coach been delayed by the roadworks?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Has",
+                "the coach",
+                "been delayed",
+                "by the roadworks?"
+            ],
+            "token_groups": [
+                "Has",
+                "the coach",
+                "been delayed",
+                "by the roadworks?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-yes-no-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} the passengers have been waiting for an hour by then?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "На той момент пасажири чекатимуть уже годину?",
+            "target_text": "Will the passengers have been waiting for an hour by then?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Would",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про тривалість, накопичену до майбутнього моменту."
+                }
+            },
+            "verb_hint": "Запитай про тривалість, накопичену до майбутнього моменту.",
+            "accepted_target_texts": [
+                "Will the passengers have been waiting for an hour by then?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the passengers",
+                "have been waiting",
+                "for an hour",
+                "by then?"
+            ],
+            "token_groups": [
+                "Will",
+                "the passengers",
+                "have been waiting",
+                "for an hour",
+                "by then?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-yes-no-b2-g03",
+            "author_id": "B2-g03",
+            "question": "{a1} the hotel have warned us about the renovation?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи мав готель попередити нас про ремонт?",
+            "target_text": "Should the hotel have warned us about the renovation?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "options": [
+                        "Should",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай, чи належало зробити це в минулому."
+                }
+            },
+            "verb_hint": "Запитай, чи належало зробити це в минулому.",
+            "accepted_target_texts": [
+                "Should the hotel have warned us about the renovation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "the hotel",
+                "have warned us",
+                "about the renovation?"
+            ],
+            "token_groups": [
+                "Should",
+                "the hotel",
+                "have warned us",
+                "about the renovation?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-yes-no-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} your parents still have moved if the rent had risen?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Твої батьки все одно переїхали б, якби орендна плата зросла?",
+            "target_text": "Would your parents still have moved if the rent had risen?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Will",
+                        "Have"
+                    ],
+                    "verb_hint": "Запитай про уявний результат іншої минулої умови."
+                }
+            },
+            "verb_hint": "Запитай про уявний результат іншої минулої умови.",
+            "accepted_target_texts": [
+                "Would your parents still have moved if the rent had risen?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "your parents",
+                "still have moved",
+                "if the rent",
+                "had risen?"
+            ],
+            "token_groups": [
+                "Would",
+                "your parents",
+                "still have moved",
+                "if the rent",
+                "had risen?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-yes-no-b2-g05",
+            "author_id": "B2-g05",
+            "question": "{a1} the revised itinerary being checked by the organiser?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Організатор зараз перевіряє змінений маршрут?",
+            "target_text": "Is the revised itinerary being checked by the organiser?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про поточну дію над маршрутом."
+                }
+            },
+            "verb_hint": "Запитай про поточну дію над маршрутом.",
+            "accepted_target_texts": [
+                "Is the revised itinerary being checked by the organiser?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the revised itinerary",
+                "being checked",
+                "by the organiser?"
+            ],
+            "token_groups": [
+                "Is",
+                "the revised itinerary",
+                "being checked",
+                "by the organiser?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-yes-no-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} the cabin crew have overlooked the damaged seat?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Невже екіпаж міг не помітити пошкоджене сидіння?",
+            "target_text": "Could the cabin crew have overlooked the damaged seat?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Were"
+                    ],
+                    "verb_hint": "Запитай про можливість уже допущеного недогляду."
+                }
+            },
+            "verb_hint": "Запитай про можливість уже допущеного недогляду.",
+            "accepted_target_texts": [
+                "Could the cabin crew have overlooked the damaged seat?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the cabin crew",
+                "have overlooked",
+                "the damaged seat?"
+            ],
+            "token_groups": [
+                "Could",
+                "the cabin crew",
+                "have overlooked",
+                "the damaged seat?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-yes-no-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} the consulate have processed the application by Friday?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Консульство опрацює заяву до п’ятниці?",
+            "target_text": "Will the consulate have processed the application by Friday?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "options": [
+                        "Will",
+                        "Has",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про завершеність опрацювання до майбутнього терміну."
+                }
+            },
+            "verb_hint": "Запитай про завершеність опрацювання до майбутнього терміну.",
+            "accepted_target_texts": [
+                "Will the consulate have processed the application by Friday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "the consulate",
+                "have processed",
+                "the application",
+                "by Friday?"
+            ],
+            "token_groups": [
+                "Will",
+                "the consulate",
+                "have processed",
+                "the application",
+                "by Friday?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-yes-no-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} the trustees been adequately consulted before the estate was sold?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Перед продажем маєтку з довіреними особами належно порадилися?",
+            "target_text": "Had the trustees been adequately consulted before the estate was sold?",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Were",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про попередню завершену пасивну дію."
+                }
+            },
+            "verb_hint": "Запитай про попередню завершену пасивну дію.",
+            "accepted_target_texts": [
+                "Had the trustees been adequately consulted before the estate was sold?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had",
+                "the trustees",
+                "been adequately consulted",
+                "before the estate",
+                "was sold?"
+            ],
+            "token_groups": [
+                "Had",
+                "the trustees",
+                "been adequately consulted",
+                "before the estate",
+                "was sold?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-yes-no-c1-g03",
+            "author_id": "C1-g03",
+            "question": "{a1} the insurer be expected to cover unforeseen repatriation costs?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи можна очікувати, що страховик покриє непередбачені витрати на повернення на батьківщину?",
+            "target_text": "Can the insurer be expected to cover unforeseen repatriation costs?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про обґрунтоване очікування; після модального збережи пасивну конструкцію."
+                }
+            },
+            "verb_hint": "Запитай про обґрунтоване очікування; після модального збережи пасивну конструкцію.",
+            "accepted_target_texts": [
+                "Can the insurer be expected to cover unforeseen repatriation costs?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "the insurer",
+                "be expected",
+                "to cover",
+                "unforeseen repatriation costs?"
+            ],
+            "token_groups": [
+                "Can",
+                "the insurer",
+                "be expected",
+                "to cover",
+                "unforeseen repatriation costs?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-yes-no-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} the delegation have postponed its visit without consulting its hosts?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи відклала б делегація свій візит, не порадившись із приймаючою стороною?",
+            "target_text": "Would the delegation have postponed its visit without consulting its hosts?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про уявну минулу поведінку делегації."
+                }
+            },
+            "verb_hint": "Запитай про уявну минулу поведінку делегації.",
+            "accepted_target_texts": [
+                "Would the delegation have postponed its visit without consulting its hosts?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the delegation",
+                "have postponed",
+                "its visit",
+                "without consulting",
+                "its hosts?"
+            ],
+            "token_groups": [
+                "Would",
+                "the delegation",
+                "have postponed",
+                "its visit",
+                "without consulting",
+                "its hosts?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-yes-no-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} the airline obliged to disclose the grounds for cancellation?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Авіакомпанія зобов’язана розкрити підстави скасування?",
+            "target_text": "Is the airline obliged to disclose the grounds for cancellation?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про чинний обов’язок однієї організації."
+                }
+            },
+            "verb_hint": "Запитай про чинний обов’язок однієї організації.",
+            "accepted_target_texts": [
+                "Is the airline obliged to disclose the grounds for cancellation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the airline",
+                "obliged to disclose",
+                "the grounds",
+                "for cancellation?"
+            ],
+            "token_groups": [
+                "Is",
+                "the airline",
+                "obliged to disclose",
+                "the grounds",
+                "for cancellation?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-yes-no-c1-g06",
+            "author_id": "C1-g06",
+            "question": "{a1} the route have remained viable without the subsidy?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Маршрут міг би залишитися життєздатним без субсидії?",
+            "target_text": "Could the route have remained viable without the subsidy?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Was",
+                        "Did"
+                    ],
+                    "verb_hint": "Запитай про нереалізовану можливість у минулому."
+                }
+            },
+            "verb_hint": "Запитай про нереалізовану можливість у минулому.",
+            "accepted_target_texts": [
+                "Could the route have remained viable without the subsidy?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the route",
+                "have remained viable",
+                "without the subsidy?"
+            ],
+            "token_groups": [
+                "Could",
+                "the route",
+                "have remained viable",
+                "without the subsidy?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-yes-no-c2-g01",
+            "author_id": "C2-g01",
+            "question": "{a1} the itinerary have been materially different had those objections prevailed?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи суттєво відрізнявся б маршрут, якби ті заперечення взяли гору?",
+            "target_text": "Would the itinerary have been materially different had those objections prevailed?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Will",
+                        "Has"
+                    ],
+                    "verb_hint": "Сформулюй нереальне минуле питання; умову вже передано інверсією."
+                }
+            },
+            "verb_hint": "Сформулюй нереальне минуле питання; умову вже передано інверсією.",
+            "accepted_target_texts": [
+                "Would the itinerary have been materially different had those objections prevailed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the itinerary",
+                "have been",
+                "materially different",
+                "had those objections",
+                "prevailed?"
+            ],
+            "token_groups": [
+                "Would",
+                "the itinerary",
+                "have been",
+                "materially different",
+                "had those objections",
+                "prevailed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-yes-no-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the authority to have foreseen the cumulative impact of successive diversions?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи мала влада передбачити сукупний вплив послідовних об’їздів?",
+            "target_text": "Ought the authority to have foreseen the cumulative impact of successive diversions?",
+            "markers": {
+                "a1": {
+                    "answer": "Ought",
+                    "options": [
+                        "Ought",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Ужий модальне дієслово належності; перед перфектною формою йому потрібна частка."
+                }
+            },
+            "verb_hint": "Ужий модальне дієслово належності; перед перфектною формою йому потрібна частка.",
+            "accepted_target_texts": [
+                "Ought the authority to have foreseen the cumulative impact of successive diversions?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ought",
+                "the authority",
+                "to have foreseen",
+                "the cumulative impact",
+                "of successive diversions?"
+            ],
+            "token_groups": [
+                "Ought",
+                "the authority",
+                "to have foreseen",
+                "the cumulative impact",
+                "of successive diversions?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-yes-no-c2-g03",
+            "author_id": "C2-g03",
+            "question": "{a1} the transit arrangement be said to confer an unconditional entitlement?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи можна сказати, що транзитна домовленість надає безумовне право?",
+            "target_text": "Can the transit arrangement be said to confer an unconditional entitlement?",
+            "markers": {
+                "a1": {
+                    "answer": "Can",
+                    "options": [
+                        "Can",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про правомірність формального висновку, а не про встановлений факт."
+                }
+            },
+            "verb_hint": "Запитай про правомірність формального висновку, а не про встановлений факт.",
+            "accepted_target_texts": [
+                "Can the transit arrangement be said to confer an unconditional entitlement?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can",
+                "the transit arrangement",
+                "be said",
+                "to confer",
+                "an unconditional entitlement?"
+            ],
+            "token_groups": [
+                "Can",
+                "the transit arrangement",
+                "be said",
+                "to confer",
+                "an unconditional entitlement?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-yes-no-c2-g04",
+            "author_id": "C2-g04",
+            "question": "{a1} the concession have been withdrawn even in the absence of misconduct?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи могли б цю пільгу відкликати навіть за відсутності порушення?",
+            "target_text": "Might the concession have been withdrawn even in the absence of misconduct?",
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "options": [
+                        "Might",
+                        "Did",
+                        "Was"
+                    ],
+                    "verb_hint": "Запитай про минулу можливість у пасиві, не стверджуючи її певності."
+                }
+            },
+            "verb_hint": "Запитай про минулу можливість у пасиві, не стверджуючи її певності.",
+            "accepted_target_texts": [
+                "Might the concession have been withdrawn even in the absence of misconduct?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might",
+                "the concession",
+                "have been withdrawn",
+                "even",
+                "in the absence",
+                "of misconduct?"
+            ],
+            "token_groups": [
+                "Might",
+                "the concession",
+                "have been withdrawn",
+                "even",
+                "in the absence",
+                "of misconduct?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-yes-no-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} the proposed corridor sufficiently resilient to withstand correlated disruptions?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи достатньо стійкий запропонований коридор, щоб витримувати взаємопов’язані збої?",
+            "target_text": "Is the proposed corridor sufficiently resilient to withstand correlated disruptions?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "options": [
+                        "Is",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Запитай про властивість проєкту, не додаючи допоміжного дієслова дії."
+                }
+            },
+            "verb_hint": "Запитай про властивість проєкту, не додаючи допоміжного дієслова дії.",
+            "accepted_target_texts": [
+                "Is the proposed corridor sufficiently resilient to withstand correlated disruptions?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the proposed corridor",
+                "sufficiently resilient",
+                "to withstand",
+                "correlated disruptions?"
+            ],
+            "token_groups": [
+                "Is",
+                "the proposed corridor",
+                "sufficiently resilient",
+                "to withstand",
+                "correlated disruptions?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-yes-no-c2-g06",
+            "author_id": "C2-g06",
+            "question": "{a1} the parties have reconciled their positions but for the last-minute intervention?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_yes_no",
+            "translation_uk": "Чи могли б сторони узгодити позиції, якби не втручання в останню мить?",
+            "target_text": "Could the parties have reconciled their positions but for the last-minute intervention?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Did",
+                        "Were"
+                    ],
+                    "verb_hint": "Запитай про нереалізовану минулу можливість; умова вже стоїть після присудка."
+                }
+            },
+            "verb_hint": "Запитай про нереалізовану минулу можливість; умова вже стоїть після присудка.",
+            "accepted_target_texts": [
+                "Could the parties have reconciled their positions but for the last-minute intervention?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could",
+                "the parties",
+                "have reconciled",
+                "their positions",
+                "but for",
+                "the last-minute intervention?"
+            ],
+            "token_groups": [
+                "Could",
+                "the parties",
+                "have reconciled",
+                "their positions",
+                "but for",
+                "the last-minute intervention?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

@@ -1,0 +1,697 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/purpose-to-in-order-to-so-that.v1.json",
+        "sha256": "99b622821de9564f688b9523c611a61be595733829127239b78b17566c7b634d"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedPurposeToInOrderToSoThatQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-purpose-to-in-order-to-so-that-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_purpose_to_in_order_to_so_that": {
+            "name": "Clauses and Linking Words Quality: Purpose: to / in order to / so that"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_purpose": {
+            "name": "Purpose: to / in order to / so that",
+            "category": "clauses_and_linking_words"
+        },
+        "to_purpose": {
+            "name": "To Purpose",
+            "category": "topic"
+        },
+        "in_order_to": {
+            "name": "In Order To",
+            "category": "topic"
+        },
+        "so_as_to": {
+            "name": "So As To",
+            "category": "topic"
+        },
+        "so_that_clause": {
+            "name": "So That Clause",
+            "category": "topic"
+        },
+        "modal_after_so_that": {
+            "name": "Modal After So That",
+            "category": "topic"
+        },
+        "negative_purpose": {
+            "name": "Negative Purpose",
+            "category": "topic"
+        },
+        "purpose_vs_reason": {
+            "name": "Purpose Vs Reason",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_purpose"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-purpose-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I use this little brush {a1} clean my boots.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Я використовую цю маленьку щітку, щоб чистити чоботи.",
+            "target_text": "I use this little brush to clean my boots.",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "because",
+                        "for"
+                    ],
+                    "verb_hint": "Перед початковою формою дієслова назви мету використання щітки."
+                }
+            },
+            "verb_hint": "Перед початковою формою дієслова назви мету використання щітки.",
+            "accepted_target_texts": [
+                "I use this little brush to clean my boots.",
+                "I use this little brush in order to clean my boots.",
+                "I use this little brush so as to clean my boots."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order to",
+                    "so as to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order to",
+                    "so as to"
+                ]
+            },
+            "reorder_groups": [
+                "I use",
+                "this little brush",
+                "to",
+                "clean my boots."
+            ],
+            "token_groups": [
+                "I use",
+                "this little brush",
+                "to",
+                "clean my boots."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-purpose-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We open the curtains {a1} the room gets more light.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Ми розсуваємо штори, щоб у кімнаті стало світліше.",
+            "target_text": "We open the curtains so that the room gets more light.",
+            "markers": {
+                "a1": {
+                    "answer": "so that",
+                    "options": [
+                        "so that",
+                        "to",
+                        "because of"
+                    ],
+                    "verb_hint": "Після пропуску вже є окремий підмет і дієслово; потрібна зв’язка мети."
+                }
+            },
+            "verb_hint": "Після пропуску вже є окремий підмет і дієслово; потрібна зв’язка мети.",
+            "accepted_target_texts": [
+                "We open the curtains so that the room gets more light.",
+                "We open the curtains in order that the room gets more light."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "reorder_groups": [
+                "We open",
+                "the curtains",
+                "so that",
+                "the room",
+                "gets more light."
+            ],
+            "token_groups": [
+                "We open",
+                "the curtains",
+                "so that",
+                "the room",
+                "gets more light."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-purpose-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Nina wrote a shopping list {a1} remember everything.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Ніна написала список покупок, щоб усе пам’ятати.",
+            "target_text": "Nina wrote a shopping list in order to remember everything.",
+            "markers": {
+                "a1": {
+                    "answer": "in order to",
+                    "options": [
+                        "in order to",
+                        "because of",
+                        "although"
+                    ],
+                    "verb_hint": "Одна людина пише список і прагне все пам’ятати; передай мету перед дієсловом."
+                }
+            },
+            "verb_hint": "Одна людина пише список і прагне все пам’ятати; передай мету перед дієсловом.",
+            "accepted_target_texts": [
+                "Nina wrote a shopping list in order to remember everything.",
+                "Nina wrote a shopping list to remember everything.",
+                "Nina wrote a shopping list so as to remember everything."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "reorder_groups": [
+                "Nina wrote",
+                "a shopping list",
+                "in order to",
+                "remember everything."
+            ],
+            "token_groups": [
+                "Nina wrote",
+                "a shopping list",
+                "in order to",
+                "remember everything."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-purpose-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We left a light on {a1} our guests could find the entrance.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Ми залишили світло ввімкненим, щоб гості могли знайти вхід.",
+            "target_text": "We left a light on so that our guests could find the entrance.",
+            "markers": {
+                "a1": {
+                    "answer": "so that",
+                    "options": [
+                        "so that",
+                        "to",
+                        "in order to"
+                    ],
+                    "verb_hint": "Мета стосується інших людей; після зв’язки вже є їхній підмет."
+                }
+            },
+            "verb_hint": "Мета стосується інших людей; після зв’язки вже є їхній підмет.",
+            "accepted_target_texts": [
+                "We left a light on so that our guests could find the entrance.",
+                "We left a light on in order that our guests could find the entrance."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "reorder_groups": [
+                "We left",
+                "a light on",
+                "so that",
+                "our guests",
+                "could find",
+                "the entrance."
+            ],
+            "token_groups": [
+                "We left",
+                "a light on",
+                "so that",
+                "our guests",
+                "could find",
+                "the entrance."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-purpose-b1-g01",
+            "author_id": "B1-g01",
+            "question": "We labelled the jars {a1} confuse their contents.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Ми підписали банки, щоб не переплутати їхній вміст.",
+            "target_text": "We labelled the jars so as not to confuse their contents.",
+            "markers": {
+                "a1": {
+                    "answer": "so as not to",
+                    "options": [
+                        "so as not to",
+                        "so as not",
+                        "because not"
+                    ],
+                    "verb_hint": "Передай заперечну мету; основне дієслово після пропуску вже наведене."
+                }
+            },
+            "verb_hint": "Передай заперечну мету; основне дієслово після пропуску вже наведене.",
+            "accepted_target_texts": [
+                "We labelled the jars so as not to confuse their contents.",
+                "We labelled the jars in order not to confuse their contents.",
+                "We labelled the jars not to confuse their contents."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order not to",
+                    "not to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order not to",
+                    "not to"
+                ]
+            },
+            "reorder_groups": [
+                "We labelled",
+                "the jars",
+                "so as",
+                "not to",
+                "confuse their contents."
+            ],
+            "token_groups": [
+                "We labelled",
+                "the jars",
+                "so as",
+                "not to",
+                "confuse their contents."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-purpose-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The guide spoke slowly {a1} everyone could follow the instructions.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Екскурсовод говорив повільно, щоб усі могли зрозуміти інструкції.",
+            "target_text": "The guide spoke slowly so that everyone could follow the instructions.",
+            "markers": {
+                "a1": {
+                    "answer": "so that",
+                    "options": [
+                        "so that",
+                        "in order to",
+                        "despite"
+                    ],
+                    "verb_hint": "Мета розгорнута в окрему частину з власним підметом і модальним дієсловом."
+                }
+            },
+            "verb_hint": "Мета розгорнута в окрему частину з власним підметом і модальним дієсловом.",
+            "accepted_target_texts": [
+                "The guide spoke slowly so that everyone could follow the instructions.",
+                "The guide spoke slowly in order that everyone could follow the instructions."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "reorder_groups": [
+                "The guide",
+                "spoke slowly",
+                "so that",
+                "everyone could follow",
+                "the instructions."
+            ],
+            "token_groups": [
+                "The guide",
+                "spoke slowly",
+                "so that",
+                "everyone could follow",
+                "the instructions."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-purpose-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The valve was fitted {a1} prevent pressure fluctuations.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Клапан установили, щоб запобігти коливанням тиску.",
+            "target_text": "The valve was fitted in order to prevent pressure fluctuations.",
+            "markers": {
+                "a1": {
+                    "answer": "in order to",
+                    "options": [
+                        "in order to",
+                        "because of",
+                        "so that"
+                    ],
+                    "verb_hint": "Після пасивної дії назви мету обладнання перед початковою формою дієслова."
+                }
+            },
+            "verb_hint": "Після пасивної дії назви мету обладнання перед початковою формою дієслова.",
+            "accepted_target_texts": [
+                "The valve was fitted in order to prevent pressure fluctuations.",
+                "The valve was fitted to prevent pressure fluctuations.",
+                "The valve was fitted so as to prevent pressure fluctuations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "reorder_groups": [
+                "The valve",
+                "was fitted",
+                "in order to",
+                "prevent pressure fluctuations."
+            ],
+            "token_groups": [
+                "The valve",
+                "was fitted",
+                "in order to",
+                "prevent pressure fluctuations."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-purpose-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The researchers encrypted the files {a1} participants could not be identified.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Дослідники зашифрували файли, щоб учасників не можна було ідентифікувати.",
+            "target_text": "The researchers encrypted the files so that participants could not be identified.",
+            "markers": {
+                "a1": {
+                    "answer": "so that",
+                    "options": [
+                        "so that",
+                        "to",
+                        "in order to"
+                    ],
+                    "verb_hint": "Збережи окремий підмет і заперечну можливість у частині мети."
+                }
+            },
+            "verb_hint": "Збережи окремий підмет і заперечну можливість у частині мети.",
+            "accepted_target_texts": [
+                "The researchers encrypted the files so that participants could not be identified.",
+                "The researchers encrypted the files in order that participants could not be identified."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "reorder_groups": [
+                "The researchers",
+                "encrypted the files",
+                "so that",
+                "participants could not",
+                "be identified."
+            ],
+            "token_groups": [
+                "The researchers",
+                "encrypted the files",
+                "so that",
+                "participants could not",
+                "be identified."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-purpose-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The clauses were redrafted {a1} preclude conflicting interpretations.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Положення переформулювали, щоб унеможливити суперечливі тлумачення.",
+            "target_text": "The clauses were redrafted so as to preclude conflicting interpretations.",
+            "markers": {
+                "a1": {
+                    "answer": "so as to",
+                    "options": [
+                        "so as to",
+                        "so that",
+                        "because of"
+                    ],
+                    "verb_hint": "Потрібна формальна інфінітивна мета перед уже наведеним дієсловом."
+                }
+            },
+            "verb_hint": "Потрібна формальна інфінітивна мета перед уже наведеним дієсловом.",
+            "accepted_target_texts": [
+                "The clauses were redrafted so as to preclude conflicting interpretations.",
+                "The clauses were redrafted in order to preclude conflicting interpretations.",
+                "The clauses were redrafted to preclude conflicting interpretations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order to",
+                    "to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order to",
+                    "to"
+                ]
+            },
+            "reorder_groups": [
+                "The clauses",
+                "were redrafted",
+                "so as to",
+                "preclude conflicting interpretations."
+            ],
+            "token_groups": [
+                "The clauses",
+                "were redrafted",
+                "so as to",
+                "preclude conflicting interpretations."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-purpose-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The archive restricts access {a1} confidential identities be disclosed.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Архів обмежує доступ, щоб не розкрити конфіденційних імен.",
+            "target_text": "The archive restricts access lest confidential identities be disclosed.",
+            "markers": {
+                "a1": {
+                    "answer": "lest",
+                    "options": [
+                        "lest",
+                        "unless",
+                        "although"
+                    ],
+                    "verb_hint": "Використай формальний сполучник запобіжної мети з незміненою формою дієслова після підмета."
+                }
+            },
+            "verb_hint": "Використай формальний сполучник запобіжної мети з незміненою формою дієслова після підмета.",
+            "accepted_target_texts": [
+                "The archive restricts access lest confidential identities be disclosed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "restricts access",
+                "lest",
+                "confidential identities",
+                "be disclosed."
+            ],
+            "token_groups": [
+                "The archive",
+                "restricts access",
+                "lest",
+                "confidential identities",
+                "be disclosed."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-purpose-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The proviso was inserted {a1} forestalling jurisdictional disputes.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Застереження внесли з метою запобігти спорам про юрисдикцію.",
+            "target_text": "The proviso was inserted with a view to forestalling jurisdictional disputes.",
+            "markers": {
+                "a1": {
+                    "answer": "with a view to",
+                    "options": [
+                        "with a view to",
+                        "in order to",
+                        "so that"
+                    ],
+                    "verb_hint": "Перед уже наведеною дієслівною формою на закінчення потрібен формальний прийменниковий зворот мети."
+                }
+            },
+            "verb_hint": "Перед уже наведеною дієслівною формою на закінчення потрібен формальний прийменниковий зворот мети.",
+            "accepted_target_texts": [
+                "The proviso was inserted with a view to forestalling jurisdictional disputes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proviso",
+                "was inserted",
+                "with a view",
+                "to",
+                "forestalling jurisdictional disputes."
+            ],
+            "token_groups": [
+                "The proviso",
+                "was inserted",
+                "with a view",
+                "to",
+                "forestalling jurisdictional disputes."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-purpose-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The author qualifies the claim {a1} it cannot reasonably be construed as universal.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_purpose_to_in_order_to_so_that",
+            "translation_uk": "Автор обмежує твердження, щоб його не можна було обґрунтовано тлумачити як універсальне.",
+            "target_text": "The author qualifies the claim so that it cannot reasonably be construed as universal.",
+            "markers": {
+                "a1": {
+                    "answer": "so that",
+                    "options": [
+                        "so that",
+                        "so as to",
+                        "despite"
+                    ],
+                    "verb_hint": "Мета розгорнута в окрему частину з підметом і заперечним модальним пасивом."
+                }
+            },
+            "verb_hint": "Мета розгорнута в окрему частину з підметом і заперечним модальним пасивом.",
+            "accepted_target_texts": [
+                "The author qualifies the claim so that it cannot reasonably be construed as universal.",
+                "The author qualifies the claim in order that it cannot reasonably be construed as universal."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in order that"
+                ]
+            },
+            "reorder_groups": [
+                "The author",
+                "qualifies the claim",
+                "so that",
+                "it cannot reasonably",
+                "be construed",
+                "as universal."
+            ],
+            "token_groups": [
+                "The author",
+                "qualifies the claim",
+                "so that",
+                "it cannot reasonably",
+                "be construed",
+                "as universal."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

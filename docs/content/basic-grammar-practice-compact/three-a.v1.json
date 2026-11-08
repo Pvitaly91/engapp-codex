@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "package": "basic-grammar-native-practice-compact",
+  "source": {
+    "path": "docs/content/basic-grammar-practice-supplement.v1.json",
+    "sha256": "18cfba270899b2d959d4b31772237044eaf6c416c8cc8be9ee350289cee5b7bd"
+  },
+  "targets": [
+    {
+      "topic": "parts-of-speech",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarPartsOfSpeechTheorySeeder",
+        "page_id": 22,
+        "page_category_id": 2,
+        "uuid": "2950dfc0-453b-5998-a7bb-874df985e406",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 14,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "398120647bf8063b5aca771953645cca296576b0454c1ff1586dce73961c355d"
+      },
+      "after_data_sha256": "c55f1f9b942d25ec854ad60a044efe788f86825f1804216b738a7ee992b9c261",
+      "groups": [
+        {
+          "key": "selects-classify",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Визнач частину мови",
+          "instruction": "Обери клас виділеного слова."
+        },
+        {
+          "key": "selects-form",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Обери потрібну форму",
+          "instruction": "Доповни речення за українським змістом."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-gap-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Заповни пропуски",
+          "instruction": "Введи потрібну форму."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            5,
+            6
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-analysis",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Назви частини мови",
+          "instruction": "Запиши класи слів у порядку речення.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "0979b80e69b94e5825590441df92a37f00f41128dd0fbd6ffe0e40b38b312ba2",
+            "instruction_uk": "Визнач частину мови слова CAT.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The CAT is sleeping."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "b66c23926aed6997b14fd9c340ffe4c1d998a45780354b6c04954d5f8bc1a968",
+            "instruction_uk": "Визнач частину мови слова QUICKLY.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She QUICKLY finished her work."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "1dbd5a4b0373f171c69544b48c3f6e20766ff58e055a3e3ed3f90a31ec30533c",
+            "instruction_uk": "Визнач частину мови TO перед назвою місця.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "They went TO the park."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "393c6302ddadc60c4b8e48c3b4dc3c4ff9d34c3a86167479da3b7ed36c9326dc",
+            "instruction_uk": "Опиши вагу сумки прикметником.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Сумка важка."
+              },
+              {
+                "lang": "en",
+                "text": "The bag is ____."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "70bde62cc875b6beeb125e11be60bdeece8b6cf7eec3b1f346d281f950e66d6a",
+            "instruction_uk": "Передай спосіб читання.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Будь ласка, читай уважно."
+              },
+              {
+                "lang": "en",
+                "text": "Please read ____."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "07328c1ac7403ebeae07387b0bc921210638329e0f68b802c6918c5ed4f37861",
+            "instruction_uk": "Зістав частини мови FAST у двох реченнях.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The train is FAST. The train moves FAST."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "318a6e4eb7a9be00e16a61271754410d1d040f85510a32ea3b7e00e928132e2c",
+            "instruction_uk": "Поясни роль IT; раніше жодного предмета не названо.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "It is cold today."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "0242bfa4e1c5d45b8ce6fda2f560cfc34d00d8d6c066bd9c4adf83d2d37028b3",
+            "instruction_uk": "Обери beautiful або beautifully; введи одне слово.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона гарно співає."
+              },
+              {
+                "lang": "en",
+                "text": "She sings ___."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "a77e28f1f9dde69a0e71104db3b30fa37df3992264d2e2042a38ec5d9c918051",
+            "instruction_uk": "Обери good або well для ознаки учня, не здоров’я.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Він хороший учень."
+              },
+              {
+                "lang": "en",
+                "text": "He is a ___ student."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "5e72eb5fd464502ef8cf6329e4c82510b70ad0ab76870a0300ec1d1833eec0aa",
+            "instruction_uk": "Обери hard або hardly для наполегливої праці.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вони наполегливо працюють щодня."
+              },
+              {
+                "lang": "en",
+                "text": "They work ___ every day."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "f25a605501fa670cc74d3fa76f5320d0cf3f389a9cb7bd383bdc9956eca7c7fb",
+            "instruction_uk": "Пташку згадують уперше; спосіб співу постав у кінці.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Маленька пташка голосно співає."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "1f1ee1d7e1018c1edfd820f7390f8b003c367d25d767637ead9f050d75301337",
+            "instruction_uk": "Почни з Олі, потім мовця; сад уже відомий.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Оля і я перебуваємо в саду."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "a9b1c2d6e34b1d9ff457cb04e79d5f924750088aa2986444eaa37daa4da5bc1f",
+            "instruction_uk": "Почни з відомого пекаря; використай простий теперішній час.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Молодий пекар усміхається."
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "source_item_sha256": "04a5144effd4837b8c58618be031abcc52098459404e27879d0f89c71f491fe7",
+            "instruction_uk": "Передай звичне мовлення простим теперішнім часом; спосіб постав після дієслова.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Моя тітка говорить тихо."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "4d9d7e597cb9f0c7f8e7873f09a57b4e7441be7543f31fba460430a03cd592bf",
+            "instruction_uk": "Зразок: назви частини мови за порядком слів.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "The happy dog runs quickly."
+              },
+              {
+                "lang": "en",
+              "text": "→ article, adjective, noun, verb, adverb"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "e718aeb1b9fed77c16b83b5b008a018e772f6570aa6f42d06d0f9d542886f29b",
+            "instruction_uk": "Назви частини мови всіх семи слів у початковому порядку.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She and I went to school yesterday."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "435cae6db180d885f2f795d97ef2a3b1f5ee883a0abd096d598aa0b105a02f2e",
+            "instruction_uk": "Назви частини мови десяти слів; допоміжне й основне дієслова обліковуй окремо.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Wow! The big cat is sleeping on the soft bed."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "sentence-structure",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceStructureSvoTheorySeeder",
+        "page_id": 23,
+        "page_category_id": 2,
+        "uuid": "bd533496-3830-5362-8875-4961528a5a05",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 12,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "6d07d58f2d83c24b8927846c1293195dc3abaac3ab06d2050de4b6d46e450f2a"
+      },
+      "after_data_sha256": "781054b53fd465eddd052f7c4f466e72e756483ebb18aeea8d58e74d7e4c856b",
+      "groups": [
+        {
+          "key": "selects-role",
+          "kind": "selects",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Визнач роль слова",
+          "instruction": "Розрізняй підмет, дієслово й додаток."
+        },
+        {
+          "key": "selects-form",
+          "kind": "selects",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Доповни речення",
+          "instruction": "Після підмета постав дію та її предмет."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Віднови нейтральний порядок",
+          "instruction": "Збережи зміст і нейтральний порядок.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "8f2a8cac8ab39d671a0d4afd27bff2b182de6d9c87d2094e5b1dee05f5f06d9f",
+            "instruction_uk": "Визнач роль She.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She reads books."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "9f8003b1936bf75635f1d0c3bb8ba940c2c80a1b5c72dec1511245949a8b70ed",
+            "instruction_uk": "Визнач роль reads.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She reads books."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "f07ab782eb65d61f8e77079112e46b7484e98e70095febbf5983ddead6d6346c",
+            "instruction_uk": "Визнач роль books.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She reads books."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "b69e24de8157f7a09b47a7d1a5c835bbf9b858ece59665a45587707a8b16f308",
+            "instruction_uk": "Підмет не повторюй; додай дію та її предмет.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Малює портрети."
+              },
+              {
+                "lang": "en",
+                "text": "The artist ____."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "b513472f92e836b06116be206c4270b261ad49b11b0de2e651e099c685fa3cde",
+            "instruction_uk": "Після тварини постав дію, потім їжу.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Їсть моркву."
+              },
+              {
+                "lang": "en",
+                "text": "The rabbit ____."
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "41820fd31408f911279b283eecba7a979cae8566c30637f3c1caab2cd66a3302",
+            "instruction_uk": "Чи потрібен додаток для повноти цього речення?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She sleeps."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "e104980cba1887075cf5898420ab75fbfd6e2019b354cd09a27990c4469b696c",
+            "instruction_uk": "Що описує happy після is?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She is happy."
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "bcc3167ddc8af05e4a14e640a650947ab1b125d966e685c02c77d0f558fd3fcf",
+            "instruction_uk": "Збережи нейтральний порядок: виконавець, дія, додаток.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Марія любить музику."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "21a55c361597e4758a6888e07f63fe01ebf54cc16d6f1d9e0e37f77925f1b407",
+            "instruction_uk": "Почни з виконавця; заняття постав після дії.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Він грає в теніс."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "3e60f32cbab104da87d4f852581284d10378fc6e27cc00d58650135bcd13f3ec",
+            "instruction_uk": "Почни з уже названих студентів; збережи множину.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Студенти читають книги."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "7cd9408d7bfd3b708514675ce3dd326dfa768f0561aabc506dbfa34c4d121591",
+            "instruction_uk": "Почни з відомого кухаря; ужий простий теперішній час.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Кухар ріже помідори."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "91262be8347096211bb27b10ac28756ccd236971f1f8045220b7b7a2bedc9195",
+            "instruction_uk": "Лиса згадують уперше, фермера — ні; ужий простий теперішній час.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Молодий лис іде за фермером."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "cb21aa9a849d2470d3de1661bb12bd4a7dffe00846f1d1438ca357bbda694074",
+            "instruction_uk": "Зразок: нейтральний порядок без акцентного винесення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Coffee drinks she."
+              },
+              {
+                "lang": "en",
+                "text": "→ She drinks coffee."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "365b92a2e5c3356a14c44b0752a01247d345d45b462fe34e4fe68e1eed83242d",
+            "instruction_uk": "Перебудуй нейтрально, без акценту; every day лиши наприкінці.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "English I study every day."
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "95d24418a9de872e2924b6c7a94dbf45e3254904e91a57932027d6fa77a23cc3",
+            "instruction_uk": "Перебудуй нейтрально, без акценту; виконавця та заняття збережи.",
+            "stimuli": [
+              {
+                "lang": "en",
+              "text": "Football plays my brother."
+            },
+            {
+              "lang": "uk",
+              "text": "Мій брат грає у футбол."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "topic": "sentence-types",
+      "binding": {
+        "seeder": "Database\\Seeders\\Page_V3\\BasicGrammar\\BasicGrammarSentenceTypesTheorySeeder",
+        "page_id": 2,
+        "page_category_id": 2,
+        "uuid": "934b155f-2b78-5810-824a-ae68b49cfb6a",
+        "locale": "uk",
+        "type": "practice-set",
+        "column": "left",
+        "sort_order": 11,
+        "level": null,
+        "heading": null,
+        "css_class": null,
+        "body_sha256": "475114c8a55267e64aa507fa60e541f9969f15073092d1bd105428c0638c60a9"
+      },
+      "after_data_sha256": "6679ce7ea49515400c81c3e6cb17c5ff64e03ff15377276d94d70359f2a2ab28",
+      "groups": [
+        {
+          "key": "selects-form",
+          "kind": "selects",
+          "indices": [
+            0,
+            3
+          ],
+          "title": "Визнач форму",
+          "instruction": "Розрізняй стверджувальну й заперечну форму."
+        },
+        {
+          "key": "selects-type",
+          "kind": "selects",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Визнач тип висловлювання",
+          "instruction": "Розрізняй твердження, питання та спонукання."
+        },
+        {
+          "key": "selects-complete",
+          "kind": "selects",
+          "indices": [
+            4,
+            5
+          ],
+          "title": "Доповни речення",
+          "instruction": "Збережи заданий тип висловлювання."
+        },
+        {
+          "key": "choices-1",
+          "kind": "choices",
+          "indices": [
+            0,
+            1
+          ],
+          "title": "Перевір зміст",
+          "instruction": "Обери правильне пояснення."
+        },
+        {
+          "key": "inputs-order-1",
+          "kind": "inputs",
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "title": "Постав слова в правильному порядку",
+          "instruction": "Склади речення токенами або вручну."
+        },
+        {
+          "key": "inputs-translation-1",
+          "kind": "inputs",
+          "indices": [
+            3,
+            4
+          ],
+          "title": "Переклади речення",
+          "instruction": "Склади англійське речення за українським."
+        },
+        {
+          "key": "rephrase-1",
+          "kind": "rephrase",
+          "indices": [
+            1,
+            2
+          ],
+          "title": "Виправ або перебудуй речення",
+          "instruction": "Виконай коротку умову кожного пункту.",
+          "example_indices": [
+            0
+          ]
+        }
+      ],
+      "items": {
+        "selects": [
+          {
+            "index": 0,
+            "source_item_sha256": "2a37737cd2a6970a547ff09c6def907f2a6aa3cc8e1a42dc1e1b55a180c72481",
+            "instruction_uk": "Визнач форму: стверджувальна чи заперечна, не правдивість повідомлення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She works at a bank."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "079da7754dd85c7025c1ecbef093c25402ef626e961b62e264f50b1bc713c39d",
+            "instruction_uk": "Визнач тип: твердження, питання чи спонукання.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Do you speak English?"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "1fc1151df46f013f86c5e63661c68d7047c365d20495c647b0a125a43869d4c4",
+            "instruction_uk": "Визнач тип: твердження, питання чи спонукання.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Close the window."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "ec3820132748970486dab16b4060e9ae68b0f31a05c003df7054526f63cec3e2",
+            "instruction_uk": "Визнач форму: стверджувальна чи заперечна.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "I don't understand."
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "7bd017acbbb5fde279a45feda5f1db7b2795f8ddd6c70bcb269e5758ba935f33",
+            "instruction_uk": "Доповни нейтральне твердження після вже наведеного підмета.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Прибуває о четвертій."
+              },
+              {
+                "lang": "en",
+                "text": "The bus ____."
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "source_item_sha256": "eb70f214a122aa1da815bfb4218e86724447dfdc3e0a20d2fa27853a4385364c",
+            "instruction_uk": "Почни загальне питання про вподобання допоміжним дієсловом.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "____ you like cheese?"
+              }
+            ]
+          }
+        ],
+        "choices": [
+          {
+            "index": 0,
+            "source_item_sha256": "871180b8d64d0709917b044f90fd80f37842e29ac763cccf54f34abc9d512784",
+            "instruction_uk": "Обери опис форми, не висновок про виконання.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Don't open the window."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "50abb4f964f5c154323aeacb7c77e098ac2c4498557463e4e6cf8182b8144d5f",
+            "instruction_uk": "Чи саме питання підтверджує вподобання?",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Does she like music?"
+              }
+            ]
+          }
+        ],
+        "inputs": [
+          {
+            "index": 0,
+            "source_item_sha256": "abe0994f83791207de273739f39cc344082b4fdd3cec870ceff37c78680dc227",
+            "instruction_uk": "Склади нейтральне заперечне твердження.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона не любить музику."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "f5f38748b92956a202fa0485362c90a60a205d15ad5a690965348db71d62edfd",
+            "instruction_uk": "Постав нейтральне загальне питання, не перепитування.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Вона любить музику?"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "88aeaca45495ec9e288cca6e35b30bd406e113800c4f046b0cb04d2b9c4f375c",
+            "instruction_uk": "Утвори базове спонукання зі зв’язкою, без вираженого підмета.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Поводься тихо."
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "source_item_sha256": "bcbf05d5ca91403484685d3dfbc4b3b077ff30e57ff472107932e31abb5d1b67",
+            "instruction_uk": "Ворота вже відомі; назви їх англійським іменником в однині.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Ворота відчинені?"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "source_item_sha256": "50dd65ff781b2b700b42b45d8604cabfc76f58db0c1046f83b26b6a4f795171c",
+            "instruction_uk": "Передай пряме спонукання без окремого підмета.",
+            "stimuli": [
+              {
+                "lang": "uk",
+                "text": "Закрий свій зошит."
+              }
+            ]
+          }
+        ],
+        "rephrase": [
+          {
+            "index": 0,
+            "source_item_sha256": "b312b08b9751a3fadac9e8793bee64d137fb42ad17e9b130e4d543551bda43d1",
+            "instruction_uk": "Зразок: нейтральне заперечення.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "She not like coffee."
+              },
+              {
+                "lang": "en",
+                "text": "→ She doesn't like coffee."
+              },
+              {
+                "lang": "en",
+                "text": "→ She does not like coffee."
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "source_item_sha256": "5cce99f12eb8e4ec47d820a4cf9159e2f9ce3a4a3ed676ba3538c2cf7c8e9eb4",
+            "instruction_uk": "Виправ лише форму після does; збережи повне нейтральне питання.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "Does he likes football?"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "source_item_sha256": "b1e1befd1780533befa3f6fa94c0e4822dcd23557d22e1610685a81479fbebca",
+            "instruction_uk": "Перебудуй допустиме емфатичне звернення в базовий імператив без підмета; збережи be та quiet.",
+            "stimuli": [
+              {
+                "lang": "en",
+                "text": "You be quiet!"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

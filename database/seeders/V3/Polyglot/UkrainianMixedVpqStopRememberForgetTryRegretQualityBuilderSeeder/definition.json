@@ -1,0 +1,1618 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/stop-remember-forget-try-regret.v1.json",
+        "sha256": "9fc1fd27d802fbb8086b0ae07a44ea7fa2f3e65a8f3ce74fc164c2f627ce4c34"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVpqStopRememberForgetTryRegretQualityBuilderSeeder",
+        "uuid_namespace": "verb-patterns-quality-stop-remember-forget-try-regret-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_patterns_quality_stop_remember_forget_try_regret": {
+            "name": "Verb Patterns Quality: Stop / Remember / Forget / Try / Regret"
+        }
+    },
+    "tags": {
+        "polyglot_stop_remember_forget_try_regret": {
+            "name": "Stop Remember Forget Try Regret",
+            "category": "verb_patterns"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "stop_doing": {
+            "name": "Stop Doing",
+            "category": "topic"
+        },
+        "stop_to_do": {
+            "name": "Stop To Do",
+            "category": "topic"
+        },
+        "remember_doing": {
+            "name": "Remember Doing",
+            "category": "topic"
+        },
+        "remember_to_do": {
+            "name": "Remember To Do",
+            "category": "topic"
+        },
+        "forget_doing": {
+            "name": "Forget Doing",
+            "category": "topic"
+        },
+        "forget_to_do": {
+            "name": "Forget To Do",
+            "category": "topic"
+        },
+        "try_doing": {
+            "name": "Try Doing",
+            "category": "topic"
+        },
+        "try_to_do": {
+            "name": "Try To Do",
+            "category": "topic"
+        },
+        "regret_doing": {
+            "name": "Regret Doing",
+            "category": "topic"
+        },
+        "regret_to_say": {
+            "name": "Regret To Say",
+            "category": "topic"
+        },
+        "meaning_changes": {
+            "name": "Meaning Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-meaning-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ми зупинилися, щоб пообідати.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Ми зупинилися, щоб пообідати.",
+            "target_text": "We stopped to have lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "stopped",
+                    "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+                    "options": [
+                        "stopped",
+                        "waited",
+                        "stayed",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "lunch.",
+                    "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+                    "options": [
+                        "lunch",
+                        "water",
+                        "dinner",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+            "accepted_target_texts": [
+                "We stopped to have lunch.",
+                "We stopped to eat lunch.",
+                "We paused to have lunch.",
+                "We paused to eat lunch."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "eat"
+                ],
+                "a2": [
+                    "paused"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "eat"
+                ],
+                "a2": [
+                    "paused"
+                ]
+            },
+            "reorder_groups": [
+                "We stopped",
+                "to have lunch."
+            ],
+            "token_groups": [
+                "We stopped",
+                "to have lunch."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "stopped",
+                "to",
+                "have",
+                "lunch."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "stopped",
+                "waited",
+                "stayed",
+                "left",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "lunch",
+                "water",
+                "dinner",
+                "bread"
+            ],
+            "source_text_uk": "Ми зупинилися, щоб пообідати.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "stopped",
+                    "waited",
+                    "stayed",
+                    "left"
+                ],
+                "a3": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a4": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a5": [
+                    "lunch",
+                    "water",
+                    "dinner",
+                    "bread"
+                ]
+            },
+            "slot_roles": {
+                "a1": "past_pause",
+                "a2": "past_pause",
+                "a3": "infinitive_purpose",
+                "a4": "infinitive_purpose",
+                "a5": "infinitive_purpose"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-meaning-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Тарас намагався пересунути стілець, але той був надто важкий.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Тарас намагався пересунути стілець, але той був надто важкий.",
+            "target_text": "Taras tried to move the chair but it was too heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "Taras",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "Taras",
+                        "Nora",
+                        "Sam",
+                        "Tom"
+                    ]
+                },
+                "a2": {
+                    "answer": "tried",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "tried",
+                        "hoped",
+                        "planned",
+                        "promised"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a4": {
+                    "answer": "move",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "move",
+                        "lift",
+                        "drag",
+                        "replace"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "chair",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "chair",
+                        "sofa",
+                        "shelf",
+                        "cabinet"
+                    ]
+                },
+                "a7": {
+                    "answer": "but",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "but",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a8": {
+                    "answer": "it",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "it",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a9": {
+                    "answer": "was",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a10": {
+                    "answer": "too",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "too",
+                        "very",
+                        "quite",
+                        "much"
+                    ]
+                },
+                "a11": {
+                    "answer": "heavy.",
+                    "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+                    "options": [
+                        "heavy",
+                        "light",
+                        "small",
+                        "final"
+                    ]
+                }
+            },
+            "verb_hint": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+            "accepted_target_texts": [
+                "Taras tried to move the chair but it was too heavy.",
+                "Taras tried to shift the chair but it was too heavy."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "shift"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "shift"
+                ]
+            },
+            "reorder_groups": [
+                "Taras tried",
+                "to move",
+                "the chair",
+                "but it was",
+                "too heavy."
+            ],
+            "token_groups": [
+                "Taras tried",
+                "to move",
+                "the chair",
+                "but it was",
+                "too heavy."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Taras",
+                "tried",
+                "to",
+                "move",
+                "the",
+                "chair",
+                "but",
+                "it",
+                "was",
+                "too",
+                "heavy."
+            ],
+            "options": [
+                "Taras",
+                "Nora",
+                "Sam",
+                "Tom",
+                "tried",
+                "hoped",
+                "planned",
+                "promised",
+                "to",
+                "by",
+                "with",
+                "without",
+                "move",
+                "lift",
+                "drag",
+                "replace",
+                "the",
+                "both",
+                "a",
+                "an",
+                "chair",
+                "sofa",
+                "shelf",
+                "cabinet",
+                "but",
+                "if",
+                "whether",
+                "and",
+                "it",
+                "themselves",
+                "I",
+                "you",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "too",
+                "very",
+                "quite",
+                "much",
+                "heavy",
+                "light",
+                "small",
+                "final"
+            ],
+            "source_text_uk": "Тарас намагався пересунути стілець, але той був надто важкий.",
+            "options_by_marker": {
+                "a1": [
+                    "Taras",
+                    "Nora",
+                    "Sam",
+                    "Tom"
+                ],
+                "a2": [
+                    "tried",
+                    "hoped",
+                    "planned",
+                    "promised"
+                ],
+                "a3": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a4": [
+                    "move",
+                    "lift",
+                    "drag",
+                    "replace"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "chair",
+                    "sofa",
+                    "shelf",
+                    "cabinet"
+                ],
+                "a7": [
+                    "but",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a8": [
+                    "it",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a9": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a10": [
+                    "too",
+                    "very",
+                    "quite",
+                    "much"
+                ],
+                "a11": [
+                    "heavy",
+                    "light",
+                    "small",
+                    "final"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_attempt",
+                "a2": "proper_attempt",
+                "a3": "movement_infinitive",
+                "a4": "movement_infinitive",
+                "a5": "singular_furniture",
+                "a6": "singular_furniture",
+                "a7": "contrast_clause",
+                "a8": "contrast_clause",
+                "a9": "contrast_clause",
+                "a10": "physical_limit",
+                "a11": "physical_limit"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-meaning-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Леся пам’ятає, як сховала подарунок за диваном.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Леся пам’ятає, як сховала подарунок за диваном.",
+            "target_text": "Lesia remembers hiding the present behind the sofa.",
+            "markers": {
+                "a1": {
+                    "answer": "Lesia",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "Lesia",
+                        "Daryna",
+                        "Sofia",
+                        "Ostap"
+                    ]
+                },
+                "a2": {
+                    "answer": "remembers",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "remembers",
+                        "regrets",
+                        "recalls",
+                        "books"
+                    ]
+                },
+                "a3": {
+                    "answer": "hiding",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "hiding",
+                        "opening",
+                        "carrying",
+                        "placing"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "present",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "present",
+                        "parcel",
+                        "necklace",
+                        "password"
+                    ]
+                },
+                "a6": {
+                    "answer": "behind",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "behind",
+                        "inside",
+                        "beside",
+                        "above"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "sofa.",
+                    "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+                    "options": [
+                        "sofa",
+                        "fireplace",
+                        "curtain",
+                        "door"
+                    ]
+                }
+            },
+            "verb_hint": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+            "accepted_target_texts": [
+                "Lesia remembers hiding the present behind the sofa.",
+                "Lesia remembers hiding the gift behind the sofa.",
+                "Lesia remembers hiding the present behind the couch.",
+                "Lesia remembers hiding the gift behind the couch."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "gift"
+                ],
+                "a8": [
+                    "couch."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "gift"
+                ],
+                "a8": [
+                    "couch."
+                ]
+            },
+            "reorder_groups": [
+                "Lesia remembers",
+                "hiding",
+                "the present",
+                "behind the sofa."
+            ],
+            "token_groups": [
+                "Lesia remembers",
+                "hiding",
+                "the present",
+                "behind the sofa."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Lesia",
+                "remembers",
+                "hiding",
+                "the",
+                "present",
+                "behind",
+                "the",
+                "sofa."
+            ],
+            "options": [
+                "Lesia",
+                "Daryna",
+                "Sofia",
+                "Ostap",
+                "remembers",
+                "regrets",
+                "recalls",
+                "books",
+                "hiding",
+                "opening",
+                "carrying",
+                "placing",
+                "the",
+                "both",
+                "a",
+                "an",
+                "present",
+                "parcel",
+                "necklace",
+                "password",
+                "behind",
+                "inside",
+                "beside",
+                "above",
+                "these",
+                "those",
+                "each",
+                "sofa",
+                "fireplace",
+                "curtain",
+                "door"
+            ],
+            "source_text_uk": "Леся пам’ятає, як сховала подарунок за диваном.",
+            "options_by_marker": {
+                "a1": [
+                    "Lesia",
+                    "Daryna",
+                    "Sofia",
+                    "Ostap"
+                ],
+                "a2": [
+                    "remembers",
+                    "regrets",
+                    "recalls",
+                    "books"
+                ],
+                "a3": [
+                    "hiding",
+                    "opening",
+                    "carrying",
+                    "placing"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "present",
+                    "parcel",
+                    "necklace",
+                    "password"
+                ],
+                "a6": [
+                    "behind",
+                    "inside",
+                    "beside",
+                    "above"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "sofa",
+                    "fireplace",
+                    "curtain",
+                    "door"
+                ]
+            },
+            "slot_roles": {
+                "a1": "present_memory",
+                "a2": "present_memory",
+                "a3": "gerund_action",
+                "a4": "definite_object",
+                "a5": "definite_object",
+                "a6": "hidden_location",
+                "a7": "hidden_location",
+                "a8": "hidden_location"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-meaning-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Ми випробували зміну пароля як спосіб відновити доступ.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Ми випробували зміну пароля як спосіб відновити доступ.",
+            "target_text": "We tried changing the password to restore access.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "tried",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "tried",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a3": {
+                    "answer": "changing",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "changing",
+                        "replacing",
+                        "checking",
+                        "updating"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "password",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "password",
+                        "application",
+                        "username",
+                        "firewall"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a7": {
+                    "answer": "restore",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "restore",
+                        "protect",
+                        "improve",
+                        "prevent"
+                    ]
+                },
+                "a8": {
+                    "answer": "access.",
+                    "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+                    "options": [
+                        "access",
+                        "capacity",
+                        "time",
+                        "data"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+            "accepted_target_texts": [
+                "We tried changing the password to restore access.",
+                "We tried changing the password to regain access."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "regain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "regain"
+                ]
+            },
+            "reorder_groups": [
+                "We tried changing",
+                "the password",
+                "to restore access."
+            ],
+            "token_groups": [
+                "We tried changing",
+                "the password",
+                "to restore access."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "tried",
+                "changing",
+                "the",
+                "password",
+                "to",
+                "restore",
+                "access."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "tried",
+                "brought",
+                "took",
+                "wrote",
+                "changing",
+                "replacing",
+                "checking",
+                "updating",
+                "the",
+                "a",
+                "an",
+                "some",
+                "password",
+                "application",
+                "username",
+                "firewall",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "restore",
+                "protect",
+                "improve",
+                "prevent",
+                "access",
+                "capacity",
+                "time",
+                "data"
+            ],
+            "source_text_uk": "Ми випробували зміну пароля як спосіб відновити доступ.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "tried",
+                    "brought",
+                    "took",
+                    "wrote"
+                ],
+                "a3": [
+                    "changing",
+                    "replacing",
+                    "checking",
+                    "updating"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "password",
+                    "application",
+                    "username",
+                    "firewall"
+                ],
+                "a6": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a7": [
+                    "restore",
+                    "protect",
+                    "improve",
+                    "prevent"
+                ],
+                "a8": [
+                    "access",
+                    "capacity",
+                    "time",
+                    "data"
+                ]
+            },
+            "slot_roles": {
+                "a1": "attempted_method",
+                "a2": "attempted_method",
+                "a3": "attempted_method",
+                "a4": "access_object",
+                "a5": "access_object",
+                "a6": "restoration_purpose",
+                "a7": "restoration_purpose",
+                "a8": "restoration_purpose"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-meaning-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Редактор шкодує, що розкрив особу свідка до слухання.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Редактор шкодує, що розкрив особу свідка до слухання.",
+            "target_text": "The editor regrets having revealed the witness's identity before the hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "editor",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "editor",
+                        "author",
+                        "officer",
+                        "director"
+                    ]
+                },
+                "a3": {
+                    "answer": "regrets",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "regrets",
+                        "remembers",
+                        "recalls",
+                        "people"
+                    ]
+                },
+                "a4": {
+                    "answer": "having",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "having",
+                        "opening",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a5": {
+                    "answer": "revealed",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "revealed",
+                        "overlooked",
+                        "altered",
+                        "omitted"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "witness's",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "witness's",
+                        "visitor's",
+                        "applicant's",
+                        "recipient's"
+                    ]
+                },
+                "a8": {
+                    "answer": "identity",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "identity",
+                        "location",
+                        "address",
+                        "name"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "before",
+                        "after",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a11": {
+                    "answer": "hearing.",
+                    "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+                    "options": [
+                        "hearing",
+                        "briefing",
+                        "meeting",
+                        "working"
+                    ]
+                }
+            },
+            "verb_hint": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+            "accepted_target_texts": [
+                "The editor regrets having revealed the witness's identity before the hearing.",
+                "The editor regrets having disclosed the witness's identity before the hearing."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "disclosed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "disclosed"
+                ]
+            },
+            "reorder_groups": [
+                "The editor regrets",
+                "having revealed",
+                "the witness's identity",
+                "before the hearing."
+            ],
+            "token_groups": [
+                "The editor regrets",
+                "having revealed",
+                "the witness's identity",
+                "before the hearing."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "The",
+                "editor",
+                "regrets",
+                "having",
+                "revealed",
+                "the",
+                "witness's",
+                "identity",
+                "before",
+                "the",
+                "hearing."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "editor",
+                "author",
+                "officer",
+                "director",
+                "regrets",
+                "remembers",
+                "recalls",
+                "people",
+                "having",
+                "opening",
+                "closing",
+                "helping",
+                "revealed",
+                "overlooked",
+                "altered",
+                "omitted",
+                "the",
+                "each",
+                "every",
+                "no",
+                "witness's",
+                "visitor's",
+                "applicant's",
+                "recipient's",
+                "identity",
+                "location",
+                "address",
+                "name",
+                "before",
+                "after",
+                "cup",
+                "door",
+                "another",
+                "either",
+                "neither",
+                "hearing",
+                "briefing",
+                "meeting",
+                "working"
+            ],
+            "source_text_uk": "Редактор шкодує, що розкрив особу свідка до слухання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "editor",
+                    "author",
+                    "officer",
+                    "director"
+                ],
+                "a3": [
+                    "regrets",
+                    "remembers",
+                    "recalls",
+                    "people"
+                ],
+                "a4": [
+                    "having",
+                    "opening",
+                    "closing",
+                    "helping"
+                ],
+                "a5": [
+                    "revealed",
+                    "overlooked",
+                    "altered",
+                    "omitted"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "witness's",
+                    "visitor's",
+                    "applicant's",
+                    "recipient's"
+                ],
+                "a8": [
+                    "identity",
+                    "location",
+                    "address",
+                    "name"
+                ],
+                "a9": [
+                    "before",
+                    "after",
+                    "cup",
+                    "door"
+                ],
+                "a10": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a11": [
+                    "hearing",
+                    "briefing",
+                    "meeting",
+                    "working"
+                ]
+            },
+            "slot_roles": {
+                "a1": "regret_subject",
+                "a2": "regret_subject",
+                "a3": "regret_subject",
+                "a4": "perfect_gerund",
+                "a5": "perfect_gerund",
+                "a6": "identity_object",
+                "a7": "identity_object",
+                "a8": "identity_object",
+                "a9": "before_event",
+                "a10": "before_event",
+                "a11": "before_event"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-meaning-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ми глибоко шкодуємо, що не оскаржили оманливе формулювання раніше.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_patterns_quality_stop_remember_forget_try_regret",
+            "translation_uk": "Ми глибоко шкодуємо, що не оскаржили оманливе формулювання раніше.",
+            "target_text": "We deeply regret not having challenged the misleading wording sooner.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "deeply",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "deeply",
+                        "sincerely",
+                        "bitterly",
+                        "well"
+                    ]
+                },
+                "a3": {
+                    "answer": "regret",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "regret",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "having",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "having",
+                        "watching",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a6": {
+                    "answer": "challenged",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "challenged",
+                        "examined",
+                        "verified",
+                        "disputed"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "misleading",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "misleading",
+                        "conflicting",
+                        "reading",
+                        "writing"
+                    ]
+                },
+                "a9": {
+                    "answer": "wording",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "wording",
+                        "riding",
+                        "driving",
+                        "studying"
+                    ]
+                },
+                "a10": {
+                    "answer": "sooner.",
+                    "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+                    "options": [
+                        "sooner",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+            "accepted_target_texts": [
+                "We deeply regret not having challenged the misleading wording sooner.",
+                "We deeply regret not having contested the misleading wording sooner.",
+                "We deeply regret not having challenged the misleading phrasing sooner.",
+                "We deeply regret not having contested the misleading phrasing sooner.",
+                "We deeply regret not having challenged the misleading wording earlier.",
+                "We deeply regret not having contested the misleading wording earlier.",
+                "We deeply regret not having challenged the misleading phrasing earlier.",
+                "We deeply regret not having contested the misleading phrasing earlier."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "contested"
+                ],
+                "a9": [
+                    "phrasing"
+                ],
+                "a10": [
+                    "earlier."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "contested"
+                ],
+                "a9": [
+                    "phrasing"
+                ],
+                "a10": [
+                    "earlier."
+                ]
+            },
+            "reorder_groups": [
+                "We deeply regret",
+                "not having challenged",
+                "the misleading wording",
+                "sooner."
+            ],
+            "token_groups": [
+                "We deeply regret",
+                "not having challenged",
+                "the misleading wording",
+                "sooner."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "deeply",
+                "regret",
+                "not",
+                "having",
+                "challenged",
+                "the",
+                "misleading",
+                "wording",
+                "sooner."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "deeply",
+                "sincerely",
+                "bitterly",
+                "well",
+                "regret",
+                "school",
+                "sister",
+                "brother",
+                "not",
+                "still",
+                "just",
+                "also",
+                "having",
+                "watching",
+                "visiting",
+                "cooking",
+                "challenged",
+                "examined",
+                "verified",
+                "disputed",
+                "the",
+                "that",
+                "these",
+                "those",
+                "misleading",
+                "conflicting",
+                "reading",
+                "writing",
+                "wording",
+                "riding",
+                "driving",
+                "studying",
+                "sooner",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Ми глибоко шкодуємо, що не оскаржили оманливе формулювання раніше.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "deeply",
+                    "sincerely",
+                    "bitterly",
+                    "well"
+                ],
+                "a3": [
+                    "regret",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a4": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "having",
+                    "watching",
+                    "visiting",
+                    "cooking"
+                ],
+                "a6": [
+                    "challenged",
+                    "examined",
+                    "verified",
+                    "disputed"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "misleading",
+                    "conflicting",
+                    "reading",
+                    "writing"
+                ],
+                "a9": [
+                    "wording",
+                    "riding",
+                    "driving",
+                    "studying"
+                ],
+                "a10": [
+                    "sooner",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "present_deep_regret",
+                "a2": "present_deep_regret",
+                "a3": "present_deep_regret",
+                "a4": "negative_perfect_gerund",
+                "a5": "negative_perfect_gerund",
+                "a6": "negative_perfect_gerund",
+                "a7": "misleading_object",
+                "a8": "misleading_object",
+                "a9": "misleading_object",
+                "a10": "earlier_adverb"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

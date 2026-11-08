@@ -18,6 +18,8 @@ class SavedTestJsState
         'accepted_answers_by_marker',
         'answer_synonyms_by_marker',
         'answer_synonym_tokens_by_marker',
+        'compose_accepted_sentences',
+        'psp_content_revision',
         'markers',
         'markers_count',
         'options_by_marker',
@@ -25,11 +27,20 @@ class SavedTestJsState
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',
         'marker_tags',
         'tech_info',
+    ];
+
+    private const OPT_IN_QUESTION_FIELDS = [
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint',
+        'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision',
+        'gap_previous_question', 'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision',
     ];
 
     public static function isStarted(mixed $state): bool
@@ -153,10 +164,35 @@ class SavedTestJsState
                     continue;
                 }
 
+                // The browser projects these eleven old full-gap answers to
+                // the new missing phrase. Preserve the exact old provenance
+                // until that merge, just as for contraction groups above.
+                $compactGap = ($current['passive_phrase_word_inputs'] ?? false) === true
+                    ? (FutureSimplePassivePracticeQuality::compactGaps()[$uuid] ?? null)
+                    : null;
+                if ($compactGap !== null
+                    && (string) ($current['type'] ?? '') === '0'
+                    && ($current['question'] ?? null) === $compactGap['question']
+                    && ($current['answers'] ?? null) === [$compactGap['answer']]
+                    && ($current['gap_compactness_revision'] ?? null) === FutureSimplePassivePracticeQuality::COMPACT_GAPS_SHA
+                    && ($current['gap_previous_question'] ?? null) === $compactGap['previous_question']
+                    && ($current['gap_previous_answer'] ?? null) === $compactGap['previous_answer']
+                    && ($item['question'] ?? null) === $compactGap['previous_question']
+                    && ($item['answers'] ?? null) === [$compactGap['previous_answer']]) {
+                    continue;
+                }
+
                 $state['items'][$index] = array_replace(
                     $item,
-                    Arr::only($current, self::CURRENT_QUESTION_FIELDS)
+                    Arr::only($current, empty($current['compose_content_revision']) && empty($current['psp_content_revision'])
+                        ? self::CURRENT_QUESTION_FIELDS
+                        : [...self::CURRENT_QUESTION_FIELDS, ...self::OPT_IN_QUESTION_FIELDS])
                 );
+                if (!empty($current['psp_content_revision'])) {
+                    foreach (self::OPT_IN_QUESTION_FIELDS as $field) {
+                        if (!array_key_exists($field, $current)) { unset($state['items'][$index][$field]); }
+                    }
+                }
             }
         }
 

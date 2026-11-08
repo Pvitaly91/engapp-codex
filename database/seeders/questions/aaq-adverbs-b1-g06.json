@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 62857,
+        "uuid": "aaq-adverbs-b1-g06",
+        "question": "The patient felt {a1} after the long journey.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 6,
+        "source_id": 468,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedAdjectivesVsAdverbsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "weak",
+                "weakly",
+                "weakness"
+            ]
+        },
+        "theory_text_block_uuid": "6a752c95-5b9f-58b4-8b94-a685401b7c7b",
+        "created_at": "2026-10-30T16:07:23.000000Z",
+        "updated_at": "2026-10-30T16:07:23.000000Z"
+    },
+    "category": {
+        "id": 6,
+        "name": "Adjectives and Adverbs",
+        "created_at": "2026-04-23T14:17:03.000000Z",
+        "updated_at": "2026-04-23T14:17:03.000000Z"
+    },
+    "source": {
+        "id": 468,
+        "name": "Adjectives and Adverbs Quality: Прикметники та прислівники: ознака і спосіб дії",
+        "created_at": "2026-10-30T16:07:22.000000Z",
+        "updated_at": "2026-10-30T16:07:22.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 165,
+                "name": "Adjectives and adverbs usage",
+                "category": null,
+                "created_at": "2026-04-23T14:15:34.000000Z",
+                "updated_at": "2026-04-23T14:15:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 62857,
+                "tag_id": 165,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 175,
+                "name": "Adjectives vs Adverbs",
+                "category": null,
+                "created_at": "2026-04-23T14:15:36.000000Z",
+                "updated_at": "2026-04-23T14:15:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 62857,
+                "tag_id": 175,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 1654,
+                "option": "weak",
+                "created_at": "2026-04-23T14:17:08.000000Z",
+                "updated_at": "2026-04-23T14:17:08.000000Z"
+            },
+            "pivot": {
+                "question_id": 62857,
+                "option_id": 1654,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 14432,
+                "option": "weakly",
+                "created_at": "2026-04-24T00:27:36.000000Z",
+                "updated_at": "2026-04-24T00:27:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 62857,
+                "option_id": 14432,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 54196,
+                "option": "weakness",
+                "created_at": "2026-10-28T17:00:52.000000Z",
+                "updated_at": "2026-10-28T17:00:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 62857,
+                "option_id": 54196,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332781,
+                "question_id": 62857,
+                "marker": "a1",
+                "option_id": 1654,
+                "created_at": "2026-10-30T16:07:23.000000Z",
+                "updated_at": "2026-10-30T16:07:23.000000Z"
+            },
+            "option": {
+                "id": 1654,
+                "option": "weak",
+                "created_at": "2026-04-23T14:17:08.000000Z",
+                "updated_at": "2026-04-23T14:17:08.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50115,
+                "question_id": 62857,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58133,
+                "created_at": "2026-10-30T16:07:23.000000Z",
+                "updated_at": "2026-10-30T16:07:23.000000Z"
+            },
+            "option": {
+                "id": 58133,
+                "option": "Слабкий, знесилений стан після подорожі: прикметник після дієслова самопочуття.",
+                "created_at": "2026-10-30T16:07:23.000000Z",
+                "updated_at": "2026-10-30T16:07:23.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54872,
+            "question_id": 62857,
+            "text": "The patient felt {a1} after the long journey.",
+            "created_at": "2026-10-30T16:07:23.000000Z",
+            "updated_at": "2026-10-30T16:07:23.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

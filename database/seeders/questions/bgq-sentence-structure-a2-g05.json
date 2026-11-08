@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60690,
+        "uuid": "bgq-sentence-structure-a2-g05",
+        "question": "We {a1} to our grandparents.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "sent a postcard",
+                "a postcard sent",
+                "sent postcard a"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:54.000000Z",
+        "updated_at": "2026-10-27T15:50:54.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60690,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53260,
+                "option": "sent a postcard",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60690,
+                "option_id": 53260,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53262,
+                "option": "a postcard sent",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60690,
+                "option_id": 53262,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53263,
+                "option": "sent postcard a",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60690,
+                "option_id": 53263,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325851,
+                "question_id": 60690,
+                "marker": "a1",
+                "option_id": 53260,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53260,
+                "option": "sent a postcard",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43185,
+                "question_id": 60690,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53261,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53261,
+                "option": "Потрібний зміст: «Надіслали листівку». Постав назву надісланої речі після дієслова; адресат із прийменником уже наведений.",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52705,
+            "question_id": 60690,
+            "text": "We {a1} to our grandparents.",
+            "created_at": "2026-10-27T15:50:54.000000Z",
+            "updated_at": "2026-10-27T15:50:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

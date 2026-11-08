@@ -1,0 +1,4262 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/past-perfect.v1.json",
+        "sha256": "f0d2ed3f572e8d89f6a045acc041c3920655e63803e0a3a5cba1b93721687d30"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoicePastPerfectQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-past-perfect-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_past_perfect": {
+            "name": "Passive Voice Quality: Passive Voice Past Perfect"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_past_perfect": {
+            "name": "Passive Voice Past Perfect",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "had_been_v3": {
+            "name": "Had Been V3",
+            "category": "topic"
+        },
+        "completed_before_past": {
+            "name": "Completed Before Past",
+            "category": "topic"
+        },
+        "past_time_markers": {
+            "name": "Past Time Markers",
+            "category": "topic"
+        },
+        "result_before_past": {
+            "name": "Result Before Past",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-past-perfect-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Загублений гаманець уже знайшли до мого повернення.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Загублений гаманець уже знайшли до мого повернення.",
+            "target_text": "The lost wallet had been found before I returned.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "lost",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "lost",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a3": {
+                    "answer": "wallet",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "wallet",
+                        "cinema",
+                        "Friday",
+                        "sister"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a6": {
+                    "answer": "found",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "found",
+                        "booked",
+                        "wrapped",
+                        "folded"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "with",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a8": {
+                    "answer": "I",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "I",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a9": {
+                    "answer": "returned.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "returned",
+                        "rode",
+                        "drove",
+                        "gave"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «знаходити» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The lost wallet had been found before I returned."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lost wallet",
+                "had been found",
+                "before I returned."
+            ],
+            "token_groups": [
+                "The lost wallet",
+                "had been found",
+                "before I returned."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "lost",
+                "wallet",
+                "had",
+                "been",
+                "found",
+                "before",
+                "I",
+                "returned."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "lost",
+                "brought",
+                "took",
+                "wrote",
+                "wallet",
+                "cinema",
+                "Friday",
+                "sister",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "found",
+                "booked",
+                "wrapped",
+                "folded",
+                "before",
+                "with",
+                "at",
+                "by",
+                "I",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "returned",
+                "rode",
+                "drove",
+                "gave"
+            ],
+            "source_text_uk": "Загублений гаманець уже знайшли до мого повернення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "lost",
+                    "brought",
+                    "took",
+                    "wrote"
+                ],
+                "a3": [
+                    "wallet",
+                    "cinema",
+                    "Friday",
+                    "sister"
+                ],
+                "a4": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a5": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a6": [
+                    "found",
+                    "booked",
+                    "wrapped",
+                    "folded"
+                ],
+                "a7": [
+                    "before",
+                    "with",
+                    "at",
+                    "by"
+                ],
+                "a8": [
+                    "I",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a9": [
+                    "returned",
+                    "rode",
+                    "drove",
+                    "gave"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-past-perfect-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Бутерброди вже загорнули до нашої прогулянки.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Бутерброди вже загорнули до нашої прогулянки.",
+            "target_text": "The sandwiches had been wrapped before our walk.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "sandwiches",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "sandwiches",
+                        "records",
+                        "supplies",
+                        "measurements"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "wrapped",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "wrapped",
+                        "prepared",
+                        "delivered",
+                        "opened"
+                    ]
+                },
+                "a6": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "our",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "our",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a8": {
+                    "answer": "walk.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "walk",
+                        "help",
+                        "wait",
+                        "watch"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «загортати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The sandwiches had been wrapped before our walk."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sandwiches",
+                "had been wrapped",
+                "before our walk."
+            ],
+            "token_groups": [
+                "The sandwiches",
+                "had been wrapped",
+                "before our walk."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "sandwiches",
+                "had",
+                "been",
+                "wrapped",
+                "before",
+                "our",
+                "walk."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "sandwiches",
+                "records",
+                "supplies",
+                "measurements",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "wrapped",
+                "prepared",
+                "delivered",
+                "opened",
+                "before",
+                "in",
+                "with",
+                "at",
+                "our",
+                "his",
+                "her",
+                "its",
+                "walk",
+                "help",
+                "wait",
+                "watch"
+            ],
+            "source_text_uk": "Бутерброди вже загорнули до нашої прогулянки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "sandwiches",
+                    "records",
+                    "supplies",
+                    "measurements"
+                ],
+                "a3": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "wrapped",
+                    "prepared",
+                    "delivered",
+                    "opened"
+                ],
+                "a6": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a7": [
+                    "our",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a8": [
+                    "walk",
+                    "help",
+                    "wait",
+                    "watch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "passive_aux_plural",
+                "a4": "passive_aux_plural",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-past-perfect-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Місця в кіно вже забронювали до п’ятниці.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Місця в кіно вже забронювали до п’ятниці.",
+            "target_text": "The cinema seats had been booked before Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "cinema",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "cinema",
+                        "wallet",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a3": {
+                    "answer": "seats",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "seats",
+                        "sandwiches",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a6": {
+                    "answer": "booked",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "booked",
+                        "wrapped",
+                        "removed",
+                        "washed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "Friday.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "Friday",
+                        "Delay",
+                        "Midnight",
+                        "Lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «бронювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The cinema seats had been booked before Friday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cinema seats",
+                "had been booked",
+                "before Friday."
+            ],
+            "token_groups": [
+                "The cinema seats",
+                "had been booked",
+                "before Friday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "cinema",
+                "seats",
+                "had",
+                "been",
+                "booked",
+                "before",
+                "Friday."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "cinema",
+                "wallet",
+                "letter",
+                "window",
+                "seats",
+                "sandwiches",
+                "people",
+                "men",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "booked",
+                "wrapped",
+                "removed",
+                "washed",
+                "before",
+                "after",
+                "without",
+                "at",
+                "Friday",
+                "Delay",
+                "Midnight",
+                "Lunch"
+            ],
+            "source_text_uk": "Місця в кіно вже забронювали до п’ятниці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "cinema",
+                    "wallet",
+                    "letter",
+                    "window"
+                ],
+                "a3": [
+                    "seats",
+                    "sandwiches",
+                    "people",
+                    "men"
+                ],
+                "a4": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a5": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a6": [
+                    "booked",
+                    "wrapped",
+                    "removed",
+                    "washed"
+                ],
+                "a7": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a8": [
+                    "Friday",
+                    "Delay",
+                    "Midnight",
+                    "Lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-past-perfect-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Приймальну зону вже прикрасили до прибуття гостей.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Приймальну зону вже прикрасили до прибуття гостей.",
+            "target_text": "The reception area had been decorated before the guests arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "reception",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "reception",
+                        "wheel",
+                        "race",
+                        "term"
+                    ]
+                },
+                "a3": {
+                    "answer": "area",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "area",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a6": {
+                    "answer": "decorated",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "decorated",
+                        "closed",
+                        "repaired",
+                        "selected"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "since",
+                        "while",
+                        "after"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a9": {
+                    "answer": "guests",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "guests",
+                        "visitors",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a10": {
+                    "answer": "arrived.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "arrived",
+                        "stopped",
+                        "ended",
+                        "left"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «прикрашати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The reception area had been decorated before the guests arrived."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reception area",
+                "had been decorated",
+                "before the guests",
+                "arrived."
+            ],
+            "token_groups": [
+                "The reception area",
+                "had been decorated",
+                "before the guests",
+                "arrived."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "reception",
+                "area",
+                "had",
+                "been",
+                "decorated",
+                "before",
+                "the",
+                "guests",
+                "arrived."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "reception",
+                "wheel",
+                "race",
+                "term",
+                "area",
+                "room",
+                "map",
+                "letter",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "is",
+                "are",
+                "was",
+                "decorated",
+                "closed",
+                "repaired",
+                "selected",
+                "before",
+                "since",
+                "while",
+                "after",
+                "the",
+                "that",
+                "these",
+                "those",
+                "guests",
+                "visitors",
+                "books",
+                "boxes",
+                "arrived",
+                "stopped",
+                "ended",
+                "left"
+            ],
+            "source_text_uk": "Приймальну зону вже прикрасили до прибуття гостей.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "reception",
+                    "wheel",
+                    "race",
+                    "term"
+                ],
+                "a3": [
+                    "area",
+                    "room",
+                    "map",
+                    "letter"
+                ],
+                "a4": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a6": [
+                    "decorated",
+                    "closed",
+                    "repaired",
+                    "selected"
+                ],
+                "a7": [
+                    "before",
+                    "since",
+                    "while",
+                    "after"
+                ],
+                "a8": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a9": [
+                    "guests",
+                    "visitors",
+                    "books",
+                    "boxes"
+                ],
+                "a10": [
+                    "arrived",
+                    "stopped",
+                    "ended",
+                    "left"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "clause_conjunction",
+                "a8": "finite_clause",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-past-perfect-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Пошкоджене колесо вже замінили до перегонів.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Пошкоджене колесо вже замінили до перегонів.",
+            "target_text": "The damaged wheel had been replaced before the race.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "damaged",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "damaged",
+                        "arrived",
+                        "began",
+                        "gave"
+                    ]
+                },
+                "a3": {
+                    "answer": "wheel",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "wheel",
+                        "area",
+                        "term",
+                        "reception"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a6": {
+                    "answer": "replaced",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "replaced",
+                        "closed",
+                        "selected",
+                        "removed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "in",
+                        "with"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a9": {
+                    "answer": "race.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "race",
+                        "window",
+                        "inspection",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «замінювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The damaged wheel had been replaced before the race."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The damaged wheel",
+                "had been replaced",
+                "before the race."
+            ],
+            "token_groups": [
+                "The damaged wheel",
+                "had been replaced",
+                "before the race."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "damaged",
+                "wheel",
+                "had",
+                "been",
+                "replaced",
+                "before",
+                "the",
+                "race."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "damaged",
+                "arrived",
+                "began",
+                "gave",
+                "wheel",
+                "area",
+                "term",
+                "reception",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "were",
+                "be",
+                "being",
+                "replaced",
+                "closed",
+                "selected",
+                "removed",
+                "before",
+                "at",
+                "in",
+                "with",
+                "the",
+                "every",
+                "no",
+                "another",
+                "race",
+                "window",
+                "inspection",
+                "station"
+            ],
+            "source_text_uk": "Пошкоджене колесо вже замінили до перегонів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "damaged",
+                    "arrived",
+                    "began",
+                    "gave"
+                ],
+                "a3": [
+                    "wheel",
+                    "area",
+                    "term",
+                    "reception"
+                ],
+                "a4": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a6": [
+                    "replaced",
+                    "closed",
+                    "selected",
+                    "removed"
+                ],
+                "a7": [
+                    "before",
+                    "at",
+                    "in",
+                    "with"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a9": [
+                    "race",
+                    "window",
+                    "inspection",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-past-perfect-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Новий розклад уже оголосили до початку семестру.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Новий розклад уже оголосили до початку семестру.",
+            "target_text": "The new timetable had been announced before term began.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "new",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "new",
+                        "good",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a3": {
+                    "answer": "timetable",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "timetable",
+                        "light",
+                        "clean",
+                        "dirty"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "have",
+                        "has",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "announced",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "announced",
+                        "folded",
+                        "collected",
+                        "prepared"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "term",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "term",
+                        "great",
+                        "reception",
+                        "area"
+                    ]
+                },
+                "a9": {
+                    "answer": "began.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "began",
+                        "arrived",
+                        "damaged",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «оголошувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The new timetable had been announced before term began."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new timetable",
+                "had been announced",
+                "before term began."
+            ],
+            "token_groups": [
+                "The new timetable",
+                "had been announced",
+                "before term began."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "new",
+                "timetable",
+                "had",
+                "been",
+                "announced",
+                "before",
+                "term",
+                "began."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "new",
+                "good",
+                "bad",
+                "friendly",
+                "timetable",
+                "light",
+                "clean",
+                "dirty",
+                "had",
+                "have",
+                "has",
+                "haven't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "announced",
+                "folded",
+                "collected",
+                "prepared",
+                "before",
+                "in",
+                "with",
+                "at",
+                "term",
+                "great",
+                "reception",
+                "area",
+                "began",
+                "arrived",
+                "damaged",
+                "made"
+            ],
+            "source_text_uk": "Новий розклад уже оголосили до початку семестру.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "new",
+                    "good",
+                    "bad",
+                    "friendly"
+                ],
+                "a3": [
+                    "timetable",
+                    "light",
+                    "clean",
+                    "dirty"
+                ],
+                "a4": [
+                    "had",
+                    "have",
+                    "has",
+                    "haven't"
+                ],
+                "a5": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "announced",
+                    "folded",
+                    "collected",
+                    "prepared"
+                ],
+                "a7": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a8": [
+                    "term",
+                    "great",
+                    "reception",
+                    "area"
+                ],
+                "a9": [
+                    "began",
+                    "arrived",
+                    "damaged",
+                    "made"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-past-perfect-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Записи співбесід уже розшифрували до початку аналізу.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Записи співбесід уже розшифрували до початку аналізу.",
+            "target_text": "The interview recordings had been transcribed before analysis began.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "interview",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "interview",
+                        "emergency",
+                        "construction",
+                        "permit"
+                    ]
+                },
+                "a3": {
+                    "answer": "recordings",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "recordings",
+                        "exits",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "transcribed",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "transcribed",
+                        "opened",
+                        "closed",
+                        "repaired"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "with",
+                        "by",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "analysis",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "analysis",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a9": {
+                    "answer": "began.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "began",
+                        "started",
+                        "walked",
+                        "helped"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «розшифровувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The interview recordings had been transcribed before analysis began."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interview recordings",
+                "had been transcribed",
+                "before analysis began."
+            ],
+            "token_groups": [
+                "The interview recordings",
+                "had been transcribed",
+                "before analysis began."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "interview",
+                "recordings",
+                "had",
+                "been",
+                "transcribed",
+                "before",
+                "analysis",
+                "began."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "interview",
+                "emergency",
+                "construction",
+                "permit",
+                "recordings",
+                "exits",
+                "friends",
+                "dogs",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "transcribed",
+                "opened",
+                "closed",
+                "repaired",
+                "before",
+                "with",
+                "by",
+                "at",
+                "analysis",
+                "tables",
+                "tickets",
+                "cups",
+                "began",
+                "started",
+                "walked",
+                "helped"
+            ],
+            "source_text_uk": "Записи співбесід уже розшифрували до початку аналізу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "interview",
+                    "emergency",
+                    "construction",
+                    "permit"
+                ],
+                "a3": [
+                    "recordings",
+                    "exits",
+                    "friends",
+                    "dogs"
+                ],
+                "a4": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a5": [
+                    "been",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a6": [
+                    "transcribed",
+                    "opened",
+                    "closed",
+                    "repaired"
+                ],
+                "a7": [
+                    "before",
+                    "with",
+                    "by",
+                    "at"
+                ],
+                "a8": [
+                    "analysis",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a9": [
+                    "began",
+                    "started",
+                    "walked",
+                    "helped"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-past-perfect-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Аварійні виходи вже оглянули до вечора відкриття.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Аварійні виходи вже оглянули до вечора відкриття.",
+            "target_text": "The emergency exits had been inspected before opening night.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "emergency",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "emergency",
+                        "interview",
+                        "permit",
+                        "construction"
+                    ]
+                },
+                "a3": {
+                    "answer": "exits",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "exits",
+                        "recordings",
+                        "analysis",
+                        "tickets"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "have",
+                        "has",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "inspected",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "inspected",
+                        "prepared",
+                        "delivered",
+                        "opened"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "with",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "opening",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "opening",
+                        "reading",
+                        "writing",
+                        "calling"
+                    ]
+                },
+                "a9": {
+                    "answer": "night.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "night",
+                        "evening",
+                        "day",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «оглядати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The emergency exits had been inspected before opening night."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The emergency exits",
+                "had been inspected",
+                "before opening night."
+            ],
+            "token_groups": [
+                "The emergency exits",
+                "had been inspected",
+                "before opening night."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "emergency",
+                "exits",
+                "had",
+                "been",
+                "inspected",
+                "before",
+                "opening",
+                "night."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "emergency",
+                "interview",
+                "permit",
+                "construction",
+                "exits",
+                "recordings",
+                "analysis",
+                "tickets",
+                "had",
+                "have",
+                "has",
+                "haven't",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "inspected",
+                "prepared",
+                "delivered",
+                "opened",
+                "before",
+                "with",
+                "in",
+                "at",
+                "opening",
+                "reading",
+                "writing",
+                "calling",
+                "night",
+                "evening",
+                "day",
+                "week"
+            ],
+            "source_text_uk": "Аварійні виходи вже оглянули до вечора відкриття.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "emergency",
+                    "interview",
+                    "permit",
+                    "construction"
+                ],
+                "a3": [
+                    "exits",
+                    "recordings",
+                    "analysis",
+                    "tickets"
+                ],
+                "a4": [
+                    "had",
+                    "have",
+                    "has",
+                    "haven't"
+                ],
+                "a5": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "inspected",
+                    "prepared",
+                    "delivered",
+                    "opened"
+                ],
+                "a7": [
+                    "before",
+                    "with",
+                    "in",
+                    "at"
+                ],
+                "a8": [
+                    "opening",
+                    "reading",
+                    "writing",
+                    "calling"
+                ],
+                "a9": [
+                    "night",
+                    "evening",
+                    "day",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-past-perfect-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Дозвіл на будівництво вже видали до початку робіт.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Дозвіл на будівництво вже видали до початку робіт.",
+            "target_text": "The construction permit had been issued before work started.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "construction",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "construction",
+                        "interview",
+                        "emergency",
+                        "map"
+                    ]
+                },
+                "a3": {
+                    "answer": "permit",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "permit",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a6": {
+                    "answer": "issued",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "issued",
+                        "collected",
+                        "delivered",
+                        "opened"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "by",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "work",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "work",
+                        "give",
+                        "make",
+                        "get"
+                    ]
+                },
+                "a9": {
+                    "answer": "started.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "started",
+                        "began",
+                        "played",
+                        "called"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «видавати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The construction permit had been issued before work started."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The construction permit",
+                "had been issued",
+                "before work started."
+            ],
+            "token_groups": [
+                "The construction permit",
+                "had been issued",
+                "before work started."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "construction",
+                "permit",
+                "had",
+                "been",
+                "issued",
+                "before",
+                "work",
+                "started."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "construction",
+                "interview",
+                "emergency",
+                "map",
+                "permit",
+                "bus",
+                "desk",
+                "picture",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "issued",
+                "collected",
+                "delivered",
+                "opened",
+                "before",
+                "at",
+                "by",
+                "in",
+                "work",
+                "give",
+                "make",
+                "get",
+                "started",
+                "began",
+                "played",
+                "called"
+            ],
+            "source_text_uk": "Дозвіл на будівництво вже видали до початку робіт.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "construction",
+                    "interview",
+                    "emergency",
+                    "map"
+                ],
+                "a3": [
+                    "permit",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a4": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a6": [
+                    "issued",
+                    "collected",
+                    "delivered",
+                    "opened"
+                ],
+                "a7": [
+                    "before",
+                    "at",
+                    "by",
+                    "in"
+                ],
+                "a8": [
+                    "work",
+                    "give",
+                    "make",
+                    "get"
+                ],
+                "a9": [
+                    "started",
+                    "began",
+                    "played",
+                    "called"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-past-perfect-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Стратегію збереження вже підтримали до припинення фінансування.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Стратегію збереження вже підтримали до припинення фінансування.",
+            "target_text": "The conservation strategy had been endorsed before funding ceased.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "conservation",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "conservation",
+                        "witness",
+                        "protection",
+                        "testimony"
+                    ]
+                },
+                "a3": {
+                    "answer": "strategy",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "strategy",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "have",
+                        "has",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a6": {
+                    "answer": "endorsed",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "endorsed",
+                        "arranged",
+                        "removed",
+                        "washed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "by",
+                        "in",
+                        "with"
+                    ]
+                },
+                "a8": {
+                    "answer": "funding",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "funding",
+                        "living",
+                        "buying",
+                        "giving"
+                    ]
+                },
+                "a9": {
+                    "answer": "ceased.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "ceased",
+                        "commenced",
+                        "revised",
+                        "gave"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «підтримувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The conservation strategy had been endorsed before funding ceased."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conservation strategy",
+                "had been endorsed",
+                "before funding ceased."
+            ],
+            "token_groups": [
+                "The conservation strategy",
+                "had been endorsed",
+                "before funding ceased."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "conservation",
+                "strategy",
+                "had",
+                "been",
+                "endorsed",
+                "before",
+                "funding",
+                "ceased."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "conservation",
+                "witness",
+                "protection",
+                "testimony",
+                "strategy",
+                "room",
+                "map",
+                "letter",
+                "had",
+                "have",
+                "has",
+                "haven't",
+                "been",
+                "were",
+                "be",
+                "being",
+                "endorsed",
+                "arranged",
+                "removed",
+                "washed",
+                "before",
+                "by",
+                "in",
+                "with",
+                "funding",
+                "living",
+                "buying",
+                "giving",
+                "ceased",
+                "commenced",
+                "revised",
+                "gave"
+            ],
+            "source_text_uk": "Стратегію збереження вже підтримали до припинення фінансування.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "conservation",
+                    "witness",
+                    "protection",
+                    "testimony"
+                ],
+                "a3": [
+                    "strategy",
+                    "room",
+                    "map",
+                    "letter"
+                ],
+                "a4": [
+                    "had",
+                    "have",
+                    "has",
+                    "haven't"
+                ],
+                "a5": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a6": [
+                    "endorsed",
+                    "arranged",
+                    "removed",
+                    "washed"
+                ],
+                "a7": [
+                    "before",
+                    "by",
+                    "in",
+                    "with"
+                ],
+                "a8": [
+                    "funding",
+                    "living",
+                    "buying",
+                    "giving"
+                ],
+                "a9": [
+                    "ceased",
+                    "commenced",
+                    "revised",
+                    "gave"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-past-perfect-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Захист свідків уже організували до початку надання свідчень.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Захист свідків уже організували до початку надання свідчень.",
+            "target_text": "The witness protection had been arranged before testimony commenced.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "witness",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "witness",
+                        "conservation",
+                        "strategy",
+                        "map"
+                    ]
+                },
+                "a3": {
+                    "answer": "protection",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "protection",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a6": {
+                    "answer": "arranged",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "arranged",
+                        "circulated",
+                        "endorsed",
+                        "delivered"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "with",
+                        "by",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "testimony",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "testimony",
+                        "great",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a9": {
+                    "answer": "commenced.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "commenced",
+                        "ceased",
+                        "revised",
+                        "wanted"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «організовувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The witness protection had been arranged before testimony commenced."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness protection",
+                "had been arranged",
+                "before testimony commenced."
+            ],
+            "token_groups": [
+                "The witness protection",
+                "had been arranged",
+                "before testimony commenced."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "witness",
+                "protection",
+                "had",
+                "been",
+                "arranged",
+                "before",
+                "testimony",
+                "commenced."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "witness",
+                "conservation",
+                "strategy",
+                "map",
+                "protection",
+                "bike",
+                "car",
+                "bag",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "arranged",
+                "circulated",
+                "endorsed",
+                "delivered",
+                "before",
+                "with",
+                "by",
+                "at",
+                "testimony",
+                "great",
+                "water",
+                "bread",
+                "commenced",
+                "ceased",
+                "revised",
+                "wanted"
+            ],
+            "source_text_uk": "Захист свідків уже організували до початку надання свідчень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "witness",
+                    "conservation",
+                    "strategy",
+                    "map"
+                ],
+                "a3": [
+                    "protection",
+                    "bike",
+                    "car",
+                    "bag"
+                ],
+                "a4": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a5": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a6": [
+                    "arranged",
+                    "circulated",
+                    "endorsed",
+                    "delivered"
+                ],
+                "a7": [
+                    "before",
+                    "with",
+                    "by",
+                    "at"
+                ],
+                "a8": [
+                    "testimony",
+                    "great",
+                    "water",
+                    "bread"
+                ],
+                "a9": [
+                    "commenced",
+                    "ceased",
+                    "revised",
+                    "wanted"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-past-perfect-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Переглянуті оцінки вже поширили до обговорення.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Переглянуті оцінки вже поширили до обговорення.",
+            "target_text": "The revised estimates had been circulated before deliberations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "revised",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "revised",
+                        "commenced",
+                        "ceased",
+                        "found"
+                    ]
+                },
+                "a3": {
+                    "answer": "estimates",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "estimates",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "circulated",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "circulated",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "deliberations.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "deliberations",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «поширювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The revised estimates had been circulated before deliberations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised estimates",
+                "had been circulated",
+                "before deliberations."
+            ],
+            "token_groups": [
+                "The revised estimates",
+                "had been circulated",
+                "before deliberations."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "revised",
+                "estimates",
+                "had",
+                "been",
+                "circulated",
+                "before",
+                "deliberations."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "revised",
+                "commenced",
+                "ceased",
+                "found",
+                "estimates",
+                "children",
+                "teachers",
+                "schools",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "am",
+                "is",
+                "are",
+                "circulated",
+                "washed",
+                "painted",
+                "folded",
+                "before",
+                "after",
+                "without",
+                "at",
+                "deliberations",
+                "letters",
+                "windows",
+                "phones"
+            ],
+            "source_text_uk": "Переглянуті оцінки вже поширили до обговорення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "revised",
+                    "commenced",
+                    "ceased",
+                    "found"
+                ],
+                "a3": [
+                    "estimates",
+                    "children",
+                    "teachers",
+                    "schools"
+                ],
+                "a4": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "circulated",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a7": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a8": [
+                    "deliberations",
+                    "letters",
+                    "windows",
+                    "phones"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-past-perfect-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Спірні положення вже відокремили до ратифікації.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Спірні положення вже відокремили до ратифікації.",
+            "target_text": "The disputed provisions had been severed before ratification.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "disputed",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "disputed",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "provisions",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "provisions",
+                        "remedies",
+                        "obligations",
+                        "books"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "severed",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "severed",
+                        "folded",
+                        "collected",
+                        "delivered"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "at",
+                        "without"
+                    ]
+                },
+                "a8": {
+                    "answer": "ratification.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "ratification",
+                        "delay",
+                        "lunch",
+                        "noon"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «відокремлювати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The disputed provisions had been severed before ratification."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disputed provisions",
+                "had been severed",
+                "before ratification."
+            ],
+            "token_groups": [
+                "The disputed provisions",
+                "had been severed",
+                "before ratification."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "disputed",
+                "provisions",
+                "had",
+                "been",
+                "severed",
+                "before",
+                "ratification."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "disputed",
+                "gave",
+                "made",
+                "left",
+                "provisions",
+                "remedies",
+                "obligations",
+                "books",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "severed",
+                "folded",
+                "collected",
+                "delivered",
+                "before",
+                "after",
+                "at",
+                "without",
+                "ratification",
+                "delay",
+                "lunch",
+                "noon"
+            ],
+            "source_text_uk": "Спірні положення вже відокремили до ратифікації.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "disputed",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a3": [
+                    "provisions",
+                    "remedies",
+                    "obligations",
+                    "books"
+                ],
+                "a4": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a5": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "severed",
+                    "folded",
+                    "collected",
+                    "delivered"
+                ],
+                "a7": [
+                    "before",
+                    "after",
+                    "at",
+                    "without"
+                ],
+                "a8": [
+                    "ratification",
+                    "delay",
+                    "lunch",
+                    "noon"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-past-perfect-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Усі передбачені законом засоби захисту вже вичерпали до примусового виконання.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Усі передбачені законом засоби захисту вже вичерпали до примусового виконання.",
+            "target_text": "The statutory remedies had been exhausted before enforcement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "statutory",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "statutory",
+                        "bad",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a3": {
+                    "answer": "remedies",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "remedies",
+                        "obligations",
+                        "provisions",
+                        "children"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "exhausted",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "exhausted",
+                        "replaced",
+                        "severed",
+                        "reconciled"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "enforcement.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "enforcement",
+                        "noon",
+                        "delay",
+                        "midnight"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «вичерпувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The statutory remedies had been exhausted before enforcement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The statutory remedies",
+                "had been exhausted",
+                "before enforcement."
+            ],
+            "token_groups": [
+                "The statutory remedies",
+                "had been exhausted",
+                "before enforcement."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "statutory",
+                "remedies",
+                "had",
+                "been",
+                "exhausted",
+                "before",
+                "enforcement."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "statutory",
+                "bad",
+                "friendly",
+                "lovely",
+                "remedies",
+                "obligations",
+                "provisions",
+                "children",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "exhausted",
+                "replaced",
+                "severed",
+                "reconciled",
+                "before",
+                "after",
+                "without",
+                "at",
+                "enforcement",
+                "noon",
+                "delay",
+                "midnight"
+            ],
+            "source_text_uk": "Усі передбачені законом засоби захисту вже вичерпали до примусового виконання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "statutory",
+                    "bad",
+                    "friendly",
+                    "lovely"
+                ],
+                "a3": [
+                    "remedies",
+                    "obligations",
+                    "provisions",
+                    "children"
+                ],
+                "a4": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "exhausted",
+                    "replaced",
+                    "severed",
+                    "reconciled"
+                ],
+                "a7": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a8": [
+                    "enforcement",
+                    "noon",
+                    "delay",
+                    "midnight"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-past-perfect-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Суперечливі зобов’язання вже узгодили до вступу.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Суперечливі зобов’язання вже узгодили до вступу.",
+            "target_text": "The conflicting obligations had been reconciled before accession.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "conflicting",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "conflicting",
+                        "visiting",
+                        "cooking",
+                        "riding"
+                    ]
+                },
+                "a3": {
+                    "answer": "obligations",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "obligations",
+                        "provisions",
+                        "remedies",
+                        "rooms"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "reconciled",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "reconciled",
+                        "closed",
+                        "repaired",
+                        "removed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "accession.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "accession",
+                        "ratification",
+                        "enforcement",
+                        "lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «узгоджувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The conflicting obligations had been reconciled before accession."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conflicting obligations",
+                "had been reconciled",
+                "before accession."
+            ],
+            "token_groups": [
+                "The conflicting obligations",
+                "had been reconciled",
+                "before accession."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "conflicting",
+                "obligations",
+                "had",
+                "been",
+                "reconciled",
+                "before",
+                "accession."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "conflicting",
+                "visiting",
+                "cooking",
+                "riding",
+                "obligations",
+                "provisions",
+                "remedies",
+                "rooms",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "wasn't",
+                "weren't",
+                "am",
+                "reconciled",
+                "closed",
+                "repaired",
+                "removed",
+                "before",
+                "after",
+                "without",
+                "at",
+                "accession",
+                "ratification",
+                "enforcement",
+                "lunch"
+            ],
+            "source_text_uk": "Суперечливі зобов’язання вже узгодили до вступу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "conflicting",
+                    "visiting",
+                    "cooking",
+                    "riding"
+                ],
+                "a3": [
+                    "obligations",
+                    "provisions",
+                    "remedies",
+                    "rooms"
+                ],
+                "a4": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a5": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "reconciled",
+                    "closed",
+                    "repaired",
+                    "removed"
+                ],
+                "a7": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a8": [
+                    "accession",
+                    "ratification",
+                    "enforcement",
+                    "lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "passive_aux_plural",
+                "a5": "passive_aux_plural",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-past-perfect-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Неоднозначність тлумачення вже усунули до офіційного оприлюднення.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Неоднозначність тлумачення вже усунули до офіційного оприлюднення.",
+            "target_text": "The interpretative ambiguity had been resolved before promulgation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "interpretative",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "interpretative",
+                        "attributional",
+                        "restitutionary",
+                        "final"
+                    ]
+                },
+                "a3": {
+                    "answer": "ambiguity",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "ambiguity",
+                        "error",
+                        "remedy",
+                        "expert"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a6": {
+                    "answer": "resolved",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "resolved",
+                        "delivered",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "without",
+                        "at",
+                        "after"
+                    ]
+                },
+                "a8": {
+                    "answer": "promulgation.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "promulgation",
+                        "lunch",
+                        "noon",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «усувати» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The interpretative ambiguity had been resolved before promulgation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretative ambiguity",
+                "had been resolved",
+                "before promulgation."
+            ],
+            "token_groups": [
+                "The interpretative ambiguity",
+                "had been resolved",
+                "before promulgation."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "interpretative",
+                "ambiguity",
+                "had",
+                "been",
+                "resolved",
+                "before",
+                "promulgation."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "interpretative",
+                "attributional",
+                "restitutionary",
+                "final",
+                "ambiguity",
+                "error",
+                "remedy",
+                "expert",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "are",
+                "was",
+                "were",
+                "resolved",
+                "delivered",
+                "opened",
+                "closed",
+                "before",
+                "without",
+                "at",
+                "after",
+                "promulgation",
+                "lunch",
+                "noon",
+                "delay"
+            ],
+            "source_text_uk": "Неоднозначність тлумачення вже усунули до офіційного оприлюднення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "interpretative",
+                    "attributional",
+                    "restitutionary",
+                    "final"
+                ],
+                "a3": [
+                    "ambiguity",
+                    "error",
+                    "remedy",
+                    "expert"
+                ],
+                "a4": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a5": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a6": [
+                    "resolved",
+                    "delivered",
+                    "opened",
+                    "closed"
+                ],
+                "a7": [
+                    "before",
+                    "without",
+                    "at",
+                    "after"
+                ],
+                "a8": [
+                    "promulgation",
+                    "lunch",
+                    "noon",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-past-perfect-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Помилку у віднесенні вже виправили до експертного розгляду.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Помилку у віднесенні вже виправили до експертного розгляду.",
+            "target_text": "The attributional error had been corrected before expert review.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "attributional",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "attributional",
+                        "restitutionary",
+                        "interpretative",
+                        "final"
+                    ]
+                },
+                "a3": {
+                    "answer": "error",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "error",
+                        "remedy",
+                        "ambiguity",
+                        "adjudication"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "corrected",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "corrected",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "expert",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "expert",
+                        "great",
+                        "promulgation",
+                        "teacher"
+                    ]
+                },
+                "a9": {
+                    "answer": "review.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "review",
+                        "station",
+                        "window",
+                        "inspection"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «виправляти» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The attributional error had been corrected before expert review."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The attributional error",
+                "had been corrected",
+                "before expert review."
+            ],
+            "token_groups": [
+                "The attributional error",
+                "had been corrected",
+                "before expert review."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "attributional",
+                "error",
+                "had",
+                "been",
+                "corrected",
+                "before",
+                "expert",
+                "review."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "attributional",
+                "restitutionary",
+                "interpretative",
+                "final",
+                "error",
+                "remedy",
+                "ambiguity",
+                "adjudication",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "corrected",
+                "selected",
+                "removed",
+                "replaced",
+                "before",
+                "in",
+                "with",
+                "at",
+                "expert",
+                "great",
+                "promulgation",
+                "teacher",
+                "review",
+                "station",
+                "window",
+                "inspection"
+            ],
+            "source_text_uk": "Помилку у віднесенні вже виправили до експертного розгляду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "attributional",
+                    "restitutionary",
+                    "interpretative",
+                    "final"
+                ],
+                "a3": [
+                    "error",
+                    "remedy",
+                    "ambiguity",
+                    "adjudication"
+                ],
+                "a4": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "corrected",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a7": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a8": [
+                    "expert",
+                    "great",
+                    "promulgation",
+                    "teacher"
+                ],
+                "a9": [
+                    "review",
+                    "station",
+                    "window",
+                    "inspection"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-past-perfect-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Можливість реституційного захисту вже виключили до остаточного судового розгляду.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_perfect",
+            "translation_uk": "Можливість реституційного захисту вже виключили до остаточного судового розгляду.",
+            "target_text": "The restitutionary remedy had been foreclosed before final adjudication.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "restitutionary",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "restitutionary",
+                        "attributional",
+                        "interpretative",
+                        "large"
+                    ]
+                },
+                "a3": {
+                    "answer": "remedy",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "remedy",
+                        "ambiguity",
+                        "error",
+                        "promulgation"
+                    ]
+                },
+                "a4": {
+                    "answer": "had",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a6": {
+                    "answer": "foreclosed",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "foreclosed",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a8": {
+                    "answer": "final",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "final",
+                        "warm",
+                        "quiet",
+                        "hungry"
+                    ]
+                },
+                "a9": {
+                    "answer": "adjudication.",
+                    "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "adjudication",
+                        "window",
+                        "inspection",
+                        "review"
+                    ]
+                }
+            },
+            "verb_hint": "Дію вже завершили до названої минулої події; передай «виключати можливість» через минулий доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The restitutionary remedy had been foreclosed before final adjudication."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restitutionary remedy",
+                "had been foreclosed",
+                "before final adjudication."
+            ],
+            "token_groups": [
+                "The restitutionary remedy",
+                "had been foreclosed",
+                "before final adjudication."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "restitutionary",
+                "remedy",
+                "had",
+                "been",
+                "foreclosed",
+                "before",
+                "final",
+                "adjudication."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "restitutionary",
+                "attributional",
+                "interpretative",
+                "large",
+                "remedy",
+                "ambiguity",
+                "error",
+                "promulgation",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "is",
+                "are",
+                "was",
+                "foreclosed",
+                "washed",
+                "painted",
+                "folded",
+                "before",
+                "in",
+                "with",
+                "at",
+                "final",
+                "warm",
+                "quiet",
+                "hungry",
+                "adjudication",
+                "window",
+                "inspection",
+                "review"
+            ],
+            "source_text_uk": "Можливість реституційного захисту вже виключили до остаточного судового розгляду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "restitutionary",
+                    "attributional",
+                    "interpretative",
+                    "large"
+                ],
+                "a3": [
+                    "remedy",
+                    "ambiguity",
+                    "error",
+                    "promulgation"
+                ],
+                "a4": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a5": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a6": [
+                    "foreclosed",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a7": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a8": [
+                    "final",
+                    "warm",
+                    "quiet",
+                    "hungry"
+                ],
+                "a9": [
+                    "adjudication",
+                    "window",
+                    "inspection",
+                    "review"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "passive_aux_singular",
+                "a5": "passive_aux_singular",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

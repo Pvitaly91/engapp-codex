@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 259,
+        "id": 51009,
         "uuid": "pv-fut-simple-v3-b2-07",
-        "question": "The final decision {a1} by the manager in the grammar exercise.",
+        "question": "How will the waste {a1} at the processing facility?",
         "difficulty": 4,
         "level": "B2",
-        "category_id": 1,
-        "source_id": 4,
+        "category_id": 10,
+        "source_id": 345,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:45.000000Z",
-        "updated_at": "2026-05-26T15:08:15.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFutureSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "be separated",
+                "being separated",
+                "been separated",
+                "separated"
+            ]
+        },
+        "theory_text_block_uuid": "c9712368-7392-5e32-a624-f8a6de328558",
+        "created_at": "2026-05-26T11:06:49.000000Z",
+        "updated_at": "2026-10-21T21:57:17.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 4,
+        "id": 345,
         "name": "Passive Voice Future Simple",
-        "created_at": "2026-05-26T15:07:44.000000Z",
-        "updated_at": "2026-05-26T15:07:44.000000Z"
+        "created_at": "2026-05-21T18:54:33.000000Z",
+        "updated_at": "2026-05-21T18:54:33.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 6,
+                "id": 82,
                 "name": "B2",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "tag_id": 6,
+                "question_id": 51009,
+                "tag_id": 82,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 26,
-                "name": "Active Passive",
-                "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 259,
-                "tag_id": 26,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 38,
+                "id": 2717,
                 "name": "Passive Voice Future Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "tag_id": 38,
+                "question_id": 51009,
+                "tag_id": 2717,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2718,
+                "name": "Will Be V3",
+                "category": "topic",
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 51009,
+                "tag_id": 2718,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 123,
-                "option": "will be made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53813,
+                "option": "be separated",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "option_id": 123,
+                "question_id": 51009,
+                "option_id": 53813,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 124,
-                "option": "will make",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53814,
+                "option": "being separated",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "option_id": 124,
+                "question_id": 51009,
+                "option_id": 53814,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 125,
-                "option": "is made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53815,
+                "option": "been separated",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "option_id": 125,
+                "question_id": 51009,
+                "option_id": 53815,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 126,
-                "option": "was made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53816,
+                "option": "separated",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 259,
-                "option_id": 126,
+                "question_id": 51009,
+                "option_id": 53816,
                 "flag": null
             }
         }
@@ -127,29 +138,47 @@
     "answers": [
         {
             "answer": {
-                "id": 259,
-                "question_id": 259,
+                "id": 321565,
+                "question_id": 51009,
                 "marker": "a1",
-                "option_id": 123,
-                "created_at": "2026-05-26T15:07:45.000000Z",
-                "updated_at": "2026-05-26T15:07:45.000000Z"
+                "option_id": 53813,
+                "created_at": "2026-10-21T21:57:17.000000Z",
+                "updated_at": "2026-10-21T21:57:17.000000Z"
             },
             "option": {
-                "id": 123,
-                "option": "will be made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53813,
+                "option": "be separated",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             }
         }
     ],
-    "verb_hints": [],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39039,
+                "question_id": 51009,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53817,
+                "created_at": "2026-10-21T21:57:17.000000Z",
+                "updated_at": "2026-10-21T21:57:17.000000Z"
+            },
+            "option": {
+                "id": 53817,
+                "option": "Розділять або відсортують: додай лише два слова пасивної форми від «розділяти, сортувати»; початок питання вже наведено.",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
+            }
+        }
+    ],
     "variants": [
         {
-            "id": 259,
-            "question_id": 259,
-            "text": "The final decision {a1} by the manager in the grammar exercise.",
-            "created_at": "2026-05-26T15:07:45.000000Z",
-            "updated_at": "2026-05-26T15:07:45.000000Z"
+            "id": 51669,
+            "question_id": 51009,
+            "text": "How will the waste {a1} at the processing facility?",
+            "created_at": "2026-10-21T21:57:17.000000Z",
+            "updated_at": "2026-10-21T21:57:17.000000Z"
         }
     ],
     "hints": [],

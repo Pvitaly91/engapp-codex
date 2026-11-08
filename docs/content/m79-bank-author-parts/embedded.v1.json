@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "owner": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder",
+  "level": "B1",
+  "purpose": "Minimal author-reviewed supplement: three distinct inner-structure cases. Existing B1 wh candidates have incorrect visible mid-clause capitalisation under unchanged shared option labels; original banks remain untouched.",
+  "questions": [
+    {
+      "source_uid": "m79-emb-b1-01",
+      "question_uk": "Скажи: «Я знаю, де працює Ніна».",
+      "context_uk": "Це нейтральне теперішнє повідомлення про знання місця роботи. Ніна — підмет внутрішньої частини; питання про її професію не ставимо.",
+      "criterion_uk": "Збережи головне твердження й теперішній час. Усередині не використовуй інверсію прямого питання.",
+      "translation_uk": "Я знаю, де працює Ніна.",
+      "ambiguity_note_uk": "Використай подані слова у вказаному значенні. Не замінюй місце роботи професією або запитанням до співрозмовника.",
+      "canonical_en": "I know where Nina works.",
+      "tokens_correct": ["I", "know", "where Nina", "works."],
+      "tokens_shuffled": ["works.", "where Nina", "I", "know"],
+      "distractors": ["does work", "where does Nina", "worked."],
+      "learning_requirements": ["wh-object-or-location embedding", "present statement", "proper-name subject retained", "grouped lowercase wh label", "exact settled visible sentence"],
+      "editorial_note": "Author-created task. The where Nina group is two words and keeps lowercase where inside the sentence without a shared case-engine change. Question do-support and past tense distractors cannot become accepted variants."
+    },
+    {
+      "source_uid": "m79-emb-b1-02",
+      "question_uk": "Запитай: «Ти знаєш, хто надіслав посилку?»",
+      "context_uk": "Посилку вже надіслано; невідомий відправник. Запитуємо співрозмовника про його знання, не стверджуємо, що самі знаємо відповідь.",
+      "criterion_uk": "Збережи головне питання про знання. Хто є підметом внутрішньої минулої дії; не додавай після нього ще одного займенника.",
+      "translation_uk": "Ти знаєш, хто надіслав посилку?",
+      "ambiguity_note_uk": "Лексика: надсилати; посилка. Потрібне нейтральне питання, без спеціального підсилення й без зміни відправника на адресата.",
+      "canonical_en": "Do you know who sent the parcel?",
+      "tokens_correct": ["Do you", "know", "who sent", "the parcel?"],
+      "tokens_shuffled": ["the parcel?", "who sent", "Do you", "know"],
+      "distractors": ["who he sent", "who did send", "the letter?"],
+      "learning_requirements": ["wh-subject embedding", "main-clause question auxiliary preserved", "past lexical verb", "no duplicated subject", "neutral not emphatic", "exact settled visible sentence"],
+      "editorial_note": "Who did send can be emphatic grammar in another context; the visible neutral criterion excludes that function. The who sent group is two words and never borrows an uppercase global Who label."
+    },
+    {
+      "source_uid": "m79-emb-b1-03",
+      "question_uk": "Скажи: «Я знаю, чого він не робить щоп’ятниці».",
+      "context_uk": "Мова про звичний розклад і невиконувану ним справу. Основне дієслово внутрішньої частини означає робити; заперечення потрібне за змістом.",
+      "criterion_uk": "Збережи теперішню звичку, заперечення та лексичне дієслово робити. Не видаляй допоміжне заперечення разом із питальним порядком.",
+      "translation_uk": "Я знаю, чого він не робить щоп’ятниці.",
+      "ambiguity_note_uk": "Використай подану скорочену заперечну форму. Токенна вправа тренує наведене формулювання, не довільне перефразування розкладу.",
+      "canonical_en": "I know what he doesn't do on Fridays.",
+      "tokens_correct": ["I know", "what he", "doesn't do", "on Fridays."],
+      "tokens_shuffled": ["on Fridays.", "doesn't do", "I know", "what he"],
+      "distractors": ["does do", "what doesn't he", "didn't do"],
+      "learning_requirements": ["embedded negative clause", "lexical do retained", "negative auxiliary retained", "present habitual tense", "explicit contracted target", "exact settled visible sentence"],
+      "editorial_note": "The question does not treat every auxiliary do as inversion. What he and doesn't do are two-word groups; the accepted sentence preserves both do functions and its negative meaning."
+    }
+  ],
+  "review": {
+    "status": "Author-reviewed source draft, not SQL/live or formatter PASS. Main must compile to the existing exact-bound scoped supplement, test token labels and all settled sentences, then freeze.",
+    "new_questions": 3,
+    "type": 4,
+    "existing_bank_rows_changed": 0,
+    "coverage": ["location wh with named subject", "wh-subject without duplicate pronoun", "negative lexical do with habitual time"],
+    "copying": "All examples authored for M79, no publisher exercises copied.",
+    "source_ledger": [
+      {"url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives", "access": "Direct fetch timeout twice; official indexed editorial body read.", "use": "Main question and normal inner word order."},
+      {"url": "https://dictionary.cambridge.org/grammar/british-grammar/do", "access": "Direct fetch403; official indexed editorial excerpt read.", "use": "Distinguish main-verb and auxiliary do, not blind removal."}
+    ]
+  }
+}

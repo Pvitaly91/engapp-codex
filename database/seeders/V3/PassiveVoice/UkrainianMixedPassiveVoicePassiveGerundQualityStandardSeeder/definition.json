@@ -1,0 +1,1681 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/gerund.v1.json",
+        "sha256": "0337277468df42aea4f6daed9a8bbc686dafb5ff477edf175437972fad307443"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePassiveGerundQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-gerund-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_gerund": {
+            "name": "Passive Voice Quality: Пасивний герундій"
+        }
+    },
+    "tags": {
+        "passive_voice_passive_gerund": {
+            "name": "Passive Voice Passive Gerund",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "being_v3": {
+            "name": "Being V3",
+            "category": "topic"
+        },
+        "having_been_v3": {
+            "name": "Having Been V3",
+            "category": "topic"
+        },
+        "after_prepositions": {
+            "name": "After Prepositions",
+            "category": "topic"
+        },
+        "after_verbs": {
+            "name": "After Verbs",
+            "category": "topic"
+        },
+        "after_expressions": {
+            "name": "After Expressions",
+            "category": "topic"
+        },
+        "gerund_subject": {
+            "name": "Gerund Subject",
+            "category": "topic"
+        },
+        "gerund_object": {
+            "name": "Gerund Object",
+            "category": "topic"
+        },
+        "perfect_passive_gerund": {
+            "name": "Perfect Passive Gerund",
+            "category": "topic"
+        },
+        "active_passive_gerund": {
+            "name": "Active Passive Gerund",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-gerund-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I like {a1} with homework.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Мені подобається, коли допомагають із домашнім завданням.",
+            "target_text": "I like being helped with homework.",
+            "markers": {
+                "a1": {
+                    "answer": "being helped",
+                    "options": [
+                        "being helped",
+                        "be helped",
+                        "been helped"
+                    ],
+                    "verb_hint": "Допомагають із домашнім завданням; початкова модель пасивного герундія."
+                }
+            },
+            "verb_hint": "Допомагають із домашнім завданням; початкова модель пасивного герундія.",
+            "accepted_target_texts": [
+                "I like being helped with homework."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I like",
+                "being helped",
+                "with homework."
+            ],
+            "token_groups": [
+                "I like",
+                "being helped",
+                "with homework."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-gerund-a1-g02",
+            "author_id": "A1-g02",
+            "question": "She hates {a1} at lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона не любить, коли за нею спостерігають під час обіду.",
+            "target_text": "She hates being watched at lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "being watched",
+                    "options": [
+                        "being watched",
+                        "be watched",
+                        "been watched"
+                    ],
+                    "verb_hint": "За нею спостерігають під час обіду."
+                }
+            },
+            "verb_hint": "За нею спостерігають під час обіду.",
+            "accepted_target_texts": [
+                "She hates being watched at lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "hates",
+                "being watched",
+                "at lunch."
+            ],
+            "token_groups": [
+                "She",
+                "hates",
+                "being watched",
+                "at lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-gerund-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Tom enjoys {a1} at school.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Томові подобається, коли його хвалять у школі.",
+            "target_text": "Tom enjoys being praised at school.",
+            "markers": {
+                "a1": {
+                    "answer": "being praised",
+                    "options": [
+                        "being praised",
+                        "be praised",
+                        "been praised"
+                    ],
+                    "verb_hint": "Його хвалять у школі."
+                }
+            },
+            "verb_hint": "Його хвалять у школі.",
+            "accepted_target_texts": [
+                "Tom enjoys being praised at school."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tom",
+                "enjoys",
+                "being praised",
+                "at school."
+            ],
+            "token_groups": [
+                "Tom",
+                "enjoys",
+                "being praised",
+                "at school."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-gerund-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We like {a1} to parties.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Нам подобається, коли нас запрошують на вечірки.",
+            "target_text": "We like being invited to parties.",
+            "markers": {
+                "a1": {
+                    "answer": "being invited",
+                    "options": [
+                        "being invited",
+                        "be invited",
+                        "been invited"
+                    ],
+                    "verb_hint": "Нас запрошують на вечірки."
+                }
+            },
+            "verb_hint": "Нас запрошують на вечірки.",
+            "accepted_target_texts": [
+                "We like being invited to parties."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We like",
+                "being invited",
+                "to parties."
+            ],
+            "token_groups": [
+                "We like",
+                "being invited",
+                "to parties."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-gerund-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The child fears {a1} alone.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Дитина боїться, що її залишать саму.",
+            "target_text": "The child fears being left alone.",
+            "markers": {
+                "a1": {
+                    "answer": "being left",
+                    "options": [
+                        "being left",
+                        "be left",
+                        "been left"
+                    ],
+                    "verb_hint": "Її залишать саму."
+                }
+            },
+            "verb_hint": "Її залишать саму.",
+            "accepted_target_texts": [
+                "The child fears being left alone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The child",
+                "fears being left",
+                "alone."
+            ],
+            "token_groups": [
+                "The child",
+                "fears being left",
+                "alone."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-gerund-a1-g06",
+            "author_id": "A1-g06",
+            "question": "I dislike {a1} in a queue.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Я не люблю, коли мене штовхають у черзі.",
+            "target_text": "I dislike being pushed in a queue.",
+            "markers": {
+                "a1": {
+                    "answer": "being pushed",
+                    "options": [
+                        "being pushed",
+                        "be pushed",
+                        "been pushed"
+                    ],
+                    "verb_hint": "Мене штовхають у черзі."
+                }
+            },
+            "verb_hint": "Мене штовхають у черзі.",
+            "accepted_target_texts": [
+                "I dislike being pushed in a queue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I dislike",
+                "being pushed",
+                "in a queue."
+            ],
+            "token_groups": [
+                "I dislike",
+                "being pushed",
+                "in a queue."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-gerund-a2-g01",
+            "author_id": "A2-g01",
+            "question": "He left without {a1} for his work.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Він пішов, так і не отримавши плати за свою роботу.",
+            "target_text": "He left without being paid for his work.",
+            "markers": {
+                "a1": {
+                    "answer": "being paid",
+                    "options": [
+                        "being paid",
+                        "be paid",
+                        "been paid"
+                    ],
+                    "verb_hint": "Не отримавши плати за свою роботу."
+                }
+            },
+            "verb_hint": "Не отримавши плати за свою роботу.",
+            "accepted_target_texts": [
+                "He left without being paid for his work."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "left",
+                "without being paid",
+                "for his work."
+            ],
+            "token_groups": [
+                "He",
+                "left",
+                "without being paid",
+                "for his work."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-gerund-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She is tired of {a1} the same question.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона втомилася від того, що їй ставлять те саме запитання.",
+            "target_text": "She is tired of being asked the same question.",
+            "markers": {
+                "a1": {
+                    "answer": "being asked",
+                    "options": [
+                        "being asked",
+                        "be asked",
+                        "been asked"
+                    ],
+                    "verb_hint": "Їй ставлять те саме запитання."
+                }
+            },
+            "verb_hint": "Їй ставлять те саме запитання.",
+            "accepted_target_texts": [
+                "She is tired of being asked the same question."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "is",
+                "tired of",
+                "being asked",
+                "the same",
+                "question."
+            ],
+            "token_groups": [
+                "She",
+                "is",
+                "tired of",
+                "being asked",
+                "the same",
+                "question."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-gerund-a2-g03",
+            "author_id": "A2-g03",
+            "question": "They talked about {a1} for the team.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вони говорили про те, що їх обрали до команди.",
+            "target_text": "They talked about being chosen for the team.",
+            "markers": {
+                "a1": {
+                    "answer": "being chosen",
+                    "options": [
+                        "being chosen",
+                        "be chosen",
+                        "been chosen"
+                    ],
+                    "verb_hint": "Їх обрали до команди."
+                }
+            },
+            "verb_hint": "Їх обрали до команди.",
+            "accepted_target_texts": [
+                "They talked about being chosen for the team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They talked",
+                "about being chosen",
+                "for the team."
+            ],
+            "token_groups": [
+                "They talked",
+                "about being chosen",
+                "for the team."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-gerund-a2-g04",
+            "author_id": "A2-g04",
+            "question": "I worry about {a1} for the train.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Я хвилююся, що запізнюся на поїзд.",
+            "target_text": "I worry about being late for the train.",
+            "markers": {
+                "a1": {
+                    "answer": "being late",
+                    "options": [
+                        "being late",
+                        "be late",
+                        "been late"
+                    ],
+                    "verb_hint": "Запізнюся на поїзд; тут звичайний герундій зі станом, не пасив дії."
+                }
+            },
+            "verb_hint": "Запізнюся на поїзд; тут звичайний герундій зі станом, не пасив дії.",
+            "accepted_target_texts": [
+                "I worry about being late for the train."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I worry",
+                "about being late",
+                "for the train."
+            ],
+            "token_groups": [
+                "I worry",
+                "about being late",
+                "for the train."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-gerund-a2-g05",
+            "author_id": "A2-g05",
+            "question": "We sat down after {a1} our seats.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Ми сіли після того, як нам показали наші місця.",
+            "target_text": "We sat down after being shown our seats.",
+            "markers": {
+                "a1": {
+                    "answer": "being shown",
+                    "options": [
+                        "being shown",
+                        "be shown",
+                        "been shown"
+                    ],
+                    "verb_hint": "Нам показали наші місця."
+                }
+            },
+            "verb_hint": "Нам показали наші місця.",
+            "accepted_target_texts": [
+                "We sat down after being shown our seats."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We sat",
+                "down after",
+                "being shown",
+                "our seats."
+            ],
+            "token_groups": [
+                "We sat",
+                "down after",
+                "being shown",
+                "our seats."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-gerund-a2-g06",
+            "author_id": "A2-g06",
+            "question": "He smiled at {a1} a hero.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Він усміхнувся через те, що його назвали героєм.",
+            "target_text": "He smiled at being called a hero.",
+            "markers": {
+                "a1": {
+                    "answer": "being called",
+                    "options": [
+                        "being called",
+                        "be called",
+                        "been called"
+                    ],
+                    "verb_hint": "Його назвали героєм."
+                }
+            },
+            "verb_hint": "Його назвали героєм.",
+            "accepted_target_texts": [
+                "He smiled at being called a hero."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "smiled",
+                "at being called",
+                "a hero."
+            ],
+            "token_groups": [
+                "He",
+                "smiled",
+                "at being called",
+                "a hero."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-gerund-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The goalkeeper denied {a1} during training.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Воротар заперечив, що травмувався під час тренування.",
+            "target_text": "The goalkeeper denied being injured during training.",
+            "markers": {
+                "a1": {
+                    "answer": "being injured",
+                    "options": [
+                        "being injured",
+                        "be injured",
+                        "been injured"
+                    ],
+                    "verb_hint": "Травмувався під час тренування."
+                }
+            },
+            "verb_hint": "Травмувався під час тренування.",
+            "accepted_target_texts": [
+                "The goalkeeper denied being injured during training."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The goalkeeper",
+                "denied being injured",
+                "during training."
+            ],
+            "token_groups": [
+                "The goalkeeper",
+                "denied being injured",
+                "during training."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-gerund-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Marta avoids {a1} into arguments.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Марта уникає того, щоб її втягували в суперечки.",
+            "target_text": "Marta avoids being drawn into arguments.",
+            "markers": {
+                "a1": {
+                    "answer": "being drawn",
+                    "options": [
+                        "being drawn",
+                        "be drawn",
+                        "been drawn"
+                    ],
+                    "verb_hint": "Її втягували в суперечки."
+                }
+            },
+            "verb_hint": "Її втягували в суперечки.",
+            "accepted_target_texts": [
+                "Marta avoids being drawn into arguments."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta",
+                "avoids",
+                "being drawn",
+                "into arguments."
+            ],
+            "token_groups": [
+                "Marta",
+                "avoids",
+                "being drawn",
+                "into arguments."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-gerund-b1-g03",
+            "author_id": "B1-g03",
+            "question": "We appreciate {a1} about delays.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Ми цінуємо те, що нас повідомляють про затримки.",
+            "target_text": "We appreciate being informed about delays.",
+            "markers": {
+                "a1": {
+                    "answer": "being informed",
+                    "options": [
+                        "being informed",
+                        "be informed",
+                        "been informed"
+                    ],
+                    "verb_hint": "Нас повідомляють про затримки."
+                }
+            },
+            "verb_hint": "Нас повідомляють про затримки.",
+            "accepted_target_texts": [
+                "We appreciate being informed about delays."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "appreciate",
+                "being informed",
+                "about delays."
+            ],
+            "token_groups": [
+                "We",
+                "appreciate",
+                "being informed",
+                "about delays."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-gerund-b1-g04",
+            "author_id": "B1-g04",
+            "question": "He insisted on {a1} fairly.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Він наполягав на тому, щоб до нього ставилися справедливо.",
+            "target_text": "He insisted on being treated fairly.",
+            "markers": {
+                "a1": {
+                    "answer": "being treated",
+                    "options": [
+                        "being treated",
+                        "be treated",
+                        "been treated"
+                    ],
+                    "verb_hint": "До нього ставилися справедливо."
+                }
+            },
+            "verb_hint": "До нього ставилися справедливо.",
+            "accepted_target_texts": [
+                "He insisted on being treated fairly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "insisted",
+                "on being treated",
+                "fairly."
+            ],
+            "token_groups": [
+                "He",
+                "insisted",
+                "on being treated",
+                "fairly."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-gerund-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Despite {a1}, the hikers continued.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Попри те що їх попередили, мандрівники продовжили шлях.",
+            "target_text": "Despite being warned, the hikers continued.",
+            "markers": {
+                "a1": {
+                    "answer": "being warned",
+                    "options": [
+                        "being warned",
+                        "be warned",
+                        "been warned"
+                    ],
+                    "verb_hint": "Їх попередили, мандрівники продовжили шлях."
+                }
+            },
+            "verb_hint": "Їх попередили, мандрівники продовжили шлях.",
+            "accepted_target_texts": [
+                "Despite being warned, the hikers continued."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Despite",
+                "being warned,",
+                "the hikers",
+                "continued."
+            ],
+            "token_groups": [
+                "Despite",
+                "being warned,",
+                "the hikers",
+                "continued."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-gerund-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The singer is used to {a1} in shops.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Співак звик до того, що його впізнають у магазинах.",
+            "target_text": "The singer is used to being recognised in shops.",
+            "markers": {
+                "a1": {
+                    "answer": "being recognised",
+                    "options": [
+                        "being recognised",
+                        "be recognised",
+                        "been recognised"
+                    ],
+                    "verb_hint": "Його впізнають у магазинах."
+                }
+            },
+            "verb_hint": "Його впізнають у магазинах.",
+            "accepted_target_texts": [
+                "The singer is used to being recognised in shops.",
+                "The singer is used to being recognized in shops."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "being recognized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "being recognized"
+                ]
+            },
+            "reorder_groups": [
+                "The singer",
+                "is used",
+                "to being recognised",
+                "in shops."
+            ],
+            "token_groups": [
+                "The singer",
+                "is used",
+                "to being recognised",
+                "in shops."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-gerund-b2-g01",
+            "author_id": "B2-g01",
+            "question": "She recalled {a1} by a renowned pianist.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона пригадала, що раніше навчалася у відомого піаніста.",
+            "target_text": "She recalled having been taught by a renowned pianist.",
+            "markers": {
+                "a1": {
+                    "answer": "having been taught",
+                    "options": [
+                        "having been taught",
+                        "have been taught",
+                        "having being taught"
+                    ],
+                    "verb_hint": "Раніше навчалася у відомого піаніста."
+                }
+            },
+            "verb_hint": "Раніше навчалася у відомого піаніста.",
+            "accepted_target_texts": [
+                "She recalled having been taught by a renowned pianist."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "recalled",
+                "having been taught",
+                "by",
+                "a renowned pianist."
+            ],
+            "token_groups": [
+                "She",
+                "recalled",
+                "having been taught",
+                "by",
+                "a renowned pianist."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-gerund-b2-g02",
+            "author_id": "B2-g02",
+            "question": "After {a1} twice, he reapplied.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Після того як йому двічі відмовили, він подав заяву знову.",
+            "target_text": "After having been rejected twice, he reapplied.",
+            "markers": {
+                "a1": {
+                    "answer": "having been rejected",
+                    "options": [
+                        "having been rejected",
+                        "have been rejected",
+                        "having being rejected"
+                    ],
+                    "verb_hint": "Йому двічі відмовили, він подав заяву знову."
+                }
+            },
+            "verb_hint": "Йому двічі відмовили, він подав заяву знову.",
+            "accepted_target_texts": [
+                "After having been rejected twice, he reapplied."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "After",
+                "having been rejected",
+                "twice,",
+                "he reapplied."
+            ],
+            "token_groups": [
+                "After",
+                "having been rejected",
+                "twice,",
+                "he reapplied."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-gerund-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The architect objected to {a1} for the leak.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Архітектор заперечував проти того, що на нього покладали провину за протікання.",
+            "target_text": "The architect objected to being blamed for the leak.",
+            "markers": {
+                "a1": {
+                    "answer": "being blamed",
+                    "options": [
+                        "being blamed",
+                        "be blamed",
+                        "been blamed"
+                    ],
+                    "verb_hint": "На нього покладали провину за протікання."
+                }
+            },
+            "verb_hint": "На нього покладали провину за протікання.",
+            "accepted_target_texts": [
+                "The architect objected to being blamed for the leak."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The architect",
+                "objected to",
+                "being blamed",
+                "for the leak."
+            ],
+            "token_groups": [
+                "The architect",
+                "objected to",
+                "being blamed",
+                "for the leak."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-gerund-b2-g04",
+            "author_id": "B2-g04",
+            "question": "She resented {a1} for promotion.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона обурювалася, що раніше її оминули під час підвищення.",
+            "target_text": "She resented having been overlooked for promotion.",
+            "markers": {
+                "a1": {
+                    "answer": "having been overlooked",
+                    "options": [
+                        "having been overlooked",
+                        "have been overlooked",
+                        "having being overlooked"
+                    ],
+                    "verb_hint": "Раніше її оминули під час підвищення."
+                }
+            },
+            "verb_hint": "Раніше її оминули під час підвищення.",
+            "accepted_target_texts": [
+                "She resented having been overlooked for promotion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "resented",
+                "having been overlooked",
+                "for promotion."
+            ],
+            "token_groups": [
+                "She",
+                "resented",
+                "having been overlooked",
+                "for promotion."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-gerund-b2-g05",
+            "author_id": "B2-g05",
+            "question": "He accepted the award without {a1} its monetary value.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Він прийняв нагороду, хоча йому не повідомили її грошову вартість.",
+            "target_text": "He accepted the award without being told its monetary value.",
+            "markers": {
+                "a1": {
+                    "answer": "being told",
+                    "options": [
+                        "being told",
+                        "be told",
+                        "been told"
+                    ],
+                    "verb_hint": "Йому не повідомили її грошову вартість."
+                }
+            },
+            "verb_hint": "Йому не повідомили її грошову вартість.",
+            "accepted_target_texts": [
+                "He accepted the award without being told its monetary value."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "accepted",
+                "the award",
+                "without being told",
+                "its monetary",
+                "value."
+            ],
+            "token_groups": [
+                "He",
+                "accepted",
+                "the award",
+                "without being told",
+                "its monetary",
+                "value."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-gerund-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The staff were nervous about {a1} abroad.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Працівники хвилювалися через те, що їх можуть перевести за кордон.",
+            "target_text": "The staff were nervous about being relocated abroad.",
+            "markers": {
+                "a1": {
+                    "answer": "being relocated",
+                    "options": [
+                        "being relocated",
+                        "be relocated",
+                        "been relocated"
+                    ],
+                    "verb_hint": "Їх можуть перевести за кордон."
+                }
+            },
+            "verb_hint": "Їх можуть перевести за кордон.",
+            "accepted_target_texts": [
+                "The staff were nervous about being relocated abroad."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The staff",
+                "were nervous",
+                "about being relocated",
+                "abroad."
+            ],
+            "token_groups": [
+                "The staff",
+                "were nervous",
+                "about being relocated",
+                "abroad."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-gerund-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness denied {a1} before testifying.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Свідок заперечив, що його раніше готували до давання показань.",
+            "target_text": "The witness denied having been coached before testifying.",
+            "markers": {
+                "a1": {
+                    "answer": "having been coached",
+                    "options": [
+                        "having been coached",
+                        "have been coached",
+                        "having being coached"
+                    ],
+                    "verb_hint": "Його раніше готували до давання показань."
+                }
+            },
+            "verb_hint": "Його раніше готували до давання показань.",
+            "accepted_target_texts": [
+                "The witness denied having been coached before testifying."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "denied having been",
+                "coached",
+                "before testifying."
+            ],
+            "token_groups": [
+                "The witness",
+                "denied having been",
+                "coached",
+                "before testifying."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-gerund-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The delegates protested against {a1} in negotiations.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Делегати протестували проти того, що їх відтісняли на узбіччя переговорів.",
+            "target_text": "The delegates protested against being marginalised in negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "being marginalised",
+                    "options": [
+                        "being marginalised",
+                        "be marginalised",
+                        "been marginalised"
+                    ],
+                    "verb_hint": "Їх відтісняли на узбіччя переговорів."
+                }
+            },
+            "verb_hint": "Їх відтісняли на узбіччя переговорів.",
+            "accepted_target_texts": [
+                "The delegates protested against being marginalised in negotiations.",
+                "The delegates protested against being marginalized in negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "being marginalized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "being marginalized"
+                ]
+            },
+            "reorder_groups": [
+                "The delegates",
+                "protested against",
+                "being marginalised",
+                "in negotiations."
+            ],
+            "token_groups": [
+                "The delegates",
+                "protested against",
+                "being marginalised",
+                "in negotiations."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-gerund-c1-g03",
+            "author_id": "C1-g03",
+            "question": "She was indignant at {a1} in print.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона обурювалася, що її позицію раніше викривили у пресі.",
+            "target_text": "She was indignant at having been misrepresented in print.",
+            "markers": {
+                "a1": {
+                    "answer": "having been misrepresented",
+                    "options": [
+                        "having been misrepresented",
+                        "have been misrepresented",
+                        "having being misrepresented"
+                    ],
+                    "verb_hint": "Її позицію раніше викривили у пресі."
+                }
+            },
+            "verb_hint": "Її позицію раніше викривили у пресі.",
+            "accepted_target_texts": [
+                "She was indignant at having been misrepresented in print."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "was",
+                "indignant at",
+                "having been misrepresented",
+                "in print."
+            ],
+            "token_groups": [
+                "She",
+                "was",
+                "indignant at",
+                "having been misrepresented",
+                "in print."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-gerund-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The contractor admitted {a1} for those expenses.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Підрядник визнав, що йому раніше відшкодували ті витрати.",
+            "target_text": "The contractor admitted having been reimbursed for those expenses.",
+            "markers": {
+                "a1": {
+                    "answer": "having been reimbursed",
+                    "options": [
+                        "having been reimbursed",
+                        "have been reimbursed",
+                        "having being reimbursed"
+                    ],
+                    "verb_hint": "Йому раніше відшкодували ті витрати."
+                }
+            },
+            "verb_hint": "Йому раніше відшкодували ті витрати.",
+            "accepted_target_texts": [
+                "The contractor admitted having been reimbursed for those expenses."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contractor",
+                "admitted having been",
+                "reimbursed",
+                "for those expenses."
+            ],
+            "token_groups": [
+                "The contractor",
+                "admitted having been",
+                "reimbursed",
+                "for those expenses."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-gerund-c1-g05",
+            "author_id": "C1-g05",
+            "question": "They sought compensation for {a1} unlawfully.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вони домагалися компенсації за те, що їх незаконно затримали.",
+            "target_text": "They sought compensation for being detained unlawfully.",
+            "markers": {
+                "a1": {
+                    "answer": "being detained",
+                    "options": [
+                        "being detained",
+                        "be detained",
+                        "been detained"
+                    ],
+                    "verb_hint": "Їх незаконно затримали."
+                }
+            },
+            "verb_hint": "Їх незаконно затримали.",
+            "accepted_target_texts": [
+                "They sought compensation for being detained unlawfully."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "sought",
+                "compensation for",
+                "being detained",
+                "unlawfully."
+            ],
+            "token_groups": [
+                "They",
+                "sought",
+                "compensation for",
+                "being detained",
+                "unlawfully."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-gerund-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The historian insisted on {a1} as a coauthor.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Історик наполягав на тому, щоб його вказали як співавтора.",
+            "target_text": "The historian insisted on being credited as a coauthor.",
+            "markers": {
+                "a1": {
+                    "answer": "being credited",
+                    "options": [
+                        "being credited",
+                        "be credited",
+                        "been credited"
+                    ],
+                    "verb_hint": "Його вказали як співавтора."
+                }
+            },
+            "verb_hint": "Його вказали як співавтора.",
+            "accepted_target_texts": [
+                "The historian insisted on being credited as a coauthor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The historian",
+                "insisted on",
+                "being credited",
+                "as a",
+                "coauthor."
+            ],
+            "token_groups": [
+                "The historian",
+                "insisted on",
+                "being credited",
+                "as a",
+                "coauthor."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-gerund-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The appellant deplored {a1} effective legal representation.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Апелянт жалкував, що його раніше позбавили ефективного правового представництва.",
+            "target_text": "The appellant deplored having been denied effective legal representation.",
+            "markers": {
+                "a1": {
+                    "answer": "having been denied",
+                    "options": [
+                        "having been denied",
+                        "have been denied",
+                        "having being denied"
+                    ],
+                    "verb_hint": "Його раніше позбавили ефективного правового представництва."
+                }
+            },
+            "verb_hint": "Його раніше позбавили ефективного правового представництва.",
+            "accepted_target_texts": [
+                "The appellant deplored having been denied effective legal representation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The appellant",
+                "deplored having been",
+                "denied",
+                "effective legal",
+                "representation."
+            ],
+            "token_groups": [
+                "The appellant",
+                "deplored having been",
+                "denied",
+                "effective legal",
+                "representation."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-gerund-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The minority objected to {a1} under a broader category.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Меншина заперечувала проти того, щоб її відносили до ширшої категорії.",
+            "target_text": "The minority objected to being subsumed under a broader category.",
+            "markers": {
+                "a1": {
+                    "answer": "being subsumed",
+                    "options": [
+                        "being subsumed",
+                        "be subsumed",
+                        "been subsumed"
+                    ],
+                    "verb_hint": "Заперечувала проти зарахування до ширшої категорії."
+                }
+            },
+            "verb_hint": "Заперечувала проти зарахування до ширшої категорії.",
+            "accepted_target_texts": [
+                "The minority objected to being subsumed under a broader category."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The minority",
+                "objected to",
+                "being subsumed",
+                "under",
+                "a broader category."
+            ],
+            "token_groups": [
+                "The minority",
+                "objected to",
+                "being subsumed",
+                "under",
+                "a broader category."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-gerund-c2-g03",
+            "author_id": "C2-g03",
+            "question": "She alluded to {a1} by her peers.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Вона натякнула на те, що її раніше піддали остракізму колеги.",
+            "target_text": "She alluded to having been ostracised by her peers.",
+            "markers": {
+                "a1": {
+                    "answer": "having been ostracised",
+                    "options": [
+                        "having been ostracised",
+                        "have been ostracised",
+                        "having being ostracised"
+                    ],
+                    "verb_hint": "Її раніше піддали остракізму колеги."
+                }
+            },
+            "verb_hint": "Її раніше піддали остракізму колеги.",
+            "accepted_target_texts": [
+                "She alluded to having been ostracised by her peers.",
+                "She alluded to having been ostracized by her peers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "having been ostracized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "having been ostracized"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "alluded",
+                "to having been",
+                "ostracised",
+                "by her peers."
+            ],
+            "token_groups": [
+                "She",
+                "alluded",
+                "to having been",
+                "ostracised",
+                "by her peers."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-gerund-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The consortium resented {a1} as obstructionist.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Консорціум обурювався, що його зображували як перешкоду.",
+            "target_text": "The consortium resented being portrayed as obstructionist.",
+            "markers": {
+                "a1": {
+                    "answer": "being portrayed",
+                    "options": [
+                        "being portrayed",
+                        "be portrayed",
+                        "been portrayed"
+                    ],
+                    "verb_hint": "Його зображували як перешкоду."
+                }
+            },
+            "verb_hint": "Його зображували як перешкоду.",
+            "accepted_target_texts": [
+                "The consortium resented being portrayed as obstructionist."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium",
+                "resented being portrayed",
+                "as obstructionist."
+            ],
+            "token_groups": [
+                "The consortium",
+                "resented being portrayed",
+                "as obstructionist."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-gerund-c2-g05",
+            "author_id": "C2-g05",
+            "question": "He acknowledged {a1} of the repercussions.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Він визнав, що його раніше поінформували про наслідки.",
+            "target_text": "He acknowledged having been apprised of the repercussions.",
+            "markers": {
+                "a1": {
+                    "answer": "having been apprised",
+                    "options": [
+                        "having been apprised",
+                        "have been apprised",
+                        "having being apprised"
+                    ],
+                    "verb_hint": "Його раніше поінформували про наслідки."
+                }
+            },
+            "verb_hint": "Його раніше поінформували про наслідки.",
+            "accepted_target_texts": [
+                "He acknowledged having been apprised of the repercussions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "acknowledged",
+                "having been apprised",
+                "of the repercussions."
+            ],
+            "token_groups": [
+                "He",
+                "acknowledged",
+                "having been apprised",
+                "of the repercussions."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-gerund-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The respondent waived objections to {a1} remotely.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_gerund",
+            "translation_uk": "Відповідач відмовився від заперечень проти того, щоб його перехресно допитували дистанційно.",
+            "target_text": "The respondent waived objections to being cross-examined remotely.",
+            "markers": {
+                "a1": {
+                    "answer": "being cross-examined",
+                    "options": [
+                        "being cross-examined",
+                        "be cross-examined",
+                        "been cross-examined"
+                    ],
+                    "verb_hint": "Його перехресно допитували дистанційно."
+                }
+            },
+            "verb_hint": "Його перехресно допитували дистанційно.",
+            "accepted_target_texts": [
+                "The respondent waived objections to being cross-examined remotely."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "waived objections",
+                "to being cross-examined",
+                "remotely."
+            ],
+            "token_groups": [
+                "The respondent",
+                "waived objections",
+                "to being cross-examined",
+                "remotely."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

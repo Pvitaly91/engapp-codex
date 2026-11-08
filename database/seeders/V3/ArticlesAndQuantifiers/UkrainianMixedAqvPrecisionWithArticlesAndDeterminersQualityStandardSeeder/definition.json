@@ -1,0 +1,683 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aqv-v1",
+    "compiled_from": {
+        "path": "docs/content/articles-quantifiers-quality/precision-with-articles-and-determiners.v1.json",
+        "sha256": "d9c86102513c1c6bfebef4931c3694c8cedc936e7b6b31c613fa548c1a0ee1c5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ArticlesAndQuantifiers\\UkrainianMixedAqvPrecisionWithArticlesAndDeterminersQualityStandardSeeder",
+        "uuid_namespace": "articles-quantifiers-quality-precision-with-articles-and-determiners-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Articles and Quantifiers"
+    },
+    "sources": {
+        "articles_quantifiers_quality_precision_with_articles_and_determiners": {
+            "name": "Articles and Quantifiers Quality: Precision with Articles and Determiners"
+        }
+    },
+    "tags": {
+        "pad_topic": {
+            "name": "precision with articles and determiners",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "precision_articles": {
+            "name": "precision with articles",
+            "category": "articles-and-quantifiers"
+        },
+        "definite_reference": {
+            "name": "definite reference",
+            "category": "articles-and-quantifiers"
+        },
+        "first_second_mention": {
+            "name": "first and second mention",
+            "category": "articles-and-quantifiers"
+        },
+        "unique_reference": {
+            "name": "unique reference",
+            "category": "articles-and-quantifiers"
+        },
+        "zero_article_general": {
+            "name": "zero article for general meaning",
+            "category": "articles-and-quantifiers"
+        },
+        "possessives_vs_articles": {
+            "name": "possessives vs articles",
+            "category": "articles-and-quantifiers"
+        },
+        "demonstrative_determiners": {
+            "name": "demonstrative determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "quantifier_determiners": {
+            "name": "quantifier determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "each_every_all": {
+            "name": "each every and all",
+            "category": "articles-and-quantifiers"
+        },
+        "many_much": {
+            "name": "many and much",
+            "category": "articles-and-quantifiers"
+        },
+        "few_little": {
+            "name": "few and little",
+            "category": "articles-and-quantifiers"
+        },
+        "several_enough": {
+            "name": "several and enough",
+            "category": "articles-and-quantifiers"
+        },
+        "abstract_nouns": {
+            "name": "determiners with abstract nouns",
+            "category": "articles-and-quantifiers"
+        },
+        "reference_tracking": {
+            "name": "reference tracking across sentences",
+            "category": "articles-and-quantifiers"
+        },
+        "formal_precision": {
+            "name": "precision in formal writing",
+            "category": "articles-and-quantifiers"
+        },
+        "vague_determiners": {
+            "name": "avoiding vague determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "articles-and-quantifiers"
+        }
+    },
+    "default_tag_keys": [
+        "pad_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aqv-pad-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I have two pencils. {a1} pencils are blue.",
+            "level": "A1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "У мене два олівці. Ці олівці сині.",
+            "target_text": "I have two pencils. The pencils are blue.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "options": [
+                        "The",
+                        "A",
+                        "An"
+                    ],
+                    "verb_hint": "Познач уже названі два предмети означеним артиклем."
+                }
+            },
+            "verb_hint": "Познач уже названі два предмети означеним артиклем.",
+            "accepted_target_texts": [
+                "I have two pencils. The pencils are blue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "two pencils.",
+                "The pencils",
+                "are blue."
+            ],
+            "token_groups": [
+                "I have",
+                "two pencils.",
+                "The pencils",
+                "are blue."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aqv-pad-a1-g02",
+            "author_id": "A1-g02",
+            "question": "This is {a1} old bike.",
+            "level": "A1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Це старий велосипед мого дядька.",
+            "target_text": "This is my uncle's old bike.",
+            "markers": {
+                "a1": {
+                    "answer": "my uncle's",
+                    "options": [
+                        "my uncle's",
+                        "my uncle",
+                        "me uncle"
+                    ],
+                    "verb_hint": "Назви належність дядькові мовця; присвійна форма замінює артикль."
+                }
+            },
+            "verb_hint": "Назви належність дядькові мовця; присвійна форма замінює артикль.",
+            "accepted_target_texts": [
+                "This is my uncle's old bike."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "my uncle's",
+                "old bike."
+            ],
+            "token_groups": [
+                "This is",
+                "my uncle's",
+                "old bike."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aqv-pad-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} of these two keys opens the gate; they both work.",
+            "level": "A2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Будь-який із цих двох ключів відчиняє ворота; обидва справні.",
+            "target_text": "Either of these two keys opens the gate; they both work.",
+            "markers": {
+                "a1": {
+                    "answer": "Either",
+                    "options": [
+                        "Either",
+                        "Neither",
+                        "Every"
+                    ],
+                    "verb_hint": "Назви будь-який один із двох справних ключів, не обидва разом."
+                }
+            },
+            "verb_hint": "Назви будь-який один із двох справних ключів, не обидва разом.",
+            "accepted_target_texts": [
+                "Either of these two keys opens the gate; they both work."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Either of",
+                "these two keys",
+                "opens the gate;",
+                "they both work."
+            ],
+            "token_groups": [
+                "Either of",
+                "these two keys",
+                "opens the gate;",
+                "they both work."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aqv-pad-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Every child {a1} a clean towel.",
+            "level": "A2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Кожна дитина має чистий рушник.",
+            "target_text": "Every child has a clean towel.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Узгодь дієслово належності з кожною дитиною окремо в теперішньому часі."
+                }
+            },
+            "verb_hint": "Узгодь дієслово належності з кожною дитиною окремо в теперішньому часі.",
+            "accepted_target_texts": [
+                "Every child has a clean towel."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Every child",
+                "has",
+                "a clean towel."
+            ],
+            "token_groups": [
+                "Every child",
+                "has",
+                "a clean towel."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aqv-pad-b1-g01",
+            "author_id": "B1-g01",
+            "question": "I spoke to {a1} of the three guides individually.",
+            "level": "B1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Я поговорив окремо з кожним із трьох гідів.",
+            "target_text": "I spoke to each of the three guides individually.",
+            "markers": {
+                "a1": {
+                    "answer": "each",
+                    "options": [
+                        "each",
+                        "every",
+                        "both"
+                    ],
+                    "verb_hint": "Охопи всіх трьох поодинці; наступний прийменник уже наведений. Приймаються коротка та розгорнута форми слова кожен."
+                }
+            },
+            "verb_hint": "Охопи всіх трьох поодинці; наступний прийменник уже наведений. Приймаються коротка та розгорнута форми слова кожен.",
+            "accepted_target_texts": [
+                "I spoke to each of the three guides individually.",
+                "I spoke to every one of the three guides individually."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "every one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "every one"
+                ]
+            },
+            "reorder_groups": [
+                "I spoke",
+                "to each",
+                "of the three",
+                "guides individually."
+            ],
+            "token_groups": [
+                "I spoke",
+                "to each",
+                "of the three",
+                "guides individually."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aqv-pad-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Neither of the answers {a1} completely correct.",
+            "level": "B1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Жодна з двох відповідей не є цілком правильною.",
+            "target_text": "Neither of the answers is completely correct.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "have"
+                    ],
+                    "verb_hint": "За формальним зразком узгодь заперечення щодо кожної з двох відповідей в однині."
+                }
+            },
+            "verb_hint": "За формальним зразком узгодь заперечення щодо кожної з двох відповідей в однині.",
+            "accepted_target_texts": [
+                "Neither of the answers is completely correct."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither of",
+                "the answers",
+                "is completely correct."
+            ],
+            "token_groups": [
+                "Neither of",
+                "the answers",
+                "is completely correct."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aqv-pad-b2-g01",
+            "author_id": "B2-g01",
+            "question": "We hired {a1} assistant whose experience matched the brief.",
+            "level": "B2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Ми найняли єдиного асистента, чий досвід відповідав вимогам.",
+            "target_text": "We hired the only assistant whose experience matched the brief.",
+            "markers": {
+                "a1": {
+                    "answer": "the only",
+                    "options": [
+                        "the only",
+                        "an only",
+                        "only an"
+                    ],
+                    "verb_hint": "Передай єдиного придатного асистента як визначену особу; збережи місце означення перед іменником."
+                }
+            },
+            "verb_hint": "Передай єдиного придатного асистента як визначену особу; збережи місце означення перед іменником.",
+            "accepted_target_texts": [
+                "We hired the only assistant whose experience matched the brief."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We hired",
+                "the only assistant",
+                "whose experience",
+                "matched the brief."
+            ],
+            "token_groups": [
+                "We hired",
+                "the only assistant",
+                "whose experience",
+                "matched the brief."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aqv-pad-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Most of the furniture {a1} before the move.",
+            "level": "B2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Більшість меблів продали до переїзду.",
+            "target_text": "Most of the furniture was sold before the move.",
+            "markers": {
+                "a1": {
+                    "answer": "was sold",
+                    "options": [
+                        "was sold",
+                        "were sold",
+                        "have sold"
+                    ],
+                    "verb_hint": "Передай продаж більшої частини конкретних меблів у минулому; сукупний іменник потребує однини."
+                }
+            },
+            "verb_hint": "Передай продаж більшої частини конкретних меблів у минулому; сукупний іменник потребує однини.",
+            "accepted_target_texts": [
+                "Most of the furniture was sold before the move."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Most of",
+                "the furniture",
+                "was sold",
+                "before the move."
+            ],
+            "token_groups": [
+                "Most of",
+                "the furniture",
+                "was sold",
+                "before the move."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aqv-pad-c1-g01",
+            "author_id": "C1-g01",
+            "question": "There was {a1} increase in demand, not the dramatic surge predicted.",
+            "level": "C1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Попит дещо зріс, а не різко підскочив, як прогнозували.",
+            "target_text": "There was a slight increase in demand, not the dramatic surge predicted.",
+            "markers": {
+                "a1": {
+                    "answer": "a slight",
+                    "options": [
+                        "a slight",
+                        "a dramatic",
+                        "a negligible"
+                    ],
+                    "verb_hint": "Назви невелике, але помітне зростання; приймаються три близькі означення невеликого розміру."
+                }
+            },
+            "verb_hint": "Назви невелике, але помітне зростання; приймаються три близькі означення невеликого розміру.",
+            "accepted_target_texts": [
+                "There was a slight increase in demand, not the dramatic surge predicted.",
+                "There was a small increase in demand, not the dramatic surge predicted.",
+                "There was a modest increase in demand, not the dramatic surge predicted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a small",
+                    "a modest"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a small",
+                    "a modest"
+                ]
+            },
+            "reorder_groups": [
+                "There was",
+                "a slight increase",
+                "in demand,",
+                "not the dramatic",
+                "surge predicted."
+            ],
+            "token_groups": [
+                "There was",
+                "a slight increase",
+                "in demand,",
+                "not the dramatic",
+                "surge predicted."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aqv-pad-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The little information available was independently {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Ту невелику кількість наявних відомостей перевірили незалежно.",
+            "target_text": "The little information available was independently verified.",
+            "markers": {
+                "a1": {
+                    "answer": "verified",
+                    "options": [
+                        "verified",
+                        "verifying",
+                        "verification"
+                    ],
+                    "verb_hint": "Передай перевірку саме наявного обмеженого набору відомостей; приймається також близьке дієслово перевіряння."
+                }
+            },
+            "verb_hint": "Передай перевірку саме наявного обмеженого набору відомостей; приймається також близьке дієслово перевіряння.",
+            "accepted_target_texts": [
+                "The little information available was independently verified.",
+                "The little information available was independently checked."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "checked"
+                ]
+            },
+            "reorder_groups": [
+                "The little",
+                "information available",
+                "was independently verified."
+            ],
+            "token_groups": [
+                "The little",
+                "information available",
+                "was independently verified."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aqv-pad-c2-g01",
+            "author_id": "C2-g01",
+            "question": "{a1} of the available evidence warrants treating the two cases as identical.",
+            "level": "C2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Жодні з наявних свідчень не дають підстав вважати ці два випадки однаковими.",
+            "target_text": "None of the available evidence warrants treating the two cases as identical.",
+            "markers": {
+                "a1": {
+                    "answer": "None",
+                    "options": [
+                        "None",
+                        "Neither",
+                        "Every"
+                    ],
+                    "verb_hint": "Відкинь усю наявну доказову підтримку такого ототожнення; свідчення не поділені на два окремі предмети."
+                }
+            },
+            "verb_hint": "Відкинь усю наявну доказову підтримку такого ототожнення; свідчення не поділені на два окремі предмети.",
+            "accepted_target_texts": [
+                "None of the available evidence warrants treating the two cases as identical."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the available evidence",
+                "warrants treating",
+                "the two cases",
+                "as identical."
+            ],
+            "token_groups": [
+                "None of",
+                "the available evidence",
+                "warrants treating",
+                "the two cases",
+                "as identical."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aqv-pad-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The few objections that remained {a1} individually.",
+            "level": "C2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Кілька заперечень, що залишилися, розглянули окремо.",
+            "target_text": "The few objections that remained were addressed individually.",
+            "markers": {
+                "a1": {
+                    "answer": "were addressed",
+                    "options": [
+                        "were addressed",
+                        "was addressed",
+                        "were addressing"
+                    ],
+                    "verb_hint": "Передай завершений розгляд решти конкретних заперечень; потрібен пасив у множині. Приймаються чотири близькі дієслова розгляду."
+                }
+            },
+            "verb_hint": "Передай завершений розгляд решти конкретних заперечень; потрібен пасив у множині. Приймаються чотири близькі дієслова розгляду.",
+            "accepted_target_texts": [
+                "The few objections that remained were addressed individually.",
+                "The few objections that remained were considered individually.",
+                "The few objections that remained were examined individually.",
+                "The few objections that remained were reviewed individually."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were considered",
+                    "were examined",
+                    "were reviewed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were considered",
+                    "were examined",
+                    "were reviewed"
+                ]
+            },
+            "reorder_groups": [
+                "The few objections",
+                "that remained",
+                "were addressed individually."
+            ],
+            "token_groups": [
+                "The few objections",
+                "that remained",
+                "were addressed individually."
+            ],
+            "quality_revision": "aqv-v1"
+        }
+    ]
+}

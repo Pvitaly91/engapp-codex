@@ -1,0 +1,869 @@
+{
+  "schema_version": 1,
+  "topic_key": "stance-register-and-evaluation",
+  "title": "Stance, Register and Evaluation",
+  "choice_pools": {
+    "preference_subject": ["I", "We", "They", "She", "He", "You", "Our team", "The reader"],
+    "preference_verb": ["like", "dislike", "prefer", "choose", "accept", "reject", "remember", "recognise"],
+    "title_object": ["this clear title", "that long heading", "the short label", "this new name", "the old title", "the small subtitle", "that simple heading", "this plain label"],
+    "neutrality_subject": ["Purported neutrality", "Ostensible neutrality", "Apparent impartiality", "Assumed objectivity", "Claimed detachment", "Surface neutrality", "Professed neutrality", "Asserted impartiality"],
+    "concealment_verb": ["masks", "conceals", "reveals", "presupposes", "reinforces", "exposes", "qualifies", "obscures"],
+    "value_judgement_object": ["a value judgement", "a value judgment", "an implicit preference", "a normative commitment", "an evaluative assumption", "a political preference", "an ideological premise", "a moral stance"],
+    "contrast_link": ["rather than", "instead of", "as opposed to", "in preference to", "without necessarily", "while ostensibly", "by merely", "through repeatedly"],
+    "elimination_action": ["eliminating it", "removing it", "exposing it", "defending it", "revising it", "justifying it", "clarifying it", "acknowledging it"],
+    "opinion_opening": [
+      "I think",
+      "I believe",
+      "We think",
+      "They believe",
+      "She thinks",
+      "He believes",
+      "Our tutor thinks",
+      "The artist believes"
+    ],
+    "visual_subject": [
+      "the blue poster",
+      "the red sign",
+      "the green map",
+      "the small photo",
+      "the white card",
+      "the yellow label",
+      "the dark frame",
+      "the first picture"
+    ],
+    "simple_evaluation": [
+      "is clear",
+      "looks untidy",
+      "is useful",
+      "seems simple",
+      "looks neat",
+      "is confusing",
+      "looks attractive",
+      "is readable"
+    ],
+    "personal_view": [
+      "For me",
+      "In my view",
+      "In my opinion",
+      "In her opinion",
+      "For our team",
+      "To my mind",
+      "For the class",
+      "In their view"
+    ],
+    "design_subject": [
+      "the second design",
+      "the first version",
+      "the new layout",
+      "the original format",
+      "the revised plan",
+      "the final draft",
+      "the alternative model",
+      "the current arrangement"
+    ],
+    "comparative_evaluation": [
+      "is easier",
+      "is harder",
+      "seems simpler",
+      "looks clearer",
+      "is more difficult",
+      "is less confusing",
+      "is less useful",
+      "looks more awkward"
+    ],
+    "infinitive_understand": [
+      "to follow",
+      "to understand",
+      "to explain",
+      "to read",
+      "to describe",
+      "to compare",
+      "to remember",
+      "to assess"
+    ],
+    "attribution_link": [
+      "According to",
+      "As stated by",
+      "As noted by",
+      "As reported by",
+      "In reply to",
+      "In agreement with",
+      "As suggested by",
+      "As explained by"
+    ],
+    "source_person": [
+      "the reviewer",
+      "the director",
+      "the curator",
+      "the editor",
+      "the teacher",
+      "the narrator",
+      "the critic",
+      "the designer"
+    ],
+    "narrative_subject": [
+      "the final scene",
+      "the opening paragraph",
+      "the central image",
+      "the main character",
+      "the closing argument",
+      "the first chapter",
+      "the last speech",
+      "the second act"
+    ],
+    "analysis_verb": [
+      "lacks",
+      "shows",
+      "needs",
+      "supports",
+      "questions",
+      "suggests",
+      "requires",
+      "provides"
+    ],
+    "abstract_quality": [
+      "a clear purpose",
+      "a useful contrast",
+      "a sound reason",
+      "a convincing motive",
+      "a coherent structure",
+      "a consistent theme",
+      "a distinct focus",
+      "a practical benefit"
+    ],
+    "criterion_link": [
+      "On grounds of",
+      "In terms of",
+      "With regard to",
+      "With respect to",
+      "By reference to",
+      "On account of",
+      "For purposes of",
+      "In relation to"
+    ],
+    "criterion": [
+      "accessibility",
+      "clarity",
+      "durability",
+      "efficiency",
+      "readability",
+      "flexibility",
+      "consistency",
+      "safety"
+    ],
+    "layout_subject": [
+      "the revised layout",
+      "the initial arrangement",
+      "the current format",
+      "the proposed design",
+      "the alternative plan",
+      "the updated interface",
+      "the new version",
+      "the amended structure"
+    ],
+    "comparison_predicate": [
+      "is preferable to",
+      "is inferior to",
+      "is comparable to",
+      "is similar to",
+      "is equivalent to",
+      "is superior to",
+      "differs markedly from",
+      "is worse than"
+    ],
+    "comparison_object": [
+      "the original",
+      "the alternative",
+      "the prototype",
+      "the baseline",
+      "the previous version",
+      "the initial design",
+      "the draft",
+      "the standard"
+    ],
+    "evaluation_body": [
+      "The panel",
+      "The committee",
+      "The board",
+      "The jury",
+      "The editorial team",
+      "The review group",
+      "The advisory body",
+      "The assessment team"
+    ],
+    "assessment_verb": [
+      "considers",
+      "judges",
+      "finds",
+      "deems",
+      "calls",
+      "labels",
+      "describes",
+      "regards"
+    ],
+    "proposal_object": [
+      "the proposal",
+      "the recommendation",
+      "the suggestion",
+      "the plan",
+      "the amendment",
+      "the initiative",
+      "the application",
+      "the project"
+    ],
+    "evaluative_adjective": [
+      "innovative",
+      "novel",
+      "practical",
+      "convincing",
+      "ambitious",
+      "coherent",
+      "controversial",
+      "premature"
+    ],
+    "qualified_support": [
+      "but poorly supported",
+      "yet well justified",
+      "and carefully reasoned",
+      "but internally inconsistent",
+      "though widely endorsed",
+      "yet insufficiently tested",
+      "and methodologically sound",
+      "but narrowly focused"
+    ],
+    "scope_connector": [
+      "Insofar as",
+      "Provided that",
+      "Even though",
+      "Given that",
+      "Except where",
+      "Unless",
+      "While",
+      "Because"
+    ],
+    "coherence_condition": [
+      "coherence is prioritised",
+      "consistency is prioritised",
+      "precision is prioritised",
+      "brevity is prioritised",
+      "clarity is prioritised",
+      "caution is prioritised",
+      "originality is prioritised",
+      "simplicity is prioritised"
+    ],
+    "interpretation_subject": [
+      "the latter interpretation",
+      "the initial reading",
+      "the alternative account",
+      "the former analysis",
+      "the second explanation",
+      "the competing view",
+      "the narrower conclusion",
+      "the broader interpretation"
+    ],
+    "qualified_evaluation": [
+      "remains defensible",
+      "seems plausible",
+      "appears speculative",
+      "is internally inconsistent",
+      "is inadequately grounded",
+      "remains open",
+      "is logically coherent",
+      "lacks adequate support"
+    ]
+  },
+  "questions": [
+    {
+      "id": "A1-g01",
+      "level": "A1",
+      "kind": "gap",
+      "question": "This sign {a1} easy to read.",
+      "target": "This sign is easy to read.",
+      "uk": "Цей знак легко прочитати.",
+      "hint_uk": "Потрібна теперішня форма зв’язки для вже названого одного предмета.",
+      "groups": [
+        "This sign",
+        "is easy",
+        "to read."
+      ],
+      "answer": "is",
+      "options": [
+        "is",
+        "are",
+        "be"
+      ],
+      "answer_synonyms": []
+    },
+    {
+      "id": "A1-g02",
+      "level": "A1",
+      "kind": "gap",
+      "question": "I {a1} the red chart is better.",
+      "target": "I think the red chart is better.",
+      "uk": "Я вважаю, що червона діаграма краща.",
+      "hint_uk": "Вважати: передай особисту думку; після вже наведеного займенника введи лише дієслово.",
+      "groups": [
+        "I think",
+        "the red chart",
+        "is better."
+      ],
+      "answer": "think",
+      "options": [
+        "think",
+        "thinks",
+        "thinking"
+      ],
+      "answer_synonyms": [
+        "believe"
+      ]
+    },
+    {
+      "id": "A1-c01",
+      "level": "A1",
+      "kind": "compose",
+      "question": "Мені подобається цей зрозумілий заголовок.",
+      "target": "I like this clear title.",
+      "uk": "Мені подобається цей зрозумілий заголовок.",
+      "hint_uk": "Передай особисту вподобу мовця дієсловом «подобатися»; потім назви цей зрозумілий заголовок.",
+      "groups": [
+        "I",
+        "like",
+        "this clear title."
+      ],
+      "compose_slots": [
+        "I",
+        "like",
+        "this clear title."
+      ],
+      "slot_roles": [
+        "preference_subject",
+        "preference_verb",
+        "title_object"
+      ],
+      "accepted_targets": [],
+      "display_synonyms": {}
+    },
+    {
+      "id": "A2-g01",
+      "level": "A2",
+      "kind": "gap",
+      "question": "In my {a1}, the first title is too long.",
+      "target": "In my opinion, the first title is too long.",
+      "uk": "На мою думку, перший заголовок надто довгий.",
+      "hint_uk": "У сталому звороті введи лише іменник зі значенням особистої думки.",
+      "groups": [
+        "In my opinion,",
+        "the first title",
+        "is too long."
+      ],
+      "answer": "opinion",
+      "options": [
+        "opinion",
+        "opinions",
+        "opinionated"
+      ],
+      "answer_synonyms": [
+        "view"
+      ]
+    },
+    {
+      "id": "A2-g02",
+      "level": "A2",
+      "kind": "gap",
+      "question": "The writer calls the ending {a1}.",
+      "target": "The writer calls the ending unclear.",
+      "uk": "Автор називає кінцівку незрозумілою.",
+      "hint_uk": "Незрозумілий: після названої кінцівки передай цю оцінку прикметником або короткою рівнозначною сполукою.",
+      "groups": [
+        "The writer calls",
+        "the ending",
+        "unclear."
+      ],
+      "answer": "unclear",
+      "options": [
+        "unclear",
+        "unclearly",
+        "clarity"
+      ],
+      "answer_synonyms": [
+        "confusing",
+        "hard to understand",
+        "difficult to follow"
+      ]
+    },
+    {
+      "id": "A2-c01",
+      "level": "A2",
+      "kind": "compose",
+      "question": "На мою думку, другий варіант оформлення легше зрозуміти.",
+      "target": "For me, the second design is easier to follow.",
+      "uk": "На мою думку, другий варіант оформлення легше зрозуміти.",
+      "hint_uk": "Почни зі звороту особистої оцінки; порівняльна ознака стосується зрозумілості.",
+      "groups": [
+        "For me,",
+        "the second design",
+        "is easier",
+        "to follow."
+      ],
+      "compose_slots": [
+        "For me,",
+        "the second design",
+        "is easier",
+        "to follow."
+      ],
+      "slot_roles": [
+        "personal_view",
+        "design_subject",
+        "comparative_evaluation",
+        "infinitive_understand"
+      ],
+      "accepted_targets": [
+        "For me, the second design is easier to understand.",
+        "In my view, the second design is easier to follow.",
+        "In my view, the second design is easier to understand.",
+        "In my opinion, the second design is easier to follow.",
+        "In my opinion, the second design is easier to understand."
+      ],
+      "display_synonyms": {
+        "For me": [
+          "In my view",
+          "In my opinion"
+        ],
+        "to follow": [
+          "to understand"
+        ]
+      }
+    },
+    {
+      "id": "B1-g01",
+      "level": "B1",
+      "kind": "gap",
+      "question": "The report {a1} the bridge as unsafe.",
+      "target": "The report describes the bridge as unsafe.",
+      "uk": "У звіті міст характеризують як небезпечний.",
+      "hint_uk": "Після вже наведеного підмета введи дієслово опису в теперішньому часі; далі йде оцінка з прийменником.",
+      "groups": [
+        "The report describes",
+        "the bridge",
+        "as unsafe."
+      ],
+      "answer": "describes",
+      "options": [
+        "describes",
+        "describe",
+        "describing"
+      ],
+      "answer_synonyms": [
+        "characterises",
+        "characterizes",
+        "portrays"
+      ]
+    },
+    {
+      "id": "B1-g02",
+      "level": "B1",
+      "kind": "gap",
+      "question": "To be fair, this option is cheaper {a1} less flexible.",
+      "target": "To be fair, this option is cheaper but less flexible.",
+      "uk": "Заради справедливості, цей варіант дешевший, але менш гнучкий.",
+      "hint_uk": "Поєднай перевагу й недолік протиставним сполучником; це не причина й не наслідок.",
+      "groups": [
+        "To be fair,",
+        "this option",
+        "is cheaper",
+        "but less flexible."
+      ],
+      "answer": "but",
+      "options": [
+        "but",
+        "because",
+        "therefore"
+      ],
+      "answer_synonyms": [
+        "yet"
+      ]
+    },
+    {
+      "id": "B1-c01",
+      "level": "B1",
+      "kind": "compose",
+      "question": "За словами рецензента, останній сцені бракує чіткої мети.",
+      "target": "According to the reviewer, the final scene lacks a clear purpose.",
+      "uk": "За словами рецензента, останній сцені бракує чіткої мети.",
+      "hint_uk": "Спочатку назви джерело оцінки; не подавай чужий висновок як власне беззаперечне знання.",
+      "groups": [
+        "According to",
+        "the reviewer,",
+        "the final scene",
+        "lacks",
+        "a clear purpose."
+      ],
+      "compose_slots": [
+        "According to",
+        "the reviewer,",
+        "the final scene",
+        "lacks",
+        "a clear purpose."
+      ],
+      "slot_roles": [
+        "attribution_link",
+        "source_person",
+        "narrative_subject",
+        "analysis_verb",
+        "abstract_quality"
+      ],
+      "accepted_targets": [
+        "According to the reviewer, the final scene lacks a clear aim.",
+        "According to the reviewer, the final scene lacks a clear objective.",
+        "According to the reviewer, the last scene lacks a clear purpose.",
+        "According to the reviewer, the last scene lacks a clear aim.",
+        "According to the reviewer, the last scene lacks a clear objective.",
+        "As stated by the reviewer, the final scene lacks a clear purpose.",
+        "As stated by the reviewer, the final scene lacks a clear aim.",
+        "As stated by the reviewer, the final scene lacks a clear objective.",
+        "As stated by the reviewer, the last scene lacks a clear purpose.",
+        "As stated by the reviewer, the last scene lacks a clear aim.",
+        "As stated by the reviewer, the last scene lacks a clear objective.",
+        "As noted by the reviewer, the final scene lacks a clear purpose.",
+        "As noted by the reviewer, the final scene lacks a clear aim.",
+        "As noted by the reviewer, the final scene lacks a clear objective.",
+        "As noted by the reviewer, the last scene lacks a clear purpose.",
+        "As noted by the reviewer, the last scene lacks a clear aim.",
+        "As noted by the reviewer, the last scene lacks a clear objective."
+      ],
+      "display_synonyms": {
+        "According to": [
+          "As stated by",
+          "As noted by"
+        ],
+        "the final scene": [
+          "the last scene"
+        ],
+        "a clear purpose": [
+          "a clear aim",
+          "a clear objective"
+        ]
+      }
+    },
+    {
+      "id": "B2-g01",
+      "level": "B2",
+      "kind": "gap",
+      "question": "From a legal {a1}, the wording is ambiguous.",
+      "target": "From a legal perspective, the wording is ambiguous.",
+      "uk": "З правової точки зору формулювання неоднозначне.",
+      "hint_uk": "Назви ракурс оцінювання іменником або сталою сполукою; уже наведений правовий критерій не повторюй.",
+      "groups": [
+        "From a legal",
+        "perspective,",
+        "the wording",
+        "is ambiguous."
+      ],
+      "answer": "perspective",
+      "options": [
+        "perspective",
+        "prospect",
+        "perspectively"
+      ],
+      "answer_synonyms": [
+        "standpoint",
+        "point of view"
+      ]
+    },
+    {
+      "id": "B2-g02",
+      "level": "B2",
+      "kind": "gap",
+      "question": "The editor {a1} the introduction to be overly assertive.",
+      "target": "The editor considers the introduction to be overly assertive.",
+      "uk": "Редактор вважає вступ надмірно категоричним.",
+      "hint_uk": "Вважає: потрібне теперішнє дієслово оцінювання для одного редактора; увесь подальший об’єкт уже наведено.",
+      "groups": [
+        "The editor considers",
+        "the introduction",
+        "to be",
+        "overly assertive."
+      ],
+      "answer": "considers",
+      "options": [
+        "considers",
+        "consider",
+        "considering"
+      ],
+      "answer_synonyms": [
+        "judges",
+        "deems",
+        "finds"
+      ]
+    },
+    {
+      "id": "B2-c01",
+      "level": "B2",
+      "kind": "compose",
+      "question": "За критерієм доступності оновлене компонування краще за початкове.",
+      "target": "On grounds of accessibility, the revised layout is preferable to the original.",
+      "uk": "За критерієм доступності оновлене компонування краще за початкове.",
+      "hint_uk": "Назви конкретний критерій, а не загальну перевагу без підстав; збережи обидва порівнювані варіанти.",
+      "groups": [
+        "On grounds of",
+        "accessibility,",
+        "the revised layout",
+        "is preferable to",
+        "the original."
+      ],
+      "compose_slots": [
+        "On grounds of",
+        "accessibility,",
+        "the revised layout",
+        "is preferable to",
+        "the original."
+      ],
+      "slot_roles": [
+        "criterion_link",
+        "criterion",
+        "layout_subject",
+        "comparison_predicate",
+        "comparison_object"
+      ],
+      "accepted_targets": [
+        "On grounds of accessibility, the revised layout is better than the original.",
+        "On grounds of accessibility, the revised arrangement is preferable to the original.",
+        "On grounds of accessibility, the revised arrangement is better than the original.",
+        "In terms of accessibility, the revised layout is preferable to the original.",
+        "In terms of accessibility, the revised layout is better than the original.",
+        "In terms of accessibility, the revised arrangement is preferable to the original.",
+        "In terms of accessibility, the revised arrangement is better than the original."
+      ],
+      "display_synonyms": {
+        "On grounds of": [
+          "In terms of"
+        ],
+        "the revised layout": [
+          "the revised arrangement"
+        ],
+        "is preferable to": [
+          "is better than"
+        ]
+      }
+    },
+    {
+      "id": "C1-g01",
+      "level": "C1",
+      "kind": "gap",
+      "question": "The recommendation is persuasive {a1} its explicitly stated criteria.",
+      "target": "The recommendation is persuasive by virtue of its explicitly stated criteria.",
+      "uk": "Рекомендація переконлива завдяки чітко сформульованим критеріям.",
+      "hint_uk": "Передай підставу переконливості прийменниковою сполукою; не змінюй її на поступку чи суперечність.",
+      "groups": [
+        "The recommendation",
+        "is persuasive",
+        "by virtue of",
+        "its explicitly",
+        "stated criteria."
+      ],
+      "answer": "by virtue of",
+      "options": [
+        "by virtue of",
+        "in spite of",
+        "at odds with"
+      ],
+      "answer_synonyms": [
+        "because of",
+        "owing to",
+        "due to"
+      ]
+    },
+    {
+      "id": "C1-g02",
+      "level": "C1",
+      "kind": "gap",
+      "question": "The critic's reservation {a1} the lack of a stated comparison group.",
+      "target": "The critic's reservation concerns the lack of a stated comparison group.",
+      "uk": "Зауваження критика стосується відсутності явно вказаної групи порівняння.",
+      "hint_uk": "Стосується: назви предмет зауваження теперішнім дієсловом або відповідною прийменниковою сполукою; підмет уже наведено.",
+      "groups": [
+        "The critic's reservation",
+        "concerns",
+        "the lack",
+        "of a stated",
+        "comparison group."
+      ],
+      "answer": "concerns",
+      "options": [
+        "concerns",
+        "concerning",
+        "concern"
+      ],
+      "answer_synonyms": [
+        "relates to",
+        "pertains to"
+      ]
+    },
+    {
+      "id": "C1-c01",
+      "level": "C1",
+      "kind": "compose",
+      "question": "Комісія вважає пропозицію новаторською, але недостатньо підтвердженою.",
+      "target": "The panel considers the proposal innovative but poorly supported.",
+      "uk": "Комісія вважає пропозицію новаторською, але недостатньо підтвердженою.",
+      "hint_uk": "Збережи обидві частини оцінки: новизна не означає достатності підтвердження.",
+      "groups": [
+        "The panel",
+        "considers",
+        "the proposal",
+        "innovative",
+        "but poorly supported."
+      ],
+      "compose_slots": [
+        "The panel",
+        "considers",
+        "the proposal",
+        "innovative",
+        "but poorly supported."
+      ],
+      "slot_roles": [
+        "evaluation_body",
+        "assessment_verb",
+        "proposal_object",
+        "evaluative_adjective",
+        "qualified_support"
+      ],
+      "accepted_targets": [
+        "The panel considers the proposal innovative but weakly supported.",
+        "The panel considers the proposal innovative but insufficiently substantiated.",
+        "The panel considers the proposal novel but poorly supported.",
+        "The panel considers the proposal novel but weakly supported.",
+        "The panel considers the proposal novel but insufficiently substantiated.",
+        "The panel finds the proposal innovative but poorly supported.",
+        "The panel finds the proposal innovative but weakly supported.",
+        "The panel finds the proposal innovative but insufficiently substantiated.",
+        "The panel finds the proposal novel but poorly supported.",
+        "The panel finds the proposal novel but weakly supported.",
+        "The panel finds the proposal novel but insufficiently substantiated.",
+        "The panel judges the proposal innovative but poorly supported.",
+        "The panel judges the proposal innovative but weakly supported.",
+        "The panel judges the proposal innovative but insufficiently substantiated.",
+        "The panel judges the proposal novel but poorly supported.",
+        "The panel judges the proposal novel but weakly supported.",
+        "The panel judges the proposal novel but insufficiently substantiated."
+      ],
+      "display_synonyms": {
+        "considers": [
+          "finds",
+          "judges"
+        ],
+        "innovative": [
+          "novel"
+        ],
+        "but poorly supported": [
+          "but weakly supported",
+          "but insufficiently substantiated"
+        ]
+      }
+    },
+    {
+      "id": "C2-g01",
+      "level": "C2",
+      "kind": "gap",
+      "question": "The apparent objectivity of the term should not be {a1}.",
+      "target": "The apparent objectivity of the term should not be taken for granted.",
+      "uk": "Не слід сприймати уявну об’єктивність терміна як щось самоочевидне.",
+      "hint_uk": "Після вже наведеного пасивного допоміжного дієслова передай некритичне прийняття за даність; уведи весь потрібний зворот.",
+      "groups": [
+        "The apparent objectivity",
+        "of the term",
+        "should not be",
+        "taken for granted."
+      ],
+      "answer": "taken for granted",
+      "options": [
+        "taken for granted",
+        "taking for granted",
+        "take for granted"
+      ],
+      "answer_synonyms": [
+        "assumed",
+        "presupposed",
+        "accepted uncritically"
+      ]
+    },
+    {
+      "id": "C2-g02",
+      "level": "C2",
+      "kind": "gap",
+      "question": "That verdict is defensible only {a1} the criterion remains unchanged.",
+      "target": "That verdict is defensible only insofar as the criterion remains unchanged.",
+      "uk": "Такий висновок можна обстоювати лише тією мірою, якою критерій залишається незмінним.",
+      "hint_uk": "Назви обмежувальний зв’язок: оцінку можна захищати лише в межах незмінності критерію, а не попри її зміну.",
+      "groups": [
+        "That verdict",
+        "is defensible",
+        "only insofar as",
+        "the criterion",
+        "remains unchanged."
+      ],
+      "answer": "insofar as",
+      "options": [
+        "insofar as",
+        "even though",
+        "rather than"
+      ],
+      "answer_synonyms": [
+        "to the extent that"
+      ]
+    },
+    {
+      "id": "C2-c01",
+      "level": "C2",
+      "kind": "compose",
+      "question": "Позірна нейтральність приховує оцінне судження, а не усуває його.",
+      "target": "Purported neutrality masks a value judgement rather than eliminating it.",
+      "uk": "Позірна нейтральність приховує оцінне судження, а не усуває його.",
+      "hint_uk": "Почни з позірної нейтральності як підмета; протистав приховування оцінного судження його усуненню.",
+      "groups": [
+        "Purported neutrality",
+        "masks",
+        "a value judgement",
+        "rather than",
+        "eliminating it."
+      ],
+      "compose_slots": [
+        "Purported neutrality",
+        "masks",
+        "a value judgement",
+        "rather than",
+        "eliminating it."
+      ],
+      "slot_roles": [
+        "neutrality_subject",
+        "concealment_verb",
+        "value_judgement_object",
+        "contrast_link",
+        "elimination_action"
+      ],
+      "accepted_targets": [
+        "Purported neutrality masks a value judgement rather than removing it.",
+        "Purported neutrality masks a value judgment rather than eliminating it.",
+        "Purported neutrality masks a value judgment rather than removing it.",
+        "Purported neutrality conceals a value judgement rather than eliminating it.",
+        "Purported neutrality conceals a value judgement rather than removing it.",
+        "Purported neutrality conceals a value judgment rather than eliminating it.",
+        "Purported neutrality conceals a value judgment rather than removing it.",
+        "Ostensible neutrality masks a value judgement rather than eliminating it.",
+        "Ostensible neutrality masks a value judgement rather than removing it.",
+        "Ostensible neutrality masks a value judgment rather than eliminating it.",
+        "Ostensible neutrality masks a value judgment rather than removing it.",
+        "Ostensible neutrality conceals a value judgement rather than eliminating it.",
+        "Ostensible neutrality conceals a value judgement rather than removing it.",
+        "Ostensible neutrality conceals a value judgment rather than eliminating it.",
+        "Ostensible neutrality conceals a value judgment rather than removing it."
+      ],
+      "display_synonyms": {
+        "Purported neutrality": ["Ostensible neutrality"],
+        "masks": ["conceals"],
+        "a value judgement": ["a value judgment"],
+        "eliminating it": ["removing it"]
+      }
+    }
+  ]
+}

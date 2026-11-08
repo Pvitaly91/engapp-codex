@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60330,
+        "uuid": "beq-present-c1-g05",
+        "question": "I {a1} of the distinction between consent and mere compliance.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 12,
+        "source_id": 421,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBePresentQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "am conscious",
+                "is conscious",
+                "are conscious"
+            ]
+        },
+        "theory_text_block_uuid": "3024fd46-06c5-5fb1-b24a-74f3f229922f",
+        "created_at": "2026-10-27T13:04:57.000000Z",
+        "updated_at": "2026-10-27T13:04:57.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 421,
+        "name": "Verb to Be Quality: Теперішні форми дієслова бути",
+        "created_at": "2026-10-27T13:04:55.000000Z",
+        "updated_at": "2026-10-27T13:04:55.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 96,
+                "name": "Verb to be: present tense (am / is / are)",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60330,
+                "tag_id": 96,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 52630,
+                "option": "am conscious",
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 60330,
+                "option_id": 52630,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52632,
+                "option": "is conscious",
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 60330,
+                "option_id": 52632,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52633,
+                "option": "are conscious",
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 60330,
+                "option_id": 52633,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 324451,
+                "question_id": 60330,
+                "marker": "a1",
+                "option_id": 52630,
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            },
+            "option": {
+                "id": 52630,
+                "option": "am conscious",
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 41785,
+                "question_id": 60330,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 52631,
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            },
+            "option": {
+                "id": 52631,
+                "option": "Передай усвідомлення мовця, не повторюючи вже наведену відмінність.",
+                "created_at": "2026-10-27T13:04:57.000000Z",
+                "updated_at": "2026-10-27T13:04:57.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52345,
+            "question_id": 60330,
+            "text": "I {a1} of the distinction between consent and mere compliance.",
+            "created_at": "2026-10-27T13:04:57.000000Z",
+            "updated_at": "2026-10-27T13:04:57.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

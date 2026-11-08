@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64700,
+        "uuid": "pvq-reporting-c1-g01",
+        "question": "The adviser is understood {a1} the minister privately.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 10,
+        "source_id": 502,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveReportingStructuresQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to have briefed",
+                "to has briefed",
+                "having briefed"
+            ]
+        },
+        "theory_text_block_uuid": "f319d468-3652-5702-851e-8e4412d8ff9c",
+        "created_at": "2026-10-30T20:18:53.000000Z",
+        "updated_at": "2026-10-30T20:18:53.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 502,
+        "name": "Passive Voice Quality: Пасивні конструкції повідомлення",
+        "created_at": "2026-10-30T20:18:51.000000Z",
+        "updated_at": "2026-10-30T20:18:51.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 1688,
+                "name": "Passive Reporting Structures",
+                "category": null,
+                "created_at": "2026-04-26T00:23:33.000000Z",
+                "updated_at": "2026-04-26T00:23:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 64700,
+                "tag_id": 1688,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 63630,
+                "option": "to have briefed",
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 64700,
+                "option_id": 63630,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 63632,
+                "option": "to has briefed",
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 64700,
+                "option_id": 63632,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 63633,
+                "option": "having briefed",
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 64700,
+                "option_id": 63633,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 336753,
+                "question_id": 64700,
+                "marker": "a1",
+                "option_id": 63630,
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            },
+            "option": {
+                "id": 63630,
+                "option": "to have briefed",
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54087,
+                "question_id": 64700,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 63631,
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            },
+            "option": {
+                "id": 63631,
+                "option": "Раніше приватно поінформував міністра.",
+                "created_at": "2026-10-30T20:18:53.000000Z",
+                "updated_at": "2026-10-30T20:18:53.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56715,
+            "question_id": 64700,
+            "text": "The adviser is understood {a1} the minister privately.",
+            "created_at": "2026-10-30T20:18:53.000000Z",
+            "updated_at": "2026-10-30T20:18:53.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

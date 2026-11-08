@@ -1,0 +1,675 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/passive.v1.json",
+        "sha256": "139ac9ef7d9dcf60d91ca44d165093caadc8c19b3437631585d6e605a77bb0ed"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqPassiveQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-passive-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_passive": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Passive"
+        }
+    },
+    "tags": {
+        "sentence_transformations_passive_all_levels": {
+            "name": "sentence transformations passive all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "passive_to_active": {
+            "name": "Passive To Active",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "preserve_tense": {
+            "name": "Preserve Tense",
+            "category": "topic"
+        },
+        "present_simple_passive": {
+            "name": "Present Simple Passive",
+            "category": "topic"
+        },
+        "past_simple_passive": {
+            "name": "Past Simple Passive",
+            "category": "topic"
+        },
+        "present_perfect_passive": {
+            "name": "Present Perfect Passive",
+            "category": "topic"
+        },
+        "future_modal_passive": {
+            "name": "Future Modal Passive",
+            "category": "topic"
+        },
+        "by_agent_omission": {
+            "name": "By Agent Omission",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-passive-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The fence {a1} by Anton.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «За звичним порядком паркан фарбує Антон».",
+            "target_text": "The fence is painted by Anton.",
+            "markers": {
+                "a1": {
+                    "answer": "is painted",
+                    "options": [
+                        "is painted",
+                        "paints",
+                        "are painted"
+                    ],
+                    "verb_hint": "Початкове: «За звичним порядком паркан фарбує Антон». Зміни актив на пасив; збережи звичайний теперішній час і виконавця."
+                }
+            },
+            "verb_hint": "Початкове: «За звичним порядком паркан фарбує Антон». Зміни актив на пасив; збережи звичайний теперішній час і виконавця.",
+            "accepted_target_texts": [
+                "The fence is painted by Anton."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fence",
+                "is painted",
+                "by Anton."
+            ],
+            "token_groups": [
+                "The fence",
+                "is painted",
+                "by Anton."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-passive-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The flowers {a1} by the gardener.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Садівник поливає квіти».",
+            "target_text": "The flowers are watered by the gardener.",
+            "markers": {
+                "a1": {
+                    "answer": "are watered",
+                    "options": [
+                        "are watered",
+                        "is watered",
+                        "water"
+                    ],
+                    "verb_hint": "Початкове: «Садівник поливає квіти». Перебудуй у пасив, не змінюючи дії та виконавця."
+                }
+            },
+            "verb_hint": "Початкове: «Садівник поливає квіти». Перебудуй у пасив, не змінюючи дії та виконавця.",
+            "accepted_target_texts": [
+                "The flowers are watered by the gardener."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The flowers",
+                "are watered",
+                "by the gardener."
+            ],
+            "token_groups": [
+                "The flowers",
+                "are watered",
+                "by the gardener."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-passive-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The address {a1} by Ira yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Іра перевірила адресу вчора».",
+            "target_text": "The address was checked by Ira yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "was checked",
+                    "options": [
+                        "was checked",
+                        "is checked",
+                        "checked"
+                    ],
+                    "verb_hint": "Початкове: «Іра перевірила адресу вчора». Почни з об’єкта перевірки; збережи минулий час та ім’я виконавиці."
+                }
+            },
+            "verb_hint": "Початкове: «Іра перевірила адресу вчора». Почни з об’єкта перевірки; збережи минулий час та ім’я виконавиці.",
+            "accepted_target_texts": [
+                "The address was checked by Ira yesterday.",
+                "The address was verified by Ira yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was verified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was verified"
+                ]
+            },
+            "reorder_groups": [
+                "The address",
+                "was checked",
+                "by Ira yesterday."
+            ],
+            "token_groups": [
+                "The address",
+                "was checked",
+                "by Ira yesterday."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-passive-a2-g02",
+            "author_id": "A2-g02",
+            "question": "That pump {a1} by the mechanic.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Механік полагодив той насос».",
+            "target_text": "That pump was repaired by the mechanic.",
+            "markers": {
+                "a1": {
+                    "answer": "was repaired",
+                    "options": [
+                        "was repaired",
+                        "repaired",
+                        "were repaired"
+                    ],
+                    "verb_hint": "Початкове: «Механік полагодив той насос». Зміни актив на пасив; збережи вказівку на той самий предмет."
+                }
+            },
+            "verb_hint": "Початкове: «Механік полагодив той насос». Зміни актив на пасив; збережи вказівку на той самий предмет.",
+            "accepted_target_texts": [
+                "That pump was repaired by the mechanic.",
+                "That pump was fixed by the mechanic."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was fixed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was fixed"
+                ]
+            },
+            "reorder_groups": [
+                "That pump",
+                "was repaired",
+                "by the mechanic."
+            ],
+            "token_groups": [
+                "That pump",
+                "was repaired",
+                "by the mechanic."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-passive-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The rugs {a1} by the weavers at the moment.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Ткачі зараз тчуть килими».",
+            "target_text": "The rugs are being woven by the weavers at the moment.",
+            "markers": {
+                "a1": {
+                    "answer": "are being woven",
+                    "options": [
+                        "are being woven",
+                        "were woven",
+                        "are weaving"
+                    ],
+                    "verb_hint": "Початкове: «Ткачі зараз тчуть килими». Перебудуй у пасив; збережи тривання дії саме зараз і її спосіб."
+                }
+            },
+            "verb_hint": "Початкове: «Ткачі зараз тчуть килими». Перебудуй у пасив; збережи тривання дії саме зараз і її спосіб.",
+            "accepted_target_texts": [
+                "The rugs are being woven by the weavers at the moment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rugs",
+                "are being woven",
+                "by the weavers",
+                "at the moment."
+            ],
+            "token_groups": [
+                "The rugs",
+                "are being woven",
+                "by the weavers",
+                "at the moment."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-passive-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The receipts {a1} by the administrator on Tuesday.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Адміністратор надішле квитанції у вівторок».",
+            "target_text": "The receipts will be sent by the administrator on Tuesday.",
+            "markers": {
+                "a1": {
+                    "answer": "will be sent",
+                    "options": [
+                        "will be sent",
+                        "will send",
+                        "will be sending"
+                    ],
+                    "verb_hint": "Початкове: «Адміністратор надішле квитанції у вівторок». Зміни актив на пасив; збережи майбутню дію, виконавця та день."
+                }
+            },
+            "verb_hint": "Початкове: «Адміністратор надішле квитанції у вівторок». Зміни актив на пасив; збережи майбутню дію, виконавця та день.",
+            "accepted_target_texts": [
+                "The receipts will be sent by the administrator on Tuesday.",
+                "The receipts will be dispatched by the administrator on Tuesday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be dispatched"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be dispatched"
+                ]
+            },
+            "reorder_groups": [
+                "The receipts",
+                "will be sent",
+                "by the administrator",
+                "on Tuesday."
+            ],
+            "token_groups": [
+                "The receipts",
+                "will be sent",
+                "by the administrator",
+                "on Tuesday."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-passive-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The sensors {a1} by the team before the permit arrived.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Команда налаштувала датчики ще до отримання дозволу».",
+            "target_text": "The sensors had been configured by the team before the permit arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "had been configured",
+                    "options": [
+                        "had been configured",
+                        "have been configured",
+                        "were configuring"
+                    ],
+                    "verb_hint": "Початкове: «Команда налаштувала датчики ще до отримання дозволу». Перебудуй у пасив; налаштування передувало іншій минулій події."
+                }
+            },
+            "verb_hint": "Початкове: «Команда налаштувала датчики ще до отримання дозволу». Перебудуй у пасив; налаштування передувало іншій минулій події.",
+            "accepted_target_texts": [
+                "The sensors had been configured by the team before the permit arrived.",
+                "The sensors had been adjusted by the team before the permit arrived."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been adjusted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been adjusted"
+                ]
+            },
+            "reorder_groups": [
+                "The sensors",
+                "had been configured",
+                "by the team",
+                "before the",
+                "permit arrived."
+            ],
+            "token_groups": [
+                "The sensors",
+                "had been configured",
+                "by the team",
+                "before the",
+                "permit arrived."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-passive-b2-g02",
+            "author_id": "B2-g02",
+            "question": "This sculpture {a1} by the workers.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Робітники можуть перенести цю скульптуру».",
+            "target_text": "This sculpture can be moved by the workers.",
+            "markers": {
+                "a1": {
+                    "answer": "can be moved",
+                    "options": [
+                        "can be moved",
+                        "can move",
+                        "can be moving"
+                    ],
+                    "verb_hint": "Початкове: «Робітники можуть перенести цю скульптуру». Зміни актив на пасив, збережи можливість дії та виконавців."
+                }
+            },
+            "verb_hint": "Початкове: «Робітники можуть перенести цю скульптуру». Зміни актив на пасив, збережи можливість дії та виконавців.",
+            "accepted_target_texts": [
+                "This sculpture can be moved by the workers.",
+                "This sculpture can be relocated by the workers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "can be relocated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "can be relocated"
+                ]
+            },
+            "reorder_groups": [
+                "This sculpture",
+                "can be moved",
+                "by the workers."
+            ],
+            "token_groups": [
+                "This sculpture",
+                "can be moved",
+                "by the workers."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-passive-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The composer {a1} to live abroad.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «На той час вважали, що композитор живе за кордоном».",
+            "target_text": "The composer was thought to live abroad.",
+            "markers": {
+                "a1": {
+                    "answer": "was thought",
+                    "options": [
+                        "was thought",
+                        "thought",
+                        "was thinking"
+                    ],
+                    "verb_hint": "Початкове: «На той час вважали, що композитор живе за кордоном». Почни з композитора; перетвори безособове повідомлення на особовий пасив."
+                }
+            },
+            "verb_hint": "Початкове: «На той час вважали, що композитор живе за кордоном». Почни з композитора; перетвори безособове повідомлення на особовий пасив.",
+            "accepted_target_texts": [
+                "The composer was thought to live abroad.",
+                "The composer was believed to live abroad."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was believed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was believed"
+                ]
+            },
+            "reorder_groups": [
+                "The composer",
+                "was thought",
+                "to live abroad."
+            ],
+            "token_groups": [
+                "The composer",
+                "was thought",
+                "to live abroad."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-passive-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The studio {a1} a licence by the council.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Рада надала майстерні ліцензію».",
+            "target_text": "The studio was granted a licence by the council.",
+            "markers": {
+                "a1": {
+                    "answer": "was granted",
+                    "options": [
+                        "was granted",
+                        "granted",
+                        "were granted"
+                    ],
+                    "verb_hint": "Початкове: «Рада надала майстерні ліцензію». Зроби одержувача підметом пасиву, не гублячи надавача та об’єкт."
+                }
+            },
+            "verb_hint": "Початкове: «Рада надала майстерні ліцензію». Зроби одержувача підметом пасиву, не гублячи надавача та об’єкт.",
+            "accepted_target_texts": [
+                "The studio was granted a licence by the council.",
+                "The studio was given a licence by the council."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was given"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was given"
+                ]
+            },
+            "reorder_groups": [
+                "The studio",
+                "was granted",
+                "a licence",
+                "by the council."
+            ],
+            "token_groups": [
+                "The studio",
+                "was granted",
+                "a licence",
+                "by the council."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-passive-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Who corrupted the recording {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Неможливо встановити, хто зіпсував запис».",
+            "target_text": "Who corrupted the recording cannot be established.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot be established",
+                    "options": [
+                        "cannot be established",
+                        "cannot establish",
+                        "cannot be establishing"
+                    ],
+                    "verb_hint": "Початкове: «Неможливо встановити, хто зіпсував запис». Зроби частину про невідомого виконавця підметом пасивної конструкції."
+                }
+            },
+            "verb_hint": "Початкове: «Неможливо встановити, хто зіпсував запис». Зроби частину про невідомого виконавця підметом пасивної конструкції.",
+            "accepted_target_texts": [
+                "Who corrupted the recording cannot be established.",
+                "Who corrupted the recording cannot be determined.",
+                "Who corrupted the recording cannot be identified."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "cannot be determined",
+                    "cannot be identified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "cannot be determined",
+                    "cannot be identified"
+                ]
+            },
+            "reorder_groups": [
+                "Who corrupted",
+                "the recording",
+                "cannot be established."
+            ],
+            "token_groups": [
+                "Who corrupted",
+                "the recording",
+                "cannot be established."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-passive-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The conductor {a1} to have rejected these terms before the negotiations.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_passive",
+            "translation_uk": "Початкове: «Кажуть, що диригент відхилив ці умови перед переговорами».",
+            "target_text": "The conductor is said to have rejected these terms before the negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "is said",
+                    "options": [
+                        "is said",
+                        "said",
+                        "is saying"
+                    ],
+                    "verb_hint": "Початкове: «Кажуть, що диригент відхилив ці умови перед переговорами». Почни з диригента; збережи статус чужого повідомлення й попередню дію."
+                }
+            },
+            "verb_hint": "Початкове: «Кажуть, що диригент відхилив ці умови перед переговорами». Почни з диригента; збережи статус чужого повідомлення й попередню дію.",
+            "accepted_target_texts": [
+                "The conductor is said to have rejected these terms before the negotiations."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conductor",
+                "is said",
+                "to have rejected",
+                "these terms",
+                "before the negotiations."
+            ],
+            "token_groups": [
+                "The conductor",
+                "is said",
+                "to have rejected",
+                "these terms",
+                "before the negotiations."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

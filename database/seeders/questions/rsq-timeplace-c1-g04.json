@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66323,
+        "uuid": "rsq-timeplace-c1-g04",
+        "question": "The witness stated that the exchange had occurred {a1}.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 62,
+        "source_id": 532,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechTimePlaceChangesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "there",
+                "here",
+                "now"
+            ]
+        },
+        "theory_text_block_uuid": "74bcc2b8-fbaa-5065-8932-37743234726a",
+        "created_at": "2026-11-01T20:05:01.000000Z",
+        "updated_at": "2026-11-01T20:05:01.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 532,
+        "name": "Reported Speech Quality: Time and Place Changes",
+        "created_at": "2026-11-01T20:05:00.000000Z",
+        "updated_at": "2026-11-01T20:05:00.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 112,
+                "option": "now",
+                "created_at": "2026-04-23T11:40:01.000000Z",
+                "updated_at": "2026-04-23T11:40:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 66323,
+                "option_id": 112,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 230,
+                "option": "here",
+                "created_at": "2026-04-23T11:40:16.000000Z",
+                "updated_at": "2026-04-23T11:40:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 66323,
+                "option_id": 230,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 271,
+                "option": "there",
+                "created_at": "2026-04-23T11:40:21.000000Z",
+                "updated_at": "2026-04-23T11:40:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 66323,
+                "option_id": 271,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341227,
+                "question_id": 66323,
+                "marker": "a1",
+                "option_id": 271,
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            },
+            "option": {
+                "id": 271,
+                "option": "there",
+                "created_at": "2026-04-23T11:40:21.000000Z",
+                "updated_at": "2026-04-23T11:40:21.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58561,
+                "question_id": 66323,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68753,
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            },
+            "option": {
+                "id": 68753,
+                "option": "Нинішнє місце переказу відрізняється від місця обміну.",
+                "created_at": "2026-11-01T20:05:01.000000Z",
+                "updated_at": "2026-11-01T20:05:01.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58338,
+            "question_id": 66323,
+            "text": "The witness stated that the exchange had occurred {a1}.",
+            "created_at": "2026-11-01T20:05:01.000000Z",
+            "updated_at": "2026-11-01T20:05:01.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

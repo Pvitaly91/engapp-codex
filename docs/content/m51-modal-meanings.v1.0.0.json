@@ -1,0 +1,1632 @@
+{
+    "schema_version": 1,
+    "version": "1.0.0",
+    "status": "frozen",
+    "id": "m51-modal-meanings",
+    "base_sha": "7b0ca49b3cbfd7135b80f6931cdd42834eb24c53",
+    "scope": "Три чинні UK уроки modal-verbs: Modals of Deduction; Past Modals; Requests / Offers / Suggestions.",
+    "policy": {
+        "native_components": true,
+        "visual_changes": false,
+        "course_content_changes": false,
+        "production_access": false,
+        "existing_question_rows_unchanged": true,
+        "existing_answers_progress_unchanged": true,
+        "new_bank_contract_status": "exact-finite-banks-reviewed"
+    },
+    "editorial_review": {
+        "status": "main-language-component-and-engine-reviewed",
+        "new_own_tasks": 18,
+        "groups_per_lesson": {
+            "selects": 2,
+            "choices": 2,
+            "inputs": 2
+        },
+        "input_methods": [
+            "manual",
+            "tokens"
+        ],
+        "linked_bank_questions_separate": 15,
+        "old_continuing_blocks_per_lesson": 6,
+        "new_practice_blocks": 3,
+        "meaningful_details": {
+            "modals_of_deduction": 1,
+            "past_modals": 1,
+            "requests_offers_suggestions": 1
+        },
+        "note": "Main review of all learning fields completed; isolated native render/H1/course/standalone tests:14 tests,2003 assertions; unchanged shipped practice engine:22 tests covering18 tasks,36 options,12 declared aliases. Local transactional apply and live AFTER acceptance are recorded separately.",
+        "translation_visibility_exceptions": [
+            "Deduction choices: переклади may not і can't показуються після перевірки, бо початковий точний переклад розкриває потрібне значення.",
+            "Past choices: повні переклади unused could have і expectation should have показуються після перевірки; потрібний контекст задано одразу українською.",
+            "Requests choices: переклади me to і why don't we показуються після перевірки, бо вони безпосередньо називають виконавця й намір."
+        ]
+    },
+    "sources": [
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/modals-deductions-about-present",
+            "access": "direct-publisher-html",
+            "reviewed": "Основний Grammar explanation, не коментарі: сила висновку, must, may/might/could, can't, базова форма без to."
+        },
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/modals-deductions-about-past",
+            "access": "direct-publisher-html",
+            "reviewed": "Основний Grammar explanation, не коментарі: must have, may/might/could have, can't/couldn't have."
+        },
+        {
+            "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/perfect-aspect",
+            "access": "direct-publisher-html",
+            "reviewed": "Основний Modals with the perfect: час події та точка оцінювання, очікуваний завершений результат із should have."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/could",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Could have як можлива минула подія, невикористана можливість і контекстна критика."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/should",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Should: оцінка бажаної дії та очікування; не єдина функція."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/requests",
+            "access": "direct-403",
+            "reviewed": "Повне пряме читання недоступне; зміст перевірено за індексованою видавничою локалізацією нижче."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/pl/grammar/british-grammar/requests",
+            "access": "publisher-indexed-text",
+            "reviewed": "Прохання до співрозмовника з can/could/would; контекст і тон."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/offers",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Shall I, I'll, Can I help, Would you like me to, прийняття й відмова."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/suggestions",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Let's/Let's not, why don't we, how about + -ing та інші підтримані будови."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/mind",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Would you mind + -ing, would you mind if I + past, значення відповіді not at all."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/must",
+            "access": "direct-403; publisher-indexed-text",
+            "reviewed": "Висновок і вимога, can't як звичайне відкидання висновку, had to для звичайного минулого обов'язку."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/may.",
+            "access": "direct-unavailable; publisher-indexed-text",
+            "reviewed": "May not у значенні можливої відсутності, не автоматично неможливість."
+        },
+        {
+            "url": "https://dictionary.cambridge.org/grammar/british-grammar/would-like",
+            "access": "publisher-indexed-text",
+            "reviewed": "Would like + to-infinitive, відмінність від загального Do you like."
+        }
+    ],
+    "lessons": [
+        {
+            "schema_version": 1,
+            "status": "frozen",
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsDeductionTheorySeeder",
+            "slug": "modals-of-deduction",
+            "locale": "uk",
+            "display_level": "B1-B2",
+            "technical_block_level": "B1",
+            "category_ancestry": [
+                "modal-verbs"
+            ],
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/modals-of-deduction",
+            "subtitle_html": "<p><strong>Modals of Deduction</strong> — висновки про теперішню ситуацію з must, may, might, could і can't: упевненість, заперечення, форми та практика з перекладом.</p>",
+            "subtitle_text": "Modals of Deduction — висновки про теперішню ситуацію з must, may, might, could і can't: упевненість, заперечення, форми та практика з перекладом.",
+            "blocks": [
+                {
+                    "key": "modals-of-deduction-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "B1",
+                    "data": {
+                        "level": "B1-B2",
+                        "intro": "Коли не бачимо всієї ситуації, відділяємо відомі ознаки від висновку. <strong>Must</strong>, <strong>may / might / could</strong> і <strong>can't</strong> показують, наскільки мовець упевнений у поясненні; тут говоримо насамперед про теперішнє.",
+                        "rules": [
+                            {
+                                "label": "СИЛЬНИЙ ВИСНОВОК",
+                                "color": "emerald",
+                                "text": "Мовець вважає пояснення дуже переконливим, але висновок не стає незалежним доказом.",
+                                "example": "<span lang=\"en\">He must know the topic well.</span><br><span lang=\"uk\">Він, напевно, добре знає тему.</span>"
+                            },
+                            {
+                                "label": "МОЖЛИВЕ ПОЯСНЕННЯ",
+                                "color": "blue",
+                                "text": "May, might і could залишають пояснення непідтвердженим.",
+                                "example": "<span lang=\"en\">She might be at work.</span><br><span lang=\"uk\">Можливо, вона на роботі.</span>"
+                            },
+                            {
+                                "label": "ВІДКИДАЄМО МОЖЛИВІСТЬ",
+                                "color": "amber",
+                                "text": "Can't передає переконання мовця, що це пояснення неможливе в заданій ситуації.",
+                                "example": "<span lang=\"en\">The train can't be on its way yet.</span><br><span lang=\"uk\">Не може бути, щоб потяг уже був у дорозі.</span>"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "B1",
+                    "data": {
+                        "title": "1. Стан, дія та процес",
+                        "intro": "Після modal ставимо базову форму без to: не додаємо -s, am/is/are або do. Обирай продовження за змістом, а не одну формулу be для кожного дієслова.",
+                        "items": [
+                            {
+                                "label": "ДІЄСЛОВО",
+                                "title": "підмет + modal + базова форма",
+                                "subtitle": "З know, understand, need та іншими дієсловами be не потрібне.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">He must know the answer.</span><br><span lang=\"uk\">Він, напевно, знає відповідь.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "BE ТА ДОПОВНЕННЯ",
+                                "title": "підмет + modal + be + потрібне доповнення",
+                                "subtitle": "Доповнення називає ознаку, особу, місце тощо; at home — не іменник і не прикметник.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">She may be busy. / She might be at home.</span><br><span lang=\"uk\">Можливо, вона зайнята. / Можливо, вона вдома.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ПРОЦЕС ЗАРАЗ",
+                                "title": "підмет + modal + be + V-ing",
+                                "subtitle": "Потрібні і be, і форма -ing, коли припускаємо дію в процесі.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">They may be waiting outside.</span><br><span lang=\"uk\">Можливо, вони чекають надворі.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ПИТАННЯ ПРО МОЖЛИВІСТЬ",
+                                "title": "Can / Could + підмет + базова форма?",
+                                "subtitle": "Доречне питання, а не штучна однакова матриця питань для всіх modal. Підмет стоїть після modal; do не додаємо.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Could this be the entrance? / Can this really be true?</span><br><span lang=\"uk\">Чи може це бути вхід? / Невже це справді може бути правдою?</span>"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "B1",
+                    "data": {
+                        "title": "2. Що знаємо і що висновуємо",
+                        "sections": [
+                            {
+                                "label": "MUST: ПЕРЕКОНЛИВИЙ ВИСНОВОК",
+                                "color": "emerald",
+                                "description": "Відомі відповіді або тривала робота можуть переконати мовця. Must називає саме його сильний висновок; це не повідомлення про обов’язок і не гарантія істини.",
+                                "examples": [
+                                    {
+                                        "en": "He is answering every question. He must know the topic well.",
+                                        "ua": "Він відповідає на кожне питання. Він, напевно, добре знає тему."
+                                    },
+                                    {
+                                        "en": "She has been studying all day. She must be exhausted.",
+                                        "ua": "Вона вчилася весь день. Вона, напевно, виснажена."
+                                    }
+                                ],
+                                "note": "Не приписуй modal точний відсоток упевненості. Саме вимкнене світло не доводить, що всі сплять."
+                            },
+                            {
+                                "label": "MAY / MIGHT / COULD: ОДНА З ВЕРСІЙ",
+                                "color": "blue",
+                                "description": "Коли пояснення лише можливе, використовуємо may, might або could. У багатьох контекстах доречні кілька цих форм; різницю також створюють контекст, наголос і регістр.",
+                                "examples": [
+                                    {
+                                        "en": "She might be in a meeting now.",
+                                        "ua": "Можливо, вона зараз на зустрічі."
+                                    },
+                                    {
+                                        "en": "This key could be the right one.",
+                                        "ua": "Можливо, цей ключ правильний."
+                                    },
+                                    {
+                                        "en": "They may be waiting outside.",
+                                        "ua": "Можливо, вони чекають надворі."
+                                    }
+                                ],
+                                "note": "Не обирай єдиний modal лише за тим, що людина не відповіла на повідомлення. Для вправи на конкретну будову потрібну форму названо прямо."
+                            },
+                            {
+                                "label": "CAN'T: ВЕРСІЯ СУПЕРЕЧИТЬ ЗАДАНОМУ ФАКТУ",
+                                "color": "amber",
+                                "description": "Ми зараз бачимо, що цей потяг ще стоїть біля платформи. Висновок відкидає несумісну з цим фактом версію про вже почату поїздку; не потрібно домислювати час переміщення чи поведінку пасажирів.",
+                                "examples": [
+                                    {
+                                        "en": "The train is still at the platform. It can't be on its way yet.",
+                                        "ua": "Потяг ще стоїть біля платформи. Не може бути, щоб він уже був у дорозі."
+                                    }
+                                ],
+                                "note": "Cannot — повна форма can't. У цьому значенні висновку can't не означає заборону або нездатність людини."
+                            },
+                            {
+                                "label": "MAY NOT / MIGHT NOT: МОЖЛИВО, НЕ",
+                                "color": "sky",
+                                "description": "Not заперечує зміст можливої ситуації, але не робить її неможливою. Без підтвердження залишаємо відкритими обидві версії.",
+                                "examples": [
+                                    {
+                                        "en": "She may not be at home.",
+                                        "ua": "Можливо, її немає вдома."
+                                    },
+                                    {
+                                        "en": "They might not know about the change.",
+                                        "ua": "Можливо, вони не знають про зміну."
+                                    }
+                                ],
+                                "note": "Це не те саме, що впевнено відкинути перебування вдома через can't be at home. May not може мати й інші значення, зокрема відмову в дозволі; тут задано припущення."
+                            },
+                            {
+                                "label": "ВИСНОВОК, ВИМОГА ЧИ ЗДАТНІСТЬ",
+                                "color": "slate",
+                                "description": "Той самий modal не визначає намір без контексту. Висновок описує те, що вважаємо правдою; вимога — те, що потрібно зробити; здатність — те, що людина вміє або може виконати.",
+                                "examples": [
+                                    {
+                                        "en": "You must show your pass.",
+                                        "ua": "Ти повинен показати перепустку."
+                                    },
+                                    {
+                                        "en": "I can't swim.",
+                                        "ua": "Я не вмію плавати."
+                                    }
+                                ],
+                                "note": "Ці два речення — вимога й нездатність, не висновки. Для минулої події потрібне <a href=\"/theory/modal-verbs/past-modals\">modal + have + V3 у Past Modals</a>; загальні значення — в <a href=\"/theory/modal-verbs/can-could\">Can / Could</a> та <a href=\"/theory/modal-verbs/may-might\">May / Might</a>."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "3. Форма, намір і сила висновку",
+                        "items": [
+                            {
+                                "label": "КОНКРЕТНА НЕПІДТВЕРДЖЕНА ВЕРСІЯ",
+                                "color": "rose",
+                                "title": "Потрібно припустити, що вона зараз удома, а не описати її здатність або загальну можливість.",
+                                "wrong": "<span lang=\"en\">She can be at home now.</span><br><span lang=\"uk\">Вона може бути вдома зараз.</span>",
+                                "right": "<span lang=\"en\">She may be at home now.</span><br><span lang=\"uk\">Можливо, вона зараз удома.</span>",
+                                "wrong_en": "She can be at home now.",
+                                "wrong_ua": "Вона може бути вдома зараз.",
+                                "right_en": "She may be at home now.",
+                                "right_ua": "Можливо, вона зараз удома.",
+                                "hint": "Для заданого непідтвердженого припущення звичайні may / might / could. Can може бути граматичним з іншим наміром; це не заборона всіх стверджувальних can."
+                            },
+                            {
+                                "label": "ВІДКИДАННЯ, А НЕ ЗАБОРОНА",
+                                "color": "amber",
+                                "title": "Потяг ще стоїть біля платформи. Відкинь версію про вже почату поїздку, не встановлюючи правило.",
+                                "wrong": "<span lang=\"en\">It mustn't be on its way yet.</span><br><span lang=\"uk\">Він не повинен уже бути в дорозі.</span>",
+                                "right": "<span lang=\"en\">It can't be on its way yet.</span><br><span lang=\"uk\">Не може бути, щоб він уже був у дорозі.</span>",
+                                "wrong_en": "It mustn't be on its way yet.",
+                                "wrong_ua": "Він не повинен уже бути в дорозі.",
+                                "right_en": "It can't be on its way yet.",
+                                "right_ua": "Не може бути, щоб він уже був у дорозі.",
+                                "hint": "Для цього заданого відкидання використовуємо can't / cannot. Mustn't звичайно повідомляє заборону; це не глобальна заборона кожного must not в усіх контекстах."
+                            },
+                            {
+                                "label": "ЗБЕРЕЖИ ЗАПЕРЕЧЕНИЙ ЗАДУМ",
+                                "color": "sky",
+                                "title": "Потрібний намір: «Не думаю, що він втомлений». Не перетворюй його на сильний стверджувальний висновок.",
+                                "wrong": "<span lang=\"en\">He doesn't must be tired.</span><br><span lang=\"uk\">Задум: не думаю, що він втомлений.</span>",
+                                "right": "<span lang=\"en\">I don't think he is tired.</span><br><span lang=\"uk\">Не думаю, що він втомлений.</span>",
+                                "wrong_en": "He doesn't must be tired.",
+                                "wrong_ua": "Задум: не думаю, що він втомлений.",
+                                "right_en": "I don't think he is tired.",
+                                "right_ua": "Не думаю, що він втомлений.",
+                                "hint": "Do не заперечує must. Початкове речення зламане, тому спочатку визначено намір; звичайне заперечення think зберігає його. He must be tired означало б «Він, напевно, втомлений» і змінило б зміст. Can't також був би сильнішим відкиданням, якого ця умова не вимагає."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "4. Короткий підсумок",
+                        "items": [
+                            "Спочатку відділи відомий факт від висновку мовця. Сильне переконання не дорівнює незалежному доказу.",
+                            "Must — сильний висновок; may / might / could — можливе пояснення; can't — відкидання можливості. Фіксованих відсотків немає.",
+                            "May not / might not означають можливе заперечення, а не автоматично неможливість.",
+                            "Будова: modal + V; modal + be + доповнення; modal + be + V-ing. Не додаємо do, to або -s до modal.",
+                            "Час, намір і контекст відрізняють deduction від вимоги та здатності; минулі події розглядає <a href=\"/theory/modal-verbs/past-modals\">Past Modals</a>."
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "data": {
+                        "title": "Сторінки цього розділу",
+                        "items": [
+                            {
+                                "label": "Can / Could",
+                                "url": "/theory/modal-verbs/can-could",
+                                "current": false
+                            },
+                            {
+                                "label": "May / Might",
+                                "url": "/theory/modal-verbs/may-might",
+                                "current": false
+                            },
+                            {
+                                "label": "Must / Have to",
+                                "url": "/theory/modal-verbs/must-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Should / Ought to",
+                                "url": "/theory/modal-verbs/should-ought-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Need / Needn't / Don't have to",
+                                "url": "/theory/modal-verbs/need-neednt-dont-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Modals of Deduction",
+                                "url": "/theory/modal-verbs/modals-of-deduction",
+                                "current": true
+                            },
+                            {
+                                "label": "Past Modals",
+                                "url": "/theory/modal-verbs/past-modals",
+                                "current": false
+                            },
+                            {
+                                "label": "Requests / Offers / Suggestions",
+                                "url": "/theory/modal-verbs/requests-offers-suggestions",
+                                "current": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "modals-of-deduction-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "5. Практика",
+                        "select_title": "Доповни форму",
+                        "select_intro": "У кожній умові названо потрібну конструкцію. Обери її правильну будову, не вгадуючи силу висновку за випадковою ознакою.",
+                        "selects": [
+                            {
+                                "id": "m51-deduction-must-base",
+                                "source_index": 1,
+                                "label": "Побудуй сильний теперішній висновок саме з must: «Нора, напевно, знає маршрут».<br><span lang=\"en\">Nora ___ the route.</span>",
+                                "options": [
+                                    "must knows",
+                                    "must know",
+                                    "must to know"
+                                ],
+                                "answer": "must know",
+                                "accepted": [
+                                    "must know"
+                                ],
+                                "feedback": {
+                                    "must knows": "Правильно: Nora must know the route. — Нора, напевно, знає маршрут. Після must потрібна базова форма know без -s.",
+                                    "must know": "Правильно: Nora must know the route. — Нора, напевно, знає маршрут. Must і know не змінюються за особою.",
+                                    "must to know": "Правильно: Nora must know the route. — Нора, напевно, знає маршрут. У цій модальній моделі to не додаємо."
+                                }
+                            },
+                            {
+                                "id": "m51-deduction-might-process",
+                                "source_index": 2,
+                                "label": "Передай припущення про процес зараз саме з might: «Можливо, вони зараз працюють нагорі».<br><span lang=\"en\">They ___ upstairs now.</span>",
+                                "options": [
+                                    "might working",
+                                    "might are working",
+                                    "might be working"
+                                ],
+                                "answer": "might be working",
+                                "accepted": [
+                                    "might be working"
+                                ],
+                                "feedback": {
+                                    "might working": "Правильно: They might be working upstairs now. — Можливо, вони зараз працюють нагорі. Перед working потрібне be.",
+                                    "might are working": "Правильно: They might be working upstairs now. — Можливо, вони зараз працюють нагорі. Після might використовуємо be, не are.",
+                                    "might be working": "Правильно: They might be working upstairs now. — Можливо, вони зараз працюють нагорі. Might + be + V-ing описує можливий процес."
+                                }
+                            }
+                        ],
+                        "choice_title": "Розрізни значення",
+                        "choice_intro": "Контекст визначає висновок. Точний переклад стимулу й пояснення покажемо після перевірки, щоб не назвати відповідь наперед.",
+                        "choices": [
+                            {
+                                "id": "m51-deduction-may-not-meaning",
+                                "source_index": 3,
+                                "label": "Ми ще не перевірили розклад гіда й лише припускаємо. Що означає це речення?",
+                                "prompt": "<span lang=\"en\">The guide may not be available today.</span>",
+                                "options": [
+                                    "Гід, можливо, сьогодні недоступний; це ще не перевірено.",
+                                    "Гід точно не може бути доступним сьогодні.",
+                                    "Гіду заборонено бути доступним сьогодні."
+                                ],
+                                "answer": "Гід, можливо, сьогодні недоступний; це ще не перевірено.",
+                                "accepted": [
+                                    "Гід, можливо, сьогодні недоступний; це ще не перевірено."
+                                ],
+                                "feedback": {
+                                    "гід, можливо, сьогодні недоступний; це ще не перевірено.": "Правильно: The guide may not be available today. — Можливо, гід сьогодні недоступний. May not залишає відсутність доступності можливою, не доведеною.",
+                                    "гід точно не може бути доступним сьогодні.": "The guide may not be available today. — Можливо, гід сьогодні недоступний. May not не означає впевненого відкидання можливості; розклад ще не перевірено.",
+                                    "гіду заборонено бути доступним сьогодні.": "The guide may not be available today. — Можливо, гід сьогодні недоступний. У заданому контексті це припущення, не правило або відмова в дозволі."
+                                }
+                            },
+                            {
+                                "id": "m51-deduction-cant-meaning",
+                                "source_index": 4,
+                                "label": "Зараз ми бачимо й чуємо Лео під час прямого відеозв’язку. Який намір передає друге речення?",
+                                "prompt": "<span lang=\"en\">Leo is speaking to us live. He can't be asleep.</span>",
+                                "options": [
+                                    "Мовець забороняє Лео спати.",
+                                    "Мовець відкидає, що Лео зараз спить.",
+                                    "Мовець стверджує, що Лео не вміє спати."
+                                ],
+                                "answer": "Мовець відкидає, що Лео зараз спить.",
+                                "accepted": [
+                                    "Мовець відкидає, що Лео зараз спить."
+                                ],
+                                "feedback": {
+                                    "мовець забороняє лео спати.": "Leo is speaking to us live. He can't be asleep. — Лео розмовляє з нами наживо. Не може бути, щоб він спав. Це висновок із прямо заданої поточної дії, не заборона.",
+                                    "мовець відкидає, що лео зараз спить.": "Правильно: Leo is speaking to us live. He can't be asleep. — Лео розмовляє з нами наживо. Не може бути, щоб він спав. Can't відкидає несумісну версію.",
+                                    "мовець стверджує, що лео не вміє спати.": "Leo is speaking to us live. He can't be asleep. — Лео розмовляє з нами наживо. Не може бути, щоб він спав. Ми оцінюємо його стан зараз, не здатність спати."
+                                }
+                            }
+                        ],
+                        "input_title": "Побудуй речення",
+                        "input_intro": "Склади речення з перемішаних токенів або введи вручну. Збережи український зміст і названу конструкцію; пояснення з’явиться після перевірки.",
+                        "inputs": [
+                            {
+                                "id": "m51-deduction-build-process",
+                                "source_index": 5,
+                                "before": "waiting / outside. / be / They / might",
+                                "after": "Можливо, вони чекають надворі. Використай might + be + V-ing, почни з They; wait — чекати, outside — надворі.",
+                                "answer": "They might be waiting outside.",
+                                "accepted": [
+                                    "They might be waiting outside."
+                                ],
+                                "feedback": {
+                                    "they might be waiting outside.": "Правильно: They might be waiting outside. — Можливо, вони чекають надворі. Might + be + waiting описує можливий процес у теперішній ситуації.",
+                                    "they might be waiting outside": "Правильно: They might be waiting outside. — Можливо, вони чекають надворі. Після might потрібне be + V-ing.",
+                                    "they might waiting outside.": "Правильна відповідь: They might be waiting outside. — Можливо, вони чекають надворі. У процесній моделі не пропускаємо be."
+                                }
+                            },
+                            {
+                                "id": "m51-deduction-build-negative",
+                                "source_index": 6,
+                                "before": "four / have / code / digits. / can't / This",
+                                "after": "Код точно має три цифри. Відкинь версію про чотири: «Не може бути, щоб цей код мав чотири цифри». Використай can't, почни з This code; digit — цифра.",
+                                "answer": "This code can't have four digits.",
+                                "accepted": [
+                                    "This code can't have four digits.",
+                                    "This code cannot have four digits."
+                                ],
+                                "feedback": {
+                                    "this code can't have four digits.": "Правильно: This code can't have four digits. — Не може бути, щоб цей код мав чотири цифри. Can't відкидає версію, несумісну з прямо заданими трьома цифрами; have тут означає «мати», це не perfect.",
+                                    "this code can't have four digits": "Правильно: This code can't have four digits. — Не може бути, щоб цей код мав чотири цифри. Have — базова форма після can't.",
+                                    "this code cannot have four digits.": "Правильно: This code cannot have four digits. — Не може бути, щоб цей код мав чотири цифри. Cannot — повна форма can't.",
+                                    "this code can't has four digits.": "Правильна відповідь: This code can't have four digits. — Не може бути, щоб цей код мав чотири цифри. Після can't потрібне have, не has."
+                                }
+                            }
+                        ],
+                        "rephrase": [],
+                        "linked_practice": {
+                            "source": "theory_links",
+                            "question_types": [
+                                "4"
+                            ],
+                            "seeder_classes": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotModalsOfDeductionThematicLessonSeeder"
+                            ],
+                            "title": "Вправа 4. Побудуй речення",
+                            "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+                            "footer": "Завдання підібрані лише для цієї теми."
+                        }
+                    }
+                }
+            ],
+            "details": [
+                {
+                    "key": "deduction-evidence-and-confidence",
+                    "title": "Ознака, переконання та непідтверджені факти",
+                    "owner_block_key": "modals-of-deduction-uses",
+                    "owner_pointer": "/sections/0",
+                    "fragment": {
+                        "type": "usage-panels",
+                        "data": {
+                            "sections": [
+                                {
+                                    "label": "ЧОГО СИЛЬНИЙ ВИСНОВОК НЕ ДОВОДИТЬ",
+                                    "color": "emerald",
+                                    "description": "Людина пояснює складні завдання без підказок, тому мовець упевнено оцінює її знання. Must передає цю оцінку, але не повідомляє, де й коли вона вчилася. Нова інформація може змінити висновок; сама сильна форма не дозволяє дописати невідомі факти.",
+                                    "examples": [
+                                        {
+                                            "en": "She explains every answer clearly. She must understand the topic.",
+                                            "ua": "Вона чітко пояснює кожну відповідь. Вона, напевно, розуміє тему."
+                                        }
+                                    ],
+                                    "note": "Для слабшої версії можна обрати may / might / could, але це змінить силу висловлювання. Якщо завдання прямо просить must, інший граматичний modal не виконує саме цю умову."
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "schema_version": 1,
+            "status": "frozen",
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsPastModalsTheorySeeder",
+            "slug": "past-modals",
+            "locale": "uk",
+            "display_level": "B1-B2",
+            "technical_block_level": "B1",
+            "category_ancestry": [
+                "modal-verbs"
+            ],
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/past-modals",
+            "subtitle_html": "<p><strong>Past Modals</strong> — modal + have + V3 для висновку, можливого пояснення, невикористаної можливості, критики й очікування: різні контексти та практика з перекладом.</p>",
+            "subtitle_text": "Past Modals — modal + have + V3 для висновку, можливого пояснення, невикористаної можливості, критики й очікування: різні контексти та практика з перекладом.",
+            "blocks": [
+                {
+                    "key": "past-modals-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "B1",
+                    "data": {
+                        "level": "B1-B2",
+                        "intro": "<strong>Modal + have + V3</strong> оцінює попередню подію. Мовець може зараз робити висновок про вчора або оцінювати минулий вибір; конструкція не має одного механічного значення «минулий час modal».",
+                        "rules": [
+                            {
+                                "label": "ВИСНОВОК",
+                                "color": "emerald",
+                                "text": "Must have передає сильне переконання про попередню подію.",
+                                "example": "<span lang=\"en\">She must have forgotten.</span><br><span lang=\"uk\">Вона, напевно, забула.</span>"
+                            },
+                            {
+                                "label": "МОЖЛИВЕ ПОЯСНЕННЯ",
+                                "color": "blue",
+                                "text": "May / might / could have допускають подію, не встановлюючи результат.",
+                                "example": "<span lang=\"en\">He might have taken the wrong train.</span><br><span lang=\"uk\">Можливо, він сів не на той потяг.</span>"
+                            },
+                            {
+                                "label": "ОЦІНКА ЧИ ОЧІКУВАННЯ",
+                                "color": "amber",
+                                "text": "Should have оцінює минулий вибір або очікуваний завершений результат; контекст важливий.",
+                                "example": "<span lang=\"en\">You should have called me.</span><br><span lang=\"uk\">Тобі слід було зателефонувати мені.</span>"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "B1",
+                    "data": {
+                        "title": "1. Have, V3, заперечення та питання",
+                        "intro": "Після modal у цій perfect-будові ставимо базове have, не has або had. Після have потрібна V3: go → gone, take → taken; час попередньої події визначає контекст.",
+                        "items": [
+                            {
+                                "label": "ОСНОВНА БУДОВА",
+                                "title": "підмет + modal + have + V3",
+                                "subtitle": "З he / she have не змінюється. Must have, may have, might have, could have та should have отримують значення з ситуації.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">She might have missed the email.</span><br><span lang=\"uk\">Можливо, вона пропустила лист.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ЗАПЕРЕЧЕННЯ",
+                                "title": "підмет + modal + not + have + V3",
+                                "subtitle": "Can't / couldn't have відкидають минулу можливість; may not / might not have допускають невиконання; shouldn't have оцінює небажаний вибір.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">They may not have seen the update.</span><br><span lang=\"uk\">Можливо, вони не бачили оновлення.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ДОРЕЧНЕ ПИТАННЯ",
+                                "title": "Could + підмет + have + V3?",
+                                "subtitle": "Запитуємо про можливе пояснення минулого; do не додаємо. Це не обов’язкова матриця питань для кожного modal.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Could they have used another entrance?</span><br><span lang=\"uk\">Чи могли вони скористатися іншим входом?</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "СКОРОЧЕННЯ",
+                                "title": "should've = should have; can't = cannot",
+                                "subtitle": "Також might've, could've, couldn't, shouldn't. Вимова have у скороченні не дає підстав писати of.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">I should've checked the address.</span><br><span lang=\"uk\">Мені слід було перевірити адресу.</span>"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "B1",
+                    "data": {
+                        "title": "2. Шість значень у зрозумілих ситуаціях",
+                        "sections": [
+                            {
+                                "label": "MUST HAVE: СИЛЬНИЙ ВИСНОВОК",
+                                "color": "emerald",
+                                "description": "Двері відімкнені; за відомостями мовця тільки Ілля мав код. Мовець упевнено висновує його попередню дію. Це сильне пояснення, а не незалежно засвідчений виконавець.",
+                                "examples": [
+                                    {
+                                        "en": "The door is unlocked. Illia must have unlocked it.",
+                                        "ua": "Двері відімкнені. Ілля, напевно, відімкнув їх."
+                                    }
+                                ],
+                                "note": "Відсутність людини сама по собі не доводить, що вона пішла додому; втома — що вона працювала всю ніч. Звичайний минулий обов’язок передає had to, не must have: <a href=\"/theory/modal-verbs/must-have-to\">Must / Have to</a>."
+                            },
+                            {
+                                "label": "MAY / MIGHT / COULD HAVE: РЕЗУЛЬТАТ НЕВІДОМИЙ",
+                                "color": "blue",
+                                "description": "Ми не знаємо, як вона дісталася до станції; таксі — одна з можливих версій. Could have тут не доводить, що можливість залишилася невикористаною.",
+                                "examples": [
+                                    {
+                                        "en": "She could have taken a taxi. We don't know how she got there.",
+                                        "ua": "Можливо, вона взяла таксі. Ми не знаємо, як вона туди дісталася."
+                                    },
+                                    {
+                                        "en": "He might have missed the email.",
+                                        "ua": "Можливо, він пропустив лист."
+                                    }
+                                ],
+                                "note": "У значенні непідтвердженого пояснення також можливі may have або might have. Без заданої сили висновку не вимагай одного-єдиного modal."
+                            },
+                            {
+                                "label": "CAN'T / COULDN'T HAVE: ВІДКИДАЄМО ПОДІЮ",
+                                "color": "amber",
+                                "description": "Нам точно відома особиста присутність пасажирки в Одесі о дев’ятій. Мовець відкидає її особисте перебування в Харкові тієї самої миті; час збігається прямо, а не визначається прихованим припущенням про швидкість переїзду.",
+                                "examples": [
+                                    {
+                                        "en": "The passenger was in Odesa at nine. She can't have been in Kharkiv at the same moment.",
+                                        "ua": "Пасажирка була в Одесі о дев’ятій. Не може бути, щоб вона була в Харкові тієї самої миті."
+                                    },
+                                    {
+                                        "en": "The passenger was in Odesa at nine. She couldn't have been in Kharkiv at the same moment.",
+                                        "ua": "Пасажирка була в Одесі о дев’ятій. Не може бути, щоб вона була в Харкові тієї самої миті."
+                                    }
+                                ],
+                                "note": "У цьому висновку обидві форми доречні. May not have been означало б лише «можливо, не була», тобто не таке саме відкидання."
+                            },
+                            {
+                                "label": "COULD HAVE: МОЖЛИВІСТЬ НЕ ВИКОРИСТАНА",
+                                "color": "sky",
+                                "description": "Таксі було доступне, але вона обрала автобус. Саме продовження прямо повідомляє інший фактичний вибір; не виводь його з кожного could have.",
+                                "examples": [
+                                    {
+                                        "en": "She could have taken a taxi, but she chose the bus.",
+                                        "ua": "Вона могла взяти таксі, але обрала автобус."
+                                    }
+                                ],
+                                "note": "У попередньому пункті спосіб поїздки невідомий; тут невикористана можливість відома. Переклад зберігає цю різницю."
+                            },
+                            {
+                                "label": "SHOULD / SHOULDN'T HAVE: ОЦІНКА ВИБОРУ",
+                                "color": "rose",
+                                "description": "Учасники не забронювали квитки й тепер їх немає; співрозмовник сказав образливі слова. Заданий контекст дозволяє оцінити відому дію або її невиконання, а не придумати результат.",
+                                "examples": [
+                                    {
+                                        "en": "They should have booked the tickets earlier.",
+                                        "ua": "Їм слід було забронювати квитки раніше."
+                                    },
+                                    {
+                                        "en": "You shouldn't have said that.",
+                                        "ua": "Тобі не слід було цього казати."
+                                    }
+                                ],
+                                "note": "Це оцінка минулого, не порада зробити те саме завтра. Для поточної поради — <a href=\"/theory/modal-verbs/should-ought-to\">Should / Ought to</a>."
+                            },
+                            {
+                                "label": "SHOULD HAVE: ОЧІКУВАНИЙ РЕЗУЛЬТАТ",
+                                "color": "slate",
+                                "description": "Посилку відправили три дні тому, а звичайна доставка займає день. Відстеження ще не перевіряли, тому очікуємо прибуття, не повідомляємо про фактичне недоставлення.",
+                                "examples": [
+                                    {
+                                        "en": "The parcel should have arrived by now.",
+                                        "ua": "Посилка вже мала б прибути."
+                                    }
+                                ],
+                                "note": "Форма should have сама не доводить, що бажана дія не відбулася. Порівняй очікування з явно заданою критикою в попередньому пункті."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "3. Типові помилки у формі",
+                        "items": [
+                            {
+                                "label": "НЕЗМІННЕ HAVE",
+                                "color": "rose",
+                                "title": "Після must залишаємо have, навіть коли говоримо про минуле.",
+                                "wrong": "<span lang=\"en\">She must had left early.</span><br><span lang=\"uk\">Задум: вона, напевно, пішла рано.</span>",
+                                "right": "<span lang=\"en\">She must have left early.</span><br><span lang=\"uk\">Вона, напевно, пішла рано.</span>",
+                                "wrong_en": "She must had left early.",
+                                "wrong_ua": "Задум: вона, напевно, пішла рано.",
+                                "right_en": "She must have left early.",
+                                "right_ua": "Вона, напевно, пішла рано.",
+                                "hint": "Час попередньої дії передає have + V3. Не замінюємо have на had або has після modal."
+                            },
+                            {
+                                "label": "ТРЕТЯ ФОРМА",
+                                "color": "amber",
+                                "title": "Після have потрібна V3, не форма Past Simple.",
+                                "wrong": "<span lang=\"en\">He can't have went home.</span><br><span lang=\"uk\">Задум: не може бути, щоб він пішов додому.</span>",
+                                "right": "<span lang=\"en\">He can't have gone home.</span><br><span lang=\"uk\">Не може бути, щоб він пішов додому.</span>",
+                                "wrong_en": "He can't have went home.",
+                                "wrong_ua": "Задум: не може бути, щоб він пішов додому.",
+                                "right_en": "He can't have gone home.",
+                                "right_ua": "Не може бути, щоб він пішов додому.",
+                                "hint": "Go → went → gone. Виправляємо форму, зберігаючи відкидання можливості; сам приклад не називає доказу, тому не додаємо прихованої причини."
+                            },
+                            {
+                                "label": "HAVE, НЕ OF",
+                                "color": "sky",
+                                "title": "Should've — скорочення should have, не should of.",
+                                "wrong": "<span lang=\"en\">I should of told you.</span><br><span lang=\"uk\">Задум: мені слід було сказати тобі.</span>",
+                                "right": "<span lang=\"en\">I should have told you.</span><br><span lang=\"uk\">Мені слід було сказати тобі.</span>",
+                                "wrong_en": "I should of told you.",
+                                "wrong_ua": "Задум: мені слід було сказати тобі.",
+                                "right_en": "I should have told you.",
+                                "right_ua": "Мені слід було сказати тобі.",
+                                "hint": "У швидкому мовленні звучання схоже, але в цій конструкції потрібне have. Скорочене I should've told you має той самий зміст: «Мені слід було сказати тобі»."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "4. Короткий підсумок",
+                        "items": [
+                            "Будова: modal + have + V3; not стоїть після modal. Have не змінюється на has/had.",
+                            "Must have — сильний висновок; may / might / could have — можливе пояснення; can't / couldn't have — відкидання минулої події.",
+                            "Could have також називає невикористану можливість, коли контекст прямо встановлює інший вибір.",
+                            "Should / shouldn't have оцінюють минулий вибір; should have також передає очікуваний завершений результат. Не вигадуй фактичне невиконання з однієї форми.",
+                            "Для теперішнього висновку — <a href=\"/theory/modal-verbs/modals-of-deduction\">Modals of Deduction</a>; глибший розбір ознак і меж висновку — <a href=\"/theory/modal-verbs/modal-perfect-and-deduction\">Modal Perfect and Deduction</a>."
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "data": {
+                        "title": "Сторінки цього розділу",
+                        "items": [
+                            {
+                                "label": "Can / Could",
+                                "url": "/theory/modal-verbs/can-could",
+                                "current": false
+                            },
+                            {
+                                "label": "May / Might",
+                                "url": "/theory/modal-verbs/may-might",
+                                "current": false
+                            },
+                            {
+                                "label": "Must / Have to",
+                                "url": "/theory/modal-verbs/must-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Should / Ought to",
+                                "url": "/theory/modal-verbs/should-ought-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Need / Needn't / Don't have to",
+                                "url": "/theory/modal-verbs/need-neednt-dont-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Modals of Deduction",
+                                "url": "/theory/modal-verbs/modals-of-deduction",
+                                "current": false
+                            },
+                            {
+                                "label": "Past Modals",
+                                "url": "/theory/modal-verbs/past-modals",
+                                "current": true
+                            },
+                            {
+                                "label": "Requests / Offers / Suggestions",
+                                "url": "/theory/modal-verbs/requests-offers-suggestions",
+                                "current": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "past-modals-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "B1",
+                    "data": {
+                        "title": "5. Практика",
+                        "select_title": "Доповни форму",
+                        "select_intro": "Використай прямо названу модальну конструкцію. Контекст і задум не змінюємо під час виправлення будови.",
+                        "selects": [
+                            {
+                                "id": "m51-past-must-have",
+                                "source_index": 1,
+                                "label": "Передай сильний висновок про вчора саме з must have: «Власник, напевно, відчинив магазин учора».<br><span lang=\"en\">The owner ___ the shop yesterday.</span>",
+                                "options": [
+                                    "must has opened",
+                                    "must had opened",
+                                    "must have opened"
+                                ],
+                                "answer": "must have opened",
+                                "accepted": [
+                                    "must have opened"
+                                ],
+                                "feedback": {
+                                    "must has opened": "Правильно: The owner must have opened the shop yesterday. — Власник, напевно, відчинив магазин учора. Після must потрібне have, не has.",
+                                    "must had opened": "Правильно: The owner must have opened the shop yesterday. — Власник, напевно, відчинив магазин учора. Для цієї будови минуле не змінює have на had.",
+                                    "must have opened": "Правильно: The owner must have opened the shop yesterday. — Власник, напевно, відчинив магазин учора. Must + have + V3 opened передає заданий висновок."
+                                }
+                            },
+                            {
+                                "id": "m51-past-shouldnt-v3",
+                                "source_index": 2,
+                                "label": "Я видалила потрібний файл і тепер оцінюю цей вибір як помилку. Доповни shouldn't have: «Мені не слід було видаляти файл».<br><span lang=\"en\">I shouldn't have ___ the file.</span>",
+                                "options": [
+                                    "delete",
+                                    "deleted",
+                                    "deleting"
+                                ],
+                                "answer": "deleted",
+                                "accepted": [
+                                    "deleted"
+                                ],
+                                "feedback": {
+                                    "delete": "Правильно: I shouldn't have deleted the file. — Мені не слід було видаляти файл. Після have потрібна V3 deleted; факт видалення прямо заданий.",
+                                    "deleted": "Правильно: I shouldn't have deleted the file. — Мені не слід було видаляти файл. Це оцінка відомого минулого вибору.",
+                                    "deleting": "Правильно: I shouldn't have deleted the file. — Мені не слід було видаляти файл. Для цієї простої perfect-будови після have потрібна V3, не -ing."
+                                }
+                            }
+                        ],
+                        "choice_title": "Розрізни значення",
+                        "choice_intro": "Відділи відомий результат від можливої версії чи очікування. Переклад стимулу й розбір покажемо після перевірки.",
+                        "choices": [
+                            {
+                                "id": "m51-past-unused-meaning",
+                                "source_index": 3,
+                                "label": "Пором був доступний Олегові. Продовження повідомляє його фактичний вибір. Що означає could have у цьому контексті?",
+                                "prompt": "<span lang=\"en\">Oleh could have taken the ferry, but he chose the train.</span>",
+                                "options": [
+                                    "Олег точно скористався поромом.",
+                                    "Пором був можливим, але Олег обрав потяг.",
+                                    "Ми не знаємо, чи Олег обрав пором або потяг."
+                                ],
+                                "answer": "Пором був можливим, але Олег обрав потяг.",
+                                "accepted": [
+                                    "Пором був можливим, але Олег обрав потяг."
+                                ],
+                                "feedback": {
+                                    "олег точно скористався поромом.": "Oleh could have taken the ferry, but he chose the train. — Олег міг скористатися поромом, але обрав потяг. Фактичний вибір потяга прямо названо; поромом він не скористався в цій поїздці.",
+                                    "пором був можливим, але олег обрав потяг.": "Правильно: Oleh could have taken the ferry, but he chose the train. — Олег міг скористатися поромом, але обрав потяг. Це явно невикористана можливість, не невідомий результат.",
+                                    "ми не знаємо, чи олег обрав пором або потяг.": "Oleh could have taken the ferry, but he chose the train. — Олег міг скористатися поромом, але обрав потяг. Продовження встановлює результат; не ігноруй його."
+                                }
+                            },
+                            {
+                                "id": "m51-past-expectation-meaning",
+                                "source_index": 4,
+                                "label": "Завантаження запустили десять хвилин тому; звичайна тривалість — дві хвилини. Екран ще не перевіряли. Який зміст передає should have?",
+                                "prompt": "<span lang=\"en\">The download should have finished by now. I haven't checked the laptop.</span>",
+                                "options": [
+                                    "Завантаження точно не завершилося.",
+                                    "Мовець критикує відому незавершену дію.",
+                                    "Мовець очікує завершення, але фактичний результат ще не перевірений."
+                                ],
+                                "answer": "Мовець очікує завершення, але фактичний результат ще не перевірений.",
+                                "accepted": [
+                                    "Мовець очікує завершення, але фактичний результат ще не перевірений."
+                                ],
+                                "feedback": {
+                                    "завантаження точно не завершилося.": "The download should have finished by now. I haven't checked the laptop. — Завантаження вже мало б завершитися. Я ще не перевірив ноутбук. Це очікування, не доказ невиконання.",
+                                    "мовець критикує відому незавершену дію.": "The download should have finished by now. I haven't checked the laptop. — Завантаження вже мало б завершитися. Я ще не перевірив ноутбук. Умова не встановлює збою або фактичного невиконання; критика тут не задана.",
+                                    "мовець очікує завершення, але фактичний результат ще не перевірений.": "Правильно: The download should have finished by now. I haven't checked the laptop. — Завантаження вже мало б завершитися. Я ще не перевірив ноутбук. Should have передає очікуваний завершений результат."
+                                }
+                            }
+                        ],
+                        "input_title": "Побудуй речення",
+                        "input_intro": "Введи відповідь вручну або склади з токенів. Збережи час, заперечення та заданий намір; точний ключ і пояснення з’являться після перевірки.",
+                        "inputs": [
+                            {
+                                "id": "m51-past-build-impossible",
+                                "source_index": 5,
+                                "before": "yesterday. / read / have / Alex / the / can't / message",
+                                "after": "Це повідомлення вперше написали сьогодні; ранішої версії не було. Відкинь прочитання вчора: «Не може бути, щоб Алекс прочитав повідомлення вчора». Використай can't have, почни з Alex; read — читати, message — повідомлення.",
+                                "answer": "Alex can't have read the message yesterday.",
+                                "accepted": [
+                                    "Alex can't have read the message yesterday.",
+                                    "Alex cannot have read the message yesterday."
+                                ],
+                                "feedback": {
+                                    "alex can't have read the message yesterday.": "Правильно: Alex can't have read the message yesterday. — Не може бути, щоб Алекс прочитав повідомлення вчора. Прочитання вчора несумісне з прямо заданим створенням лише сьогодні; read тут V3.",
+                                    "alex can't have read the message yesterday": "Правильно: Alex can't have read the message yesterday. — Не може бути, щоб Алекс прочитав повідомлення вчора. Can't + have + V3 відкидає минулу подію.",
+                                    "alex cannot have read the message yesterday.": "Правильно: Alex cannot have read the message yesterday. — Не може бути, щоб Алекс прочитав повідомлення вчора. Cannot — повна форма can't.",
+                                    "alex can't had read the message yesterday.": "Правильна відповідь: Alex can't have read the message yesterday. — Не може бути, щоб Алекс прочитав повідомлення вчора. Після can't потрібне have, не had; час і заперечення не змінюються."
+                                }
+                            },
+                            {
+                                "id": "m51-past-build-criticism",
+                                "source_index": 6,
+                                "before": "secret. / have / Iryna / told / not / the / should",
+                                "after": "Ірина розповіла таємницю, хоча домовилися її не розголошувати. Оціни минулий вибір: «Ірині не слід було розповідати таємницю». Використай should not have, почни з Iryna; tell — розповідати, secret — таємниця.",
+                                "answer": "Iryna should not have told the secret.",
+                                "accepted": [
+                                    "Iryna should not have told the secret.",
+                                    "Iryna shouldn't have told the secret."
+                                ],
+                                "feedback": {
+                                    "iryna should not have told the secret.": "Правильно: Iryna should not have told the secret. — Ірині не слід було розповідати таємницю. Умова прямо встановлює виконану дію; should not have оцінює її, не переносить пораду в майбутнє.",
+                                    "iryna should not have told the secret": "Правильно: Iryna should not have told the secret. — Ірині не слід було розповідати таємницю. Told — V3 після have.",
+                                    "iryna shouldn't have told the secret.": "Правильно: Iryna shouldn't have told the secret. — Ірині не слід було розповідати таємницю. Shouldn't — скорочення should not.",
+                                    "iryna should not have tell the secret.": "Правильна відповідь: Iryna should not have told the secret. — Ірині не слід було розповідати таємницю. Після have потрібна V3 told, не tell."
+                                }
+                            }
+                        ],
+                        "rephrase": [],
+                        "linked_practice": {
+                            "source": "theory_links",
+                            "question_types": [
+                                "4"
+                            ],
+                            "seeder_classes": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotPastModalsThematicLessonSeeder"
+                            ],
+                            "title": "Вправа 4. Побудуй речення",
+                            "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+                            "footer": "Завдання підібрані лише для цієї теми."
+                        }
+                    }
+                }
+            ],
+            "details": [
+                {
+                    "key": "past-modals-process-and-passive",
+                    "title": "Попередній процес чи дія над предметом",
+                    "owner_block_key": "past-modals-forms",
+                    "owner_pointer": "/items/0",
+                    "fragment": {
+                        "type": "usage-panels",
+                        "data": {
+                            "sections": [
+                                {
+                                    "label": "HAVE BEEN + V-ING",
+                                    "color": "blue",
+                                    "description": "Якщо висновок стосується попереднього процесу, після have ставимо been і форму -ing. Been тут V3 дієслова be, а working називає дію самого підмета. Наявність been не означає автоматично пасив.",
+                                    "examples": [
+                                        {
+                                            "en": "The mechanic must have been working on the engine.",
+                                            "ua": "Механік, напевно, працював над двигуном."
+                                        }
+                                    ],
+                                    "note": "У цій вигаданій ситуації інструменти ще теплі й двигун розібраний; мовець робить сильний висновок, не стверджує точну тривалість роботи."
+                                },
+                                {
+                                    "label": "HAVE BEEN + V3",
+                                    "color": "amber",
+                                    "description": "Коли предмет отримує дію, можливе modal + have + been + V3. У цьому пасивному прикладі двигун ремонтують, але виконавець у реченні не названий. Складніший розбір цих форм не замінює основного алгоритму modal + have + V3.",
+                                    "examples": [
+                                        {
+                                            "en": "The engine may have been repaired.",
+                                            "ua": "Можливо, двигун відремонтували."
+                                        }
+                                    ],
+                                    "note": "Ремонт — непідтверджена версія; не додавай, що його виконав саме цей механік. Поглиблення висновків — у <a href=\"/theory/modal-verbs/modal-perfect-and-deduction\">Modal Perfect and Deduction</a>."
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "schema_version": 1,
+            "status": "frozen",
+            "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsRequestsOffersSuggestionsTheorySeeder",
+            "slug": "requests-offers-suggestions",
+            "locale": "uk",
+            "display_level": "A2-B1",
+            "technical_block_level": "A2",
+            "category_ancestry": [
+                "modal-verbs"
+            ],
+            "local_url": "http://gramlyze.loc/theory/modal-verbs/requests-offers-suggestions",
+            "subtitle_html": "<p><strong>Requests / Offers / Suggestions</strong> — як попросити співрозмовника, запропонувати власну допомогу, річ або спільний план: форми, виконавці, короткі відповіді та практика.</p>",
+            "subtitle_text": "Requests / Offers / Suggestions — як попросити співрозмовника, запропонувати власну допомогу, річ або спільний план: форми, виконавці, короткі відповіді та практика.",
+            "blocks": [
+                {
+                    "key": "requests-offers-suggestions-hero",
+                    "existing_source_index": 0,
+                    "type": "hero",
+                    "column": "header",
+                    "level": "A2",
+                    "data": {
+                        "level": "A2-B1",
+                        "intro": "Спочатку визнач намір і виконавця: прошу іншого виконати дію, пропоную свою допомогу, річ або спільний план. <strong>Can, could, would, shall</strong> і <strong>let's</strong> допомагають сформулювати ці різні наміри; ввічливість також залежить від ситуації й тону.",
+                        "rules": [
+                            {
+                                "label": "ПРОШУ ІНШОГО",
+                                "color": "emerald",
+                                "text": "Can / Could / Would you звертаються до співрозмовника як виконавця.",
+                                "example": "<span lang=\"en\">Could you open the door?</span><br><span lang=\"uk\">Не міг би ти відчинити двері?</span>"
+                            },
+                            {
+                                "label": "ПРОПОНУЮ СВОЮ ДОПОМОГУ",
+                                "color": "blue",
+                                "text": "Shall I та Would you like me to пропонують дію мовця.",
+                                "example": "<span lang=\"en\">Shall I carry that bag?</span><br><span lang=\"uk\">Мені піднести ту сумку?</span>"
+                            },
+                            {
+                                "label": "ПРОПОНУЮ СПІЛЬНИЙ ПЛАН",
+                                "color": "amber",
+                                "text": "Let's, Shall we і Why don't we включають мовця й інших учасників.",
+                                "example": "<span lang=\"en\">Let's start now.</span><br><span lang=\"uk\">Давай почнемо зараз.</span>"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-forms",
+                    "existing_source_index": 1,
+                    "type": "forms-grid",
+                    "column": "left",
+                    "level": "A2",
+                    "data": {
+                        "title": "1. Форми за наміром і виконавцем",
+                        "intro": "Після modal — базова форма дієслова. У would like є окрема будова з to; це не виняток, який дозволяє Can you to help.",
+                        "items": [
+                            {
+                                "label": "ПРОХАННЯ ДО СПІВРОЗМОВНИКА",
+                                "title": "Can / Could / Would you + V?",
+                                "subtitle": "Дію просимо виконати you. Could у цьому проханні не переносить дію в минуле.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Can you wait? / Could you help me?</span><br><span lang=\"uk\">Можеш почекати? / Не міг би ти допомогти мені?</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ДІЮ ПРОПОНУЄ МОВЕЦЬ",
+                                "title": "Shall I + V? / Can I help ...? / I'll + V",
+                                "subtitle": "I — виконавець пропонованої допомоги, не співрозмовник.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Shall I call a taxi? / Can I help you? / I'll carry the bags.</span><br><span lang=\"uk\">Мені викликати таксі? / Можу тобі допомогти? / Я піднесу сумки.</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ПРОПОЗИЦІЯ РЕЧІ",
+                                "title": "Would you like + іменник?",
+                                "subtitle": "Пропонуємо конкретну річ зараз, не запитуємо про загальні вподобання.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Would you like some water?</span><br><span lang=\"uk\">Хочеш води?</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ЗАПРОШЕННЯ ДО ДІЇ",
+                                "title": "Would you like to + V?",
+                                "subtitle": "Співрозмовник вирішує, чи хоче сам виконати дію або приєднатися.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Would you like to join us?</span><br><span lang=\"uk\">Хочеш приєднатися до нас?</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "МОЯ ДОПОМОГА ДЛЯ ТЕБЕ",
+                                "title": "Would you like me to + V?",
+                                "subtitle": "Me називає мовця як виконавця. Це не те саме, що would you like to.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Would you like me to carry your bag?</span><br><span lang=\"uk\">Хочеш, щоб я підніс твою сумку?</span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "СПІЛЬНИЙ ПЛАН",
+                                "title": "Let's / Let's not + V; Shall we / Why don't we + V?",
+                                "subtitle": "Після let's not іде базова форма. Також можливе How about + V-ing, але це не єдина будова після How about.",
+                                "rules": [
+                                    {
+                                        "label": "Приклад",
+                                        "example": "<span lang=\"en\">Let's not rush. / How about taking a break?</span><br><span lang=\"uk\">Давай не поспішатимемо. / Як щодо перерви?</span>"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-uses",
+                    "existing_source_index": 2,
+                    "type": "usage-panels",
+                    "column": "left",
+                    "level": "A2",
+                    "data": {
+                        "title": "2. Прохання, пропозиції та короткі реакції",
+                        "sections": [
+                            {
+                                "label": "ПРОХАННЯ: ДІЮ ВИКОНУЄ СПІВРОЗМОВНИК",
+                                "color": "emerald",
+                                "description": "Олена просить Тараса надіслати посилання; виконавець — Тарас. Can you нормально працює в щоденному проханні; could / would часто роблять формулювання менш прямим, але тон і ситуація залишаються важливими.",
+                                "examples": [
+                                    {
+                                        "en": "Can you send me the link? — Sure.",
+                                        "ua": "Можеш надіслати мені посилання? — Звісно."
+                                    },
+                                    {
+                                        "en": "Could you send me the link, please? — Of course.",
+                                        "ua": "Не міг би ти надіслати мені посилання, будь ласка? — Авжеж."
+                                    },
+                                    {
+                                        "en": "Would you check this for me? — Sorry, I can't right now.",
+                                        "ua": "Не перевіриш це для мене? — Вибач, зараз не можу."
+                                    }
+                                ],
+                                "note": "Олена говорить першу репліку, Тарас відповідає. Не потрібно повторювати той самий modal у кожній природній відповіді; could тут стосується теперішнього прохання."
+                            },
+                            {
+                                "label": "ПРОПОЗИЦІЯ: ДІЮ ВИКОНУЄ МОВЕЦЬ",
+                                "color": "blue",
+                                "description": "Марта бачить важку сумку колеги й пропонує сама її піднести. Колега може прийняти або відхилити допомогу; пропозиція не є проханням до нього нести сумку.",
+                                "examples": [
+                                    {
+                                        "en": "Shall I carry your bag? — Yes, please.",
+                                        "ua": "Мені піднести твою сумку? — Так, будь ласка."
+                                    },
+                                    {
+                                        "en": "Would you like me to call a taxi? — No, thanks.",
+                                        "ua": "Хочеш, щоб я викликала таксі? — Ні, дякую."
+                                    },
+                                    {
+                                        "en": "I'll hold the door for you. — Thanks.",
+                                        "ua": "Я притримаю для тебе двері. — Дякую."
+                                    }
+                                ],
+                                "note": "Першу репліку говорить Марта, другу — колега. Shall I, can I help та I'll відрізняються будовою, але можуть служити її пропозиції допомоги."
+                            },
+                            {
+                                "label": "РІЧ АБО ЗАПРОШЕННЯ",
+                                "color": "amber",
+                                "description": "Господар пропонує гостеві воду або запрошує приєднатися. Would you like + іменник пропонує річ; would you like to + дієслово — дію для співрозмовника.",
+                                "examples": [
+                                    {
+                                        "en": "Would you like some water? — Yes, please.",
+                                        "ua": "Хочеш води? — Так, будь ласка."
+                                    },
+                                    {
+                                        "en": "Would you like to join us for lunch? — Thanks, but I have to leave.",
+                                        "ua": "Хочеш приєднатися до нас на обід? — Дякую, але мені треба йти."
+                                    }
+                                ],
+                                "note": "Do you like water? означає «Тобі подобається вода?» і запитує про вподобання загалом; це не та сама пропозиція води зараз."
+                            },
+                            {
+                                "label": "СПІЛЬНИЙ ПЛАН І ЗУСТРІЧНА ПРОПОЗИЦІЯ",
+                                "color": "sky",
+                                "description": "Друзі обговорюють власний спільний план. We і let's включають мовця; інший учасник може запропонувати зміну. Ні let's, ні непряме питання не гарантують відсутності тиску в кожному контексті.",
+                                "examples": [
+                                    {
+                                        "en": "Let's start with the easy part. — Good idea.",
+                                        "ua": "Давай почнемо з легшої частини. — Гарна ідея."
+                                    },
+                                    {
+                                        "en": "Shall we go now? — Let's wait five minutes.",
+                                        "ua": "Може, підемо зараз? — Давай почекаємо п’ять хвилин."
+                                    },
+                                    {
+                                        "en": "Why don't we meet after lunch? — How about meeting at three instead?",
+                                        "ua": "Чому б нам не зустрітися після обіду? — Як щодо зустрічі о третій натомість?"
+                                    }
+                                ],
+                                "note": "Why don't we тут пропонує дію, а не вимагає причини невиконання. How about meeting — корисна модель з -ing; можливі й інші будови, тому не проголошуємо -ing єдиною."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-mistakes",
+                    "existing_source_index": 3,
+                    "type": "mistakes-grid",
+                    "column": "right",
+                    "level": "A2",
+                    "data": {
+                        "title": "3. Типові помилки та зміна виконавця",
+                        "items": [
+                            {
+                                "label": "БАЗОВА ФОРМА У ПРОХАННІ",
+                                "color": "rose",
+                                "title": "Після Can you потрібне help без to.",
+                                "wrong": "<span lang=\"en\">Can you to help me?</span><br><span lang=\"uk\">Задум: можеш допомогти мені?</span>",
+                                "right": "<span lang=\"en\">Can you help me?</span><br><span lang=\"uk\">Можеш допомогти мені?</span>",
+                                "wrong_en": "Can you to help me?",
+                                "wrong_ua": "Задум: можеш допомогти мені?",
+                                "right_en": "Can you help me?",
+                                "right_ua": "Можеш допомогти мені?",
+                                "hint": "Безпосередньо після can / could / would — базова форма. Would you like to help me? має окрему будову would + like + to help й означає «Хочеш допомогти мені?»; to там правильне."
+                            },
+                            {
+                                "label": "LET'S УЖЕ ВКЛЮЧАЄ НАС",
+                                "color": "amber",
+                                "title": "Не додавай we після let's; для заперечення став not перед дієсловом.",
+                                "wrong": "<span lang=\"en\">Let's we start now.</span><br><span lang=\"uk\">Задум: давай почнемо зараз.</span>",
+                                "right": "<span lang=\"en\">Let's start now.</span><br><span lang=\"uk\">Давай почнемо зараз.</span>",
+                                "wrong_en": "Let's we start now.",
+                                "wrong_ua": "Задум: давай почнемо зараз.",
+                                "right_en": "Let's start now.",
+                                "right_ua": "Давай почнемо зараз.",
+                                "hint": "Let's — скорочене let us; у цій моделі наступне слово — дієслово. Let's not start yet. — Давай поки не починатимемо. Це правильний заперечний порядок."
+                            },
+                            {
+                                "label": "ЗБЕРЕЖИ СПІВРОЗМОВНИКА ЯК ВИКОНАВЦЯ",
+                                "color": "sky",
+                                "title": "Я прошу тебе відчинити вікно; не пропоную зробити це сам.",
+                                "wrong": "<span lang=\"en\">Shall you open the window?</span><br><span lang=\"uk\">Задум: не міг би ти відчинити вікно?</span>",
+                                "right": "<span lang=\"en\">Could you open the window?</span><br><span lang=\"uk\">Не міг би ти відчинити вікно?</span>",
+                                "wrong_en": "Shall you open the window?",
+                                "wrong_ua": "Задум: не міг би ти відчинити вікно?",
+                                "right_en": "Could you open the window?",
+                                "right_ua": "Не міг би ти відчинити вікно?",
+                                "hint": "Це цільове щоденне прохання до you, а не правило про всі можливі формальні shall you. Shall I open the window? — «Мені відчинити вікно?» — було б іншою пропозицією: виконавець тепер мовець."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-summary",
+                    "existing_source_index": 4,
+                    "type": "summary-list",
+                    "column": "right",
+                    "level": "A2",
+                    "data": {
+                        "title": "4. Короткий підсумок",
+                        "items": [
+                            "Can / Could / Would you + V? — прохання до співрозмовника; could не робить це прохання минулим.",
+                            "Shall I, Can I help та I'll пропонують дію мовця. Would you like me to прямо називає того самого виконавця.",
+                            "Would you like + річ? пропонує річ; Would you like to + V? запрошує співрозмовника до дії. Загальне Do you like має інший намір.",
+                            "Let's / Let's not, Shall we і Why don't we пропонують спільний план. Реакція може прийняти, відмовити або змінити пропозицію без повторення modal.",
+                            "Контекст і тон важливіші за механічну шкалу ввічливості. Основні форми також пояснюють <a href=\"/theory/modal-verbs/can-could\">Can / Could</a>."
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-navigation",
+                    "existing_source_index": 5,
+                    "type": "navigation-chips",
+                    "column": "footer",
+                    "data": {
+                        "title": "Сторінки цього розділу",
+                        "items": [
+                            {
+                                "label": "Can / Could",
+                                "url": "/theory/modal-verbs/can-could",
+                                "current": false
+                            },
+                            {
+                                "label": "May / Might",
+                                "url": "/theory/modal-verbs/may-might",
+                                "current": false
+                            },
+                            {
+                                "label": "Must / Have to",
+                                "url": "/theory/modal-verbs/must-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Should / Ought to",
+                                "url": "/theory/modal-verbs/should-ought-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Need / Needn't / Don't have to",
+                                "url": "/theory/modal-verbs/need-neednt-dont-have-to",
+                                "current": false
+                            },
+                            {
+                                "label": "Modals of Deduction",
+                                "url": "/theory/modal-verbs/modals-of-deduction",
+                                "current": false
+                            },
+                            {
+                                "label": "Past Modals",
+                                "url": "/theory/modal-verbs/past-modals",
+                                "current": false
+                            },
+                            {
+                                "label": "Requests / Offers / Suggestions",
+                                "url": "/theory/modal-verbs/requests-offers-suggestions",
+                                "current": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "key": "requests-offers-suggestions-practice",
+                    "existing_source_index": null,
+                    "type": "practice-set",
+                    "column": "right",
+                    "level": "A2",
+                    "data": {
+                        "title": "5. Практика",
+                        "select_title": "Доповни форму",
+                        "select_intro": "Намір, виконавець і початок конструкції задані. Обери правильне продовження, а не «найввічливіший» modal без критерію.",
+                        "selects": [
+                            {
+                                "id": "m51-requests-could-base",
+                                "source_index": 1,
+                                "label": "Олена просить Тараса зараз допомогти їй із коробкою. Доповни саме Could you: «Не міг би ти допомогти мені з цією коробкою?»<br><span lang=\"en\">Could you ___ me with this box?</span>",
+                                "options": [
+                                    "to help",
+                                    "helping",
+                                    "help"
+                                ],
+                                "answer": "help",
+                                "accepted": [
+                                    "help"
+                                ],
+                                "feedback": {
+                                    "to help": "Правильно: Could you help me with this box? — Не міг би ти допомогти мені з цією коробкою? Після could потрібне help без to.",
+                                    "helping": "Правильно: Could you help me with this box? — Не міг би ти допомогти мені з цією коробкою? У цій будові потрібна базова форма, не -ing.",
+                                    "help": "Правильно: Could you help me with this box? — Не міг би ти допомогти мені з цією коробкою? Виконати допомогу Олена просить Тараса."
+                                }
+                            },
+                            {
+                                "id": "m51-requests-like-to",
+                                "source_index": 2,
+                                "label": "Оля запрошує Іру піти з нею. Доповни Would you like: «Хочеш піти зі мною?»<br><span lang=\"en\">Would you like ___ with me?</span>",
+                                "options": [
+                                    "come",
+                                    "to come",
+                                    "coming"
+                                ],
+                                "answer": "to come",
+                                "accepted": [
+                                    "to come"
+                                ],
+                                "feedback": {
+                                    "come": "Правильно: Would you like to come with me? — Хочеш піти зі мною? Дієслово після would like має to-infinitive.",
+                                    "to come": "Правильно: Would you like to come with me? — Хочеш піти зі мною? To належить до будови like to come; це не помилка після would.",
+                                    "coming": "Правильно: Would you like to come with me? — Хочеш піти зі мною? Тут запрошення Would you like to, не питання про загальні вподобання."
+                                }
+                            }
+                        ],
+                        "choice_title": "Розрізни намір і виконавця",
+                        "choice_intro": "Прочитай репліку в заданій розмові. Переклад і розбір покажемо після перевірки, щоб не назвати виконавця наперед.",
+                        "choices": [
+                            {
+                                "id": "m51-requests-me-to-actor",
+                                "source_index": 3,
+                                "label": "Марта звертається до колеги з першою реплікою. Хто пропонує виконати друк?",
+                                "prompt": "<span lang=\"en\">Would you like me to print the tickets?</span>",
+                                "options": [
+                                    "Марта пропонує сама надрукувати квитки.",
+                                    "Марта просить колегу надрукувати квитки.",
+                                    "Марта пропонує колезі й собі друкувати квитки разом."
+                                ],
+                                "answer": "Марта пропонує сама надрукувати квитки.",
+                                "accepted": [
+                                    "Марта пропонує сама надрукувати квитки."
+                                ],
+                                "feedback": {
+                                    "марта пропонує сама надрукувати квитки.": "Правильно: Would you like me to print the tickets? — Хочеш, щоб я надрукувала квитки? Me називає Марту як виконавицю пропонованої дії.",
+                                    "марта просить колегу надрукувати квитки.": "Would you like me to print the tickets? — Хочеш, щоб я надрукувала квитки? Me — Марта; виконати друк вона пропонує сама, не просить колегу.",
+                                    "марта пропонує колезі й собі друкувати квитки разом.": "Would you like me to print the tickets? — Хочеш, щоб я надрукувала квитки? Репліка не містить спільного we; виконавиця — Марта."
+                                }
+                            },
+                            {
+                                "id": "m51-requests-shared-plan",
+                                "source_index": 4,
+                                "label": "Олег і друг обговорюють, коли їм зустрітися; попередньої невдалої зустрічі немає. Який намір передає репліка Олега?",
+                                "prompt": "<span lang=\"en\">Why don't we meet at six?</span>",
+                                "options": [
+                                    "Олег дорікає за невдалу минулу зустріч.",
+                                    "Олег пропонує їм зустрітися о шостій.",
+                                    "Олег пропонує виконати дію сам без друга."
+                                ],
+                                "answer": "Олег пропонує їм зустрітися о шостій.",
+                                "accepted": [
+                                    "Олег пропонує їм зустрітися о шостій."
+                                ],
+                                "feedback": {
+                                    "олег дорікає за невдалу минулу зустріч.": "Why don't we meet at six? — Чому б нам не зустрітися о шостій? У заданому обговоренні це пропозиція спільного плану; минула невдача не задана.",
+                                    "олег пропонує їм зустрітися о шостій.": "Правильно: Why don't we meet at six? — Чому б нам не зустрітися о шостій? We включає Олега й друга, а питання пропонує час зустрічі.",
+                                    "олег пропонує виконати дію сам без друга.": "Why don't we meet at six? — Чому б нам не зустрітися о шостій? We включає обох; це не пропозиція дії лише від I."
+                                }
+                            }
+                        ],
+                        "input_title": "Побудуй речення",
+                        "input_intro": "Використай ручний ввід або перемішані токени. Збережи прохання чи спільну пропозицію, виконавця, заперечення та знак питання.",
+                        "inputs": [
+                            {
+                                "id": "m51-requests-build-request",
+                                "source_index": 5,
+                                "before": "the / please? / you / gate, / Would / close",
+                                "after": "Ти просиш співрозмовника зачинити хвіртку: «Не зачиниш хвіртку, будь ласка?» Використай Would you, почни з Would; close — зачинити, gate — хвіртка. У банку gate, уже має кому перед please.",
+                                "answer": "Would you close the gate, please?",
+                                "accepted": [
+                                    "Would you close the gate, please?",
+                                    "Would you close the gate please?",
+                                    "Would you please close the gate?"
+                                ],
+                                "feedback": {
+                                    "would you close the gate, please?": "Правильно: Would you close the gate, please? — Не зачиниш хвіртку, будь ласка? Це прохання до співрозмовника; виконавець you. Після would — базове close.",
+                                    "would you close the gate, please": "Правильно: Would you close the gate, please? — Не зачиниш хвіртку, будь ласка? Would you починає питання-прохання; збережи знак питання в реченні.",
+                                    "would you close the gate please?": "Правильно: Would you close the gate please? — Не зачиниш хвіртку, будь ласка? Відсутність коми перед please не змінює прохання.",
+                                    "would you please close the gate?": "Правильно: Would you please close the gate? — Не зачиниш хвіртку, будь ласка? Please може стояти й перед close; виконавець і намір збережені.",
+                                    "would you to close the gate, please?": "Правильна відповідь: Would you close the gate, please? — Не зачиниш хвіртку, будь ласка? Після would у цій моделі не додаємо to."
+                                }
+                            },
+                            {
+                                "id": "m51-requests-build-negative-plan",
+                                "source_index": 6,
+                                "before": "bags / Let's / here. / leave / the / not",
+                                "after": "Запропонуй вам обом не залишати сумки тут: «Давай не залишатимемо сумки тут». Використай Let's not або повне Let us not; leave — залишити, bags — сумки.",
+                                "answer": "Let's not leave the bags here.",
+                                "accepted": [
+                                    "Let's not leave the bags here.",
+                                    "Let us not leave the bags here."
+                                ],
+                                "feedback": {
+                                    "let's not leave the bags here.": "Правильно: Let's not leave the bags here. — Давай не залишатимемо сумки тут. Let's включає мовця й співрозмовника; not стоїть перед leave.",
+                                    "let's not leave the bags here": "Правильно: Let's not leave the bags here. — Давай не залишатимемо сумки тут. Це заперечний спільний план, не заборона лише для іншого.",
+                                    "let us not leave the bags here.": "Правильно за змістом: Let us not leave the bags here. — Давай не залишатимемо сумки тут. Це повна, формальніша форма let's not; для щоденної пропозиції природне скорочення.",
+                                    "let's don't leave the bags here.": "Правильна відповідь: Let's not leave the bags here. — Давай не залишатимемо сумки тут. У заданій моделі після let's ставимо not, не don't."
+                                }
+                            }
+                        ],
+                        "rephrase": [],
+                        "linked_practice": {
+                            "source": "theory_links",
+                            "question_types": [
+                                "4"
+                            ],
+                            "seeder_classes": [
+                                "Database\\Seeders\\V3\\Polyglot\\PolyglotRequestsOffersSuggestionsThematicLessonSeeder"
+                            ],
+                            "title": "Вправа 4. Побудуй речення",
+                            "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+                            "footer": "Завдання підібрані лише для цієї теми."
+                        }
+                    }
+                }
+            ],
+            "details": [
+                {
+                    "key": "requests-mind-actors-and-replies",
+                    "title": "Would you mind: хто діє і що означає відповідь",
+                    "owner_block_key": "requests-offers-suggestions-uses",
+                    "owner_pointer": "/sections/0",
+                    "fragment": {
+                        "type": "usage-panels",
+                        "data": {
+                            "sections": [
+                                {
+                                    "label": "ПРОШУ ТЕБЕ ВИКОНАТИ ДІЮ",
+                                    "color": "emerald",
+                                    "description": "Would you mind + V-ing просить дію від співрозмовника. Олена просить Тараса відчинити вікно; opening називає дію Тараса. Відповідь не повинна механічно повторювати modal: важливо, чи він погоджується допомогти.",
+                                    "examples": [
+                                        {
+                                            "en": "Would you mind opening the window? — Not at all. I'll open it.",
+                                            "ua": "Ти не проти відчинити вікно? — Зовсім ні. Я його відчиню."
+                                        }
+                                    ],
+                                    "note": "Not at all означає «не заперечую» й у цьому діалозі супроводжується явною згодою відчинити вікно."
+                                },
+                                {
+                                    "label": "ПРОШУ ДОЗВОЛУ ДЛЯ СЕБЕ",
+                                    "color": "blue",
+                                    "description": "Would you mind if I + форма минулого просить дозволу на дію мовця. У цьому ввічливому питанні opened не повідомляє, що вікно вже відчинили. Олена питає дозволу в Тараса й сама планує відчинити вікно.",
+                                    "examples": [
+                                        {
+                                            "en": "Would you mind if I opened the window? — No, not at all.",
+                                            "ua": "Ти не проти, якщо я відчиню вікно? — Ні, зовсім не проти."
+                                        },
+                                        {
+                                            "en": "Would you mind if I opened the window? — I'd rather you didn't; it's cold.",
+                                            "ua": "Ти не проти, якщо я відчиню вікно? — Я б волів, щоб ти цього не робила: холодно."
+                                        }
+                                    ],
+                                    "note": "No, not at all дозволяє дію; друга відповідь ввічливо відмовляє й називає причину. Не оцінюй окреме yes/no без змісту решти репліки."
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "acceptance": {
+        "content_review": "reviewed-main",
+        "runtime_local_apply": "not_claimed",
+        "browser_visibility": "not_claimed",
+        "question_bank_review": "reviewed-insert-only-supplement",
+        "release_freeze": true,
+        "freeze_at_utc": "2026-10-14 18:09:45 UTC"
+    }
+}

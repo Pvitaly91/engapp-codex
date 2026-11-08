@@ -7,6 +7,58 @@ use PHPUnit\Framework\TestCase;
 
 class AcceptedAnswerVariantsTest extends TestCase
 {
+    public function test_all24_zero_article_dash_answers_accept_the_literal_semantic_value_only(): void
+    {
+        $source = json_decode(file_get_contents(dirname(__DIR__, 2).'/database/seeders/V3/CommonMistakes/CommonMistakesArticlesAllLevelsV3Seeder/definition.json'), true, flags: JSON_THROW_ON_ERROR);
+        $rows = array_values(array_filter($source['questions'], static fn ($row): bool => ($row['markers']['a1']['answer'] ?? null) === '-'));
+        $this->assertCount(24, $rows);
+        foreach ($rows as $row) {
+            $this->assertTrue(AcceptedAnswerVariants::matches('-', '-'), $row['uuid']);
+            $this->assertTrue(AcceptedAnswerVariants::matches('-', ' - '), $row['uuid']);
+            foreach (['', '.', '?!', '—', '–', 'the', 'a', 'an'] as $wrong) {
+                $this->assertFalse(AcceptedAnswerVariants::matches('-', $wrong), $row['uuid'].' / '.$wrong);
+            }
+        }
+    }
+
+    public function test_optional_sentence_punctuation_does_not_change_spelling_or_complete_a_partial_phrase(): void
+    {
+        foreach ([['Tomorrow,', 'Tomorrow'], ['“Tomorrow,” she said.', 'Tomorrow she said'],
+            ['(Wait!)', 'wait'], ['first; then: stop!', 'first then stop'], ['red,blue', 'red blue'],
+            ['will be made.', 'will be made'], ['will not be made!', "won't be made"],
+            ["'Tomorrow,' we will leave.", 'Tomorrow we will leave'], ["'go' and 'stop'", 'go and stop'],
+            ["'James' bike'", "James' bike"], ["Students’ books", "Students' books"],
+            ["James' bike.", "“James’ bike.”"],
+            ["John's well-known 3.14 example…", "John’s well-known 3.14 example"]] as [$expected, $answer]) {
+            $this->assertTrue(AcceptedAnswerVariants::matches($expected, $answer), $expected.' -> '.$answer);
+        }
+        foreach ([['will be made', 'will'], ['will be made', 'will be'], ['will be made', 'will made'],
+            ["won't be made", 'wont be made'], ["case's", 'cases'], ['well-known', 'well known'],
+            ["students' books", 'students books'], ["James' bike", 'James bike'],
+            ["students'", 'students'], ["James' bike", "'James' bike"], ["'90s music", '90s music'],
+            ['3.14', '314'], ['1,000', '1000'], ['a.b', 'ab']] as [$expected, $answer]) {
+            $this->assertFalse(AcceptedAnswerVariants::matches($expected, $answer), $expected.' -> '.$answer);
+        }
+    }
+
+    public function test_sentence_ending_punctuation_does_not_license_contracted_positive_short_answers(): void
+    {
+        foreach (['', '.', '?', '!', '…', '. ”'] as $tail) {
+            foreach ([['I am', "I'm"], ['they are', "they're"], ['she is', "she's"], ['we have', "we've"],
+                ['I will', "I'll"], ['he would', "he'd"], ['it had', "it'd"]] as [$full, $short]) {
+                $this->assertTrue(AcceptedAnswerVariants::matches($full, $full, $tail, 'Yes, '));
+                $this->assertFalse(AcceptedAnswerVariants::matches($full, $short, $tail, 'Yes, '), $full.' / '.$tail);
+            }
+            foreach ([['it is not', "it isn't"], ['it is not', "it's not"], ['they are not', "they aren't"],
+                ['we are not', "we're not"], ['I am not', "I'm not"], ['he was not', "he wasn't"],
+                ['you were not', "you weren't"], ['I will not', "I won't"]] as [$full, $short]) {
+                $this->assertTrue(AcceptedAnswerVariants::matches($full, $short, $tail, 'No, '), $full.' / '.$tail);
+            }
+        }
+        $this->assertTrue(AcceptedAnswerVariants::matches('they are', "they're", ' ready.', 'Yes, '));
+        $this->assertTrue(AcceptedAnswerVariants::matches('I am', "I'm", ' at home.', 'Yes, '));
+    }
+
     public function test_every_shared_unambiguous_rule_works_in_both_directions(): void
     {
         $rules = AcceptedAnswerVariants::rules();

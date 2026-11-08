@@ -1,0 +1,665 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/gerund.v1.json",
+        "sha256": "84ac569f519cd7d8481c2a31860e2978bdd8b02a7ad606a48166b11fceec28ef"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqGerundQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-gerund-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_gerund": {
+            "name": "Verb Patterns Quality: Gerund"
+        }
+    },
+    "tags": {
+        "gerund": {
+            "name": "Gerund",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "verb_ing": {
+            "name": "Verb Ing",
+            "category": "topic"
+        },
+        "gerund_subject": {
+            "name": "Gerund Subject",
+            "category": "topic"
+        },
+        "gerund_object": {
+            "name": "Gerund Object",
+            "category": "topic"
+        },
+        "after_prepositions": {
+            "name": "After Prepositions",
+            "category": "topic"
+        },
+        "after_common_verbs": {
+            "name": "After Common Verbs",
+            "category": "topic"
+        },
+        "spelling_changes": {
+            "name": "Spelling Changes",
+            "category": "topic"
+        },
+        "negative_gerund": {
+            "name": "Negative Gerund",
+            "category": "topic"
+        },
+        "noun_like_action": {
+            "name": "Noun Like Action",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-gerund-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Olha likes {a1} in the kitchen.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Ольга любить танцювати на кухні.",
+            "target_text": "Olha likes dancing in the kitchen.",
+            "markers": {
+                "a1": {
+                    "answer": "dancing",
+                    "options": [
+                        "dancing",
+                        "dance",
+                        "dances"
+                    ],
+                    "verb_hint": "Передай дію «танцювати»: після дієслова вподобання використай форму із закінченням -інг."
+                }
+            },
+            "verb_hint": "Передай дію «танцювати»: після дієслова вподобання використай форму із закінченням -інг.",
+            "accepted_target_texts": [
+                "Olha likes dancing in the kitchen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Olha likes",
+                "dancing",
+                "in the kitchen."
+            ],
+            "token_groups": [
+                "Olha likes",
+                "dancing",
+                "in the kitchen."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-gerund-a1-g02",
+            "author_id": "A1-g02",
+            "question": "{a1} is good exercise for my legs.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Ходьба — хороша вправа для моїх ніг.",
+            "target_text": "Walking is good exercise for my legs.",
+            "markers": {
+                "a1": {
+                    "answer": "Walking",
+                    "options": [
+                        "Walking",
+                        "Walk",
+                        "Walks"
+                    ],
+                    "verb_hint": "Назви заняття «ходьба» одним словом; ця назва дії є підметом речення."
+                }
+            },
+            "verb_hint": "Назви заняття «ходьба» одним словом; ця назва дії є підметом речення.",
+            "accepted_target_texts": [
+                "Walking is good exercise for my legs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Walking",
+                "is good exercise",
+                "for my legs."
+            ],
+            "token_groups": [
+                "Walking",
+                "is good exercise",
+                "for my legs."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-gerund-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Danylo is interested in {a1} old clocks.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Данило цікавиться ремонтом старих годинників.",
+            "target_text": "Danylo is interested in repairing old clocks.",
+            "markers": {
+                "a1": {
+                    "answer": "repairing",
+                    "options": [
+                        "repairing",
+                        "to repair",
+                        "repaired"
+                    ],
+                    "verb_hint": "Після вже наведеного прийменника назви дію «ремонтувати, лагодити» формою із закінченням -інг."
+                }
+            },
+            "verb_hint": "Після вже наведеного прийменника назви дію «ремонтувати, лагодити» формою із закінченням -інг.",
+            "accepted_target_texts": [
+                "Danylo is interested in repairing old clocks.",
+                "Danylo is interested in fixing old clocks."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "fixing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "fixing"
+                ]
+            },
+            "reorder_groups": [
+                "Danylo is interested",
+                "in repairing",
+                "old clocks."
+            ],
+            "token_groups": [
+                "Danylo is interested",
+                "in repairing",
+                "old clocks."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-gerund-a2-g02",
+            "author_id": "A2-g02",
+            "question": "They finished {a1} the picnic baskets.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Вони закінчили пакувати кошики для пікніка.",
+            "target_text": "They finished packing the picnic baskets.",
+            "markers": {
+                "a1": {
+                    "answer": "packing",
+                    "options": [
+                        "packing",
+                        "to pack",
+                        "pack"
+                    ],
+                    "verb_hint": "Передай дію «пакувати»: після вже наведеного дієслова завершення потрібна форма із закінченням -інг."
+                }
+            },
+            "verb_hint": "Передай дію «пакувати»: після вже наведеного дієслова завершення потрібна форма із закінченням -інг.",
+            "accepted_target_texts": [
+                "They finished packing the picnic baskets."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They finished packing",
+                "the picnic baskets."
+            ],
+            "token_groups": [
+                "They finished packing",
+                "the picnic baskets."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-gerund-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The guide suggested {a1} the stone bridge.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Гід запропонував перейти кам'яний міст.",
+            "target_text": "The guide suggested crossing the stone bridge.",
+            "markers": {
+                "a1": {
+                    "answer": "crossing",
+                    "options": [
+                        "crossing",
+                        "to cross",
+                        "crossed"
+                    ],
+                    "verb_hint": "Передай дію «перейти міст» як запропонований варіант: після дієслова пропозиції використай форму із закінченням -інг."
+                }
+            },
+            "verb_hint": "Передай дію «перейти міст» як запропонований варіант: після дієслова пропозиції використай форму із закінченням -інг.",
+            "accepted_target_texts": [
+                "The guide suggested crossing the stone bridge."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide suggested",
+                "crossing",
+                "the stone bridge."
+            ],
+            "token_groups": [
+                "The guide suggested",
+                "crossing",
+                "the stone bridge."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-gerund-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You can improve your pronunciation by {a1} aloud.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Ти можеш поліпшити вимову, читаючи вголос.",
+            "target_text": "You can improve your pronunciation by reading aloud.",
+            "markers": {
+                "a1": {
+                    "answer": "reading",
+                    "options": [
+                        "reading",
+                        "read",
+                        "to read"
+                    ],
+                    "verb_hint": "Назви спосіб поліпшення вимови — «читати»; після вже наведеного прийменника використай форму із закінченням -інг."
+                }
+            },
+            "verb_hint": "Назви спосіб поліпшення вимови — «читати»; після вже наведеного прийменника використай форму із закінченням -інг.",
+            "accepted_target_texts": [
+                "You can improve your pronunciation by reading aloud."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can improve",
+                "your pronunciation",
+                "by reading aloud."
+            ],
+            "token_groups": [
+                "You can improve",
+                "your pronunciation",
+                "by reading aloud."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-gerund-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} into the team helped the newcomer relax.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Те, що новачка радо прийняли в команду, допомогло йому розслабитися.",
+            "target_text": "Being welcomed into the team helped the newcomer relax.",
+            "markers": {
+                "a1": {
+                    "answer": "Being welcomed",
+                    "options": [
+                        "Being welcomed",
+                        "Having welcomed",
+                        "Welcoming"
+                    ],
+                    "verb_hint": "Назви дію «бути радо прийнятим» пасивною формою герундія; новачок отримує привітання, а не вітає інших."
+                }
+            },
+            "verb_hint": "Назви дію «бути радо прийнятим» пасивною формою герундія; новачок отримує привітання, а не вітає інших.",
+            "accepted_target_texts": [
+                "Being welcomed into the team helped the newcomer relax."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Being welcomed",
+                "into the team",
+                "helped the newcomer",
+                "relax."
+            ],
+            "token_groups": [
+                "Being welcomed",
+                "into the team",
+                "helped the newcomer",
+                "relax."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-gerund-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The swimmer denied {a1} the lane rope.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Плавець заперечував, що торкався розділювального каната доріжки.",
+            "target_text": "The swimmer denied touching the lane rope.",
+            "markers": {
+                "a1": {
+                    "answer": "touching",
+                    "options": [
+                        "touching",
+                        "to touch",
+                        "touched"
+                    ],
+                    "verb_hint": "Передай дію «торкатися» після дієслова заперечення факту; можлива проста форма герундія або форма, що явно позначає попередню дію."
+                }
+            },
+            "verb_hint": "Передай дію «торкатися» після дієслова заперечення факту; можлива проста форма герундія або форма, що явно позначає попередню дію.",
+            "accepted_target_texts": [
+                "The swimmer denied touching the lane rope.",
+                "The swimmer denied having touched the lane rope."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "having touched"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "having touched"
+                ]
+            },
+            "reorder_groups": [
+                "The swimmer denied",
+                "touching",
+                "the lane rope."
+            ],
+            "token_groups": [
+                "The swimmer denied",
+                "touching",
+                "the lane rope."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-gerund-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The archivist recalled {a1} the seal before the inventory.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Архівіст пригадав, що оглянув печатку перед інвентаризацією.",
+            "target_text": "The archivist recalled having inspected the seal before the inventory.",
+            "markers": {
+                "a1": {
+                    "answer": "having inspected",
+                    "options": [
+                        "having inspected",
+                        "to inspect",
+                        "have inspected"
+                    ],
+                    "verb_hint": "Передай попередню дію «оглянути» герундієм після дієслова пригадування; прийнятна також проста форма, бо час уже уточнено наприкінці."
+                }
+            },
+            "verb_hint": "Передай попередню дію «оглянути» герундієм після дієслова пригадування; прийнятна також проста форма, бо час уже уточнено наприкінці.",
+            "accepted_target_texts": [
+                "The archivist recalled having inspected the seal before the inventory.",
+                "The archivist recalled inspecting the seal before the inventory.",
+                "The archivist recalled having examined the seal before the inventory.",
+                "The archivist recalled examining the seal before the inventory."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "inspecting",
+                    "having examined",
+                    "examining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "inspecting",
+                    "having examined",
+                    "examining"
+                ]
+            },
+            "reorder_groups": [
+                "The archivist recalled",
+                "having inspected",
+                "the seal",
+                "before the inventory."
+            ],
+            "token_groups": [
+                "The archivist recalled",
+                "having inspected",
+                "the seal",
+                "before the inventory."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-gerund-c1-g02",
+            "author_id": "C1-g02",
+            "question": "There is no {a1} how the crowd will react.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Неможливо передбачити, як відреагує натовп.",
+            "target_text": "There is no predicting how the crowd will react.",
+            "markers": {
+                "a1": {
+                    "answer": "predicting",
+                    "options": [
+                        "predicting",
+                        "to predict",
+                        "predict"
+                    ],
+                    "verb_hint": "У безособовій моделі неможливості назви дію «передбачити» герундієм; не додавай особової форми або частки інфінітива."
+                }
+            },
+            "verb_hint": "У безособовій моделі неможливості назви дію «передбачити» герундієм; не додавай особової форми або частки інфінітива.",
+            "accepted_target_texts": [
+                "There is no predicting how the crowd will react.",
+                "There is no foreseeing how the crowd will react.",
+                "There is no telling how the crowd will react.",
+                "There is no knowing how the crowd will react."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "foreseeing",
+                    "telling",
+                    "knowing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "foreseeing",
+                    "telling",
+                    "knowing"
+                ]
+            },
+            "reorder_groups": [
+                "There is no",
+                "predicting",
+                "how the crowd",
+                "will react."
+            ],
+            "token_groups": [
+                "There is no",
+                "predicting",
+                "how the crowd",
+                "will react."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-gerund-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The panel objected to {a1} without consultation.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Комісія заперечила проти того, що розклад змінили без обговорення.",
+            "target_text": "The panel objected to the timetable's being changed without consultation.",
+            "markers": {
+                "a1": {
+                    "answer": "the timetable's being changed",
+                    "options": [
+                        "the timetable's being changed",
+                        "the timetable to change",
+                        "the timetable's changing"
+                    ],
+                    "verb_hint": "Назви розклад і пасивну дію «бути зміненим» після прийменника; формальна присвійна форма перед герундієм і звичайна іменникова форма тут прийнятні."
+                }
+            },
+            "verb_hint": "Назви розклад і пасивну дію «бути зміненим» після прийменника; формальна присвійна форма перед герундієм і звичайна іменникова форма тут прийнятні.",
+            "accepted_target_texts": [
+                "The panel objected to the timetable's being changed without consultation.",
+                "The panel objected to the timetable being changed without consultation.",
+                "The panel objected to the schedule's being changed without consultation.",
+                "The panel objected to the schedule being changed without consultation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the timetable being changed",
+                    "the schedule's being changed",
+                    "the schedule being changed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the timetable being changed",
+                    "the schedule's being changed",
+                    "the schedule being changed"
+                ]
+            },
+            "reorder_groups": [
+                "The panel objected",
+                "to the timetable's",
+                "being changed",
+                "without consultation."
+            ],
+            "token_groups": [
+                "The panel objected",
+                "to the timetable's",
+                "being changed",
+                "without consultation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-gerund-c2-g02",
+            "author_id": "C2-g02",
+            "question": "It is not worth {a1} over so minor a discrepancy.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Не варто сперечатися через таку незначну розбіжність.",
+            "target_text": "It is not worth quibbling over so minor a discrepancy.",
+            "markers": {
+                "a1": {
+                    "answer": "quibbling",
+                    "options": [
+                        "quibbling",
+                        "to quibble",
+                        "quibbled"
+                    ],
+                    "verb_hint": "Після оцінки «не варто» передай дріб'язкове сперечання герундієм; звичайне дієслово сперечання теж доречне за цим контекстом."
+                }
+            },
+            "verb_hint": "Після оцінки «не варто» передай дріб'язкове сперечання герундієм; звичайне дієслово сперечання теж доречне за цим контекстом.",
+            "accepted_target_texts": [
+                "It is not worth quibbling over so minor a discrepancy.",
+                "It is not worth arguing over so minor a discrepancy.",
+                "It is not worth bickering over so minor a discrepancy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "arguing",
+                    "bickering"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "arguing",
+                    "bickering"
+                ]
+            },
+            "reorder_groups": [
+                "It is not",
+                "worth quibbling",
+                "over so minor",
+                "a discrepancy."
+            ],
+            "token_groups": [
+                "It is not",
+                "worth quibbling",
+                "over so minor",
+                "a discrepancy."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

@@ -1,0 +1,640 @@
+{
+    "schema_version": 1,
+    "topic_key": "result-so-therefore-as-a-result",
+    "title": "Result: so / therefore / as a result",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I am hungry, {a1} I make a sandwich.",
+            "target": "I am hungry, so I make a sandwich.",
+            "uk": "Я голодний, тому роблю бутерброд.",
+            "hint_uk": "Тому роблю; після причини введи наслідок, не змінюючи напрямку зв’язку.",
+            "groups": [
+                "I am hungry,",
+                "so",
+                "I make",
+                "a sandwich."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "although"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The box is heavy, {a1} Dad helps me.",
+            "target": "The box is heavy, so Dad helps me.",
+            "uk": "Коробка важка, тому тато мені допомагає.",
+            "hint_uk": "Тому допомагає; потрібен сполучник наслідку перед повною частиною.",
+            "groups": [
+                "The box",
+                "is heavy,",
+                "so",
+                "Dad helps me."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "because of",
+                "despite"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Двері зачинені, тому ми чекаємо надворі.",
+            "target": "The door is closed, so we wait outside.",
+            "uk": "Двері зачинені, тому ми чекаємо надворі.",
+            "hint_uk": "Спочатку передай причину, потім очікування як її наслідок.",
+            "groups": [
+                "The door",
+                "is closed,",
+                "so",
+                "we wait",
+                "outside."
+            ],
+            "compose_slots": [
+                "The door",
+                "is closed,",
+                "so",
+                "we wait",
+                "outside."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "connector_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "The door is shut, so we wait outside."
+            ],
+            "display_synonyms": {
+                "is closed,": [
+                    "is shut,"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The floor was slippery, {a1} we walked slowly.",
+            "target": "The floor was slippery, so we walked slowly.",
+            "uk": "Підлога була слизька, тому ми йшли повільно.",
+            "hint_uk": "Тому йшли повільно; збережи наслідок названої властивості підлоги.",
+            "groups": [
+                "The floor",
+                "was slippery,",
+                "so",
+                "we walked slowly."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "unless"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The café had no free tables. {a1}, we bought food to take away.",
+            "target": "The café had no free tables. As a result, we bought food to take away.",
+            "uk": "У кафе не було вільних столиків. Унаслідок цього ми купили їжу із собою.",
+            "hint_uk": "Унаслідок цього; на початку нового речення введи результат відсутності місць.",
+            "groups": [
+                "The café",
+                "had",
+                "no free tables.",
+                "As a result,",
+                "we bought food",
+                "to take away."
+            ],
+            "answer": "As a result",
+            "options": [
+                "As a result",
+                "In spite of",
+                "Because of"
+            ],
+            "answer_synonyms": [
+                "Therefore",
+                "Consequently"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Ми пропустили потяг, тому повернулися на автобусі.",
+            "target": "We missed the train, so we returned by bus.",
+            "uk": "Ми пропустили потяг, тому повернулися на автобусі.",
+            "hint_uk": "Збережи пропущений потяг як причину та автобус як подальший спосіб повернення.",
+            "groups": [
+                "We missed",
+                "the train,",
+                "so",
+                "we returned",
+                "by bus."
+            ],
+            "compose_slots": [
+                "We missed",
+                "the train,",
+                "so",
+                "we returned",
+                "by bus."
+            ],
+            "slot_roles": [
+                "verb_phrase",
+                "noun_phrase",
+                "connector_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The river overflowed. {a1}, several roads were blocked.",
+            "target": "The river overflowed. Consequently, several roads were blocked.",
+            "uk": "Річка вийшла з берегів. Унаслідок цього кілька доріг перекрили.",
+            "hint_uk": "Унаслідок цього; окреме речення повідомляє результат розливу.",
+            "groups": [
+                "The river",
+                "overflowed.",
+                "Consequently,",
+                "several roads",
+                "were blocked."
+            ],
+            "answer": "Consequently",
+            "options": [
+                "Consequently",
+                "Because",
+                "Although"
+            ],
+            "answer_synonyms": [
+                "Therefore",
+                "As a result"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The battery was flat, {a1} the photographer borrowed another camera.",
+            "target": "The battery was flat, so the photographer borrowed another camera.",
+            "uk": "Батарея розрядилася, тому фотограф позичив іншу камеру.",
+            "hint_uk": "Тому позичив; назви наслідок проблеми з батареєю.",
+            "groups": [
+                "The battery",
+                "was flat,",
+                "so",
+                "the photographer",
+                "borrowed",
+                "another camera."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "since",
+                "whereas"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Лікарня була переповнена, тому планові операції перенесли.",
+            "target": "The hospital was overcrowded, so routine operations were postponed.",
+            "uk": "Лікарня була переповнена, тому планові операції перенесли.",
+            "hint_uk": "Почни з причини; передай перенесення як наслідок, зберігши пасив перенесення операцій.",
+            "groups": [
+                "The hospital",
+                "was overcrowded,",
+                "so",
+                "routine operations",
+                "were postponed."
+            ],
+            "compose_slots": [
+                "The hospital",
+                "was overcrowded,",
+                "so",
+                "routine operations",
+                "were postponed."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The hospital was overcrowded, so routine operations were delayed."
+            ],
+            "display_synonyms": {
+                "were postponed.": [
+                    "were delayed."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The application lacked a signature. {a1}, it was returned unprocessed.",
+            "target": "The application lacked a signature. Therefore, it was returned unprocessed.",
+            "uk": "У заяві бракувало підпису. Тому її повернули без розгляду.",
+            "hint_uk": "Тому повернули; введи окреме речення про наслідок неповного оформлення.",
+            "groups": [
+                "The application",
+                "lacked",
+                "a signature.",
+                "Therefore,",
+                "it was returned",
+                "unprocessed."
+            ],
+            "answer": "Therefore",
+            "options": [
+                "Therefore",
+                "Although",
+                "Because"
+            ],
+            "answer_synonyms": [
+                "Consequently",
+                "As a result"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The inspection revealed structural damage, {a1} the venue remained closed.",
+            "target": "The inspection revealed structural damage, so the venue remained closed.",
+            "uk": "Огляд виявив пошкодження конструкцій, тому приміщення залишилося зачиненим.",
+            "hint_uk": "Тому залишилося зачиненим; друга частина є наслідком висновку огляду.",
+            "groups": [
+                "The inspection",
+                "revealed",
+                "structural damage,",
+                "so",
+                "the venue",
+                "remained closed."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "despite"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Дані були неповні. Тому ми не опублікували оцінку.",
+            "target": "The data were incomplete. Therefore, we did not publish the estimate.",
+            "uk": "Дані були неповні. Тому ми не опублікували оцінку.",
+            "hint_uk": "Передай причину окремим реченням; наступне почни словом наслідку й збережи заперечення.",
+            "groups": [
+                "The data",
+                "were incomplete.",
+                "Therefore,",
+                "we did not",
+                "publish",
+                "the estimate."
+            ],
+            "compose_slots": [
+                "The data",
+                "were incomplete.",
+                "Therefore,",
+                "we did not",
+                "publish",
+                "the estimate."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "connector_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "The data were incomplete. Consequently, we did not publish the estimate.",
+                "The data were incomplete. As a result, we did not publish the estimate."
+            ],
+            "display_synonyms": {
+                "Therefore,": [
+                    "Consequently,",
+                    "As a result,"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The control group was not comparable. {a1}, the observed difference cannot establish causation.",
+            "target": "The control group was not comparable. Consequently, the observed difference cannot establish causation.",
+            "uk": "Контрольна група не була зіставною. Відповідно, спостережена відмінність не доводить причинності.",
+            "hint_uk": "Відповідно; після методичного обмеження введи його наслідок для висновку.",
+            "groups": [
+                "The control group",
+                "was not comparable.",
+                "Consequently,",
+                "the observed difference",
+                "cannot establish",
+                "causation."
+            ],
+            "answer": "Consequently",
+            "options": [
+                "Consequently",
+                "Although",
+                "Because"
+            ],
+            "answer_synonyms": [
+                "Therefore",
+                "As a result"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The witness withdrew the allegation, {a1} the tribunal excluded it from consideration.",
+            "target": "The witness withdrew the allegation, so the tribunal excluded it from consideration.",
+            "uk": "Свідок відкликав твердження, тому трибунал вилучив його з розгляду.",
+            "hint_uk": "Тому вилучив; заданий напрямок зв’язку веде від відкликання до процесуального наслідку.",
+            "groups": [
+                "The witness",
+                "withdrew the allegation,",
+                "so",
+                "the tribunal",
+                "excluded it",
+                "from consideration."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "since",
+                "whereas"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Ключове припущення не витримало перевірки. Отже, модель потребує перегляду.",
+            "target": "The key assumption failed scrutiny. Therefore, the model requires revision.",
+            "uk": "Ключове припущення не витримало перевірки. Отже, модель потребує перегляду.",
+            "hint_uk": "Спочатку назви спростоване припущення, потім окремим реченням передай наслідок для моделі.",
+            "groups": [
+                "The key assumption",
+                "failed scrutiny.",
+                "Therefore,",
+                "the model",
+                "requires revision."
+            ],
+            "compose_slots": [
+                "The key assumption",
+                "failed scrutiny.",
+                "Therefore,",
+                "the model",
+                "requires revision."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The key assumption failed scrutiny. Therefore, the model needs revision.",
+                "The key assumption failed scrutiny. Consequently, the model requires revision.",
+                "The key assumption failed scrutiny. Consequently, the model needs revision.",
+                "The key assumption failed scrutiny. As a result, the model requires revision.",
+                "The key assumption failed scrutiny. As a result, the model needs revision."
+            ],
+            "display_synonyms": {
+                "Therefore,": [
+                    "Consequently,",
+                    "As a result,"
+                ],
+                "requires revision.": [
+                    "needs revision."
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The ruling expressly reserves that question. {a1}, it cannot be cited as settling it.",
+            "target": "The ruling expressly reserves that question. Therefore, it cannot be cited as settling it.",
+            "uk": "Рішення прямо залишає це питання відкритим. Отже, на нього не можна посилатися як на остаточне вирішення.",
+            "hint_uk": "Отже; введи логічний наслідок того, що питання прямо не вирішене.",
+            "groups": [
+                "The ruling",
+                "expressly reserves",
+                "that question.",
+                "Therefore,",
+                "it cannot",
+                "be cited as",
+                "settling it."
+            ],
+            "answer": "Therefore",
+            "options": [
+                "Therefore",
+                "Because",
+                "Notwithstanding"
+            ],
+            "answer_synonyms": [
+                "Consequently",
+                "As a result"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The reconstruction conflated two distinct sources, {a1} its apparent consistency was misleading.",
+            "target": "The reconstruction conflated two distinct sources, so its apparent consistency was misleading.",
+            "uk": "Реконструкція змішала два різні джерела, тому її позірна узгодженість вводила в оману.",
+            "hint_uk": "Тому вводила в оману; зв’яжи методичну помилку з її наслідком для оцінки.",
+            "groups": [
+                "The reconstruction",
+                "conflated",
+                "two distinct sources,",
+                "so",
+                "its apparent consistency",
+                "was misleading."
+            ],
+            "answer": "so",
+            "options": [
+                "so",
+                "because",
+                "despite"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Правило містить вичерпний перелік підстав. Отже, аналогія не може розширити їх.",
+            "target": "The rule exhaustively lists the grounds. Therefore, analogy cannot extend them.",
+            "uk": "Правило містить вичерпний перелік підстав. Отже, аналогія не може розширити їх.",
+            "hint_uk": "Спершу назви вичерпний перелік підстав; потім передай юридичний наслідок окремим реченням.",
+            "groups": [
+                "The rule",
+                "exhaustively lists",
+                "the grounds.",
+                "Therefore,",
+                "analogy",
+                "cannot extend",
+                "them."
+            ],
+            "compose_slots": [
+                "The rule",
+                "exhaustively lists",
+                "the grounds.",
+                "Therefore,",
+                "analogy",
+                "cannot extend",
+                "them."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "The rule exhaustively lists the grounds. Consequently, analogy cannot extend them.",
+                "The rule exhaustively lists the grounds. As a result, analogy cannot extend them."
+            ],
+            "display_synonyms": {
+                "Therefore,": [
+                    "Consequently,",
+                    "As a result,"
+                ]
+            }
+        }
+    ]
+}

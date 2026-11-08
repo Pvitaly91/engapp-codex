@@ -1,0 +1,1352 @@
+{
+    "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsConditionalsTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-form-unless",
+                "source_index": 1,
+                "label": "<p>Перефразовуємо негативну умову: якщо ти не поквапишся, пропустиш поїзд. Обери форму після unless без зміни цієї умови.</p><p lang=\"en\">If you don’t hurry, you’ll miss the train. → Unless you ___, you’ll miss the train.</p><p>Обидві версії мають означати: якщо ти не поквапишся, то пропустиш поїзд.</p>",
+                "options": [
+                    "don’t hurry",
+                    "hurry",
+                    "will hurry"
+                ],
+                "answer": "hurry",
+                "accepted": [
+                    "hurry"
+                ],
+                "feedback": {
+                    "don’t hurry": "Unless you hurry, you’ll miss the train. — Якщо ти не поквапишся, то пропустиш поїзд. Додаткове don’t перевертає задану умову.",
+                    "hurry": "Unless you hurry, you’ll miss the train. — Якщо ти не поквапишся, то пропустиш поїзд. Unless замінює if … not у цій конкретній умові.",
+                    "will hurry": "Unless you hurry, you’ll miss the train. — Якщо ти не поквапишся, то пропустиш поїзд. Для звичайної майбутньої умови після unless тут потрібен Present Simple."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "hurry",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-form-past-regret",
+                "source_index": 2,
+                "label": "<p>Сьогодні шкодуємо про минулорічне навчання, яке вже завершилося. Обери форму для жалю про минулу дію.</p><p lang=\"en\">I regret not studying harder last year. → I wish I ___ harder last year.</p><p>Я шкодую, що минулого року не вчився старанніше.</p>",
+                "options": [
+                    "study",
+                    "studied",
+                    "had studied"
+                ],
+                "answer": "had studied",
+                "accepted": [
+                    "had studied"
+                ],
+                "feedback": {
+                    "study": "I wish I had studied harder last year. — Шкода, що минулого року я не вчився старанніше. Це не форма жалю про завершене минуле.",
+                    "studied": "I wish I had studied harder last year. — Шкода, що минулого року я не вчився старанніше. Для заданого минулого року потрібен Past Perfect, не форма теперішнього нереального бажання.",
+                    "had studied": "I wish I had studied harder last year. — Шкода, що минулого року я не вчився старанніше. Past Perfect зберігає жаль про завершену минулу дію."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "had studied",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-meaning-train",
+                "source_index": 3,
+                "label": "<p lang=\"en\">Unless you hurry, you’ll miss the train.</p><p>Якщо ти не поквапишся, то пропустиш поїзд. Відоме лише це попередження. Чи гарантує воно, що, поквапившись, ти обов’язково встигнеш?</p>",
+                "options": [
+                    "Ні: попередження не виключає інших перешкод.",
+                    "Так: поспіх сам по собі гарантує успіх."
+                ],
+                "answer": "Ні: попередження не виключає інших перешкод.",
+                "accepted": [
+                    "Ні: попередження не виключає інших перешкод."
+                ],
+                "feedback": {
+                    "ні: попередження не виключає інших перешкод.": "Ні: попередження не виключає інших перешкод. Unless you hurry, you’ll miss the train. — Якщо ти не поквапишся, то пропустиш поїзд. Речення встановлює наслідок відсутності поспіху, а не достатність поспіху для успіху.",
+                    "так: поспіх сам по собі гарантує успіх.": "Ні: попередження не виключає інших перешкод. Unless you hurry, you’ll miss the train. — Якщо ти не поквапишся, то пропустиш поїзд. Речення встановлює наслідок відсутності поспіху, а не достатність поспіху для успіху."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: попередження не виключає інших перешкод.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-meaning-advice-force",
+                "source_index": 4,
+                "label": "<p>Ситуація: це спокійна загальна рекомендація; терміновості й небажаного наслідку не задано.</p><p lang=\"en\">You should take a short break.</p><p>Тобі варто зробити коротку перерву. Чи є наступна версія автоматично рівнозначною за силою поради?</p><p lang=\"en\">You had better take a short break.</p><p>Тобі краще зробити коротку перерву.</p>",
+                "options": [
+                    "Так: обидві конструкції завжди однаково нейтральні.",
+                    "Ні: had better додає сильніший відтінок попередження."
+                ],
+                "answer": "Ні: had better додає сильніший відтінок попередження.",
+                "accepted": [
+                    "Ні: had better додає сильніший відтінок попередження."
+                ],
+                "feedback": {
+                    "так: обидві конструкції завжди однаково нейтральні.": "Ні: had better додає сильніший відтінок попередження. You should take a short break. — Тобі варто зробити коротку перерву. You had better take a short break. — Тобі краще зробити коротку перерву. За заданої нейтральної ситуації посилення не обґрунтоване; для had better потрібен відповідний задум.",
+                    "ні: had better додає сильніший відтінок попередження.": "Ні: had better додає сильніший відтінок попередження. You should take a short break. — Тобі варто зробити коротку перерву. You had better take a short break. — Тобі краще зробити коротку перерву. За заданої нейтральної ситуації посилення не обґрунтоване; для had better потрібен відповідний задум."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: had better додає сильніший відтінок попередження.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-sentence-preference",
+                "source_index": 5,
+                "before": "after ten / I’d rather / tonight. / you didn’t / call",
+                "after": "<p>Передай ту саму особисту перевагу щодо дзвінка іншої людини сьогодні ввечері через конструкцію «волів би». Почни з «Я»; після неї залиш виконавцем «ти». Потрібна стандартна модель з past form, не наказ. Повна й скорочена форми допоміжного приймаються.</p><p lang=\"en\">I’d prefer you not to call after ten tonight.</p><p>Я волів би, щоб ти не телефонував після десятої сьогодні ввечері.</p>",
+                "answer": "I’d rather you didn’t call after ten tonight.",
+                "accepted": [
+                    "I’d rather you didn’t call after ten tonight.",
+                    "I would rather you didn’t call after ten tonight.",
+                    "I’d rather you did not call after ten tonight.",
+                    "I would rather you did not call after ten tonight."
+                ],
+                "feedback": {
+                    "i’d rather you didn’t call after ten tonight.": "I’d rather you didn’t call after ten tonight. — Я волів би, щоб ти не телефонував після десятої сьогодні ввечері. Збережено мовця, виконавця дзвінка, заперечення й час; did not / didn’t тут не переносять дзвінок у минуле.",
+                    "i would rather you didn’t call after ten tonight.": "I would rather you didn’t call after ten tonight. — Я волів би, щоб ти не телефонував після десятої сьогодні ввечері. Збережено мовця, виконавця дзвінка, заперечення й час; did not / didn’t тут не переносять дзвінок у минуле.",
+                    "i’d rather you did not call after ten tonight.": "I’d rather you did not call after ten tonight. — Я волів би, щоб ти не телефонував після десятої сьогодні ввечері. Збережено мовця, виконавця дзвінка, заперечення й час; did not / didn’t тут не переносять дзвінок у минуле.",
+                    "i would rather you did not call after ten tonight.": "I would rather you did not call after ten tonight. — Я волів би, щоб ти не телефонував після десятої сьогодні ввечері. Збережено мовця, виконавця дзвінка, заперечення й час; did not / didn’t тут не переносять дзвінок у минуле."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "I’d rather you didn’t call after ten tonight.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                },
+                {
+                    "answer": "I would rather you didn’t call after ten tonight.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                },
+                {
+                    "answer": "I’d rather you did not call after ten tonight.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                },
+                {
+                    "answer": "I would rather you did not call after ten tonight.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-conditionals-sentence-warning",
+                "source_index": 6,
+                "before": "because it may / touch this wire / be live. / You had better / not",
+                "after": "<p>Мовець дає саме сильну пораду-попередження про небезпеку. Перефразуй через конструкцію «тобі краще не», збережи дріт і можливу причину небезпеки в одному реченні; почни з «Ти», а причину подай після поради. Повна й скорочена форми приймаються. «Під напругою» тут передає прикметник зі значенням «струмоведучий».</p><p lang=\"en\">This wire may be live, so I strongly advise you not to touch it.</p><p>Цей дріт може бути під напругою, тому я наполегливо раджу тобі не торкатися його.</p>",
+                "answer": "You had better not touch this wire because it may be live.",
+                "accepted": [
+                    "You had better not touch this wire because it may be live.",
+                    "You’d better not touch this wire because it may be live."
+                ],
+                "feedback": {
+                    "you had better not touch this wire because it may be live.": "You had better not touch this wire because it may be live. — Тобі краще не торкатися цього дроту, бо він може бути під напругою. Had better not зберігає задане сильне попередження; may зберігає можливість, не перетворює ризик на певний факт.",
+                    "you’d better not touch this wire because it may be live.": "You’d better not touch this wire because it may be live. — Тобі краще не торкатися цього дроту, бо він може бути під напругою. Had better not зберігає задане сильне попередження; may зберігає можливість, не перетворює ризик на певний факт."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "You had better not touch this wire because it may be live.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                },
+                {
+                    "answer": "You’d better not touch this wire because it may be live.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                }
+            ]
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsRelativeClausesLinkingWordsTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-form-role",
+                "source_index": 1,
+                "label": "<p>Ідеться про офіс, який ми відвідали. Office — додаток до visited; окремий підмет we збережений. Обери потрібне слово з наведених.</p><p lang=\"en\">The office ___ we visited was empty.</p><p>Офіс, який ми відвідали, був порожній.</p>",
+                "options": [
+                    "where",
+                    "which",
+                    "who"
+                ],
+                "answer": "which",
+                "accepted": [
+                    "which"
+                ],
+                "feedback": {
+                    "where": "The office which we visited was empty. — Офіс, який ми відвідали, був порожній. Where передавало б місце, але visited у цьому значенні потребує додатка.",
+                    "which": "The office which we visited was empty. — Офіс, який ми відвідали, був порожній. Which виконує роль додатка до visited; we лишається підметом.",
+                    "who": "The office which we visited was empty. — Офіс, який ми відвідали, був порожній. Who не вживаємо для office у цій моделі предмета."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "which",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-form-cause",
+                "source_index": 2,
+                "label": "<p>Злива була причиною нашого перебування вдома, не перешкодою, всупереч якій ми лишилися. Після пропуску стоїть іменникова група.</p><p lang=\"en\">We stayed indoors ___ the heavy rain.</p><p>Ми залишилися в приміщенні через сильний дощ.</p>",
+                "options": [
+                    "because",
+                    "despite",
+                    "because of"
+                ],
+                "answer": "because of",
+                "accepted": [
+                    "because of"
+                ],
+                "feedback": {
+                    "because": "We stayed indoors because of the heavy rain. — Ми залишилися в приміщенні через сильний дощ. Після because потрібна повна частина, а тут стоїть the heavy rain.",
+                    "despite": "We stayed indoors because of the heavy rain. — Ми залишилися в приміщенні через сильний дощ. Це граматичний прийменник, але він змінив би причину на протиставлення.",
+                    "because of": "We stayed indoors because of the heavy rain. — Ми залишилися в приміщенні через сильний дощ. Because of приєднує іменникову причину й зберігає заданий зв’язок."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "because of",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-meaning-actor",
+                "source_index": 3,
+                "label": "<p>Втомилася Марта; закінчила звіт Олена. Відповідний контекст робить цей контраст доречним.</p><p lang=\"en\">Although Marta was tired, Olena finished the report.</p><p>Хоча Марта була втомлена, Олена закінчила звіт. Чи зберігає цих учасників наступна версія?</p><p lang=\"en\">Despite being tired, Olena finished the report.</p><p>Попри свою втому, Олена закінчила звіт.</p>",
+                "options": [
+                    "Так: being tired може без уточнення означати Мартину втому.",
+                    "Ні: скорочена версія приписує втому Олені."
+                ],
+                "answer": "Ні: скорочена версія приписує втому Олені.",
+                "accepted": [
+                    "Ні: скорочена версія приписує втому Олені."
+                ],
+                "feedback": {
+                    "так: being tired може без уточнення означати мартину втому.": "Ні: скорочена версія приписує втому Олені. Although Marta was tired, Olena finished the report. — Хоча Марта була втомлена, Олена закінчила звіт. Despite being tired, Olena finished the report. — Попри свою втому, Олена закінчила звіт. Потрібно зберегти Марту явно, наприклад у моделі despite the fact that.",
+                    "ні: скорочена версія приписує втому олені.": "Ні: скорочена версія приписує втому Олені. Although Marta was tired, Olena finished the report. — Хоча Марта була втомлена, Олена закінчила звіт. Despite being tired, Olena finished the report. — Попри свою втому, Олена закінчила звіт. Потрібно зберегти Марту явно, наприклад у моделі despite the fact that."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: скорочена версія приписує втому Олені.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-meaning-relative-subject",
+                "source_index": 4,
+                "label": "<p lang=\"en\">I met a woman. Her son teaches chemistry.</p><p>Я зустрів жінку. Її син викладає хімію. Чи зберігає наступне поєднання того, хто викладає?</p><p lang=\"en\">I met a woman who teaches chemistry.</p><p>Я зустрів жінку, яка викладає хімію.</p>",
+                "options": [
+                    "Ні: викладає син, а нова версія називає викладачкою жінку.",
+                    "Так: who автоматично включає й сина цієї жінки."
+                ],
+                "answer": "Ні: викладає син, а нова версія називає викладачкою жінку.",
+                "accepted": [
+                    "Ні: викладає син, а нова версія називає викладачкою жінку."
+                ],
+                "feedback": {
+                    "ні: викладає син, а нова версія називає викладачкою жінку.": "Ні: викладає син, а нова версія називає викладачкою жінку. I met a woman whose son teaches chemistry. — Я зустрів жінку, чий син викладає хімію. Whose son зберігає й жінку, і її сина як виконавця; who teaches змінило б факт.",
+                    "так: who автоматично включає й сина цієї жінки.": "Ні: викладає син, а нова версія називає викладачкою жінку. I met a woman whose son teaches chemistry. — Я зустрів жінку, чий син викладає хімію. Whose son зберігає й жінку, і її сина як виконавця; who teaches змінило б факт."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: викладає син, а нова версія називає викладачкою жінку.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-sentence-office",
+                "source_index": 5,
+                "before": "was empty. / which I / The office / visited",
+                "after": "<p>Сполучи два повідомлення в одне з явним означальним займенником для предмета. Назви той самий офіс, який відвідав саме я; в усій ситуації йдеться про один цей офіс. Почни з «Офіс». Збережи дієслово «відвідав»; приймаються два звичайні займенники для defining clause. Потрібний підмет «я» не прибирай. Вправа перевіряє учасників і ролі, не точність розстановки ком.</p><p lang=\"en\">I visited an office. The office was empty.</p><p>Я відвідав офіс. Цей офіс був порожній.</p>",
+                "answer": "The office which I visited was empty.",
+                "accepted": [
+                    "The office which I visited was empty.",
+                    "The office that I visited was empty."
+                ],
+                "feedback": {
+                    "the office which i visited was empty.": "The office which I visited was empty. — Офіс, який я відвідав, був порожній. Which / that є додатком до visited, а I — його підметом. Where не відповідає цій ролі. Пропуск займенника міг би бути граматичним, але тут прямо потрібен явний займенник.",
+                    "the office that i visited was empty.": "The office that I visited was empty. — Офіс, який я відвідав, був порожній. Which / that є додатком до visited, а I — його підметом. Where не відповідає цій ролі. Пропуск займенника міг би бути граматичним, але тут прямо потрібен явний займенник."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "The office which I visited was empty.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                },
+                {
+                    "answer": "The office that I visited was empty.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-relative-clauses-linking-words-sentence-despite",
+                "source_index": 6,
+                "before": "the report. / Danylo finished / Despite being / tired,",
+                "after": "<p>Перефразуй протиставлення через прийменниковий вираз зі значенням «попри» та форму на -ing. Втомився й закінчив звіт той самий Данило. Почни з «Попри», далі назви його втому, потім завершення звіту. Приймаються обидва стандартні прийменникові вирази зі значенням «попри»; не додавай of після однослівного варіанта.</p><p lang=\"en\">Although Danylo was tired, he finished the report.</p><p>Хоча Данило був втомлений, він закінчив звіт.</p>",
+                "answer": "Despite being tired, Danylo finished the report.",
+                "accepted": [
+                    "Despite being tired, Danylo finished the report.",
+                    "In spite of being tired, Danylo finished the report."
+                ],
+                "feedback": {
+                    "despite being tired, danylo finished the report.": "Despite being tired, Danylo finished the report. — Попри втому, Данило закінчив звіт. Носій втоми й виконавець finished той самий; обидві прийняті моделі зберігають протиставлення й минулий завершений звіт.",
+                    "in spite of being tired, danylo finished the report.": "In spite of being tired, Danylo finished the report. — Попри втому, Данило закінчив звіт. Носій втоми й виконавець finished той самий; обидві прийняті моделі зберігають протиставлення й минулий завершений звіт."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Despite being tired, Danylo finished the report.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                },
+                {
+                    "answer": "In spite of being tired, Danylo finished the report.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                }
+            ]
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsArticlesQuantifiersTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-form-unit",
+                "source_index": 1,
+                "label": "<p>Вона дала мені дві окремі корисні рекомендації. Збережи число два й незлічуване advice, використавши лічильну одиницю.</p><p lang=\"en\">She gave me two useful ___.</p><p>Вона дала мені дві корисні поради.</p>",
+                "options": [
+                    "advices",
+                    "pieces of advice",
+                    "piece of advice"
+                ],
+                "answer": "pieces of advice",
+                "accepted": [
+                    "pieces of advice"
+                ],
+                "feedback": {
+                    "advices": "She gave me two useful pieces of advice. — Вона дала мені дві корисні поради. Advice у цьому значенні не отримує множини.",
+                    "pieces of advice": "She gave me two useful pieces of advice. — Вона дала мені дві корисні поради. Множина pieces після two зберігає дві окремі рекомендації.",
+                    "piece of advice": "She gave me two useful pieces of advice. — Вона дала мені дві корисні поради. Після two потрібна множина лічильної одиниці pieces."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "pieces of advice",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-form-any",
+                "source_index": 2,
+                "label": "<p>Учора Лена не отримала жодних порад. Обери форму для незлічуваного advice в цій заперечній моделі; допоміжне заперечення вже є.</p><p lang=\"en\">Lena didn’t receive ___ advice yesterday.</p><p>Лена не отримала жодних порад учора.</p>",
+                "options": [
+                    "many",
+                    "any",
+                    "a"
+                ],
+                "answer": "any",
+                "accepted": [
+                    "any"
+                ],
+                "feedback": {
+                    "many": "Lena didn’t receive any advice yesterday. — Лена не отримала жодних порад учора. Many потребує злічуваної множини, не advice.",
+                    "any": "Lena didn’t receive any advice yesterday. — Лена не отримала жодних порад учора. Any передає відсутність порад при вже наявному didn’t.",
+                    "a": "Lena didn’t receive any advice yesterday. — Лена не отримала жодних порад учора. Незлічуване advice не приєднує a без лічильної одиниці."
+                }
+            },
+            "learning_function": "Вибір форми для явної трансформаційної умови.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "any",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-meaning-advice-number",
+                "source_index": 3,
+                "label": "<p lang=\"en\">She gave me some useful advice.</p><p>Вона дала мені корисну пораду або корисні поради; більше про кількість нічого не відомо. Чи можна гарантовано перефразувати це наступним чином?</p><p lang=\"en\">She gave me exactly one useful piece of advice.</p><p>Вона дала мені рівно одну корисну пораду.</p>",
+                "options": [
+                    "Так: some advice завжди означає рівно одну пораду.",
+                    "Ні: exactly one додає невідомий факт про кількість."
+                ],
+                "answer": "Ні: exactly one додає невідомий факт про кількість.",
+                "accepted": [
+                    "Ні: exactly one додає невідомий факт про кількість."
+                ],
+                "feedback": {
+                    "так: some advice завжди означає рівно одну пораду.": "Ні: exactly one додає невідомий факт про кількість. She gave me some useful advice. — Вона дала мені корисну пораду або поради без точної кількості. She gave me exactly one useful piece of advice. — Вона дала мені рівно одну корисну пораду. Обидві версії граматичні, але друга не випливає лише з першої.",
+                    "ні: exactly one додає невідомий факт про кількість.": "Ні: exactly one додає невідомий факт про кількість. She gave me some useful advice. — Вона дала мені корисну пораду або поради без точної кількості. She gave me exactly one useful piece of advice. — Вона дала мені рівно одну корисну пораду. Обидві версії граматичні, але друга не випливає лише з першої."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: exactly one додає невідомий факт про кількість.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-meaning-nonzero",
+                "source_index": 4,
+                "label": "<p lang=\"en\">There aren’t many chairs left.</p><p>Стільців залишилося небагато. Інших фактів про їхню кількість немає. Чи завжди це встановлює ту саму ненульову кількість, що й наступна версія?</p><p lang=\"en\">There are only a few chairs left.</p><p>Залишилося лише кілька стільців.</p>",
+                "options": [
+                    "Ні: перша версія сама по собі не встановлює, що стільці ще є.",
+                    "Так: not many завжди точно дорівнює only a few."
+                ],
+                "answer": "Ні: перша версія сама по собі не встановлює, що стільці ще є.",
+                "accepted": [
+                    "Ні: перша версія сама по собі не встановлює, що стільці ще є."
+                ],
+                "feedback": {
+                    "ні: перша версія сама по собі не встановлює, що стільці ще є.": "Ні: перша версія сама по собі не встановлює, що стільці ще є. There aren’t many chairs left. — Стільців залишилося небагато. There are only a few chairs left. — Залишилося лише кілька стільців. Для контрольованої рівнозначності потрібен факт про ненульову кількість, наприклад три; достатність із a few теж автоматично не випливає.",
+                    "так: not many завжди точно дорівнює only a few.": "Ні: перша версія сама по собі не встановлює, що стільці ще є. There aren’t many chairs left. — Стільців залишилося небагато. There are only a few chairs left. — Залишилося лише кілька стільців. Для контрольованої рівнозначності потрібен факт про ненульову кількість, наприклад три; достатність із a few теж автоматично не випливає."
+                }
+            },
+            "learning_function": "Перевірка збереження змісту, учасників і кількості.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: перша версія сама по собі не встановлює, що стільці ще є.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-sentence-no-errors",
+                "source_index": 5,
+                "before": "in the report. / no errors / I found",
+                "after": "<p>Перефразуй заперечне повідомлення через no перед іменником. Збережи «я», минулий час, дієслово «знайти», іменник «помилки» та той самий звіт; почни з «Я». Не залишай допоміжне заперечення й не додавай твердження, що помилок об’єктивно не існувало.</p><p lang=\"en\">I didn’t find any errors in the report.</p><p>Я не знайшов жодних помилок у звіті.</p>",
+                "answer": "I found no errors in the report.",
+                "accepted": [
+                    "I found no errors in the report."
+                ],
+                "feedback": {
+                    "i found no errors in the report.": "I found no errors in the report. — Я не знайшов жодних помилок у звіті. Found зберігає минулий час, no замінює not … any у цій моделі; повідомляємо про результат моєї перевірки, не про абсолютну відсутність помилок."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "I found no errors in the report.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-quantifiers-sentence-one-advice",
+                "source_index": 6,
+                "before": "about packing. / one useful / She gave me / piece of advice / exactly",
+                "after": "<p>Передай ту саму рівно одну рекомендацію щодо пакування через незлічуваний іменник «порада» й лічильну одиницю. Збережи, хто дав її кому, минулий час, корисність і тему; почни з «Вона». Слова зі значенням «рівно / лише» перед one приймаються в трьох перевірених варіантах. Пакування передай як діяльність.</p><p lang=\"en\">She gave me exactly one useful suggestion about packing.</p><p>Вона дала мені рівно одну корисну рекомендацію щодо пакування.</p>",
+                "answer": "She gave me exactly one useful piece of advice about packing.",
+                "accepted": [
+                    "She gave me exactly one useful piece of advice about packing.",
+                    "She gave me just one useful piece of advice about packing.",
+                    "She gave me only one useful piece of advice about packing."
+                ],
+                "feedback": {
+                    "she gave me exactly one useful piece of advice about packing.": "She gave me exactly one useful piece of advice about packing. — Вона дала мені рівно одну корисну пораду щодо пакування. Кількість один задана в source; piece — лічильна одиниця, а advice лишається незлічуваним. Exactly / just / only у цій ситуації зберігають одну, а не кілька рекомендацій.",
+                    "she gave me just one useful piece of advice about packing.": "She gave me just one useful piece of advice about packing. — Вона дала мені рівно одну корисну пораду щодо пакування. Кількість один задана в source; piece — лічильна одиниця, а advice лишається незлічуваним. Exactly / just / only у цій ситуації зберігають одну, а не кілька рекомендацій.",
+                    "she gave me only one useful piece of advice about packing.": "She gave me only one useful piece of advice about packing. — Вона дала мені рівно одну корисну пораду щодо пакування. Кількість один задана в source; piece — лічильна одиниця, а advice лишається незлічуваним. Exactly / just / only у цій ситуації зберігають одну, а не кілька рекомендацій."
+                }
+            },
+            "learning_function": "Побудова цілої цільової версії вручну або перемішаними групами 1–3 слова.",
+            "change_reason": "M81 source не містить practice-set; свіжий незалежний SQL BEFORE main підтвердив відсутність пізнішої практики. Нові tasks не замінюють старих bank questions.",
+            "aliases_review": [
+                {
+                    "answer": "She gave me exactly one useful piece of advice about packing.",
+                    "reason": "Канонічна відповідь; прямо відповідає видимому критерію."
+                },
+                {
+                    "answer": "She gave me just one useful piece of advice about packing.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                },
+                {
+                    "answer": "She gave me only one useful piece of advice about packing.",
+                    "reason": "Перевірений finite alias для тієї самої конструкції й фактів; варіант прямо дозволений видимою умовою."
+                }
+            ]
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsWordOrderEmphasisTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-form-only-after",
+                "source_index": 1,
+                "label": "<p>Я зрозумів правило лише після прочитання прикладу. Почни з Only after; збережи Past Simple і підмет I в головній частині.</p><p lang=\"en\">Only after I read the example ___ the rule.</p><p>Лише після того, як я прочитав приклад, я зрозумів правило.</p>",
+                "options": [
+                    "I understood",
+                    "did I understand",
+                    "had I understood"
+                ],
+                "answer": "did I understand",
+                "accepted": [
+                    "did I understand"
+                ],
+                "feedback": {
+                    "i understood": "Only after I read the example did I understand the rule. — Лише після того, як я прочитав приклад, я зрозумів правило. Інверсія стоїть у головній частині; did + understand зберігає Past Simple. Had understood змінює задану часову форму.",
+                    "did i understand": "Only after I read the example did I understand the rule. — Лише після того, як я прочитав приклад, я зрозумів правило. Інверсія стоїть у головній частині; did + understand зберігає Past Simple. Had understood змінює задану часову форму.",
+                    "had i understood": "Only after I read the example did I understand the rule. — Лише після того, як я прочитав приклад, я зрозумів правило. Інверсія стоїть у головній частині; did + understand зберігає Past Simple. Had understood змінює задану часову форму."
+                }
+            },
+            "learning_function": "Форма за видимим контекстом.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "did I understand",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-form-emphatic-does",
+                "source_index": 2,
+                "label": "<p>Співрозмовник каже, що Ольга не телефонує. Насправді вона телефонує щоп’ятниці. Підтвердь теперішню звичку за допомогою emphatic do; не змінюй часу.</p><p lang=\"en\">She ___ every Friday.</p><p>Вона таки телефонує щоп’ятниці.</p>",
+                "options": [
+                    "does calls",
+                    "did call",
+                    "does call"
+                ],
+                "answer": "does call",
+                "accepted": [
+                    "does call"
+                ],
+                "feedback": {
+                    "does calls": "She does call every Friday. — Вона таки телефонує щоп’ятниці. Does узгоджується із she, call залишається початковою формою. Did call перенесло б твердження в минуле.",
+                    "did call": "She does call every Friday. — Вона таки телефонує щоп’ятниці. Does узгоджується із she, call залишається початковою формою. Did call перенесло б твердження в минуле.",
+                    "does call": "She does call every Friday. — Вона таки телефонує щоп’ятниці. Does узгоджується із she, call залишається початковою формою. Did call перенесло б твердження в минуле."
+                }
+            },
+            "learning_function": "Форма за видимим контекстом.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "does call",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-meaning-only-subject",
+                "source_index": 3,
+                "label": "<p lang=\"en\">Only Tom understood the rule.</p><p>Лише Том зрозумів правило.</p><p>Only обмежує коло людей: Том, ніхто інший. Який висновок правильний для цієї підметової групи?</p>",
+                "options": [
+                    "Інверсія не потрібна: only входить до підмета Only Tom.",
+                    "Після будь-якого початкового only обов’язково ставимо did перед Tom."
+                ],
+                "answer": "Інверсія не потрібна: only входить до підмета Only Tom.",
+                "accepted": [
+                    "Інверсія не потрібна: only входить до підмета Only Tom."
+                ],
+                "feedback": {
+                    "інверсія не потрібна: only входить до підмета only tom.": "Only Tom understood the rule. — Лише Том зрозумів правило. Only належить до підмета, а не до винесеної часової обставини; автоматичне did Tom understand тут не відповідає заданому твердженню.",
+                    "після будь-якого початкового only обов’язково ставимо did перед tom.": "Only Tom understood the rule. — Лише Том зрозумів правило. Only належить до підмета, а не до винесеної часової обставини; автоматичне did Tom understand тут не відповідає заданому твердженню."
+                }
+            },
+            "learning_function": "Перевірка змісту й акценту.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Інверсія не потрібна: only входить до підмета Only Tom.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-meaning-intensity",
+                "source_index": 4,
+                "label": "<p lang=\"en\">I really want to help.</p><p>Я дуже хочу допомогти.</p><p>За цією умовою мовець описує саме сильне бажання; ніхто не сумнівається, що воно є. Чи можна в будь-якому контексті назвати це повністю тотожним наступному?</p><p lang=\"en\">I do want to help.</p><p>Я таки хочу допомогти.</p>",
+                "options": [
+                    "Ні: підтвердження наявності бажання не обов’язково передає ту саму його силу.",
+                    "Так: do завжди означає дуже сильне бажання."
+                ],
+                "answer": "Ні: підтвердження наявності бажання не обов’язково передає ту саму його силу.",
+                "accepted": [
+                    "Ні: підтвердження наявності бажання не обов’язково передає ту саму його силу."
+                ],
+                "feedback": {
+                    "ні: підтвердження наявності бажання не обов’язково передає ту саму його силу.": "I really want to help. — Я дуже хочу допомогти. I do want to help. — Я таки хочу допомогти. За заданим задумом really описує інтенсивність; emphatic do насамперед підтверджує факт. Обидва речення граматичні, але зміна акценту потребує контексту.",
+                    "так: do завжди означає дуже сильне бажання.": "I really want to help. — Я дуже хочу допомогти. I do want to help. — Я таки хочу допомогти. За заданим задумом really описує інтенсивність; emphatic do насамперед підтверджує факт. Обидва речення граматичні, але зміна акценту потребує контексту."
+                }
+            },
+            "learning_function": "Перевірка змісту й акценту.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: підтвердження наявності бажання не обов’язково передає ту саму його силу.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-sentence-cleft-contrast",
+                "source_index": 5,
+                "before": "the printer, / It was / not me. / who broke / Tom",
+                "after": "<p>Виділи Тома конструкцією it-cleft і прямо збережи «а не я». Почни з It was; не додавай значення «тільки». Замість who можна використати that.</p><p lang=\"en\">Tom broke the printer, not me.</p><p>Принтер зламав Том, а не я.</p>",
+                "answer": "It was Tom who broke the printer, not me.",
+                "accepted": [
+                    "It was Tom who broke the printer, not me.",
+                    "It was Tom that broke the printer, not me."
+                ],
+                "feedback": {
+                    "it was tom who broke the printer, not me.": "It was Tom who broke the printer, not me. — Саме Том зламав принтер, а не я. Виконавець, предмет і явний контраст збережені; акцент на Томові заданий інструкцією.",
+                    "it was tom that broke the printer, not me.": "It was Tom that broke the printer, not me. — Саме Том зламав принтер, а не я. That є допустимою зв’язкою в цій it-cleft; not me не втрачено."
+                }
+            },
+            "learning_function": "Повне речення: manual/token, зміна заданого акценту зі збереженням фактів.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "It was Tom who broke the printer, not me.",
+                    "reason": "Канонічна відповідь."
+                },
+                {
+                    "answer": "It was Tom that broke the printer, not me.",
+                    "reason": "Reviewed who/that в it-cleft; той самий контраст."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-emphasis-sentence-only-after",
+                "source_index": 6,
+                "before": "the rule. / Only after / I read / did I / the example / understand",
+                "after": "<p>Підкресли часову межу за допомогою початкового Only after. Збережи Past Simple, обидва підмети I, правило та приклад. Інверсія потрібна в головній частині, не всередині after.</p><p lang=\"en\">I understood the rule only after I read the example.</p><p>Я зрозумів правило лише після того, як прочитав приклад.</p>",
+                "answer": "Only after I read the example did I understand the rule.",
+                "accepted": [
+                    "Only after I read the example did I understand the rule."
+                ],
+                "feedback": {
+                    "only after i read the example did i understand the rule.": "Only after I read the example did I understand the rule. — Лише після того, як я прочитав приклад, я зрозумів правило. Читання передує розумінню; did I understand зберігає час вихідного understood."
+                }
+            },
+            "learning_function": "Повне речення: manual/token, зміна заданого акценту зі збереженням фактів.",
+            "change_reason": "Source practice відсутня; main перевіряє фактичну відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Only after I read the example did I understand the rule.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesArticlesTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-form-mba-sound",
+                "source_index": 1,
+                "label": "<p>Потрібно назвати одну здобуту кваліфікацію без припущення, що вона вже відома слухачеві. MBA тут читається по літерах «ем-бі-ей»; перший звук голосний. Обери неозначений артикль.</p><p lang=\"en\">She has ___ MBA.</p><p>Вона має ступінь магістра ділового адміністрування.</p>",
+                "options": [
+                    "a",
+                    "an",
+                    "the"
+                ],
+                "answer": "an",
+                "accepted": [
+                    "an"
+                ],
+                "feedback": {
+                    "a": "She has an MBA. — Вона має ступінь магістра ділового адміністрування. За заданої вимови «ем-бі-ей» потрібне an; вибір спирається на звук, не на приголосну літеру M.",
+                    "an": "She has an MBA. — Вона має ступінь магістра ділового адміністрування. За заданої вимови «ем-бі-ей» потрібне an; вибір спирається на звук, не на приголосну літеру M.",
+                    "the": "She has an MBA. — Вона має ступінь магістра ділового адміністрування. За заданої вимови «ем-бі-ей» потрібне an; вибір спирається на звук, не на приголосну літеру M."
+                }
+            },
+            "learning_function": "Форма/explicit absence за видимим контекстом.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "an",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-form-general-coffee",
+                "source_index": 2,
+                "label": "<p>Мовець описує щоденну звичку пити каву як напій загалом, не певну порцію або сорт. Якщо артикля не треба, обери явну відповідь «Без артикля».</p><p lang=\"en\">I drink ___ coffee every morning.</p><p>Я п’ю каву щоранку.</p>",
+                "options": [
+                    "the",
+                    "a",
+                    "Без артикля"
+                ],
+                "answer": "Без артикля",
+                "accepted": [
+                    "Без артикля"
+                ],
+                "feedback": {
+                    "the": "I drink coffee every morning. — Я п’ю каву щоранку. Загальне незлічуване значення не потребує артикля. A coffee називало б порцію, the coffee — визначену каву; це інший задум.",
+                    "a": "I drink coffee every morning. — Я п’ю каву щоранку. Загальне незлічуване значення не потребує артикля. A coffee називало б порцію, the coffee — визначену каву; це інший задум.",
+                    "без артикля": "I drink coffee every morning. — Я п’ю каву щоранку. Загальне незлічуване значення не потребує артикля. A coffee називало б порцію, the coffee — визначену каву; це інший задум."
+                }
+            },
+            "learning_function": "Форма/explicit absence за видимим контекстом.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "Без артикля",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-meaning-already-correct",
+                "source_index": 3,
+                "label": "<p>Співрозмовники бачать одну конкретну чашку й говорять про каву саме в ній. Діагностуй речення; не змінюй правильний артикль лише заради виправлення.</p><p lang=\"en\">The coffee in this cup is cold.</p><p>Кава в цій чашці холодна.</p>",
+                "options": [
+                    "Залишити без змін: конкретну каву визначено в ситуації.",
+                    "Прибрати the: перед coffee артикль ніколи не можливий."
+                ],
+                "answer": "Залишити без змін: конкретну каву визначено в ситуації.",
+                "accepted": [
+                    "Залишити без змін: конкретну каву визначено в ситуації."
+                ],
+                "feedback": {
+                    "залишити без змін: конкретну каву визначено в ситуації.": "The coffee in this cup is cold. — Кава в цій чашці холодна. Початкове речення вже правильне: відома саме ця кава. Загальна заборона the перед coffee хибна.",
+                    "прибрати the: перед coffee артикль ніколи не можливий.": "The coffee in this cup is cold. — Кава в цій чашці холодна. Початкове речення вже правильне: відома саме ця кава. Загальна заборона the перед coffee хибна."
+                }
+            },
+            "learning_function": "Діагностика задуму та already-correct model.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "Залишити без змін: конкретну каву визначено в ситуації.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-meaning-school-building",
+                "source_index": 4,
+                "label": "<p>Мовець дорослий відвідувач: він ішов до відомої обом школи на зустріч, а не навчатися в ній. Чи треба прибрати the?</p><p lang=\"en\">I went to the school to meet the headteacher.</p><p>Я пішов до тієї школи на зустріч із директоркою.</p>",
+                "options": [
+                    "Так: school у будь-якому значенні вживається без артикля.",
+                    "Ні: the зберігає посилання на визначену школу."
+                ],
+                "answer": "Ні: the зберігає посилання на визначену школу.",
+                "accepted": [
+                    "Ні: the зберігає посилання на визначену школу."
+                ],
+                "feedback": {
+                    "так: school у будь-якому значенні вживається без артикля.": "I went to the school to meet the headteacher. — Я пішов до тієї школи на зустріч із директоркою. Це конкретне місце відвідування, не інституційне значення «навчатися», тому the не прибираємо.",
+                    "ні: the зберігає посилання на визначену школу.": "I went to the school to meet the headteacher. — Я пішов до тієї школи на зустріч із директоркою. Це конкретне місце відвідування, не інституційне значення «навчатися», тому the не прибираємо."
+                }
+            },
+            "learning_function": "Діагностика задуму та already-correct model.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "Ні: the зберігає посилання на визначену школу.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-sentence-one-teacher",
+                "source_index": 5,
+                "before": "at the station. / I saw / a teacher",
+                "after": "<p>На вокзалі я побачив одну вчительку, яку слухач не може ідентифікувати. У вихідному реченні бракує означника перед teacher. Мінімально виправ його: додай потрібний неозначений артикль, решту слів і Past Simple залиш без змін.</p><p lang=\"en\">I saw teacher at the station.</p><p>Задум: я побачив на вокзалі одну вчительку.</p>",
+                "answer": "I saw a teacher at the station.",
+                "accepted": [
+                    "I saw a teacher at the station."
+                ],
+                "feedback": {
+                    "i saw a teacher at the station.": "I saw a teacher at the station. — Я побачив на вокзалі вчительку. A доповнює злічувану teacher в однині; the припускало б іншу ідентифікацію, якої тут немає."
+                }
+            },
+            "learning_function": "Мінімальне повнореченнєве виправлення; manual/token.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "I saw a teacher at the station.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-articles-common-mistakes-sentence-general-coffee",
+                "source_index": 6,
+                "before": "at night. / I love coffee, / drink it / but I / do not",
+                "after": "<p>Мовець любить каву як напій загалом, але не п’є її вночі. Мінімально виправ лише зайвий артикль перед coffee. Збережи love, but, заперечення й решту повідомлення; скорочення do not дозволене.</p><p lang=\"en\">I love the coffee, but I do not drink it at night.</p><p>Задум: я люблю каву, але не п’ю її вночі.</p>",
+                "answer": "I love coffee, but I do not drink it at night.",
+                "accepted": [
+                    "I love coffee, but I do not drink it at night.",
+                    "I love coffee, but I don't drink it at night."
+                ],
+                "feedback": {
+                    "i love coffee, but i do not drink it at night.": "I love coffee, but I do not drink it at night. — Я люблю каву, але не п’ю її вночі. Прибрано лише артикль, що суперечив загальному задуму; друга частина й заперечення збережені.",
+                    "i love coffee, but i don't drink it at night.": "I love coffee, but I don't drink it at night. — Я люблю каву, але не п’ю її вночі. Скорочення не змінює змісту; виправлення стосується загального coffee."
+                }
+            },
+            "learning_function": "Мінімальне повнореченнєве виправлення; manual/token.",
+            "change_reason": "Source practice відсутня; main перевіряє актуальний SQL state до apply.",
+            "aliases_review": [
+                {
+                    "answer": "I love coffee, but I do not drink it at night.",
+                    "reason": "Канонічна відповідь."
+                },
+                {
+                    "answer": "I love coffee, but I don't drink it at night.",
+                    "reason": "Do not/don't без зміни заперечення та змісту."
+                }
+            ]
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\CommonMistakes\\CommonMistakesWordOrderTheorySeeder": [
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-form-direct-going",
+                "source_index": 1,
+                "label": "<p>Мовець прямо питає співрозмовника, куди той іде зараз. Це звичайне інформаційне питання, не вкладена частина та не запит про підмет.</p><p lang=\"en\">Where ___ going?</p><p>Куди ти йдеш?</p>",
+                "options": [
+                    "you are",
+                    "are you",
+                    "do you"
+                ],
+                "answer": "are you",
+                "accepted": [
+                    "are you"
+                ],
+                "feedback": {
+                    "you are": "Where are you going? — Куди ти йдеш? У прямому питанні are стоїть перед you; going вимагає наявного be, а не додаткового do.",
+                    "are you": "Where are you going? — Куди ти йдеш? У прямому питанні are стоїть перед you; going вимагає наявного be, а не додаткового do.",
+                    "do you": "Where are you going? — Куди ти йдеш? У прямому питанні are стоїть перед you; going вимагає наявного be, а не додаткового do."
+                }
+            },
+            "learning_function": "Форма за типом речення.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "are you",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-form-negative-be",
+                "source_index": 2,
+                "label": "<p>Повідомляємо, що вона зараз не готова. Збережи be в Present Simple і заперечення; обери повну форму, не додаючи смислової дії.</p><p lang=\"en\">She ___ ready.</p><p>Вона не готова.</p>",
+                "options": [
+                    "does not be",
+                    "not is",
+                    "is not"
+                ],
+                "answer": "is not",
+                "accepted": [
+                    "is not"
+                ],
+                "feedback": {
+                    "does not be": "She is not ready. — Вона не готова. Звичайне be утворює це заперечення з not без do/does; порядок is not, не not is.",
+                    "not is": "She is not ready. — Вона не готова. Звичайне be утворює це заперечення з not без do/does; порядок is not, не not is.",
+                    "is not": "She is not ready. — Вона не готова. Звичайне be утворює це заперечення з not без do/does; порядок is not, не not is."
+                }
+            },
+            "learning_function": "Форма за типом речення.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "is not",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-meaning-subject-question",
+                "source_index": 3,
+                "label": "<p>Потрібно нейтрально дізнатися, яка людина розбила вікно. Who є підметом. Діагностуй початкове питання.</p><p lang=\"en\">Who broke the window?</p><p>Хто розбив вікно?</p>",
+                "options": [
+                    "Залишити без змін: це правильне питання про підмет.",
+                    "Обов’язково додати did перед who в будь-якому питанні."
+                ],
+                "answer": "Залишити без змін: це правильне питання про підмет.",
+                "accepted": [
+                    "Залишити без змін: це правильне питання про підмет."
+                ],
+                "feedback": {
+                    "залишити без змін: це правильне питання про підмет.": "Who broke the window? — Хто розбив вікно? Who виконує роль підмета; нейтральне питання вже правильне й не потребує доданого did.",
+                    "обов’язково додати did перед who в будь-якому питанні.": "Who broke the window? — Хто розбив вікно? Who виконує роль підмета; нейтральне питання вже правильне й не потребує доданого did."
+                }
+            },
+            "learning_function": "Ролі слів і обґрунтоване залишення правильної моделі.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Залишити без змін: це правильне питання про підмет.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-meaning-embedded-main",
+                "source_index": 4,
+                "label": "<p>Задум — спитати адресата, чи він знає особу, яка телефонувала. Початкове речення правильне. Яке рішення зберігає і головне питання, і вкладений підмет who?</p><p lang=\"en\">Do you know who called?</p><p>Ти знаєш, хто телефонував?</p>",
+                "options": [
+                    "Прибрати Do й переставити called перед who: після who завжди потрібна інверсія.",
+                    "Залишити без змін: головне Do you know та внутрішнє who called мають свої ролі."
+                ],
+                "answer": "Залишити без змін: головне Do you know та внутрішнє who called мають свої ролі.",
+                "accepted": [
+                    "Залишити без змін: головне Do you know та внутрішнє who called мають свої ролі."
+                ],
+                "feedback": {
+                    "прибрати do й переставити called перед who: після who завжди потрібна інверсія.": "Do you know who called? — Ти знаєш, хто телефонував? Do належить головному питанню, who — підмет внутрішнього called. Механічне вилучення do або переставлення слів зруйнувало б модель.",
+                    "залишити без змін: головне do you know та внутрішнє who called мають свої ролі.": "Do you know who called? — Ти знаєш, хто телефонував? Do належить головному питанню, who — підмет внутрішнього called. Механічне вилучення do або переставлення слів зруйнувало б модель."
+                }
+            },
+            "learning_function": "Ролі слів і обґрунтоване залишення правильної моделі.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Залишити без змін: головне Do you know та внутрішнє who called мають свої ролі.",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-sentence-embedded-station",
+                "source_index": 5,
+                "before": "the station / Can you tell / is? / me where",
+                "after": "<p>Мовець ввічливо просить пояснити, де вокзал. Мінімально виправ лише порядок слів усередині вкладеного питання. Збережи Can you tell me, where та всі інші слова, не змінюй тип прохання.</p><p lang=\"en\">Can you tell me where is the station?</p><p>Задум: можеш сказати мені, де вокзал?</p>",
+                "answer": "Can you tell me where the station is?",
+                "accepted": [
+                    "Can you tell me where the station is?"
+                ],
+                "feedback": {
+                    "can you tell me where the station is?": "Can you tell me where the station is? — Можеш сказати мені, де вокзал? Вкладена частина має the station перед is; головне питання Can you tell me збережено."
+                }
+            },
+            "learning_function": "Мінімальне діагностичне повнореченнєве виправлення; manual/token.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "Can you tell me where the station is?",
+                    "reason": "Канонічна відповідь."
+                }
+            ]
+        },
+        {
+            "classification": "new",
+            "old_block_source_index": null,
+            "after_block_source_index": 6,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_task": null,
+            "after_task": {
+                "id": "m81-word-order-common-mistakes-sentence-negative-lexical",
+                "source_index": 6,
+                "before": "like spicy food. / does not / He",
+                "after": "<p>Задум: він не любить гостру їжу. Мінімально виправ заперечення зі смисловим дієсловом у Present Simple. Збережи підмет, їжу й not; скорочення does not дозволене.</p><p lang=\"en\">He not likes spicy food.</p><p>Задум: він не любить гостру їжу.</p>",
+                "answer": "He does not like spicy food.",
+                "accepted": [
+                    "He does not like spicy food.",
+                    "He doesn't like spicy food."
+                ],
+                "feedback": {
+                    "he does not like spicy food.": "He does not like spicy food. — Він не любить гострої їжі. Does not утворює потрібне заперечення, like без -s; учасник і об’єкт не змінені.",
+                    "he doesn't like spicy food.": "He doesn't like spicy food. — Він не любить гострої їжі. Скорочення doesn’t зберігає ту саму граматику й заперечення."
+                }
+            },
+            "learning_function": "Мінімальне діагностичне повнореченнєве виправлення; manual/token.",
+            "change_reason": "Source practice відсутня; main перевіряє actual SQL state й відсутність пізнішої практики перед apply.",
+            "aliases_review": [
+                {
+                    "answer": "He does not like spicy food.",
+                    "reason": "Канонічна відповідь."
+                },
+                {
+                    "answer": "He doesn't like spicy food.",
+                    "reason": "Does not/doesn't без зміни змісту."
+                }
+            ]
+        }
+    ]
+}

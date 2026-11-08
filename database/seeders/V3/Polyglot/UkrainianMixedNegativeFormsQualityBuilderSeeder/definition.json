@@ -1,0 +1,3397 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/negative-forms.v1.json",
+        "sha256": "ca8fb726922936a0ebdf3c0aea1c04aa822a14e263cddc59d89063141232cf0c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedNegativeFormsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-negative-forms-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_negative_forms": {
+            "name": "Questions and Negations Quality: Negative Forms"
+        }
+    },
+    "tags": {
+        "polyglot_negative_forms": {
+            "name": "Negative Forms",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "not_nt": {
+            "name": "Not Nt",
+            "category": "topic"
+        },
+        "do_does_did_not": {
+            "name": "Do Does Did Not",
+            "category": "topic"
+        },
+        "be_not": {
+            "name": "Be Not",
+            "category": "topic"
+        },
+        "modal_not": {
+            "name": "Modal Not",
+            "category": "topic"
+        },
+        "perfect_auxiliary_not": {
+            "name": "Perfect Auxiliary Not",
+            "category": "topic"
+        },
+        "negative_infinitive": {
+            "name": "Negative Infinitive",
+            "category": "topic"
+        },
+        "no_plus_noun": {
+            "name": "No Plus Noun",
+            "category": "topic"
+        },
+        "negative_adverbs": {
+            "name": "Negative Adverbs",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_negative_forms",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-negative-forms-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я не готовий.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Я не готовий.",
+            "target_text": "I am not ready.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Запереч власний стан; використай повну форму.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Запереч власний стан; використай повну форму.",
+                    "options": [
+                        "am",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч власний стан; використай повну форму.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "ready.",
+                    "verb_hint": "Запереч власний стан; використай повну форму.",
+                    "options": [
+                        "ready",
+                        "insignificant",
+                        "certain",
+                        "unusual"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч власний стан; використай повну форму.",
+            "accepted_target_texts": [
+                "I am not ready."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not",
+                "ready."
+            ],
+            "token_groups": [
+                "I",
+                "am not",
+                "ready."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "not",
+                "ready."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "am",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "ready",
+                "insignificant",
+                "certain",
+                "unusual"
+            ],
+            "source_text_uk": "Я не готовий.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "am",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "ready",
+                    "insignificant",
+                    "certain",
+                    "unusual"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-negative-forms-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Вони не працюють сьогодні.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Вони не працюють сьогодні.",
+            "target_text": "They do not work today.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "They",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "do",
+                    "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "do",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a4": {
+                    "answer": "work",
+                    "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "work",
+                        "leave",
+                        "wait",
+                        "study"
+                    ]
+                },
+                "a5": {
+                    "answer": "today.",
+                    "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+                    "options": [
+                        "today",
+                        "yesterday",
+                        "tomorrow",
+                        "ready"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч звичайну дію; обставину часу постав наприкінці.",
+            "accepted_target_texts": [
+                "They do not work today."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "do not",
+                "work",
+                "today."
+            ],
+            "token_groups": [
+                "They",
+                "do not",
+                "work",
+                "today."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "They",
+                "do",
+                "not",
+                "work",
+                "today."
+            ],
+            "options": [
+                "They",
+                "She",
+                "It",
+                "We",
+                "do",
+                "don't",
+                "doesn't",
+                "didn't",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "work",
+                "leave",
+                "wait",
+                "study",
+                "today",
+                "yesterday",
+                "tomorrow",
+                "ready"
+            ],
+            "source_text_uk": "Вони не працюють сьогодні.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "do",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a4": [
+                    "work",
+                    "leave",
+                    "wait",
+                    "study"
+                ],
+                "a5": [
+                    "today",
+                    "yesterday",
+                    "tomorrow",
+                    "ready"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb",
+                "a5": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-negative-forms-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Тобі заборонено йти.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Тобі заборонено йти.",
+            "target_text": "You cannot leave.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Передай заборону піти; потрібне модальне заперечення.",
+                    "options": [
+                        "You",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Передай заборону піти; потрібне модальне заперечення.",
+                    "options": [
+                        "cannot",
+                        "shouldn't",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "leave.",
+                    "verb_hint": "Передай заборону піти; потрібне модальне заперечення.",
+                    "options": [
+                        "leave",
+                        "work",
+                        "wait",
+                        "give"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заборону піти; потрібне модальне заперечення.",
+            "accepted_target_texts": [
+                "You cannot leave."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "cannot",
+                "leave."
+            ],
+            "token_groups": [
+                "You",
+                "cannot",
+                "leave."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "You",
+                "cannot",
+                "leave."
+            ],
+            "options": [
+                "You",
+                "Me",
+                "Him",
+                "Us",
+                "cannot",
+                "shouldn't",
+                "can",
+                "could",
+                "leave",
+                "work",
+                "wait",
+                "give"
+            ],
+            "source_text_uk": "Тобі заборонено йти.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "cannot",
+                    "shouldn't",
+                    "can",
+                    "could"
+                ],
+                "a3": [
+                    "leave",
+                    "work",
+                    "wait",
+                    "give"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-negative-forms-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Вона не надіслала посилку.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Вона не надіслала посилку.",
+            "target_text": "She did not send the parcel.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "She",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "did",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "not",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a4": {
+                    "answer": "send",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "send",
+                        "support",
+                        "check",
+                        "accept"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "parcel.",
+                    "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+                    "options": [
+                        "parcel",
+                        "form",
+                        "motion",
+                        "notebook"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч завершену минулу дію; використай повну допоміжну форму.",
+            "accepted_target_texts": [
+                "She did not send the parcel.",
+                "She did not mail the parcel.",
+                "She did not post the parcel."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "mail",
+                    "post"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "mail",
+                    "post"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "did not",
+                "send the parcel."
+            ],
+            "token_groups": [
+                "She",
+                "did not",
+                "send the parcel."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "She",
+                "did",
+                "not",
+                "send",
+                "the",
+                "parcel."
+            ],
+            "options": [
+                "She",
+                "It",
+                "We",
+                "They",
+                "did",
+                "hadn't",
+                "do",
+                "does",
+                "not",
+                "rarely",
+                "only",
+                "even",
+                "send",
+                "support",
+                "check",
+                "accept",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "parcel",
+                "form",
+                "motion",
+                "notebook"
+            ],
+            "source_text_uk": "Вона не надіслала посилку.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "did",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "not",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a4": [
+                    "send",
+                    "support",
+                    "check",
+                    "accept"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "parcel",
+                    "form",
+                    "motion",
+                    "notebook"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-negative-forms-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ми не принесемо зошит завтра.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Ми не принесемо зошит завтра.",
+            "target_text": "We will not bring a notebook tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "will",
+                        "can",
+                        "could",
+                        "would"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "bring",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "bring",
+                        "walking",
+                        "opening",
+                        "closing"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "notebook",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "notebook",
+                        "report",
+                        "document",
+                        "map"
+                    ]
+                },
+                "a7": {
+                    "answer": "tomorrow.",
+                    "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+                    "options": [
+                        "tomorrow",
+                        "yesterday",
+                        "today",
+                        "send"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч майбутню дію; час постав наприкінці.",
+            "accepted_target_texts": [
+                "We will not bring a notebook tomorrow."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "will not",
+                "bring a notebook",
+                "tomorrow."
+            ],
+            "token_groups": [
+                "We",
+                "will not",
+                "bring a notebook",
+                "tomorrow."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "will",
+                "not",
+                "bring",
+                "a",
+                "notebook",
+                "tomorrow."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "will",
+                "can",
+                "could",
+                "would",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "bring",
+                "walking",
+                "opening",
+                "closing",
+                "a",
+                "those",
+                "each",
+                "every",
+                "notebook",
+                "report",
+                "document",
+                "map",
+                "tomorrow",
+                "yesterday",
+                "today",
+                "send"
+            ],
+            "source_text_uk": "Ми не принесемо зошит завтра.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "will",
+                    "can",
+                    "could",
+                    "would"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "bring",
+                    "walking",
+                    "opening",
+                    "closing"
+                ],
+                "a5": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "notebook",
+                    "report",
+                    "document",
+                    "map"
+                ],
+                "a7": [
+                    "tomorrow",
+                    "yesterday",
+                    "today",
+                    "send"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-negative-forms-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Він не був готовий учора.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Він не був готовий учора.",
+            "target_text": "He was not ready yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+                    "options": [
+                        "He",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "ready",
+                    "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+                    "options": [
+                        "ready",
+                        "certain",
+                        "unusual",
+                        "irrelevant"
+                    ]
+                },
+                "a5": {
+                    "answer": "yesterday.",
+                    "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+                    "options": [
+                        "yesterday",
+                        "today",
+                        "tomorrow",
+                        "send"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч минулий стан однієї людини; не додавай дієслова дії.",
+            "accepted_target_texts": [
+                "He was not ready yesterday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "was not",
+                "ready",
+                "yesterday."
+            ],
+            "token_groups": [
+                "He",
+                "was not",
+                "ready",
+                "yesterday."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "He",
+                "was",
+                "not",
+                "ready",
+                "yesterday."
+            ],
+            "options": [
+                "He",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "was",
+                "is",
+                "are",
+                "were",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "ready",
+                "certain",
+                "unusual",
+                "irrelevant",
+                "yesterday",
+                "today",
+                "tomorrow",
+                "send"
+            ],
+            "source_text_uk": "Він не був готовий учора.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "ready",
+                    "certain",
+                    "unusual",
+                    "irrelevant"
+                ],
+                "a5": [
+                    "yesterday",
+                    "today",
+                    "tomorrow",
+                    "send"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "complement",
+                "a5": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-negative-forms-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Вони ще не перевірили цифри.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Вони ще не перевірили цифри.",
+            "target_text": "They have not checked the figures yet.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "They",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a4": {
+                    "answer": "checked",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "checked",
+                        "open",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "figures",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "figures",
+                        "terms",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a7": {
+                    "answer": "yet.",
+                    "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+                    "options": [
+                        "yet",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч результат до теперішнього моменту; часовий маркер постав наприкінці.",
+            "accepted_target_texts": [
+                "They have not checked the figures yet."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "have not",
+                "checked the figures",
+                "yet."
+            ],
+            "token_groups": [
+                "They",
+                "have not",
+                "checked the figures",
+                "yet."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "They",
+                "have",
+                "not",
+                "checked",
+                "the",
+                "figures",
+                "yet."
+            ],
+            "options": [
+                "They",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "not",
+                "still",
+                "just",
+                "also",
+                "checked",
+                "open",
+                "worked",
+                "played",
+                "the",
+                "these",
+                "those",
+                "each",
+                "figures",
+                "terms",
+                "people",
+                "men",
+                "yet",
+                "although",
+                "though",
+                "unless"
+            ],
+            "source_text_uk": "Вони ще не перевірили цифри.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a3": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a4": [
+                    "checked",
+                    "open",
+                    "worked",
+                    "played"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "figures",
+                    "terms",
+                    "people",
+                    "men"
+                ],
+                "a7": [
+                    "yet",
+                    "although",
+                    "though",
+                    "unless"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adverb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-negative-forms-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я не став би приймати ці умови.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Я не став би приймати ці умови.",
+            "target_text": "I would not accept the terms.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a4": {
+                    "answer": "accept",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "accept",
+                        "send",
+                        "review",
+                        "keep"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "terms.",
+                    "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+                    "options": [
+                        "terms",
+                        "figures",
+                        "women",
+                        "bikes"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечне гіпотетичне рішення повною формою.",
+            "accepted_target_texts": [
+                "I would not accept the terms."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "would not",
+                "accept the terms."
+            ],
+            "token_groups": [
+                "I",
+                "would not",
+                "accept the terms."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "not",
+                "accept",
+                "the",
+                "terms."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "not",
+                "already",
+                "still",
+                "just",
+                "accept",
+                "send",
+                "review",
+                "keep",
+                "the",
+                "that",
+                "these",
+                "those",
+                "terms",
+                "figures",
+                "women",
+                "bikes"
+            ],
+            "source_text_uk": "Я не став би приймати ці умови.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a4": [
+                    "accept",
+                    "send",
+                    "review",
+                    "keep"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "terms",
+                    "figures",
+                    "women",
+                    "bikes"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-negative-forms-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ти не повинен був підписувати форму.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Ти не повинен був підписувати форму.",
+            "target_text": "You should not have signed the form.",
+            "markers": {
+                "a1": {
+                    "answer": "You",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "You",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "should",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "signed",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "signed",
+                        "met",
+                        "seen",
+                        "known"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "form.",
+                    "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+                    "options": [
+                        "form",
+                        "accept",
+                        "key",
+                        "room"
+                    ]
+                }
+            },
+            "verb_hint": "Вислови критику вже виконаної дії, а не теперішню заборону.",
+            "accepted_target_texts": [
+                "You should not have signed the form."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "should not",
+                "have signed",
+                "the form."
+            ],
+            "token_groups": [
+                "You",
+                "should not",
+                "have signed",
+                "the form."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "You",
+                "should",
+                "not",
+                "have",
+                "signed",
+                "the",
+                "form."
+            ],
+            "options": [
+                "You",
+                "It",
+                "We",
+                "They",
+                "should",
+                "cannot",
+                "can",
+                "could",
+                "not",
+                "never",
+                "always",
+                "often",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "signed",
+                "met",
+                "seen",
+                "known",
+                "the",
+                "a",
+                "an",
+                "some",
+                "form",
+                "accept",
+                "key",
+                "room"
+            ],
+            "source_text_uk": "Ти не повинен був підписувати форму.",
+            "options_by_marker": {
+                "a1": [
+                    "You",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "should",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "signed",
+                    "met",
+                    "seen",
+                    "known"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "form",
+                    "accept",
+                    "key",
+                    "room"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-negative-forms-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Нам не слід ігнорувати докази.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Нам не слід ігнорувати докази.",
+            "target_text": "We should not ignore the evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "should",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "ignore",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "ignore",
+                        "support",
+                        "review",
+                        "keep"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "evidence.",
+                    "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+                    "options": [
+                        "evidence",
+                        "motion",
+                        "receipt",
+                        "gate"
+                    ]
+                }
+            },
+            "verb_hint": "Вислови заперечну пораду щодо поточного рішення.",
+            "accepted_target_texts": [
+                "We should not ignore the evidence."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "should not",
+                "ignore the evidence."
+            ],
+            "token_groups": [
+                "We",
+                "should not",
+                "ignore the evidence."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "should",
+                "not",
+                "ignore",
+                "the",
+                "evidence."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "should",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "ignore",
+                "support",
+                "review",
+                "keep",
+                "the",
+                "every",
+                "no",
+                "another",
+                "evidence",
+                "motion",
+                "receipt",
+                "gate"
+            ],
+            "source_text_uk": "Нам не слід ігнорувати докази.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "should",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "ignore",
+                    "support",
+                    "review",
+                    "keep"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "evidence",
+                    "motion",
+                    "receipt",
+                    "gate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-negative-forms-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ця угода не була б можливою.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Ця угода не була б можливою.",
+            "target_text": "This agreement would not have been possible.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "This",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "agreement",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "agreement",
+                        "notice",
+                        "ignore",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "would",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a7": {
+                    "answer": "possible.",
+                    "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+                    "options": [
+                        "possible",
+                        "unreasonable",
+                        "necessary",
+                        "available"
+                    ]
+                }
+            },
+            "verb_hint": "Передай нереальний минулий результат; використай повну заперечну форму.",
+            "accepted_target_texts": [
+                "This agreement would not have been possible."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This agreement",
+                "would not",
+                "have been",
+                "possible."
+            ],
+            "token_groups": [
+                "This agreement",
+                "would not",
+                "have been",
+                "possible."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "This",
+                "agreement",
+                "would",
+                "not",
+                "have",
+                "been",
+                "possible."
+            ],
+            "options": [
+                "This",
+                "Another",
+                "Either",
+                "Neither",
+                "agreement",
+                "notice",
+                "ignore",
+                "evidence",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "am",
+                "is",
+                "are",
+                "possible",
+                "unreasonable",
+                "necessary",
+                "available"
+            ],
+            "source_text_uk": "Ця угода не була б можливою.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "agreement",
+                    "notice",
+                    "ignore",
+                    "evidence"
+                ],
+                "a3": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a4": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a5": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a6": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a7": [
+                    "possible",
+                    "unreasonable",
+                    "necessary",
+                    "available"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase",
+                "a5": "verb",
+                "a6": "verb",
+                "a7": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-negative-forms-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Вони могли не отримати повідомлення.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Вони могли не отримати повідомлення.",
+            "target_text": "They might not have received the notice.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "They",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "might",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "might",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "received",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "received",
+                        "taken",
+                        "written",
+                        "ridden"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "notice.",
+                    "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+                    "options": [
+                        "notice",
+                        "agreement",
+                        "ignore",
+                        "evidence"
+                    ]
+                }
+            },
+            "verb_hint": "Передай можливість того, що минула дія не відбулася; це не впевнений висновок.",
+            "accepted_target_texts": [
+                "They might not have received the notice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "might not",
+                "have received",
+                "the notice."
+            ],
+            "token_groups": [
+                "They",
+                "might not",
+                "have received",
+                "the notice."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "They",
+                "might",
+                "not",
+                "have",
+                "received",
+                "the",
+                "notice."
+            ],
+            "options": [
+                "They",
+                "Us",
+                "Them",
+                "Myself",
+                "might",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "received",
+                "taken",
+                "written",
+                "ridden",
+                "the",
+                "each",
+                "every",
+                "no",
+                "notice",
+                "agreement",
+                "ignore",
+                "evidence"
+            ],
+            "source_text_uk": "Вони могли не отримати повідомлення.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "might",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "received",
+                    "taken",
+                    "written",
+                    "ridden"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "notice",
+                    "agreement",
+                    "ignore",
+                    "evidence"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "negative_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-negative-forms-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Ці ранні результати не доводять причинності.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Ці ранні результати не доводять причинності.",
+            "target_text": "These early findings do not establish causation.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "These",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "early",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "early",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                },
+                "a3": {
+                    "answer": "findings",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "findings",
+                        "boxes",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a4": {
+                    "answer": "do",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "do",
+                        "have",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a6": {
+                    "answer": "establish",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "establish",
+                        "understand",
+                        "approve",
+                        "expect"
+                    ]
+                },
+                "a7": {
+                    "answer": "causation.",
+                    "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+                    "options": [
+                        "causation",
+                        "requirement",
+                        "committee",
+                        "such"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч достатність результатів для встановлення причинного зв’язку.",
+            "accepted_target_texts": [
+                "These early findings do not establish causation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These early findings",
+                "do not",
+                "establish",
+                "causation."
+            ],
+            "token_groups": [
+                "These early findings",
+                "do not",
+                "establish",
+                "causation."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "These",
+                "early",
+                "findings",
+                "do",
+                "not",
+                "establish",
+                "causation."
+            ],
+            "options": [
+                "These",
+                "Some",
+                "Any",
+                "This",
+                "early",
+                "slowly",
+                "quickly",
+                "carefully",
+                "findings",
+                "boxes",
+                "friends",
+                "dogs",
+                "do",
+                "have",
+                "has",
+                "had",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "establish",
+                "understand",
+                "approve",
+                "expect",
+                "causation",
+                "requirement",
+                "committee",
+                "such"
+            ],
+            "source_text_uk": "Ці ранні результати не доводять причинності.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "early",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ],
+                "a3": [
+                    "findings",
+                    "boxes",
+                    "friends",
+                    "dogs"
+                ],
+                "a4": [
+                    "do",
+                    "have",
+                    "has",
+                    "had"
+                ],
+                "a5": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a6": [
+                    "establish",
+                    "understand",
+                    "approve",
+                    "expect"
+                ],
+                "a7": [
+                    "causation",
+                    "requirement",
+                    "committee",
+                    "such"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "negative_phrase",
+                "a5": "negative_phrase",
+                "a6": "verb",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-negative-forms-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Комітет не розглянув би таке заперечення.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Комітет не розглянув би таке заперечення.",
+            "target_text": "The committee would not have entertained such an objection.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "committee",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "committee",
+                        "requirement",
+                        "causation",
+                        "establish"
+                    ]
+                },
+                "a3": {
+                    "answer": "would",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "would",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "entertained",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "entertained",
+                        "ignored",
+                        "driven",
+                        "given"
+                    ]
+                },
+                "a7": {
+                    "answer": "such",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "such",
+                        "a",
+                        "these",
+                        "your"
+                    ]
+                },
+                "a8": {
+                    "answer": "an",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "an",
+                        "that",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a9": {
+                    "answer": "objection.",
+                    "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+                    "options": [
+                        "objection",
+                        "teacher",
+                        "key",
+                        "ferry"
+                    ]
+                }
+            },
+            "verb_hint": "Передай гіпотетичну минулу відмову розглядати заперечення.",
+            "accepted_target_texts": [
+                "The committee would not have entertained such an objection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "would not",
+                "have entertained",
+                "such an objection."
+            ],
+            "token_groups": [
+                "The committee",
+                "would not",
+                "have entertained",
+                "such an objection."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "committee",
+                "would",
+                "not",
+                "have",
+                "entertained",
+                "such",
+                "an",
+                "objection."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "committee",
+                "requirement",
+                "causation",
+                "establish",
+                "would",
+                "should",
+                "may",
+                "might",
+                "not",
+                "still",
+                "just",
+                "also",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "entertained",
+                "ignored",
+                "driven",
+                "given",
+                "such",
+                "a",
+                "these",
+                "your",
+                "an",
+                "that",
+                "those",
+                "each",
+                "objection",
+                "teacher",
+                "key",
+                "ferry"
+            ],
+            "source_text_uk": "Комітет не розглянув би таке заперечення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "committee",
+                    "requirement",
+                    "causation",
+                    "establish"
+                ],
+                "a3": [
+                    "would",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a4": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a6": [
+                    "entertained",
+                    "ignored",
+                    "driven",
+                    "given"
+                ],
+                "a7": [
+                    "such",
+                    "a",
+                    "these",
+                    "your"
+                ],
+                "a8": [
+                    "an",
+                    "that",
+                    "those",
+                    "each"
+                ],
+                "a9": [
+                    "objection",
+                    "teacher",
+                    "key",
+                    "ferry"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase",
+                "a5": "verb",
+                "a6": "verb",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-negative-forms-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Цю вимогу не можна ігнорувати.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Цю вимогу не можна ігнорувати.",
+            "target_text": "This requirement cannot be ignored.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+                    "options": [
+                        "This",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "requirement",
+                    "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+                    "options": [
+                        "requirement",
+                        "establish",
+                        "causation",
+                        "committee"
+                    ]
+                },
+                "a3": {
+                    "answer": "cannot",
+                    "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+                    "options": [
+                        "cannot",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a5": {
+                    "answer": "ignored.",
+                    "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+                    "options": [
+                        "ignored",
+                        "entertained",
+                        "said",
+                        "met"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй заперечний модальний пасив; збережи значення неможливості нехтування.",
+            "accepted_target_texts": [
+                "This requirement cannot be ignored."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This requirement",
+                "cannot",
+                "be ignored."
+            ],
+            "token_groups": [
+                "This requirement",
+                "cannot",
+                "be ignored."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "This",
+                "requirement",
+                "cannot",
+                "be",
+                "ignored."
+            ],
+            "options": [
+                "This",
+                "Another",
+                "Either",
+                "Neither",
+                "requirement",
+                "establish",
+                "causation",
+                "committee",
+                "cannot",
+                "would",
+                "shall",
+                "should",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "ignored",
+                "entertained",
+                "said",
+                "met"
+            ],
+            "source_text_uk": "Цю вимогу не можна ігнорувати.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "requirement",
+                    "establish",
+                    "causation",
+                    "committee"
+                ],
+                "a3": [
+                    "cannot",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a4": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a5": [
+                    "ignored",
+                    "entertained",
+                    "said",
+                    "met"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "negative_phrase",
+                "a4": "verb",
+                "a5": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-negative-forms-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Такий наслідок не був би неминучим.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Такий наслідок не був би неминучим.",
+            "target_text": "Such an outcome would not have been inevitable.",
+            "markers": {
+                "a1": {
+                    "answer": "Such",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "Such",
+                        "A",
+                        "These",
+                        "Your"
+                    ]
+                },
+                "a2": {
+                    "answer": "an",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "an",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a3": {
+                    "answer": "outcome",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "outcome",
+                        "key",
+                        "ferry",
+                        "suitcase"
+                    ]
+                },
+                "a4": {
+                    "answer": "would",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "would",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "inevitable.",
+                    "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+                    "options": [
+                        "inevitable",
+                        "available",
+                        "necessary",
+                        "unreasonable"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч неминучість гіпотетичного минулого наслідку.",
+            "accepted_target_texts": [
+                "Such an outcome would not have been inevitable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Such an outcome",
+                "would not",
+                "have been",
+                "inevitable."
+            ],
+            "token_groups": [
+                "Such an outcome",
+                "would not",
+                "have been",
+                "inevitable."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Such",
+                "an",
+                "outcome",
+                "would",
+                "not",
+                "have",
+                "been",
+                "inevitable."
+            ],
+            "options": [
+                "Such",
+                "A",
+                "These",
+                "Your",
+                "an",
+                "each",
+                "every",
+                "no",
+                "outcome",
+                "key",
+                "ferry",
+                "suitcase",
+                "would",
+                "must",
+                "can't",
+                "couldn't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "inevitable",
+                "available",
+                "necessary",
+                "unreasonable"
+            ],
+            "source_text_uk": "Такий наслідок не був би неминучим.",
+            "options_by_marker": {
+                "a1": [
+                    "Such",
+                    "A",
+                    "These",
+                    "Your"
+                ],
+                "a2": [
+                    "an",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a3": [
+                    "outcome",
+                    "key",
+                    "ferry",
+                    "suitcase"
+                ],
+                "a4": [
+                    "would",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a5": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a6": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "inevitable",
+                    "available",
+                    "necessary",
+                    "unreasonable"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "noun_phrase",
+                "a4": "negative_phrase",
+                "a5": "negative_phrase",
+                "a6": "verb",
+                "a7": "verb",
+                "a8": "complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-negative-forms-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Це застереження не повинно перешкоджати перегляду.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Це застереження не повинно перешкоджати перегляду.",
+            "target_text": "This reservation should not preclude reconsideration.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "This",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "reservation",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "reservation",
+                        "delegation",
+                        "unaware",
+                        "risk"
+                    ]
+                },
+                "a3": {
+                    "answer": "should",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "should",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "preclude",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "preclude",
+                        "agree",
+                        "believe",
+                        "understand"
+                    ]
+                },
+                "a6": {
+                    "answer": "reconsideration.",
+                    "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+                    "options": [
+                        "reconsideration",
+                        "Such",
+                        "outcome",
+                        "cat"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечну нормативну оцінку без зміни учасників.",
+            "accepted_target_texts": [
+                "This reservation should not preclude reconsideration."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This reservation",
+                "should not",
+                "preclude",
+                "reconsideration."
+            ],
+            "token_groups": [
+                "This reservation",
+                "should not",
+                "preclude",
+                "reconsideration."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "This",
+                "reservation",
+                "should",
+                "not",
+                "preclude",
+                "reconsideration."
+            ],
+            "options": [
+                "This",
+                "That",
+                "These",
+                "Those",
+                "reservation",
+                "delegation",
+                "unaware",
+                "risk",
+                "should",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "preclude",
+                "agree",
+                "believe",
+                "understand",
+                "reconsideration",
+                "Such",
+                "outcome",
+                "cat"
+            ],
+            "source_text_uk": "Це застереження не повинно перешкоджати перегляду.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "reservation",
+                    "delegation",
+                    "unaware",
+                    "risk"
+                ],
+                "a3": [
+                    "should",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "preclude",
+                    "agree",
+                    "believe",
+                    "understand"
+                ],
+                "a6": [
+                    "reconsideration",
+                    "Such",
+                    "outcome",
+                    "cat"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase",
+                "a5": "verb",
+                "a6": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-negative-forms-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Делегація не могла не знати про ризик.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_negative_forms",
+            "translation_uk": "Делегація не могла не знати про ризик.",
+            "target_text": "The delegation could not have been unaware of the risk.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "delegation",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "delegation",
+                        "reservation",
+                        "preclude",
+                        "reconsideration"
+                    ]
+                },
+                "a3": {
+                    "answer": "could",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "could",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "unaware",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "unaware",
+                        "ready",
+                        "certain",
+                        "irrelevant"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "risk.",
+                    "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+                    "options": [
+                        "risk",
+                        "committee",
+                        "draft",
+                        "gate"
+                    ]
+                }
+            },
+            "verb_hint": "Покажи неможливість незнання в минулому; це обґрунтоване припущення про обізнаність.",
+            "accepted_target_texts": [
+                "The delegation could not have been unaware of the risk."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation",
+                "could not",
+                "have been",
+                "unaware",
+                "of the risk."
+            ],
+            "token_groups": [
+                "The delegation",
+                "could not",
+                "have been",
+                "unaware",
+                "of the risk."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "delegation",
+                "could",
+                "not",
+                "have",
+                "been",
+                "unaware",
+                "of",
+                "the",
+                "risk."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "delegation",
+                "reservation",
+                "preclude",
+                "reconsideration",
+                "could",
+                "should",
+                "may",
+                "might",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "unaware",
+                "ready",
+                "certain",
+                "irrelevant",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "risk",
+                "committee",
+                "draft",
+                "gate"
+            ],
+            "source_text_uk": "Делегація не могла не знати про ризик.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "delegation",
+                    "reservation",
+                    "preclude",
+                    "reconsideration"
+                ],
+                "a3": [
+                    "could",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "unaware",
+                    "ready",
+                    "certain",
+                    "irrelevant"
+                ],
+                "a8": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a9": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "risk",
+                    "committee",
+                    "draft",
+                    "gate"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun_phrase",
+                "a2": "noun_phrase",
+                "a3": "negative_phrase",
+                "a4": "negative_phrase",
+                "a5": "verb",
+                "a6": "verb",
+                "a7": "complement",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

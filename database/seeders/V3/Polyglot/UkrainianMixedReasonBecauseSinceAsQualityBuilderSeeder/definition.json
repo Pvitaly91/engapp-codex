@@ -1,0 +1,1801 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/reason-because-since-as.v1.json",
+        "sha256": "ef0e19ca50aca4524c6ca6f8cc699d3ca284d725b71517963eef096e63c896dc"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReasonBecauseSinceAsQualityBuilderSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-reason-because-since-as-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "clauses_linking_words_quality_reason_because_since_as": {
+            "name": "Clauses and Linking Words Quality: Reason: because / since / as"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reason_because_since_as": {
+            "name": "Reason: because / since / as",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "because_clause": {
+            "name": "Because Clause",
+            "category": "topic"
+        },
+        "since_clause": {
+            "name": "Since Clause",
+            "category": "topic"
+        },
+        "as_clause": {
+            "name": "As Clause",
+            "category": "topic"
+        },
+        "because_of": {
+            "name": "Because Of",
+            "category": "topic"
+        },
+        "due_to_owing_to": {
+            "name": "Due To Owing To",
+            "category": "topic"
+        },
+        "reason_clause_position": {
+            "name": "Reason Clause Position",
+            "category": "topic"
+        },
+        "comma_rules": {
+            "name": "Comma Rules",
+            "category": "topic"
+        },
+        "because_vs_because_of": {
+            "name": "Because Vs Because Of",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-reason-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я йду додому, тому що я втомлений.",
+            "level": "A1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Я йду додому, тому що я втомлений.",
+            "target_text": "I am going home because I am tired.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "am",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a3": {
+                    "answer": "going",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "going",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a4": {
+                    "answer": "home",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "home",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a5": {
+                    "answer": "because",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "because",
+                        "although",
+                        "though",
+                        "unless"
+                    ]
+                },
+                "a6": {
+                    "answer": "I",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a7": {
+                    "answer": "am",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "am",
+                        "isn't",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a8": {
+                    "answer": "tired.",
+                    "verb_hint": "Почни з дії; далі передай втому як її причину.",
+                    "options": [
+                        "tired",
+                        "verified",
+                        "gave",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з дії; далі передай втому як її причину.",
+            "accepted_target_texts": [
+                "I am going home because I am tired.",
+                "I am going home since I am tired.",
+                "I am going home as I am tired."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "I am going",
+                "home",
+                "because",
+                "I am tired."
+            ],
+            "token_groups": [
+                "I am going",
+                "home",
+                "because",
+                "I am tired."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "going",
+                "home",
+                "because",
+                "I",
+                "am",
+                "tired."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "am",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "going",
+                "cooking",
+                "riding",
+                "driving",
+                "home",
+                "bread",
+                "milk",
+                "music",
+                "because",
+                "although",
+                "though",
+                "unless",
+                "Themselves",
+                "You",
+                "He",
+                "isn't",
+                "is",
+                "are",
+                "tired",
+                "verified",
+                "gave",
+                "made"
+            ],
+            "source_text_uk": "Я йду додому, тому що я втомлений.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "am",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a3": [
+                    "going",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ],
+                "a4": [
+                    "home",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a5": [
+                    "because",
+                    "although",
+                    "though",
+                    "unless"
+                ],
+                "a6": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a7": [
+                    "am",
+                    "isn't",
+                    "is",
+                    "are"
+                ],
+                "a8": [
+                    "tired",
+                    "verified",
+                    "gave",
+                    "made"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "adverbial_phrase",
+                "a5": "connector_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "clq-reason-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми викликали таксі, тому що останній автобус уже поїхав.",
+            "level": "A2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Ми викликали таксі, тому що останній автобус уже поїхав.",
+            "target_text": "We called a taxi because the last bus had left.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "called",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "called",
+                        "open",
+                        "disappeared",
+                        "postponed"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "taxi",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "taxi",
+                        "boat",
+                        "ship",
+                        "bike"
+                    ]
+                },
+                "a5": {
+                    "answer": "because",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "because",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "last",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "last",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a8": {
+                    "answer": "bus",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "bus",
+                        "car",
+                        "train",
+                        "tram"
+                    ]
+                },
+                "a9": {
+                    "answer": "had",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a10": {
+                    "answer": "left.",
+                    "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+                    "options": [
+                        "left",
+                        "changed",
+                        "driven",
+                        "given"
+                    ]
+                }
+            },
+            "verb_hint": "Спочатку передай виклик таксі, потім попередню причину.",
+            "accepted_target_texts": [
+                "We called a taxi because the last bus had left.",
+                "We called a taxi since the last bus had left.",
+                "We called a taxi as the last bus had left."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "We called",
+                "a taxi",
+                "because",
+                "the last bus",
+                "had left."
+            ],
+            "token_groups": [
+                "We called",
+                "a taxi",
+                "because",
+                "the last bus",
+                "had left."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "We",
+                "called",
+                "a",
+                "taxi",
+                "because",
+                "the",
+                "last",
+                "bus",
+                "had",
+                "left."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "called",
+                "open",
+                "disappeared",
+                "postponed",
+                "a",
+                "some",
+                "any",
+                "this",
+                "taxi",
+                "boat",
+                "ship",
+                "bike",
+                "because",
+                "while",
+                "if",
+                "whether",
+                "the",
+                "that",
+                "these",
+                "those",
+                "last",
+                "ticket",
+                "cup",
+                "door",
+                "bus",
+                "car",
+                "train",
+                "tram",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "left",
+                "changed",
+                "driven",
+                "given"
+            ],
+            "source_text_uk": "Ми викликали таксі, тому що останній автобус уже поїхав.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "called",
+                    "open",
+                    "disappeared",
+                    "postponed"
+                ],
+                "a3": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "taxi",
+                    "boat",
+                    "ship",
+                    "bike"
+                ],
+                "a5": [
+                    "because",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "last",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a8": [
+                    "bus",
+                    "car",
+                    "train",
+                    "tram"
+                ],
+                "a9": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a10": [
+                    "left",
+                    "changed",
+                    "driven",
+                    "given"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "subject_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "clq-reason-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Оскільки всі вже прочитали листа, голова почав обговорення.",
+            "level": "B1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки всі вже прочитали листа, голова почав обговорення.",
+            "target_text": "Since everyone had read the letter, the chair opened the discussion.",
+            "markers": {
+                "a1": {
+                    "answer": "Since",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "Since",
+                        "However",
+                        "If",
+                        "So"
+                    ]
+                },
+                "a2": {
+                    "answer": "everyone",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "everyone",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "read",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "read",
+                        "postponed",
+                        "open",
+                        "disappeared"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "letter,",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "letter",
+                        "map",
+                        "notebook",
+                        "folder"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "chair",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "chair",
+                        "gardener",
+                        "artist",
+                        "reader"
+                    ]
+                },
+                "a9": {
+                    "answer": "opened",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "opened",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a11": {
+                    "answer": "discussion.",
+                    "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+                    "options": [
+                        "discussion",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+            "accepted_target_texts": [
+                "Since everyone had read the letter, the chair opened the discussion.",
+                "Because everyone had read the letter, the chair opened the discussion.",
+                "As everyone had read the letter, the chair opened the discussion."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "reorder_groups": [
+                "Since",
+                "everyone",
+                "had read",
+                "the letter,",
+                "the chair",
+                "opened",
+                "the discussion."
+            ],
+            "token_groups": [
+                "Since",
+                "everyone",
+                "had read",
+                "the letter,",
+                "the chair",
+                "opened",
+                "the discussion."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Since",
+                "everyone",
+                "had",
+                "read",
+                "the",
+                "letter,",
+                "the",
+                "chair",
+                "opened",
+                "the",
+                "discussion."
+            ],
+            "options": [
+                "Since",
+                "However",
+                "If",
+                "So",
+                "everyone",
+                "bread",
+                "milk",
+                "music",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "read",
+                "postponed",
+                "open",
+                "disappeared",
+                "the",
+                "both",
+                "a",
+                "an",
+                "letter",
+                "map",
+                "notebook",
+                "folder",
+                "that",
+                "these",
+                "those",
+                "chair",
+                "gardener",
+                "artist",
+                "reader",
+                "opened",
+                "visited",
+                "cooked",
+                "found",
+                "each",
+                "every",
+                "no",
+                "discussion",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Оскільки всі вже прочитали листа, голова почав обговорення.",
+            "options_by_marker": {
+                "a1": [
+                    "Since",
+                    "However",
+                    "If",
+                    "So"
+                ],
+                "a2": [
+                    "everyone",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a3": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a4": [
+                    "read",
+                    "postponed",
+                    "open",
+                    "disappeared"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "letter",
+                    "map",
+                    "notebook",
+                    "folder"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "chair",
+                    "gardener",
+                    "artist",
+                    "reader"
+                ],
+                "a9": [
+                    "opened",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a10": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a11": [
+                    "discussion",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "slot_roles": {
+                "a1": "connector_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "subject_phrase",
+                "a8": "subject_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "clq-reason-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Редакція відклала публікацію, бо джерело попросило залишитися анонімним.",
+            "level": "B2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Редакція відклала публікацію, бо джерело попросило залишитися анонімним.",
+            "target_text": "The editors postponed publication because the source requested anonymity.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "editors",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "editors",
+                        "travellers",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a3": {
+                    "answer": "postponed",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "postponed",
+                        "rode",
+                        "drove",
+                        "gave"
+                    ]
+                },
+                "a4": {
+                    "answer": "publication",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "publication",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                },
+                "a5": {
+                    "answer": "because",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "because",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "source",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "source",
+                        "cousin",
+                        "team",
+                        "witness"
+                    ]
+                },
+                "a8": {
+                    "answer": "requested",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "requested",
+                        "had",
+                        "arrived",
+                        "saw"
+                    ]
+                },
+                "a9": {
+                    "answer": "anonymity.",
+                    "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+                    "options": [
+                        "anonymity",
+                        "attention",
+                        "unclear",
+                        "nearby"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+            "accepted_target_texts": [
+                "The editors postponed publication because the source requested anonymity.",
+                "The editors postponed publication since the source requested anonymity.",
+                "The editors postponed publication as the source requested anonymity.",
+                "The editors delayed publication because the source requested anonymity.",
+                "The editors delayed publication since the source requested anonymity.",
+                "The editors delayed publication as the source requested anonymity."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ],
+                "a3": [
+                    "delayed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "since",
+                    "as"
+                ],
+                "a3": [
+                    "delayed"
+                ]
+            },
+            "reorder_groups": [
+                "The editors",
+                "postponed",
+                "publication",
+                "because",
+                "the source",
+                "requested anonymity."
+            ],
+            "token_groups": [
+                "The editors",
+                "postponed",
+                "publication",
+                "because",
+                "the source",
+                "requested anonymity."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "editors",
+                "postponed",
+                "publication",
+                "because",
+                "the",
+                "source",
+                "requested",
+                "anonymity."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "editors",
+                "travellers",
+                "cats",
+                "people",
+                "postponed",
+                "rode",
+                "drove",
+                "gave",
+                "publication",
+                "cat",
+                "person",
+                "water",
+                "because",
+                "unless",
+                "whereas",
+                "while",
+                "the",
+                "those",
+                "each",
+                "every",
+                "source",
+                "cousin",
+                "team",
+                "witness",
+                "requested",
+                "had",
+                "arrived",
+                "saw",
+                "anonymity",
+                "attention",
+                "unclear",
+                "nearby"
+            ],
+            "source_text_uk": "Редакція відклала публікацію, бо джерело попросило залишитися анонімним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "editors",
+                    "travellers",
+                    "cats",
+                    "people"
+                ],
+                "a3": [
+                    "postponed",
+                    "rode",
+                    "drove",
+                    "gave"
+                ],
+                "a4": [
+                    "publication",
+                    "cat",
+                    "person",
+                    "water"
+                ],
+                "a5": [
+                    "because",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "source",
+                    "cousin",
+                    "team",
+                    "witness"
+                ],
+                "a8": [
+                    "requested",
+                    "had",
+                    "arrived",
+                    "saw"
+                ],
+                "a9": [
+                    "anonymity",
+                    "attention",
+                    "unclear",
+                    "nearby"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "clq-reason-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Оскільки підсумок не враховує відсутніх записів, його слід вважати попереднім.",
+            "level": "C1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Оскільки підсумок не враховує відсутніх записів, його слід вважати попереднім.",
+            "target_text": "Since the total excludes missing records, it should be treated as provisional.",
+            "markers": {
+                "a1": {
+                    "answer": "Since",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "Since",
+                        "So",
+                        "Therefore",
+                        "Although"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "total",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "total",
+                        "cousin",
+                        "team",
+                        "witness"
+                    ]
+                },
+                "a4": {
+                    "answer": "excludes",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "excludes",
+                        "cups",
+                        "doors",
+                        "keys"
+                    ]
+                },
+                "a5": {
+                    "answer": "missing",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "missing",
+                        "driving",
+                        "studying",
+                        "living"
+                    ]
+                },
+                "a6": {
+                    "answer": "records,",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "records",
+                        "bags",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "it",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a8": {
+                    "answer": "should",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "should",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a9": {
+                    "answer": "be",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a10": {
+                    "answer": "treated",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "treated",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a11": {
+                    "answer": "as",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "as",
+                        "tables",
+                        "tickets",
+                        "rooms"
+                    ]
+                },
+                "a12": {
+                    "answer": "provisional.",
+                    "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+                    "options": [
+                        "provisional",
+                        "simple",
+                        "happy",
+                        "sad"
+                    ]
+                }
+            },
+            "verb_hint": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+            "accepted_target_texts": [
+                "Since the total excludes missing records, it should be treated as provisional.",
+                "Because the total excludes missing records, it should be treated as provisional.",
+                "As the total excludes missing records, it should be treated as provisional."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Because",
+                    "As"
+                ]
+            },
+            "reorder_groups": [
+                "Since",
+                "the total",
+                "excludes",
+                "missing records,",
+                "it should",
+                "be treated as",
+                "provisional."
+            ],
+            "token_groups": [
+                "Since",
+                "the total",
+                "excludes",
+                "missing records,",
+                "it should",
+                "be treated as",
+                "provisional."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "Since",
+                "the",
+                "total",
+                "excludes",
+                "missing",
+                "records,",
+                "it",
+                "should",
+                "be",
+                "treated",
+                "as",
+                "provisional."
+            ],
+            "options": [
+                "Since",
+                "So",
+                "Therefore",
+                "Although",
+                "the",
+                "all",
+                "both",
+                "a",
+                "total",
+                "cousin",
+                "team",
+                "witness",
+                "excludes",
+                "cups",
+                "doors",
+                "keys",
+                "missing",
+                "driving",
+                "studying",
+                "living",
+                "records",
+                "bags",
+                "books",
+                "boxes",
+                "it",
+                "me",
+                "him",
+                "us",
+                "should",
+                "can't",
+                "couldn't",
+                "won't",
+                "be",
+                "are",
+                "was",
+                "were",
+                "treated",
+                "worked",
+                "played",
+                "called",
+                "as",
+                "tables",
+                "tickets",
+                "rooms",
+                "provisional",
+                "simple",
+                "happy",
+                "sad"
+            ],
+            "source_text_uk": "Оскільки підсумок не враховує відсутніх записів, його слід вважати попереднім.",
+            "options_by_marker": {
+                "a1": [
+                    "Since",
+                    "So",
+                    "Therefore",
+                    "Although"
+                ],
+                "a2": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "total",
+                    "cousin",
+                    "team",
+                    "witness"
+                ],
+                "a4": [
+                    "excludes",
+                    "cups",
+                    "doors",
+                    "keys"
+                ],
+                "a5": [
+                    "missing",
+                    "driving",
+                    "studying",
+                    "living"
+                ],
+                "a6": [
+                    "records",
+                    "bags",
+                    "books",
+                    "boxes"
+                ],
+                "a7": [
+                    "it",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a8": [
+                    "should",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a9": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a10": [
+                    "treated",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a11": [
+                    "as",
+                    "tables",
+                    "tickets",
+                    "rooms"
+                ],
+                "a12": [
+                    "provisional",
+                    "simple",
+                    "happy",
+                    "sad"
+                ]
+            },
+            "slot_roles": {
+                "a1": "connector_phrase",
+                "a2": "subject_phrase",
+                "a3": "subject_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "verb_phrase",
+                "a12": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "clq-reason-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Суд відхилив аналогію, оскільки вона приховувала суттєву відмінність.",
+            "level": "C2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_reason_because_since_as",
+            "translation_uk": "Суд відхилив аналогію, оскільки вона приховувала суттєву відмінність.",
+            "target_text": "The court rejected the analogy because it obscured a material distinction.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "court",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "court",
+                        "visitor",
+                        "artist",
+                        "reader"
+                    ]
+                },
+                "a3": {
+                    "answer": "rejected",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "rejected",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "analogy",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "analogy",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a6": {
+                    "answer": "because",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "because",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "it",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a8": {
+                    "answer": "obscured",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "obscured",
+                        "disappeared",
+                        "changed",
+                        "postponed"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "all"
+                    ]
+                },
+                "a10": {
+                    "answer": "material",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "material",
+                        "main",
+                        "fresh",
+                        "little"
+                    ]
+                },
+                "a11": {
+                    "answer": "distinction.",
+                    "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+                    "options": [
+                        "distinction",
+                        "loaf",
+                        "map",
+                        "dog"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+            "accepted_target_texts": [
+                "The court rejected the analogy because it obscured a material distinction.",
+                "The court rejected the analogy since it obscured a material distinction.",
+                "The court rejected the analogy as it obscured a material distinction."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The court",
+                "rejected",
+                "the analogy",
+                "because",
+                "it obscured",
+                "a material distinction."
+            ],
+            "token_groups": [
+                "The court",
+                "rejected",
+                "the analogy",
+                "because",
+                "it obscured",
+                "a material distinction."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "court",
+                "rejected",
+                "the",
+                "analogy",
+                "because",
+                "it",
+                "obscured",
+                "a",
+                "material",
+                "distinction."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "court",
+                "visitor",
+                "artist",
+                "reader",
+                "rejected",
+                "drove",
+                "gave",
+                "made",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "analogy",
+                "desk",
+                "picture",
+                "child",
+                "because",
+                "whether",
+                "and",
+                "but",
+                "it",
+                "me",
+                "him",
+                "us",
+                "obscured",
+                "disappeared",
+                "changed",
+                "postponed",
+                "a",
+                "every",
+                "no",
+                "all",
+                "material",
+                "main",
+                "fresh",
+                "little",
+                "distinction",
+                "loaf",
+                "map",
+                "dog"
+            ],
+            "source_text_uk": "Суд відхилив аналогію, оскільки вона приховувала суттєву відмінність.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "court",
+                    "visitor",
+                    "artist",
+                    "reader"
+                ],
+                "a3": [
+                    "rejected",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a4": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "analogy",
+                    "desk",
+                    "picture",
+                    "child"
+                ],
+                "a6": [
+                    "because",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a7": [
+                    "it",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a8": [
+                    "obscured",
+                    "disappeared",
+                    "changed",
+                    "postponed"
+                ],
+                "a9": [
+                    "a",
+                    "every",
+                    "no",
+                    "all"
+                ],
+                "a10": [
+                    "material",
+                    "main",
+                    "fresh",
+                    "little"
+                ],
+                "a11": [
+                    "distinction",
+                    "loaf",
+                    "map",
+                    "dog"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "connector_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

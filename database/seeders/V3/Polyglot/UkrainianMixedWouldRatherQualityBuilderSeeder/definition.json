@@ -1,0 +1,4163 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/would-rather.v1.json",
+        "sha256": "d99df30bba88450f5d573ab486b0b6a61e71107626688bcf81e8718fb00f1bba"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedWouldRatherQualityBuilderSeeder",
+        "uuid_namespace": "conditionals-quality-would-rather-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "conditionals_quality_would_rather": {
+            "name": "Conditionals Quality: Would Rather: Preferences and Other People’s Actions"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_would_rather": {
+            "name": "Would rather",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "would_rather_base": {
+            "name": "Would Rather Base",
+            "category": "topic"
+        },
+        "would_rather_not": {
+            "name": "Would Rather Not",
+            "category": "topic"
+        },
+        "would_rather_subject_past": {
+            "name": "Would Rather Subject Past",
+            "category": "topic"
+        },
+        "would_rather_subject_past_perfect": {
+            "name": "Would Rather Subject Past Perfect",
+            "category": "topic"
+        },
+        "present_future_preference": {
+            "name": "Present Future Preference",
+            "category": "topic"
+        },
+        "past_regret": {
+            "name": "Past Regret",
+            "category": "topic"
+        },
+        "would_rather_vs_prefer": {
+            "name": "Would Rather Vs Prefer",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-rather-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я б волів сидіти біля вікна.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів сидіти біля вікна.",
+            "target_text": "I would rather sit by the window.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "would",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "rather",
+                        "clearly",
+                        "still",
+                        "even"
+                    ]
+                },
+                "a4": {
+                    "answer": "sit",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "sit",
+                        "resolve",
+                        "conceal",
+                        "propose"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "by",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "window.",
+                    "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+                    "options": [
+                        "window",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої переваги; місце сидіння додай наприкінці.",
+            "accepted_target_texts": [
+                "I would rather sit by the window."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "sit",
+                "by the window."
+            ],
+            "token_groups": [
+                "I would rather",
+                "sit",
+                "by the window."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "sit",
+                "by",
+                "the",
+                "window."
+            ],
+            "options": [
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "would",
+                "must",
+                "can't",
+                "couldn't",
+                "rather",
+                "clearly",
+                "still",
+                "even",
+                "sit",
+                "resolve",
+                "conceal",
+                "propose",
+                "by",
+                "about",
+                "during",
+                "to",
+                "the",
+                "any",
+                "this",
+                "that",
+                "window",
+                "quality",
+                "identity",
+                "agreement"
+            ],
+            "source_text_uk": "Я б волів сидіти біля вікна.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "would",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a3": [
+                    "rather",
+                    "clearly",
+                    "still",
+                    "even"
+                ],
+                "a4": [
+                    "sit",
+                    "resolve",
+                    "conceal",
+                    "propose"
+                ],
+                "a5": [
+                    "by",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "window",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-rather-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Ми б воліли не купувати солодощів.",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ми б воліли не купувати солодощів.",
+            "target_text": "We would rather not buy sweets.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "We",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "rather",
+                        "later",
+                        "early",
+                        "outside"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a5": {
+                    "answer": "buy",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "buy",
+                        "leave",
+                        "go",
+                        "use"
+                    ]
+                },
+                "a6": {
+                    "answer": "sweets.",
+                    "verb_hint": "Заперечення постав одразу перед дією.",
+                    "options": [
+                        "sweets",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення постав одразу перед дією.",
+            "accepted_target_texts": [
+                "We would rather not buy sweets."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would rather",
+                "not buy",
+                "sweets."
+            ],
+            "token_groups": [
+                "We would rather",
+                "not buy",
+                "sweets."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "not",
+                "buy",
+                "sweets."
+            ],
+            "options": [
+                "We",
+                "Him",
+                "Us",
+                "Them",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "rather",
+                "later",
+                "early",
+                "outside",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "buy",
+                "leave",
+                "go",
+                "use",
+                "sweets",
+                "friends",
+                "dogs",
+                "cats"
+            ],
+            "source_text_uk": "Ми б воліли не купувати солодощів.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a3": [
+                    "rather",
+                    "later",
+                    "early",
+                    "outside"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a5": [
+                    "buy",
+                    "leave",
+                    "go",
+                    "use"
+                ],
+                "a6": [
+                    "sweets",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "verb",
+                "a6": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-rather-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ти б волів співати чи танцювати?",
+            "level": "A1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ти б волів співати чи танцювати?",
+            "target_text": "Would you rather sing or dance?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "Would",
+                        "Can",
+                        "Could",
+                        "Will"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "rather",
+                        "inside",
+                        "now",
+                        "then"
+                    ]
+                },
+                "a4": {
+                    "answer": "sing",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "sing",
+                        "closing",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a5": {
+                    "answer": "or",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "or",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a6": {
+                    "answer": "dance?",
+                    "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+                    "options": [
+                        "dance",
+                        "justify",
+                        "establish",
+                        "distort"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з допоміжного слова питання про перевагу.",
+            "accepted_target_texts": [
+                "Would you rather sing or dance?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would you rather",
+                "sing",
+                "or dance?"
+            ],
+            "token_groups": [
+                "Would you rather",
+                "sing",
+                "or dance?"
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "rather",
+                "sing",
+                "or",
+                "dance?"
+            ],
+            "options": [
+                "Would",
+                "Can",
+                "Could",
+                "Will",
+                "you",
+                "he",
+                "she",
+                "it",
+                "rather",
+                "inside",
+                "now",
+                "then",
+                "sing",
+                "closing",
+                "helping",
+                "waiting",
+                "or",
+                "because",
+                "although",
+                "though",
+                "dance",
+                "justify",
+                "establish",
+                "distort"
+            ],
+            "source_text_uk": "Ти б волів співати чи танцювати?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Can",
+                    "Could",
+                    "Will"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "rather",
+                    "inside",
+                    "now",
+                    "then"
+                ],
+                "a4": [
+                    "sing",
+                    "closing",
+                    "helping",
+                    "waiting"
+                ],
+                "a5": [
+                    "or",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a6": [
+                    "dance",
+                    "justify",
+                    "establish",
+                    "distort"
+                ]
+            },
+            "slot_roles": {
+                "a1": "modal",
+                "a2": "pronoun",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "conjunction",
+                "a6": "verb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-rather-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Я б волів снідати вдома.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів снідати вдома.",
+            "target_text": "I would rather have breakfast at home.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "I",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "rather",
+                        "then",
+                        "here",
+                        "now"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "breakfast",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "breakfast",
+                        "error",
+                        "record",
+                        "evidence"
+                    ]
+                },
+                "a6": {
+                    "answer": "at",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "at",
+                        "on",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a7": {
+                    "answer": "home.",
+                    "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+                    "options": [
+                        "home",
+                        "agreement",
+                        "experience",
+                        "name"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої переваги; після неї вжий початкову форму дії.",
+            "accepted_target_texts": [
+                "I would rather have breakfast at home."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "have breakfast",
+                "at home."
+            ],
+            "token_groups": [
+                "I would rather",
+                "have breakfast",
+                "at home."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "have",
+                "breakfast",
+                "at",
+                "home."
+            ],
+            "options": [
+                "I",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "rather",
+                "then",
+                "here",
+                "now",
+                "have",
+                "hasn't",
+                "hadn't",
+                "do",
+                "breakfast",
+                "error",
+                "record",
+                "evidence",
+                "at",
+                "on",
+                "by",
+                "with",
+                "home",
+                "agreement",
+                "experience",
+                "name"
+            ],
+            "source_text_uk": "Я б волів снідати вдома.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a3": [
+                    "rather",
+                    "then",
+                    "here",
+                    "now"
+                ],
+                "a4": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "breakfast",
+                    "error",
+                    "record",
+                    "evidence"
+                ],
+                "a6": [
+                    "at",
+                    "on",
+                    "by",
+                    "with"
+                ],
+                "a7": [
+                    "home",
+                    "agreement",
+                    "experience",
+                    "name"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "noun",
+                "a6": "preposition",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-rather-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вони б воліли подивитися фільм, а не грати в карти.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Вони б воліли подивитися фільм, а не грати в карти.",
+            "target_text": "They would rather watch a film than play cards.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "They",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "rather",
+                        "there",
+                        "soon",
+                        "later"
+                    ]
+                },
+                "a4": {
+                    "answer": "watch",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "watch",
+                        "see",
+                        "come",
+                        "leave"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a6": {
+                    "answer": "film",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "film",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "than",
+                        "although",
+                        "because",
+                        "while"
+                    ]
+                },
+                "a8": {
+                    "answer": "play",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "play",
+                        "go",
+                        "write",
+                        "read"
+                    ]
+                },
+                "a9": {
+                    "answer": "cards.",
+                    "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+                    "options": [
+                        "cards",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи порядок двох альтернатив і не додавай прийменника перед дієсловами.",
+            "accepted_target_texts": [
+                "They would rather watch a film than play cards.",
+                "They would rather watch a movie than play cards."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "movie"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "movie"
+                ]
+            },
+            "reorder_groups": [
+                "They would rather",
+                "watch a film",
+                "than play cards."
+            ],
+            "token_groups": [
+                "They would rather",
+                "watch a film",
+                "than play cards."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "They",
+                "would",
+                "rather",
+                "watch",
+                "a",
+                "film",
+                "than",
+                "play",
+                "cards."
+            ],
+            "options": [
+                "They",
+                "Them",
+                "Myself",
+                "Yourself",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "rather",
+                "there",
+                "soon",
+                "later",
+                "watch",
+                "see",
+                "come",
+                "leave",
+                "a",
+                "both",
+                "an",
+                "the",
+                "film",
+                "delay",
+                "error",
+                "record",
+                "than",
+                "although",
+                "because",
+                "while",
+                "play",
+                "go",
+                "write",
+                "read",
+                "cards",
+                "windows",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Вони б воліли подивитися фільм, а не грати в карти.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a3": [
+                    "rather",
+                    "there",
+                    "soon",
+                    "later"
+                ],
+                "a4": [
+                    "watch",
+                    "see",
+                    "come",
+                    "leave"
+                ],
+                "a5": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a6": [
+                    "film",
+                    "delay",
+                    "error",
+                    "record"
+                ],
+                "a7": [
+                    "than",
+                    "although",
+                    "because",
+                    "while"
+                ],
+                "a8": [
+                    "play",
+                    "go",
+                    "write",
+                    "read"
+                ],
+                "a9": [
+                    "cards",
+                    "windows",
+                    "phones",
+                    "children"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "conjunction",
+                "a8": "verb",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-rather-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Я б волів, щоб ти зателефонував завтра.",
+            "level": "A2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів, щоб ти зателефонував завтра.",
+            "target_text": "I would rather you called tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "rather",
+                        "soon",
+                        "later",
+                        "carefully"
+                    ]
+                },
+                "a4": {
+                    "answer": "you",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "you",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "called",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "called",
+                        "open",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a6": {
+                    "answer": "tomorrow.",
+                    "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+                    "options": [
+                        "tomorrow",
+                        "before",
+                        "disproportionately",
+                        "quietly"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мого вподобання; інший виконавець потребує минулої форми.",
+            "accepted_target_texts": [
+                "I would rather you called tomorrow."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "you called",
+                "tomorrow."
+            ],
+            "token_groups": [
+                "I would rather",
+                "you called",
+                "tomorrow."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "you",
+                "called",
+                "tomorrow."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "rather",
+                "soon",
+                "later",
+                "carefully",
+                "you",
+                "they",
+                "me",
+                "him",
+                "called",
+                "open",
+                "cooked",
+                "found",
+                "tomorrow",
+                "before",
+                "disproportionately",
+                "quietly"
+            ],
+            "source_text_uk": "Я б волів, щоб ти зателефонував завтра.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a3": [
+                    "rather",
+                    "soon",
+                    "later",
+                    "carefully"
+                ],
+                "a4": [
+                    "you",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "called",
+                    "open",
+                    "cooked",
+                    "found"
+                ],
+                "a6": [
+                    "tomorrow",
+                    "before",
+                    "disproportionately",
+                    "quietly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "pronoun",
+                "a5": "verb",
+                "a6": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-rather-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ми б воліли, щоб ти надіслав текстове повідомлення.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ми б воліли, щоб ти надіслав текстове повідомлення.",
+            "target_text": "We would rather you sent a text message.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "rather",
+                        "together",
+                        "before",
+                        "now"
+                    ]
+                },
+                "a4": {
+                    "answer": "you",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "you",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "sent",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "sent",
+                        "booked",
+                        "open",
+                        "wrote"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "text",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "text",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                },
+                "a8": {
+                    "answer": "message.",
+                    "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+                    "options": [
+                        "message",
+                        "letter",
+                        "report",
+                        "document"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого вподобання, потім назви іншого виконавця та минулу форму.",
+            "accepted_target_texts": [
+                "We would rather you sent a text message."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would rather",
+                "you sent",
+                "a text message."
+            ],
+            "token_groups": [
+                "We would rather",
+                "you sent",
+                "a text message."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "you",
+                "sent",
+                "a",
+                "text",
+                "message."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "rather",
+                "together",
+                "before",
+                "now",
+                "you",
+                "they",
+                "me",
+                "him",
+                "sent",
+                "booked",
+                "open",
+                "wrote",
+                "a",
+                "those",
+                "each",
+                "every",
+                "text",
+                "identity",
+                "agreement",
+                "experience",
+                "message",
+                "letter",
+                "report",
+                "document"
+            ],
+            "source_text_uk": "Ми б воліли, щоб ти надіслав текстове повідомлення.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "rather",
+                    "together",
+                    "before",
+                    "now"
+                ],
+                "a4": [
+                    "you",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "sent",
+                    "booked",
+                    "open",
+                    "wrote"
+                ],
+                "a6": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "text",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ],
+                "a8": [
+                    "message",
+                    "letter",
+                    "report",
+                    "document"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "pronoun",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-rather-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я б волів, щоб забронював прямий рейс.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів, щоб забронював прямий рейс.",
+            "target_text": "I would rather have booked a direct flight.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "I",
+                        "Ourselves",
+                        "Themselves",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "would",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "rather",
+                        "inside",
+                        "carefully",
+                        "quietly"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a5": {
+                    "answer": "booked",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "booked",
+                        "sent",
+                        "open",
+                        "seen"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "direct",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "direct",
+                        "old",
+                        "clear",
+                        "unclear"
+                    ]
+                },
+                "a8": {
+                    "answer": "flight.",
+                    "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+                    "options": [
+                        "flight",
+                        "quality",
+                        "identity",
+                        "agreement"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої ретроспективної переваги; мова про вже минуле бронювання.",
+            "accepted_target_texts": [
+                "I would rather have booked a direct flight."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "have booked",
+                "a direct flight."
+            ],
+            "token_groups": [
+                "I would rather",
+                "have booked",
+                "a direct flight."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "have",
+                "booked",
+                "a",
+                "direct",
+                "flight."
+            ],
+            "options": [
+                "I",
+                "Ourselves",
+                "Themselves",
+                "You",
+                "would",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "rather",
+                "inside",
+                "carefully",
+                "quietly",
+                "have",
+                "hasn't",
+                "hadn't",
+                "do",
+                "booked",
+                "sent",
+                "open",
+                "seen",
+                "a",
+                "each",
+                "every",
+                "no",
+                "direct",
+                "old",
+                "clear",
+                "unclear",
+                "flight",
+                "quality",
+                "identity",
+                "agreement"
+            ],
+            "source_text_uk": "Я б волів, щоб забронював прямий рейс.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Ourselves",
+                    "Themselves",
+                    "You"
+                ],
+                "a2": [
+                    "would",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a3": [
+                    "rather",
+                    "inside",
+                    "carefully",
+                    "quietly"
+                ],
+                "a4": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a5": [
+                    "booked",
+                    "sent",
+                    "open",
+                    "seen"
+                ],
+                "a6": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "direct",
+                    "old",
+                    "clear",
+                    "unclear"
+                ],
+                "a8": [
+                    "flight",
+                    "quality",
+                    "identity",
+                    "agreement"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-rather-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Вона б воліла відремонтувати стілець, а не замінювати його.",
+            "level": "B1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Вона б воліла відремонтувати стілець, а не замінювати його.",
+            "target_text": "She would rather repair the chair than replace it.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "She",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "rather",
+                        "now",
+                        "soon",
+                        "later"
+                    ]
+                },
+                "a4": {
+                    "answer": "repair",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "repair",
+                        "propose",
+                        "reveal",
+                        "swim"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a6": {
+                    "answer": "chair",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "chair",
+                        "argument",
+                        "claim",
+                        "permission"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "than",
+                        "because",
+                        "while",
+                        "whether"
+                    ]
+                },
+                "a8": {
+                    "answer": "replace",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "replace",
+                        "speak",
+                        "hear",
+                        "establish"
+                    ]
+                },
+                "a9": {
+                    "answer": "it.",
+                    "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+                    "options": [
+                        "it",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи порядок власних альтернатив та початкові форми дієслів.",
+            "accepted_target_texts": [
+                "She would rather repair the chair than replace it.",
+                "She would rather fix the chair than replace it."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "fix"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "fix"
+                ]
+            },
+            "reorder_groups": [
+                "She would rather",
+                "repair the chair",
+                "than replace it."
+            ],
+            "token_groups": [
+                "She would rather",
+                "repair the chair",
+                "than replace it."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "She",
+                "would",
+                "rather",
+                "repair",
+                "the",
+                "chair",
+                "than",
+                "replace",
+                "it."
+            ],
+            "options": [
+                "She",
+                "Me",
+                "Him",
+                "Us",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "rather",
+                "now",
+                "soon",
+                "later",
+                "repair",
+                "propose",
+                "reveal",
+                "swim",
+                "the",
+                "each",
+                "every",
+                "no",
+                "chair",
+                "argument",
+                "claim",
+                "permission",
+                "than",
+                "because",
+                "while",
+                "whether",
+                "replace",
+                "speak",
+                "hear",
+                "establish",
+                "it",
+                "them",
+                "myself",
+                "yourself"
+            ],
+            "source_text_uk": "Вона б воліла відремонтувати стілець, а не замінювати його.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "rather",
+                    "now",
+                    "soon",
+                    "later"
+                ],
+                "a4": [
+                    "repair",
+                    "propose",
+                    "reveal",
+                    "swim"
+                ],
+                "a5": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a6": [
+                    "chair",
+                    "argument",
+                    "claim",
+                    "permission"
+                ],
+                "a7": [
+                    "than",
+                    "because",
+                    "while",
+                    "whether"
+                ],
+                "a8": [
+                    "replace",
+                    "speak",
+                    "hear",
+                    "establish"
+                ],
+                "a9": [
+                    "it",
+                    "them",
+                    "myself",
+                    "yourself"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "verb",
+                "a5": "determiner",
+                "a6": "noun",
+                "a7": "conjunction",
+                "a8": "verb",
+                "a9": "pronoun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-rather-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Я б волів, щоб ти висловив заперечення до голосування.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів, щоб ти висловив заперечення до голосування.",
+            "target_text": "I would rather you raised objections before the vote.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "would",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "rather",
+                        "carefully",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "you",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "you",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a5": {
+                    "answer": "raised",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "raised",
+                        "open",
+                        "invested",
+                        "recorded"
+                    ]
+                },
+                "a6": {
+                    "answer": "objections",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "objections",
+                        "boxes",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "before",
+                        "near",
+                        "beside",
+                        "through"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a9": {
+                    "answer": "vote.",
+                    "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+                    "options": [
+                        "vote",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої переваги щодо наступної дії співрозмовника.",
+            "accepted_target_texts": [
+                "I would rather you raised objections before the vote."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "you raised",
+                "objections",
+                "before the vote."
+            ],
+            "token_groups": [
+                "I would rather",
+                "you raised",
+                "objections",
+                "before the vote."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "you",
+                "raised",
+                "objections",
+                "before",
+                "the",
+                "vote."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "would",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "rather",
+                "carefully",
+                "quietly",
+                "slowly",
+                "you",
+                "them",
+                "myself",
+                "yourself",
+                "raised",
+                "open",
+                "invested",
+                "recorded",
+                "objections",
+                "boxes",
+                "chairs",
+                "tables",
+                "before",
+                "near",
+                "beside",
+                "through",
+                "the",
+                "all",
+                "both",
+                "a",
+                "vote",
+                "delay",
+                "error",
+                "record"
+            ],
+            "source_text_uk": "Я б волів, щоб ти висловив заперечення до голосування.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "would",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a3": [
+                    "rather",
+                    "carefully",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "you",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a5": [
+                    "raised",
+                    "open",
+                    "invested",
+                    "recorded"
+                ],
+                "a6": [
+                    "objections",
+                    "boxes",
+                    "chairs",
+                    "tables"
+                ],
+                "a7": [
+                    "before",
+                    "near",
+                    "beside",
+                    "through"
+                ],
+                "a8": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a9": [
+                    "vote",
+                    "delay",
+                    "error",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "pronoun",
+                "a5": "verb",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "determiner",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-rather-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ми б воліли, щоб інвестували в навчання персоналу.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ми б воліли, щоб інвестували в навчання персоналу.",
+            "target_text": "We would rather have invested in staff training.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "would",
+                        "could",
+                        "will",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "rather",
+                        "carefully",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "invested",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "invested",
+                        "recorded",
+                        "raised",
+                        "open"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "staff",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "staff",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                },
+                "a8": {
+                    "answer": "training.",
+                    "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+                    "options": [
+                        "training",
+                        "writing",
+                        "cooking",
+                        "riding"
+                    ]
+                }
+            },
+            "verb_hint": "Передай власну ретроспективну перевагу завершеною формою.",
+            "accepted_target_texts": [
+                "We would rather have invested in staff training."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would rather",
+                "have invested",
+                "in staff training."
+            ],
+            "token_groups": [
+                "We would rather",
+                "have invested",
+                "in staff training."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "have",
+                "invested",
+                "in",
+                "staff",
+                "training."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "would",
+                "could",
+                "will",
+                "shall",
+                "rather",
+                "carefully",
+                "quietly",
+                "slowly",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "invested",
+                "recorded",
+                "raised",
+                "open",
+                "in",
+                "among",
+                "about",
+                "during",
+                "staff",
+                "claim",
+                "permission",
+                "consent",
+                "training",
+                "writing",
+                "cooking",
+                "riding"
+            ],
+            "source_text_uk": "Ми б воліли, щоб інвестували в навчання персоналу.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "would",
+                    "could",
+                    "will",
+                    "shall"
+                ],
+                "a3": [
+                    "rather",
+                    "carefully",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "invested",
+                    "recorded",
+                    "raised",
+                    "open"
+                ],
+                "a6": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "staff",
+                    "claim",
+                    "permission",
+                    "consent"
+                ],
+                "a8": [
+                    "training",
+                    "writing",
+                    "cooking",
+                    "riding"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-rather-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Вона б воліла, щоб рішення зафіксували письмово.",
+            "level": "B2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Вона б воліла, щоб рішення зафіксували письмово.",
+            "target_text": "She would rather the decision had been recorded in writing.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "She",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "would",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "rather",
+                        "early",
+                        "outside",
+                        "inside"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "decision",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "decision",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "been",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a8": {
+                    "answer": "recorded",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "recorded",
+                        "raised",
+                        "invested",
+                        "open"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "in",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a10": {
+                    "answer": "writing.",
+                    "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+                    "options": [
+                        "writing",
+                        "training",
+                        "studying",
+                        "living"
+                    ]
+                }
+            },
+            "verb_hint": "Перевага стосується минулого пасивного оформлення рішення іншим виконавцем.",
+            "accepted_target_texts": [
+                "She would rather the decision had been recorded in writing."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She would rather",
+                "the decision",
+                "had been",
+                "recorded in writing."
+            ],
+            "token_groups": [
+                "She would rather",
+                "the decision",
+                "had been",
+                "recorded in writing."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "She",
+                "would",
+                "rather",
+                "the",
+                "decision",
+                "had",
+                "been",
+                "recorded",
+                "in",
+                "writing."
+            ],
+            "options": [
+                "She",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "would",
+                "may",
+                "might",
+                "must",
+                "rather",
+                "early",
+                "outside",
+                "inside",
+                "the",
+                "no",
+                "another",
+                "either",
+                "decision",
+                "name",
+                "window",
+                "rice",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "wasn't",
+                "weren't",
+                "am",
+                "recorded",
+                "raised",
+                "invested",
+                "open",
+                "in",
+                "under",
+                "through",
+                "across",
+                "writing",
+                "training",
+                "studying",
+                "living"
+            ],
+            "source_text_uk": "Вона б воліла, щоб рішення зафіксували письмово.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "would",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a3": [
+                    "rather",
+                    "early",
+                    "outside",
+                    "inside"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "decision",
+                    "name",
+                    "window",
+                    "rice"
+                ],
+                "a6": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a7": [
+                    "been",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a8": [
+                    "recorded",
+                    "raised",
+                    "invested",
+                    "open"
+                ],
+                "a9": [
+                    "in",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a10": [
+                    "writing",
+                    "training",
+                    "studying",
+                    "living"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "auxiliary",
+                "a7": "be",
+                "a8": "verb",
+                "a9": "preposition",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-rather-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Я б волів, щоб автори визнали нерозв’язану суперечність.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів, щоб автори визнали нерозв’язану суперечність.",
+            "target_text": "I would rather the authors acknowledged the unresolved tension.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "would",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "rather",
+                        "beforehand",
+                        "clearly",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "authors",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "authors",
+                        "negotiations",
+                        "terms",
+                        "tables"
+                    ]
+                },
+                "a6": {
+                    "answer": "acknowledged",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "acknowledged",
+                        "renegotiated",
+                        "open",
+                        "prejudiced"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "unresolved",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "unresolved",
+                        "old",
+                        "clear",
+                        "unclear"
+                    ]
+                },
+                "a9": {
+                    "answer": "tension.",
+                    "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+                    "options": [
+                        "tension",
+                        "claim",
+                        "permission",
+                        "consent"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої переваги щодо бажаної теперішньої редакційної дії інших.",
+            "accepted_target_texts": [
+                "I would rather the authors acknowledged the unresolved tension."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "the authors",
+                "acknowledged",
+                "the unresolved tension."
+            ],
+            "token_groups": [
+                "I would rather",
+                "the authors",
+                "acknowledged",
+                "the unresolved tension."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "the",
+                "authors",
+                "acknowledged",
+                "the",
+                "unresolved",
+                "tension."
+            ],
+            "options": [
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "would",
+                "can't",
+                "couldn't",
+                "won't",
+                "rather",
+                "beforehand",
+                "clearly",
+                "still",
+                "the",
+                "both",
+                "a",
+                "an",
+                "authors",
+                "negotiations",
+                "terms",
+                "tables",
+                "acknowledged",
+                "renegotiated",
+                "open",
+                "prejudiced",
+                "those",
+                "each",
+                "every",
+                "unresolved",
+                "old",
+                "clear",
+                "unclear",
+                "tension",
+                "claim",
+                "permission",
+                "consent"
+            ],
+            "source_text_uk": "Я б волів, щоб автори визнали нерозв’язану суперечність.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "would",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "rather",
+                    "beforehand",
+                    "clearly",
+                    "still"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "authors",
+                    "negotiations",
+                    "terms",
+                    "tables"
+                ],
+                "a6": [
+                    "acknowledged",
+                    "renegotiated",
+                    "open",
+                    "prejudiced"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "unresolved",
+                    "old",
+                    "clear",
+                    "unclear"
+                ],
+                "a9": [
+                    "tension",
+                    "claim",
+                    "permission",
+                    "consent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-rather-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Ми б воліли не зашкодити тим переговорам.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ми б воліли не зашкодити тим переговорам.",
+            "target_text": "We would rather not have prejudiced the negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "We",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "would",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "rather",
+                        "beforehand",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a6": {
+                    "answer": "prejudiced",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "prejudiced",
+                        "acknowledged",
+                        "renegotiated",
+                        "open"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "negotiations.",
+                    "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+                    "options": [
+                        "negotiations",
+                        "authors",
+                        "terms",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечну ретроспективну перевагу щодо власного вже здійсненого впливу.",
+            "accepted_target_texts": [
+                "We would rather not have prejudiced the negotiations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would rather",
+                "not have",
+                "prejudiced",
+                "the negotiations."
+            ],
+            "token_groups": [
+                "We would rather",
+                "not have",
+                "prejudiced",
+                "the negotiations."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "not",
+                "have",
+                "prejudiced",
+                "the",
+                "negotiations."
+            ],
+            "options": [
+                "We",
+                "You",
+                "He",
+                "She",
+                "would",
+                "might",
+                "must",
+                "can't",
+                "rather",
+                "beforehand",
+                "quietly",
+                "slowly",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "prejudiced",
+                "acknowledged",
+                "renegotiated",
+                "open",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "negotiations",
+                "authors",
+                "terms",
+                "schools"
+            ],
+            "source_text_uk": "Ми б воліли не зашкодити тим переговорам.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "would",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a3": [
+                    "rather",
+                    "beforehand",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a5": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a6": [
+                    "prejudiced",
+                    "acknowledged",
+                    "renegotiated",
+                    "open"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "negotiations",
+                    "authors",
+                    "terms",
+                    "schools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "negative",
+                "a5": "auxiliary",
+                "a6": "verb",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-rather-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Вона б воліла, щоб умови переглянули шляхом переговорів заздалегідь.",
+            "level": "C1",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Вона б воліла, щоб умови переглянули шляхом переговорів заздалегідь.",
+            "target_text": "She would rather the terms had been renegotiated beforehand.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "She",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "would",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "rather",
+                        "now",
+                        "then",
+                        "here"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "terms",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "terms",
+                        "authors",
+                        "negotiations",
+                        "bags"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "renegotiated",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "renegotiated",
+                        "open",
+                        "acknowledged",
+                        "prejudiced"
+                    ]
+                },
+                "a9": {
+                    "answer": "beforehand.",
+                    "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+                    "options": [
+                        "beforehand",
+                        "slowly",
+                        "clearly",
+                        "still"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з її переваги про невиконану минулу пасивну дію іншої сторони.",
+            "accepted_target_texts": [
+                "She would rather the terms had been renegotiated beforehand."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She would rather",
+                "the terms",
+                "had been",
+                "renegotiated beforehand."
+            ],
+            "token_groups": [
+                "She would rather",
+                "the terms",
+                "had been",
+                "renegotiated beforehand."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "She",
+                "would",
+                "rather",
+                "the",
+                "terms",
+                "had",
+                "been",
+                "renegotiated",
+                "beforehand."
+            ],
+            "options": [
+                "She",
+                "It",
+                "We",
+                "They",
+                "would",
+                "might",
+                "must",
+                "can't",
+                "rather",
+                "now",
+                "then",
+                "here",
+                "the",
+                "that",
+                "these",
+                "those",
+                "terms",
+                "authors",
+                "negotiations",
+                "bags",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "renegotiated",
+                "open",
+                "acknowledged",
+                "prejudiced",
+                "beforehand",
+                "slowly",
+                "clearly",
+                "still"
+            ],
+            "source_text_uk": "Вона б воліла, щоб умови переглянули шляхом переговорів заздалегідь.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "would",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a3": [
+                    "rather",
+                    "now",
+                    "then",
+                    "here"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "terms",
+                    "authors",
+                    "negotiations",
+                    "bags"
+                ],
+                "a6": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a7": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "renegotiated",
+                    "open",
+                    "acknowledged",
+                    "prejudiced"
+                ],
+                "a9": [
+                    "beforehand",
+                    "slowly",
+                    "clearly",
+                    "still"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "auxiliary",
+                "a7": "be",
+                "a8": "verb",
+                "a9": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-rather-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Я б волів, щоб судове рішення розмежовувало прецедент і переконливу аналогію.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Я б волів, щоб судове рішення розмежовувало прецедент і переконливу аналогію.",
+            "target_text": "I would rather the judgment distinguished precedent from persuasive analogy.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "rather",
+                        "still",
+                        "even",
+                        "together"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "judgment",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "judgment",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a6": {
+                    "answer": "distinguished",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "distinguished",
+                        "deferred",
+                        "accepted",
+                        "acknowledged"
+                    ]
+                },
+                "a7": {
+                    "answer": "precedent",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "precedent",
+                        "rice",
+                        "bread",
+                        "permission"
+                    ]
+                },
+                "a8": {
+                    "answer": "from",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "from",
+                        "during",
+                        "to",
+                        "for"
+                    ]
+                },
+                "a9": {
+                    "answer": "persuasive",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "persuasive",
+                        "main",
+                        "early",
+                        "late"
+                    ]
+                },
+                "a10": {
+                    "answer": "analogy.",
+                    "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+                    "options": [
+                        "analogy",
+                        "delay",
+                        "error",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з особистої переваги про бажане розмежування в поточному рішенні.",
+            "accepted_target_texts": [
+                "I would rather the judgment distinguished precedent from persuasive analogy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I would rather",
+                "the judgment",
+                "distinguished",
+                "precedent",
+                "from",
+                "persuasive analogy."
+            ],
+            "token_groups": [
+                "I would rather",
+                "the judgment",
+                "distinguished",
+                "precedent",
+                "from",
+                "persuasive analogy."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "I",
+                "would",
+                "rather",
+                "the",
+                "judgment",
+                "distinguished",
+                "precedent",
+                "from",
+                "persuasive",
+                "analogy."
+            ],
+            "options": [
+                "I",
+                "Them",
+                "Myself",
+                "Yourself",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "rather",
+                "still",
+                "even",
+                "together",
+                "the",
+                "a",
+                "an",
+                "some",
+                "judgment",
+                "evidence",
+                "argument",
+                "claim",
+                "distinguished",
+                "deferred",
+                "accepted",
+                "acknowledged",
+                "precedent",
+                "rice",
+                "bread",
+                "permission",
+                "from",
+                "during",
+                "to",
+                "for",
+                "persuasive",
+                "main",
+                "early",
+                "late",
+                "analogy",
+                "delay",
+                "error",
+                "record"
+            ],
+            "source_text_uk": "Я б волів, щоб судове рішення розмежовувало прецедент і переконливу аналогію.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "rather",
+                    "still",
+                    "even",
+                    "together"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "judgment",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a6": [
+                    "distinguished",
+                    "deferred",
+                    "accepted",
+                    "acknowledged"
+                ],
+                "a7": [
+                    "precedent",
+                    "rice",
+                    "bread",
+                    "permission"
+                ],
+                "a8": [
+                    "from",
+                    "during",
+                    "to",
+                    "for"
+                ],
+                "a9": [
+                    "persuasive",
+                    "main",
+                    "early",
+                    "late"
+                ],
+                "a10": [
+                    "analogy",
+                    "delay",
+                    "error",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "determiner",
+                "a5": "noun",
+                "a6": "verb",
+                "a7": "noun",
+                "a8": "preposition",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-rather-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ми б воліли відкласти ратифікацію, а не приймати неоднозначне застереження.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Ми б воліли відкласти ратифікацію, а не приймати неоднозначне застереження.",
+            "target_text": "We would rather have deferred ratification than accepted an ambiguous proviso.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "rather",
+                        "even",
+                        "together",
+                        "before"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a5": {
+                    "answer": "deferred",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "deferred",
+                        "acknowledged",
+                        "open",
+                        "distinguished"
+                    ]
+                },
+                "a6": {
+                    "answer": "ratification",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "ratification",
+                        "name",
+                        "window",
+                        "rice"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "than",
+                        "because",
+                        "while",
+                        "whether"
+                    ]
+                },
+                "a8": {
+                    "answer": "accepted",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "accepted",
+                        "made",
+                        "left",
+                        "said"
+                    ]
+                },
+                "a9": {
+                    "answer": "an",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "an",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "ambiguous",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "ambiguous",
+                        "residual",
+                        "persuasive",
+                        "slight"
+                    ]
+                },
+                "a11": {
+                    "answer": "proviso.",
+                    "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+                    "options": [
+                        "proviso",
+                        "identity",
+                        "agreement",
+                        "experience"
+                    ]
+                }
+            },
+            "verb_hint": "Передай власну ретроспективну перевагу; у другій альтернативі спільний допоміжний елемент можна не повторювати.",
+            "accepted_target_texts": [
+                "We would rather have deferred ratification than accepted an ambiguous proviso."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would rather",
+                "have deferred",
+                "ratification",
+                "than accepted",
+                "an ambiguous proviso."
+            ],
+            "token_groups": [
+                "We would rather",
+                "have deferred",
+                "ratification",
+                "than accepted",
+                "an ambiguous proviso."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "have",
+                "deferred",
+                "ratification",
+                "than",
+                "accepted",
+                "an",
+                "ambiguous",
+                "proviso."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "rather",
+                "even",
+                "together",
+                "before",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "deferred",
+                "acknowledged",
+                "open",
+                "distinguished",
+                "ratification",
+                "name",
+                "window",
+                "rice",
+                "than",
+                "because",
+                "while",
+                "whether",
+                "accepted",
+                "made",
+                "left",
+                "said",
+                "an",
+                "that",
+                "these",
+                "those",
+                "ambiguous",
+                "residual",
+                "persuasive",
+                "slight",
+                "proviso",
+                "identity",
+                "agreement",
+                "experience"
+            ],
+            "source_text_uk": "Ми б воліли відкласти ратифікацію, а не приймати неоднозначне застереження.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a3": [
+                    "rather",
+                    "even",
+                    "together",
+                    "before"
+                ],
+                "a4": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a5": [
+                    "deferred",
+                    "acknowledged",
+                    "open",
+                    "distinguished"
+                ],
+                "a6": [
+                    "ratification",
+                    "name",
+                    "window",
+                    "rice"
+                ],
+                "a7": [
+                    "than",
+                    "because",
+                    "while",
+                    "whether"
+                ],
+                "a8": [
+                    "accepted",
+                    "made",
+                    "left",
+                    "said"
+                ],
+                "a9": [
+                    "an",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "ambiguous",
+                    "residual",
+                    "persuasive",
+                    "slight"
+                ],
+                "a11": [
+                    "proviso",
+                    "identity",
+                    "agreement",
+                    "experience"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "auxiliary",
+                "a5": "verb",
+                "a6": "noun",
+                "a7": "conjunction",
+                "a8": "verb",
+                "a9": "determiner",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-rather-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Вона б воліла, щоб залишкову невизначеність визнали прямо.",
+            "level": "C2",
+            "type": 4,
+            "source": "conditionals_quality_would_rather",
+            "translation_uk": "Вона б воліла, щоб залишкову невизначеність визнали прямо.",
+            "target_text": "She would rather the residual uncertainty had been explicitly acknowledged.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "She",
+                        "He",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "would",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "rather",
+                        "inside",
+                        "carefully",
+                        "quietly"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "residual",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "residual",
+                        "theoretical",
+                        "reliable",
+                        "selective"
+                    ]
+                },
+                "a6": {
+                    "answer": "uncertainty",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "uncertainty",
+                        "evidence",
+                        "argument",
+                        "claim"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "had",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "explicitly",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "explicitly",
+                        "here",
+                        "there",
+                        "soon"
+                    ]
+                },
+                "a10": {
+                    "answer": "acknowledged.",
+                    "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+                    "options": [
+                        "acknowledged",
+                        "distinguished",
+                        "open",
+                        "deferred"
+                    ]
+                }
+            },
+            "verb_hint": "Перевага стосується вже минулого невиконаного пасивного визнання іншою стороною.",
+            "accepted_target_texts": [
+                "She would rather the residual uncertainty had been explicitly acknowledged."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She would rather",
+                "the residual uncertainty",
+                "had been",
+                "explicitly acknowledged."
+            ],
+            "token_groups": [
+                "She would rather",
+                "the residual uncertainty",
+                "had been",
+                "explicitly acknowledged."
+            ],
+            "quality_revision": "cqq-v1",
+            "tokens_correct": [
+                "She",
+                "would",
+                "rather",
+                "the",
+                "residual",
+                "uncertainty",
+                "had",
+                "been",
+                "explicitly",
+                "acknowledged."
+            ],
+            "options": [
+                "She",
+                "He",
+                "It",
+                "We",
+                "would",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "rather",
+                "inside",
+                "carefully",
+                "quietly",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "residual",
+                "theoretical",
+                "reliable",
+                "selective",
+                "uncertainty",
+                "evidence",
+                "argument",
+                "claim",
+                "had",
+                "hadn't",
+                "do",
+                "does",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "explicitly",
+                "here",
+                "there",
+                "soon",
+                "acknowledged",
+                "distinguished",
+                "open",
+                "deferred"
+            ],
+            "source_text_uk": "Вона б воліла, щоб залишкову невизначеність визнали прямо.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "He",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "would",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a3": [
+                    "rather",
+                    "inside",
+                    "carefully",
+                    "quietly"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "residual",
+                    "theoretical",
+                    "reliable",
+                    "selective"
+                ],
+                "a6": [
+                    "uncertainty",
+                    "evidence",
+                    "argument",
+                    "claim"
+                ],
+                "a7": [
+                    "had",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a8": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a9": [
+                    "explicitly",
+                    "here",
+                    "there",
+                    "soon"
+                ],
+                "a10": [
+                    "acknowledged",
+                    "distinguished",
+                    "open",
+                    "deferred"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pronoun",
+                "a2": "modal",
+                "a3": "adverb",
+                "a4": "determiner",
+                "a5": "adjective",
+                "a6": "noun",
+                "a7": "auxiliary",
+                "a8": "be",
+                "a9": "adverb",
+                "a10": "verb"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

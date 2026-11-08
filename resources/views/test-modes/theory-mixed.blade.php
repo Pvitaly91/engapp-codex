@@ -15,6 +15,7 @@
         'completion' => $completion,
         'i18n' => __('frontend.theory_course'),
         'courseI18n' => __('frontend.tests.course'),
+        'helpI18n' => __('frontend.tests.question'),
     ];
 @endphp
 

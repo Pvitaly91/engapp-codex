@@ -1,0 +1,644 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/a2-mixed-revision.v1.json",
+        "sha256": "6afdc00d1e5c334b283bcd259ba8be223aee7563e138f45d864d0f56f7eb70be"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\UkrainianMixedMrqA2MixedRevisionQualityStandardSeeder",
+        "uuid_namespace": "mixed-revision-quality-a2-mixed-revision-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_a2_mixed_revision": {
+            "name": "Mixed Revision Quality: A2 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-a2-a1-g01",
+            "author_id": "A1-g01",
+            "question": "That street musician {a1} a small drum every evening.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Той вуличний музикант щовечора грає на невеликому барабані.",
+            "target_text": "That street musician plays a small drum every evening.",
+            "markers": {
+                "a1": {
+                    "answer": "plays",
+                    "options": [
+                        "plays",
+                        "play",
+                        "is play"
+                    ],
+                    "verb_hint": "Передай звичну дію «грає»; для вже названого одного музиканта потрібне закінчення третьої особи."
+                }
+            },
+            "verb_hint": "Передай звичну дію «грає»; для вже названого одного музиканта потрібне закінчення третьої особи.",
+            "accepted_target_texts": [
+                "That street musician plays a small drum every evening."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "That street musician",
+                "plays",
+                "a small drum",
+                "every evening."
+            ],
+            "token_groups": [
+                "That street musician",
+                "plays",
+                "a small drum",
+                "every evening."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-a2-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Are there {a1} empty boxes behind the bakery?",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Чи є якісь порожні коробки за пекарнею?",
+            "target_text": "Are there any empty boxes behind the bakery?",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "much",
+                        "a"
+                    ],
+                    "verb_hint": "Нейтрально запитай про наявність невизначеної кількості коробок; після означника вже наведено злічувану множину."
+                }
+            },
+            "verb_hint": "Нейтрально запитай про наявність невизначеної кількості коробок; після означника вже наведено злічувану множину.",
+            "accepted_target_texts": [
+                "Are there any empty boxes behind the bakery?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are there any",
+                "empty boxes",
+                "behind the bakery?"
+            ],
+            "token_groups": [
+                "Are there any",
+                "empty boxes",
+                "behind the bakery?"
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-a2-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We haven't printed the festival posters {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Ми ще не надрукували афіші фестивалю.",
+            "target_text": "We haven't printed the festival posters yet.",
+            "markers": {
+                "a1": {
+                    "answer": "yet",
+                    "options": [
+                        "yet",
+                        "already",
+                        "still"
+                    ],
+                    "verb_hint": "Доповни заперечення зі значенням «ще не» словом у кінці речення; підмет та дію повторювати не треба."
+                }
+            },
+            "verb_hint": "Доповни заперечення зі значенням «ще не» словом у кінці речення; підмет та дію повторювати не треба.",
+            "accepted_target_texts": [
+                "We haven't printed the festival posters yet.",
+                "We haven't printed the festival posters so far."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "so far"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "so far"
+                ]
+            },
+            "reorder_groups": [
+                "We haven't printed",
+                "the festival posters",
+                "yet."
+            ],
+            "token_groups": [
+                "We haven't printed",
+                "the festival posters",
+                "yet."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-a2-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This cake was {a1} by my grandfather.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Цей торт приготував мій дідусь.",
+            "target_text": "This cake was made by my grandfather.",
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "make",
+                        "making"
+                    ],
+                    "verb_hint": "Уже наведено допоміжне дієслово минулого пасиву; додай третю форму дієслова зі значенням «приготувати, спекти»."
+                }
+            },
+            "verb_hint": "Уже наведено допоміжне дієслово минулого пасиву; додай третю форму дієслова зі значенням «приготувати, спекти».",
+            "accepted_target_texts": [
+                "This cake was made by my grandfather.",
+                "This cake was baked by my grandfather."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "baked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "baked"
+                ]
+            },
+            "reorder_groups": [
+                "This cake",
+                "was made",
+                "by my grandfather."
+            ],
+            "token_groups": [
+                "This cake",
+                "was made",
+                "by my grandfather."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-a2-b1-g01",
+            "author_id": "B1-g01",
+            "question": "If the volunteer {a1} earlier, she would catch the first tram.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Якби волонтерка вирушала раніше, вона встигала б на перший трамвай.",
+            "target_text": "If the volunteer left earlier, she would catch the first tram.",
+            "markers": {
+                "a1": {
+                    "answer": "left",
+                    "options": [
+                        "left",
+                        "leaves",
+                        "will leave"
+                    ],
+                    "verb_hint": "Передай нереальну теперішню умову «вирушала» минулою формою; наслідок уже містить умовну можливість."
+                }
+            },
+            "verb_hint": "Передай нереальну теперішню умову «вирушала» минулою формою; наслідок уже містить умовну можливість.",
+            "accepted_target_texts": [
+                "If the volunteer left earlier, she would catch the first tram.",
+                "If the volunteer set off earlier, she would catch the first tram."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "set off"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "set off"
+                ]
+            },
+            "reorder_groups": [
+                "If the volunteer",
+                "left earlier,",
+                "she would catch",
+                "the first tram."
+            ],
+            "token_groups": [
+                "If the volunteer",
+                "left earlier,",
+                "she would catch",
+                "the first tram."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-a2-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The singer asked us {a1} during the rehearsal.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Співачка попросила нас не розмовляти під час репетиції.",
+            "target_text": "The singer asked us not to talk during the rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "not to talk",
+                    "options": [
+                        "not to talk",
+                        "not talk",
+                        "to not talking"
+                    ],
+                    "verb_hint": "Передай заперечене прохання «не розмовляти» інфінітивною групою; адресатів прохання вже наведено."
+                }
+            },
+            "verb_hint": "Передай заперечене прохання «не розмовляти» інфінітивною групою; адресатів прохання вже наведено.",
+            "accepted_target_texts": [
+                "The singer asked us not to talk during the rehearsal.",
+                "The singer asked us not to speak during the rehearsal.",
+                "The singer asked us to be quiet during the rehearsal.",
+                "The singer asked us to keep quiet during the rehearsal."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not to speak",
+                    "to be quiet",
+                    "to keep quiet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not to speak",
+                    "to be quiet",
+                    "to keep quiet"
+                ]
+            },
+            "reorder_groups": [
+                "The singer",
+                "asked us",
+                "not to talk",
+                "during the rehearsal."
+            ],
+            "token_groups": [
+                "The singer",
+                "asked us",
+                "not to talk",
+                "during the rehearsal."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mrq-a2-b2-g01",
+            "author_id": "B2-g01",
+            "question": "By the time the doors open, the ushers {a1} every seat.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "До того як двері відчиняться, білетери вже перевірять кожне місце.",
+            "target_text": "By the time the doors open, the ushers will have checked every seat.",
+            "markers": {
+                "a1": {
+                    "answer": "will have checked",
+                    "options": [
+                        "will have checked",
+                        "will checked",
+                        "will have checking"
+                    ],
+                    "verb_hint": "Передай дію «перевірять» як завершену до майбутньої часової межі; введи всю допоміжну групу разом із третьою формою."
+                }
+            },
+            "verb_hint": "Передай дію «перевірять» як завершену до майбутньої часової межі; введи всю допоміжну групу разом із третьою формою.",
+            "accepted_target_texts": [
+                "By the time the doors open, the ushers will have checked every seat.",
+                "By the time the doors open, the ushers will have inspected every seat."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will have inspected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will have inspected"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "the doors open,",
+                "the ushers",
+                "will have checked",
+                "every seat."
+            ],
+            "token_groups": [
+                "By the time",
+                "the doors open,",
+                "the ushers",
+                "will have checked",
+                "every seat."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mrq-a2-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The technician had the assistant {a1} the damaged microphone before the show.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Технік доручив асистентові замінити пошкоджений мікрофон перед виставою.",
+            "target_text": "The technician had the assistant replace the damaged microphone before the show.",
+            "markers": {
+                "a1": {
+                    "answer": "replace",
+                    "options": [
+                        "replace",
+                        "to replace",
+                        "replacing"
+                    ],
+                    "verb_hint": "У каузативній моделі вже названо людину, яка виконує доручення; додай початкову форму «замінити» без інфінітивної частки."
+                }
+            },
+            "verb_hint": "У каузативній моделі вже названо людину, яка виконує доручення; додай початкову форму «замінити» без інфінітивної частки.",
+            "accepted_target_texts": [
+                "The technician had the assistant replace the damaged microphone before the show.",
+                "The technician had the assistant change the damaged microphone before the show."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "change"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "change"
+                ]
+            },
+            "reorder_groups": [
+                "The technician",
+                "had the assistant",
+                "replace",
+                "the damaged microphone",
+                "before the show."
+            ],
+            "token_groups": [
+                "The technician",
+                "had the assistant",
+                "replace",
+                "the damaged microphone",
+                "before the show."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mrq-a2-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The warehouse manager denied {a1} the delivery records.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Керівник складу заперечив, що раніше змінював записи про доставки.",
+            "target_text": "The warehouse manager denied having altered the delivery records.",
+            "markers": {
+                "a1": {
+                    "answer": "having altered",
+                    "options": [
+                        "having altered",
+                        "to have altered",
+                        "have altered"
+                    ],
+                    "verb_hint": "Після дієслова заперечення передай попередню дію «змінював» перфектною герундіальною формою, не інфінітивом."
+                }
+            },
+            "verb_hint": "Після дієслова заперечення передай попередню дію «змінював» перфектною герундіальною формою, не інфінітивом.",
+            "accepted_target_texts": [
+                "The warehouse manager denied having altered the delivery records.",
+                "The warehouse manager denied having changed the delivery records.",
+                "The warehouse manager denied having modified the delivery records."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "having changed",
+                    "having modified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "having changed",
+                    "having modified"
+                ]
+            },
+            "reorder_groups": [
+                "The warehouse manager",
+                "denied having altered",
+                "the delivery records."
+            ],
+            "token_groups": [
+                "The warehouse manager",
+                "denied having altered",
+                "the delivery records."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mrq-a2-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Not until the last rehearsal {a1} the faulty connection.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Ми виявили несправне з'єднання лише на останній репетиції.",
+            "target_text": "Not until the last rehearsal did we identify the faulty connection.",
+            "markers": {
+                "a1": {
+                    "answer": "did we identify",
+                    "options": [
+                        "did we identify",
+                        "we identified",
+                        "have we identified"
+                    ],
+                    "verb_hint": "Після винесеного обмеження часу передай «ми виявили» з інверсією в простому минулому; допоміжне дієслово має передувати підмету."
+                }
+            },
+            "verb_hint": "Після винесеного обмеження часу передай «ми виявили» з інверсією в простому минулому; допоміжне дієслово має передувати підмету.",
+            "accepted_target_texts": [
+                "Not until the last rehearsal did we identify the faulty connection.",
+                "Not until the last rehearsal did we find the faulty connection.",
+                "Not until the last rehearsal did we detect the faulty connection.",
+                "Not until the last rehearsal did we discover the faulty connection."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did we find",
+                    "did we detect",
+                    "did we discover"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did we find",
+                    "did we detect",
+                    "did we discover"
+                ]
+            },
+            "reorder_groups": [
+                "Not until",
+                "the last rehearsal",
+                "did we identify",
+                "the faulty connection."
+            ],
+            "token_groups": [
+                "Not until",
+                "the last rehearsal",
+                "did we identify",
+                "the faulty connection."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mrq-a2-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The audit revealed a discrepancy, {a1} the trustees sought independent advice.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Аудит виявив розбіжність, після чого піклувальники звернулися по незалежну консультацію.",
+            "target_text": "The audit revealed a discrepancy, whereupon the trustees sought independent advice.",
+            "markers": {
+                "a1": {
+                    "answer": "whereupon",
+                    "options": [
+                        "whereupon",
+                        "whereby",
+                        "wherein"
+                    ],
+                    "verb_hint": "Поєднай події формальною зв'язкою зі значенням «після чого»; не вказуй місце чи спосіб виявлення розбіжності."
+                }
+            },
+            "verb_hint": "Поєднай події формальною зв'язкою зі значенням «після чого»; не вказуй місце чи спосіб виявлення розбіжності.",
+            "accepted_target_texts": [
+                "The audit revealed a discrepancy, whereupon the trustees sought independent advice.",
+                "The audit revealed a discrepancy, after which the trustees sought independent advice.",
+                "The audit revealed a discrepancy, following which the trustees sought independent advice.",
+                "The audit revealed a discrepancy, at which point the trustees sought independent advice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "after which",
+                    "following which",
+                    "at which point"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "after which",
+                    "following which",
+                    "at which point"
+                ]
+            },
+            "reorder_groups": [
+                "The audit revealed",
+                "a discrepancy,",
+                "whereupon the trustees",
+                "sought independent advice."
+            ],
+            "token_groups": [
+                "The audit revealed",
+                "a discrepancy,",
+                "whereupon the trustees",
+                "sought independent advice."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mrq-a2-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Much {a1} the committee valued the tradition, it declined to fund the parade.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_a2_mixed_revision",
+            "translation_uk": "Хоча комітет дуже шанував традицію, він відмовився фінансувати парад.",
+            "target_text": "Much as the committee valued the tradition, it declined to fund the parade.",
+            "markers": {
+                "a1": {
+                    "answer": "as",
+                    "options": [
+                        "as",
+                        "than",
+                        "that"
+                    ],
+                    "verb_hint": "Доповни формальну допустову модель після винесеного ступеня; сполучник має передати «хоча», а не порівняння кількості."
+                }
+            },
+            "verb_hint": "Доповни формальну допустову модель після винесеного ступеня; сполучник має передати «хоча», а не порівняння кількості.",
+            "accepted_target_texts": [
+                "Much as the committee valued the tradition, it declined to fund the parade.",
+                "Much though the committee valued the tradition, it declined to fund the parade."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "though"
+                ]
+            },
+            "reorder_groups": [
+                "Much as",
+                "the committee valued",
+                "the tradition,",
+                "it declined",
+                "to fund",
+                "the parade."
+            ],
+            "token_groups": [
+                "Much as",
+                "the committee valued",
+                "the tradition,",
+                "it declined",
+                "to fund",
+                "the parade."
+            ],
+            "quality_revision": "mrq-v1"
+        }
+    ]
+}

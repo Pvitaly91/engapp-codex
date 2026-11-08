@@ -1,0 +1,4026 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/embedded.v1.json",
+        "sha256": "99a2b7b781c684446d5916d19d8ddbeb06175e24a78f314eeb5e159e4a673102"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedEmbeddedQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-embedded-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_embedded": {
+            "name": "Questions and Negations Quality: Embedded Questions: питання всередині речення"
+        }
+    },
+    "tags": {
+        "polyglot_embedded_questions": {
+            "name": "Embedded Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "embedded_statement": {
+            "name": "Embedded Statement",
+            "category": "topic"
+        },
+        "embedded_question": {
+            "name": "Embedded Question",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "wh_embedded": {
+            "name": "Wh Embedded",
+            "category": "topic"
+        },
+        "if_whether_embedded": {
+            "name": "If Whether Embedded",
+            "category": "topic"
+        },
+        "reporting_frames": {
+            "name": "Reporting Frames",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_embedded_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-embedded-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я знаю, де мітла.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я знаю, де мітла.",
+            "target_text": "I know where the broom is.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "I",
+                        "We",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "know",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "know",
+                        "cook",
+                        "Tell",
+                        "see"
+                    ]
+                },
+                "a3": {
+                    "answer": "where",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "where",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "broom",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "broom",
+                        "door",
+                        "shop",
+                        "painter"
+                    ]
+                },
+                "a6": {
+                    "answer": "is.",
+                    "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                }
+            },
+            "verb_hint": "Після слова місця використай прямий порядок підмета й зв’язки.",
+            "accepted_target_texts": [
+                "I know where the broom is."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I know",
+                "where",
+                "the broom is."
+            ],
+            "token_groups": [
+                "I know",
+                "where",
+                "the broom is."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "know",
+                "where",
+                "the",
+                "broom",
+                "is."
+            ],
+            "options": [
+                "I",
+                "We",
+                "They",
+                "Me",
+                "know",
+                "cook",
+                "Tell",
+                "see",
+                "where",
+                "whoever",
+                "whatever",
+                "wherever",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "broom",
+                "door",
+                "shop",
+                "painter",
+                "is",
+                "were",
+                "be",
+                "been"
+            ],
+            "source_text_uk": "Я знаю, де мітла.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "We",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "know",
+                    "cook",
+                    "Tell",
+                    "see"
+                ],
+                "a3": [
+                    "where",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "broom",
+                    "door",
+                    "shop",
+                    "painter"
+                ],
+                "a6": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "question_word",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-embedded-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Вона запитує, що ти готуєш.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вона запитує, що ти готуєш.",
+            "target_text": "She asks what you cook.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+                    "options": [
+                        "She",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "asks",
+                    "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+                    "options": [
+                        "asks",
+                        "remembers",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a3": {
+                    "answer": "what",
+                    "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+                    "options": [
+                        "what",
+                        "whatever",
+                        "wherever",
+                        "whenever"
+                    ]
+                },
+                "a4": {
+                    "answer": "you",
+                    "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+                    "options": [
+                        "you",
+                        "we",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a5": {
+                    "answer": "cook.",
+                    "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+                    "options": [
+                        "cook",
+                        "know",
+                        "Tell",
+                        "use"
+                    ]
+                }
+            },
+            "verb_hint": "Не додавай питального допоміжного дієслова до внутрішньої частини.",
+            "accepted_target_texts": [
+                "She asks what you cook."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She asks",
+                "what",
+                "you cook."
+            ],
+            "token_groups": [
+                "She asks",
+                "what",
+                "you cook."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "She",
+                "asks",
+                "what",
+                "you",
+                "cook."
+            ],
+            "options": [
+                "She",
+                "They",
+                "Me",
+                "Him",
+                "asks",
+                "remembers",
+                "tables",
+                "tickets",
+                "what",
+                "whatever",
+                "wherever",
+                "whenever",
+                "you",
+                "we",
+                "us",
+                "them",
+                "cook",
+                "know",
+                "Tell",
+                "use"
+            ],
+            "source_text_uk": "Вона запитує, що ти готуєш.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "asks",
+                    "remembers",
+                    "tables",
+                    "tickets"
+                ],
+                "a3": [
+                    "what",
+                    "whatever",
+                    "wherever",
+                    "whenever"
+                ],
+                "a4": [
+                    "you",
+                    "we",
+                    "us",
+                    "them"
+                ],
+                "a5": [
+                    "cook",
+                    "know",
+                    "Tell",
+                    "use"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "question_word",
+                "a4": "finite_clause",
+                "a5": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-embedded-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Скажи мені, коли відчиняється кафе.",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Скажи мені, коли відчиняється кафе.",
+            "target_text": "Tell me when the café opens.",
+            "markers": {
+                "a1": {
+                    "answer": "Tell",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "Tell",
+                        "Cook",
+                        "Know",
+                        "Play"
+                    ]
+                },
+                "a2": {
+                    "answer": "me",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "me",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a3": {
+                    "answer": "when",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "when",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "café",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "café",
+                        "session",
+                        "curator",
+                        "broom"
+                    ]
+                },
+                "a6": {
+                    "answer": "opens.",
+                    "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+                    "options": [
+                        "opens",
+                        "meets",
+                        "closes",
+                        "leaves"
+                    ]
+                }
+            },
+            "verb_hint": "Внутрішня частина має прямий порядок і теперішню форму дієслова.",
+            "accepted_target_texts": [
+                "Tell me when the café opens.",
+                "Tell me when the cafe opens."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "cafe"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "cafe"
+                ]
+            },
+            "reorder_groups": [
+                "Tell me",
+                "when",
+                "the café opens."
+            ],
+            "token_groups": [
+                "Tell me",
+                "when",
+                "the café opens."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Tell",
+                "me",
+                "when",
+                "the",
+                "café",
+                "opens."
+            ],
+            "options": [
+                "Tell",
+                "Cook",
+                "Know",
+                "Play",
+                "me",
+                "ourselves",
+                "themselves",
+                "I",
+                "when",
+                "wherever",
+                "whenever",
+                "who",
+                "the",
+                "every",
+                "no",
+                "another",
+                "café",
+                "session",
+                "curator",
+                "broom",
+                "opens",
+                "meets",
+                "closes",
+                "leaves"
+            ],
+            "source_text_uk": "Скажи мені, коли відчиняється кафе.",
+            "options_by_marker": {
+                "a1": [
+                    "Tell",
+                    "Cook",
+                    "Know",
+                    "Play"
+                ],
+                "a2": [
+                    "me",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a3": [
+                    "when",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "café",
+                    "session",
+                    "curator",
+                    "broom"
+                ],
+                "a6": [
+                    "opens",
+                    "meets",
+                    "closes",
+                    "leaves"
+                ]
+            },
+            "slot_roles": {
+                "a1": "intro",
+                "a2": "intro",
+                "a3": "question_word",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-embedded-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми пам’ятаємо, як розбилася ваза.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ми пам’ятаємо, як розбилася ваза.",
+            "target_text": "We remember how the vase broke.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "We",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "remember",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "remember",
+                        "wonder",
+                        "coat",
+                        "person"
+                    ]
+                },
+                "a3": {
+                    "answer": "how",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "how",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "vase",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "vase",
+                        "shop",
+                        "painter",
+                        "train"
+                    ]
+                },
+                "a6": {
+                    "answer": "broke.",
+                    "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+                    "options": [
+                        "broke",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи минулу дію без інверсії всередині повідомлення.",
+            "accepted_target_texts": [
+                "We remember how the vase broke."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We remember",
+                "how",
+                "the vase broke."
+            ],
+            "token_groups": [
+                "We remember",
+                "how",
+                "the vase broke."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "remember",
+                "how",
+                "the",
+                "vase",
+                "broke."
+            ],
+            "options": [
+                "We",
+                "Him",
+                "Us",
+                "Them",
+                "remember",
+                "wonder",
+                "coat",
+                "person",
+                "how",
+                "whoever",
+                "whatever",
+                "wherever",
+                "the",
+                "those",
+                "each",
+                "every",
+                "vase",
+                "shop",
+                "painter",
+                "train",
+                "broke",
+                "visited",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Ми пам’ятаємо, як розбилася ваза.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "remember",
+                    "wonder",
+                    "coat",
+                    "person"
+                ],
+                "a3": [
+                    "how",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a4": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "vase",
+                    "shop",
+                    "painter",
+                    "train"
+                ],
+                "a6": [
+                    "broke",
+                    "visited",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "question_word",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-embedded-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Мені цікаво, чи можна повернути квитки.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Мені цікаво, чи можна повернути квитки.",
+            "target_text": "I wonder whether the tickets are refundable.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "wonder",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "wonder",
+                        "remember",
+                        "coat",
+                        "vase"
+                    ]
+                },
+                "a3": {
+                    "answer": "whether",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "whether",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "tickets",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "tickets",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                },
+                "a6": {
+                    "answer": "are",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "are",
+                        "am",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a7": {
+                    "answer": "refundable.",
+                    "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+                    "options": [
+                        "refundable",
+                        "different",
+                        "simple",
+                        "happy"
+                    ]
+                }
+            },
+            "verb_hint": "Використай сполучник невизначеного вибору та прямий порядок слів.",
+            "accepted_target_texts": [
+                "I wonder whether the tickets are refundable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wonder",
+                "whether",
+                "the tickets",
+                "are refundable."
+            ],
+            "token_groups": [
+                "I wonder",
+                "whether",
+                "the tickets",
+                "are refundable."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "wonder",
+                "whether",
+                "the",
+                "tickets",
+                "are",
+                "refundable."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "wonder",
+                "remember",
+                "coat",
+                "vase",
+                "whether",
+                "nor",
+                "so",
+                "yet",
+                "the",
+                "some",
+                "any",
+                "this",
+                "tickets",
+                "bikes",
+                "cars",
+                "bags",
+                "are",
+                "am",
+                "is",
+                "was",
+                "refundable",
+                "different",
+                "simple",
+                "happy"
+            ],
+            "source_text_uk": "Мені цікаво, чи можна повернути квитки.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "wonder",
+                    "remember",
+                    "coat",
+                    "vase"
+                ],
+                "a3": [
+                    "whether",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "tickets",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ],
+                "a6": [
+                    "are",
+                    "am",
+                    "is",
+                    "was"
+                ],
+                "a7": [
+                    "refundable",
+                    "different",
+                    "simple",
+                    "happy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "connector",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-embedded-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Він знає, чия це куртка.",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Він знає, чия це куртка.",
+            "target_text": "He knows whose coat this is.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "He",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "knows",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "knows",
+                        "wants",
+                        "sees",
+                        "finds"
+                    ]
+                },
+                "a3": {
+                    "answer": "whose",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "whose",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a4": {
+                    "answer": "coat",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "coat",
+                        "the",
+                        "vase",
+                        "wonder"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "this",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "is.",
+                    "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                }
+            },
+            "verb_hint": "Слово належності ставиться перед назвою предмета у внутрішньому питанні.",
+            "accepted_target_texts": [
+                "He knows whose coat this is."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He knows",
+                "whose",
+                "coat this is."
+            ],
+            "token_groups": [
+                "He knows",
+                "whose",
+                "coat this is."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "He",
+                "knows",
+                "whose",
+                "coat",
+                "this",
+                "is."
+            ],
+            "options": [
+                "He",
+                "It",
+                "We",
+                "They",
+                "knows",
+                "wants",
+                "sees",
+                "finds",
+                "whose",
+                "his",
+                "her",
+                "its",
+                "coat",
+                "the",
+                "vase",
+                "wonder",
+                "this",
+                "an",
+                "some",
+                "any",
+                "is",
+                "been",
+                "being",
+                "isn't"
+            ],
+            "source_text_uk": "Він знає, чия це куртка.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "knows",
+                    "wants",
+                    "sees",
+                    "finds"
+                ],
+                "a3": [
+                    "whose",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a4": [
+                    "coat",
+                    "the",
+                    "vase",
+                    "wonder"
+                ],
+                "a5": [
+                    "this",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "question_word",
+                "a4": "finite_clause",
+                "a5": "finite_clause",
+                "a6": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-embedded-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ніхто не знає, чому змінився розклад.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ніхто не знає, чому змінився розклад.",
+            "target_text": "Nobody knows why the timetable has changed.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "Nobody",
+                        "She",
+                        "I",
+                        "Remember"
+                    ]
+                },
+                "a2": {
+                    "answer": "knows",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "knows",
+                        "cooks",
+                        "rides",
+                        "drives"
+                    ]
+                },
+                "a3": {
+                    "answer": "why",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "why",
+                        "who",
+                        "whom",
+                        "what"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "timetable",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "timetable",
+                        "heavy",
+                        "light",
+                        "clean"
+                    ]
+                },
+                "a6": {
+                    "answer": "has",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "has",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "changed.",
+                    "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+                    "options": [
+                        "changed",
+                        "used",
+                        "met",
+                        "seen"
+                    ]
+                }
+            },
+            "verb_hint": "У внутрішній частині підмет передує допоміжному дієслову доконаного часу.",
+            "accepted_target_texts": [
+                "Nobody knows why the timetable has changed.",
+                "Nobody knows why the schedule has changed."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "schedule"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "schedule"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody knows",
+                "why",
+                "the timetable",
+                "has changed."
+            ],
+            "token_groups": [
+                "Nobody knows",
+                "why",
+                "the timetable",
+                "has changed."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Nobody",
+                "knows",
+                "why",
+                "the",
+                "timetable",
+                "has",
+                "changed."
+            ],
+            "options": [
+                "Nobody",
+                "She",
+                "I",
+                "Remember",
+                "knows",
+                "cooks",
+                "rides",
+                "drives",
+                "why",
+                "who",
+                "whom",
+                "what",
+                "the",
+                "all",
+                "both",
+                "a",
+                "timetable",
+                "heavy",
+                "light",
+                "clean",
+                "has",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "changed",
+                "used",
+                "met",
+                "seen"
+            ],
+            "source_text_uk": "Ніхто не знає, чому змінився розклад.",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "She",
+                    "I",
+                    "Remember"
+                ],
+                "a2": [
+                    "knows",
+                    "cooks",
+                    "rides",
+                    "drives"
+                ],
+                "a3": [
+                    "why",
+                    "who",
+                    "whom",
+                    "what"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "timetable",
+                    "heavy",
+                    "light",
+                    "clean"
+                ],
+                "a6": [
+                    "has",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a7": [
+                    "changed",
+                    "used",
+                    "met",
+                    "seen"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "question_word",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-embedded-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Я не можу пригадати, якими дверима ми скористалися.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я не можу пригадати, якими дверима ми скористалися.",
+            "target_text": "I cannot remember which door we used.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "I",
+                        "It",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "cannot",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a3": {
+                    "answer": "remember",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "remember",
+                        "explain",
+                        "recall",
+                        "determine"
+                    ]
+                },
+                "a4": {
+                    "answer": "which",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "which",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a5": {
+                    "answer": "door",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "door",
+                        "question",
+                        "Nobody",
+                        "book"
+                    ]
+                },
+                "a6": {
+                    "answer": "we",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "we",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a7": {
+                    "answer": "used.",
+                    "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+                    "options": [
+                        "used",
+                        "changed",
+                        "opened",
+                        "closed"
+                    ]
+                }
+            },
+            "verb_hint": "Група вибору стоїть перед прямим порядком займенника й минулого дієслова.",
+            "accepted_target_texts": [
+                "I cannot remember which door we used."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot remember",
+                "which door",
+                "we used."
+            ],
+            "token_groups": [
+                "I cannot remember",
+                "which door",
+                "we used."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "cannot",
+                "remember",
+                "which",
+                "door",
+                "we",
+                "used."
+            ],
+            "options": [
+                "I",
+                "It",
+                "They",
+                "Me",
+                "cannot",
+                "will",
+                "would",
+                "shall",
+                "remember",
+                "explain",
+                "recall",
+                "determine",
+                "which",
+                "whoever",
+                "whatever",
+                "wherever",
+                "door",
+                "question",
+                "Nobody",
+                "book",
+                "we",
+                "him",
+                "us",
+                "them",
+                "used",
+                "changed",
+                "opened",
+                "closed"
+            ],
+            "source_text_uk": "Я не можу пригадати, якими дверима ми скористалися.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "cannot",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a3": [
+                    "remember",
+                    "explain",
+                    "recall",
+                    "determine"
+                ],
+                "a4": [
+                    "which",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a5": [
+                    "door",
+                    "question",
+                    "Nobody",
+                    "book"
+                ],
+                "a6": [
+                    "we",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a7": [
+                    "used",
+                    "changed",
+                    "opened",
+                    "closed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "finite_clause",
+                "a7": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-embedded-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Питання в тому, чи працюватиме опалення.",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Питання в тому, чи працюватиме опалення.",
+            "target_text": "The question is whether the heating will work.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "question",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "question",
+                        "one",
+                        "cannot",
+                        "record"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "whether",
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "heating",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "heating",
+                        "watching",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a7": {
+                    "answer": "will",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a8": {
+                    "answer": "work.",
+                    "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+                    "options": [
+                        "work",
+                        "play",
+                        "call",
+                        "walk"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи майбутнє значення без перестановки допоміжного дієслова перед підметом.",
+            "accepted_target_texts": [
+                "The question is whether the heating will work."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The question is",
+                "whether",
+                "the heating",
+                "will work."
+            ],
+            "token_groups": [
+                "The question is",
+                "whether",
+                "the heating",
+                "will work."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "question",
+                "is",
+                "whether",
+                "the",
+                "heating",
+                "will",
+                "work."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "question",
+                "one",
+                "cannot",
+                "record",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "whether",
+                "and",
+                "but",
+                "or",
+                "the",
+                "an",
+                "some",
+                "any",
+                "heating",
+                "watching",
+                "visiting",
+                "cooking",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "work",
+                "play",
+                "call",
+                "walk"
+            ],
+            "source_text_uk": "Питання в тому, чи працюватиме опалення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "question",
+                    "one",
+                    "cannot",
+                    "record"
+                ],
+                "a3": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "whether",
+                    "and",
+                    "but",
+                    "or"
+                ],
+                "a5": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "heating",
+                    "watching",
+                    "visiting",
+                    "cooking"
+                ],
+                "a7": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a8": [
+                    "work",
+                    "play",
+                    "call",
+                    "walk"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "connector",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-embedded-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Слідчі встановили, де зберігали партію товару.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Слідчі встановили, де зберігали партію товару.",
+            "target_text": "The investigators established where the consignment had been stored.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "investigators",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "investigators",
+                        "matters",
+                        "funds",
+                        "boxes"
+                    ]
+                },
+                "a3": {
+                    "answer": "established",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "established",
+                        "need",
+                        "approved",
+                        "visited"
+                    ]
+                },
+                "a4": {
+                    "answer": "where",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "where",
+                        "what",
+                        "which",
+                        "when"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "consignment",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "consignment",
+                        "extension",
+                        "establish",
+                        "car"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a9": {
+                    "answer": "stored.",
+                    "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+                    "options": [
+                        "stored",
+                        "allocated",
+                        "needed",
+                        "liked"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прямий порядок та минулий доконаний пасив.",
+            "accepted_target_texts": [
+                "The investigators established where the consignment had been stored.",
+                "The investigators determined where the consignment had been stored."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "determined"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "determined"
+                ]
+            },
+            "reorder_groups": [
+                "The investigators established",
+                "where",
+                "the consignment",
+                "had been stored."
+            ],
+            "token_groups": [
+                "The investigators established",
+                "where",
+                "the consignment",
+                "had been stored."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "investigators",
+                "established",
+                "where",
+                "the",
+                "consignment",
+                "had",
+                "been",
+                "stored."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "investigators",
+                "matters",
+                "funds",
+                "boxes",
+                "established",
+                "need",
+                "approved",
+                "visited",
+                "where",
+                "what",
+                "which",
+                "when",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "consignment",
+                "extension",
+                "establish",
+                "car",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "stored",
+                "allocated",
+                "needed",
+                "liked"
+            ],
+            "source_text_uk": "Слідчі встановили, де зберігали партію товару.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "investigators",
+                    "matters",
+                    "funds",
+                    "boxes"
+                ],
+                "a3": [
+                    "established",
+                    "need",
+                    "approved",
+                    "visited"
+                ],
+                "a4": [
+                    "where",
+                    "what",
+                    "which",
+                    "when"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "consignment",
+                    "extension",
+                    "establish",
+                    "car"
+                ],
+                "a7": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a8": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a9": [
+                    "stored",
+                    "allocated",
+                    "needed",
+                    "liked"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "finite_clause",
+                "a8": "finite_clause",
+                "a9": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-embedded-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Важливо те, як розподіляють кошти.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Важливо те, як розподіляють кошти.",
+            "target_text": "What matters is how the funds are allocated.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "What",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "matters",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "matters",
+                        "investigators",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "how",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "how",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "funds",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "funds",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a7": {
+                    "answer": "are",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a8": {
+                    "answer": "allocated.",
+                    "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+                    "options": [
+                        "allocated",
+                        "stored",
+                        "checked",
+                        "sent"
+                    ]
+                }
+            },
+            "verb_hint": "Внутрішнє питання про процедуру має прямий порядок пасивної конструкції.",
+            "accepted_target_texts": [
+                "What matters is how the funds are allocated."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What matters is",
+                "how",
+                "the funds",
+                "are allocated."
+            ],
+            "token_groups": [
+                "What matters is",
+                "how",
+                "the funds",
+                "are allocated."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "matters",
+                "is",
+                "how",
+                "the",
+                "funds",
+                "are",
+                "allocated."
+            ],
+            "options": [
+                "What",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "matters",
+                "investigators",
+                "keys",
+                "rooms",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "how",
+                "which",
+                "where",
+                "when",
+                "the",
+                "these",
+                "those",
+                "each",
+                "funds",
+                "windows",
+                "phones",
+                "children",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "allocated",
+                "stored",
+                "checked",
+                "sent"
+            ],
+            "source_text_uk": "Важливо те, як розподіляють кошти.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "matters",
+                    "investigators",
+                    "keys",
+                    "rooms"
+                ],
+                "a3": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "how",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "funds",
+                    "windows",
+                    "phones",
+                    "children"
+                ],
+                "a7": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a8": [
+                    "allocated",
+                    "stored",
+                    "checked",
+                    "sent"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-embedded-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Нам потрібно встановити, хто погодив продовження.",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Нам потрібно встановити, хто погодив продовження.",
+            "target_text": "We need to establish who approved the extension.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "need",
+                        "established",
+                        "drove",
+                        "gave"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a4": {
+                    "answer": "establish",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "establish",
+                        "consignment",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a5": {
+                    "answer": "who",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "who",
+                        "when",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a6": {
+                    "answer": "approved",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "approved",
+                        "had",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "extension.",
+                    "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+                    "options": [
+                        "extension",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Питальне слово є виконавцем дії, тому допоміжне питальне дієслово не додається.",
+            "accepted_target_texts": [
+                "We need to establish who approved the extension."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "to establish",
+                "who",
+                "approved the extension."
+            ],
+            "token_groups": [
+                "We need",
+                "to establish",
+                "who",
+                "approved the extension."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "We",
+                "need",
+                "to",
+                "establish",
+                "who",
+                "approved",
+                "the",
+                "extension."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "need",
+                "established",
+                "drove",
+                "gave",
+                "to",
+                "between",
+                "among",
+                "about",
+                "establish",
+                "consignment",
+                "key",
+                "room",
+                "who",
+                "when",
+                "why",
+                "how",
+                "approved",
+                "had",
+                "made",
+                "left",
+                "the",
+                "an",
+                "some",
+                "any",
+                "extension",
+                "bike",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "Нам потрібно встановити, хто погодив продовження.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "need",
+                    "established",
+                    "drove",
+                    "gave"
+                ],
+                "a3": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a4": [
+                    "establish",
+                    "consignment",
+                    "key",
+                    "room"
+                ],
+                "a5": [
+                    "who",
+                    "when",
+                    "why",
+                    "how"
+                ],
+                "a6": [
+                    "approved",
+                    "had",
+                    "made",
+                    "left"
+                ],
+                "a7": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "extension",
+                    "bike",
+                    "car",
+                    "bag"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "question_word",
+                "a6": "finite_clause",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-embedded-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Звіт досліджує, якою мірою заходи зменшили нерівність.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Звіт досліджує, якою мірою заходи зменшили нерівність.",
+            "target_text": "The report examines to what extent the measures have reduced inequality.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "report",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "report",
+                        "letter",
+                        "document",
+                        "map"
+                    ]
+                },
+                "a3": {
+                    "answer": "examines",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "examines",
+                        "is",
+                        "reveals",
+                        "doubts"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "what",
+                        "where",
+                        "when",
+                        "why"
+                    ]
+                },
+                "a6": {
+                    "answer": "extent",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "extent",
+                        "register",
+                        "dispute",
+                        "remedy"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "measures",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "measures",
+                        "instructions",
+                        "concerns",
+                        "schools"
+                    ]
+                },
+                "a9": {
+                    "answer": "have",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a10": {
+                    "answer": "reduced",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "reduced",
+                        "amended",
+                        "built",
+                        "bought"
+                    ]
+                },
+                "a11": {
+                    "answer": "inequality.",
+                    "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+                    "options": [
+                        "inequality",
+                        "ascertain",
+                        "proportionate",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Після складної питальної групи підмет передує допоміжному дієслову.",
+            "accepted_target_texts": [
+                "The report examines to what extent the measures have reduced inequality."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report examines",
+                "to what extent",
+                "the measures",
+                "have reduced inequality."
+            ],
+            "token_groups": [
+                "The report examines",
+                "to what extent",
+                "the measures",
+                "have reduced inequality."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "report",
+                "examines",
+                "to",
+                "what",
+                "extent",
+                "the",
+                "measures",
+                "have",
+                "reduced",
+                "inequality."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "report",
+                "letter",
+                "document",
+                "map",
+                "examines",
+                "is",
+                "reveals",
+                "doubts",
+                "to",
+                "over",
+                "under",
+                "through",
+                "what",
+                "where",
+                "when",
+                "why",
+                "extent",
+                "register",
+                "dispute",
+                "remedy",
+                "the",
+                "any",
+                "this",
+                "that",
+                "measures",
+                "instructions",
+                "concerns",
+                "schools",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "reduced",
+                "amended",
+                "built",
+                "bought",
+                "inequality",
+                "ascertain",
+                "proportionate",
+                "sister"
+            ],
+            "source_text_uk": "Звіт досліджує, якою мірою заходи зменшили нерівність.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "report",
+                    "letter",
+                    "document",
+                    "map"
+                ],
+                "a3": [
+                    "examines",
+                    "is",
+                    "reveals",
+                    "doubts"
+                ],
+                "a4": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a5": [
+                    "what",
+                    "where",
+                    "when",
+                    "why"
+                ],
+                "a6": [
+                    "extent",
+                    "register",
+                    "dispute",
+                    "remedy"
+                ],
+                "a7": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a8": [
+                    "measures",
+                    "instructions",
+                    "concerns",
+                    "schools"
+                ],
+                "a9": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a10": [
+                    "reduced",
+                    "amended",
+                    "built",
+                    "bought"
+                ],
+                "a11": [
+                    "inequality",
+                    "ascertain",
+                    "proportionate",
+                    "sister"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause",
+                "a11": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-embedded-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Я не можу встановити, за чиєю вказівкою змінили реєстр.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я не можу встановити, за чиєю вказівкою змінили реєстр.",
+            "target_text": "I cannot ascertain on whose instructions the register was amended.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "cannot",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "ascertain",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "ascertain",
+                        "explain",
+                        "recall",
+                        "determine"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "on",
+                        "in",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a5": {
+                    "answer": "whose",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "whose",
+                        "his",
+                        "her",
+                        "its"
+                    ]
+                },
+                "a6": {
+                    "answer": "instructions",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "instructions",
+                        "examines",
+                        "measures",
+                        "concerns"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "register",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "register",
+                        "remedy",
+                        "dispute",
+                        "proportionate"
+                    ]
+                },
+                "a9": {
+                    "answer": "was",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "was",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a10": {
+                    "answer": "amended.",
+                    "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+                    "options": [
+                        "amended",
+                        "reduced",
+                        "broken",
+                        "built"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи групу належності й прямий порядок минулого пасиву.",
+            "accepted_target_texts": [
+                "I cannot ascertain on whose instructions the register was amended."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I cannot ascertain",
+                "on whose instructions",
+                "the register",
+                "was amended."
+            ],
+            "token_groups": [
+                "I cannot ascertain",
+                "on whose instructions",
+                "the register",
+                "was amended."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "I",
+                "cannot",
+                "ascertain",
+                "on",
+                "whose",
+                "instructions",
+                "the",
+                "register",
+                "was",
+                "amended."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "cannot",
+                "can't",
+                "couldn't",
+                "won't",
+                "ascertain",
+                "explain",
+                "recall",
+                "determine",
+                "on",
+                "in",
+                "at",
+                "by",
+                "whose",
+                "his",
+                "her",
+                "its",
+                "instructions",
+                "examines",
+                "measures",
+                "concerns",
+                "the",
+                "some",
+                "any",
+                "this",
+                "register",
+                "remedy",
+                "dispute",
+                "proportionate",
+                "was",
+                "am",
+                "is",
+                "are",
+                "amended",
+                "reduced",
+                "broken",
+                "built"
+            ],
+            "source_text_uk": "Я не можу встановити, за чиєю вказівкою змінили реєстр.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "cannot",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "ascertain",
+                    "explain",
+                    "recall",
+                    "determine"
+                ],
+                "a4": [
+                    "on",
+                    "in",
+                    "at",
+                    "by"
+                ],
+                "a5": [
+                    "whose",
+                    "his",
+                    "her",
+                    "its"
+                ],
+                "a6": [
+                    "instructions",
+                    "examines",
+                    "measures",
+                    "concerns"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "register",
+                    "remedy",
+                    "dispute",
+                    "proportionate"
+                ],
+                "a9": [
+                    "was",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a10": [
+                    "amended",
+                    "reduced",
+                    "broken",
+                    "built"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-embedded-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Суперечка стосується того, чи є засіб захисту пропорційним.",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Суперечка стосується того, чи є засіб захисту пропорційним.",
+            "target_text": "The dispute concerns whether the remedy is proportionate.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "dispute",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "dispute",
+                        "cannot",
+                        "have",
+                        "panel"
+                    ]
+                },
+                "a3": {
+                    "answer": "concerns",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "concerns",
+                        "shows",
+                        "examines",
+                        "reveals"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "whether",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "remedy",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "remedy",
+                        "register",
+                        "extent",
+                        "inequality"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "proportionate.",
+                    "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+                    "options": [
+                        "proportionate",
+                        "ascertain",
+                        "desk",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Постав підмет перед дієсловом бути після сполучника внутрішнього питання.",
+            "accepted_target_texts": [
+                "The dispute concerns whether the remedy is proportionate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dispute concerns",
+                "whether",
+                "the remedy",
+                "is proportionate."
+            ],
+            "token_groups": [
+                "The dispute concerns",
+                "whether",
+                "the remedy",
+                "is proportionate."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "dispute",
+                "concerns",
+                "whether",
+                "the",
+                "remedy",
+                "is",
+                "proportionate."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "dispute",
+                "cannot",
+                "have",
+                "panel",
+                "concerns",
+                "shows",
+                "examines",
+                "reveals",
+                "whether",
+                "because",
+                "although",
+                "though",
+                "the",
+                "some",
+                "any",
+                "this",
+                "remedy",
+                "register",
+                "extent",
+                "inequality",
+                "is",
+                "was",
+                "were",
+                "be",
+                "proportionate",
+                "ascertain",
+                "desk",
+                "picture"
+            ],
+            "source_text_uk": "Суперечка стосується того, чи є засіб захисту пропорційним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "dispute",
+                    "cannot",
+                    "have",
+                    "panel"
+                ],
+                "a3": [
+                    "concerns",
+                    "shows",
+                    "examines",
+                    "reveals"
+                ],
+                "a4": [
+                    "whether",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "remedy",
+                    "register",
+                    "extent",
+                    "inequality"
+                ],
+                "a7": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "proportionate",
+                    "ascertain",
+                    "desk",
+                    "picture"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "connector",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "finite_clause",
+                "a8": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-embedded-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Вирішальне питання полягає в тому, якою мірою зобов’язання пов’язує майбутні адміністрації.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вирішальне питання полягає в тому, якою мірою зобов’язання пов’язує майбутні адміністрації.",
+            "target_text": "The crucial issue is how far the undertaking binds future administrations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "crucial",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "crucial",
+                        "one",
+                        "judgment",
+                        "panel"
+                    ]
+                },
+                "a3": {
+                    "answer": "issue",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "issue",
+                        "determine",
+                        "uncertain",
+                        "explain"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a5": {
+                    "answer": "how",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "how",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a6": {
+                    "answer": "far",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "far",
+                        "account",
+                        "presumption",
+                        "tribunal"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "undertaking",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "undertaking",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a9": {
+                    "answer": "binds",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "binds",
+                        "remains",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a10": {
+                    "answer": "future",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "future",
+                        "be",
+                        "door",
+                        "bus"
+                    ]
+                },
+                "a11": {
+                    "answer": "administrations.",
+                    "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+                    "options": [
+                        "administrations",
+                        "stops",
+                        "arrives",
+                        "runs"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи складну питальну групу та прямий порядок змістовної частини.",
+            "accepted_target_texts": [
+                "The crucial issue is how far the undertaking binds future administrations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The crucial issue",
+                "is how far",
+                "the undertaking",
+                "binds future administrations."
+            ],
+            "token_groups": [
+                "The crucial issue",
+                "is how far",
+                "the undertaking",
+                "binds future administrations."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "crucial",
+                "issue",
+                "is",
+                "how",
+                "far",
+                "the",
+                "undertaking",
+                "binds",
+                "future",
+                "administrations."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "crucial",
+                "one",
+                "judgment",
+                "panel",
+                "issue",
+                "determine",
+                "uncertain",
+                "explain",
+                "is",
+                "are",
+                "was",
+                "were",
+                "how",
+                "whoever",
+                "whatever",
+                "wherever",
+                "far",
+                "account",
+                "presumption",
+                "tribunal",
+                "the",
+                "that",
+                "these",
+                "those",
+                "undertaking",
+                "cooking",
+                "riding",
+                "driving",
+                "binds",
+                "remains",
+                "bags",
+                "books",
+                "future",
+                "be",
+                "door",
+                "bus",
+                "administrations",
+                "stops",
+                "arrives",
+                "runs"
+            ],
+            "source_text_uk": "Вирішальне питання полягає в тому, якою мірою зобов’язання пов’язує майбутні адміністрації.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "crucial",
+                    "one",
+                    "judgment",
+                    "panel"
+                ],
+                "a3": [
+                    "issue",
+                    "determine",
+                    "uncertain",
+                    "explain"
+                ],
+                "a4": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a5": [
+                    "how",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a6": [
+                    "far",
+                    "account",
+                    "presumption",
+                    "tribunal"
+                ],
+                "a7": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "undertaking",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ],
+                "a9": [
+                    "binds",
+                    "remains",
+                    "bags",
+                    "books"
+                ],
+                "a10": [
+                    "future",
+                    "be",
+                    "door",
+                    "bus"
+                ],
+                "a11": [
+                    "administrations",
+                    "stops",
+                    "arrives",
+                    "runs"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause",
+                "a11": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-embedded-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Рішення залишає відкритим питання, чи можна спростувати презумпцію.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Рішення залишає відкритим питання, чи можна спростувати презумпцію.",
+            "target_text": "The judgment leaves open whether the presumption can be rebutted.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "judgment",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "judgment",
+                        "cannot",
+                        "have",
+                        "report"
+                    ]
+                },
+                "a3": {
+                    "answer": "leaves",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "leaves",
+                        "knows",
+                        "calls",
+                        "walks"
+                    ]
+                },
+                "a4": {
+                    "answer": "open",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "open",
+                        "accepted",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a5": {
+                    "answer": "whether",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "whether",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "presumption",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "presumption",
+                        "tribunal",
+                        "uncertain",
+                        "account"
+                    ]
+                },
+                "a8": {
+                    "answer": "can",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "can",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a9": {
+                    "answer": "be",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a10": {
+                    "answer": "rebutted.",
+                    "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+                    "options": [
+                        "rebutted",
+                        "brought",
+                        "taken",
+                        "written"
+                    ]
+                }
+            },
+            "verb_hint": "Модальний пасив внутрішнього питання стоїть після підмета.",
+            "accepted_target_texts": [
+                "The judgment leaves open whether the presumption can be rebutted."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judgment leaves",
+                "open whether",
+                "the presumption",
+                "can be rebutted."
+            ],
+            "token_groups": [
+                "The judgment leaves",
+                "open whether",
+                "the presumption",
+                "can be rebutted."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "The",
+                "judgment",
+                "leaves",
+                "open",
+                "whether",
+                "the",
+                "presumption",
+                "can",
+                "be",
+                "rebutted."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "judgment",
+                "cannot",
+                "have",
+                "report",
+                "leaves",
+                "knows",
+                "calls",
+                "walks",
+                "open",
+                "accepted",
+                "rode",
+                "drove",
+                "whether",
+                "because",
+                "although",
+                "though",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "presumption",
+                "tribunal",
+                "uncertain",
+                "account",
+                "can",
+                "would",
+                "shall",
+                "should",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "rebutted",
+                "brought",
+                "taken",
+                "written"
+            ],
+            "source_text_uk": "Рішення залишає відкритим питання, чи можна спростувати презумпцію.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "judgment",
+                    "cannot",
+                    "have",
+                    "report"
+                ],
+                "a3": [
+                    "leaves",
+                    "knows",
+                    "calls",
+                    "walks"
+                ],
+                "a4": [
+                    "open",
+                    "accepted",
+                    "rode",
+                    "drove"
+                ],
+                "a5": [
+                    "whether",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "presumption",
+                    "tribunal",
+                    "uncertain",
+                    "account"
+                ],
+                "a8": [
+                    "can",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a9": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a10": [
+                    "rebutted",
+                    "brought",
+                    "taken",
+                    "written"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "connector",
+                "a5": "connector",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "finite_clause",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-embedded-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Невизначеним залишається те, чию версію зрештою прийняв трибунал.",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Невизначеним залишається те, чию версію зрештою прийняв трибунал.",
+            "target_text": "What remains uncertain is whose account the tribunal ultimately accepted.",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "What",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "remains",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "remains",
+                        "administrations",
+                        "binds",
+                        "tables"
+                    ]
+                },
+                "a3": {
+                    "answer": "uncertain",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "uncertain",
+                        "determine",
+                        "issue",
+                        "explain"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "whose",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "whose",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a6": {
+                    "answer": "account",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "account",
+                        "far",
+                        "future",
+                        "judgment"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "tribunal",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "tribunal",
+                        "presumption",
+                        "crucial",
+                        "bus"
+                    ]
+                },
+                "a9": {
+                    "answer": "ultimately",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "ultimately",
+                        "well",
+                        "badly",
+                        "clearly"
+                    ]
+                },
+                "a10": {
+                    "answer": "accepted.",
+                    "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+                    "options": [
+                        "accepted",
+                        "open",
+                        "closed",
+                        "helped"
+                    ]
+                }
+            },
+            "verb_hint": "Не перетворюй внутрішню частину про належність версії на пряме питання.",
+            "accepted_target_texts": [
+                "What remains uncertain is whose account the tribunal ultimately accepted."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains uncertain",
+                "is whose account",
+                "the tribunal",
+                "ultimately accepted."
+            ],
+            "token_groups": [
+                "What remains uncertain",
+                "is whose account",
+                "the tribunal",
+                "ultimately accepted."
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "remains",
+                "uncertain",
+                "is",
+                "whose",
+                "account",
+                "the",
+                "tribunal",
+                "ultimately",
+                "accepted."
+            ],
+            "options": [
+                "What",
+                "How",
+                "Whoever",
+                "Whatever",
+                "remains",
+                "administrations",
+                "binds",
+                "tables",
+                "uncertain",
+                "determine",
+                "issue",
+                "explain",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "whose",
+                "my",
+                "your",
+                "his",
+                "account",
+                "far",
+                "future",
+                "judgment",
+                "the",
+                "every",
+                "no",
+                "another",
+                "tribunal",
+                "presumption",
+                "crucial",
+                "bus",
+                "ultimately",
+                "well",
+                "badly",
+                "clearly",
+                "accepted",
+                "open",
+                "closed",
+                "helped"
+            ],
+            "source_text_uk": "Невизначеним залишається те, чию версію зрештою прийняв трибунал.",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "remains",
+                    "administrations",
+                    "binds",
+                    "tables"
+                ],
+                "a3": [
+                    "uncertain",
+                    "determine",
+                    "issue",
+                    "explain"
+                ],
+                "a4": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a5": [
+                    "whose",
+                    "my",
+                    "your",
+                    "his"
+                ],
+                "a6": [
+                    "account",
+                    "far",
+                    "future",
+                    "judgment"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "tribunal",
+                    "presumption",
+                    "crucial",
+                    "bus"
+                ],
+                "a9": [
+                    "ultimately",
+                    "well",
+                    "badly",
+                    "clearly"
+                ],
+                "a10": [
+                    "accepted",
+                    "open",
+                    "closed",
+                    "helped"
+                ]
+            },
+            "slot_roles": {
+                "a1": "embedded_intro",
+                "a2": "embedded_intro",
+                "a3": "embedded_intro",
+                "a4": "question_word",
+                "a5": "question_word",
+                "a6": "question_word",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "finite_clause",
+                "a10": "finite_clause"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

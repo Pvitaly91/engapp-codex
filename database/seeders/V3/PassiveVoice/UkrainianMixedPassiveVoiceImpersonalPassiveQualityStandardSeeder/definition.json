@@ -1,0 +1,1752 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/impersonal.v1.json",
+        "sha256": "a8c0edc2419ff33bf7a90ac860d849318b7a03649d3b1d873fc7ea3fad09f3f4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceImpersonalPassiveQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-impersonal-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_impersonal": {
+            "name": "Passive Voice Quality: Безособовий пасив"
+        }
+    },
+    "tags": {
+        "passive_voice_impersonal_passive": {
+            "name": "Passive Voice Impersonal Passive",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "it_is_said_that": {
+            "name": "It Is Said That",
+            "category": "topic"
+        },
+        "it_is_believed_that": {
+            "name": "It Is Believed That",
+            "category": "topic"
+        },
+        "it_is_reported_that": {
+            "name": "It Is Reported That",
+            "category": "topic"
+        },
+        "it_is_thought_that": {
+            "name": "It Is Thought That",
+            "category": "topic"
+        },
+        "subject_is_said_to": {
+            "name": "Subject Is Said To",
+            "category": "topic"
+        },
+        "subject_is_believed_to": {
+            "name": "Subject Is Believed To",
+            "category": "topic"
+        },
+        "reporting_information": {
+            "name": "Reporting Information",
+            "category": "topic"
+        },
+        "formal_journalistic": {
+            "name": "Formal Journalistic",
+            "category": "topic"
+        },
+        "tense_agreement": {
+            "name": "Tense Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-impersonal-a1-g01",
+            "author_id": "A1-g01",
+            "question": "It is {a1} that Anna likes birds.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Кажуть, що Анна любить птахів.",
+            "target_text": "It is said that Anna likes birds.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Почни з безособової конструкції зі значенням «кажуть» у теперішньому часі."
+                }
+            },
+            "verb_hint": "Почни з безособової конструкції зі значенням «кажуть» у теперішньому часі.",
+            "accepted_target_texts": [
+                "It is said that Anna likes birds."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "said",
+                "that",
+                "Anna",
+                "likes birds."
+            ],
+            "token_groups": [
+                "It is",
+                "said",
+                "that",
+                "Anna",
+                "likes birds."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-impersonal-a1-g02",
+            "author_id": "A1-g02",
+            "question": "It is {a1} that this shop is small.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Відомо, що цей магазин маленький.",
+            "target_text": "It is known that this shop is small.",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «відомо» в теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «відомо» в теперішньому часі.",
+            "accepted_target_texts": [
+                "It is known that this shop is small."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "known",
+                "that",
+                "this shop",
+                "is small."
+            ],
+            "token_groups": [
+                "It is",
+                "known",
+                "that",
+                "this shop",
+                "is small."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-impersonal-a1-g03",
+            "author_id": "A1-g03",
+            "question": "It is {a1} that the dog is friendly.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Вважають, що собака дружній.",
+            "target_text": "It is believed that the dog is friendly.",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "reported",
+                        "known"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «вважають» у теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «вважають» у теперішньому часі.",
+            "accepted_target_texts": [
+                "It is believed that the dog is friendly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "believed",
+                "that",
+                "the dog",
+                "is friendly."
+            ],
+            "token_groups": [
+                "It is",
+                "believed",
+                "that",
+                "the dog",
+                "is friendly."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-impersonal-a1-g04",
+            "author_id": "A1-g04",
+            "question": "It was {a1} that Tim was ill.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Казали, що Тім хворів.",
+            "target_text": "It was said that Tim was ill.",
+            "markers": {
+                "a1": {
+                    "answer": "said",
+                    "options": [
+                        "said",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «казали» в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «казали» в минулому часі.",
+            "accepted_target_texts": [
+                "It was said that Tim was ill."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "said",
+                "that",
+                "Tim",
+                "was ill."
+            ],
+            "token_groups": [
+                "It was",
+                "said",
+                "that",
+                "Tim",
+                "was ill."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-impersonal-a1-g05",
+            "author_id": "A1-g05",
+            "question": "It was {a1} that the road was long.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Було відомо, що дорога довга.",
+            "target_text": "It was known that the road was long.",
+            "markers": {
+                "a1": {
+                    "answer": "known",
+                    "options": [
+                        "known",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «було відомо» в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «було відомо» в минулому часі.",
+            "accepted_target_texts": [
+                "It was known that the road was long."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "known",
+                "that",
+                "the road",
+                "was long."
+            ],
+            "token_groups": [
+                "It was",
+                "known",
+                "that",
+                "the road",
+                "was long."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-impersonal-a1-g06",
+            "author_id": "A1-g06",
+            "question": "It is {a1} that she lives nearby.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Думають, що вона живе неподалік.",
+            "target_text": "It is thought that she lives nearby.",
+            "markers": {
+                "a1": {
+                    "answer": "thought",
+                    "options": [
+                        "thought",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «думають» у теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «думають» у теперішньому часі.",
+            "accepted_target_texts": [
+                "It is thought that she lives nearby."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "thought",
+                "that",
+                "she",
+                "lives nearby."
+            ],
+            "token_groups": [
+                "It is",
+                "thought",
+                "that",
+                "she",
+                "lives nearby."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-impersonal-a2-g01",
+            "author_id": "A2-g01",
+            "question": "It is {a1} that the ferry is late.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Повідомляють, що пором запізнюється.",
+            "target_text": "It is reported that the ferry is late.",
+            "markers": {
+                "a1": {
+                    "answer": "reported",
+                    "options": [
+                        "reported",
+                        "believed",
+                        "known"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «повідомляють» у теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «повідомляють» у теперішньому часі.",
+            "accepted_target_texts": [
+                "It is reported that the ferry is late."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "reported",
+                "that",
+                "the ferry",
+                "is late."
+            ],
+            "token_groups": [
+                "It is",
+                "reported",
+                "that",
+                "the ferry",
+                "is late."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-impersonal-a2-g02",
+            "author_id": "A2-g02",
+            "question": "It was {a1} that the house was empty.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Вважали, що будинок порожній.",
+            "target_text": "It was believed that the house was empty.",
+            "markers": {
+                "a1": {
+                    "answer": "believed",
+                    "options": [
+                        "believed",
+                        "reported",
+                        "known"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «вважали» в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «вважали» в минулому часі.",
+            "accepted_target_texts": [
+                "It was believed that the house was empty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "believed",
+                "that",
+                "the house",
+                "was empty."
+            ],
+            "token_groups": [
+                "It was",
+                "believed",
+                "that",
+                "the house",
+                "was empty."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-impersonal-a2-g03",
+            "author_id": "A2-g03",
+            "question": "It is {a1} that the snow will stop soon.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Очікують, що сніг невдовзі припиниться.",
+            "target_text": "It is expected that the snow will stop soon.",
+            "markers": {
+                "a1": {
+                    "answer": "expected",
+                    "options": [
+                        "expected",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «очікують» у теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «очікують» у теперішньому часі.",
+            "accepted_target_texts": [
+                "It is expected that the snow will stop soon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "expected",
+                "that",
+                "the snow",
+                "will stop soon."
+            ],
+            "token_groups": [
+                "It is",
+                "expected",
+                "that",
+                "the snow",
+                "will stop soon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-impersonal-a2-g04",
+            "author_id": "A2-g04",
+            "question": "It was {a1} that two goats had escaped.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Повідомили, що втекли дві кози.",
+            "target_text": "It was reported that two goats had escaped.",
+            "markers": {
+                "a1": {
+                    "answer": "reported",
+                    "options": [
+                        "reported",
+                        "believed",
+                        "known"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «повідомили» в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «повідомили» в минулому часі.",
+            "accepted_target_texts": [
+                "It was reported that two goats had escaped."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "reported",
+                "that",
+                "two goats",
+                "had escaped."
+            ],
+            "token_groups": [
+                "It was",
+                "reported",
+                "that",
+                "two goats",
+                "had escaped."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-impersonal-a2-g05",
+            "author_id": "A2-g05",
+            "question": "It is {a1} that the entrance is free.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Наскільки відомо, вхід безкоштовний.",
+            "target_text": "It is understood that the entrance is free.",
+            "markers": {
+                "a1": {
+                    "answer": "understood",
+                    "options": [
+                        "understood",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «наскільки відомо, розуміють»."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «наскільки відомо, розуміють».",
+            "accepted_target_texts": [
+                "It is understood that the entrance is free."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "understood",
+                "that",
+                "the entrance",
+                "is free."
+            ],
+            "token_groups": [
+                "It is",
+                "understood",
+                "that",
+                "the entrance",
+                "is free."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-impersonal-a2-g06",
+            "author_id": "A2-g06",
+            "question": "It was {a1} that the map was wrong.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Думали, що карта неправильна.",
+            "target_text": "It was thought that the map was wrong.",
+            "markers": {
+                "a1": {
+                    "answer": "thought",
+                    "options": [
+                        "thought",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням «думали» в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням «думали» в минулому часі.",
+            "accepted_target_texts": [
+                "It was thought that the map was wrong."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "thought",
+                "that",
+                "the map",
+                "was wrong."
+            ],
+            "token_groups": [
+                "It was",
+                "thought",
+                "that",
+                "the map",
+                "was wrong."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-impersonal-b1-g01",
+            "author_id": "B1-g01",
+            "question": "It has been {a1} that the bridge will reopen tomorrow.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Підтверджено, що міст знову відкриють завтра.",
+            "target_text": "It has been confirmed that the bridge will reopen tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "confirmed",
+                    "options": [
+                        "confirmed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай безособове підтвердження з теперішнім результатом у перфектному пасиві."
+                }
+            },
+            "verb_hint": "Передай безособове підтвердження з теперішнім результатом у перфектному пасиві.",
+            "accepted_target_texts": [
+                "It has been confirmed that the bridge will reopen tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "confirmed",
+                "that",
+                "the bridge",
+                "will reopen tomorrow."
+            ],
+            "token_groups": [
+                "It has been",
+                "confirmed",
+                "that",
+                "the bridge",
+                "will reopen tomorrow."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-impersonal-b1-g02",
+            "author_id": "B1-g02",
+            "question": "It was {a1} that the museum would close early.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Оголосили, що музей закриється раніше.",
+            "target_text": "It was announced that the museum would close early.",
+            "markers": {
+                "a1": {
+                    "answer": "announced",
+                    "options": [
+                        "announced",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособове повідомлення про оголошення в минулому часі."
+                }
+            },
+            "verb_hint": "Уведи безособове повідомлення про оголошення в минулому часі.",
+            "accepted_target_texts": [
+                "It was announced that the museum would close early."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "announced",
+                "that",
+                "the museum",
+                "would close early."
+            ],
+            "token_groups": [
+                "It was",
+                "announced",
+                "that",
+                "the museum",
+                "would close early."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-impersonal-b1-g03",
+            "author_id": "B1-g03",
+            "question": "It is {a1} that the repairs will take a week.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "За оцінками, ремонт триватиме тиждень.",
+            "target_text": "It is estimated that the repairs will take a week.",
+            "markers": {
+                "a1": {
+                    "answer": "estimated",
+                    "options": [
+                        "estimated",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію зі значенням поточної оцінки."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію зі значенням поточної оцінки.",
+            "accepted_target_texts": [
+                "It is estimated that the repairs will take a week."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "estimated",
+                "that",
+                "the repairs",
+                "will take",
+                "a week."
+            ],
+            "token_groups": [
+                "It is",
+                "estimated",
+                "that",
+                "the repairs",
+                "will take",
+                "a week."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-impersonal-b1-g04",
+            "author_id": "B1-g04",
+            "question": "It had been {a1} that everyone knew the address.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Раніше припускали, що всі знали адресу.",
+            "target_text": "It had been assumed that everyone knew the address.",
+            "markers": {
+                "a1": {
+                    "answer": "assumed",
+                    "options": [
+                        "assumed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай раніше зроблене припущення через безособовий минулий перфектний пасив."
+                }
+            },
+            "verb_hint": "Передай раніше зроблене припущення через безособовий минулий перфектний пасив.",
+            "accepted_target_texts": [
+                "It had been assumed that everyone knew the address."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It had been",
+                "assumed",
+                "that",
+                "everyone",
+                "knew the address."
+            ],
+            "token_groups": [
+                "It had been",
+                "assumed",
+                "that",
+                "everyone",
+                "knew the address."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-impersonal-b1-g05",
+            "author_id": "B1-g05",
+            "question": "It is {a1} that the owner ignored the complaints.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Стверджують, що власник ігнорував скарги.",
+            "target_text": "It is alleged that the owner ignored the complaints.",
+            "markers": {
+                "a1": {
+                    "answer": "alleged",
+                    "options": [
+                        "alleged",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособову конструкцію для непідтвердженого звинувачення в теперішньому часі."
+                }
+            },
+            "verb_hint": "Уведи безособову конструкцію для непідтвердженого звинувачення в теперішньому часі.",
+            "accepted_target_texts": [
+                "It is alleged that the owner ignored the complaints."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "alleged",
+                "that",
+                "the owner",
+                "ignored the complaints."
+            ],
+            "token_groups": [
+                "It is",
+                "alleged",
+                "that",
+                "the owner",
+                "ignored the complaints."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-impersonal-b1-g06",
+            "author_id": "B1-g06",
+            "question": "It was {a1} that the meeting should be postponed.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Домовилися, що засідання слід перенести.",
+            "target_text": "It was agreed that the meeting should be postponed.",
+            "markers": {
+                "a1": {
+                    "answer": "agreed",
+                    "options": [
+                        "agreed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Уведи безособове повідомлення про досягнуту в минулому домовленість."
+                }
+            },
+            "verb_hint": "Уведи безособове повідомлення про досягнуту в минулому домовленість.",
+            "accepted_target_texts": [
+                "It was agreed that the meeting should be postponed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "agreed",
+                "that",
+                "the meeting",
+                "should be postponed."
+            ],
+            "token_groups": [
+                "It was",
+                "agreed",
+                "that",
+                "the meeting",
+                "should be postponed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-impersonal-b2-g01",
+            "author_id": "B2-g01",
+            "question": "It has been {a1} that the samples were contaminated.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Встановлено, що зразки були забруднені.",
+            "target_text": "It has been established that the samples were contaminated.",
+            "markers": {
+                "a1": {
+                    "answer": "established",
+                    "options": [
+                        "established",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай встановлений факт із теперішнім результатом у безособовому перфектному пасиві."
+                }
+            },
+            "verb_hint": "Передай встановлений факт із теперішнім результатом у безособовому перфектному пасиві.",
+            "accepted_target_texts": [
+                "It has been established that the samples were contaminated."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "established",
+                "that",
+                "the samples",
+                "were contaminated."
+            ],
+            "token_groups": [
+                "It has been",
+                "established",
+                "that",
+                "the samples",
+                "were contaminated."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-impersonal-b2-g02",
+            "author_id": "B2-g02",
+            "question": "It is {a1} that higher spending guarantees better outcomes.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Поширене припущення, що більші витрати гарантують кращі результати.",
+            "target_text": "It is widely assumed that higher spending guarantees better outcomes.",
+            "markers": {
+                "a1": {
+                    "answer": "widely assumed",
+                    "options": [
+                        "widely assumed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай поширене теперішнє припущення через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай поширене теперішнє припущення через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is widely assumed that higher spending guarantees better outcomes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "widely assumed",
+                "that",
+                "higher spending",
+                "guarantees better outcomes."
+            ],
+            "token_groups": [
+                "It is",
+                "widely assumed",
+                "that",
+                "higher spending",
+                "guarantees better outcomes."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-impersonal-b2-g03",
+            "author_id": "B2-g03",
+            "question": "It was {a1} that the figures had been altered.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Згодом з'ясувалося, що показники змінили.",
+            "target_text": "It was subsequently revealed that the figures had been altered.",
+            "markers": {
+                "a1": {
+                    "answer": "subsequently revealed",
+                    "options": [
+                        "subsequently revealed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай безособове минуле викриття з обставиною «згодом»."
+                }
+            },
+            "verb_hint": "Передай безособове минуле викриття з обставиною «згодом».",
+            "accepted_target_texts": [
+                "It was subsequently revealed that the figures had been altered."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "subsequently revealed",
+                "that",
+                "the figures",
+                "had been altered."
+            ],
+            "token_groups": [
+                "It was",
+                "subsequently revealed",
+                "that",
+                "the figures",
+                "had been altered."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-impersonal-b2-g04",
+            "author_id": "B2-g04",
+            "question": "It is {a1} that the scheme has limitations.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Загалом визнають, що програма має обмеження.",
+            "target_text": "It is generally acknowledged that the scheme has limitations.",
+            "markers": {
+                "a1": {
+                    "answer": "generally acknowledged",
+                    "options": [
+                        "generally acknowledged",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай загальновизнану теперішню оцінку через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай загальновизнану теперішню оцінку через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is generally acknowledged that the scheme has limitations.",
+                "It is generally recognised that the scheme has limitations.",
+                "It is generally recognized that the scheme has limitations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "generally recognised",
+                    "generally recognized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "generally recognised",
+                    "generally recognized"
+                ]
+            },
+            "reorder_groups": [
+                "It is",
+                "generally acknowledged",
+                "that",
+                "the scheme",
+                "has limitations."
+            ],
+            "token_groups": [
+                "It is",
+                "generally acknowledged",
+                "that",
+                "the scheme",
+                "has limitations."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-impersonal-b2-g05",
+            "author_id": "B2-g05",
+            "question": "It had been {a1} that demand would fall sharply.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Раніше прогнозували, що попит різко впаде.",
+            "target_text": "It had been predicted that demand would fall sharply.",
+            "markers": {
+                "a1": {
+                    "answer": "predicted",
+                    "options": [
+                        "predicted",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай прогноз, зроблений раніше за іншу минулу подію, через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай прогноз, зроблений раніше за іншу минулу подію, через безособовий пасив.",
+            "accepted_target_texts": [
+                "It had been predicted that demand would fall sharply."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It had been",
+                "predicted",
+                "that",
+                "demand",
+                "would fall sharply."
+            ],
+            "token_groups": [
+                "It had been",
+                "predicted",
+                "that",
+                "demand",
+                "would fall sharply."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-impersonal-b2-g06",
+            "author_id": "B2-g06",
+            "question": "It remains {a1} whether the intervention was justified.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Досі тривають суперечки, чи було втручання виправданим.",
+            "target_text": "It remains disputed whether the intervention was justified.",
+            "markers": {
+                "a1": {
+                    "answer": "disputed",
+                    "options": [
+                        "disputed",
+                        "unclear",
+                        "unknown"
+                    ],
+                    "verb_hint": "Передай безособове збереження спірності; не замінюй непряме питання твердженням."
+                }
+            },
+            "verb_hint": "Передай безособове збереження спірності; не замінюй непряме питання твердженням.",
+            "accepted_target_texts": [
+                "It remains disputed whether the intervention was justified."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It remains",
+                "disputed",
+                "whether",
+                "the intervention",
+                "was justified."
+            ],
+            "token_groups": [
+                "It remains",
+                "disputed",
+                "whether",
+                "the intervention",
+                "was justified."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-impersonal-c1-g01",
+            "author_id": "C1-g01",
+            "question": "It has been {a1} that the signature predates the amendment.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Незалежно підтверджено, що підпис передує зміні документа.",
+            "target_text": "It has been independently verified that the signature predates the amendment.",
+            "markers": {
+                "a1": {
+                    "answer": "independently verified",
+                    "options": [
+                        "independently verified",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай незалежне підтвердження з теперішнім результатом у безособовому пасиві."
+                }
+            },
+            "verb_hint": "Передай незалежне підтвердження з теперішнім результатом у безособовому пасиві.",
+            "accepted_target_texts": [
+                "It has been independently verified that the signature predates the amendment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "independently verified",
+                "that",
+                "the signature",
+                "predates the amendment."
+            ],
+            "token_groups": [
+                "It has been",
+                "independently verified",
+                "that",
+                "the signature",
+                "predates the amendment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-impersonal-c1-g02",
+            "author_id": "C1-g02",
+            "question": "It is {a1} that dissent will not be welcomed.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Мовчазно вважають зрозумілим, що незгоду не вітатимуть.",
+            "target_text": "It is tacitly understood that dissent will not be welcomed.",
+            "markers": {
+                "a1": {
+                    "answer": "tacitly understood",
+                    "options": [
+                        "tacitly understood",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай мовчазне теперішнє розуміння через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай мовчазне теперішнє розуміння через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is tacitly understood that dissent will not be welcomed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "tacitly understood",
+                "that",
+                "dissent",
+                "will not be",
+                "welcomed."
+            ],
+            "token_groups": [
+                "It is",
+                "tacitly understood",
+                "that",
+                "dissent",
+                "will not be",
+                "welcomed."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-impersonal-c1-g03",
+            "author_id": "C1-g03",
+            "question": "It was {a1} that the failure arose from metal fatigue.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Попередньо дійшли висновку, що збій спричинила втома металу.",
+            "target_text": "It was provisionally concluded that the failure arose from metal fatigue.",
+            "markers": {
+                "a1": {
+                    "answer": "provisionally concluded",
+                    "options": [
+                        "provisionally concluded",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай попередній минулий висновок через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай попередній минулий висновок через безособовий пасив.",
+            "accepted_target_texts": [
+                "It was provisionally concluded that the failure arose from metal fatigue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "provisionally concluded",
+                "that",
+                "the failure",
+                "arose",
+                "from metal fatigue."
+            ],
+            "token_groups": [
+                "It was",
+                "provisionally concluded",
+                "that",
+                "the failure",
+                "arose",
+                "from metal fatigue."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-impersonal-c1-g04",
+            "author_id": "C1-g04",
+            "question": "It had long been {a1} that the safeguards were inadequate.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Ще задовго до того визнавали, що гарантії недостатні.",
+            "target_text": "It had long been recognised that the safeguards were inadequate.",
+            "markers": {
+                "a1": {
+                    "answer": "recognised",
+                    "options": [
+                        "recognised",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай давніше визнання через безособовий минулий перфектний пасив."
+                }
+            },
+            "verb_hint": "Передай давніше визнання через безособовий минулий перфектний пасив.",
+            "accepted_target_texts": [
+                "It had long been recognised that the safeguards were inadequate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It had",
+                "long been recognised",
+                "that",
+                "the safeguards",
+                "were inadequate."
+            ],
+            "token_groups": [
+                "It had",
+                "long been recognised",
+                "that",
+                "the safeguards",
+                "were inadequate."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-impersonal-c1-g05",
+            "author_id": "C1-g05",
+            "question": "It is {a1} that the deficit will narrow next year.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Впевнено прогнозують, що дефіцит скоротиться наступного року.",
+            "target_text": "It is confidently predicted that the deficit will narrow next year.",
+            "markers": {
+                "a1": {
+                    "answer": "confidently predicted",
+                    "options": [
+                        "confidently predicted",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай впевнений поточний прогноз через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай впевнений поточний прогноз через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is confidently predicted that the deficit will narrow next year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "confidently predicted",
+                "that",
+                "the deficit",
+                "will narrow",
+                "next year."
+            ],
+            "token_groups": [
+                "It is",
+                "confidently predicted",
+                "that",
+                "the deficit",
+                "will narrow",
+                "next year."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-impersonal-c1-g06",
+            "author_id": "C1-g06",
+            "question": "It has been {a1} that the distinction is artificial.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Переконливо обґрунтовано, що відмінність штучна.",
+            "target_text": "It has been persuasively argued that the distinction is artificial.",
+            "markers": {
+                "a1": {
+                    "answer": "persuasively argued",
+                    "options": [
+                        "persuasively argued",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай переконливе обґрунтування з теперішнім результатом у безособовому пасиві."
+                }
+            },
+            "verb_hint": "Передай переконливе обґрунтування з теперішнім результатом у безособовому пасиві.",
+            "accepted_target_texts": [
+                "It has been persuasively argued that the distinction is artificial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "persuasively argued",
+                "that",
+                "the distinction",
+                "is artificial."
+            ],
+            "token_groups": [
+                "It has been",
+                "persuasively argued",
+                "that",
+                "the distinction",
+                "is artificial."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-impersonal-c2-g01",
+            "author_id": "C2-g01",
+            "question": "It has been {a1} that the purported waiver was ineffective.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Авторитетно встановлено, що нібито відмова від права не мала сили.",
+            "target_text": "It has been authoritatively established that the purported waiver was ineffective.",
+            "markers": {
+                "a1": {
+                    "answer": "authoritatively established",
+                    "options": [
+                        "authoritatively established",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай авторитетне встановлення з теперішнім результатом у безособовому пасиві."
+                }
+            },
+            "verb_hint": "Передай авторитетне встановлення з теперішнім результатом у безособовому пасиві.",
+            "accepted_target_texts": [
+                "It has been authoritatively established that the purported waiver was ineffective."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "authoritatively established",
+                "that",
+                "the purported waiver",
+                "was ineffective."
+            ],
+            "token_groups": [
+                "It has been",
+                "authoritatively established",
+                "that",
+                "the purported waiver",
+                "was ineffective."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-impersonal-c2-g02",
+            "author_id": "C2-g02",
+            "question": "It is {a1} that the dichotomy obscures more than it clarifies.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Дедалі частіше стверджують, що цей поділ більше приховує, ніж пояснює.",
+            "target_text": "It is increasingly contended that the dichotomy obscures more than it clarifies.",
+            "markers": {
+                "a1": {
+                    "answer": "increasingly contended",
+                    "options": [
+                        "increasingly contended",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай поточне твердження, поширеність якого зростає, через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай поточне твердження, поширеність якого зростає, через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is increasingly contended that the dichotomy obscures more than it clarifies."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "increasingly contended",
+                "that",
+                "the dichotomy",
+                "obscures",
+                "more than",
+                "it clarifies."
+            ],
+            "token_groups": [
+                "It is",
+                "increasingly contended",
+                "that",
+                "the dichotomy",
+                "obscures",
+                "more than",
+                "it clarifies."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-impersonal-c2-g03",
+            "author_id": "C2-g03",
+            "question": "It was {a1} that the preliminary assurances had been misleading.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Із запізненням визнали, що попередні запевнення були оманливими.",
+            "target_text": "It was belatedly acknowledged that the preliminary assurances had been misleading.",
+            "markers": {
+                "a1": {
+                    "answer": "belatedly acknowledged",
+                    "options": [
+                        "belatedly acknowledged",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай запізніле минуле визнання через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай запізніле минуле визнання через безособовий пасив.",
+            "accepted_target_texts": [
+                "It was belatedly acknowledged that the preliminary assurances had been misleading."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "belatedly acknowledged",
+                "that",
+                "the preliminary assurances",
+                "had been misleading."
+            ],
+            "token_groups": [
+                "It was",
+                "belatedly acknowledged",
+                "that",
+                "the preliminary assurances",
+                "had been misleading."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-impersonal-c2-g04",
+            "author_id": "C2-g04",
+            "question": "It had hitherto been {a1} that the exemption extended to indirect holdings.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Доти припускали, що звільнення поширюється на непрямі володіння.",
+            "target_text": "It had hitherto been presumed that the exemption extended to indirect holdings.",
+            "markers": {
+                "a1": {
+                    "answer": "presumed",
+                    "options": [
+                        "presumed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай попереднє припущення зі значенням «доти» у безособовому минулому перфектному пасиві."
+                }
+            },
+            "verb_hint": "Передай попереднє припущення зі значенням «доти» у безособовому минулому перфектному пасиві.",
+            "accepted_target_texts": [
+                "It had hitherto been presumed that the exemption extended to indirect holdings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It had",
+                "hitherto been presumed",
+                "that",
+                "the exemption",
+                "extended",
+                "to indirect holdings."
+            ],
+            "token_groups": [
+                "It had",
+                "hitherto been presumed",
+                "that",
+                "the exemption",
+                "extended",
+                "to indirect holdings."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-impersonal-c2-g05",
+            "author_id": "C2-g05",
+            "question": "It is {a1} that the apparent correlation was spurious.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Тепер беззаперечно показано, що видимий взаємозв'язок був хибним.",
+            "target_text": "It is now incontrovertibly demonstrated that the apparent correlation was spurious.",
+            "markers": {
+                "a1": {
+                    "answer": "now incontrovertibly demonstrated",
+                    "options": [
+                        "now incontrovertibly demonstrated",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай теперішнє беззаперечне демонстрування через безособовий пасив."
+                }
+            },
+            "verb_hint": "Передай теперішнє беззаперечне демонстрування через безособовий пасив.",
+            "accepted_target_texts": [
+                "It is now incontrovertibly demonstrated that the apparent correlation was spurious."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "now incontrovertibly demonstrated",
+                "that",
+                "the apparent correlation",
+                "was spurious."
+            ],
+            "token_groups": [
+                "It is",
+                "now incontrovertibly demonstrated",
+                "that",
+                "the apparent correlation",
+                "was spurious."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-impersonal-c2-g06",
+            "author_id": "C2-g06",
+            "question": "It has been {a1} that procedural regularity does not guarantee substantive fairness.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_impersonal",
+            "translation_uk": "Переконливо зауважено, що процедурна правильність не гарантує справедливості по суті.",
+            "target_text": "It has been cogently observed that procedural regularity does not guarantee substantive fairness.",
+            "markers": {
+                "a1": {
+                    "answer": "cogently observed",
+                    "options": [
+                        "cogently observed",
+                        "reported",
+                        "believed"
+                    ],
+                    "verb_hint": "Передай переконливе зауваження з теперішнім результатом у безособовому пасиві."
+                }
+            },
+            "verb_hint": "Передай переконливе зауваження з теперішнім результатом у безособовому пасиві.",
+            "accepted_target_texts": [
+                "It has been cogently observed that procedural regularity does not guarantee substantive fairness."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It has been",
+                "cogently observed",
+                "that",
+                "procedural regularity",
+                "does not guarantee",
+                "substantive fairness."
+            ],
+            "token_groups": [
+                "It has been",
+                "cogently observed",
+                "that",
+                "procedural regularity",
+                "does not guarantee",
+                "substantive fairness."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

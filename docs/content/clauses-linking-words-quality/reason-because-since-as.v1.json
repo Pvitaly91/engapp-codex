@@ -1,0 +1,683 @@
+{
+    "schema_version": 1,
+    "topic_key": "reason-because-since-as",
+    "title": "Reason: because / since / as",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I drink water {a1} I am thirsty.",
+            "target": "I drink water because I am thirsty.",
+            "uk": "Я п’ю воду, бо хочу пити.",
+            "hint_uk": "Бо хочу пити; пропуск з’єднує дію з її причиною, а не наслідком.",
+            "groups": [
+                "I drink water",
+                "because",
+                "I am thirsty."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "so",
+                "but"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Nora takes a coat {a1} it is cold.",
+            "target": "Nora takes a coat because it is cold.",
+            "uk": "Нора бере пальто, бо холодно.",
+            "hint_uk": "Бо холодно; назви причину того, що дівчинка бере пальто.",
+            "groups": [
+                "Nora",
+                "takes a coat",
+                "because",
+                "it is cold."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "therefore",
+                "although"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Я йду додому, тому що я втомлений.",
+            "target": "I am going home because I am tired.",
+            "uk": "Я йду додому, тому що я втомлений.",
+            "hint_uk": "Почни з дії; далі передай втому як її причину.",
+            "groups": [
+                "I am going",
+                "home",
+                "because",
+                "I am tired."
+            ],
+            "compose_slots": [
+                "I am going",
+                "home",
+                "because",
+                "I am tired."
+            ],
+            "slot_roles": [
+                "verb_phrase",
+                "adverbial_phrase",
+                "connector_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "I am going home since I am tired.",
+                "I am going home as I am tired."
+            ],
+            "display_synonyms": {
+                "because": [
+                    "since",
+                    "as"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "We ate indoors {a1} the garden was wet.",
+            "target": "We ate indoors because the garden was wet.",
+            "uk": "Ми їли в приміщенні, бо сад був мокрий.",
+            "hint_uk": "Бо сад був мокрий; після пропуску наведено цілу частину з підметом і дієсловом.",
+            "groups": [
+                "We ate indoors",
+                "because",
+                "the garden",
+                "was wet."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "despite"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The shop closed early {a1} the owner was ill.",
+            "target": "The shop closed early as the owner was ill.",
+            "uk": "Крамниця зачинилася рано, оскільки власник був хворий.",
+            "hint_uk": "Оскільки власник був хворий; потрібен причинний сполучник перед цілою частиною.",
+            "groups": [
+                "The shop",
+                "closed early",
+                "as",
+                "the owner",
+                "was ill."
+            ],
+            "answer": "as",
+            "options": [
+                "as",
+                "as a result",
+                "in spite of"
+            ],
+            "answer_synonyms": [
+                "because",
+                "since"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Ми викликали таксі, тому що останній автобус уже поїхав.",
+            "target": "We called a taxi because the last bus had left.",
+            "uk": "Ми викликали таксі, тому що останній автобус уже поїхав.",
+            "hint_uk": "Спочатку передай виклик таксі, потім попередню причину.",
+            "groups": [
+                "We called",
+                "a taxi",
+                "because",
+                "the last bus",
+                "had left."
+            ],
+            "compose_slots": [
+                "We called",
+                "a taxi",
+                "because",
+                "the last bus",
+                "had left."
+            ],
+            "slot_roles": [
+                "verb_phrase",
+                "noun_phrase",
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "We called a taxi since the last bus had left.",
+                "We called a taxi as the last bus had left."
+            ],
+            "display_synonyms": {
+                "because": [
+                    "since",
+                    "as"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "{a1} the footbridge was unsafe, the walkers used the road.",
+            "target": "Since the footbridge was unsafe, the walkers used the road.",
+            "uk": "Оскільки пішохідний міст був небезпечний, мандрівники пішли дорогою.",
+            "hint_uk": "Оскільки міст був небезпечний; початкова частина називає причину вибору дороги.",
+            "groups": [
+                "Since",
+                "the footbridge",
+                "was unsafe,",
+                "the walkers",
+                "used the road."
+            ],
+            "answer": "Since",
+            "options": [
+                "Since",
+                "Despite",
+                "Therefore"
+            ],
+            "answer_synonyms": [
+                "Because",
+                "As"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The match was delayed {a1} the pitch had frozen overnight.",
+            "target": "The match was delayed because the pitch had frozen overnight.",
+            "uk": "Матч відклали, бо за ніч поле замерзло.",
+            "hint_uk": "Бо поле замерзло; перед повною частиною потрібен сполучник причини.",
+            "groups": [
+                "The match",
+                "was delayed",
+                "because",
+                "the pitch",
+                "had frozen",
+                "overnight."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "owing to",
+                "however"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Оскільки всі вже прочитали листа, голова почав обговорення.",
+            "target": "Since everyone had read the letter, the chair opened the discussion.",
+            "uk": "Оскільки всі вже прочитали листа, голова почав обговорення.",
+            "hint_uk": "Постав причину на початок; збережи прочитання перед початком обговорення.",
+            "groups": [
+                "Since",
+                "everyone",
+                "had read",
+                "the letter,",
+                "the chair",
+                "opened",
+                "the discussion."
+            ],
+            "compose_slots": [
+                "Since",
+                "everyone",
+                "had read",
+                "the letter,",
+                "the chair",
+                "opened",
+                "the discussion."
+            ],
+            "slot_roles": [
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Because everyone had read the letter, the chair opened the discussion.",
+                "As everyone had read the letter, the chair opened the discussion."
+            ],
+            "display_synonyms": {
+                "Since": [
+                    "Because",
+                    "As"
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The panel withheld approval {a1} key measurements could not be reproduced.",
+            "target": "The panel withheld approval because key measurements could not be reproduced.",
+            "uk": "Колегія не надала схвалення, бо ключові вимірювання не вдалося відтворити.",
+            "hint_uk": "Бо вимірювання не відтворили; причина представлена цілою частиною, а не іменною групою.",
+            "groups": [
+                "The panel",
+                "withheld approval",
+                "because",
+                "key measurements",
+                "could not",
+                "be reproduced."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "because of",
+                "nevertheless"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "{a1} no independent witness was available, the account remained uncorroborated.",
+            "target": "As no independent witness was available, the account remained uncorroborated.",
+            "uk": "Оскільки незалежного свідка не було, виклад залишився без підтвердження.",
+            "hint_uk": "Оскільки свідка не було; вступна частина обґрунтовує відсутність підтвердження.",
+            "groups": [
+                "As",
+                "no independent witness",
+                "was available,",
+                "the account",
+                "remained uncorroborated."
+            ],
+            "answer": "As",
+            "options": [
+                "As",
+                "Despite",
+                "Consequently"
+            ],
+            "answer_synonyms": [
+                "Because",
+                "Since"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Редакція відклала публікацію, бо джерело попросило залишитися анонімним.",
+            "target": "The editors postponed publication because the source requested anonymity.",
+            "uk": "Редакція відклала публікацію, бо джерело попросило залишитися анонімним.",
+            "hint_uk": "Почни з рішення редакції та збережи прохання джерела як його причину.",
+            "groups": [
+                "The editors",
+                "postponed",
+                "publication",
+                "because",
+                "the source",
+                "requested anonymity."
+            ],
+            "compose_slots": [
+                "The editors",
+                "postponed",
+                "publication",
+                "because",
+                "the source",
+                "requested anonymity."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [
+                "The editors postponed publication since the source requested anonymity.",
+                "The editors postponed publication as the source requested anonymity.",
+                "The editors delayed publication because the source requested anonymity.",
+                "The editors delayed publication since the source requested anonymity.",
+                "The editors delayed publication as the source requested anonymity."
+            ],
+            "display_synonyms": {
+                "because": [
+                    "since",
+                    "as"
+                ],
+                "postponed": [
+                    "delayed"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The inference is premature {a1} the sample excludes transient residents.",
+            "target": "The inference is premature because the sample excludes transient residents.",
+            "uk": "Висновок передчасний, оскільки вибірка не охоплює тимчасових мешканців.",
+            "hint_uk": "Оскільки вибірка виключає частину мешканців; передай підставу оцінки висновку.",
+            "groups": [
+                "The inference",
+                "is premature",
+                "because",
+                "the sample",
+                "excludes",
+                "transient residents."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "notwithstanding",
+                "thereby"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "{a1} the concession was conditional, it did not settle the wider dispute.",
+            "target": "Since the concession was conditional, it did not settle the wider dispute.",
+            "uk": "Оскільки поступка була умовною, вона не владнала ширшої суперечки.",
+            "hint_uk": "Оскільки поступка мала умову; причинний зв’язок уже задано, не підмінюй його простим зіставленням.",
+            "groups": [
+                "Since",
+                "the concession",
+                "was conditional,",
+                "it did not",
+                "settle",
+                "the wider dispute."
+            ],
+            "answer": "Since",
+            "options": [
+                "Since",
+                "Whereas",
+                "Therefore"
+            ],
+            "answer_synonyms": [
+                "Because",
+                "As"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Оскільки підсумок не враховує відсутніх записів, його слід вважати попереднім.",
+            "target": "Since the total excludes missing records, it should be treated as provisional.",
+            "uk": "Оскільки підсумок не враховує відсутніх записів, його слід вважати попереднім.",
+            "hint_uk": "Постав обмеження даних на початок як причину обережної оцінки підсумку.",
+            "groups": [
+                "Since",
+                "the total",
+                "excludes",
+                "missing records,",
+                "it should",
+                "be treated as",
+                "provisional."
+            ],
+            "compose_slots": [
+                "Since",
+                "the total",
+                "excludes",
+                "missing records,",
+                "it should",
+                "be treated as",
+                "provisional."
+            ],
+            "slot_roles": [
+                "connector_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Because the total excludes missing records, it should be treated as provisional.",
+                "As the total excludes missing records, it should be treated as provisional."
+            ],
+            "display_synonyms": {
+                "Since": [
+                    "Because",
+                    "As"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The exception cannot bear that interpretation {a1} its wording expressly limits its scope.",
+            "target": "The exception cannot bear that interpretation because its wording expressly limits its scope.",
+            "uk": "Виняток не допускає такого тлумачення, бо його формулювання прямо обмежує сферу дії.",
+            "hint_uk": "Бо формулювання встановлює межу; зв’яжи правову оцінку з її текстовою підставою.",
+            "groups": [
+                "The exception",
+                "cannot bear",
+                "that interpretation",
+                "because",
+                "its wording",
+                "expressly limits",
+                "its scope."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "irrespective of",
+                "hence"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "{a1} the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+            "target": "As the alleged analogy presupposes the disputed premise, it supplies no independent support.",
+            "uk": "Оскільки заявлена аналогія передбачає спірну передумову, вона не дає незалежного підтвердження.",
+            "hint_uk": "Оскільки аналогія вже спирається на спірне; причина пояснює брак незалежного підтвердження.",
+            "groups": [
+                "As",
+                "the alleged analogy",
+                "presupposes",
+                "the disputed premise,",
+                "it supplies",
+                "no independent support."
+            ],
+            "answer": "As",
+            "options": [
+                "As",
+                "Notwithstanding",
+                "Thus"
+            ],
+            "answer_synonyms": [
+                "Because",
+                "Since"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Суд відхилив аналогію, оскільки вона приховувала суттєву відмінність.",
+            "target": "The court rejected the analogy because it obscured a material distinction.",
+            "uk": "Суд відхилив аналогію, оскільки вона приховувала суттєву відмінність.",
+            "hint_uk": "Почни з судового рішення; далі передай приховану відмінність як його причину.",
+            "groups": [
+                "The court",
+                "rejected",
+                "the analogy",
+                "because",
+                "it obscured",
+                "a material distinction."
+            ],
+            "compose_slots": [
+                "The court",
+                "rejected",
+                "the analogy",
+                "because",
+                "it obscured",
+                "a material distinction."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase",
+                "connector_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "The court rejected the analogy since it obscured a material distinction.",
+                "The court rejected the analogy as it obscured a material distinction."
+            ],
+            "display_synonyms": {
+                "because": [
+                    "since",
+                    "as"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,5098 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/alternative.v1.json",
+        "sha256": "33212b313dba62634beb82ef41ad1b492abe0b9743610bc387552403585d0413"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAlternativeQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-alternative-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_alternative": {
+            "name": "Questions and Negations Quality: Alternative Questions"
+        }
+    },
+    "tags": {
+        "polyglot_alternative_questions": {
+            "name": "Alternative Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "choice_between_options": {
+            "name": "Choice Between Options",
+            "category": "topic"
+        },
+        "or_questions": {
+            "name": "Or In Questions",
+            "category": "topic"
+        },
+        "tea_or_coffee": {
+            "name": "Tea Or Coffee",
+            "category": "topic"
+        },
+        "do_you_want_a_or_b": {
+            "name": "Do You Want A Or B",
+            "category": "topic"
+        },
+        "transport_alternative": {
+            "name": "Transport Alternative",
+            "category": "topic"
+        },
+        "alternative_vs_yes_no": {
+            "name": "Alternative Vs Yes No",
+            "category": "topic"
+        },
+        "answer_with_option": {
+            "name": "Answer With Option",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_alternative_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-alternative-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ти хочеш молоко чи воду?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти хочеш молоко чи воду?",
+            "target_text": "Do you want milk or water?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "Do",
+                        "Haven't",
+                        "Hasn't",
+                        "Hadn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "want",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "want",
+                        "bring",
+                        "take",
+                        "read"
+                    ]
+                },
+                "a4": {
+                    "answer": "milk",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "milk",
+                        "salt",
+                        "butter",
+                        "honey"
+                    ]
+                },
+                "a5": {
+                    "answer": "or",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "or",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a6": {
+                    "answer": "water?",
+                    "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+                    "options": [
+                        "water",
+                        "bread",
+                        "rice",
+                        "cheese"
+                    ]
+                }
+            },
+            "verb_hint": "Склади запит про вибір напою, не коротку відповідь про згоду.",
+            "accepted_target_texts": [
+                "Do you want milk or water?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do",
+                "you want",
+                "milk or water?"
+            ],
+            "token_groups": [
+                "Do",
+                "you want",
+                "milk or water?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "want",
+                "milk",
+                "or",
+                "water?"
+            ],
+            "options": [
+                "Do",
+                "Haven't",
+                "Hasn't",
+                "Hadn't",
+                "you",
+                "he",
+                "she",
+                "it",
+                "want",
+                "bring",
+                "take",
+                "read",
+                "milk",
+                "salt",
+                "butter",
+                "honey",
+                "or",
+                "while",
+                "if",
+                "whether",
+                "water",
+                "bread",
+                "rice",
+                "cheese"
+            ],
+            "source_text_uk": "Ти хочеш молоко чи воду?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Haven't",
+                    "Hasn't",
+                    "Hadn't"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "want",
+                    "bring",
+                    "take",
+                    "read"
+                ],
+                "a4": [
+                    "milk",
+                    "salt",
+                    "butter",
+                    "honey"
+                ],
+                "a5": [
+                    "or",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a6": [
+                    "water",
+                    "bread",
+                    "rice",
+                    "cheese"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-alternative-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Її сумка біла чи коричнева?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Її сумка біла чи коричнева?",
+            "target_text": "Is her bag white or brown?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are",
+                        "Was"
+                    ]
+                },
+                "a2": {
+                    "answer": "her",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "her",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a3": {
+                    "answer": "bag",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "bag",
+                        "parcel",
+                        "director",
+                        "interpreter"
+                    ]
+                },
+                "a4": {
+                    "answer": "white",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "white",
+                        "blue",
+                        "green",
+                        "black"
+                    ]
+                },
+                "a5": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "or",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a6": {
+                    "answer": "brown?",
+                    "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+                    "options": [
+                        "brown",
+                        "gray",
+                        "purple",
+                        "orange"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про одну з двох ознак однієї речі.",
+            "accepted_target_texts": [
+                "Is her bag white or brown?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "her bag",
+                "white or brown?"
+            ],
+            "token_groups": [
+                "Is",
+                "her bag",
+                "white or brown?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Is",
+                "her",
+                "bag",
+                "white",
+                "or",
+                "brown?"
+            ],
+            "options": [
+                "Is",
+                "Am",
+                "Are",
+                "Was",
+                "her",
+                "my",
+                "your",
+                "his",
+                "bag",
+                "parcel",
+                "director",
+                "interpreter",
+                "white",
+                "blue",
+                "green",
+                "black",
+                "or",
+                "if",
+                "whether",
+                "and",
+                "brown",
+                "gray",
+                "purple",
+                "orange"
+            ],
+            "source_text_uk": "Її сумка біла чи коричнева?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Am",
+                    "Are",
+                    "Was"
+                ],
+                "a2": [
+                    "her",
+                    "my",
+                    "your",
+                    "his"
+                ],
+                "a3": [
+                    "bag",
+                    "parcel",
+                    "director",
+                    "interpreter"
+                ],
+                "a4": [
+                    "white",
+                    "blue",
+                    "green",
+                    "black"
+                ],
+                "a5": [
+                    "or",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a6": [
+                    "brown",
+                    "gray",
+                    "purple",
+                    "orange"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "adjective",
+                "a5": "adjective",
+                "a6": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-alternative-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ви живете в місті чи в селі?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ви живете в місті чи в селі?",
+            "target_text": "Do you live in a city or in a village?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "Do",
+                        "Doesn't",
+                        "Didn't",
+                        "Have"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "live",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "live",
+                        "heavy",
+                        "light",
+                        "clean"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "in",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "city",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "city",
+                        "notice",
+                        "deadline",
+                        "station"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "or",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a8": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "in",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "any"
+                    ]
+                },
+                "a10": {
+                    "answer": "village?",
+                    "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+                    "options": [
+                        "village",
+                        "care",
+                        "review",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про вибір між двома типами місця; повтори прийменник перед другим.",
+            "accepted_target_texts": [
+                "Do you live in a city or in a village?",
+                "Do you live in a town or in a village?"
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "town"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "town"
+                ]
+            },
+            "reorder_groups": [
+                "Do",
+                "you live",
+                "in a city",
+                "or",
+                "in a village?"
+            ],
+            "token_groups": [
+                "Do",
+                "you live",
+                "in a city",
+                "or",
+                "in a village?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Do",
+                "you",
+                "live",
+                "in",
+                "a",
+                "city",
+                "or",
+                "in",
+                "a",
+                "village?"
+            ],
+            "options": [
+                "Do",
+                "Doesn't",
+                "Didn't",
+                "Have",
+                "you",
+                "he",
+                "she",
+                "it",
+                "live",
+                "heavy",
+                "light",
+                "clean",
+                "in",
+                "from",
+                "for",
+                "of",
+                "a",
+                "an",
+                "the",
+                "some",
+                "city",
+                "notice",
+                "deadline",
+                "station",
+                "or",
+                "so",
+                "yet",
+                "because",
+                "on",
+                "at",
+                "by",
+                "all",
+                "both",
+                "any",
+                "village",
+                "care",
+                "review",
+                "week"
+            ],
+            "source_text_uk": "Ви живете в місті чи в селі?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Doesn't",
+                    "Didn't",
+                    "Have"
+                ],
+                "a2": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "live",
+                    "heavy",
+                    "light",
+                    "clean"
+                ],
+                "a4": [
+                    "in",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a6": [
+                    "city",
+                    "notice",
+                    "deadline",
+                    "station"
+                ],
+                "a7": [
+                    "or",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a8": [
+                    "in",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a9": [
+                    "a",
+                    "all",
+                    "both",
+                    "any"
+                ],
+                "a10": [
+                    "village",
+                    "care",
+                    "review",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "adjunct",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "linker",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-alternative-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ти надіслав листа чи зателефонував їй?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти надіслав листа чи зателефонував їй?",
+            "target_text": "Did you send a letter or call her?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "Did",
+                        "Haven't",
+                        "Hasn't",
+                        "Hadn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "you",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a3": {
+                    "answer": "send",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "send",
+                        "select",
+                        "prefer",
+                        "one"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "letter",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "letter",
+                        "notebook",
+                        "folder",
+                        "newspaper"
+                    ]
+                },
+                "a6": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "or",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a7": {
+                    "answer": "call",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "call",
+                        "leave",
+                        "make",
+                        "get"
+                    ]
+                },
+                "a8": {
+                    "answer": "her?",
+                    "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "her",
+                        "your",
+                        "his",
+                        "its"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про вибір між двома минулими діями; допоміжне дієслово постав один раз.",
+            "accepted_target_texts": [
+                "Did you send a letter or call her?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did",
+                "you send",
+                "a letter",
+                "or",
+                "call her?"
+            ],
+            "token_groups": [
+                "Did",
+                "you send",
+                "a letter",
+                "or",
+                "call her?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Did",
+                "you",
+                "send",
+                "a",
+                "letter",
+                "or",
+                "call",
+                "her?"
+            ],
+            "options": [
+                "Did",
+                "Haven't",
+                "Hasn't",
+                "Hadn't",
+                "you",
+                "me",
+                "him",
+                "us",
+                "send",
+                "select",
+                "prefer",
+                "one",
+                "a",
+                "the",
+                "some",
+                "any",
+                "letter",
+                "notebook",
+                "folder",
+                "newspaper",
+                "or",
+                "whether",
+                "and",
+                "but",
+                "call",
+                "leave",
+                "make",
+                "get",
+                "her",
+                "your",
+                "his",
+                "its"
+            ],
+            "source_text_uk": "Ти надіслав листа чи зателефонував їй?",
+            "options_by_marker": {
+                "a1": [
+                    "Did",
+                    "Haven't",
+                    "Hasn't",
+                    "Hadn't"
+                ],
+                "a2": [
+                    "you",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a3": [
+                    "send",
+                    "select",
+                    "prefer",
+                    "one"
+                ],
+                "a4": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "letter",
+                    "notebook",
+                    "folder",
+                    "newspaper"
+                ],
+                "a6": [
+                    "or",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a7": [
+                    "call",
+                    "leave",
+                    "make",
+                    "get"
+                ],
+                "a8": [
+                    "her",
+                    "your",
+                    "his",
+                    "its"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "linker",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-alternative-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ми вирушимо вранці чи після обіду?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ми вирушимо вранці чи після обіду?",
+            "target_text": "Will we leave in the morning or after lunch?",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "Will",
+                        "Cannot",
+                        "Can",
+                        "Could"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "we",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                },
+                "a3": {
+                    "answer": "leave",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "leave",
+                        "call",
+                        "buy",
+                        "give"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "morning",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "morning",
+                        "day",
+                        "week",
+                        "month"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "or",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a8": {
+                    "answer": "after",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "after",
+                        "before",
+                        "on",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "lunch?",
+                    "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+                    "options": [
+                        "lunch",
+                        "Saturday",
+                        "permission",
+                        "dinner"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про два можливі моменти майбутнього від’їзду.",
+            "accepted_target_texts": [
+                "Will we leave in the morning or after lunch?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will",
+                "we leave",
+                "in the morning",
+                "or",
+                "after lunch?"
+            ],
+            "token_groups": [
+                "Will",
+                "we leave",
+                "in the morning",
+                "or",
+                "after lunch?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Will",
+                "we",
+                "leave",
+                "in",
+                "the",
+                "morning",
+                "or",
+                "after",
+                "lunch?"
+            ],
+            "options": [
+                "Will",
+                "Cannot",
+                "Can",
+                "Could",
+                "we",
+                "he",
+                "she",
+                "it",
+                "leave",
+                "call",
+                "buy",
+                "give",
+                "in",
+                "over",
+                "under",
+                "through",
+                "the",
+                "some",
+                "any",
+                "this",
+                "morning",
+                "day",
+                "week",
+                "month",
+                "or",
+                "nor",
+                "so",
+                "yet",
+                "after",
+                "before",
+                "on",
+                "without",
+                "lunch",
+                "Saturday",
+                "permission",
+                "dinner"
+            ],
+            "source_text_uk": "Ми вирушимо вранці чи після обіду?",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "Cannot",
+                    "Can",
+                    "Could"
+                ],
+                "a2": [
+                    "we",
+                    "he",
+                    "she",
+                    "it"
+                ],
+                "a3": [
+                    "leave",
+                    "call",
+                    "buy",
+                    "give"
+                ],
+                "a4": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "morning",
+                    "day",
+                    "week",
+                    "month"
+                ],
+                "a7": [
+                    "or",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a8": [
+                    "after",
+                    "before",
+                    "on",
+                    "without"
+                ],
+                "a9": [
+                    "lunch",
+                    "Saturday",
+                    "permission",
+                    "dinner"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "adjunct",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "linker",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-alternative-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Їм потрібен великий стіл чи маленький?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Їм потрібен великий стіл чи маленький?",
+            "target_text": "Do they need a large table or a small one?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "Do",
+                        "Had",
+                        "Haven't",
+                        "Hasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "they",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "they",
+                        "him",
+                        "us",
+                        "them"
+                    ]
+                },
+                "a3": {
+                    "answer": "need",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "need",
+                        "delivered",
+                        "approved",
+                        "revised"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "large",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "large",
+                        "available",
+                        "old",
+                        "clear"
+                    ]
+                },
+                "a6": {
+                    "answer": "table",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "table",
+                        "helpful",
+                        "different",
+                        "simple"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "or",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "a",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a9": {
+                    "answer": "small",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "small",
+                        "final",
+                        "safe",
+                        "useful"
+                    ]
+                },
+                "a10": {
+                    "answer": "one?",
+                    "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+                    "options": [
+                        "one",
+                        "evidence",
+                        "folder",
+                        "hall"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про потрібний розмір; у другій альтернативі не повторюй назву предмета.",
+            "accepted_target_texts": [
+                "Do they need a large table or a small one?",
+                "Do they need a big table or a small one?"
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "big"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "big"
+                ]
+            },
+            "reorder_groups": [
+                "Do",
+                "they need",
+                "a large table",
+                "or",
+                "a small one?"
+            ],
+            "token_groups": [
+                "Do",
+                "they need",
+                "a large table",
+                "or",
+                "a small one?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Do",
+                "they",
+                "need",
+                "a",
+                "large",
+                "table",
+                "or",
+                "a",
+                "small",
+                "one?"
+            ],
+            "options": [
+                "Do",
+                "Had",
+                "Haven't",
+                "Hasn't",
+                "they",
+                "him",
+                "us",
+                "them",
+                "need",
+                "delivered",
+                "approved",
+                "revised",
+                "a",
+                "an",
+                "the",
+                "some",
+                "large",
+                "available",
+                "old",
+                "clear",
+                "table",
+                "helpful",
+                "different",
+                "simple",
+                "or",
+                "though",
+                "unless",
+                "whereas",
+                "each",
+                "every",
+                "no",
+                "small",
+                "final",
+                "safe",
+                "useful",
+                "one",
+                "evidence",
+                "folder",
+                "hall"
+            ],
+            "source_text_uk": "Їм потрібен великий стіл чи маленький?",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Had",
+                    "Haven't",
+                    "Hasn't"
+                ],
+                "a2": [
+                    "they",
+                    "him",
+                    "us",
+                    "them"
+                ],
+                "a3": [
+                    "need",
+                    "delivered",
+                    "approved",
+                    "revised"
+                ],
+                "a4": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a5": [
+                    "large",
+                    "available",
+                    "old",
+                    "clear"
+                ],
+                "a6": [
+                    "table",
+                    "helpful",
+                    "different",
+                    "simple"
+                ],
+                "a7": [
+                    "or",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a8": [
+                    "a",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a9": [
+                    "small",
+                    "final",
+                    "safe",
+                    "useful"
+                ],
+                "a10": [
+                    "one",
+                    "evidence",
+                    "folder",
+                    "hall"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "linker",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-alternative-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ти вже прочитав інструкцію чи просто переглянув малюнки?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ти вже прочитав інструкцію чи просто переглянув малюнки?",
+            "target_text": "Have you already read the instructions or just looked at the pictures?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "Have",
+                        "Does",
+                        "Did",
+                        "Don't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "you",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a3": {
+                    "answer": "already",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "already",
+                        "almost",
+                        "not",
+                        "never"
+                    ]
+                },
+                "a4": {
+                    "answer": "read",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "read",
+                        "take",
+                        "visit",
+                        "cook"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a6": {
+                    "answer": "instructions",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "instructions",
+                        "schools",
+                        "friends",
+                        "dogs"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "or",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a8": {
+                    "answer": "just",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "just",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a9": {
+                    "answer": "looked",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "looked",
+                        "open",
+                        "made",
+                        "wanted"
+                    ]
+                },
+                "a10": {
+                    "answer": "at",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "at",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a12": {
+                    "answer": "pictures?",
+                    "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+                    "options": [
+                        "pictures",
+                        "conditions",
+                        "letters",
+                        "windows"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про два варіанти вже виконаної дії; допоміжне дієслово вжий один раз.",
+            "accepted_target_texts": [
+                "Have you already read the instructions or just looked at the pictures?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "you already",
+                "read the instructions",
+                "or just",
+                "looked",
+                "at the pictures?"
+            ],
+            "token_groups": [
+                "Have",
+                "you already",
+                "read the instructions",
+                "or just",
+                "looked",
+                "at the pictures?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Have",
+                "you",
+                "already",
+                "read",
+                "the",
+                "instructions",
+                "or",
+                "just",
+                "looked",
+                "at",
+                "the",
+                "pictures?"
+            ],
+            "options": [
+                "Have",
+                "Does",
+                "Did",
+                "Don't",
+                "you",
+                "them",
+                "myself",
+                "yourself",
+                "already",
+                "almost",
+                "not",
+                "never",
+                "read",
+                "take",
+                "visit",
+                "cook",
+                "the",
+                "no",
+                "another",
+                "either",
+                "instructions",
+                "schools",
+                "friends",
+                "dogs",
+                "or",
+                "so",
+                "yet",
+                "because",
+                "just",
+                "also",
+                "usually",
+                "rarely",
+                "looked",
+                "open",
+                "made",
+                "wanted",
+                "at",
+                "with",
+                "without",
+                "into",
+                "neither",
+                "all",
+                "both",
+                "pictures",
+                "conditions",
+                "letters",
+                "windows"
+            ],
+            "source_text_uk": "Ти вже прочитав інструкцію чи просто переглянув малюнки?",
+            "options_by_marker": {
+                "a1": [
+                    "Have",
+                    "Does",
+                    "Did",
+                    "Don't"
+                ],
+                "a2": [
+                    "you",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a3": [
+                    "already",
+                    "almost",
+                    "not",
+                    "never"
+                ],
+                "a4": [
+                    "read",
+                    "take",
+                    "visit",
+                    "cook"
+                ],
+                "a5": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a6": [
+                    "instructions",
+                    "schools",
+                    "friends",
+                    "dogs"
+                ],
+                "a7": [
+                    "or",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a8": [
+                    "just",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a9": [
+                    "looked",
+                    "open",
+                    "made",
+                    "wanted"
+                ],
+                "a10": [
+                    "at",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a11": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a12": [
+                    "pictures",
+                    "conditions",
+                    "letters",
+                    "windows"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "linker",
+                "a8": "linker",
+                "a9": "verb_phrase",
+                "a10": "adjunct",
+                "a11": "adjunct",
+                "a12": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-alternative-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Цю каблучку виготовлено із золота чи зі срібла?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Цю каблучку виготовлено із золота чи зі срібла?",
+            "target_text": "Is this ring made of gold or of silver?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Was",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "this",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "ring",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "ring",
+                        "going",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a4": {
+                    "answer": "made",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "made",
+                        "looked",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "gold",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "gold",
+                        "hire",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "or",
+                        "but",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a9": {
+                    "answer": "silver?",
+                    "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+                    "options": [
+                        "silver",
+                        "black",
+                        "white",
+                        "yellow"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про матеріал у пасивній описовій конструкції; у другому варіанті повтори лише прийменник.",
+            "accepted_target_texts": [
+                "Is this ring made of gold or of silver?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "this ring",
+                "made of gold",
+                "or",
+                "of silver?"
+            ],
+            "token_groups": [
+                "Is",
+                "this ring",
+                "made of gold",
+                "or",
+                "of silver?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Is",
+                "this",
+                "ring",
+                "made",
+                "of",
+                "gold",
+                "or",
+                "of",
+                "silver?"
+            ],
+            "options": [
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "this",
+                "the",
+                "some",
+                "any",
+                "ring",
+                "going",
+                "taking",
+                "working",
+                "made",
+                "looked",
+                "needed",
+                "liked",
+                "of",
+                "among",
+                "about",
+                "during",
+                "gold",
+                "hire",
+                "letter",
+                "window",
+                "or",
+                "but",
+                "nor",
+                "so",
+                "to",
+                "from",
+                "for",
+                "silver",
+                "black",
+                "white",
+                "yellow"
+            ],
+            "source_text_uk": "Цю каблучку виготовлено із золота чи зі срібла?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Are",
+                    "Was",
+                    "Were"
+                ],
+                "a2": [
+                    "this",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "ring",
+                    "going",
+                    "taking",
+                    "working"
+                ],
+                "a4": [
+                    "made",
+                    "looked",
+                    "needed",
+                    "liked"
+                ],
+                "a5": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "gold",
+                    "hire",
+                    "letter",
+                    "window"
+                ],
+                "a7": [
+                    "or",
+                    "but",
+                    "nor",
+                    "so"
+                ],
+                "a8": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a9": [
+                    "silver",
+                    "black",
+                    "white",
+                    "yellow"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "linker",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-alternative-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ми поїхали б автобусом чи найняли б човен?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ми поїхали б автобусом чи найняли б човен?",
+            "target_text": "Would we take a bus or hire a boat?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "Would",
+                        "Shouldn't",
+                        "Cannot",
+                        "Can"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "we",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "take",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "take",
+                        "read",
+                        "open",
+                        "close"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "bus",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "bus",
+                        "plane",
+                        "ship",
+                        "bike"
+                    ]
+                },
+                "a6": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "or",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a7": {
+                    "answer": "hire",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "hire",
+                        "select",
+                        "prefer",
+                        "gold"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a9": {
+                    "answer": "boat?",
+                    "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+                    "options": [
+                        "boat",
+                        "train",
+                        "tram",
+                        "taxi"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про уявний вибір транспорту; допоміжне дієслово постав один раз.",
+            "accepted_target_texts": [
+                "Would we take a bus or hire a boat?",
+                "Would we take a bus or rent a boat?"
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "rent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "rent"
+                ]
+            },
+            "reorder_groups": [
+                "Would",
+                "we take",
+                "a bus",
+                "or hire",
+                "a boat?"
+            ],
+            "token_groups": [
+                "Would",
+                "we take",
+                "a bus",
+                "or hire",
+                "a boat?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "we",
+                "take",
+                "a",
+                "bus",
+                "or",
+                "hire",
+                "a",
+                "boat?"
+            ],
+            "options": [
+                "Would",
+                "Shouldn't",
+                "Cannot",
+                "Can",
+                "we",
+                "herself",
+                "ourselves",
+                "themselves",
+                "take",
+                "read",
+                "open",
+                "close",
+                "a",
+                "every",
+                "no",
+                "another",
+                "bus",
+                "plane",
+                "ship",
+                "bike",
+                "or",
+                "while",
+                "if",
+                "whether",
+                "hire",
+                "select",
+                "prefer",
+                "gold",
+                "either",
+                "neither",
+                "all",
+                "boat",
+                "train",
+                "tram",
+                "taxi"
+            ],
+            "source_text_uk": "Ми поїхали б автобусом чи найняли б човен?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Shouldn't",
+                    "Cannot",
+                    "Can"
+                ],
+                "a2": [
+                    "we",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a3": [
+                    "take",
+                    "read",
+                    "open",
+                    "close"
+                ],
+                "a4": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "bus",
+                    "plane",
+                    "ship",
+                    "bike"
+                ],
+                "a6": [
+                    "or",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a7": [
+                    "hire",
+                    "select",
+                    "prefer",
+                    "gold"
+                ],
+                "a8": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a9": [
+                    "boat",
+                    "train",
+                    "tram",
+                    "taxi"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-alternative-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Звіт мав бути опублікований у травні чи в червні?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Звіт мав бути опублікований у травні чи в червні?",
+            "target_text": "Was the report supposed to be published in May or in June?",
+            "markers": {
+                "a1": {
+                    "answer": "Was",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "Was",
+                        "Is",
+                        "Are",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "report",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "report",
+                        "folder",
+                        "newspaper",
+                        "magazine"
+                    ]
+                },
+                "a4": {
+                    "answer": "supposed",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "supposed",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "be",
+                        "am",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a7": {
+                    "answer": "published",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "published",
+                        "open",
+                        "questioned",
+                        "cooked"
+                    ]
+                },
+                "a8": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "in",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a9": {
+                    "answer": "May",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "May",
+                        "Should",
+                        "Might",
+                        "Must"
+                    ]
+                },
+                "a10": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "or",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a11": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "in",
+                        "between",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a12": {
+                    "answer": "June?",
+                    "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+                    "options": [
+                        "June",
+                        "Care",
+                        "Notice",
+                        "Deadline"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про заплановану минулу пасивну дію й два можливі місяці.",
+            "accepted_target_texts": [
+                "Was the report supposed to be published in May or in June?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Was",
+                "the report",
+                "supposed to be",
+                "published",
+                "in May",
+                "or in June?"
+            ],
+            "token_groups": [
+                "Was",
+                "the report",
+                "supposed to be",
+                "published",
+                "in May",
+                "or in June?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Was",
+                "the",
+                "report",
+                "supposed",
+                "to",
+                "be",
+                "published",
+                "in",
+                "May",
+                "or",
+                "in",
+                "June?"
+            ],
+            "options": [
+                "Was",
+                "Is",
+                "Are",
+                "Were",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "report",
+                "folder",
+                "newspaper",
+                "magazine",
+                "supposed",
+                "took",
+                "wrote",
+                "rode",
+                "to",
+                "among",
+                "about",
+                "during",
+                "be",
+                "am",
+                "been",
+                "being",
+                "published",
+                "open",
+                "questioned",
+                "cooked",
+                "in",
+                "from",
+                "for",
+                "of",
+                "May",
+                "Should",
+                "Might",
+                "Must",
+                "or",
+                "yet",
+                "because",
+                "although",
+                "between",
+                "on",
+                "at",
+                "June",
+                "Care",
+                "Notice",
+                "Deadline"
+            ],
+            "source_text_uk": "Звіт мав бути опублікований у травні чи в червні?",
+            "options_by_marker": {
+                "a1": [
+                    "Was",
+                    "Is",
+                    "Are",
+                    "Were"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "report",
+                    "folder",
+                    "newspaper",
+                    "magazine"
+                ],
+                "a4": [
+                    "supposed",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a5": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "be",
+                    "am",
+                    "been",
+                    "being"
+                ],
+                "a7": [
+                    "published",
+                    "open",
+                    "questioned",
+                    "cooked"
+                ],
+                "a8": [
+                    "in",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a9": [
+                    "May",
+                    "Should",
+                    "Might",
+                    "Must"
+                ],
+                "a10": [
+                    "or",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a11": [
+                    "in",
+                    "between",
+                    "on",
+                    "at"
+                ],
+                "a12": [
+                    "June",
+                    "Care",
+                    "Notice",
+                    "Deadline"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct",
+                "a11": "adjunct",
+                "a12": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-alternative-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ви надали б перевагу незалежній перевірці чи внутрішньому аудиту?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ви надали б перевагу незалежній перевірці чи внутрішньому аудиту?",
+            "target_text": "Would you prefer an independent review or an internal audit?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "Would",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "you",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a3": {
+                    "answer": "prefer",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "prefer",
+                        "select",
+                        "before",
+                        "June"
+                    ]
+                },
+                "a4": {
+                    "answer": "an",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "an",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "independent",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "independent",
+                        "main",
+                        "fair",
+                        "door"
+                    ]
+                },
+                "a6": {
+                    "answer": "review",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "review",
+                        "folder",
+                        "hall",
+                        "bridge"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "or",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a8": {
+                    "answer": "an",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "an",
+                        "either",
+                        "neither",
+                        "the"
+                    ]
+                },
+                "a9": {
+                    "answer": "internal",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "internal",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a10": {
+                    "answer": "audit?",
+                    "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+                    "options": [
+                        "audit",
+                        "report",
+                        "solution",
+                        "claim"
+                    ]
+                }
+            },
+            "verb_hint": "Постав ввічливе питання про два способи перевірки; збережи обидві іменні групи.",
+            "accepted_target_texts": [
+                "Would you prefer an independent review or an internal audit?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "you prefer",
+                "an independent review",
+                "or",
+                "an internal audit?"
+            ],
+            "token_groups": [
+                "Would",
+                "you prefer",
+                "an independent review",
+                "or",
+                "an internal audit?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "you",
+                "prefer",
+                "an",
+                "independent",
+                "review",
+                "or",
+                "an",
+                "internal",
+                "audit?"
+            ],
+            "options": [
+                "Would",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "you",
+                "they",
+                "me",
+                "him",
+                "prefer",
+                "select",
+                "before",
+                "June",
+                "an",
+                "all",
+                "both",
+                "a",
+                "independent",
+                "main",
+                "fair",
+                "door",
+                "review",
+                "folder",
+                "hall",
+                "bridge",
+                "or",
+                "so",
+                "yet",
+                "because",
+                "either",
+                "neither",
+                "the",
+                "internal",
+                "school",
+                "sister",
+                "brother",
+                "audit",
+                "report",
+                "solution",
+                "claim"
+            ],
+            "source_text_uk": "Ви надали б перевагу незалежній перевірці чи внутрішньому аудиту?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "you",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a3": [
+                    "prefer",
+                    "select",
+                    "before",
+                    "June"
+                ],
+                "a4": [
+                    "an",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "independent",
+                    "main",
+                    "fair",
+                    "door"
+                ],
+                "a6": [
+                    "review",
+                    "folder",
+                    "hall",
+                    "bridge"
+                ],
+                "a7": [
+                    "or",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a8": [
+                    "an",
+                    "either",
+                    "neither",
+                    "the"
+                ],
+                "a9": [
+                    "internal",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a10": [
+                    "audit",
+                    "report",
+                    "solution",
+                    "claim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "linker",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-alternative-b2-c03",
+            "author_id": "B2-c03",
+            "question": "До засідання свідків уже допитали чи вони ще чекали?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "До засідання свідків уже допитали чи вони ще чекали?",
+            "target_text": "Had the witnesses already been questioned or were they still waiting before the hearing?",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "Had",
+                        "Haven't",
+                        "Hasn't",
+                        "Hadn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "witnesses",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "witnesses",
+                        "documents",
+                        "guests",
+                        "visitors"
+                    ]
+                },
+                "a4": {
+                    "answer": "already",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "already",
+                        "often",
+                        "sometimes",
+                        "just"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "questioned",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "questioned",
+                        "published",
+                        "driven",
+                        "given"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "or",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a8": {
+                    "answer": "were",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "were",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a9": {
+                    "answer": "they",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "they",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a10": {
+                    "answer": "still",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "still",
+                        "always",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a11": {
+                    "answer": "waiting",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "waiting",
+                        "taking",
+                        "working",
+                        "playing"
+                    ]
+                },
+                "a12": {
+                    "answer": "before",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "before",
+                        "at",
+                        "in",
+                        "by"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a14": {
+                    "answer": "hearing?",
+                    "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+                    "options": [
+                        "hearing",
+                        "morning",
+                        "calling",
+                        "walking"
+                    ]
+                }
+            },
+            "verb_hint": "Порівняй завершене до засідання опитування з процесом очікування; назви час наприкінці.",
+            "accepted_target_texts": [
+                "Had the witnesses already been questioned or were they still waiting before the hearing?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had",
+                "the witnesses",
+                "already been questioned",
+                "or were",
+                "they still waiting",
+                "before the hearing?"
+            ],
+            "token_groups": [
+                "Had",
+                "the witnesses",
+                "already been questioned",
+                "or were",
+                "they still waiting",
+                "before the hearing?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Had",
+                "the",
+                "witnesses",
+                "already",
+                "been",
+                "questioned",
+                "or",
+                "were",
+                "they",
+                "still",
+                "waiting",
+                "before",
+                "the",
+                "hearing?"
+            ],
+            "options": [
+                "Had",
+                "Haven't",
+                "Hasn't",
+                "Hadn't",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "witnesses",
+                "documents",
+                "guests",
+                "visitors",
+                "already",
+                "often",
+                "sometimes",
+                "just",
+                "been",
+                "am",
+                "is",
+                "are",
+                "questioned",
+                "published",
+                "driven",
+                "given",
+                "or",
+                "nor",
+                "so",
+                "yet",
+                "were",
+                "being",
+                "isn't",
+                "aren't",
+                "they",
+                "myself",
+                "yourself",
+                "herself",
+                "still",
+                "always",
+                "also",
+                "usually",
+                "waiting",
+                "taking",
+                "working",
+                "playing",
+                "before",
+                "at",
+                "in",
+                "by",
+                "a",
+                "an",
+                "some",
+                "hearing",
+                "morning",
+                "calling",
+                "walking"
+            ],
+            "source_text_uk": "До засідання свідків уже допитали чи вони ще чекали?",
+            "options_by_marker": {
+                "a1": [
+                    "Had",
+                    "Haven't",
+                    "Hasn't",
+                    "Hadn't"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "witnesses",
+                    "documents",
+                    "guests",
+                    "visitors"
+                ],
+                "a4": [
+                    "already",
+                    "often",
+                    "sometimes",
+                    "just"
+                ],
+                "a5": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a6": [
+                    "questioned",
+                    "published",
+                    "driven",
+                    "given"
+                ],
+                "a7": [
+                    "or",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a8": [
+                    "were",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a9": [
+                    "they",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a10": [
+                    "still",
+                    "always",
+                    "also",
+                    "usually"
+                ],
+                "a11": [
+                    "waiting",
+                    "taking",
+                    "working",
+                    "playing"
+                ],
+                "a12": [
+                    "before",
+                    "at",
+                    "in",
+                    "by"
+                ],
+                "a13": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a14": [
+                    "hearing",
+                    "morning",
+                    "calling",
+                    "walking"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "auxiliary",
+                "a8": "auxiliary",
+                "a9": "subject",
+                "a10": "subject",
+                "a11": "subject",
+                "a12": "adjunct",
+                "a13": "adjunct",
+                "a14": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-alternative-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Цю норму слід розуміти як обов’язкову чи лише дорадчу?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Цю норму слід розуміти як обов’язкову чи лише дорадчу?",
+            "target_text": "Should this provision be understood as binding or merely advisory?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "Should",
+                        "Will",
+                        "Would",
+                        "Shall"
+                    ]
+                },
+                "a2": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "provision",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "provision",
+                        "interpreter",
+                        "still",
+                        "committee"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "understood",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "understood",
+                        "delivered",
+                        "approved",
+                        "revised"
+                    ]
+                },
+                "a6": {
+                    "answer": "as",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "as",
+                        "costs",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a7": {
+                    "answer": "binding",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "binding",
+                        "opening",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a8": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "or",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a9": {
+                    "answer": "merely",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "merely",
+                        "dirty",
+                        "good",
+                        "bad"
+                    ]
+                },
+                "a10": {
+                    "answer": "advisory?",
+                    "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+                    "options": [
+                        "advisory",
+                        "clean",
+                        "friendly",
+                        "lovely"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про два можливі статуси норми в пасивній конструкції.",
+            "accepted_target_texts": [
+                "Should this provision be understood as binding or merely advisory?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Should",
+                "this provision",
+                "be understood",
+                "as binding",
+                "or merely advisory?"
+            ],
+            "token_groups": [
+                "Should",
+                "this provision",
+                "be understood",
+                "as binding",
+                "or merely advisory?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Should",
+                "this",
+                "provision",
+                "be",
+                "understood",
+                "as",
+                "binding",
+                "or",
+                "merely",
+                "advisory?"
+            ],
+            "options": [
+                "Should",
+                "Will",
+                "Would",
+                "Shall",
+                "this",
+                "that",
+                "these",
+                "those",
+                "provision",
+                "interpreter",
+                "still",
+                "committee",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "understood",
+                "delivered",
+                "approved",
+                "revised",
+                "as",
+                "costs",
+                "men",
+                "women",
+                "binding",
+                "opening",
+                "closing",
+                "helping",
+                "or",
+                "whether",
+                "and",
+                "but",
+                "merely",
+                "dirty",
+                "good",
+                "bad",
+                "advisory",
+                "clean",
+                "friendly",
+                "lovely"
+            ],
+            "source_text_uk": "Цю норму слід розуміти як обов’язкову чи лише дорадчу?",
+            "options_by_marker": {
+                "a1": [
+                    "Should",
+                    "Will",
+                    "Would",
+                    "Shall"
+                ],
+                "a2": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "provision",
+                    "interpreter",
+                    "still",
+                    "committee"
+                ],
+                "a4": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "understood",
+                    "delivered",
+                    "approved",
+                    "revised"
+                ],
+                "a6": [
+                    "as",
+                    "costs",
+                    "men",
+                    "women"
+                ],
+                "a7": [
+                    "binding",
+                    "opening",
+                    "closing",
+                    "helping"
+                ],
+                "a8": [
+                    "or",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a9": [
+                    "merely",
+                    "dirty",
+                    "good",
+                    "bad"
+                ],
+                "a10": [
+                    "advisory",
+                    "clean",
+                    "friendly",
+                    "lovely"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjective",
+                "a9": "adjective",
+                "a10": "adjective"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-alternative-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Комітет відкликав би рекомендацію чи додав би застереження?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Комітет відкликав би рекомендацію чи додав би застереження?",
+            "target_text": "Would the committee have withdrawn the recommendation or added a qualification?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "Would",
+                        "Will",
+                        "Shall",
+                        "Should"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "committee",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "committee",
+                        "director",
+                        "interpreter",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a5": {
+                    "answer": "withdrawn",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "withdrawn",
+                        "prefer",
+                        "select",
+                        "provision"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "recommendation",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "recommendation",
+                        "entrance",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a8": {
+                    "answer": "or",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "or",
+                        "and",
+                        "but",
+                        "nor"
+                    ]
+                },
+                "a9": {
+                    "answer": "added",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "added",
+                        "revised",
+                        "known",
+                        "noticed"
+                    ]
+                },
+                "a10": {
+                    "answer": "a",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a11": {
+                    "answer": "qualification?",
+                    "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+                    "options": [
+                        "qualification",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                }
+            },
+            "verb_hint": "Передай альтернативу між двома уявними минулими рішеннями.",
+            "accepted_target_texts": [
+                "Would the committee have withdrawn the recommendation or added a qualification?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "the committee",
+                "have withdrawn",
+                "the recommendation",
+                "or added",
+                "a qualification?"
+            ],
+            "token_groups": [
+                "Would",
+                "the committee",
+                "have withdrawn",
+                "the recommendation",
+                "or added",
+                "a qualification?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "the",
+                "committee",
+                "have",
+                "withdrawn",
+                "the",
+                "recommendation",
+                "or",
+                "added",
+                "a",
+                "qualification?"
+            ],
+            "options": [
+                "Would",
+                "Will",
+                "Shall",
+                "Should",
+                "the",
+                "that",
+                "these",
+                "those",
+                "committee",
+                "director",
+                "interpreter",
+                "still",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "withdrawn",
+                "prefer",
+                "select",
+                "provision",
+                "any",
+                "this",
+                "each",
+                "recommendation",
+                "entrance",
+                "bag",
+                "book",
+                "or",
+                "and",
+                "but",
+                "nor",
+                "added",
+                "revised",
+                "known",
+                "noticed",
+                "a",
+                "both",
+                "an",
+                "some",
+                "qualification",
+                "sister",
+                "brother",
+                "friend"
+            ],
+            "source_text_uk": "Комітет відкликав би рекомендацію чи додав би застереження?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "Will",
+                    "Shall",
+                    "Should"
+                ],
+                "a2": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "committee",
+                    "director",
+                    "interpreter",
+                    "still"
+                ],
+                "a4": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a5": [
+                    "withdrawn",
+                    "prefer",
+                    "select",
+                    "provision"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "each"
+                ],
+                "a7": [
+                    "recommendation",
+                    "entrance",
+                    "bag",
+                    "book"
+                ],
+                "a8": [
+                    "or",
+                    "and",
+                    "but",
+                    "nor"
+                ],
+                "a9": [
+                    "added",
+                    "revised",
+                    "known",
+                    "noticed"
+                ],
+                "a10": [
+                    "a",
+                    "both",
+                    "an",
+                    "some"
+                ],
+                "a11": [
+                    "qualification",
+                    "sister",
+                    "brother",
+                    "friend"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-alternative-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Ці витрати вже відшкодовано чи їх досі оскаржують?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ці витрати вже відшкодовано чи їх досі оскаржують?",
+            "target_text": "Have these costs already been reimbursed or are they still being disputed?",
+            "markers": {
+                "a1": {
+                    "answer": "Have",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "Have",
+                        "Didn't",
+                        "Has",
+                        "Had"
+                    ]
+                },
+                "a2": {
+                    "answer": "these",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "these",
+                        "this",
+                        "that",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "costs",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "costs",
+                        "visitors",
+                        "documents",
+                        "researchers"
+                    ]
+                },
+                "a4": {
+                    "answer": "already",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "already",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "reimbursed",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "reimbursed",
+                        "understood",
+                        "brought",
+                        "taken"
+                    ]
+                },
+                "a7": {
+                    "answer": "or",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "or",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a8": {
+                    "answer": "are",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a9": {
+                    "answer": "they",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "they",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a10": {
+                    "answer": "still",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "still",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a11": {
+                    "answer": "being",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "being",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a12": {
+                    "answer": "disputed?",
+                    "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+                    "options": [
+                        "disputed",
+                        "known",
+                        "noticed",
+                        "arrived"
+                    ]
+                }
+            },
+            "verb_hint": "Порівняй завершений пасивний результат із поточним пасивним процесом; повтори потрібне допоміжне в другій частині.",
+            "accepted_target_texts": [
+                "Have these costs already been reimbursed or are they still being disputed?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Have",
+                "these costs",
+                "already been reimbursed",
+                "or are",
+                "they still",
+                "being disputed?"
+            ],
+            "token_groups": [
+                "Have",
+                "these costs",
+                "already been reimbursed",
+                "or are",
+                "they still",
+                "being disputed?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Have",
+                "these",
+                "costs",
+                "already",
+                "been",
+                "reimbursed",
+                "or",
+                "are",
+                "they",
+                "still",
+                "being",
+                "disputed?"
+            ],
+            "options": [
+                "Have",
+                "Didn't",
+                "Has",
+                "Had",
+                "these",
+                "this",
+                "that",
+                "those",
+                "costs",
+                "visitors",
+                "documents",
+                "researchers",
+                "already",
+                "never",
+                "always",
+                "often",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "reimbursed",
+                "understood",
+                "brought",
+                "taken",
+                "or",
+                "whether",
+                "and",
+                "but",
+                "are",
+                "isn't",
+                "am",
+                "is",
+                "they",
+                "me",
+                "him",
+                "us",
+                "still",
+                "just",
+                "also",
+                "usually",
+                "being",
+                "was",
+                "were",
+                "be",
+                "disputed",
+                "known",
+                "noticed",
+                "arrived"
+            ],
+            "source_text_uk": "Ці витрати вже відшкодовано чи їх досі оскаржують?",
+            "options_by_marker": {
+                "a1": [
+                    "Have",
+                    "Didn't",
+                    "Has",
+                    "Had"
+                ],
+                "a2": [
+                    "these",
+                    "this",
+                    "that",
+                    "those"
+                ],
+                "a3": [
+                    "costs",
+                    "visitors",
+                    "documents",
+                    "researchers"
+                ],
+                "a4": [
+                    "already",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a6": [
+                    "reimbursed",
+                    "understood",
+                    "brought",
+                    "taken"
+                ],
+                "a7": [
+                    "or",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a8": [
+                    "are",
+                    "isn't",
+                    "am",
+                    "is"
+                ],
+                "a9": [
+                    "they",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a10": [
+                    "still",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a11": [
+                    "being",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a12": [
+                    "disputed",
+                    "known",
+                    "noticed",
+                    "arrived"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "auxiliary",
+                "a8": "auxiliary",
+                "a9": "subject",
+                "a10": "subject",
+                "a11": "verb_phrase",
+                "a12": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-alternative-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ця поступка створила б прецедент чи лише врегулювала б виняткову суперечку?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Ця поступка створила б прецедент чи лише врегулювала б виняткову суперечку?",
+            "target_text": "Would this concession have established a precedent or merely settled an exceptional dispute?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "Would",
+                        "May",
+                        "Might",
+                        "Must"
+                    ]
+                },
+                "a2": {
+                    "answer": "this",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a3": {
+                    "answer": "concession",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "concession",
+                        "argument",
+                        "parcel",
+                        "neighbour"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "established",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "established",
+                        "checked",
+                        "delivered",
+                        "approved"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "precedent",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "precedent",
+                        "presumption",
+                        "suspension",
+                        "entrance"
+                    ]
+                },
+                "a8": {
+                    "answer": "or",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "or",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a9": {
+                    "answer": "merely",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "merely",
+                        "carefully",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a10": {
+                    "answer": "settled",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "settled",
+                        "intended",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a11": {
+                    "answer": "an",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "an",
+                        "the",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a12": {
+                    "answer": "exceptional",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "exceptional",
+                        "available",
+                        "old",
+                        "clear"
+                    ]
+                },
+                "a13": {
+                    "answer": "dispute?",
+                    "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+                    "options": [
+                        "dispute",
+                        "change",
+                        "evidence",
+                        "folder"
+                    ]
+                }
+            },
+            "verb_hint": "Передай альтернативу між двома нереальними минулими наслідками.",
+            "accepted_target_texts": [
+                "Would this concession have established a precedent or merely settled an exceptional dispute?",
+                "Would this concession have set a precedent or merely settled an exceptional dispute?"
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "set"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "set"
+                ]
+            },
+            "reorder_groups": [
+                "Would",
+                "this concession",
+                "have established",
+                "a precedent",
+                "or merely settled",
+                "an exceptional dispute?"
+            ],
+            "token_groups": [
+                "Would",
+                "this concession",
+                "have established",
+                "a precedent",
+                "or merely settled",
+                "an exceptional dispute?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Would",
+                "this",
+                "concession",
+                "have",
+                "established",
+                "a",
+                "precedent",
+                "or",
+                "merely",
+                "settled",
+                "an",
+                "exceptional",
+                "dispute?"
+            ],
+            "options": [
+                "Would",
+                "May",
+                "Might",
+                "Must",
+                "this",
+                "that",
+                "these",
+                "those",
+                "concession",
+                "argument",
+                "parcel",
+                "neighbour",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "established",
+                "checked",
+                "delivered",
+                "approved",
+                "a",
+                "some",
+                "any",
+                "each",
+                "precedent",
+                "presumption",
+                "suspension",
+                "entrance",
+                "or",
+                "whereas",
+                "while",
+                "if",
+                "merely",
+                "carefully",
+                "well",
+                "badly",
+                "settled",
+                "intended",
+                "closed",
+                "helped",
+                "an",
+                "the",
+                "every",
+                "no",
+                "exceptional",
+                "available",
+                "old",
+                "clear",
+                "dispute",
+                "change",
+                "evidence",
+                "folder"
+            ],
+            "source_text_uk": "Ця поступка створила б прецедент чи лише врегулювала б виняткову суперечку?",
+            "options_by_marker": {
+                "a1": [
+                    "Would",
+                    "May",
+                    "Might",
+                    "Must"
+                ],
+                "a2": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a3": [
+                    "concession",
+                    "argument",
+                    "parcel",
+                    "neighbour"
+                ],
+                "a4": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a5": [
+                    "established",
+                    "checked",
+                    "delivered",
+                    "approved"
+                ],
+                "a6": [
+                    "a",
+                    "some",
+                    "any",
+                    "each"
+                ],
+                "a7": [
+                    "precedent",
+                    "presumption",
+                    "suspension",
+                    "entrance"
+                ],
+                "a8": [
+                    "or",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a9": [
+                    "merely",
+                    "carefully",
+                    "well",
+                    "badly"
+                ],
+                "a10": [
+                    "settled",
+                    "intended",
+                    "closed",
+                    "helped"
+                ],
+                "a11": [
+                    "an",
+                    "the",
+                    "every",
+                    "no"
+                ],
+                "a12": [
+                    "exceptional",
+                    "available",
+                    "old",
+                    "clear"
+                ],
+                "a13": [
+                    "dispute",
+                    "change",
+                    "evidence",
+                    "folder"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase",
+                "a13": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-alternative-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Аргумент має спростувати презумпцію чи лише послабити її доказову силу?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Аргумент має спростувати презумпцію чи лише послабити її доказову силу?",
+            "target_text": "Is the argument intended to rebut the presumption or merely diminish its evidential force?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "Is",
+                        "Be",
+                        "Been",
+                        "Being"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a3": {
+                    "answer": "argument",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "argument",
+                        "interpreter",
+                        "neighbour",
+                        "driver"
+                    ]
+                },
+                "a4": {
+                    "answer": "intended",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "intended",
+                        "settled",
+                        "brought",
+                        "took"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a6": {
+                    "answer": "rebut",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "rebut",
+                        "concession",
+                        "precedent",
+                        "dispute"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "presumption",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "presumption",
+                        "suspension",
+                        "entrance",
+                        "silence"
+                    ]
+                },
+                "a9": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "or",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a10": {
+                    "answer": "merely",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "merely",
+                        "quietly",
+                        "slowly",
+                        "quickly"
+                    ]
+                },
+                "a11": {
+                    "answer": "diminish",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "diminish",
+                        "endorsement",
+                        "judgement",
+                        "train"
+                    ]
+                },
+                "a12": {
+                    "answer": "its",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "its",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a13": {
+                    "answer": "evidential",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "evidential",
+                        "fair",
+                        "main",
+                        "bus"
+                    ]
+                },
+                "a14": {
+                    "answer": "force?",
+                    "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+                    "options": [
+                        "force",
+                        "solution",
+                        "claim",
+                        "change"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про два різні задуми аргументу; збережи спільну пасивну конструкцію наміру.",
+            "accepted_target_texts": [
+                "Is the argument intended to rebut the presumption or merely diminish its evidential force?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is",
+                "the argument",
+                "intended to rebut",
+                "the presumption",
+                "or merely diminish",
+                "its evidential force?"
+            ],
+            "token_groups": [
+                "Is",
+                "the argument",
+                "intended to rebut",
+                "the presumption",
+                "or merely diminish",
+                "its evidential force?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "argument",
+                "intended",
+                "to",
+                "rebut",
+                "the",
+                "presumption",
+                "or",
+                "merely",
+                "diminish",
+                "its",
+                "evidential",
+                "force?"
+            ],
+            "options": [
+                "Is",
+                "Be",
+                "Been",
+                "Being",
+                "the",
+                "any",
+                "this",
+                "that",
+                "argument",
+                "interpreter",
+                "neighbour",
+                "driver",
+                "intended",
+                "settled",
+                "brought",
+                "took",
+                "to",
+                "about",
+                "during",
+                "from",
+                "rebut",
+                "concession",
+                "precedent",
+                "dispute",
+                "all",
+                "both",
+                "a",
+                "presumption",
+                "suspension",
+                "entrance",
+                "silence",
+                "or",
+                "whereas",
+                "while",
+                "if",
+                "merely",
+                "quietly",
+                "slowly",
+                "quickly",
+                "diminish",
+                "endorsement",
+                "judgement",
+                "train",
+                "its",
+                "our",
+                "their",
+                "mine",
+                "evidential",
+                "fair",
+                "main",
+                "bus",
+                "force",
+                "solution",
+                "claim",
+                "change"
+            ],
+            "source_text_uk": "Аргумент має спростувати презумпцію чи лише послабити її доказову силу?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Be",
+                    "Been",
+                    "Being"
+                ],
+                "a2": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a3": [
+                    "argument",
+                    "interpreter",
+                    "neighbour",
+                    "driver"
+                ],
+                "a4": [
+                    "intended",
+                    "settled",
+                    "brought",
+                    "took"
+                ],
+                "a5": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a6": [
+                    "rebut",
+                    "concession",
+                    "precedent",
+                    "dispute"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "presumption",
+                    "suspension",
+                    "entrance",
+                    "silence"
+                ],
+                "a9": [
+                    "or",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a10": [
+                    "merely",
+                    "quietly",
+                    "slowly",
+                    "quickly"
+                ],
+                "a11": [
+                    "diminish",
+                    "endorsement",
+                    "judgement",
+                    "train"
+                ],
+                "a12": [
+                    "its",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a13": [
+                    "evidential",
+                    "fair",
+                    "main",
+                    "bus"
+                ],
+                "a14": [
+                    "force",
+                    "solution",
+                    "claim",
+                    "change"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "verb_phrase",
+                "a12": "noun_phrase",
+                "a13": "noun_phrase",
+                "a14": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-alternative-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Мовчання комісії слід вважати схваленням чи утриманням від судження?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_alternative",
+            "translation_uk": "Мовчання комісії слід вважати схваленням чи утриманням від судження?",
+            "target_text": "Should the commission’s silence be regarded as endorsement or as a suspension of judgement?",
+            "markers": {
+                "a1": {
+                    "answer": "Should",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "Should",
+                        "Can't",
+                        "Couldn't",
+                        "Won't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "commission’s",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "commission's",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a4": {
+                    "answer": "silence",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "silence",
+                        "argument",
+                        "rebut",
+                        "presumption"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "be",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "regarded",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "regarded",
+                        "checked",
+                        "delivered",
+                        "approved"
+                    ]
+                },
+                "a7": {
+                    "answer": "as",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "as",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a8": {
+                    "answer": "endorsement",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "endorsement",
+                        "Saturday",
+                        "permission",
+                        "dinner"
+                    ]
+                },
+                "a9": {
+                    "answer": "or",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "or",
+                        "but",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a10": {
+                    "answer": "as",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "as",
+                        "maps",
+                        "letters",
+                        "teachers"
+                    ]
+                },
+                "a11": {
+                    "answer": "a",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "a",
+                        "these",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a12": {
+                    "answer": "suspension",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "suspension",
+                        "entrance",
+                        "concession",
+                        "precedent"
+                    ]
+                },
+                "a13": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a14": {
+                    "answer": "judgement?",
+                    "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+                    "options": [
+                        "judgement",
+                        "dispute",
+                        "diminish",
+                        "evidential"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про дві інтерпретації мовчання; після другого сполучника повтори прийменник.",
+            "accepted_target_texts": [
+                "Should the commission’s silence be regarded as endorsement or as a suspension of judgement?",
+                "Should the commission’s silence be regarded as endorsement or as a suspension of judgment?"
+            ],
+            "answer_synonyms": {
+                "a14": [
+                    "judgment?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a14": [
+                    "judgment?"
+                ]
+            },
+            "reorder_groups": [
+                "Should",
+                "the commission’s silence",
+                "be regarded",
+                "as endorsement",
+                "or as",
+                "a suspension",
+                "of judgement?"
+            ],
+            "token_groups": [
+                "Should",
+                "the commission’s silence",
+                "be regarded",
+                "as endorsement",
+                "or as",
+                "a suspension",
+                "of judgement?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Should",
+                "the",
+                "commission’s",
+                "silence",
+                "be",
+                "regarded",
+                "as",
+                "endorsement",
+                "or",
+                "as",
+                "a",
+                "suspension",
+                "of",
+                "judgement?"
+            ],
+            "options": [
+                "Should",
+                "Can't",
+                "Couldn't",
+                "Won't",
+                "the",
+                "those",
+                "each",
+                "every",
+                "commission's",
+                "friends",
+                "dogs",
+                "cats",
+                "silence",
+                "argument",
+                "rebut",
+                "presumption",
+                "be",
+                "been",
+                "being",
+                "isn't",
+                "regarded",
+                "checked",
+                "delivered",
+                "approved",
+                "as",
+                "windows",
+                "phones",
+                "children",
+                "endorsement",
+                "Saturday",
+                "permission",
+                "dinner",
+                "or",
+                "but",
+                "nor",
+                "so",
+                "maps",
+                "letters",
+                "teachers",
+                "a",
+                "these",
+                "no",
+                "another",
+                "suspension",
+                "entrance",
+                "concession",
+                "precedent",
+                "of",
+                "to",
+                "from",
+                "for",
+                "judgement",
+                "dispute",
+                "diminish",
+                "evidential"
+            ],
+            "source_text_uk": "Мовчання комісії слід вважати схваленням чи утриманням від судження?",
+            "options_by_marker": {
+                "a1": [
+                    "Should",
+                    "Can't",
+                    "Couldn't",
+                    "Won't"
+                ],
+                "a2": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "commission's",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ],
+                "a4": [
+                    "silence",
+                    "argument",
+                    "rebut",
+                    "presumption"
+                ],
+                "a5": [
+                    "be",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "regarded",
+                    "checked",
+                    "delivered",
+                    "approved"
+                ],
+                "a7": [
+                    "as",
+                    "windows",
+                    "phones",
+                    "children"
+                ],
+                "a8": [
+                    "endorsement",
+                    "Saturday",
+                    "permission",
+                    "dinner"
+                ],
+                "a9": [
+                    "or",
+                    "but",
+                    "nor",
+                    "so"
+                ],
+                "a10": [
+                    "as",
+                    "maps",
+                    "letters",
+                    "teachers"
+                ],
+                "a11": [
+                    "a",
+                    "these",
+                    "no",
+                    "another"
+                ],
+                "a12": [
+                    "suspension",
+                    "entrance",
+                    "concession",
+                    "precedent"
+                ],
+                "a13": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a14": [
+                    "judgement",
+                    "dispute",
+                    "diminish",
+                    "evidential"
+                ]
+            },
+            "slot_roles": {
+                "a1": "auxiliary",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "subject",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase",
+                "a13": "adjunct",
+                "a14": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

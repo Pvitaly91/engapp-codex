@@ -1,0 +1,1577 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/verbs-objects.v1.json",
+        "sha256": "137061e9c8da619aea4b9b256baea9ea11b570b948dc6185325ece6bb0f5d562"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderVerbsObjectsQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-verbs-objects-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "word_order_quality_verbs_objects": {
+            "name": "Word Order Quality: Порядок дієслів і додатків"
+        }
+    },
+    "tags": {
+        "auxiliary_verbs": {
+            "name": "Auxiliary Verbs",
+            "category": "topic"
+        },
+        "modal_verbs": {
+            "name": "Modal Verbs",
+            "category": "topic"
+        },
+        "phrasal_verbs": {
+            "name": "Phrasal Verbs",
+            "category": "topic"
+        },
+        "objects": {
+            "name": "Objects",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "auxiliary_verbs"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-verbs-objects-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Мені потрібна ручка.",
+            "target_text": "I need a pen.",
+            "markers": {
+                "a1": {
+                    "answer": "need a pen",
+                    "options": [
+                        "need a pen",
+                        "a pen need",
+                        "need pen a"
+                    ],
+                    "verb_hint": "Після дієслова потреби постав назву предмета з артиклем перед іменником."
+                }
+            },
+            "verb_hint": "Після дієслова потреби постав назву предмета з артиклем перед іменником.",
+            "accepted_target_texts": [
+                "I need a pen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "need a pen."
+            ],
+            "token_groups": [
+                "I",
+                "need a pen."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-verbs-objects-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Lena {a1} at break time.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Лена їсть яблуко на перерві.",
+            "target_text": "Lena eats an apple at break time.",
+            "markers": {
+                "a1": {
+                    "answer": "eats an apple",
+                    "options": [
+                        "eats an apple",
+                        "an apple eats",
+                        "eats apple an"
+                    ],
+                    "verb_hint": "Назви дію «їсти» перед предметом, на який вона спрямована."
+                }
+            },
+            "verb_hint": "Назви дію «їсти» перед предметом, на який вона спрямована.",
+            "accepted_target_texts": [
+                "Lena eats an apple at break time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lena",
+                "eats an apple",
+                "at break time."
+            ],
+            "token_groups": [
+                "Lena",
+                "eats an apple",
+                "at break time."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-verbs-objects-a1-g03",
+            "author_id": "A1-g03",
+            "question": "He {a1} in the garden.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Він допомагає своїй матері в саду.",
+            "target_text": "He helps his mother in the garden.",
+            "markers": {
+                "a1": {
+                    "answer": "helps his mother",
+                    "options": [
+                        "helps his mother",
+                        "his mother helps",
+                        "helps mother his"
+                    ],
+                    "verb_hint": "Після дієслова допомоги постав особу без зайвого прийменника; присвійне слово передує іменнику."
+                }
+            },
+            "verb_hint": "Після дієслова допомоги постав особу без зайвого прийменника; присвійне слово передує іменнику.",
+            "accepted_target_texts": [
+                "He helps his mother in the garden."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He",
+                "helps his mother",
+                "in the garden."
+            ],
+            "token_groups": [
+                "He",
+                "helps his mother",
+                "in the garden."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-verbs-objects-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми розуміємо це правило.",
+            "target_text": "We understand this rule.",
+            "markers": {
+                "a1": {
+                    "answer": "understand this rule",
+                    "options": [
+                        "understand this rule",
+                        "this rule understand",
+                        "understand rule this"
+                    ],
+                    "verb_hint": "Прямий додаток має стояти після дієслова, а вказівне слово — перед іменником."
+                }
+            },
+            "verb_hint": "Прямий додаток має стояти після дієслова, а вказівне слово — перед іменником.",
+            "accepted_target_texts": [
+                "We understand this rule."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "understand this rule."
+            ],
+            "token_groups": [
+                "We",
+                "understand this rule."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-verbs-objects-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Teachers {a1} after class.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Учителі перевіряють наші зошити після уроку.",
+            "target_text": "Teachers check our notebooks after class.",
+            "markers": {
+                "a1": {
+                    "answer": "check our notebooks",
+                    "options": [
+                        "check our notebooks",
+                        "our notebooks check",
+                        "check notebooks our"
+                    ],
+                    "verb_hint": "Спочатку потрібна дія перевірки, далі — те, що перевіряють."
+                }
+            },
+            "verb_hint": "Спочатку потрібна дія перевірки, далі — те, що перевіряють.",
+            "accepted_target_texts": [
+                "Teachers check our notebooks after class."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Teachers",
+                "check our notebooks",
+                "after class."
+            ],
+            "token_groups": [
+                "Teachers",
+                "check our notebooks",
+                "after class."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-verbs-objects-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Our dog {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Наш пес ганяється за м’ячами.",
+            "target_text": "Our dog chases balls.",
+            "markers": {
+                "a1": {
+                    "answer": "chases balls",
+                    "options": [
+                        "chases balls",
+                        "balls chases",
+                        "chases it balls"
+                    ],
+                    "verb_hint": "В англійській конструкції назва предмета йде прямо після дієслова; зайвий займенник не потрібний."
+                }
+            },
+            "verb_hint": "В англійській конструкції назва предмета йде прямо після дієслова; зайвий займенник не потрібний.",
+            "accepted_target_texts": [
+                "Our dog chases balls."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our dog",
+                "chases balls."
+            ],
+            "token_groups": [
+                "Our dog",
+                "chases balls."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-verbs-objects-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Grandma {a1} for my birthday.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Бабуся подарувала мені шарф на день народження.",
+            "target_text": "Grandma gave me a scarf for my birthday.",
+            "markers": {
+                "a1": {
+                    "answer": "gave me a scarf",
+                    "options": [
+                        "gave me a scarf",
+                        "gave a scarf me",
+                        "gave me scarf a"
+                    ],
+                    "verb_hint": "У моделі з двома додатками особа стоїть перед предметом без прийменника."
+                }
+            },
+            "verb_hint": "У моделі з двома додатками особа стоїть перед предметом без прийменника.",
+            "accepted_target_texts": [
+                "Grandma gave me a scarf for my birthday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Grandma",
+                "gave me",
+                "a scarf",
+                "for my birthday."
+            ],
+            "token_groups": [
+                "Grandma",
+                "gave me",
+                "a scarf",
+                "for my birthday."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-verbs-objects-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Please {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Будь ласка, покажи мені свій квиток.",
+            "target_text": "Please show me your ticket.",
+            "markers": {
+                "a1": {
+                    "answer": "show me your ticket",
+                    "options": [
+                        "show me your ticket",
+                        "show your ticket me",
+                        "show ticket your me"
+                    ],
+                    "verb_hint": "Після дієслова показу спочатку назви одержувача, а потім — предмет."
+                }
+            },
+            "verb_hint": "Після дієслова показу спочатку назви одержувача, а потім — предмет.",
+            "accepted_target_texts": [
+                "Please show me your ticket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please",
+                "show me",
+                "your ticket."
+            ],
+            "token_groups": [
+                "Please",
+                "show me",
+                "your ticket."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-verbs-objects-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Artem {a1} every month.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Артем пише своєму двоюрідному братові щомісяця.",
+            "target_text": "Artem writes to his cousin every month.",
+            "markers": {
+                "a1": {
+                    "answer": "writes to his cousin",
+                    "options": [
+                        "writes to his cousin",
+                        "writes his cousin to",
+                        "writes his to cousin"
+                    ],
+                    "verb_hint": "Збережи прийменник перед адресатом листування, коли предмет листування не названо."
+                }
+            },
+            "verb_hint": "Збережи прийменник перед адресатом листування, коли предмет листування не названо.",
+            "accepted_target_texts": [
+                "Artem writes to his cousin every month."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Artem",
+                "writes to",
+                "his cousin",
+                "every month."
+            ],
+            "token_groups": [
+                "Artem",
+                "writes to",
+                "his cousin",
+                "every month."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-verbs-objects-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The visitor {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Відвідувач поставив адміністраторці запитання.",
+            "target_text": "The visitor asked the receptionist a question.",
+            "markers": {
+                "a1": {
+                    "answer": "asked the receptionist a question",
+                    "options": [
+                        "asked the receptionist a question",
+                        "asked a question the receptionist",
+                        "asked to the receptionist a question"
+                    ],
+                    "verb_hint": "Після дієслова запитування особа передує самому запитанню без зайвого прийменника."
+                }
+            },
+            "verb_hint": "Після дієслова запитування особа передує самому запитанню без зайвого прийменника.",
+            "accepted_target_texts": [
+                "The visitor asked the receptionist a question."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visitor",
+                "asked the receptionist",
+                "a question."
+            ],
+            "token_groups": [
+                "The visitor",
+                "asked the receptionist",
+                "a question."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-verbs-objects-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The coach {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Тренер пояснив нам вправу.",
+            "target_text": "The coach explained the exercise to us.",
+            "markers": {
+                "a1": {
+                    "answer": "explained the exercise to us",
+                    "options": [
+                        "explained the exercise to us",
+                        "explained us the exercise",
+                        "explained to us it exercise"
+                    ],
+                    "verb_hint": "Після дієслова пояснення спочатку назви зміст, потім — одержувача з прийменником."
+                }
+            },
+            "verb_hint": "Після дієслова пояснення спочатку назви зміст, потім — одержувача з прийменником.",
+            "accepted_target_texts": [
+                "The coach explained the exercise to us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coach",
+                "explained the exercise",
+                "to us."
+            ],
+            "token_groups": [
+                "The coach",
+                "explained the exercise",
+                "to us."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-verbs-objects-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Can you {a1} until Friday?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Можеш позичити мені свій зарядний пристрій до п’ятниці?",
+            "target_text": "Can you lend me your charger until Friday?",
+            "markers": {
+                "a1": {
+                    "answer": "lend me your charger",
+                    "options": [
+                        "lend me your charger",
+                        "lend me charger your",
+                        "lend your charger me"
+                    ],
+                    "verb_hint": "Потрібне дієслово передавання речі в тимчасове користування; особа стоїть перед предметом."
+                }
+            },
+            "verb_hint": "Потрібне дієслово передавання речі в тимчасове користування; особа стоїть перед предметом.",
+            "accepted_target_texts": [
+                "Can you lend me your charger until Friday?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Can you",
+                "lend me",
+                "your charger",
+                "until Friday?"
+            ],
+            "token_groups": [
+                "Can you",
+                "lend me",
+                "your charger",
+                "until Friday?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-verbs-objects-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Please {a1} because the music is loud.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Будь ласка, зроби музику тихішою, бо вона гучна.",
+            "target_text": "Please turn it down because the music is loud.",
+            "markers": {
+                "a1": {
+                    "answer": "turn it down",
+                    "options": [
+                        "turn it down",
+                        "turn down it",
+                        "turn it down it"
+                    ],
+                    "verb_hint": "Займенниковий додаток у розділюваному фразовому дієслові стоїть між дієсловом і часткою."
+                }
+            },
+            "verb_hint": "Займенниковий додаток у розділюваному фразовому дієслові стоїть між дієсловом і часткою.",
+            "accepted_target_texts": [
+                "Please turn it down because the music is loud."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please",
+                "turn it down",
+                "because the music",
+                "is loud."
+            ],
+            "token_groups": [
+                "Please",
+                "turn it down",
+                "because the music",
+                "is loud."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-verbs-objects-b1-g02",
+            "author_id": "B1-g02",
+            "question": "My aunt {a1} while we are away.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Моя тітка доглядає дітей, поки нас немає.",
+            "target_text": "My aunt looks after the children while we are away.",
+            "markers": {
+                "a1": {
+                    "answer": "looks after the children",
+                    "options": [
+                        "looks after the children",
+                        "looks the children after",
+                        "looks after them the children"
+                    ],
+                    "verb_hint": "У нерозділюваному дієслові прийменник залишається поряд із дієсловом перед додатком."
+                }
+            },
+            "verb_hint": "У нерозділюваному дієслові прийменник залишається поряд із дієсловом перед додатком.",
+            "accepted_target_texts": [
+                "My aunt looks after the children while we are away."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My aunt",
+                "looks after",
+                "the children",
+                "while we",
+                "are away."
+            ],
+            "token_groups": [
+                "My aunt",
+                "looks after",
+                "the children",
+                "while we",
+                "are away."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-verbs-objects-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The guard {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Охоронець не дав нам увійти.",
+            "target_text": "The guard prevented us from entering.",
+            "markers": {
+                "a1": {
+                    "answer": "prevented us from entering",
+                    "options": [
+                        "prevented us from entering",
+                        "prevented from entering us",
+                        "prevented us to enter"
+                    ],
+                    "verb_hint": "Після дієслова перешкоджання постав особу, прийменник і назву дії."
+                }
+            },
+            "verb_hint": "Після дієслова перешкоджання постав особу, прийменник і назву дії.",
+            "accepted_target_texts": [
+                "The guard prevented us from entering."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guard",
+                "prevented us",
+                "from entering."
+            ],
+            "token_groups": [
+                "The guard",
+                "prevented us",
+                "from entering."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-verbs-objects-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The organisers {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Організатори забезпечили волонтерів обідом.",
+            "target_text": "The organisers provided the volunteers with lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "provided the volunteers with lunch",
+                    "options": [
+                        "provided the volunteers with lunch",
+                        "provided with the volunteers lunch",
+                        "provided the volunteers lunch with"
+                    ],
+                    "verb_hint": "У цій моделі після особи стоїть прийменник, який вводить надану річ."
+                }
+            },
+            "verb_hint": "У цій моделі після особи стоїть прийменник, який вводить надану річ.",
+            "accepted_target_texts": [
+                "The organisers provided the volunteers with lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The organisers",
+                "provided the volunteers",
+                "with lunch."
+            ],
+            "token_groups": [
+                "The organisers",
+                "provided the volunteers",
+                "with lunch."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-verbs-objects-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Please {a1} tomorrow morning.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Будь ласка, нагадай мені про зустріч завтра вранці.",
+            "target_text": "Please remind me about the appointment tomorrow morning.",
+            "markers": {
+                "a1": {
+                    "answer": "remind me about the appointment",
+                    "options": [
+                        "remind me about the appointment",
+                        "remind about me the appointment",
+                        "remind to me the appointment"
+                    ],
+                    "verb_hint": "Після дієслова нагадування постав особу, а зміст нагадування введи прийменником."
+                }
+            },
+            "verb_hint": "Після дієслова нагадування постав особу, а зміст нагадування введи прийменником.",
+            "accepted_target_texts": [
+                "Please remind me about the appointment tomorrow morning.",
+                "Please remind me of the appointment tomorrow morning."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "remind me of the appointment"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "remind me of the appointment"
+                ]
+            },
+            "reorder_groups": [
+                "Please",
+                "remind me",
+                "about the appointment",
+                "tomorrow morning."
+            ],
+            "token_groups": [
+                "Please",
+                "remind me",
+                "about the appointment",
+                "tomorrow morning."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-verbs-objects-b1-g06",
+            "author_id": "B1-g06",
+            "question": "They {a1} last summer.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Минулого літа вони витратили заощадження на ремонт.",
+            "target_text": "They spent their savings on repairs last summer.",
+            "markers": {
+                "a1": {
+                    "answer": "spent their savings on repairs",
+                    "options": [
+                        "spent their savings on repairs",
+                        "spent on their savings repairs",
+                        "spent their savings for to repairs"
+                    ],
+                    "verb_hint": "Спочатку назви витрачене, а потім — призначення витрат із потрібним прийменником."
+                }
+            },
+            "verb_hint": "Спочатку назви витрачене, а потім — призначення витрат із потрібним прийменником.",
+            "accepted_target_texts": [
+                "They spent their savings on repairs last summer."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "spent their savings",
+                "on repairs",
+                "last summer."
+            ],
+            "token_groups": [
+                "They",
+                "spent their savings",
+                "on repairs",
+                "last summer."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-verbs-objects-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The director {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Директор змусив команду переписати підсумок.",
+            "target_text": "The director made the team rewrite the summary.",
+            "markers": {
+                "a1": {
+                    "answer": "made the team rewrite the summary",
+                    "options": [
+                        "made the team rewrite the summary",
+                        "made rewrite the team the summary",
+                        "made the team to rewrite the summary"
+                    ],
+                    "verb_hint": "Після дієслова примусу постав виконавця й початкову форму дії без зайвого інфінітивного слова."
+                }
+            },
+            "verb_hint": "Після дієслова примусу постав виконавця й початкову форму дії без зайвого інфінітивного слова.",
+            "accepted_target_texts": [
+                "The director made the team rewrite the summary."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The director",
+                "made the team",
+                "rewrite the summary."
+            ],
+            "token_groups": [
+                "The director",
+                "made the team",
+                "rewrite the summary."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-verbs-objects-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We {a1} before moving in.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Перед заселенням ми замовили заміну замків.",
+            "target_text": "We had the locks replaced before moving in.",
+            "markers": {
+                "a1": {
+                    "answer": "had the locks replaced",
+                    "options": [
+                        "had the locks replaced",
+                        "had replaced the locks it",
+                        "had the locks to replace"
+                    ],
+                    "verb_hint": "Для замовленої послуги постав предмет перед формою дієслова, яка називає виконану над ним дію."
+                }
+            },
+            "verb_hint": "Для замовленої послуги постав предмет перед формою дієслова, яка називає виконану над ним дію.",
+            "accepted_target_texts": [
+                "We had the locks replaced before moving in."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "had the locks",
+                "replaced",
+                "before moving in."
+            ],
+            "token_groups": [
+                "We",
+                "had the locks",
+                "replaced",
+                "before moving in."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-verbs-objects-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The jury {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Присяжні визнали свідчення непослідовним.",
+            "target_text": "The jury found the account inconsistent.",
+            "markers": {
+                "a1": {
+                    "answer": "found the account inconsistent",
+                    "options": [
+                        "found the account inconsistent",
+                        "found inconsistent was the account",
+                        "found the account inconsistently"
+                    ],
+                    "verb_hint": "Після дієслова оцінювання постав додаток, а потім — його прикметникову характеристику."
+                }
+            },
+            "verb_hint": "Після дієслова оцінювання постав додаток, а потім — його прикметникову характеристику.",
+            "accepted_target_texts": [
+                "The jury found the account inconsistent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jury",
+                "found the account",
+                "inconsistent."
+            ],
+            "token_groups": [
+                "The jury",
+                "found the account",
+                "inconsistent."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-verbs-objects-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The new rules {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Нові правила дозволяють працівникам працювати дистанційно.",
+            "target_text": "The new rules allow employees to work remotely.",
+            "markers": {
+                "a1": {
+                    "answer": "allow employees to work remotely",
+                    "options": [
+                        "allow employees to work remotely",
+                        "allow to work employees remotely",
+                        "allow employees work remotely"
+                    ],
+                    "verb_hint": "Після дієслова дозволу назви особу, а потім — інфінітивну дію."
+                }
+            },
+            "verb_hint": "Після дієслова дозволу назви особу, а потім — інфінітивну дію.",
+            "accepted_target_texts": [
+                "The new rules allow employees to work remotely."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new rules",
+                "allow employees",
+                "to work remotely."
+            ],
+            "token_groups": [
+                "The new rules",
+                "allow employees",
+                "to work remotely."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-verbs-objects-b2-g05",
+            "author_id": "B2-g05",
+            "question": "I {a1} in the empty hall.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Я чув, як скрипаль репетирував у порожній залі.",
+            "target_text": "I heard the violinist rehearsing in the empty hall.",
+            "markers": {
+                "a1": {
+                    "answer": "heard the violinist rehearsing",
+                    "options": [
+                        "heard the violinist rehearsing",
+                        "heard rehearsing the violinist it",
+                        "heard the violinist to rehearsing"
+                    ],
+                    "verb_hint": "Після дієслова сприйняття постав виконавця й форму тривалого процесу, який було чути."
+                }
+            },
+            "verb_hint": "Після дієслова сприйняття постав виконавця й форму тривалого процесу, який було чути.",
+            "accepted_target_texts": [
+                "I heard the violinist rehearsing in the empty hall."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "heard the violinist",
+                "rehearsing in",
+                "the empty hall."
+            ],
+            "token_groups": [
+                "I",
+                "heard the violinist",
+                "rehearsing in",
+                "the empty hall."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-verbs-objects-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The solicitor {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Юрист порадив нам не підписувати.",
+            "target_text": "The solicitor advised us against signing.",
+            "markers": {
+                "a1": {
+                    "answer": "advised us against signing",
+                    "options": [
+                        "advised us against signing",
+                        "advised against us signing",
+                        "advised us against to sign"
+                    ],
+                    "verb_hint": "Після дієслова поради постав особу, заперечний за значенням прийменник і назву дії."
+                }
+            },
+            "verb_hint": "Після дієслова поради постав особу, заперечний за значенням прийменник і назву дії.",
+            "accepted_target_texts": [
+                "The solicitor advised us against signing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The solicitor",
+                "advised us",
+                "against signing."
+            ],
+            "token_groups": [
+                "The solicitor",
+                "advised us",
+                "against signing."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-verbs-objects-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The analyst {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Аналітик пояснив розбіжність похибкою округлення.",
+            "target_text": "The analyst attributed the discrepancy to a rounding error.",
+            "markers": {
+                "a1": {
+                    "answer": "attributed the discrepancy to a rounding error",
+                    "options": [
+                        "attributed the discrepancy to a rounding error",
+                        "attributed to the discrepancy a rounding error",
+                        "attributed the discrepancy a rounding error to"
+                    ],
+                    "verb_hint": "Після дієслова пояснення причини назви результат, а його причину введи прийменником."
+                }
+            },
+            "verb_hint": "Після дієслова пояснення причини назви результат, а його причину введи прийменником.",
+            "accepted_target_texts": [
+                "The analyst attributed the discrepancy to a rounding error."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analyst",
+                "attributed the discrepancy",
+                "to a",
+                "rounding error."
+            ],
+            "token_groups": [
+                "The analyst",
+                "attributed the discrepancy",
+                "to a",
+                "rounding error."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-verbs-objects-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The trustees {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Опікуни довірили кураторові колекцію.",
+            "target_text": "The trustees entrusted the curator with the collection.",
+            "markers": {
+                "a1": {
+                    "answer": "entrusted the curator with the collection",
+                    "options": [
+                        "entrusted the curator with the collection",
+                        "entrusted with the curator the collection",
+                        "entrusted the curator the collection with"
+                    ],
+                    "verb_hint": "У моделі доручення особа стоїть перед прийменником і предметом відповідальності."
+                }
+            },
+            "verb_hint": "У моделі доручення особа стоїть перед прийменником і предметом відповідальності.",
+            "accepted_target_texts": [
+                "The trustees entrusted the curator with the collection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trustees",
+                "entrusted the curator",
+                "with the collection."
+            ],
+            "token_groups": [
+                "The trustees",
+                "entrusted the curator",
+                "with the collection."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-verbs-objects-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The publication {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Публікація наражала свідків на значний ризик.",
+            "target_text": "The publication exposed the witnesses to considerable risk.",
+            "markers": {
+                "a1": {
+                    "answer": "exposed the witnesses to considerable risk",
+                    "options": [
+                        "exposed the witnesses to considerable risk",
+                        "exposed to the witnesses considerable risk",
+                        "exposed the witnesses considerable risk"
+                    ],
+                    "verb_hint": "Після дієслова наражання постав особу, а загрозу введи потрібним прийменником."
+                }
+            },
+            "verb_hint": "Після дієслова наражання постав особу, а загрозу введи потрібним прийменником.",
+            "accepted_target_texts": [
+                "The publication exposed the witnesses to considerable risk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The publication",
+                "exposed the witnesses",
+                "to considerable risk."
+            ],
+            "token_groups": [
+                "The publication",
+                "exposed the witnesses",
+                "to considerable risk."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-verbs-objects-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The ruling {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Це рішення позбавило організацію фінансування.",
+            "target_text": "The ruling deprived the organisation of its funding.",
+            "markers": {
+                "a1": {
+                    "answer": "deprived the organisation of its funding",
+                    "options": [
+                        "deprived the organisation of its funding",
+                        "deprived of the organisation its funding",
+                        "deprived the organisation its funding of"
+                    ],
+                    "verb_hint": "Спочатку назви того, кого позбавляють чогось, потім — прийменник і втрачене."
+                }
+            },
+            "verb_hint": "Спочатку назви того, кого позбавляють чогось, потім — прийменник і втрачене.",
+            "accepted_target_texts": [
+                "The ruling deprived the organisation of its funding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ruling",
+                "deprived the organisation",
+                "of its funding."
+            ],
+            "token_groups": [
+                "The ruling",
+                "deprived the organisation",
+                "of its funding."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-verbs-objects-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The findings {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Результати спонукали рецензентів поставити під сумнів метод.",
+            "target_text": "The findings led the reviewers to question the method.",
+            "markers": {
+                "a1": {
+                    "answer": "led the reviewers to question the method",
+                    "options": [
+                        "led the reviewers to question the method",
+                        "led to the reviewers question the method",
+                        "led the reviewers question to the method"
+                    ],
+                    "verb_hint": "Після дієслова спричинення постав особу й лише потім інфінітив, який називає її реакцію."
+                }
+            },
+            "verb_hint": "Після дієслова спричинення постав особу й лише потім інфінітив, який називає її реакцію.",
+            "accepted_target_texts": [
+                "The findings led the reviewers to question the method."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The findings",
+                "led the reviewers",
+                "to question",
+                "the method."
+            ],
+            "token_groups": [
+                "The findings",
+                "led the reviewers",
+                "to question",
+                "the method."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-verbs-objects-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The policy {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ця політика робить подальші переговори безглуздими.",
+            "target_text": "The policy renders further negotiation pointless.",
+            "markers": {
+                "a1": {
+                    "answer": "renders further negotiation pointless",
+                    "options": [
+                        "renders further negotiation pointless",
+                        "renders pointless was further negotiation",
+                        "renders further negotiation pointlessly"
+                    ],
+                    "verb_hint": "Після дієслова перетворення постав додаток і його нову характеристику без зайвої зв’язки."
+                }
+            },
+            "verb_hint": "Після дієслова перетворення постав додаток і його нову характеристику без зайвої зв’язки.",
+            "accepted_target_texts": [
+                "The policy renders further negotiation pointless."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The policy",
+                "renders further negotiation",
+                "pointless."
+            ],
+            "token_groups": [
+                "The policy",
+                "renders further negotiation",
+                "pointless."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-verbs-objects-c2-g01",
+            "author_id": "C2-g01",
+            "question": "We owe {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Ми зобов’язані перед нашими попередниками зберегти архів.",
+            "target_text": "We owe it to our predecessors to preserve the archive.",
+            "markers": {
+                "a1": {
+                    "answer": "it to our predecessors to preserve the archive",
+                    "options": [
+                        "it to our predecessors to preserve the archive",
+                        "to our predecessors it preserve the archive",
+                        "it our predecessors to preserve the archive to"
+                    ],
+                    "verb_hint": "Збережи формальний додаток перед адресатом обов’язку; зміст обов’язку розкрий інфінітивом наприкінці."
+                }
+            },
+            "verb_hint": "Збережи формальний додаток перед адресатом обов’язку; зміст обов’язку розкрий інфінітивом наприкінці.",
+            "accepted_target_texts": [
+                "We owe it to our predecessors to preserve the archive."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We owe",
+                "it to",
+                "our predecessors",
+                "to preserve",
+                "the archive."
+            ],
+            "token_groups": [
+                "We owe",
+                "it to",
+                "our predecessors",
+                "to preserve",
+                "the archive."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-verbs-objects-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The panel attributed {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Комісія пояснила похибкою вимірювання невідповідності, зафіксовані в останньому випробуванні.",
+            "target_text": "The panel attributed to measurement error the inconsistencies recorded in the final trial.",
+            "markers": {
+                "a1": {
+                    "answer": "to measurement error the inconsistencies recorded in the final trial",
+                    "options": [
+                        "to measurement error the inconsistencies recorded in the final trial",
+                        "the inconsistencies to recorded measurement error in the final trial",
+                        "measurement error to the inconsistencies recorded in the final trial"
+                    ],
+                    "verb_hint": "Коротку причинову групу постав перед довгим додатком; означення має залишитися поряд із тим, що воно уточнює."
+                }
+            },
+            "verb_hint": "Коротку причинову групу постав перед довгим додатком; означення має залишитися поряд із тим, що воно уточнює.",
+            "accepted_target_texts": [
+                "The panel attributed to measurement error the inconsistencies recorded in the final trial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel attributed",
+                "to measurement error",
+                "the inconsistencies",
+                "recorded in",
+                "the final trial."
+            ],
+            "token_groups": [
+                "The panel attributed",
+                "to measurement error",
+                "the inconsistencies",
+                "recorded in",
+                "the final trial."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-verbs-objects-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The investigators prevailed {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Слідчі переконали опікунів оприлюднити листування.",
+            "target_text": "The investigators prevailed upon the trustees to release the correspondence.",
+            "markers": {
+                "a1": {
+                    "answer": "upon the trustees to release the correspondence",
+                    "options": [
+                        "upon the trustees to release the correspondence",
+                        "the trustees upon release to the correspondence",
+                        "upon to release the trustees the correspondence"
+                    ],
+                    "verb_hint": "В усталеному дієслівному звороті прийменник передує особі, а зміст переконування виражає інфінітив."
+                }
+            },
+            "verb_hint": "В усталеному дієслівному звороті прийменник передує особі, а зміст переконування виражає інфінітив.",
+            "accepted_target_texts": [
+                "The investigators prevailed upon the trustees to release the correspondence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The investigators prevailed",
+                "upon the trustees",
+                "to release",
+                "the correspondence."
+            ],
+            "token_groups": [
+                "The investigators prevailed",
+                "upon the trustees",
+                "to release",
+                "the correspondence."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-verbs-objects-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The judgment {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Рішення залишає регуляторові визначення засобу правового захисту.",
+            "target_text": "The judgment leaves it to the regulator to determine the remedy.",
+            "markers": {
+                "a1": {
+                    "answer": "leaves it to the regulator to determine the remedy",
+                    "options": [
+                        "leaves it to the regulator to determine the remedy",
+                        "leaves to determine it the regulator the remedy",
+                        "leaves the regulator it to determine the remedy"
+                    ],
+                    "verb_hint": "Після дієслова залишення постав формальний додаток, потім відповідальну сторону й інфінітивний зміст."
+                }
+            },
+            "verb_hint": "Після дієслова залишення постав формальний додаток, потім відповідальну сторону й інфінітивний зміст.",
+            "accepted_target_texts": [
+                "The judgment leaves it to the regulator to determine the remedy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judgment",
+                "leaves it",
+                "to the regulator",
+                "to determine",
+                "the remedy."
+            ],
+            "token_groups": [
+                "The judgment",
+                "leaves it",
+                "to the regulator",
+                "to determine",
+                "the remedy."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-verbs-objects-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The author {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Автор заперечує припущення, покладене в основу моделі.",
+            "target_text": "The author takes issue with the assumption underlying the model.",
+            "markers": {
+                "a1": {
+                    "answer": "takes issue with the assumption underlying the model",
+                    "options": [
+                        "takes issue with the assumption underlying the model",
+                        "takes with issue the assumption underlying the model",
+                        "takes the assumption with issue underlying the model"
+                    ],
+                    "verb_hint": "Збережи усталену іменну частину дієслівного звороту та прийменник перед предметом заперечення."
+                }
+            },
+            "verb_hint": "Збережи усталену іменну частину дієслівного звороту та прийменник перед предметом заперечення.",
+            "accepted_target_texts": [
+                "The author takes issue with the assumption underlying the model."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The author",
+                "takes issue with",
+                "the assumption",
+                "underlying the model."
+            ],
+            "token_groups": [
+                "The author",
+                "takes issue with",
+                "the assumption",
+                "underlying the model."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-verbs-objects-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The agreement {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_verbs_objects",
+            "translation_uk": "Угода зобов’язує сторони передати свої вимоги на арбітражний розгляд.",
+            "target_text": "The agreement commits the parties to submitting their claims to arbitration.",
+            "markers": {
+                "a1": {
+                    "answer": "commits the parties to submitting their claims to arbitration",
+                    "options": [
+                        "commits the parties to submitting their claims to arbitration",
+                        "commits to the parties submitting their claims to arbitration",
+                        "commits the parties submitting to their claims to arbitration"
+                    ],
+                    "verb_hint": "У цій моделі після особи стоїть прийменник, а не частка інфінітива; далі потрібна назва дії."
+                }
+            },
+            "verb_hint": "У цій моделі після особи стоїть прийменник, а не частка інфінітива; далі потрібна назва дії.",
+            "accepted_target_texts": [
+                "The agreement commits the parties to submitting their claims to arbitration."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The agreement",
+                "commits the parties",
+                "to submitting",
+                "their claims",
+                "to arbitration."
+            ],
+            "token_groups": [
+                "The agreement",
+                "commits the parties",
+                "to submitting",
+                "their claims",
+                "to arbitration."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

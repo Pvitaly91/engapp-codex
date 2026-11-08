@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 63878,
+        "uuid": "pvq-restrictions-b1-g01",
+        "question": "The final decision {a1} on the weather forecast.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 10,
+        "source_id": 487,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceRestrictionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "depends",
+                "depended",
+                "will depend"
+            ]
+        },
+        "theory_text_block_uuid": "1bd842ee-a151-5f56-822f-420fdab79619",
+        "created_at": "2026-10-30T20:16:50.000000Z",
+        "updated_at": "2026-10-30T20:16:50.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 487,
+        "name": "Passive Voice Quality: Обмеження пасивного стану",
+        "created_at": "2026-10-30T20:16:49.000000Z",
+        "updated_at": "2026-10-30T20:16:49.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 3108,
+                "option": "depends",
+                "created_at": "2026-04-23T14:18:54.000000Z",
+                "updated_at": "2026-04-23T14:18:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 63878,
+                "option_id": 3108,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 55489,
+                "option": "depended",
+                "created_at": "2026-10-28T19:55:37.000000Z",
+                "updated_at": "2026-10-28T19:55:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 63878,
+                "option_id": 55489,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 61392,
+                "option": "will depend",
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 63878,
+                "option_id": 61392,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 334849,
+                "question_id": 63878,
+                "marker": "a1",
+                "option_id": 3108,
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "option": {
+                "id": 3108,
+                "option": "depends",
+                "created_at": "2026-04-23T14:18:54.000000Z",
+                "updated_at": "2026-04-23T14:18:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 52183,
+                "question_id": 63878,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 61391,
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "option": {
+                "id": 61391,
+                "option": "Передай теперішню залежність активною конструкцією; прийменниковий додаток не робить її звичайним пасивом.",
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55893,
+            "question_id": 63878,
+            "text": "The final decision {a1} on the weather forecast.",
+            "created_at": "2026-10-30T20:16:50.000000Z",
+            "updated_at": "2026-10-30T20:16:50.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66204,
+        "uuid": "rsq-commands-b1-g05",
+        "question": "The warden told us {a1} any food behind.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "not to leave",
+                "not leaving",
+                "not to left"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:48.000000Z",
+        "updated_at": "2026-11-01T20:04:48.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68355,
+                "option": "not to leave",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 66204,
+                "option_id": 68355,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68357,
+                "option": "not leaving",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 66204,
+                "option_id": 68357,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68358,
+                "option": "not to left",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 66204,
+                "option_id": 68358,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340981,
+                "question_id": 66204,
+                "marker": "a1",
+                "option_id": 68355,
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "option": {
+                "id": 68355,
+                "option": "not to leave",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58315,
+                "question_id": 66204,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68356,
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            },
+            "option": {
+                "id": 68356,
+                "option": "Не залишати; збережи повну заперечну інфінітивну групу.",
+                "created_at": "2026-11-01T20:04:48.000000Z",
+                "updated_at": "2026-11-01T20:04:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58219,
+            "question_id": 66204,
+            "text": "The warden told us {a1} any food behind.",
+            "created_at": "2026-11-01T20:04:48.000000Z",
+            "updated_at": "2026-11-01T20:04:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

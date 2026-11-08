@@ -1,0 +1,598 @@
+{
+    "schema_version": 1,
+    "topic_key": "participle-clauses-basics",
+    "title": "Participle Clauses Basics",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ],
+        "participle_phrase": [
+            "Carrying a torch",
+            "Having checked twice",
+            "Dressed in blue",
+            "Not having noticed",
+            "Surrounded by fields",
+            "Looking for shelter",
+            "Having been delayed",
+            "Having completed",
+            "Having locked up",
+            "Smiling quietly"
+        ],
+        "absolute_phrase": [
+            "There being",
+            "Her coat wet",
+            "His eyes open",
+            "The task complete",
+            "Their coats drying",
+            "The door shut",
+            "Weather permitting",
+            "Dinner finished",
+            "The engine running",
+            "Her voice steady"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "The boy {a1} a kite is my cousin.",
+            "target": "The boy flying a kite is my cousin.",
+            "uk": "Хлопчик, який запускає повітряного змія, — мій двоюрідний брат.",
+            "hint_uk": "Який запускає; після вже названого хлопчика потрібна неособова форма дії, що триває.",
+            "groups": [
+                "The boy",
+                "flying a kite",
+                "is my cousin."
+            ],
+            "answer": "flying",
+            "options": [
+                "flying",
+                "flies",
+                "flew"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Do not touch the {a1} glass.",
+            "target": "Do not touch the broken glass.",
+            "uk": "Не торкайся розбитого скла.",
+            "hint_uk": "Розбите; перед назвою скла потрібна форма стану після пошкодження.",
+            "groups": [
+                "Do not touch",
+                "the broken glass."
+            ],
+            "answer": "broken",
+            "options": [
+                "broken",
+                "broke",
+                "break"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Дівчинка, яка несе коробку, тут.",
+            "target": "The girl carrying a box is here.",
+            "uk": "Дівчинка, яка несе коробку, тут.",
+            "hint_uk": "Почни з дівчинки; заміни підрядну частину короткою формою дії без окремого відносного слова.",
+            "groups": [
+                "The girl",
+                "carrying",
+                "a box",
+                "is here."
+            ],
+            "compose_slots": [
+                "The girl",
+                "carrying",
+                "a box",
+                "is here."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "participle_phrase",
+                "noun_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The man {a1} the roses is our neighbour.",
+            "target": "The man watering the roses is our neighbour.",
+            "uk": "Чоловік, який поливає троянди, — наш сусід.",
+            "hint_uk": "Який поливає; скорочений опис називає поточну дію вже названого чоловіка.",
+            "groups": [
+                "The man",
+                "watering the roses",
+                "is our neighbour."
+            ],
+            "answer": "watering",
+            "options": [
+                "watering",
+                "waters",
+                "watered"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The scarf {a1} by my aunt is very soft.",
+            "target": "The scarf knitted by my aunt is very soft.",
+            "uk": "Шарф, який зв’язала моя тітка, дуже м’який.",
+            "hint_uk": "Зв’язаний; сам шарф зазнав дії, а виконавицю вже названо після прийменника.",
+            "groups": [
+                "The scarf",
+                "knitted",
+                "by my aunt",
+                "is very soft."
+            ],
+            "answer": "knitted",
+            "options": [
+                "knitted",
+                "knitting",
+                "knits"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Посміхаючись, продавчиня подала мені решту.",
+            "target": "Smiling, the shop assistant gave me my change.",
+            "uk": "Посміхаючись, продавчиня подала мені решту.",
+            "hint_uk": "Почни з одночасної дії на початку; посміхається саме продавчиня.",
+            "groups": [
+                "Smiling,",
+                "the shop assistant",
+                "gave me",
+                "my change."
+            ],
+            "compose_slots": [
+                "Smiling,",
+                "the shop assistant",
+                "gave me",
+                "my change."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Smiling, the shop assistant handed me my change.",
+                "Smiling, the sales assistant gave me my change.",
+                "Smiling, the sales assistant handed me my change."
+            ],
+            "display_synonyms": {
+                "the shop assistant": [
+                    "the sales assistant"
+                ],
+                "gave me": [
+                    "handed me"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "{a1} the narrow steps, Danylo held the handrail.",
+            "target": "Climbing the narrow steps, Danylo held the handrail.",
+            "uk": "Піднімаючись вузькими сходами, Данило тримався за поручень.",
+            "hint_uk": "Піднімаючись; початкова дія відбувається одночасно з триманням, обидві виконує Данило.",
+            "groups": [
+                "Climbing",
+                "the narrow steps,",
+                "Danylo",
+                "held the handrail."
+            ],
+            "answer": "Climbing",
+            "options": [
+                "Climbing",
+                "Climbed",
+                "To have climbed"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "{a1} by the crash, the horses pulled against their ropes.",
+            "target": "Frightened by the crash, the horses pulled against their ropes.",
+            "uk": "Налякані гуркотом, коні рвонули свої мотузки.",
+            "hint_uk": "Налякані; коні відчули дію звуку, а не самі когось лякали.",
+            "groups": [
+                "Frightened",
+                "by the crash,",
+                "the horses",
+                "pulled",
+                "against their ropes."
+            ],
+            "answer": "Frightened",
+            "options": [
+                "Frightened",
+                "Frightening",
+                "Frighten"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Тримаючи свічку, доглядач повів нас до підвалу.",
+            "target": "Holding a candle, the caretaker led us to the cellar.",
+            "uk": "Тримаючи свічку, доглядач повів нас до підвалу.",
+            "hint_uk": "Постав фонову дію на початок; свічку тримає той самий доглядач.",
+            "groups": [
+                "Holding a candle,",
+                "the caretaker",
+                "led us",
+                "to the cellar."
+            ],
+            "compose_slots": [
+                "Holding a candle,",
+                "the caretaker",
+                "led us",
+                "to the cellar."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "preposition_phrase"
+            ],
+            "accepted_targets": [
+                "Holding a candle, the caretaker led us to the basement.",
+                "Holding a candle, the custodian led us to the cellar.",
+                "Holding a candle, the custodian led us to the basement."
+            ],
+            "display_synonyms": {
+                "the caretaker": [
+                    "the custodian"
+                ],
+                "to the cellar.": [
+                    "to the basement."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "{a1} the measurements, the carpenter cut the final panel.",
+            "target": "Having checked the measurements, the carpenter cut the final panel.",
+            "uk": "Перевіривши виміри, тесля вирізав останню панель.",
+            "hint_uk": "Перевіривши раніше; початкова завершена дія передує вирізанню, виконавець той самий.",
+            "groups": [
+                "Having checked",
+                "the measurements,",
+                "the carpenter",
+                "cut",
+                "the final panel."
+            ],
+            "answer": "Having checked",
+            "options": [
+                "Having checked",
+                "Having check",
+                "Have checked"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "{a1} for a quieter place, the family chose the rear room.",
+            "target": "Looking for a quieter place, the family chose the rear room.",
+            "uk": "Шукаючи тихіше місце, родина вибрала задню кімнату.",
+            "hint_uk": "Шукаючи; назви активний мотив тієї самої родини неособовою формою.",
+            "groups": [
+                "Looking",
+                "for",
+                "a quieter place,",
+                "the family",
+                "chose",
+                "the rear room."
+            ],
+            "answer": "Looking",
+            "options": [
+                "Looking",
+                "Looked",
+                "Have looked"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Пошкоджений градом, виноградник потребував негайного догляду.",
+            "target": "Damaged by hail, the vineyard needed immediate attention.",
+            "uk": "Пошкоджений градом, виноградник потребував негайного догляду.",
+            "hint_uk": "Почни з пасивного стану виноградника після граду; він є підметом головної частини.",
+            "groups": [
+                "Damaged by hail,",
+                "the vineyard",
+                "needed",
+                "immediate attention."
+            ],
+            "compose_slots": [
+                "Damaged by hail,",
+                "the vineyard",
+                "needed",
+                "immediate attention."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "{a1} of the change, the tenants continued to use the old entrance.",
+            "target": "Not having heard of the change, the tenants continued to use the old entrance.",
+            "uk": "Не почувши про зміну, орендарі й далі користувалися старим входом.",
+            "hint_uk": "Не почувши раніше; заперечи завершену попередню дію тих самих орендарів.",
+            "groups": [
+                "Not having heard",
+                "of the change,",
+                "the tenants",
+                "continued to use",
+                "the old entrance."
+            ],
+            "answer": "Not having heard",
+            "options": [
+                "Not having heard",
+                "Not heard",
+                "Do not hear"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The specimen, {a1} under controlled conditions, showed no deterioration.",
+            "target": "The specimen, stored under controlled conditions, showed no deterioration.",
+            "uk": "Зразок, який зберігали в контрольованих умовах, не мав ознак погіршення.",
+            "hint_uk": "Який зберігали; скорочений додатковий опис має пасивне значення для зразка.",
+            "groups": [
+                "The specimen,",
+                "stored",
+                "under controlled conditions,",
+                "showed",
+                "no deterioration."
+            ],
+            "answer": "stored",
+            "options": [
+                "stored",
+                "storing",
+                "stores"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Раніше не врахувавши знижку, бухгалтерка перерахувала остаточну суму.",
+            "target": "Not having included the discount, the accountant recalculated the final amount.",
+            "uk": "Раніше не врахувавши знижку, бухгалтерка перерахувала остаточну суму.",
+            "hint_uk": "Почни із заперечної завершеної дії; і попередня помилка, і перерахунок належать бухгалтерці.",
+            "groups": [
+                "Not having included",
+                "the discount,",
+                "the accountant",
+                "recalculated",
+                "the final amount."
+            ],
+            "compose_slots": [
+                "Not having included",
+                "the discount,",
+                "the accountant",
+                "recalculated",
+                "the final amount."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "noun_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Not having included the discount, the accountant recalculated the final sum."
+            ],
+            "display_synonyms": {
+                "the final amount.": [
+                    "the final sum."
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "{a1} to the disputed interval, the comparison cannot support a general claim.",
+            "target": "Confined to the disputed interval, the comparison cannot support a general claim.",
+            "uk": "Обмежене спірним проміжком, порівняння не може підтвердити загальне твердження.",
+            "hint_uk": "Обмежене; початковий пасивний опис стосується порівняння, а не неназваного дослідника.",
+            "groups": [
+                "Confined",
+                "to",
+                "the disputed interval,",
+                "the comparison",
+                "cannot support",
+                "a general claim."
+            ],
+            "answer": "Confined",
+            "options": [
+                "Confined",
+                "Confining",
+                "Confine"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "{a1} each objection in turn, the rapporteur returned to the central question.",
+            "target": "Having addressed each objection in turn, the rapporteur returned to the central question.",
+            "uk": "Розглянувши по черзі кожне заперечення, доповідач повернувся до головного питання.",
+            "hint_uk": "Розглянувши раніше; потрібна завершена неособова форма перед уже названим об’єктом.",
+            "groups": [
+                "Having addressed",
+                "each objection",
+                "in turn,",
+                "the rapporteur",
+                "returned",
+                "to",
+                "the central question."
+            ],
+            "answer": "Having addressed",
+            "options": [
+                "Having addressed",
+                "Having addressing",
+                "Had addressed"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Вилучений зі свого контексту, уривок, схоже, суперечить пізнішому уточненню.",
+            "target": "Removed from its context, the passage appears to contradict the later qualification.",
+            "uk": "Вилучений зі свого контексту, уривок, схоже, суперечить пізнішому уточненню.",
+            "hint_uk": "Почни з пасивного опису уривка; збережи обережність висновку, не стверджуй справжньої суперечності.",
+            "groups": [
+                "Removed",
+                "from its context,",
+                "the passage",
+                "appears to contradict",
+                "the later qualification."
+            ],
+            "compose_slots": [
+                "Removed",
+                "from its context,",
+                "the passage",
+                "appears to contradict",
+                "the later qualification."
+            ],
+            "slot_roles": [
+                "participle_phrase",
+                "preposition_phrase",
+                "subject_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

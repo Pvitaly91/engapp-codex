@@ -1,0 +1,173 @@
+{
+    "schema_version": 1,
+    "package": "m80-negatives-transformations-widget-review-draft",
+    "status": "draft_for_independent_semantic_review",
+    "independent_before_sha256": "75a9e58003f9364c45e4e3c2696aab7c0b8e5d5073a2bb2acefe54fb198dbefb",
+    "policy": "Existing exact owner/bank/CEFR only. Conditions are unsaved canonical-theory clones; keys, options, original models and standalone tests remain unchanged. This draft is not a frozen receipt or browser evidence.",
+    "coverage_before_selection": [
+        "A2 negative forms: ordinary be, lexical do-support, core modal, future auxiliary, Perfect auxiliary; no + noun, imperative and infinitive scope remain in lesson/own practice. A no + noun bank candidate is excluded for an unchanged native visible-format defect.",
+        "B1 double negatives: not + anything, not + any before a mass noun, nobody as subject, nothing as object, neither in an exact two-member set; distinguish negative messages from affirmative verb form without a global word blacklist. No + noun remains in the lesson; that bank candidate is excluded for unchanged native formatting.",
+        "B1 tense transformations: ongoing residence since a date, a temporary present process, last contact to present, continuing duration anchored to a fixed teaching clock, and finished yesterday; the original B1 pool has no Past Perfect item, so film chronology is covered explicitly in own practice.",
+        "B1 modal transformations: present obligation, prohibition, advice for an explicit recipient, strong past deduction, actual past success; absence of necessity remains visible in lesson/own practice, not this finite five.",
+        "B1 passive transformations: both directions, required named agent, ongoing repair, completed checked result, present obligation; no tense/aspect/modality loss.",
+        "B1 reported speech: yes/no question, polite request with identified recipient, next-day reported intention, negative instruction with identified recipients, possessive/location reference; speaker, addressee and reporting time/place are explicit. Existing wh candidates are excluded for unchanged shared-option casing; lesson/own practice retain question-structure coverage."
+    ],
+    "known_exclusions": [
+        {"uuid": "negf-poly-a2-11", "reason": "Actual unchanged ROOT/WT native formatter shows There is? No, time left.. for the canonical key. Exclude without changing the shared formatter or key."},
+        {"uuid": "dbln-poly-b1-04", "reason": "Actual unchanged ROOT/WT native formatter shows There is? No, reason to worry today.. for the canonical key. Exclude without changing the shared formatter or key."},
+        {
+            "uuid": "dbln-poly-b1-11",
+            "reason": "The unchanged key repeats today twice. Exclude; do not repair shared options or formatter."
+        },
+        {
+            "uuid": "dbln-poly-b1-07",
+            "reason": "The unchanged never/again/today combination is an unnecessarily awkward teaching model for the finite five."
+        },
+        {
+            "uuid": "stten-poly-b1-08",
+            "reason": "First-flight interpretation requires extra reference context and does not improve the chosen five-function coverage."
+        },
+        {
+            "uuid": "stmod-poly-b1-04",
+            "reason": "Unchanged shared option400 is Food, so the native formatter would show You need not bring Food. Exclude without changing shared options, key or formatter; own practice covers no necessity."
+        },
+        {
+            "uuid": "strsp-poly-b1-08",
+            "reason": "Unchanged shared option50 is Where, and the native formatter does not lowercase this medial wh word. Exclude without token/engine changes."
+        },
+        {
+            "uuid": "strsp-poly-b1-11",
+            "reason": "Unchanged shared option50 is Where, so the visible native answer would contain medial Where. Exclude without token/engine changes."
+        },
+        {
+            "uuid": "dbln-poly-b1-12",
+            "reason": "Stored canonical option Anyone is capitalized in mid-sentence. Do not repair shared lexical options or formatter; selected replacement dbln-poly-b1-05 covers negative subject nobody without this surface risk."
+        },
+        {
+            "uuid": "stten-poly-b1-04",
+            "reason": "Stored canonical option When is capitalized in mid-sentence. Do not repair shared option/formatter; selected replacement stten-poly-b1-02 provides a distinct temporary present process. Own practice separately covers past chronology."
+        }
+    ],
+    "targets": [
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsNegativeFormsTheorySeeder",
+            "selected": [
+                {"uuid": "negf-poly-a2-01", "condition": "Вона не готова. Склади нейтральне заперечне твердження про її теперішній стан. Почни з She, використай повну форму заперечення без do.", "translation": "Вона не готова.", "settled": "She is not ready.", "coverage": "Ordinary present be, not lexical do-support"},
+                {"uuid": "negf-poly-a2-03", "condition": "Він тут не працює. Йдеться про постійне місце роботи. Почни з He; використай повну заперечну форму Present Simple, а після допоміжного дієслова — початкову форму основного.", "translation": "Він тут не працює.", "settled": "He does not work here.", "coverage": "Third-person lexical do-support and base form"},
+                {"uuid": "negf-poly-a2-07", "condition": "Тобі тут не можна паркуватися: це заборона, а не відсутність потреби. Почни з You та використай can у заперечній формі, записаній одним словом.", "translation": "Тобі тут не можна паркуватися.", "settled": "You cannot park here.", "coverage": "Modal prohibition, cannot as one token"},
+                {"uuid": "negf-poly-a2-08", "condition": "Вони не прибудуть до полудня. Йдеться про майбутнє прибуття: склади речення з will і повним запереченням. Почни з They; збережи before noon наприкінці, не додавай do.", "translation": "Вони не прибудуть до полудня.", "settled": "They will not arrive before noon.", "coverage": "Future auxiliary negation without do-support; same arrival and time boundary"},
+                {"uuid": "negf-poly-a2-09", "condition": "Я ще не закінчив звіт. Результату немає до теперішнього моменту. Почни з I; використай Present Perfect із повним запереченням і постав yet наприкінці.", "translation": "Я ще не закінчив звіт.", "settled": "I have not finished the report yet.", "coverage": "Perfect auxiliary negation and yet"}
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\QuestionsNegations\\QuestionsNegationsDoubleNegativesTheorySeeder",
+            "selected": [
+                {
+                    "uuid": "dbln-poly-b1-01",
+                    "condition": "Сьогодні я нічого про це не знаю. Для нейтральної стандартної англійської почни з I, використай повне do not та слово anything. Збережи about it і постав today наприкінці.",
+                    "translation": "Сьогодні я нічого про це не знаю.",
+                    "settled": "I do not know anything about it today.",
+                    "coverage": "One negative message: not + anything, time and object retained"
+                },
+                {
+                    "uuid": "dbln-poly-b1-02",
+                    "condition": "Сьогодні в мене зовсім немає готівки. Для нейтральної стандартної англійської почни з I та використай повну форму do not із any перед незлічуваним cash. Збережи today наприкінці; не змінюй відсутність на «не вся готівка».",
+                    "translation": "Сьогодні в мене зовсім немає готівки.",
+                    "settled": "I do not have any cash today.",
+                    "coverage": "One negative message: not + any with a mass noun, not a second no-word"
+                },
+                {
+                    "uuid": "dbln-poly-b1-05",
+                    "condition": "Навчальна ситуація: зараз 12:00, 1 вересня 2024 року. Від сьогоднішньої півночі до цього моменту не телефонував ніхто. Передай це одним минулим заперечним повідомленням у нейтральній стандартній англійській: почни з Nobody, не додавай not до дієслова, а today постав наприкінці.",
+                    "translation": "Сьогодні після півночі ніхто не телефонував.",
+                    "settled": "Nobody called after midnight today.",
+                    "coverage": "Negative subject nobody with affirmative past verb form; fixed midnight-to-noon interval, not negative concord"
+                },
+                {
+                    "uuid": "dbln-poly-b1-06",
+                    "condition": "Сьогодні вона нічого не сказала про план. Почни з She, передай заперечення словом nothing і використай стверджувальну форму дієслова в Past Simple. Постав today наприкінці.",
+                    "translation": "Сьогодні вона нічого не сказала про план.",
+                    "settled": "She said nothing about the plan today.",
+                    "coverage": "Affirmative verb form can carry a negative overall message"
+                },
+                {
+                    "uuid": "dbln-poly-b1-08",
+                    "condition": "Сьогодні жодна з двох відповідей не є правильною. Йдеться рівно про дві відповіді. Почни з Neither answer, використай is без додаткового not та постав today наприкінці.",
+                    "translation": "Сьогодні жодна з двох відповідей не є правильною.",
+                    "settled": "Neither answer is correct today.",
+                    "coverage": "Neither with singular verb in a two-member set"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsTensesTheorySeeder",
+            "selected": [
+                {
+                    "uuid": "stten-poly-b1-01",
+                    "condition": "Вихідна ситуація: He moved here in 2020 and still lives here. Перетвори на одне речення з Present Perfect і since. Почни з He та збережи рік початку й те саме місце; не додавай нових подій.",
+                    "translation": "Він живе тут із 2020 року.",
+                    "settled": "He has lived here since 2020.",
+                    "coverage": "Explicit continuing residence; since names the unchanged start"
+                },
+                {
+                    "uuid": "stten-poly-b1-02",
+                    "condition": "Вихідна ситуація: Her job is temporarily home-based this month. — Цього місяця вона тимчасово працює з дому. Передай ту саму тимчасову ситуацію через Present Continuous. Почни з She; збережи роботу з дому і this month, не перетворюй її на постійне правило.",
+                    "translation": "Цього місяця вона тимчасово працює з дому.",
+                    "settled": "She is working from home this month.",
+                    "coverage": "Temporary present process, distinct from ongoing residence since a date and cumulative duration"
+                },
+                {
+                    "uuid": "stten-poly-b1-03",
+                    "condition": "Вихідна ситуація: I last saw him on Monday; we have not met again up to now. Передай відсутність зустрічей від понеділка до тепер через Present Perfect із повним запереченням і since. Почни з I; збережи того самого чоловіка.",
+                    "translation": "Я не бачив його з понеділка.",
+                    "settled": "I have not seen him since Monday.",
+                    "coverage": "Last contact and explicitly continuing non-occurrence"
+                },
+                {
+                    "uuid": "stten-poly-b1-09",
+                    "condition": "Навчальна дата й час — 12:00, 1 вересня 2024 року. Діти почали гратися сьогодні о 10:00 й досі граються. Вихідна ситуація: The children started playing two hours ago and are still playing now. — Діти почали гратися дві години тому й досі граються. Перетвори на одне речення з Present Perfect Continuous та for. Почни з The children; збережи двогодинну тривалість і продовження гри.",
+                    "translation": "Діти граються вже дві години.",
+                    "settled": "The children have been playing for two hours.",
+                    "coverage": "Explicit continuation licenses Perfect Continuous; start alone would not"
+                },
+                {
+                    "uuid": "stten-poly-b1-10",
+                    "condition": "Вихідна ситуація: The day before today was the day on which I saw him. Скороти повідомлення до природного речення з yesterday та Past Simple. Почни з I; збережи факт зустрічі з тим самим чоловіком.",
+                    "translation": "Я бачив його вчора.",
+                    "settled": "I saw him yesterday.",
+                    "coverage": "Finished past reference and identical participant"
+                }
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsModalsTheorySeeder",
+            "selected": [
+                {"uuid": "stmod-poly-b1-02", "condition": "Вихідна ситуація: It is necessary for us to leave now. Передай теперішню необхідність через have to. Почни з We; збережи дію та слово now, не перетворюй необхідність на пораду.", "translation": "Ми маємо піти зараз.", "settled": "We have to leave now.", "coverage": "Obligation rather than advice or ability"},
+                {"uuid": "stmod-poly-b1-03", "condition": "Вихідне речення: Parking here is forbidden for you. Перетвори за моделлю be allowed to у запереченні. Почни з You; використай повну форму та збережи заборону паркуватися саме тут.", "translation": "Тобі не дозволено тут паркуватися.", "settled": "You are not allowed to park here.", "coverage": "Explicit prohibition, not absence of necessity"},
+                {"uuid": "stmod-poly-b1-05", "condition": "Вихідне речення: It would be a good idea for you to call her. Передай пораду через ought to. Почни з You; адресат поради — ти, а подзвонити потрібно тій самій жінці. Не посилюй пораду до обов’язку.", "translation": "Тобі варто їй зателефонувати.", "settled": "You ought to call her.", "coverage": "Advice with explicitly licensed you and unchanged her; not an obligation"},
+                {"uuid": "stmod-poly-b1-08", "condition": "Вихідна ситуація: He has not come; the evidence makes me sure that he forgot. Вислови цей сильний висновок про минуле через must і перфектний інфінітив. Почни з He; не перетворюй висновок на минулий обов’язок і не додавай об’єкта.", "translation": "Він, напевно, забув.", "settled": "He must have forgotten.", "coverage": "Strong past deduction, not had to or an invented obligation"},
+                {"uuid": "stmod-poly-b1-11", "condition": "Вихідне речення: We successfully finished on time. Перетвори через was/were able to. Почни з We; збережи факт успішного завершення вчасно, а не лише можливість чи намір.", "translation": "Ми змогли завершити вчасно.", "settled": "We were able to finish on time.", "coverage": "Specific actual past success rather than mere opportunity; no difficulty nuance added or discarded"}
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsPassiveTheorySeeder",
+            "selected": [
+                {"uuid": "stpas-poly-b1-02", "condition": "Вихідне речення: The letter was written by Anna. Перетвори на активний стан у Past Simple. Почни з Anna; збережи того самого автора і той самий лист.", "translation": "Анна написала листа.", "settled": "Anna wrote the letter.", "coverage": "Passive to active; named agent becomes the subject"},
+                {"uuid": "stpas-poly-b1-04", "condition": "Вихідне речення: Shakespeare wrote the play. Перетвори на пасив у Past Simple. Почни з The play; ім’я автора тут важливе, тому обов’язково збережи його в by-фразі.", "translation": "П’єсу написав Шекспір.", "settled": "The play was written by Shakespeare.", "coverage": "Active to passive with required named agent"},
+                {"uuid": "stpas-poly-b1-05", "condition": "Вихідна ситуація: Workers are repairing the road. Перетвори на Present Continuous Passive. Почни з The road; дія ще триває. Особи робітників неважливі, тому опусти агента, не змінюючи процес на завершений результат.", "translation": "Дорогу ремонтують.", "settled": "The road is being repaired.", "coverage": "Ongoing process; omission of unimportant agent is explicitly allowed, and no time word is lost"},
+                {"uuid": "stpas-poly-b1-08", "condition": "Вихідне речення: Someone has already checked the report. Перетвори на Present Perfect Passive. Почни з The report; збережи завершений результат і already, а невідомого виконавця опусти.", "translation": "Звіт уже перевірено.", "settled": "The report has already been checked.", "coverage": "Completed result, unchanged Perfect aspect and already"},
+                {"uuid": "stpas-poly-b1-12", "condition": "Вихідне речення: Someone must sign this form today. Перетвори на пасив із must. Почни з This form; збережи обов’язковість і сьогоднішній строк. Особу виконавця не названо — не додавай її.", "translation": "Цю форму необхідно підписати сьогодні.", "settled": "This form must be signed today.", "coverage": "Modal obligation plus passive infinitive and unchanged deadline"}
+            ]
+        },
+        {
+            "identity": "Database\\Seeders\\Page_V3\\SentenceTransformations\\SentenceTransformationsReportedSpeechTheorySeeder",
+            "selected": [
+                {"uuid": "strsp-poly-b1-02", "condition": "У понеділок у класі він звернувся до мене: «Are you ready?» У вівторок удома я переказую його запитання з минулої точки відліку. Почни з He asked і приєднай частину саме через if. You означало мене; не зберігай питальну інверсію.", "translation": "Він запитав, чи я готовий.", "settled": "He asked if I was ready.", "coverage": "Reported yes/no question; known speaker/addressee/reporter, Monday classroom to Tuesday home, specified if and past frame"},
+                {"uuid": "strsp-poly-b1-03", "condition": "Уранці в офісі вона сказала саме мені: «Please open the door.» Вона чемно попросила, не наказала. Після обіду вдома я переказую це прохання. Почни з She asked; збережи адресата me, прохальний намір і ті самі двері через to-інфінітив.", "translation": "Вона попросила мене відчинити двері.", "settled": "She asked me to open the door.", "coverage": "Polite request with known recipient/reporter; morning office to afternoon home, no invented us or command force"},
+                {"uuid": "strsp-poly-b1-05", "condition": "У понеділок в офісі Анна сказала Марії: «My bag is here.» У середу вдома Марія переказує з минулої точки відліку; йдеться про ту саму сумку Анни в тому самому офісі. Почни з Anna said that; збережи власницю, а місце передай через there.", "translation": "Анна сказала, що її сумка була там.", "settled": "Anna said that her bag was there.", "coverage": "Known Anna/Maria participants, Monday office to Wednesday home reporting frame, her retains Anna as possessor and there retains the office"},
+                {"uuid": "strsp-poly-b1-06", "condition": "У понеділок в офісі він сказав мені: «I will call on Tuesday.» У середу вдома я переказую його слова з минулої точки відліку. Почни з He said that; передай вівторок як наступний день після його слів. Не стверджуй, що дзвінок справді відбувся.", "translation": "Він сказав, що зателефонує наступного дня.", "settled": "He said that he would call the next day.", "coverage": "Known speaker/addressee/reporter and reporting place; would and next day anchored to original Monday office, not Wednesday home, no successful-call claim"},
+                {"uuid": "strsp-poly-b1-09", "condition": "У понеділок удома тато звернувся до нашої групи: «Do not wait outside.» Це була вказівка нам. У вівторок у школі я, один з адресатів, переказую її. Почни з Dad told; збережи us і заперечення самої дії через not to, не заперечуй факт батькових слів.", "translation": "Тато сказав нам не чекати надворі.", "settled": "Dad told us not to wait outside.", "coverage": "Negative instruction to a known group; a group member reports Monday home to Tuesday school, not scopes over waiting rather than saying"}
+            ]
+        }
+    ]
+}

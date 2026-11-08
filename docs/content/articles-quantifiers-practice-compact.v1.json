@@ -1,0 +1,621 @@
+{
+    "schema_version": 1,
+    "source": {
+        "path": "docs/content/articles-quantifiers-practice-supplement.v1.json",
+        "sha256": "7786d25e9f1dfeb3187e281fb4e5d7f553c52201f0cac1bc95f5df7274038b98"
+    },
+    "targets": [
+        {
+            "topic": "advanced-article-and-quantifier-nuance",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\AdvancedArticleAndQuantifierNuanceTheorySeeder",
+                "locale": "uk",
+                "uuid": "799e23ee-b79b-5341-82a8-cd8a3b393846",
+                "sort_order": 8,
+                "page_id": 306,
+                "page_category_id": 57,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "00ea38d1f13d04b68cd0bbb16b23518ac063b67e96e2a37b88483eccc7969f69"
+            },
+            "after_data_sha256": "98e4e5491d120c67b2c35132002acd071186ddfa440886914c31647ddd6d34f6",
+            "projection_family": "articles-quantifiers-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "f7ff778b5c1935e55af7b094151e0f3dad802bfeabedc46ae7380624cc7db775",
+                        "source_index": 1,
+                        "instruction_uk": "Виправ злічуваність без нових фактів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Є три окремі відомості; кількість досліджень не задано."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "We received three informations and a useful research about the old bridge."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "three pieces of information + some useful research",
+                            "three informations + a useful research",
+                            "three pieces of information + a useful study"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "c6243abfbde58202b6adbb4b0c3a7f9ba4ef844d0c3cf46470dd1dedcc04a825",
+                        "source_index": 2,
+                        "instruction_uk": "Що повідомляє кількісна конструкція?",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "We have a few spare labels, but not enough for all the boxes."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Порівняй з малою кількістю без уточнення точного числа."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "Кілька є, достатність не гарантована; точної кількості немає.",
+                            "Є суперечність: кількох завжди достатньо; мало означає жодної.",
+                            "Суперечності немає: кілька означає рівно п’ять; мало — нуль."
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "55f501bd177c9c08efbfee2b00916e96bf3947df148cfc47495348f3b9dc7407",
+                        "source_index": 3,
+                        "instruction_uk": "Обери артиклі за контекстом.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Журнал єдиний і спільно відомий; олівець новий. Інформацію не конкретизовано."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "Please put ____ pencil beside ____ logbook. We need ____ information about yesterday’s delivery."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "a / the / без артикля",
+                            "b": "the / a / an"
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "52fffe159895773bd7946ff4fdebd1a61b09cbc665f13d73d37e8c394882fb81",
+                        "source_index": 4,
+                        "instruction_uk": "Обери узгодження у формальній нотатці.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "A number of labels ____ missing. The number of missing labels ____ not known."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Точного числа етикеток не наведено."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "are / is — кілька етикеток; число невідоме.",
+                            "b": "is / are — бракує рівно п’яти етикеток."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "9732a5ed212e64c4806ef52951d063e323ceef77e0e6f0b3a6ac9f555b288960",
+                        "source_index": 5,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "На користь цього пояснення мало свідчень. Передай це через заперечення великої кількості."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи обмежену підтримку пояснення; не перетворюй малу кількість на повну відсутність."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "1a11103b2228a236e96f0167f0a23c9c17cefd39fa372b725bd2db61bde1a2e9",
+                        "source_index": 6,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Є трохи корисної інформації, але її недостатньо для повного каталогу. Склади два речення."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи наявність невеликої кількості та прямо названу недостатність для повного каталогу."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "7767ce006e8bdb56c0a0061206268c558a56e17b2080fb25ed3c01d4764b8bd8",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "A small ____ of salt improves the flavour without making the soup salty."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Кількість (обсяг): доповни сполуку перед незлічуваною назвою солі; приймаються два природні іменники кількості."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "1737ae40f521d39295008c6e7682b92f4447a7e42e0923188bc2950033bbde98",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "The number of requests ____ steadily each month."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Зростає: узгодь теперішню форму з кількістю як єдиним показником, а не з окремими запитами."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "81ac8c85ee276021f38d03b529dc6b1bb37d5d3f05a9a1a0021b7df7a797ef64",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Нам бракує часу, щоб перевірити кожну деталь."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Почни з «ми»; запереч достатність часу для перевірки всіх деталей окремо."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "fa7fc63c5cc0bf6e7cf15db1634bdfce035bbd831c03d76045be2e343ad4f485",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Лише кілька учасників поставили запитання після доповіді."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи невелику ненульову кількість учасників і час після доповіді; не називай точного числа."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "aqv-native-advanced-article-and-quantifier-nuance-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "aqv-native-advanced-article-and-quantifier-nuance-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "aqv-native-advanced-article-and-quantifier-nuance-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "aqv-native-advanced-article-and-quantifier-nuance-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "aqv-native-advanced-article-and-quantifier-nuance-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        },
+        {
+            "topic": "precision-with-articles-and-determiners",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\PrecisionWithArticlesAndDeterminersTheorySeeder",
+                "locale": "uk",
+                "uuid": "51972fd2-7003-5626-b7c9-819de664d4f5",
+                "sort_order": 8,
+                "page_id": 317,
+                "page_category_id": 57,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "37738183f53b14c19a31f8b1226de8278fc7e853979a84411f1161a543421937"
+            },
+            "after_data_sha256": "b4588caa922696b8a4ba86a702b104e9629c05b31f87a4b0253a389dff1b874f",
+            "projection_family": "articles-quantifiers-practice-compact-v1",
+            "items": {
+                "selects": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "490edcce48aaee133eaad584bd59275d24bd1ece1108b5e3e1cab0f51cacff97",
+                        "source_index": 1,
+                        "instruction_uk": "Визнач відсилання лише в межах тексту.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "A volunteer brought a tray into the studio. The tray held six cups. Two cups were chipped; the other four were intact."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "Принесена таця; решта чотири з шести чашок. Інші чашки студії не пораховані.",
+                            "Нова таця; усі інші чашки студії. Поза тацею чашок немає.",
+                            "Принесена таця; чотири нові чашки поза згаданими шістьма."
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "9e076b63761d7229122a6eaae1a077f8e804f0f5cb2cd85170bc67db700cdcd0",
+                        "source_index": 2,
+                        "instruction_uk": "Обери артиклі зі збереженням відсилання.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Шафу вводимо вперше; ключ будь-який придатний, не вже відомий. Останнє речення — про меблі загалом."
+                            },
+                            {
+                                "lang": "en",
+                                "text": "We found ____ cabinet in an empty room. ____ cabinet was locked, so we needed ____ key. ____ furniture needs care."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "options",
+                            "author_explanation"
+                        ],
+                        "option_labels": [
+                            "a / The / a / без артикля",
+                            "the / A / the / A",
+                            "a / The / the / The"
+                        ]
+                    }
+                ],
+                "choices": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "e6a5eed42922c07263d18542e5b5e6268cf0b741af2559cea67c4c19ea3647db",
+                        "source_index": 3,
+                        "instruction_uk": "Зістав пропозицію, відкрите питання та вільний вибір.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Would you like ____ biscuits? Are there ____ lockers available? You may choose ____ cup from these five."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Пропонують печиво; наявність шафок невідома; дозволено будь-яку одну чашку."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "some / any / any",
+                            "b": "any / some / some"
+                        }
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "278fd11b8057957f959de808ccffca91524907dd61179c294a827aa530cff490",
+                        "source_index": 4,
+                        "instruction_uk": "Узгодь форми в заданій формальній моделі.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Each of the three drafts ____ a number. Every ____ of the three drafts has a number. Both layouts ____ ready. Either layout ____ suitable. Neither of them ____ signed."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Три чернетки мають номер; обидва макети готові, будь-який підходить, жоден не підписаний. Використай однину після «будь-який» і «жоден»."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "label",
+                            "prompt",
+                            "author_explanation"
+                        ],
+                        "option_labels": {
+                            "a": "has / one / are / is / is",
+                            "b": "have / of / is / are / are"
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "index": 0,
+                        "source_item_sha256": "1e5335ec87d9e238d89c45e6d884e71db558c566ddd589a407780b7c1f9257c3",
+                        "source_index": 5,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Перша з двох ламп не працює; другу не перевіряли. Склади підтверджений висновок і вибери два уточнення."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Запереч, що працюють обидві; не стверджуй, що не працює жодна або що працює рівно одна."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "source_item_sha256": "5768658d37f80d4e43d0c4f447d4ea88806a8b826ab30652189f05dfeb2974c8",
+                        "source_index": 6,
+                        "instruction_uk": "Склади речення з перемішаних груп слів.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "До шафи поклали шість папок; дві перевірили, обидві перевірені сухі. Про решту нічого не відомо."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Назви всі шість папок, підгрупу двох і результат лише для перевірених папок; не додавай безпеку чи причинність."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "context",
+                            "before",
+                            "author_explanation"
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "source_item_sha256": "ceea107c7d3caa38a4f0bf94d5c7983cb711c41db2375f8d94a358dab8a4b5af",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Both of the replacement screens ____ the same amount of power."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Споживають: узгодь теперішню форму з двома названими екранами; передай використання електроенергії."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "source_item_sha256": "aff8908c1bed619cde2ed065b17d568ee79028fe568dcda83882b921f60add50",
+                        "source_index": null,
+                        "instruction_uk": "Уведи всю відсутню частину.",
+                        "stimuli": [
+                            {
+                                "lang": "en",
+                                "text": "Each of the three packages ____ a separate tracking number."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Має: у формальній нотатці узгодь теперішню форму з кожною посилкою окремо; підмет не повторюй."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "source_item_sha256": "69b5558b68accdc14e12a18498293af7d9a4363a0ace29027660d12d11d51df4",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Жодна з цих двох відповідей не пояснює затримку."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Збережи визначену пару відповідей і заперечення для кожної; використай формальну однину."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    },
+                    {
+                        "index": 5,
+                        "source_item_sha256": "80665d9ed736cf25646c2318c896655c69ef2170415c8fe74d90b467c585d210",
+                        "source_index": null,
+                        "instruction_uk": "Переклади речення англійською.",
+                        "stimuli": [
+                            {
+                                "lang": "uk",
+                                "text": "Усі відвідувачі, які зареєструвалися вчора, отримали перепустку."
+                            },
+                            {
+                                "lang": "uk",
+                                "text": "Охопи всю визначену групу вчорашньої реєстрації, а не всіх відвідувачів узагалі."
+                            }
+                        ],
+                        "deferred_source_fields": [
+                            "before",
+                            "after"
+                        ]
+                    }
+                ],
+                "rephrase": []
+            },
+            "groups": [
+                {
+                    "key": "aqv-native-precision-with-articles-and-determiners-selects-0",
+                    "kind": "selects",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну форму",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "aqv-native-precision-with-articles-and-determiners-choices-0",
+                    "kind": "choices",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Обери правильну відповідь",
+                    "instruction": "Обери одну відповідь для кожної умови."
+                },
+                {
+                    "key": "aqv-native-precision-with-articles-and-determiners-inputs-0",
+                    "kind": "inputs",
+                    "indices": [
+                        0,
+                        1
+                    ],
+                    "title": "Побудуй речення",
+                    "instruction": "Введи речення вручну або натискай на перемішані групи слів."
+                },
+                {
+                    "key": "aqv-native-precision-with-articles-and-determiners-inputs-2",
+                    "kind": "inputs",
+                    "indices": [
+                        2,
+                        3
+                    ],
+                    "title": "Заповни пропуски",
+                    "instruction": "Уведи лише пропущену частину; наведені слова не повторюй."
+                },
+                {
+                    "key": "aqv-native-precision-with-articles-and-determiners-inputs-4",
+                    "kind": "inputs",
+                    "indices": [
+                        4,
+                        5
+                    ],
+                    "title": "Переклади речення",
+                    "instruction": "Відповідай вручну або складай речення з груп слів."
+                }
+            ]
+        }
+    ]
+}

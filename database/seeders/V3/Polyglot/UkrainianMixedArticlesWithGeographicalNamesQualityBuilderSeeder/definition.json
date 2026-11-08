@@ -1,0 +1,4159 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/geographical-articles.v1.json",
+        "sha256": "496cda10b6c1b3331b96c686fd50b7c1ef009bbcfbd89841ec2e8cb62d949e78"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedArticlesWithGeographicalNamesQualityBuilderSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-geographical-articles-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_geographical_articles": {
+            "name": "Nouns Articles Quantity Quality: Артиклі з географічними назвами: країни, водні об’єкти та регіони"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_articles_with_geographical_names": {
+            "name": "Articles With Geographical Names",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "no_article_countries_cities": {
+            "name": "No Article Countries Cities",
+            "category": "topic"
+        },
+        "the_water_bodies": {
+            "name": "The Water Bodies",
+            "category": "topic"
+        },
+        "the_mountain_ranges": {
+            "name": "The Mountain Ranges",
+            "category": "topic"
+        },
+        "the_island_groups": {
+            "name": "The Island Groups",
+            "category": "topic"
+        },
+        "the_deserts": {
+            "name": "The Deserts",
+            "category": "topic"
+        },
+        "the_country_descriptors": {
+            "name": "The Country Descriptors",
+            "category": "topic"
+        },
+        "zero_single_mountains_lakes": {
+            "name": "Zero Single Mountains Lakes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-geographical-articles-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Анна переїхала з Італії до Канади.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Анна переїхала з Італії до Канади.",
+            "target_text": "Anna moved from Italy to Canada.",
+            "markers": {
+                "a1": {
+                    "answer": "Anna",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "Anna",
+                        "Kate",
+                        "Iva",
+                        "Ben"
+                    ]
+                },
+                "a2": {
+                    "answer": "moved",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "moved",
+                        "found",
+                        "brought",
+                        "took"
+                    ]
+                },
+                "a3": {
+                    "answer": "from",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "from",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a4": {
+                    "answer": "Italy",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "Italy",
+                        "Ukraine",
+                        "France",
+                        "Germany"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "Canada.",
+                    "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+                    "options": [
+                        "Canada",
+                        "Spain",
+                        "Japan",
+                        "Brazil"
+                    ]
+                }
+            },
+            "verb_hint": "Обидві звичайні назви країн уживаються без артикля.",
+            "accepted_target_texts": [
+                "Anna moved from Italy to Canada."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Anna moved",
+                "from Italy",
+                "to Canada."
+            ],
+            "token_groups": [
+                "Anna moved",
+                "from Italy",
+                "to Canada."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Anna",
+                "moved",
+                "from",
+                "Italy",
+                "to",
+                "Canada."
+            ],
+            "options": [
+                "Anna",
+                "Kate",
+                "Iva",
+                "Ben",
+                "moved",
+                "found",
+                "brought",
+                "took",
+                "from",
+                "under",
+                "through",
+                "across",
+                "Italy",
+                "Ukraine",
+                "France",
+                "Germany",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "Canada",
+                "Spain",
+                "Japan",
+                "Brazil"
+            ],
+            "source_text_uk": "Анна переїхала з Італії до Канади.",
+            "options_by_marker": {
+                "a1": [
+                    "Anna",
+                    "Kate",
+                    "Iva",
+                    "Ben"
+                ],
+                "a2": [
+                    "moved",
+                    "found",
+                    "brought",
+                    "took"
+                ],
+                "a3": [
+                    "from",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a4": [
+                    "Italy",
+                    "Ukraine",
+                    "France",
+                    "Germany"
+                ],
+                "a5": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "Canada",
+                    "Spain",
+                    "Japan",
+                    "Brazil"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-geographical-articles-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Дунай — довга річка.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Дунай — довга річка.",
+            "target_text": "The Danube is a long river.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "Danube",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "Danube",
+                        "Dnipro",
+                        "Thames",
+                        "Seine"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "a",
+                        "these",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "long",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "long",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a6": {
+                    "answer": "river.",
+                    "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+                    "options": [
+                        "river",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Перед власною назвою річки потрібен означений артикль; класифікація річки далі неозначена.",
+            "accepted_target_texts": [
+                "The Danube is a long river."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Danube",
+                "is a long",
+                "river."
+            ],
+            "token_groups": [
+                "The Danube",
+                "is a long",
+                "river."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "Danube",
+                "is",
+                "a",
+                "long",
+                "river."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "Danube",
+                "Dnipro",
+                "Thames",
+                "Seine",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "a",
+                "these",
+                "no",
+                "another",
+                "long",
+                "box",
+                "chair",
+                "table",
+                "river",
+                "bus",
+                "desk",
+                "picture"
+            ],
+            "source_text_uk": "Дунай — довга річка.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "Danube",
+                    "Dnipro",
+                    "Thames",
+                    "Seine"
+                ],
+                "a3": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "a",
+                    "these",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "long",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a6": [
+                    "river",
+                    "bus",
+                    "desk",
+                    "picture"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-geographical-articles-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Київ розташований в Україні.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Київ розташований в Україні.",
+            "target_text": "Kyiv is in Ukraine.",
+            "markers": {
+                "a1": {
+                    "answer": "Kyiv",
+                    "verb_hint": "Назви міста й країни не потребують артиклів.",
+                    "options": [
+                        "Kyiv",
+                        "London",
+                        "Paris",
+                        "Berlin"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Назви міста й країни не потребують артиклів.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "in",
+                    "verb_hint": "Назви міста й країни не потребують артиклів.",
+                    "options": [
+                        "in",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "Ukraine.",
+                    "verb_hint": "Назви міста й країни не потребують артиклів.",
+                    "options": [
+                        "Ukraine",
+                        "France",
+                        "Germany",
+                        "Poland"
+                    ]
+                }
+            },
+            "verb_hint": "Назви міста й країни не потребують артиклів.",
+            "accepted_target_texts": [
+                "Kyiv is in Ukraine."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Kyiv is",
+                "in Ukraine."
+            ],
+            "token_groups": [
+                "Kyiv is",
+                "in Ukraine."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Kyiv",
+                "is",
+                "in",
+                "Ukraine."
+            ],
+            "options": [
+                "Kyiv",
+                "London",
+                "Paris",
+                "Berlin",
+                "is",
+                "were",
+                "be",
+                "been",
+                "in",
+                "on",
+                "at",
+                "by",
+                "Ukraine",
+                "France",
+                "Germany",
+                "Poland"
+            ],
+            "source_text_uk": "Київ розташований в Україні.",
+            "options_by_marker": {
+                "a1": [
+                    "Kyiv",
+                    "London",
+                    "Paris",
+                    "Berlin"
+                ],
+                "a2": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "in",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "Ukraine",
+                    "France",
+                    "Germany",
+                    "Poland"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-geographical-articles-a2-c01",
+            "author_id": "A2-c01",
+            "question": "У вересні ми їхали через Альпи.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "У вересні ми їхали через Альпи.",
+            "target_text": "We drove through the Alps in September.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "We",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "drove",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "drove",
+                        "sailed",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "through",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "through",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "Alps",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "Alps",
+                        "Lies",
+                        "Keys",
+                        "Rooms"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "in",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "September.",
+                    "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+                    "options": [
+                        "September",
+                        "Along",
+                        "Coast",
+                        "Greece"
+                    ]
+                }
+            },
+            "verb_hint": "Перед назвою гірського хребта потрібен означений артикль; місяць без артикля.",
+            "accepted_target_texts": [
+                "We drove through the Alps in September.",
+                "We travelled through the Alps in September."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "travelled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "travelled"
+                ]
+            },
+            "reorder_groups": [
+                "We drove",
+                "through the Alps",
+                "in September."
+            ],
+            "token_groups": [
+                "We drove",
+                "through the Alps",
+                "in September."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "drove",
+                "through",
+                "the",
+                "Alps",
+                "in",
+                "September."
+            ],
+            "options": [
+                "We",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "drove",
+                "sailed",
+                "needed",
+                "liked",
+                "through",
+                "at",
+                "by",
+                "with",
+                "the",
+                "both",
+                "a",
+                "an",
+                "Alps",
+                "Lies",
+                "Keys",
+                "Rooms",
+                "in",
+                "between",
+                "among",
+                "about",
+                "September",
+                "Along",
+                "Coast",
+                "Greece"
+            ],
+            "source_text_uk": "У вересні ми їхали через Альпи.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "drove",
+                    "sailed",
+                    "needed",
+                    "liked"
+                ],
+                "a3": [
+                    "through",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "Alps",
+                    "Lies",
+                    "Keys",
+                    "Rooms"
+                ],
+                "a6": [
+                    "in",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "September",
+                    "Along",
+                    "Coast",
+                    "Greece"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-geographical-articles-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Тихий океан лежить між Азією та Америкою.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Тихий океан лежить між Азією та Америкою.",
+            "target_text": "The Pacific Ocean lies between Asia and America.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "Pacific",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "Pacific",
+                        "Hungry",
+                        "Thirsty",
+                        "Clear"
+                    ]
+                },
+                "a3": {
+                    "answer": "Ocean",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "Ocean",
+                        "Greece",
+                        "September",
+                        "Along"
+                    ]
+                },
+                "a4": {
+                    "answer": "lies",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "lies",
+                        "Alps",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a5": {
+                    "answer": "between",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "between",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "Asia",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "Asia",
+                        "Coast",
+                        "Key",
+                        "Room"
+                    ]
+                },
+                "a7": {
+                    "answer": "and",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "and",
+                        "whether",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a8": {
+                    "answer": "America.",
+                    "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+                    "options": [
+                        "America",
+                        "Phone",
+                        "Train",
+                        "Bus"
+                    ]
+                }
+            },
+            "verb_hint": "Океан має означений артикль, але обидві назви континентів — без артиклів.",
+            "accepted_target_texts": [
+                "The Pacific Ocean lies between Asia and America."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Pacific Ocean",
+                "lies between",
+                "Asia and America."
+            ],
+            "token_groups": [
+                "The Pacific Ocean",
+                "lies between",
+                "Asia and America."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "Pacific",
+                "Ocean",
+                "lies",
+                "between",
+                "Asia",
+                "and",
+                "America."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "Pacific",
+                "Hungry",
+                "Thirsty",
+                "Clear",
+                "Ocean",
+                "Greece",
+                "September",
+                "Along",
+                "lies",
+                "Alps",
+                "teachers",
+                "schools",
+                "between",
+                "to",
+                "from",
+                "for",
+                "Asia",
+                "Coast",
+                "Key",
+                "Room",
+                "and",
+                "whether",
+                "but",
+                "or",
+                "America",
+                "Phone",
+                "Train",
+                "Bus"
+            ],
+            "source_text_uk": "Тихий океан лежить між Азією та Америкою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "Pacific",
+                    "Hungry",
+                    "Thirsty",
+                    "Clear"
+                ],
+                "a3": [
+                    "Ocean",
+                    "Greece",
+                    "September",
+                    "Along"
+                ],
+                "a4": [
+                    "lies",
+                    "Alps",
+                    "teachers",
+                    "schools"
+                ],
+                "a5": [
+                    "between",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "Asia",
+                    "Coast",
+                    "Key",
+                    "Room"
+                ],
+                "a7": [
+                    "and",
+                    "whether",
+                    "but",
+                    "or"
+                ],
+                "a8": [
+                    "America",
+                    "Phone",
+                    "Train",
+                    "Bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-geographical-articles-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Вони пливли вздовж узбережжя Греції.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Вони пливли вздовж узбережжя Греції.",
+            "target_text": "They sailed along the coast of Greece.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "They",
+                        "Him",
+                        "Us",
+                        "Them"
+                    ]
+                },
+                "a2": {
+                    "answer": "sailed",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "sailed",
+                        "drove",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a3": {
+                    "answer": "along",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "along",
+                        "September",
+                        "Ocean",
+                        "Asia"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "coast",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "coast",
+                        "America",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "of",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "Greece.",
+                    "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+                    "options": [
+                        "Greece",
+                        "Bus",
+                        "Desk",
+                        "Picture"
+                    ]
+                }
+            },
+            "verb_hint": "Узбережжя визначене назвою країни, а сама звичайна назва країни артикля не має.",
+            "accepted_target_texts": [
+                "They sailed along the coast of Greece."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They sailed",
+                "along the coast",
+                "of Greece."
+            ],
+            "token_groups": [
+                "They sailed",
+                "along the coast",
+                "of Greece."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "They",
+                "sailed",
+                "along",
+                "the",
+                "coast",
+                "of",
+                "Greece."
+            ],
+            "options": [
+                "They",
+                "Him",
+                "Us",
+                "Them",
+                "sailed",
+                "drove",
+                "worked",
+                "played",
+                "along",
+                "September",
+                "Ocean",
+                "Asia",
+                "the",
+                "no",
+                "another",
+                "either",
+                "coast",
+                "America",
+                "room",
+                "map",
+                "of",
+                "between",
+                "among",
+                "about",
+                "Greece",
+                "Bus",
+                "Desk",
+                "Picture"
+            ],
+            "source_text_uk": "Вони пливли вздовж узбережжя Греції.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Him",
+                    "Us",
+                    "Them"
+                ],
+                "a2": [
+                    "sailed",
+                    "drove",
+                    "worked",
+                    "played"
+                ],
+                "a3": [
+                    "along",
+                    "September",
+                    "Ocean",
+                    "Asia"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "coast",
+                    "America",
+                    "room",
+                    "map"
+                ],
+                "a6": [
+                    "of",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "Greece",
+                    "Bus",
+                    "Desk",
+                    "Picture"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-geographical-articles-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Амазонка протікає через величезний регіон Південної Америки.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Амазонка протікає через величезний регіон Південної Америки.",
+            "target_text": "The Amazon flows across a vast region of South America.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "Amazon",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "Amazon",
+                        "Volga",
+                        "Danube",
+                        "Dnipro"
+                    ]
+                },
+                "a3": {
+                    "answer": "flows",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "flows",
+                        "Philippines",
+                        "consists",
+                        "islands"
+                    ]
+                },
+                "a4": {
+                    "answer": "across",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "across",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "vast",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "vast",
+                        "cottage",
+                        "near",
+                        "Lake"
+                    ]
+                },
+                "a7": {
+                    "answer": "region",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "region",
+                        "Geneva",
+                        "many",
+                        "letter"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "of",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a9": {
+                    "answer": "South",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "South",
+                        "Window",
+                        "Phone",
+                        "Train"
+                    ]
+                },
+                "a10": {
+                    "answer": "America.",
+                    "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+                    "options": [
+                        "America",
+                        "Cup",
+                        "Door",
+                        "Key"
+                    ]
+                }
+            },
+            "verb_hint": "Назва річки має означений артикль, назва континенту — нульовий.",
+            "accepted_target_texts": [
+                "The Amazon flows across a vast region of South America."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Amazon",
+                "flows across",
+                "a vast region",
+                "of South America."
+            ],
+            "token_groups": [
+                "The Amazon",
+                "flows across",
+                "a vast region",
+                "of South America."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "Amazon",
+                "flows",
+                "across",
+                "a",
+                "vast",
+                "region",
+                "of",
+                "South",
+                "America."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "An",
+                "Some",
+                "Amazon",
+                "Volga",
+                "Danube",
+                "Dnipro",
+                "flows",
+                "Philippines",
+                "consists",
+                "islands",
+                "across",
+                "without",
+                "into",
+                "onto",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "vast",
+                "cottage",
+                "near",
+                "Lake",
+                "region",
+                "Geneva",
+                "many",
+                "letter",
+                "of",
+                "over",
+                "under",
+                "through",
+                "South",
+                "Window",
+                "Phone",
+                "Train",
+                "America",
+                "Cup",
+                "Door",
+                "Key"
+            ],
+            "source_text_uk": "Амазонка протікає через величезний регіон Південної Америки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "Amazon",
+                    "Volga",
+                    "Danube",
+                    "Dnipro"
+                ],
+                "a3": [
+                    "flows",
+                    "Philippines",
+                    "consists",
+                    "islands"
+                ],
+                "a4": [
+                    "across",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "vast",
+                    "cottage",
+                    "near",
+                    "Lake"
+                ],
+                "a7": [
+                    "region",
+                    "Geneva",
+                    "many",
+                    "letter"
+                ],
+                "a8": [
+                    "of",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a9": [
+                    "South",
+                    "Window",
+                    "Phone",
+                    "Train"
+                ],
+                "a10": [
+                    "America",
+                    "Cup",
+                    "Door",
+                    "Key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-geographical-articles-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ми орендували котедж біля Женевського озера.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Ми орендували котедж біля Женевського озера.",
+            "target_text": "We rented a cottage near Lake Geneva.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "rented",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "rented",
+                        "helped",
+                        "waited",
+                        "watched"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "cottage",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "cottage",
+                        "vast",
+                        "region",
+                        "South"
+                    ]
+                },
+                "a5": {
+                    "answer": "near",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "near",
+                        "many",
+                        "America",
+                        "cat"
+                    ]
+                },
+                "a6": {
+                    "answer": "Lake",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "Lake",
+                        "Bag",
+                        "Book",
+                        "Box"
+                    ]
+                },
+                "a7": {
+                    "answer": "Geneva.",
+                    "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+                    "options": [
+                        "Geneva",
+                        "Teacher",
+                        "School",
+                        "Sister"
+                    ]
+                }
+            },
+            "verb_hint": "Котедж згадано вперше; назва озера після слова на позначення озера не потребує артикля.",
+            "accepted_target_texts": [
+                "We rented a cottage near Lake Geneva."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We rented",
+                "a cottage",
+                "near Lake Geneva."
+            ],
+            "token_groups": [
+                "We rented",
+                "a cottage",
+                "near Lake Geneva."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "rented",
+                "a",
+                "cottage",
+                "near",
+                "Lake",
+                "Geneva."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "rented",
+                "helped",
+                "waited",
+                "watched",
+                "a",
+                "all",
+                "both",
+                "an",
+                "cottage",
+                "vast",
+                "region",
+                "South",
+                "near",
+                "many",
+                "America",
+                "cat",
+                "Lake",
+                "Bag",
+                "Book",
+                "Box",
+                "Geneva",
+                "Teacher",
+                "School",
+                "Sister"
+            ],
+            "source_text_uk": "Ми орендували котедж біля Женевського озера.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "rented",
+                    "helped",
+                    "waited",
+                    "watched"
+                ],
+                "a3": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a4": [
+                    "cottage",
+                    "vast",
+                    "region",
+                    "South"
+                ],
+                "a5": [
+                    "near",
+                    "many",
+                    "America",
+                    "cat"
+                ],
+                "a6": [
+                    "Lake",
+                    "Bag",
+                    "Book",
+                    "Box"
+                ],
+                "a7": [
+                    "Geneva",
+                    "Teacher",
+                    "School",
+                    "Sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-geographical-articles-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Філіппіни складаються з багатьох островів.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Філіппіни складаються з багатьох островів.",
+            "target_text": "The Philippines consists of many islands.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "Philippines",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "Philippines",
+                        "Flows",
+                        "Books",
+                        "Boxes"
+                    ]
+                },
+                "a3": {
+                    "answer": "consists",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "consists",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "of",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a5": {
+                    "answer": "many",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "many",
+                        "Geneva",
+                        "vast",
+                        "region"
+                    ]
+                },
+                "a6": {
+                    "answer": "islands.",
+                    "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+                    "options": [
+                        "islands",
+                        "bags",
+                        "chairs",
+                        "tables"
+                    ]
+                }
+            },
+            "verb_hint": "Усталена назва держави має форму множини й означений артикль; дієслово стосується однієї країни.",
+            "accepted_target_texts": [
+                "The Philippines consists of many islands."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Philippines",
+                "consists",
+                "of many islands."
+            ],
+            "token_groups": [
+                "The Philippines",
+                "consists",
+                "of many islands."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "Philippines",
+                "consists",
+                "of",
+                "many",
+                "islands."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "Philippines",
+                "Flows",
+                "Books",
+                "Boxes",
+                "consists",
+                "cats",
+                "people",
+                "men",
+                "of",
+                "for",
+                "in",
+                "on",
+                "many",
+                "Geneva",
+                "vast",
+                "region",
+                "islands",
+                "bags",
+                "chairs",
+                "tables"
+            ],
+            "source_text_uk": "Філіппіни складаються з багатьох островів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "Philippines",
+                    "Flows",
+                    "Books",
+                    "Boxes"
+                ],
+                "a3": [
+                    "consists",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a4": [
+                    "of",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a5": [
+                    "many",
+                    "Geneva",
+                    "vast",
+                    "region"
+                ],
+                "a6": [
+                    "islands",
+                    "bags",
+                    "chairs",
+                    "tables"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-geographical-articles-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Пустеля Гобі простягається частинами Китаю та Монголії.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Пустеля Гобі простягається частинами Китаю та Монголії.",
+            "target_text": "The Gobi Desert extends across parts of China and Mongolia.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "Gobi",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "Gobi",
+                        "Conference",
+                        "Finland",
+                        "Ferry"
+                    ]
+                },
+                "a3": {
+                    "answer": "Desert",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "Desert",
+                        "Mainland",
+                        "Water",
+                        "Bread"
+                    ]
+                },
+                "a4": {
+                    "answer": "extends",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "extends",
+                        "specialists",
+                        "States",
+                        "links"
+                    ]
+                },
+                "a5": {
+                    "answer": "across",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "across",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "parts",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "parts",
+                        "teachers",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a7": {
+                    "answer": "of",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "of",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "China",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "China",
+                        "Milk",
+                        "Music",
+                        "Food"
+                    ]
+                },
+                "a9": {
+                    "answer": "and",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "and",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a10": {
+                    "answer": "Mongolia.",
+                    "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+                    "options": [
+                        "Mongolia",
+                        "Box",
+                        "Chair",
+                        "Table"
+                    ]
+                }
+            },
+            "verb_hint": "Назва пустелі має означений артикль; звичайні назви обох держав його не мають.",
+            "accepted_target_texts": [
+                "The Gobi Desert extends across parts of China and Mongolia."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The Gobi Desert",
+                "extends across",
+                "parts of",
+                "China and Mongolia."
+            ],
+            "token_groups": [
+                "The Gobi Desert",
+                "extends across",
+                "parts of",
+                "China and Mongolia."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "Gobi",
+                "Desert",
+                "extends",
+                "across",
+                "parts",
+                "of",
+                "China",
+                "and",
+                "Mongolia."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "Gobi",
+                "Conference",
+                "Finland",
+                "Ferry",
+                "Desert",
+                "Mainland",
+                "Water",
+                "Bread",
+                "extends",
+                "specialists",
+                "States",
+                "links",
+                "across",
+                "at",
+                "by",
+                "with",
+                "parts",
+                "teachers",
+                "schools",
+                "friends",
+                "of",
+                "without",
+                "into",
+                "onto",
+                "China",
+                "Milk",
+                "Music",
+                "Food",
+                "and",
+                "whereas",
+                "while",
+                "if",
+                "Mongolia",
+                "Box",
+                "Chair",
+                "Table"
+            ],
+            "source_text_uk": "Пустеля Гобі простягається частинами Китаю та Монголії.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "Gobi",
+                    "Conference",
+                    "Finland",
+                    "Ferry"
+                ],
+                "a3": [
+                    "Desert",
+                    "Mainland",
+                    "Water",
+                    "Bread"
+                ],
+                "a4": [
+                    "extends",
+                    "specialists",
+                    "States",
+                    "links"
+                ],
+                "a5": [
+                    "across",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "parts",
+                    "teachers",
+                    "schools",
+                    "friends"
+                ],
+                "a7": [
+                    "of",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "China",
+                    "Milk",
+                    "Music",
+                    "Food"
+                ],
+                "a9": [
+                    "and",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a10": [
+                    "Mongolia",
+                    "Box",
+                    "Chair",
+                    "Table"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-geographical-articles-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Конференція зібрала у Фінляндії фахівців зі Сполучених Штатів.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Конференція зібрала у Фінляндії фахівців зі Сполучених Штатів.",
+            "target_text": "The conference brought specialists from the United States to Finland.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "conference",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "conference",
+                        "ferry",
+                        "mainland",
+                        "Gobi"
+                    ]
+                },
+                "a3": {
+                    "answer": "brought",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "brought",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a4": {
+                    "answer": "specialists",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "specialists",
+                        "links",
+                        "extends",
+                        "parts"
+                    ]
+                },
+                "a5": {
+                    "answer": "from",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "from",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "United",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "United",
+                        "Waited",
+                        "Watched",
+                        "Visited"
+                    ]
+                },
+                "a8": {
+                    "answer": "States",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "States",
+                        "Cups",
+                        "Doors",
+                        "Keys"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "to",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a10": {
+                    "answer": "Finland.",
+                    "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+                    "options": [
+                        "Finland",
+                        "Desert",
+                        "China",
+                        "Mongolia"
+                    ]
+                }
+            },
+            "verb_hint": "Описова державна назва у множині має означений артикль, звичайна назва другої держави — ні.",
+            "accepted_target_texts": [
+                "The conference brought specialists from the United States to Finland.",
+                "The conference gathered specialists from the United States in Finland."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "gathered"
+                ],
+                "a9": [
+                    "in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "gathered"
+                ],
+                "a9": [
+                    "in"
+                ]
+            },
+            "reorder_groups": [
+                "The conference brought",
+                "specialists from",
+                "the United States",
+                "to Finland."
+            ],
+            "token_groups": [
+                "The conference brought",
+                "specialists from",
+                "the United States",
+                "to Finland."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "conference",
+                "brought",
+                "specialists",
+                "from",
+                "the",
+                "United",
+                "States",
+                "to",
+                "Finland."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "conference",
+                "ferry",
+                "mainland",
+                "Gobi",
+                "brought",
+                "liked",
+                "wanted",
+                "worked",
+                "specialists",
+                "links",
+                "extends",
+                "parts",
+                "from",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "every",
+                "no",
+                "another",
+                "United",
+                "Waited",
+                "Watched",
+                "Visited",
+                "States",
+                "Cups",
+                "Doors",
+                "Keys",
+                "to",
+                "at",
+                "by",
+                "with",
+                "Finland",
+                "Desert",
+                "China",
+                "Mongolia"
+            ],
+            "source_text_uk": "Конференція зібрала у Фінляндії фахівців зі Сполучених Штатів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "conference",
+                    "ferry",
+                    "mainland",
+                    "Gobi"
+                ],
+                "a3": [
+                    "brought",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ],
+                "a4": [
+                    "specialists",
+                    "links",
+                    "extends",
+                    "parts"
+                ],
+                "a5": [
+                    "from",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "United",
+                    "Waited",
+                    "Watched",
+                    "Visited"
+                ],
+                "a8": [
+                    "States",
+                    "Cups",
+                    "Doors",
+                    "Keys"
+                ],
+                "a9": [
+                    "to",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a10": [
+                    "Finland",
+                    "Desert",
+                    "China",
+                    "Mongolia"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-geographical-articles-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Пором сполучає материкову частину з Сицилією.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Пором сполучає материкову частину з Сицилією.",
+            "target_text": "The ferry links the mainland with Sicily.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "ferry",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "ferry",
+                        "Gobi",
+                        "Desert",
+                        "China"
+                    ]
+                },
+                "a3": {
+                    "answer": "links",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "links",
+                        "specialists",
+                        "States",
+                        "extends"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "mainland",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "mainland",
+                        "Mongolia",
+                        "conference",
+                        "Finland"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "with",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a7": {
+                    "answer": "Sicily.",
+                    "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+                    "options": [
+                        "Sicily",
+                        "Badly",
+                        "Clearly",
+                        "Safely"
+                    ]
+                }
+            },
+            "verb_hint": "Материкова частина визначена контекстом; власна назва одного острова не потребує артикля.",
+            "accepted_target_texts": [
+                "The ferry links the mainland with Sicily.",
+                "The ferry connects the mainland with Sicily."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "connects"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "connects"
+                ]
+            },
+            "reorder_groups": [
+                "The ferry links",
+                "the mainland",
+                "with Sicily."
+            ],
+            "token_groups": [
+                "The ferry links",
+                "the mainland",
+                "with Sicily."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "ferry",
+                "links",
+                "the",
+                "mainland",
+                "with",
+                "Sicily."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "ferry",
+                "Gobi",
+                "Desert",
+                "China",
+                "links",
+                "specialists",
+                "States",
+                "extends",
+                "the",
+                "some",
+                "any",
+                "this",
+                "mainland",
+                "Mongolia",
+                "conference",
+                "Finland",
+                "with",
+                "through",
+                "across",
+                "between",
+                "Sicily",
+                "Badly",
+                "Clearly",
+                "Safely"
+            ],
+            "source_text_uk": "Пором сполучає материкову частину з Сицилією.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "ferry",
+                    "Gobi",
+                    "Desert",
+                    "China"
+                ],
+                "a3": [
+                    "links",
+                    "specialists",
+                    "States",
+                    "extends"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "mainland",
+                    "Mongolia",
+                    "conference",
+                    "Finland"
+                ],
+                "a6": [
+                    "with",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a7": [
+                    "Sicily",
+                    "Badly",
+                    "Clearly",
+                    "Safely"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-geographical-articles-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Дослідження вивчає судноплавні маршрути через Гібралтарську протоку.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Дослідження вивчає судноплавні маршрути через Гібралтарську протоку.",
+            "target_text": "The study examines shipping routes through the Strait of Gibraltar.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "study",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "study",
+                        "work",
+                        "get",
+                        "go"
+                    ]
+                },
+                "a3": {
+                    "answer": "examines",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "examines",
+                        "glaciers",
+                        "Himalayas",
+                        "regions"
+                    ]
+                },
+                "a4": {
+                    "answer": "shipping",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "shipping",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a5": {
+                    "answer": "routes",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "routes",
+                        "coordinates",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a6": {
+                    "answer": "through",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "through",
+                        "for",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a8": {
+                    "answer": "Strait",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "Strait",
+                        "Madagascar",
+                        "Programme",
+                        "Conservation"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a10": {
+                    "answer": "Gibraltar.",
+                    "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+                    "options": [
+                        "Gibraltar",
+                        "Music",
+                        "Food",
+                        "Bike"
+                    ]
+                }
+            },
+            "verb_hint": "Усталена описова назва протоки з наступним доповненням має означений артикль.",
+            "accepted_target_texts": [
+                "The study examines shipping routes through the Strait of Gibraltar."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The study examines",
+                "shipping routes",
+                "through the Strait",
+                "of Gibraltar."
+            ],
+            "token_groups": [
+                "The study examines",
+                "shipping routes",
+                "through the Strait",
+                "of Gibraltar."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "study",
+                "examines",
+                "shipping",
+                "routes",
+                "through",
+                "the",
+                "Strait",
+                "of",
+                "Gibraltar."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "study",
+                "work",
+                "get",
+                "go",
+                "examines",
+                "glaciers",
+                "Himalayas",
+                "regions",
+                "shipping",
+                "making",
+                "going",
+                "taking",
+                "routes",
+                "coordinates",
+                "bikes",
+                "cars",
+                "through",
+                "for",
+                "in",
+                "on",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "Strait",
+                "Madagascar",
+                "Programme",
+                "Conservation",
+                "of",
+                "across",
+                "between",
+                "among",
+                "Gibraltar",
+                "Music",
+                "Food",
+                "Bike"
+            ],
+            "source_text_uk": "Дослідження вивчає судноплавні маршрути через Гібралтарську протоку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "study",
+                    "work",
+                    "get",
+                    "go"
+                ],
+                "a3": [
+                    "examines",
+                    "glaciers",
+                    "Himalayas",
+                    "regions"
+                ],
+                "a4": [
+                    "shipping",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a5": [
+                    "routes",
+                    "coordinates",
+                    "bikes",
+                    "cars"
+                ],
+                "a6": [
+                    "through",
+                    "for",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a8": [
+                    "Strait",
+                    "Madagascar",
+                    "Programme",
+                    "Conservation"
+                ],
+                "a9": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a10": [
+                    "Gibraltar",
+                    "Music",
+                    "Food",
+                    "Bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-geographical-articles-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Льодовики Гімалаїв постачають воду густонаселеним регіонам.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Льодовики Гімалаїв постачають воду густонаселеним регіонам.",
+            "target_text": "The glaciers of the Himalayas supply water to densely populated regions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "glaciers",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "glaciers",
+                        "coordinates",
+                        "examines",
+                        "routes"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "of",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "Himalayas",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "Himalayas",
+                        "Friends",
+                        "Dogs",
+                        "Cats"
+                    ]
+                },
+                "a6": {
+                    "answer": "supply",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "supply",
+                        "happily",
+                        "easily",
+                        "politely"
+                    ]
+                },
+                "a7": {
+                    "answer": "water",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "water",
+                        "honey",
+                        "milk",
+                        "bread"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a9": {
+                    "answer": "densely",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "densely",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                },
+                "a10": {
+                    "answer": "populated",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "populated",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a11": {
+                    "answer": "regions.",
+                    "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+                    "options": [
+                        "regions",
+                        "doors",
+                        "keys",
+                        "rooms"
+                    ]
+                }
+            },
+            "verb_hint": "Назва гірської системи має означений артикль; льодовики визначені належністю до цієї системи.",
+            "accepted_target_texts": [
+                "The glaciers of the Himalayas supply water to densely populated regions.",
+                "The glaciers of the Himalayas provide water to densely populated regions."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "provide"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "provide"
+                ]
+            },
+            "reorder_groups": [
+                "The glaciers",
+                "of the Himalayas",
+                "supply water",
+                "to",
+                "densely populated regions."
+            ],
+            "token_groups": [
+                "The glaciers",
+                "of the Himalayas",
+                "supply water",
+                "to",
+                "densely populated regions."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "glaciers",
+                "of",
+                "the",
+                "Himalayas",
+                "supply",
+                "water",
+                "to",
+                "densely",
+                "populated",
+                "regions."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "glaciers",
+                "coordinates",
+                "examines",
+                "routes",
+                "of",
+                "among",
+                "about",
+                "during",
+                "the",
+                "those",
+                "each",
+                "every",
+                "Himalayas",
+                "Friends",
+                "Dogs",
+                "Cats",
+                "supply",
+                "happily",
+                "easily",
+                "politely",
+                "water",
+                "honey",
+                "milk",
+                "bread",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "densely",
+                "slowly",
+                "quickly",
+                "carefully",
+                "populated",
+                "took",
+                "wrote",
+                "rode",
+                "regions",
+                "doors",
+                "keys",
+                "rooms"
+            ],
+            "source_text_uk": "Льодовики Гімалаїв постачають воду густонаселеним регіонам.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "glaciers",
+                    "coordinates",
+                    "examines",
+                    "routes"
+                ],
+                "a3": [
+                    "of",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a4": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "Himalayas",
+                    "Friends",
+                    "Dogs",
+                    "Cats"
+                ],
+                "a6": [
+                    "supply",
+                    "happily",
+                    "easily",
+                    "politely"
+                ],
+                "a7": [
+                    "water",
+                    "honey",
+                    "milk",
+                    "bread"
+                ],
+                "a8": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a9": [
+                    "densely",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ],
+                "a10": [
+                    "populated",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a11": [
+                    "regions",
+                    "doors",
+                    "keys",
+                    "rooms"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-geographical-articles-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Програма координує природоохоронну роботу по всьому Мадагаскару.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Програма координує природоохоронну роботу по всьому Мадагаскару.",
+            "target_text": "The programme coordinates conservation work across Madagascar.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "programme",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "programme",
+                        "Strait",
+                        "Gibraltar",
+                        "music"
+                    ]
+                },
+                "a3": {
+                    "answer": "coordinates",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "coordinates",
+                        "routes",
+                        "glaciers",
+                        "Himalayas"
+                    ]
+                },
+                "a4": {
+                    "answer": "conservation",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "conservation",
+                        "cup",
+                        "door",
+                        "key"
+                    ]
+                },
+                "a5": {
+                    "answer": "work",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "work",
+                        "study",
+                        "live",
+                        "buy"
+                    ]
+                },
+                "a6": {
+                    "answer": "across",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "across",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "Madagascar.",
+                    "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+                    "options": [
+                        "Madagascar",
+                        "Room",
+                        "Map",
+                        "Letter"
+                    ]
+                }
+            },
+            "verb_hint": "Назва цієї держави й острова не потребує артикля; сама програма визначена контекстом.",
+            "accepted_target_texts": [
+                "The programme coordinates conservation work across Madagascar.",
+                "The program coordinates conservation work across Madagascar."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "program"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "program"
+                ]
+            },
+            "reorder_groups": [
+                "The programme coordinates",
+                "conservation work",
+                "across Madagascar."
+            ],
+            "token_groups": [
+                "The programme coordinates",
+                "conservation work",
+                "across Madagascar."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "programme",
+                "coordinates",
+                "conservation",
+                "work",
+                "across",
+                "Madagascar."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "programme",
+                "Strait",
+                "Gibraltar",
+                "music",
+                "coordinates",
+                "routes",
+                "glaciers",
+                "Himalayas",
+                "conservation",
+                "cup",
+                "door",
+                "key",
+                "work",
+                "study",
+                "live",
+                "buy",
+                "across",
+                "with",
+                "without",
+                "into",
+                "Madagascar",
+                "Room",
+                "Map",
+                "Letter"
+            ],
+            "source_text_uk": "Програма координує природоохоронну роботу по всьому Мадагаскару.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "programme",
+                    "Strait",
+                    "Gibraltar",
+                    "music"
+                ],
+                "a3": [
+                    "coordinates",
+                    "routes",
+                    "glaciers",
+                    "Himalayas"
+                ],
+                "a4": [
+                    "conservation",
+                    "cup",
+                    "door",
+                    "key"
+                ],
+                "a5": [
+                    "work",
+                    "study",
+                    "live",
+                    "buy"
+                ],
+                "a6": [
+                    "across",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "Madagascar",
+                    "Room",
+                    "Map",
+                    "Letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-geographical-articles-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Оцінка розглядає водну безпеку в басейні Нілу, не трактуючи державні кордони як екологічні межі.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Оцінка розглядає водну безпеку в басейні Нілу, не трактуючи державні кордони як екологічні межі.",
+            "target_text": "The assessment considers water security across the Nile Basin without treating national borders as ecological boundaries.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "assessment",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "assessment",
+                        "Sea",
+                        "review",
+                        "infrastructure"
+                    ]
+                },
+                "a3": {
+                    "answer": "considers",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "considers",
+                        "states",
+                        "contrasts",
+                        "projects"
+                    ]
+                },
+                "a4": {
+                    "answer": "water",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "water",
+                        "salt",
+                        "butter",
+                        "honey"
+                    ]
+                },
+                "a5": {
+                    "answer": "security",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "security",
+                        "investment",
+                        "Australia",
+                        "delegation"
+                    ]
+                },
+                "a6": {
+                    "answer": "across",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "across",
+                        "with",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "Nile",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "Nile",
+                        "Thames",
+                        "Seine",
+                        "Rhine"
+                    ]
+                },
+                "a9": {
+                    "answer": "Basin",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "Basin",
+                        "Sought",
+                        "Common",
+                        "Position"
+                    ]
+                },
+                "a10": {
+                    "answer": "without",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "without",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a11": {
+                    "answer": "treating",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "treating",
+                        "bordering",
+                        "opening",
+                        "closing"
+                    ]
+                },
+                "a12": {
+                    "answer": "national",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "national",
+                        "comparable",
+                        "Baltic",
+                        "light"
+                    ]
+                },
+                "a13": {
+                    "answer": "borders",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "borders",
+                        "Netherlands",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a14": {
+                    "answer": "as",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "as",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a15": {
+                    "answer": "ecological",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "ecological",
+                        "new",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a16": {
+                    "answer": "boundaries.",
+                    "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+                    "options": [
+                        "boundaries",
+                        "chairs",
+                        "tables",
+                        "tickets"
+                    ]
+                }
+            },
+            "verb_hint": "Назва визначеного річкового басейну має означений артикль; загальні назви безпеки та кордонів не конкретизовано.",
+            "accepted_target_texts": [
+                "The assessment considers water security across the Nile Basin without treating national borders as ecological boundaries."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assessment considers",
+                "water security",
+                "across the Nile",
+                "Basin",
+                "without treating",
+                "national borders",
+                "as ecological boundaries."
+            ],
+            "token_groups": [
+                "The assessment considers",
+                "water security",
+                "across the Nile",
+                "Basin",
+                "without treating",
+                "national borders",
+                "as ecological boundaries."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "assessment",
+                "considers",
+                "water",
+                "security",
+                "across",
+                "the",
+                "Nile",
+                "Basin",
+                "without",
+                "treating",
+                "national",
+                "borders",
+                "as",
+                "ecological",
+                "boundaries."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "assessment",
+                "Sea",
+                "review",
+                "infrastructure",
+                "considers",
+                "states",
+                "contrasts",
+                "projects",
+                "water",
+                "salt",
+                "butter",
+                "honey",
+                "security",
+                "investment",
+                "Australia",
+                "delegation",
+                "across",
+                "with",
+                "into",
+                "onto",
+                "the",
+                "some",
+                "any",
+                "this",
+                "Nile",
+                "Thames",
+                "Seine",
+                "Rhine",
+                "Basin",
+                "Sought",
+                "Common",
+                "Position",
+                "without",
+                "over",
+                "under",
+                "through",
+                "treating",
+                "bordering",
+                "opening",
+                "closing",
+                "national",
+                "comparable",
+                "Baltic",
+                "light",
+                "borders",
+                "Netherlands",
+                "women",
+                "bikes",
+                "as",
+                "keys",
+                "rooms",
+                "maps",
+                "ecological",
+                "new",
+                "old",
+                "young",
+                "boundaries",
+                "chairs",
+                "tables",
+                "tickets"
+            ],
+            "source_text_uk": "Оцінка розглядає водну безпеку в басейні Нілу, не трактуючи державні кордони як екологічні межі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "assessment",
+                    "Sea",
+                    "review",
+                    "infrastructure"
+                ],
+                "a3": [
+                    "considers",
+                    "states",
+                    "contrasts",
+                    "projects"
+                ],
+                "a4": [
+                    "water",
+                    "salt",
+                    "butter",
+                    "honey"
+                ],
+                "a5": [
+                    "security",
+                    "investment",
+                    "Australia",
+                    "delegation"
+                ],
+                "a6": [
+                    "across",
+                    "with",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "Nile",
+                    "Thames",
+                    "Seine",
+                    "Rhine"
+                ],
+                "a9": [
+                    "Basin",
+                    "Sought",
+                    "Common",
+                    "Position"
+                ],
+                "a10": [
+                    "without",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a11": [
+                    "treating",
+                    "bordering",
+                    "opening",
+                    "closing"
+                ],
+                "a12": [
+                    "national",
+                    "comparable",
+                    "Baltic",
+                    "light"
+                ],
+                "a13": [
+                    "borders",
+                    "Netherlands",
+                    "women",
+                    "bikes"
+                ],
+                "a14": [
+                    "as",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ],
+                "a15": [
+                    "ecological",
+                    "new",
+                    "old",
+                    "young"
+                ],
+                "a16": [
+                    "boundaries",
+                    "chairs",
+                    "tables",
+                    "tickets"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-geographical-articles-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Делегація прагнула спільної позиції держав, що межують із Балтійським морем.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Делегація прагнула спільної позиції держав, що межують із Балтійським морем.",
+            "target_text": "The delegation sought a common position among states bordering the Baltic Sea.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "delegation",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "delegation",
+                        "review",
+                        "infrastructure",
+                        "investment"
+                    ]
+                },
+                "a3": {
+                    "answer": "sought",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "sought",
+                        "Australia",
+                        "assessment",
+                        "security"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "a",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "common",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "common",
+                        "Basin",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a6": {
+                    "answer": "position",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "position",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a7": {
+                    "answer": "among",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "among",
+                        "between",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a8": {
+                    "answer": "states",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "states",
+                        "contrasts",
+                        "projects",
+                        "Netherlands"
+                    ]
+                },
+                "a9": {
+                    "answer": "bordering",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "bordering",
+                        "treating",
+                        "calling",
+                        "walking"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a11": {
+                    "answer": "Baltic",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "Baltic",
+                        "National",
+                        "Ecological",
+                        "Comparable"
+                    ]
+                },
+                "a12": {
+                    "answer": "Sea.",
+                    "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+                    "options": [
+                        "Sea",
+                        "School",
+                        "Sister",
+                        "Brother"
+                    ]
+                }
+            },
+            "verb_hint": "Усталена назва моря має означений артикль; позицію вводимо вперше як одну спільну домовленість.",
+            "accepted_target_texts": [
+                "The delegation sought a common position among states bordering the Baltic Sea."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delegation sought",
+                "a common position",
+                "among states bordering",
+                "the Baltic Sea."
+            ],
+            "token_groups": [
+                "The delegation sought",
+                "a common position",
+                "among states bordering",
+                "the Baltic Sea."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "delegation",
+                "sought",
+                "a",
+                "common",
+                "position",
+                "among",
+                "states",
+                "bordering",
+                "the",
+                "Baltic",
+                "Sea."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "An",
+                "delegation",
+                "review",
+                "infrastructure",
+                "investment",
+                "sought",
+                "Australia",
+                "assessment",
+                "security",
+                "a",
+                "these",
+                "those",
+                "each",
+                "common",
+                "Basin",
+                "car",
+                "bag",
+                "position",
+                "picture",
+                "child",
+                "teacher",
+                "among",
+                "between",
+                "about",
+                "during",
+                "states",
+                "contrasts",
+                "projects",
+                "Netherlands",
+                "bordering",
+                "treating",
+                "calling",
+                "walking",
+                "the",
+                "some",
+                "any",
+                "this",
+                "Baltic",
+                "National",
+                "Ecological",
+                "Comparable",
+                "Sea",
+                "School",
+                "Sister",
+                "Brother"
+            ],
+            "source_text_uk": "Делегація прагнула спільної позиції держав, що межують із Балтійським морем.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "An"
+                ],
+                "a2": [
+                    "delegation",
+                    "review",
+                    "infrastructure",
+                    "investment"
+                ],
+                "a3": [
+                    "sought",
+                    "Australia",
+                    "assessment",
+                    "security"
+                ],
+                "a4": [
+                    "a",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "common",
+                    "Basin",
+                    "car",
+                    "bag"
+                ],
+                "a6": [
+                    "position",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a7": [
+                    "among",
+                    "between",
+                    "about",
+                    "during"
+                ],
+                "a8": [
+                    "states",
+                    "contrasts",
+                    "projects",
+                    "Netherlands"
+                ],
+                "a9": [
+                    "bordering",
+                    "treating",
+                    "calling",
+                    "walking"
+                ],
+                "a10": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a11": [
+                    "Baltic",
+                    "National",
+                    "Ecological",
+                    "Comparable"
+                ],
+                "a12": [
+                    "Sea",
+                    "School",
+                    "Sister",
+                    "Brother"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-geographical-articles-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Огляд зіставляє інвестиції в інфраструктуру в Австралії з подібними проєктами в Нідерландах.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_geographical_articles",
+            "translation_uk": "Огляд зіставляє інвестиції в інфраструктуру в Австралії з подібними проєктами в Нідерландах.",
+            "target_text": "The review contrasts infrastructure investment in Australia with comparable projects in the Netherlands.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "review",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "review",
+                        "position",
+                        "Sea",
+                        "assessment"
+                    ]
+                },
+                "a3": {
+                    "answer": "contrasts",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "contrasts",
+                        "considers",
+                        "borders",
+                        "as"
+                    ]
+                },
+                "a4": {
+                    "answer": "infrastructure",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "infrastructure",
+                        "security",
+                        "Basin",
+                        "delegation"
+                    ]
+                },
+                "a5": {
+                    "answer": "investment",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "investment",
+                        "sought",
+                        "common",
+                        "brother"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "Australia",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "Australia",
+                        "Bike",
+                        "Car",
+                        "Bag"
+                    ]
+                },
+                "a8": {
+                    "answer": "with",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "with",
+                        "by",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a9": {
+                    "answer": "comparable",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "comparable",
+                        "national",
+                        "ecological",
+                        "Baltic"
+                    ]
+                },
+                "a10": {
+                    "answer": "projects",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "projects",
+                        "boundaries",
+                        "states",
+                        "teachers"
+                    ]
+                },
+                "a11": {
+                    "answer": "in",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "in",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a13": {
+                    "answer": "Netherlands.",
+                    "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+                    "options": [
+                        "Netherlands",
+                        "Bags",
+                        "Books",
+                        "Boxes"
+                    ]
+                }
+            },
+            "verb_hint": "Перша звичайна назва держави без артикля; друга усталена назва у множині потребує означеного.",
+            "accepted_target_texts": [
+                "The review contrasts infrastructure investment in Australia with comparable projects in the Netherlands."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The review contrasts",
+                "infrastructure investment",
+                "in Australia",
+                "with comparable projects",
+                "in the Netherlands."
+            ],
+            "token_groups": [
+                "The review contrasts",
+                "infrastructure investment",
+                "in Australia",
+                "with comparable projects",
+                "in the Netherlands."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "review",
+                "contrasts",
+                "infrastructure",
+                "investment",
+                "in",
+                "Australia",
+                "with",
+                "comparable",
+                "projects",
+                "in",
+                "the",
+                "Netherlands."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "review",
+                "position",
+                "Sea",
+                "assessment",
+                "contrasts",
+                "considers",
+                "borders",
+                "as",
+                "infrastructure",
+                "security",
+                "Basin",
+                "delegation",
+                "investment",
+                "sought",
+                "common",
+                "brother",
+                "in",
+                "of",
+                "on",
+                "at",
+                "Australia",
+                "Bike",
+                "Car",
+                "Bag",
+                "with",
+                "by",
+                "without",
+                "into",
+                "comparable",
+                "national",
+                "ecological",
+                "Baltic",
+                "projects",
+                "boundaries",
+                "states",
+                "teachers",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "each",
+                "every",
+                "no",
+                "Netherlands",
+                "Bags",
+                "Books",
+                "Boxes"
+            ],
+            "source_text_uk": "Огляд зіставляє інвестиції в інфраструктуру в Австралії з подібними проєктами в Нідерландах.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "review",
+                    "position",
+                    "Sea",
+                    "assessment"
+                ],
+                "a3": [
+                    "contrasts",
+                    "considers",
+                    "borders",
+                    "as"
+                ],
+                "a4": [
+                    "infrastructure",
+                    "security",
+                    "Basin",
+                    "delegation"
+                ],
+                "a5": [
+                    "investment",
+                    "sought",
+                    "common",
+                    "brother"
+                ],
+                "a6": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a7": [
+                    "Australia",
+                    "Bike",
+                    "Car",
+                    "Bag"
+                ],
+                "a8": [
+                    "with",
+                    "by",
+                    "without",
+                    "into"
+                ],
+                "a9": [
+                    "comparable",
+                    "national",
+                    "ecological",
+                    "Baltic"
+                ],
+                "a10": [
+                    "projects",
+                    "boundaries",
+                    "states",
+                    "teachers"
+                ],
+                "a11": [
+                    "in",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a12": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a13": [
+                    "Netherlands",
+                    "Bags",
+                    "Books",
+                    "Boxes"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

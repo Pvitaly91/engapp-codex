@@ -1,0 +1,1549 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/advanced-emphasis.v1.json",
+        "sha256": "ab7cbba37d6d1b7f64b7e2929c497cf29ad9f854d870d4f43c77559fe4f9e9b9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedAdvancedWordOrderEmphasisQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-advanced-emphasis-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Word Order"
+    },
+    "sources": {
+        "word_order_quality_advanced_emphasis": {
+            "name": "Word Order Quality: Advanced Word Order and Emphasis"
+        }
+    },
+    "tags": {
+        "emphasis": {
+            "name": "Emphasis",
+            "category": "topic"
+        },
+        "cleft_sentences": {
+            "name": "Cleft Sentences",
+            "category": "topic"
+        },
+        "fronting": {
+            "name": "Fronting",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "emphasis"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-advanced-emphasis-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Only {a1} a red badge.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Лише Лео має червоний значок.",
+            "target_text": "Only Leo has a red badge.",
+            "markers": {
+                "a1": {
+                    "answer": "Leo has",
+                    "options": [
+                        "Leo has",
+                        "has Leo",
+                        "does Leo have"
+                    ],
+                    "verb_hint": "Частка обмежує підмет. Збережи порядок твердження після імені."
+                }
+            },
+            "verb_hint": "Частка обмежує підмет. Збережи порядок твердження після імені.",
+            "accepted_target_texts": [
+                "Only Leo has a red badge."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only Leo",
+                "has",
+                "a red badge."
+            ],
+            "token_groups": [
+                "Only Leo",
+                "has",
+                "a red badge."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-advanced-emphasis-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Marta {a1} this song.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Марті справді подобається ця пісня.",
+            "target_text": "Marta really likes this song.",
+            "markers": {
+                "a1": {
+                    "answer": "really likes",
+                    "options": [
+                        "really likes",
+                        "likes really",
+                        "really like"
+                    ],
+                    "verb_hint": "Підсилювальне слово постав перед основним дієсловом."
+                }
+            },
+            "verb_hint": "Підсилювальне слово постав перед основним дієсловом.",
+            "accepted_target_texts": [
+                "Marta really likes this song."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta really",
+                "likes",
+                "this song."
+            ],
+            "token_groups": [
+                "Marta really",
+                "likes",
+                "this song."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-advanced-emphasis-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Even {a1} read this map.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Навіть мій брат може прочитати цю карту.",
+            "target_text": "Even my brother can read this map.",
+            "markers": {
+                "a1": {
+                    "answer": "my brother can",
+                    "options": [
+                        "my brother can",
+                        "can my brother",
+                        "does my brother"
+                    ],
+                    "verb_hint": "Після частки назви людину, а потім її можливість."
+                }
+            },
+            "verb_hint": "Після частки назви людину, а потім її можливість.",
+            "accepted_target_texts": [
+                "Even my brother can read this map."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Even my brother",
+                "can",
+                "read this map."
+            ],
+            "token_groups": [
+                "Even my brother",
+                "can",
+                "read this map."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-advanced-emphasis-a1-g04",
+            "author_id": "A1-g04",
+            "question": "This is {a1} umbrella.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Це моя власна парасоля.",
+            "target_text": "This is my own umbrella.",
+            "markers": {
+                "a1": {
+                    "answer": "my own",
+                    "options": [
+                        "my own",
+                        "own my",
+                        "mine own"
+                    ],
+                    "verb_hint": "Присвійне слово стоїть перед означенням зі значенням «власна»."
+                }
+            },
+            "verb_hint": "Присвійне слово стоїть перед означенням зі значенням «власна».",
+            "accepted_target_texts": [
+                "This is my own umbrella."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This is",
+                "my own",
+                "umbrella."
+            ],
+            "token_groups": [
+                "This is",
+                "my own",
+                "umbrella."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-advanced-emphasis-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The little dog {a1} quiet.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Маленький собака дуже тихий.",
+            "target_text": "The little dog is very quiet.",
+            "markers": {
+                "a1": {
+                    "answer": "is very",
+                    "options": [
+                        "is very",
+                        "very is",
+                        "very be"
+                    ],
+                    "verb_hint": "Підсилення ознаки розмісти після дієслова-зв’язки."
+                }
+            },
+            "verb_hint": "Підсилення ознаки розмісти після дієслова-зв’язки.",
+            "accepted_target_texts": [
+                "The little dog is very quiet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little dog",
+                "is very",
+                "quiet."
+            ],
+            "token_groups": [
+                "The little dog",
+                "is very",
+                "quiet."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-advanced-emphasis-a1-g06",
+            "author_id": "A1-g06",
+            "question": "We want {a1} ticket.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Ми хочемо лише один квиток.",
+            "target_text": "We want only one ticket.",
+            "markers": {
+                "a1": {
+                    "answer": "only one",
+                    "options": [
+                        "only one",
+                        "one only",
+                        "only a one"
+                    ],
+                    "verb_hint": "Обмеження стосується кількості; частка стоїть перед числівником."
+                }
+            },
+            "verb_hint": "Обмеження стосується кількості; частка стоїть перед числівником.",
+            "accepted_target_texts": [
+                "We want only one ticket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We want",
+                "only one",
+                "ticket."
+            ],
+            "token_groups": [
+                "We want",
+                "only one",
+                "ticket."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-advanced-emphasis-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I {a1} the address.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Я таки перевірив адресу.",
+            "target_text": "I did check the address.",
+            "markers": {
+                "a1": {
+                    "answer": "did check",
+                    "options": [
+                        "did check",
+                        "checked did",
+                        "did checked"
+                    ],
+                    "verb_hint": "Запереч припущення, що перевірки не було. Після допоміжного підсилення потрібна початкова форма."
+                }
+            },
+            "verb_hint": "Запереч припущення, що перевірки не було. Після допоміжного підсилення потрібна початкова форма.",
+            "accepted_target_texts": [
+                "I did check the address."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I did",
+                "check",
+                "the address."
+            ],
+            "token_groups": [
+                "I did",
+                "check",
+                "the address."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-advanced-emphasis-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She {a1} your name.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Вона таки пам’ятає твоє ім’я.",
+            "target_text": "She does remember your name.",
+            "markers": {
+                "a1": {
+                    "answer": "does remember",
+                    "options": [
+                        "does remember",
+                        "remembers does",
+                        "does remembers"
+                    ],
+                    "verb_hint": "Підсиль твердження; особове закінчення не повторюй на основному дієслові."
+                }
+            },
+            "verb_hint": "Підсиль твердження; особове закінчення не повторюй на основному дієслові.",
+            "accepted_target_texts": [
+                "She does remember your name."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She does",
+                "remember",
+                "your name."
+            ],
+            "token_groups": [
+                "She does",
+                "remember",
+                "your name."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-advanced-emphasis-a2-g03",
+            "author_id": "A2-g03",
+            "question": "We {a1} ten minutes.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Нам потрібно лише десять хвилин.",
+            "target_text": "We only need ten minutes.",
+            "markers": {
+                "a1": {
+                    "answer": "only need",
+                    "options": [
+                        "only need",
+                        "need only do",
+                        "only needs"
+                    ],
+                    "verb_hint": "Частка перед дієсловом підкреслює невелику потребу; підмет означає множину."
+                }
+            },
+            "verb_hint": "Частка перед дієсловом підкреслює невелику потребу; підмет означає множину.",
+            "accepted_target_texts": [
+                "We only need ten minutes."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We only",
+                "need",
+                "ten minutes."
+            ],
+            "token_groups": [
+                "We only",
+                "need",
+                "ten minutes."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-advanced-emphasis-a2-g04",
+            "author_id": "A2-g04",
+            "question": "It is {a1} street.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Це та сама вулиця.",
+            "target_text": "It is the same street.",
+            "markers": {
+                "a1": {
+                    "answer": "the same",
+                    "options": [
+                        "the same",
+                        "same the",
+                        "a same"
+                    ],
+                    "verb_hint": "Перед словом зі значенням «та сама» потрібен означений артикль."
+                }
+            },
+            "verb_hint": "Перед словом зі значенням «та сама» потрібен означений артикль.",
+            "accepted_target_texts": [
+                "It is the same street."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "the same",
+                "street."
+            ],
+            "token_groups": [
+                "It is",
+                "the same",
+                "street."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-advanced-emphasis-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Even after lunch, {a1} cold.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Навіть після обіду в кімнаті було холодно.",
+            "target_text": "Even after lunch, the room was cold.",
+            "markers": {
+                "a1": {
+                    "answer": "the room was",
+                    "options": [
+                        "the room was",
+                        "was the room",
+                        "the room were"
+                    ],
+                    "verb_hint": "Початкова обставина не перетворює твердження на питання."
+                }
+            },
+            "verb_hint": "Початкова обставина не перетворює твердження на питання.",
+            "accepted_target_texts": [
+                "Even after lunch, the room was cold."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Even after lunch,",
+                "the room was",
+                "cold."
+            ],
+            "token_groups": [
+                "Even after lunch,",
+                "the room was",
+                "cold."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-advanced-emphasis-a2-g06",
+            "author_id": "A2-g06",
+            "question": "My sister {a1} this cake.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Моя сестра сама приготувала цей торт.",
+            "target_text": "My sister herself made this cake.",
+            "markers": {
+                "a1": {
+                    "answer": "herself made",
+                    "options": [
+                        "herself made",
+                        "made herself",
+                        "her made"
+                    ],
+                    "verb_hint": "Підсилювальний займенник після підмета означає особисту участь без допомоги."
+                }
+            },
+            "verb_hint": "Підсилювальний займенник після підмета означає особисту участь без допомоги.",
+            "accepted_target_texts": [
+                "My sister herself made this cake.",
+                "My sister herself baked this cake."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "herself baked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "herself baked"
+                ]
+            },
+            "reorder_groups": [
+                "My sister",
+                "herself made",
+                "this cake."
+            ],
+            "token_groups": [
+                "My sister",
+                "herself made",
+                "this cake."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-advanced-emphasis-b1-g01",
+            "author_id": "B1-g01",
+            "question": "{a1} is a short break.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Те, що мені потрібно, — це коротка перерва.",
+            "target_text": "What I need is a short break.",
+            "markers": {
+                "a1": {
+                    "answer": "What I need",
+                    "options": [
+                        "What I need",
+                        "What do I need",
+                        "That I need"
+                    ],
+                    "verb_hint": "Назви потребу як підмет; усередині цієї частини немає питальної інверсії."
+                }
+            },
+            "verb_hint": "Назви потребу як підмет; усередині цієї частини немає питальної інверсії.",
+            "accepted_target_texts": [
+                "What I need is a short break."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What I need",
+                "is",
+                "a short break."
+            ],
+            "token_groups": [
+                "What I need",
+                "is",
+                "a short break."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-advanced-emphasis-b1-g02",
+            "author_id": "B1-g02",
+            "question": "It was {a1} found the wallet.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Саме Ніна знайшла гаманець.",
+            "target_text": "It was Nina who found the wallet.",
+            "markers": {
+                "a1": {
+                    "answer": "Nina who",
+                    "options": [
+                        "Nina who",
+                        "who Nina",
+                        "Nina whom"
+                    ],
+                    "verb_hint": "Виділи виконавицю знахідки; після імені введи її дію відносним займенником."
+                }
+            },
+            "verb_hint": "Виділи виконавицю знахідки; після імені введи її дію відносним займенником.",
+            "accepted_target_texts": [
+                "It was Nina who found the wallet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "Nina who",
+                "found the wallet."
+            ],
+            "token_groups": [
+                "It was",
+                "Nina who",
+                "found the wallet."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-advanced-emphasis-b1-g03",
+            "author_id": "B1-g03",
+            "question": "We {a1} both families.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Ми таки запросили обидві родини.",
+            "target_text": "We did invite both families.",
+            "markers": {
+                "a1": {
+                    "answer": "did invite",
+                    "options": [
+                        "did invite",
+                        "did invited",
+                        "invited did"
+                    ],
+                    "verb_hint": "Після підсилювального допоміжного дієслова не повторюй закінчення минулого часу."
+                }
+            },
+            "verb_hint": "Після підсилювального допоміжного дієслова не повторюй закінчення минулого часу.",
+            "accepted_target_texts": [
+                "We did invite both families."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We did",
+                "invite",
+                "both families."
+            ],
+            "token_groups": [
+                "We did",
+                "invite",
+                "both families."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-advanced-emphasis-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The coach {a1} the bags.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Сам тренер ніс сумки.",
+            "target_text": "The coach himself carried the bags.",
+            "markers": {
+                "a1": {
+                    "answer": "himself carried",
+                    "options": [
+                        "himself carried",
+                        "carried himself",
+                        "his carried"
+                    ],
+                    "verb_hint": "Підкресли особисту участь тренера займенником після підмета."
+                }
+            },
+            "verb_hint": "Підкресли особисту участь тренера займенником після підмета.",
+            "accepted_target_texts": [
+                "The coach himself carried the bags."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coach",
+                "himself carried",
+                "the bags."
+            ],
+            "token_groups": [
+                "The coach",
+                "himself carried",
+                "the bags."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-advanced-emphasis-b1-g05",
+            "author_id": "B1-g05",
+            "question": "{a1} was a fair chance.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Усе, чого ми хотіли, — це справедливий шанс.",
+            "target_text": "All we wanted was a fair chance.",
+            "markers": {
+                "a1": {
+                    "answer": "All we wanted",
+                    "options": [
+                        "All we wanted",
+                        "All did we want",
+                        "All what we wanted"
+                    ],
+                    "verb_hint": "Почни зі значення «усе, чого хотіли», без зайвого відносного займенника."
+                }
+            },
+            "verb_hint": "Почни зі значення «усе, чого хотіли», без зайвого відносного займенника.",
+            "accepted_target_texts": [
+                "All we wanted was a fair chance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "All we wanted",
+                "was",
+                "a fair chance."
+            ],
+            "token_groups": [
+                "All we wanted",
+                "was",
+                "a fair chance."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-advanced-emphasis-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The parcel arrived {a1} noon.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Посилка прибула рівно опівдні.",
+            "target_text": "The parcel arrived at exactly noon.",
+            "markers": {
+                "a1": {
+                    "answer": "at exactly",
+                    "options": [
+                        "at exactly",
+                        "exactly at the",
+                        "at exact"
+                    ],
+                    "verb_hint": "Для точного часу потрібен прислівник, а не прикметник."
+                }
+            },
+            "verb_hint": "Для точного часу потрібен прислівник, а не прикметник.",
+            "accepted_target_texts": [
+                "The parcel arrived at exactly noon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parcel arrived",
+                "at exactly",
+                "noon."
+            ],
+            "token_groups": [
+                "The parcel arrived",
+                "at exactly",
+                "noon."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-advanced-emphasis-b2-g01",
+            "author_id": "B2-g01",
+            "question": "It was {a1} that caused trouble.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Проблему спричинила саме відсутня квитанція.",
+            "target_text": "It was the missing receipt that caused trouble.",
+            "markers": {
+                "a1": {
+                    "answer": "the missing receipt",
+                    "options": [
+                        "the missing receipt",
+                        "the receipt missing was",
+                        "missing the receipt"
+                    ],
+                    "verb_hint": "У пропуску потрібна іменникова група, яка називає причину проблеми."
+                }
+            },
+            "verb_hint": "У пропуску потрібна іменникова група, яка називає причину проблеми.",
+            "accepted_target_texts": [
+                "It was the missing receipt that caused trouble."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "the missing receipt",
+                "that caused trouble."
+            ],
+            "token_groups": [
+                "It was",
+                "the missing receipt",
+                "that caused trouble."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-advanced-emphasis-b2-g02",
+            "author_id": "B2-g02",
+            "question": "What the team {a1} clear guidance.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Команді потрібні передусім чіткі вказівки.",
+            "target_text": "What the team needs is clear guidance.",
+            "markers": {
+                "a1": {
+                    "answer": "needs is",
+                    "options": [
+                        "needs is",
+                        "does needs is",
+                        "need are"
+                    ],
+                    "verb_hint": "Уся початкова частина є одним підметом; усередині немає питального порядку."
+                }
+            },
+            "verb_hint": "Уся початкова частина є одним підметом; усередині немає питального порядку.",
+            "accepted_target_texts": [
+                "What the team needs is clear guidance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the team",
+                "needs is",
+                "clear guidance."
+            ],
+            "token_groups": [
+                "What the team",
+                "needs is",
+                "clear guidance."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-advanced-emphasis-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Only after {a1} did we reopen.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Ми відновили роботу лише після перевірки.",
+            "target_text": "Only after the inspection did we reopen.",
+            "markers": {
+                "a1": {
+                    "answer": "the inspection",
+                    "options": [
+                        "the inspection",
+                        "did the inspection",
+                        "the inspection did"
+                    ],
+                    "verb_hint": "Після прийменника назви подію; допоміжне дієслово інверсії вже наведене далі."
+                }
+            },
+            "verb_hint": "Після прийменника назви подію; допоміжне дієслово інверсії вже наведене далі.",
+            "accepted_target_texts": [
+                "Only after the inspection did we reopen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only after",
+                "the inspection",
+                "did we reopen."
+            ],
+            "token_groups": [
+                "Only after",
+                "the inspection",
+                "did we reopen."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-advanced-emphasis-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Little did {a1} about the leak.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Організатори майже нічого не знали про витік.",
+            "target_text": "Little did the organisers know about the leak.",
+            "markers": {
+                "a1": {
+                    "answer": "the organisers know",
+                    "options": [
+                        "the organisers know",
+                        "the organisers knew",
+                        "know the organisers"
+                    ],
+                    "verb_hint": "Після вже наведеного допоміжного дієслова постав підмет і початкову форму."
+                }
+            },
+            "verb_hint": "Після вже наведеного допоміжного дієслова постав підмет і початкову форму.",
+            "accepted_target_texts": [
+                "Little did the organisers know about the leak."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Little did",
+                "the organisers know",
+                "about the leak."
+            ],
+            "token_groups": [
+                "Little did",
+                "the organisers know",
+                "about the leak."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-advanced-emphasis-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The point is {a1} but the delay.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Річ не у вартості, а в затримці.",
+            "target_text": "The point is not the cost but the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "not the cost",
+                    "options": [
+                        "not the cost",
+                        "the cost not",
+                        "not cost the"
+                    ],
+                    "verb_hint": "Протистав дві іменникові групи; заперечення має передувати першій."
+                }
+            },
+            "verb_hint": "Протистав дві іменникові групи; заперечення має передувати першій.",
+            "accepted_target_texts": [
+                "The point is not the cost but the delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The point is",
+                "not the cost",
+                "but the delay."
+            ],
+            "token_groups": [
+                "The point is",
+                "not the cost",
+                "but the delay."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-advanced-emphasis-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Never before {a1} been so full.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Ніколи раніше зала не була настільки переповненою.",
+            "target_text": "Never before had the hall been so full.",
+            "markers": {
+                "a1": {
+                    "answer": "had the hall",
+                    "options": [
+                        "had the hall",
+                        "the hall had",
+                        "had been the hall"
+                    ],
+                    "verb_hint": "Початкова негативна обставина вимагає допоміжного дієслова перед підметом."
+                }
+            },
+            "verb_hint": "Початкова негативна обставина вимагає допоміжного дієслова перед підметом.",
+            "accepted_target_texts": [
+                "Never before had the hall been so full."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Never before",
+                "had the hall",
+                "been so full."
+            ],
+            "token_groups": [
+                "Never before",
+                "had the hall",
+                "been so full."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-advanced-emphasis-c1-g01",
+            "author_id": "C1-g01",
+            "question": "It is {a1} of oversight that worries investors.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Інвесторів непокоїть саме брак нагляду.",
+            "target_text": "It is the lack of oversight that worries investors.",
+            "markers": {
+                "a1": {
+                    "answer": "the lack",
+                    "options": [
+                        "the lack",
+                        "lack the",
+                        "the lacking"
+                    ],
+                    "verb_hint": "Виділи назву відсутнього явища як іменникову групу перед прийменниковим уточненням."
+                }
+            },
+            "verb_hint": "Виділи назву відсутнього явища як іменникову групу перед прийменниковим уточненням.",
+            "accepted_target_texts": [
+                "It is the lack of oversight that worries investors."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "the lack",
+                "of oversight",
+                "that worries investors."
+            ],
+            "token_groups": [
+                "It is",
+                "the lack",
+                "of oversight",
+                "that worries investors."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-advanced-emphasis-c1-g02",
+            "author_id": "C1-g02",
+            "question": "What the inquiry {a1} a systemic failure.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Розслідування виявило передусім системний збій.",
+            "target_text": "What the inquiry has exposed is a systemic failure.",
+            "markers": {
+                "a1": {
+                    "answer": "has exposed is",
+                    "options": [
+                        "has exposed is",
+                        "has exposed are",
+                        "exposed has is"
+                    ],
+                    "verb_hint": "У підрядній частині збережи звичайний порядок складеної форми; уся частина є підметом."
+                }
+            },
+            "verb_hint": "У підрядній частині збережи звичайний порядок складеної форми; уся частина є підметом.",
+            "accepted_target_texts": [
+                "What the inquiry has exposed is a systemic failure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the inquiry",
+                "has exposed is",
+                "a systemic failure."
+            ],
+            "token_groups": [
+                "What the inquiry",
+                "has exposed is",
+                "a systemic failure."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-advanced-emphasis-c1-g03",
+            "author_id": "C1-g03",
+            "question": "At no point {a1} endorse the proposal.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "На жодному етапі голова не підтримав цю пропозицію.",
+            "target_text": "At no point did the chair endorse the proposal.",
+            "markers": {
+                "a1": {
+                    "answer": "did the chair",
+                    "options": [
+                        "did the chair",
+                        "the chair did",
+                        "did endorse the chair"
+                    ],
+                    "verb_hint": "Після негативної обставини допоміжне дієслово передує підмету."
+                }
+            },
+            "verb_hint": "Після негативної обставини допоміжне дієслово передує підмету.",
+            "accepted_target_texts": [
+                "At no point did the chair endorse the proposal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At no point",
+                "did the chair",
+                "endorse the proposal."
+            ],
+            "token_groups": [
+                "At no point",
+                "did the chair",
+                "endorse the proposal."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-advanced-emphasis-c1-g04",
+            "author_id": "C1-g04",
+            "question": "So convincing {a1} that doubts faded.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Її свідчення були настільки переконливими, що сумніви зникли.",
+            "target_text": "So convincing was her testimony that doubts faded.",
+            "markers": {
+                "a1": {
+                    "answer": "was her testimony",
+                    "options": [
+                        "was her testimony",
+                        "her testimony was",
+                        "did her testimony"
+                    ],
+                    "verb_hint": "Після винесеної групи ступеня ознаки інвертуй зв’язку та підмет."
+                }
+            },
+            "verb_hint": "Після винесеної групи ступеня ознаки інвертуй зв’язку та підмет.",
+            "accepted_target_texts": [
+                "So convincing was her testimony that doubts faded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "So convincing",
+                "was her testimony",
+                "that doubts faded."
+            ],
+            "token_groups": [
+                "So convincing",
+                "was her testimony",
+                "that doubts faded."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-advanced-emphasis-c1-g05",
+            "author_id": "C1-g05",
+            "question": "What they did {a1} the vote.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Вони зробили ось що: відклали голосування.",
+            "target_text": "What they did was postpone the vote.",
+            "markers": {
+                "a1": {
+                    "answer": "was postpone",
+                    "options": [
+                        "was postpone",
+                        "were postponed",
+                        "was postponed"
+                    ],
+                    "verb_hint": "Це виділення дії, а не пасив: після зв’язки потрібна початкова форма."
+                }
+            },
+            "verb_hint": "Це виділення дії, а не пасив: після зв’язки потрібна початкова форма.",
+            "accepted_target_texts": [
+                "What they did was postpone the vote."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What they did",
+                "was postpone",
+                "the vote."
+            ],
+            "token_groups": [
+                "What they did",
+                "was postpone",
+                "the vote."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-advanced-emphasis-c1-g06",
+            "author_id": "C1-g06",
+            "question": "It was {a1} that the files were released.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Файли оприлюднили лише в п’ятницю.",
+            "target_text": "It was not until Friday that the files were released.",
+            "markers": {
+                "a1": {
+                    "answer": "not until Friday",
+                    "options": [
+                        "not until Friday",
+                        "until not Friday",
+                        "not Friday until"
+                    ],
+                    "verb_hint": "Виділи пізній момент події. У розщепленій конструкції підрядний порядок звичайний."
+                }
+            },
+            "verb_hint": "Виділи пізній момент події. У розщепленій конструкції підрядний порядок звичайний.",
+            "accepted_target_texts": [
+                "It was not until Friday that the files were released."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "not until Friday",
+                "that the files",
+                "were released."
+            ],
+            "token_groups": [
+                "It was",
+                "not until Friday",
+                "that the files",
+                "were released."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-advanced-emphasis-c2-g01",
+            "author_id": "C2-g01",
+            "question": "It is {a1} the model that deserves scrutiny.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Ретельної перевірки заслуговує саме припущення, на якому ґрунтується модель.",
+            "target_text": "It is the assumption underlying the model that deserves scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "the assumption underlying",
+                    "options": [
+                        "the assumption underlying",
+                        "the underlying assumption is",
+                        "underlying the assumption"
+                    ],
+                    "verb_hint": "Виділи припущення з дієприкметниковим уточненням, без додаткової зв’язки всередині групи."
+                }
+            },
+            "verb_hint": "Виділи припущення з дієприкметниковим уточненням, без додаткової зв’язки всередині групи.",
+            "accepted_target_texts": [
+                "It is the assumption underlying the model that deserves scrutiny."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "the assumption underlying",
+                "the model",
+                "that deserves scrutiny."
+            ],
+            "token_groups": [
+                "It is",
+                "the assumption underlying",
+                "the model",
+                "that deserves scrutiny."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-advanced-emphasis-c2-g02",
+            "author_id": "C2-g02",
+            "question": "What remains unresolved {a1} the waiver applies retrospectively.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Невирішеним лишається саме питання, чи має відмова від права зворотну дію.",
+            "target_text": "What remains unresolved is whether the waiver applies retrospectively.",
+            "markers": {
+                "a1": {
+                    "answer": "is whether",
+                    "options": [
+                        "is whether",
+                        "are whether",
+                        "whether is"
+                    ],
+                    "verb_hint": "Після цілого підмета постав зв’язку, потім сполучник непрямого загального питання."
+                }
+            },
+            "verb_hint": "Після цілого підмета постав зв’язку, потім сполучник непрямого загального питання.",
+            "accepted_target_texts": [
+                "What remains unresolved is whether the waiver applies retrospectively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains unresolved",
+                "is whether",
+                "the waiver",
+                "applies retrospectively."
+            ],
+            "token_groups": [
+                "What remains unresolved",
+                "is whether",
+                "the waiver",
+                "applies retrospectively."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-advanced-emphasis-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Only to {a1} did she disclose the discrepancy.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Про розбіжність вона повідомила лише незалежному аудитору.",
+            "target_text": "Only to the independent auditor did she disclose the discrepancy.",
+            "markers": {
+                "a1": {
+                    "answer": "the independent auditor",
+                    "options": [
+                        "the independent auditor",
+                        "did the independent auditor",
+                        "independent the auditor"
+                    ],
+                    "verb_hint": "Заверши групу адресата після винесеного прийменника; інверсія починається за пропуском."
+                }
+            },
+            "verb_hint": "Заверши групу адресата після винесеного прийменника; інверсія починається за пропуском.",
+            "accepted_target_texts": [
+                "Only to the independent auditor did she disclose the discrepancy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only to",
+                "the independent auditor",
+                "did she disclose",
+                "the discrepancy."
+            ],
+            "token_groups": [
+                "Only to",
+                "the independent auditor",
+                "did she disclose",
+                "the discrepancy."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-advanced-emphasis-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Not for {a1} did the witness retract her allegation.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Свідок ані на мить не відмовилася від свого звинувачення.",
+            "target_text": "Not for one moment did the witness retract her allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "one moment",
+                    "options": [
+                        "one moment",
+                        "moment one",
+                        "one a moment"
+                    ],
+                    "verb_hint": "Заверши початкову обставину зі значенням «ані на мить»."
+                }
+            },
+            "verb_hint": "Заверши початкову обставину зі значенням «ані на мить».",
+            "accepted_target_texts": [
+                "Not for one moment did the witness retract her allegation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not for",
+                "one moment",
+                "did the witness",
+                "retract her allegation."
+            ],
+            "token_groups": [
+                "Not for",
+                "one moment",
+                "did the witness",
+                "retract her allegation."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-advanced-emphasis-c2-g05",
+            "author_id": "C2-g05",
+            "question": "What the amendment {a1} the ambiguity.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Поправка робить саме ось що: усуває неоднозначність.",
+            "target_text": "What the amendment does is remove the ambiguity.",
+            "markers": {
+                "a1": {
+                    "answer": "does is remove",
+                    "options": [
+                        "does is remove",
+                        "do is removes",
+                        "does removes is"
+                    ],
+                    "verb_hint": "Збережи особову форму всередині підмета й початкову форму після зв’язки."
+                }
+            },
+            "verb_hint": "Збережи особову форму всередині підмета й початкову форму після зв’язки.",
+            "accepted_target_texts": [
+                "What the amendment does is remove the ambiguity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the amendment",
+                "does is remove",
+                "the ambiguity."
+            ],
+            "token_groups": [
+                "What the amendment",
+                "does is remove",
+                "the ambiguity."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-advanced-emphasis-c2-g06",
+            "author_id": "C2-g06",
+            "question": "It was {a1} the safeguards failed that confidence collapsed.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_advanced_emphasis",
+            "translation_uk": "Довіра зруйнувалася саме через те, що запобіжні механізми не спрацювали.",
+            "target_text": "It was precisely because the safeguards failed that confidence collapsed.",
+            "markers": {
+                "a1": {
+                    "answer": "precisely because",
+                    "options": [
+                        "precisely because",
+                        "because precisely of",
+                        "precise because"
+                    ],
+                    "verb_hint": "Виділи причину перед повною підрядною частиною; підсилювач має бути прислівником."
+                }
+            },
+            "verb_hint": "Виділи причину перед повною підрядною частиною; підсилювач має бути прислівником.",
+            "accepted_target_texts": [
+                "It was precisely because the safeguards failed that confidence collapsed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "precisely because",
+                "the safeguards failed",
+                "that confidence collapsed."
+            ],
+            "token_groups": [
+                "It was",
+                "precisely because",
+                "the safeguards failed",
+                "that confidence collapsed."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

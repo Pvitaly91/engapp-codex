@@ -12,6 +12,7 @@ use App\Support\Database\JsonTestSeeder;
 use App\Support\PromptGeneratorFilterNormalizer;
 use App\Support\SentenceBuilderBranding;
 use App\Support\TheoryPageTestSlug;
+use App\Support\FinitePracticeQualityCatalogs;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -83,7 +84,8 @@ class TheoryPagePromptLinkedTestsService
 
         $checkpoint?->__invoke('persistent_metadata', $categories->count() + $pages->count());
         $saved = SavedGrammarTest::query()->orderByDesc('updated_at')->orderBy('name')
-            ->get(['id', 'uuid', 'name', 'slug', 'description', 'filters', 'updated_at']);
+            ->get(['id', 'uuid', 'name', 'slug', 'description', 'filters', 'updated_at'])
+            ->map(fn (SavedGrammarTest $test): SavedGrammarTest => $this->projectLinkedTestLocale($test, $locale));
         $possibleLinks = $this->possiblePrimarySitemapLinks($pages, $saved);
         $primaryMatches = collect();
         foreach ($pages->chunk(40) as $chunk) {
@@ -402,11 +404,21 @@ class TheoryPagePromptLinkedTestsService
     {
         $pageGroups = $pages
             ->filter(fn (mixed $page): bool => $page instanceof Page && (int) $page->getKey() > 0)
-            ->map(function (Page $page): ?array {
+            ->map(function (Page $page) use ($category): ?array {
                 $allLinkedTests = $this->findForPage($page);
                 $linkedTests = $this->preferTheoryPagePolyglotPackages($allLinkedTests);
                 $definitionsBySeeder = $this->promptLinkedSeederDefinitionsForPage($page);
+                $baseFilters = $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder);
                 $seederClasses = $this->aggregateSeederClassesForPage($linkedTests, $definitionsBySeeder);
+                // Match the page's bounded locale projection before checking
+                // exact category pairs. Extra historical sources stay untouched.
+                if (FinitePracticeQualityCatalogs::ownsCategoryProfile((int) $category->getKey(), (string) $category->slug,
+                    $baseFilters['theory_page_mixed_type_profile'] ?? null)) {
+                    $projected = $this->applyLocaleMixedSeederOverrides($seederClasses, $linkedTests, app()->getLocale());
+                    if ($projected->all() === $seederClasses->all() || $this->everySeederHasQuestions($projected)) {
+                        $seederClasses = $projected;
+                    }
+                }
 
                 if ($seederClasses->isEmpty()) {
                     return null;
@@ -425,7 +437,7 @@ class TheoryPagePromptLinkedTestsService
                     'page' => $page,
                     'seeder_classes' => $seederClasses->values()->all(),
                     'question_rows' => $questionRows,
-                    'base_filters' => $this->aggregateBaseFilters($page, $linkedTests, $definitionsBySeeder),
+                    'base_filters' => $baseFilters,
                 ];
             })
             ->filter()
@@ -470,9 +482,20 @@ class TheoryPagePromptLinkedTestsService
 
         return $this->deduplicateLinkedTests(
             $this->loadTestsForPage($page)
+                ->map(fn (SavedGrammarTest $test): SavedGrammarTest => $this->projectLinkedTestLocale($test, app()->getLocale()))
                 ->map(fn (SavedGrammarTest $test) => $this->hydrateDisplayMetadata($test))
                 ->values()
         );
+    }
+
+    protected function projectLinkedTestLocale(SavedGrammarTest $test, string $locale): SavedGrammarTest
+    {
+        $filters = is_array($test->filters) ? $test->filters : [];
+        $projected = FinitePracticeQualityCatalogs::filtersForLocale((string) $test->uuid, $filters, $locale);
+        if ($projected === $filters) { return $test; }
+        $copy = clone $test;
+        $copy->filters = $projected;
+        return $copy;
     }
 
     protected function deduplicateLinkedTests(Collection $tests): Collection
@@ -686,6 +709,7 @@ class TheoryPagePromptLinkedTestsService
             'blank_count_to' => Arr::get($referenceFilters, 'blank_count_to'),
             'preferred_view' => Arr::get($referenceFilters, 'preferred_view'),
             'theory_page_mixed_interleave_question_types' => $interleaveQuestionTypes,
+            'theory_page_mixed_type_profile' => $this->mixedTypeProfile($linkedTests, $definitionsBySeeder),
             'prompt_generator' => $promptGenerator,
         ], fn ($value) => $value !== null);
     }
@@ -754,7 +778,10 @@ class TheoryPagePromptLinkedTestsService
         $containsStandardQuestions = $questionRows
             ->contains(fn ($row) => (string) ($row->type ?? '') !== Question::TYPE_COMPOSE_TOKENS);
 
-        $questionCount = $this->mixedAllLevelsQuestionCount($questionRows, $levels);
+        $profile = (string) ($baseFilters['theory_page_mixed_type_profile'] ?? '');
+        $questionsPerLevel = \App\Support\SentenceReorderQuestionFactory::isCompactQualityProfile($profile)
+            ? \App\Support\SentenceReorderQuestionFactory::compactQuestionsPerLevel($profile) : self::MIXED_QUESTIONS_PER_LEVEL;
+        $questionCount = $this->mixedAllLevelsQuestionCount($questionRows, $levels, $questionsPerLevel);
         $interleaveQuestionTypes = (bool) Arr::get(
             $baseFilters,
             'theory_page_mixed_interleave_question_types',
@@ -767,7 +794,7 @@ class TheoryPagePromptLinkedTestsService
         $filters['num_questions'] = $questionCount;
         $filters['randomize_filtered'] = false;
         $filters['theory_page_mixed_all_levels'] = true;
-        $filters['theory_page_mixed_questions_per_level'] = self::MIXED_QUESTIONS_PER_LEVEL;
+        $filters['theory_page_mixed_questions_per_level'] = $questionsPerLevel;
         $filters['theory_page_mixed_interleave_question_types'] = $interleaveQuestionTypes;
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
@@ -776,8 +803,9 @@ class TheoryPagePromptLinkedTestsService
                 'aggregated_theory_page_test' => true,
                 'theory_page_id' => (int) $page->getKey(),
                 'theory_page_mixed_all_levels_test' => true,
-                'theory_page_mixed_questions_per_level' => self::MIXED_QUESTIONS_PER_LEVEL,
+                'theory_page_mixed_questions_per_level' => $questionsPerLevel,
                 'theory_page_mixed_interleave_question_types' => $interleaveQuestionTypes,
+                'theory_page_mixed_type_profile' => $baseFilters['theory_page_mixed_type_profile'] ?? '',
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
                 'theory_page_static_slug' => true,
             ]
@@ -792,7 +820,7 @@ class TheoryPagePromptLinkedTestsService
             ->setTotalQuestionsAvailable($questionCount);
     }
 
-    protected function mixedAllLevelsQuestionCount(Collection $questionRows, array $levels): int
+    protected function mixedAllLevelsQuestionCount(Collection $questionRows, array $levels, int $questionsPerLevel = self::MIXED_QUESTIONS_PER_LEVEL): int
     {
         $levelCounts = $questionRows
             ->groupBy(fn ($row) => (string) ($row->level ?? ''))
@@ -800,7 +828,7 @@ class TheoryPagePromptLinkedTestsService
 
         return collect($levels !== [] ? $levels : self::LEVEL_ORDER)
             ->sum(fn (string $level): int => min(
-                self::MIXED_QUESTIONS_PER_LEVEL,
+                $questionsPerLevel,
                 (int) $levelCounts->get($level, 0)
             ));
     }
@@ -932,10 +960,169 @@ class TheoryPagePromptLinkedTestsService
         return [];
     }
 
+    protected function mixedTypeProfile(Collection $linkedTests, Collection $definitionsBySeeder): string
+    {
+        $claimsVocabCollocationsProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\VocabCollocationsPracticeQuality::REVISION);
+        if ($claimsVocabCollocationsProfile && !\App\Support\VocabCollocationsPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsRelativeClausesProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\RelativeClausesPracticeQuality::REVISION);
+        if ($claimsRelativeClausesProfile && !\App\Support\RelativeClausesPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsSentenceStructureProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\SentenceStructurePracticeQuality::REVISION);
+        if ($claimsSentenceStructureProfile && !\App\Support\SentenceStructurePracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsRelativeClausesProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\RelativeClausesPracticeQuality::REVISION);
+        if ($claimsRelativeClausesProfile && !\App\Support\RelativeClausesPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsFormalEnglishProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\FormalEnglishPracticeQuality::REVISION);
+        if ($claimsFormalEnglishProfile && !\App\Support\FormalEnglishPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsArticlesQuantifiersProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\ArticlesQuantifiersPracticeQuality::REVISION);
+        if ($claimsArticlesQuantifiersProfile && !\App\Support\ArticlesQuantifiersPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsAcademicEnglishProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\AcademicEnglishPracticeQuality::REVISION);
+        if ($claimsAcademicEnglishProfile && !\App\Support\AcademicEnglishPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsMixedRevisionProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\MixedRevisionPracticeQuality::REVISION);
+        if ($claimsMixedRevisionProfile && !\App\Support\MixedRevisionPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsVerbPatternsProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\VerbPatternsPracticeQuality::REVISION);
+        if ($claimsVerbPatternsProfile && !\App\Support\VerbPatternsPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsSentenceTransformationsProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\SentenceTransformationsPracticeQuality::REVISION);
+        if ($claimsSentenceTransformationsProfile && !\App\Support\SentenceTransformationsPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsCommonMistakesProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\CommonMistakesPracticeQuality::REVISION);
+        if ($claimsCommonMistakesProfile && !\App\Support\CommonMistakesPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsPrepositionsPhrasalProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\PrepositionsPhrasalPracticeQuality::REVISION);
+        if ($claimsPrepositionsPhrasalProfile && !\App\Support\PrepositionsPhrasalPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsClausesLinkingProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\ClausesLinkingPracticeQuality::REVISION);
+        if ($claimsClausesLinkingProfile && !\App\Support\ClausesLinkingPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsReportedSpeechProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\ReportedSpeechPracticeQuality::REVISION);
+        if ($claimsReportedSpeechProfile && !\App\Support\ReportedSpeechPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsConditionalsProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\ConditionalsPracticeQuality::REVISION);
+        if ($claimsConditionalsProfile && !\App\Support\ConditionalsPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $claimsModalProfile = $linkedTests->contains(static fn ($test): bool => $test instanceof SavedGrammarTest
+            && data_get($test->filters, 'theory_page_mixed_type_profile') === \App\Support\ModalVerbsPracticeQuality::REVISION);
+        if ($claimsModalProfile && !\App\Support\ModalVerbsPracticeQuality::allowsMixedProfile(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        )) { return ''; }
+        $definitionsBySeeder = collect(\App\Support\PassiveVoicePracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\ModalVerbsPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\ConditionalsPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\ReportedSpeechPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\ClausesLinkingPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\PrepositionsPhrasalPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\CommonMistakesPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\SentenceTransformationsPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\VerbPatternsPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\MixedRevisionPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\AcademicEnglishPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\ArticlesQuantifiersPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\FormalEnglishPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\RelativeClausesPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\SentenceStructurePracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $definitionsBySeeder = collect(\App\Support\VocabCollocationsPracticeQuality::mixedProfileDefinitions(
+            $definitionsBySeeder->all(), $linkedTests->all(), app()->getLocale()
+        ));
+        $filters = $linkedTests
+            ->map(fn (SavedGrammarTest $test): array => is_array($test->filters) ? $test->filters : [])
+            ->merge($definitionsBySeeder->map(
+                fn ($definition): array => $this->definitionFilters(is_array($definition) ? $definition : [])
+            ));
+        $profiles = $filters->map(static fn (array $filter): string => (string) Arr::get(
+            $filter, 'theory_page_mixed_type_profile', Arr::get($filter, '__meta.theory_page_mixed_type_profile', '')
+        ))->filter()->unique()->values();
+
+        return $profiles->count() === 1
+            && \App\Support\SentenceReorderQuestionFactory::isBalancedQualityProfile($profiles->first())
+            ? $profiles->first() : '';
+    }
+
     protected function mixedInterleaveQuestionTypesEnabled(
         Collection $linkedTests,
         Collection $definitionsBySeeder
     ): bool {
+        // This finite quality package uses the existing balanced presentation
+        // contract without rewriting saved-test filters or other topic banks.
+        $ppcQualitySeeders = [
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousFormsAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousNegativesAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousQuestionsAllLevelsV3Seeder',
+            'Database\\Seeders\\V3\\Tenses\\PastPerfectContinuous\\PastPerfectContinuousTimeExpressionsAllLevelsV3Seeder',
+        ];
+        $linkedSeederClasses = $definitionsBySeeder->keys()->merge($linkedTests->flatMap(
+            fn (SavedGrammarTest $test): array => (array) data_get($test->filters, 'seeder_classes', [])
+        ));
+        if ($linkedSeederClasses->contains(fn ($seeder): bool => in_array($seeder, $ppcQualitySeeders, true))) {
+            return true;
+        }
+
         $filters = $linkedTests
             ->map(fn (SavedGrammarTest $test): array => is_array($test->filters) ? $test->filters : [])
             ->merge($definitionsBySeeder->map(
@@ -964,6 +1151,13 @@ class TheoryPagePromptLinkedTestsService
         $filters['seeder_classes'] = $seederClasses->values()->all();
         $filters['num_questions'] = min(self::QUESTIONS_PER_TEST, $availableCount);
         $filters['randomize_filtered'] = true;
+        if (\App\Support\SentenceReorderQuestionFactory::isBalancedQualityProfile($baseFilters['theory_page_mixed_type_profile'] ?? '')) {
+            $questionsPerLevel = \App\Support\SentenceReorderQuestionFactory::isCompactQualityProfile($baseFilters['theory_page_mixed_type_profile'] ?? '')
+                ? \App\Support\SentenceReorderQuestionFactory::compactQuestionsPerLevel($baseFilters['theory_page_mixed_type_profile'] ?? '') : self::MIXED_QUESTIONS_PER_LEVEL;
+            $filters['num_questions'] = min(2 * $questionsPerLevel, $availableCount);
+            $filters['theory_page_mixed_all_levels'] = true;
+            $filters['theory_page_mixed_questions_per_level'] = $questionsPerLevel;
+        }
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
             [
@@ -986,6 +1180,12 @@ class TheoryPagePromptLinkedTestsService
 
     protected function buildCategoryLevelTest(PageCategory $category, Collection $pageGroups, string $level): ?VirtualSavedTest
     {
+        $categoryProfile = FinitePracticeQualityCatalogs::categoryProfile(
+            (int) $category->getKey(), (string) $category->slug, $pageGroups->values()->all()
+        );
+        $compactProfile = $categoryProfile !== null;
+        $questionsPerPage = $compactProfile
+            ? \App\Support\SentenceReorderQuestionFactory::compactQuestionsPerLevel($categoryProfile) : self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL;
         $groups = collect();
         $selectedQuestionCount = 0;
         $availableQuestionCount = 0;
@@ -1008,7 +1208,10 @@ class TheoryPagePromptLinkedTestsService
             }
 
             $availableQuestionCount += $availableForPage;
-            $selectedQuestionCount += min(self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL, $availableForPage);
+            $selectedQuestionCount += $compactProfile
+                ? min(2 * intdiv($questionsPerPage, 3), $questionRows->where('type', '0')->count())
+                    + min(intdiv($questionsPerPage, 3), $questionRows->where('type', '4')->count())
+                : min($questionsPerPage, $availableForPage);
             $containsComposeQuestions = $containsComposeQuestions || $questionRows
                 ->contains(fn ($row) => (string) ($row->type ?? '') === Question::TYPE_COMPOSE_TOKENS);
             $containsStandardQuestions = $containsStandardQuestions || $questionRows
@@ -1018,12 +1221,17 @@ class TheoryPagePromptLinkedTestsService
                 $baseFilters = is_array($pageGroup['base_filters'] ?? null) ? $pageGroup['base_filters'] : [];
             }
 
-            $groups->push([
+            $groupMetadata = [
                 'page_id' => (int) $page->getKey(),
                 'page_slug' => (string) $page->slug,
                 'page_title' => (string) $page->title,
                 'seeder_classes' => array_values($pageGroup['seeder_classes'] ?? []),
-            ]);
+            ];
+            if (in_array($categoryProfile, [\App\Support\BasicGrammarPracticeQuality::REVISION, \App\Support\CommonMistakesPracticeQuality::REVISION, \App\Support\SentenceTransformationsPracticeQuality::REVISION, \App\Support\VerbPatternsPracticeQuality::REVISION, \App\Support\MixedRevisionPracticeQuality::REVISION, \App\Support\AcademicEnglishPracticeQuality::REVISION, \App\Support\ArticlesQuantifiersPracticeQuality::REVISION, \App\Support\FormalEnglishPracticeQuality::REVISION, \App\Support\RelativeClausesPracticeQuality::REVISION, \App\Support\SentenceStructurePracticeQuality::REVISION, \App\Support\VocabCollocationsPracticeQuality::REVISION], true)) {
+                $groupMetadata['quality_profile'] = $pageGroup['base_filters']['theory_page_mixed_type_profile'];
+                $groupMetadata['page_seeder_class'] = (string) $page->seeder;
+            }
+            $groups->push($groupMetadata);
         }
 
         if ($selectedQuestionCount <= 0 || $groups->isEmpty()) {
@@ -1045,7 +1253,7 @@ class TheoryPagePromptLinkedTestsService
         $filters['randomize_filtered'] = true;
         $filters['aggregated_theory_page_test'] = true;
         $filters['theory_category_page_test'] = true;
-        $filters['theory_category_questions_per_page'] = self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL;
+        $filters['theory_category_questions_per_page'] = $questionsPerPage;
         $filters['theory_category_page_groups'] = $groups->values()->all();
         $filters['__meta'] = array_merge(
             is_array($filters['__meta'] ?? null) ? $filters['__meta'] : [],
@@ -1054,10 +1262,19 @@ class TheoryPagePromptLinkedTestsService
                 'aggregated_theory_category_test' => true,
                 'theory_category_id' => (int) $category->getKey(),
                 'theory_category_slug' => (string) $category->slug,
-                'theory_category_questions_per_page' => self::CATEGORY_QUESTIONS_PER_PAGE_LEVEL,
+                'theory_category_questions_per_page' => $questionsPerPage,
                 'theory_page_mixed_polyglot_test' => $containsComposeQuestions && $containsStandardQuestions,
             ]
         );
+        if ($compactProfile) {
+            $filters['theory_page_mixed_type_profile'] = $categoryProfile;
+            $filters['theory_page_mixed_interleave_question_types'] = true;
+            $filters['__meta']['theory_page_mixed_polyglot_test'] = true;
+            if ($containsStandardQuestions) { $filters['include_ai_v2'] = true; }
+        } elseif (\App\Support\SentenceReorderQuestionFactory::isCompactQualityProfile($filters['theory_page_mixed_type_profile'] ?? '')) {
+            // A partially migrated or unrelated category retains the historical four/page contract.
+            unset($filters['theory_page_mixed_type_profile']);
+        }
 
         $testLabel = __('public.type_test');
         if ($testLabel === 'public.type_test') {
@@ -1537,6 +1754,53 @@ class TheoryPagePromptLinkedTestsService
     {
         $filters = is_array($test->filters) ? $test->filters : [];
         $actualQuestionCount = (int) ($test->question_links_count ?? 0);
+        $ownedDisplayCount = \App\Support\FutureContinuousComparisonPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\QuestionsNegationsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\AdjectivesAdverbsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\SomeAnyPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\PassiveVoicePracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\ModalVerbsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\ConditionalsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\ReportedSpeechPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\ClausesLinkingPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\PrepositionsPhrasalPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\CommonMistakesPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\SentenceTransformationsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\VerbPatternsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\MixedRevisionPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\AcademicEnglishPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\ArticlesQuantifiersPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\FormalEnglishPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\RelativeClausesPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\SentenceStructurePracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        ) ?? \App\Support\VocabCollocationsPracticeQuality::savedBuilderDisplayCount(
+            (string) $test->uuid, (string) $test->slug, $filters, (string) app()->getLocale()
+        );
+        if ($ownedDisplayCount !== null) {
+            // Request-only metadata clone: preserve every historical question link
+            // and the stored test/filters, progress and all other cards verbatim.
+            $test = clone $test;
+            $actualQuestionCount = $ownedDisplayCount;
+        }
 
         if (! isset($filters['num_questions']) && $actualQuestionCount > 0) {
             $filters['num_questions'] = $actualQuestionCount;

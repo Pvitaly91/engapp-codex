@@ -1,0 +1,704 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/cleft-sentences-emphasis.v1.json",
+        "sha256": "892aaadac6d5206497066788422db5d474bc469d8acc35d0930b7e131acafb25"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceStructure\\UkrainianMixedSsqCleftSentencesEmphasisQualityStandardSeeder",
+        "uuid_namespace": "sentence-structure-quality-cleft-sentences-emphasis-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Structure"
+    },
+    "sources": {
+        "sentence_structure_quality_cleft_sentences_emphasis": {
+            "name": "Sentence Structure Quality: Cleft Sentences and Emphasis"
+        }
+    },
+    "tags": {
+        "cleft_sentences_emphasis": {
+            "name": "cleft sentences emphasis",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "contrastive_focus": {
+            "name": "contrastive focus",
+            "category": "grammar"
+        },
+        "it_clefts": {
+            "name": "it clefts",
+            "category": "grammar"
+        },
+        "what_clefts": {
+            "name": "what clefts",
+            "category": "grammar"
+        },
+        "all_clefts": {
+            "name": "all clefts",
+            "category": "grammar"
+        },
+        "reason_thing_place_patterns": {
+            "name": "reason thing place patterns",
+            "category": "grammar"
+        },
+        "focus_types": {
+            "name": "focus types",
+            "category": "grammar"
+        },
+        "correction_emphasis": {
+            "name": "correction emphasis",
+            "category": "grammar"
+        },
+        "information_structure": {
+            "name": "information structure",
+            "category": "grammar"
+        },
+        "register_naturalness": {
+            "name": "register naturalness",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        },
+        "subject_focus": {
+            "name": "subject focus",
+            "category": "grammar"
+        },
+        "object_focus": {
+            "name": "object focus",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "cleft_sentences_emphasis"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-cse-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My brother likes apples, but I {a1} pears.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Мій брат любить яблука, а я люблю груші.",
+            "target_text": "My brother likes apples, but I like pears.",
+            "markers": {
+                "a1": {
+                    "answer": "like",
+                    "options": [
+                        "like",
+                        "likes",
+                        "liking"
+                    ],
+                    "verb_hint": "Подай власне вподобання в теперішньому часі; після вже наведеного підмета закінчення третьої особи не потрібне."
+                }
+            },
+            "verb_hint": "Подай власне вподобання в теперішньому часі; після вже наведеного підмета закінчення третьої особи не потрібне.",
+            "accepted_target_texts": [
+                "My brother likes apples, but I like pears.",
+                "My brother likes apples, but I love pears."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "love"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "love"
+                ]
+            },
+            "reorder_groups": [
+                "My brother",
+                "likes apples,",
+                "but I",
+                "like pears."
+            ],
+            "token_groups": [
+                "My brother",
+                "likes apples,",
+                "but I",
+                "like pears."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-cse-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The keys are {a1}, not yours.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Ключі мої, а не твої.",
+            "target_text": "The keys are mine, not yours.",
+            "markers": {
+                "a1": {
+                    "answer": "mine",
+                    "options": [
+                        "mine",
+                        "my",
+                        "me"
+                    ],
+                    "verb_hint": "Після зв’язки вкажи на належність мовцеві самостійною присвійною формою; іменник не повторюй."
+                }
+            },
+            "verb_hint": "Після зв’язки вкажи на належність мовцеві самостійною присвійною формою; іменник не повторюй.",
+            "accepted_target_texts": [
+                "The keys are mine, not yours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The keys",
+                "are mine,",
+                "not yours."
+            ],
+            "token_groups": [
+                "The keys",
+                "are mine,",
+                "not yours."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-cse-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Why {a1} you choose this seat rather than the other one?",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Чому ти обрав саме це місце, а не інше?",
+            "target_text": "Why did you choose this seat rather than the other one?",
+            "markers": {
+                "a1": {
+                    "answer": "did",
+                    "options": [
+                        "did",
+                        "do",
+                        "does"
+                    ],
+                    "verb_hint": "Додай допоміжне дієслово для запитання про минулий вибір; питальне слово й основне дієслово вже подано."
+                }
+            },
+            "verb_hint": "Додай допоміжне дієслово для запитання про минулий вибір; питальне слово й основне дієслово вже подано.",
+            "accepted_target_texts": [
+                "Why did you choose this seat rather than the other one?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why did",
+                "you choose",
+                "this seat",
+                "rather than",
+                "the other one?"
+            ],
+            "token_groups": [
+                "Why did",
+                "you choose",
+                "this seat",
+                "rather than",
+                "the other one?"
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-cse-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She chose the red mug because it was {a1} than the white one.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Вона вибрала червоне горнятко, бо воно було дешевшим за біле.",
+            "target_text": "She chose the red mug because it was cheaper than the white one.",
+            "markers": {
+                "a1": {
+                    "answer": "cheaper",
+                    "options": [
+                        "cheaper",
+                        "cheap",
+                        "cheapest"
+                    ],
+                    "verb_hint": "Передай порівняння двох горняток за нижчою ціною; сполучник порівняння вже наведено."
+                }
+            },
+            "verb_hint": "Передай порівняння двох горняток за нижчою ціною; сполучник порівняння вже наведено.",
+            "accepted_target_texts": [
+                "She chose the red mug because it was cheaper than the white one.",
+                "She chose the red mug because it was less expensive than the white one."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "less expensive"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "less expensive"
+                ]
+            },
+            "reorder_groups": [
+                "She chose",
+                "the red mug",
+                "because it",
+                "was cheaper",
+                "than the",
+                "white one."
+            ],
+            "token_groups": [
+                "She chose",
+                "the red mug",
+                "because it",
+                "was cheaper",
+                "than the",
+                "white one."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-cse-b1-g01",
+            "author_id": "B1-g01",
+            "question": "It is the {a1}, not the engine, that is making that noise.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Саме вентилятор, а не двигун, створює той шум.",
+            "target_text": "It is the fan, not the engine, that is making that noise.",
+            "markers": {
+                "a1": {
+                    "answer": "fan",
+                    "options": [
+                        "fan",
+                        "fans",
+                        "fanning"
+                    ],
+                    "verb_hint": "Назви один вентилятор як справжнє джерело шуму; його прямо протиставлено двигуну."
+                }
+            },
+            "verb_hint": "Назви один вентилятор як справжнє джерело шуму; його прямо протиставлено двигуну.",
+            "accepted_target_texts": [
+                "It is the fan, not the engine, that is making that noise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is",
+                "the fan,",
+                "not the engine,",
+                "that is making",
+                "that noise."
+            ],
+            "token_groups": [
+                "It is",
+                "the fan,",
+                "not the engine,",
+                "that is making",
+                "that noise."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-cse-b1-g02",
+            "author_id": "B1-g02",
+            "question": "It was {a1} Tuesday that the parcel was delivered.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Посилку доставили саме у вівторок.",
+            "target_text": "It was on Tuesday that the parcel was delivered.",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Додай прийменник перед назвою конкретного дня тижня всередині фокусної часової частини."
+                }
+            },
+            "verb_hint": "Додай прийменник перед назвою конкретного дня тижня всередині фокусної часової частини.",
+            "accepted_target_texts": [
+                "It was on Tuesday that the parcel was delivered."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It was",
+                "on Tuesday",
+                "that the parcel",
+                "was delivered."
+            ],
+            "token_groups": [
+                "It was",
+                "on Tuesday",
+                "that the parcel",
+                "was delivered."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "ssq-cse-b2-g01",
+            "author_id": "B2-g01",
+            "question": "All the volunteers asked for {a1} a safe place to sleep.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Усе, що попросили волонтери, — це безпечне місце для сну.",
+            "target_text": "All the volunteers asked for was a safe place to sleep.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "have been"
+                    ],
+                    "verb_hint": "Постав минулу зв’язку після підметової частини про єдине прохання; кількість волонтерів не визначає її форму."
+                }
+            },
+            "verb_hint": "Постав минулу зв’язку після підметової частини про єдине прохання; кількість волонтерів не визначає її форму.",
+            "accepted_target_texts": [
+                "All the volunteers asked for was a safe place to sleep."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "All the volunteers",
+                "asked for",
+                "was a safe",
+                "place to sleep."
+            ],
+            "token_groups": [
+                "All the volunteers",
+                "asked for",
+                "was a safe",
+                "place to sleep."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "ssq-cse-b2-g02",
+            "author_id": "B2-g02",
+            "question": "It was not her accent {a1} made her difficult to understand, but the speed of her speech.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Її було важко розуміти не через акцент, а саме через швидкість мовлення.",
+            "target_text": "It was not her accent that made her difficult to understand, but the speed of her speech.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "what",
+                        "whose"
+                    ],
+                    "verb_hint": "Зв’яжи наголошений заперечений чинник із продовженням розщепленої конструкції; другий чинник подано після протиставлення."
+                }
+            },
+            "verb_hint": "Зв’яжи наголошений заперечений чинник із продовженням розщепленої конструкції; другий чинник подано після протиставлення.",
+            "accepted_target_texts": [
+                "It was not her accent that made her difficult to understand, but the speed of her speech.",
+                "It was not her accent which made her difficult to understand, but the speed of her speech."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "It was not",
+                "her accent",
+                "that made her",
+                "difficult to understand,",
+                "but the speed",
+                "of her speech."
+            ],
+            "token_groups": [
+                "It was not",
+                "her accent",
+                "that made her",
+                "difficult to understand,",
+                "but the speed",
+                "of her speech."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "ssq-cse-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Where was {a1} that the missing manuscript was discovered?",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Де саме знайшли зниклий рукопис?",
+            "target_text": "Where was it that the missing manuscript was discovered?",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "there",
+                        "this"
+                    ],
+                    "verb_hint": "Доповни питальну розщеплену конструкцію формальним підметом; слово зі значенням місця вже стоїть на початку."
+                }
+            },
+            "verb_hint": "Доповни питальну розщеплену конструкцію формальним підметом; слово зі значенням місця вже стоїть на початку.",
+            "accepted_target_texts": [
+                "Where was it that the missing manuscript was discovered?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where was it",
+                "that the",
+                "missing manuscript",
+                "was discovered?"
+            ],
+            "token_groups": [
+                "Where was it",
+                "that the",
+                "missing manuscript",
+                "was discovered?"
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "ssq-cse-c1-g02",
+            "author_id": "C1-g02",
+            "question": "What the editor did was {a1} the final paragraph, not rewrite the whole chapter.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Редактор вилучив саме останній абзац, а не переписав увесь розділ.",
+            "target_text": "What the editor did was remove the final paragraph, not rewrite the whole chapter.",
+            "markers": {
+                "a1": {
+                    "answer": "remove",
+                    "options": [
+                        "remove",
+                        "removes",
+                        "removing"
+                    ],
+                    "verb_hint": "Після частини про виконану дію назви вилучення абзацу початковою формою; можливий також варіант із часткою перед дієсловом."
+                }
+            },
+            "verb_hint": "Після частини про виконану дію назви вилучення абзацу початковою формою; можливий також варіант із часткою перед дієсловом.",
+            "accepted_target_texts": [
+                "What the editor did was remove the final paragraph, not rewrite the whole chapter.",
+                "What the editor did was to remove the final paragraph, not rewrite the whole chapter.",
+                "What the editor did was delete the final paragraph, not rewrite the whole chapter.",
+                "What the editor did was to delete the final paragraph, not rewrite the whole chapter.",
+                "What the editor did was cut the final paragraph, not rewrite the whole chapter.",
+                "What the editor did was to cut the final paragraph, not rewrite the whole chapter."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to remove",
+                    "delete",
+                    "to delete",
+                    "cut",
+                    "to cut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to remove",
+                    "delete",
+                    "to delete",
+                    "cut",
+                    "to cut"
+                ]
+            },
+            "reorder_groups": [
+                "What the editor",
+                "did was remove",
+                "the final paragraph,",
+                "not rewrite",
+                "the whole chapter."
+            ],
+            "token_groups": [
+                "What the editor",
+                "did was remove",
+                "the final paragraph,",
+                "not rewrite",
+                "the whole chapter."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "ssq-cse-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The point at which the compromise became unacceptable {a1} when oversight was removed.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Компроміс став неприйнятним саме тоді, коли скасували нагляд.",
+            "target_text": "The point at which the compromise became unacceptable was when oversight was removed.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "were",
+                        "be"
+                    ],
+                    "verb_hint": "Заверши складний підмет про вирішальний момент минулою зв’язкою; подальша часова частина пояснює, який це був момент."
+                }
+            },
+            "verb_hint": "Заверши складний підмет про вирішальний момент минулою зв’язкою; подальша часова частина пояснює, який це був момент.",
+            "accepted_target_texts": [
+                "The point at which the compromise became unacceptable was when oversight was removed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The point",
+                "at which",
+                "the compromise",
+                "became unacceptable",
+                "was when",
+                "oversight was removed."
+            ],
+            "token_groups": [
+                "The point",
+                "at which",
+                "the compromise",
+                "became unacceptable",
+                "was when",
+                "oversight was removed."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "ssq-cse-c2-g02",
+            "author_id": "C2-g02",
+            "question": "It was the presumption of consent, {a1} any express agreement, that the judgment treated as decisive.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_cleft_sentences_emphasis",
+            "translation_uk": "Судове рішення визнало вирішальною саме презумпцію згоди, а не будь-яку пряму угоду.",
+            "target_text": "It was the presumption of consent, rather than any express agreement, that the judgment treated as decisive.",
+            "markers": {
+                "a1": {
+                    "answer": "rather than",
+                    "options": [
+                        "rather than",
+                        "owing to",
+                        "in addition to"
+                    ],
+                    "verb_hint": "У протиставленій вставці відкинь пряму угоду як альтернативну підставу; не додавай ще одну причину."
+                }
+            },
+            "verb_hint": "У протиставленій вставці відкинь пряму угоду як альтернативну підставу; не додавай ще одну причину.",
+            "accepted_target_texts": [
+                "It was the presumption of consent, rather than any express agreement, that the judgment treated as decisive.",
+                "It was the presumption of consent, not any express agreement, that the judgment treated as decisive.",
+                "It was the presumption of consent, and not any express agreement, that the judgment treated as decisive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not",
+                    "and not"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not",
+                    "and not"
+                ]
+            },
+            "reorder_groups": [
+                "It was",
+                "the presumption",
+                "of consent,",
+                "rather than",
+                "any express agreement,",
+                "that the judgment",
+                "treated as decisive."
+            ],
+            "token_groups": [
+                "It was",
+                "the presumption",
+                "of consent,",
+                "rather than",
+                "any express agreement,",
+                "that the judgment",
+                "treated as decisive."
+            ],
+            "quality_revision": "ssq-v1"
+        }
+    ]
+}

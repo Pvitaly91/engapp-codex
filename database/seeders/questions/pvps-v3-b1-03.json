@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 27,
+        "id": 35729,
         "uuid": "pvps-v3-b1-03",
-        "question": "The rooms {a1} every morning in this context.",
+        "question": "When {a1} to passengers?",
         "difficulty": 3,
         "level": "B1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 10,
+        "source_id": 342,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:08:06.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePresentSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "are gate numbers announced",
+                "is gate numbers announced",
+                "were gate numbers announced",
+                "do gate numbers announce"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-21T18:53:55.000000Z",
+        "updated_at": "2026-10-21T20:34:37.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 342,
         "name": "Passive Voice Present Simple",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-05-21T18:53:51.000000Z",
+        "updated_at": "2026-05-21T18:53:51.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 5,
+                "id": 81,
                 "name": "B1",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 27,
-                "tag_id": 5,
+                "question_id": 35729,
+                "tag_id": 81,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 18,
+                "id": 2702,
                 "name": "Passive Voice Present Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 27,
-                "tag_id": 18,
+                "question_id": 35729,
+                "tag_id": 2702,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 22,
+                "id": 2704,
                 "name": "Regular Passive Actions",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
             },
             "pivot": {
-                "question_id": 27,
-                "tag_id": 22,
+                "question_id": 35729,
+                "tag_id": 2704,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 9,
-                "option": "are cleaned",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 27,
-                "option_id": 9,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 10,
-                "option": "is cleaned",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 27,
-                "option_id": 10,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 11,
-                "option": "were cleaned",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 27,
-                "option_id": 11,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 12,
+                "id": 63,
                 "option": "clean",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T11:39:56.000000Z",
+                "updated_at": "2026-04-23T11:39:56.000000Z"
             },
             "pivot": {
-                "question_id": 27,
-                "option_id": 12,
+                "question_id": 35729,
+                "option_id": 63,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4085,
+                "option": "is cleaned",
+                "created_at": "2026-04-23T14:39:54.000000Z",
+                "updated_at": "2026-04-23T14:39:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 35729,
+                "option_id": 4085,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23410,
+                "option": "are cleaned",
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35729,
+                "option_id": 23410,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23411,
+                "option": "were cleaned",
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35729,
+                "option_id": 23411,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 27,
-                "question_id": 27,
+                "id": 188069,
+                "question_id": 35729,
                 "marker": "a1",
-                "option_id": 9,
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "option_id": 23410,
+                "created_at": "2026-05-21T18:53:55.000000Z",
+                "updated_at": "2026-05-21T18:53:55.000000Z"
             },
             "option": {
-                "id": 9,
+                "id": 23410,
                 "option": "are cleaned",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 27,
-            "question_id": 27,
+            "id": 25368,
+            "question_id": 35729,
             "text": "The rooms {a1} every morning in this context.",
-            "created_at": "2026-05-26T15:07:37.000000Z",
-            "updated_at": "2026-05-26T15:07:37.000000Z"
+            "created_at": "2026-05-21T18:53:55.000000Z",
+            "updated_at": "2026-05-21T18:53:55.000000Z"
         }
     ],
     "hints": [],

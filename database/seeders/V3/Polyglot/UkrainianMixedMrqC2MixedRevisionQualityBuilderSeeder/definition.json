@@ -1,0 +1,1657 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/c2-mixed-revision.v1.json",
+        "sha256": "9f6704275f313863605c64a30ae649eef11c8019cff8da046d8409c619ea17c6"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqC2MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-c2-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_c2_mixed_revision": {
+            "name": "Mixed Revision Quality: C2 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-c2-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Наші миски важкі.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Наші миски важкі.",
+            "target_text": "Our bowls are heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з наших мисок і назви їхню вагову ознаку; предметів кілька.",
+                    "options": [
+                        "Our",
+                        "Whose",
+                        "My",
+                        "Your"
+                    ]
+                },
+                "a2": {
+                    "answer": "bowls",
+                    "verb_hint": "Почни з наших мисок і назви їхню вагову ознаку; предметів кілька.",
+                    "options": [
+                        "bowls",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з наших мисок і назви їхню вагову ознаку; предметів кілька.",
+                    "options": [
+                        "are",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "heavy.",
+                    "verb_hint": "Почни з наших мисок і назви їхню вагову ознаку; предметів кілька.",
+                    "options": [
+                        "heavy",
+                        "dirty",
+                        "new",
+                        "small"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з наших мисок і назви їхню вагову ознаку; предметів кілька.",
+            "accepted_target_texts": [
+                "Our bowls are heavy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our bowls",
+                "are heavy."
+            ],
+            "token_groups": [
+                "Our bowls",
+                "are heavy."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Our",
+                "bowls",
+                "are",
+                "heavy."
+            ],
+            "options": [
+                "Our",
+                "Whose",
+                "My",
+                "Your",
+                "bowls",
+                "people",
+                "men",
+                "women",
+                "are",
+                "were",
+                "be",
+                "been",
+                "heavy",
+                "dirty",
+                "new",
+                "small"
+            ],
+            "source_text_uk": "Наші миски важкі.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Whose",
+                    "My",
+                    "Your"
+                ],
+                "a2": [
+                    "bowls",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a3": [
+                    "are",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "heavy",
+                    "dirty",
+                    "new",
+                    "small"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_role_a",
+                "a2": "aone_role_a",
+                "a3": "aone_role_b",
+                "a4": "aone_role_b"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-c2-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Пором відходить о пів на десяту.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Пором відходить о пів на десяту.",
+            "target_text": "The ferry leaves at half past nine.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "ferry",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "ferry",
+                        "shuttle",
+                        "boat",
+                        "coach"
+                    ]
+                },
+                "a3": {
+                    "answer": "leaves",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "leaves",
+                        "buys",
+                        "gives",
+                        "makes"
+                    ]
+                },
+                "a4": {
+                    "answer": "at",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "at",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a5": {
+                    "answer": "half",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "half",
+                        "quarter",
+                        "twenty",
+                        "ticket"
+                    ]
+                },
+                "a6": {
+                    "answer": "past",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "past",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a7": {
+                    "answer": "nine.",
+                    "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+                    "options": [
+                        "nine",
+                        "twelve",
+                        "six",
+                        "eight"
+                    ]
+                }
+            },
+            "verb_hint": "Передай розклад простим теперішнім часом; час відправлення назви як половину години після дев’ятої.",
+            "accepted_target_texts": [
+                "The ferry leaves at half past nine.",
+                "The ferry departs at half past nine."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "departs"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "departs"
+                ]
+            },
+            "reorder_groups": [
+                "The ferry",
+                "leaves at",
+                "half past nine."
+            ],
+            "token_groups": [
+                "The ferry",
+                "leaves at",
+                "half past nine."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "ferry",
+                "leaves",
+                "at",
+                "half",
+                "past",
+                "nine."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "ferry",
+                "shuttle",
+                "boat",
+                "coach",
+                "leaves",
+                "buys",
+                "gives",
+                "makes",
+                "at",
+                "during",
+                "to",
+                "from",
+                "half",
+                "quarter",
+                "twenty",
+                "ticket",
+                "past",
+                "person",
+                "water",
+                "bread",
+                "nine",
+                "twelve",
+                "six",
+                "eight"
+            ],
+            "source_text_uk": "Пором відходить о пів на десяту.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "ferry",
+                    "shuttle",
+                    "boat",
+                    "coach"
+                ],
+                "a3": [
+                    "leaves",
+                    "buys",
+                    "gives",
+                    "makes"
+                ],
+                "a4": [
+                    "at",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a5": [
+                    "half",
+                    "quarter",
+                    "twenty",
+                    "ticket"
+                ],
+                "a6": [
+                    "past",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a7": [
+                    "nine",
+                    "twelve",
+                    "six",
+                    "eight"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_role_a",
+                "a2": "atwo_role_a",
+                "a3": "atwo_role_b",
+                "a4": "atwo_role_b",
+                "a5": "atwo_role_c",
+                "a6": "atwo_role_c",
+                "a7": "atwo_role_c"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-c2-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Якщо ми вирушимо зараз, дістанемося укриття до темряви.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Якщо ми вирушимо зараз, дістанемося укриття до темряви.",
+            "target_text": "If we leave now, we will reach the shelter before dark.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "If",
+                        "Though",
+                        "Unless",
+                        "Whereas"
+                    ]
+                },
+                "a2": {
+                    "answer": "we",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a3": {
+                    "answer": "leave",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "leave",
+                        "wait",
+                        "go",
+                        "say"
+                    ]
+                },
+                "a4": {
+                    "answer": "now,",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "now",
+                        "off",
+                        "soon",
+                        "late"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "we",
+                        "us",
+                        "them",
+                        "ourselves"
+                    ]
+                },
+                "a6": {
+                    "answer": "will",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a7": {
+                    "answer": "reach",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "reach",
+                        "approach",
+                        "recognise",
+                        "enter"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a9": {
+                    "answer": "shelter",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "shelter",
+                        "campsite",
+                        "refuge",
+                        "harbour"
+                    ]
+                },
+                "a10": {
+                    "answer": "before",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "before",
+                        "after",
+                        "by",
+                        "bus"
+                    ]
+                },
+                "a11": {
+                    "answer": "dark.",
+                    "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+                    "options": [
+                        "dark",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                }
+            },
+            "verb_hint": "Передай реальну майбутню умову теперішнім часом; після неї назви майбутній результат і часову межу.",
+            "accepted_target_texts": [
+                "If we leave now, we will reach the shelter before dark.",
+                "If we leave now, we will get to the shelter before dark."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If we",
+                "leave now,",
+                "we will",
+                "reach",
+                "the shelter",
+                "before dark."
+            ],
+            "token_groups": [
+                "If we",
+                "leave now,",
+                "we will",
+                "reach",
+                "the shelter",
+                "before dark."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "If",
+                "we",
+                "leave",
+                "now,",
+                "we",
+                "will",
+                "reach",
+                "the",
+                "shelter",
+                "before",
+                "dark."
+            ],
+            "options": [
+                "If",
+                "Though",
+                "Unless",
+                "Whereas",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "leave",
+                "wait",
+                "go",
+                "say",
+                "now",
+                "off",
+                "soon",
+                "late",
+                "us",
+                "them",
+                "ourselves",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "reach",
+                "approach",
+                "recognise",
+                "enter",
+                "the",
+                "a",
+                "an",
+                "some",
+                "shelter",
+                "campsite",
+                "refuge",
+                "harbour",
+                "before",
+                "after",
+                "by",
+                "bus",
+                "dark",
+                "large",
+                "new",
+                "old"
+            ],
+            "source_text_uk": "Якщо ми вирушимо зараз, дістанемося укриття до темряви.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "Though",
+                    "Unless",
+                    "Whereas"
+                ],
+                "a2": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a3": [
+                    "leave",
+                    "wait",
+                    "go",
+                    "say"
+                ],
+                "a4": [
+                    "now",
+                    "off",
+                    "soon",
+                    "late"
+                ],
+                "a5": [
+                    "we",
+                    "us",
+                    "them",
+                    "ourselves"
+                ],
+                "a6": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a7": [
+                    "reach",
+                    "approach",
+                    "recognise",
+                    "enter"
+                ],
+                "a8": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a9": [
+                    "shelter",
+                    "campsite",
+                    "refuge",
+                    "harbour"
+                ],
+                "a10": [
+                    "before",
+                    "after",
+                    "by",
+                    "bus"
+                ],
+                "a11": [
+                    "dark",
+                    "large",
+                    "new",
+                    "old"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_role_a",
+                "a2": "bone_role_a",
+                "a3": "bone_role_b",
+                "a4": "bone_role_b",
+                "a5": "bone_role_c",
+                "a6": "bone_role_c",
+                "a7": "bone_role_d",
+                "a8": "bone_role_e",
+                "a9": "bone_role_e",
+                "a10": "bone_role_f",
+                "a11": "bone_role_f"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-c2-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Пошкоджений датчик зараз замінюють, поки судно стоїть у доці.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Пошкоджений датчик зараз замінюють, поки судно стоїть у доці.",
+            "target_text": "The damaged sensor is being replaced while the vessel is docked.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "damaged",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "damaged",
+                        "cracked",
+                        "broken",
+                        "worn"
+                    ]
+                },
+                "a3": {
+                    "answer": "sensor",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "sensor",
+                        "gauge",
+                        "panel",
+                        "valve"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a5": {
+                    "answer": "being",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "being",
+                        "am",
+                        "are",
+                        "been"
+                    ]
+                },
+                "a6": {
+                    "answer": "replaced",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "replaced",
+                        "repaired",
+                        "inspected",
+                        "tested"
+                    ]
+                },
+                "a7": {
+                    "answer": "while",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "while",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "vessel",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "vessel",
+                        "tanker",
+                        "yacht",
+                        "tug"
+                    ]
+                },
+                "a10": {
+                    "answer": "is",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "isn't"
+                    ]
+                },
+                "a11": {
+                    "answer": "docked.",
+                    "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+                    "options": [
+                        "docked",
+                        "unloaded",
+                        "secured",
+                        "refuelled"
+                    ]
+                }
+            },
+            "verb_hint": "Назви датчик як об’єкт поточної дії, використай пасивний тривалий теперішній час і додай одночасний стан судна.",
+            "accepted_target_texts": [
+                "The damaged sensor is being replaced while the vessel is docked.",
+                "The damaged sensor is being changed while the vessel is docked.",
+                "The damaged sensor is being replaced while the ship is docked.",
+                "The damaged sensor is being changed while the ship is docked."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "changed"
+                ],
+                "a9": [
+                    "ship"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "changed"
+                ],
+                "a9": [
+                    "ship"
+                ]
+            },
+            "reorder_groups": [
+                "The damaged sensor",
+                "is being replaced",
+                "while the vessel",
+                "is docked."
+            ],
+            "token_groups": [
+                "The damaged sensor",
+                "is being replaced",
+                "while the vessel",
+                "is docked."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "damaged",
+                "sensor",
+                "is",
+                "being",
+                "replaced",
+                "while",
+                "the",
+                "vessel",
+                "is",
+                "docked."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "damaged",
+                "cracked",
+                "broken",
+                "worn",
+                "sensor",
+                "gauge",
+                "panel",
+                "valve",
+                "is",
+                "was",
+                "were",
+                "be",
+                "being",
+                "am",
+                "are",
+                "been",
+                "replaced",
+                "repaired",
+                "inspected",
+                "tested",
+                "while",
+                "if",
+                "whether",
+                "and",
+                "the",
+                "those",
+                "each",
+                "every",
+                "vessel",
+                "tanker",
+                "yacht",
+                "tug",
+                "wasn't",
+                "weren't",
+                "isn't",
+                "docked",
+                "unloaded",
+                "secured",
+                "refuelled"
+            ],
+            "source_text_uk": "Пошкоджений датчик зараз замінюють, поки судно стоїть у доці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "damaged",
+                    "cracked",
+                    "broken",
+                    "worn"
+                ],
+                "a3": [
+                    "sensor",
+                    "gauge",
+                    "panel",
+                    "valve"
+                ],
+                "a4": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a5": [
+                    "being",
+                    "am",
+                    "are",
+                    "been"
+                ],
+                "a6": [
+                    "replaced",
+                    "repaired",
+                    "inspected",
+                    "tested"
+                ],
+                "a7": [
+                    "while",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "vessel",
+                    "tanker",
+                    "yacht",
+                    "tug"
+                ],
+                "a10": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "isn't"
+                ],
+                "a11": [
+                    "docked",
+                    "unloaded",
+                    "secured",
+                    "refuelled"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_role_a",
+                "a2": "btwo_role_a",
+                "a3": "btwo_role_a",
+                "a4": "btwo_role_b",
+                "a5": "btwo_role_b",
+                "a6": "btwo_role_b",
+                "a7": "btwo_role_c",
+                "a8": "btwo_role_c",
+                "a9": "btwo_role_c",
+                "a10": "btwo_role_d",
+                "a11": "btwo_role_d"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-c2-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Якби технік дотримався протоколу, зразок не було б забруднено.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Якби технік дотримався протоколу, зразок не було б забруднено.",
+            "target_text": "Had the technician followed the protocol, the sample would not have been contaminated.",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "Had",
+                        "Has",
+                        "Haven't",
+                        "Hasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "technician",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "technician",
+                        "trainee",
+                        "assistant",
+                        "operator"
+                    ]
+                },
+                "a4": {
+                    "answer": "followed",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "followed",
+                        "checked",
+                        "observed",
+                        "verified"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "protocol,",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "protocol",
+                        "equipment",
+                        "temperature",
+                        "label"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "sample",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "sample",
+                        "culture",
+                        "preparation",
+                        "material"
+                    ]
+                },
+                "a9": {
+                    "answer": "would",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a10": {
+                    "answer": "not",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a11": {
+                    "answer": "have",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a12": {
+                    "answer": "been",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a13": {
+                    "answer": "contaminated.",
+                    "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+                    "options": [
+                        "contaminated",
+                        "diluted",
+                        "exposed",
+                        "compromised"
+                    ]
+                }
+            },
+            "verb_hint": "Умову передай інверсією перфектного минулого часу без сполучника; у наслідку збережи заперечення й пасивну попередню дію.",
+            "accepted_target_texts": [
+                "Had the technician followed the protocol, the sample would not have been contaminated.",
+                "Had the technician followed the protocol, the sample wouldn't have been contaminated.",
+                "Had the technician adhered to the protocol, the sample would not have been contaminated.",
+                "Had the technician adhered to the protocol, the sample wouldn't have been contaminated.",
+                "Had the technician complied with the protocol, the sample would not have been contaminated.",
+                "Had the technician complied with the protocol, the sample wouldn't have been contaminated.",
+                "Had the technician obeyed the protocol, the sample would not have been contaminated.",
+                "Had the technician obeyed the protocol, the sample wouldn't have been contaminated."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "adhered",
+                    "complied",
+                    "obeyed"
+                ],
+                "a5": [
+                    "to",
+                    "with"
+                ],
+                "a6": [
+                    "the"
+                ],
+                "a7": [
+                    "protocol,"
+                ],
+                "a8": [
+                    "the"
+                ],
+                "a9": [
+                    "sample"
+                ],
+                "a10": [
+                    "wouldn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "adhered",
+                    "complied",
+                    "obeyed"
+                ],
+                "a5": [
+                    "to",
+                    "with"
+                ],
+                "a6": [
+                    "the"
+                ],
+                "a7": [
+                    "protocol,"
+                ],
+                "a8": [
+                    "the"
+                ],
+                "a9": [
+                    "sample"
+                ],
+                "a10": [
+                    "wouldn't"
+                ]
+            },
+            "reorder_groups": [
+                "Had the technician",
+                "followed the protocol,",
+                "the sample",
+                "would not have",
+                "been contaminated."
+            ],
+            "token_groups": [
+                "Had the technician",
+                "followed the protocol,",
+                "the sample",
+                "would not have",
+                "been contaminated."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Had",
+                "the",
+                "technician",
+                "followed",
+                "the",
+                "protocol,",
+                "the",
+                "sample",
+                "would",
+                "not",
+                "have",
+                "been",
+                "contaminated."
+            ],
+            "options": [
+                "Had",
+                "Has",
+                "Haven't",
+                "Hasn't",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "technician",
+                "trainee",
+                "assistant",
+                "operator",
+                "followed",
+                "checked",
+                "observed",
+                "verified",
+                "both",
+                "a",
+                "an",
+                "protocol",
+                "equipment",
+                "temperature",
+                "label",
+                "those",
+                "each",
+                "every",
+                "sample",
+                "culture",
+                "preparation",
+                "material",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "contaminated",
+                "diluted",
+                "exposed",
+                "compromised"
+            ],
+            "source_text_uk": "Якби технік дотримався протоколу, зразок не було б забруднено.",
+            "options_by_marker": {
+                "a1": [
+                    "Had",
+                    "Has",
+                    "Haven't",
+                    "Hasn't"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "technician",
+                    "trainee",
+                    "assistant",
+                    "operator"
+                ],
+                "a4": [
+                    "followed",
+                    "checked",
+                    "observed",
+                    "verified"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "protocol",
+                    "equipment",
+                    "temperature",
+                    "label"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "sample",
+                    "culture",
+                    "preparation",
+                    "material"
+                ],
+                "a9": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a10": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a11": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a12": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a13": [
+                    "contaminated",
+                    "diluted",
+                    "exposed",
+                    "compromised"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_role_a",
+                "a2": "cone_role_a",
+                "a3": "cone_role_a",
+                "a4": "cone_role_b",
+                "a5": "cone_role_b",
+                "a6": "cone_role_b",
+                "a7": "cone_role_c",
+                "a8": "cone_role_c",
+                "a9": "cone_role_d",
+                "a10": "cone_role_d",
+                "a11": "cone_role_d",
+                "a12": "cone_role_e",
+                "a13": "cone_role_e"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-c2-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Попри позірне зближення позицій, за дипломатичними формулюваннями зберігаються змістові розбіжності.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_c2_mixed_revision",
+            "translation_uk": "Попри позірне зближення позицій, за дипломатичними формулюваннями зберігаються змістові розбіжності.",
+            "target_text": "Notwithstanding the apparent convergence, substantive disagreements persist beneath the diplomatic language.",
+            "markers": {
+                "a1": {
+                    "answer": "Notwithstanding",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "Notwithstanding",
+                        "Following",
+                        "Making",
+                        "Going"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a3": {
+                    "answer": "apparent",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "apparent",
+                        "formal",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a4": {
+                    "answer": "convergence,",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "convergence",
+                        "unanimity",
+                        "agreement",
+                        "deadlock"
+                    ]
+                },
+                "a5": {
+                    "answer": "substantive",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "substantive",
+                        "serious",
+                        "easy",
+                        "difficult"
+                    ]
+                },
+                "a6": {
+                    "answer": "disagreements",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "disagreements",
+                        "tensions",
+                        "reservations",
+                        "objections"
+                    ]
+                },
+                "a7": {
+                    "answer": "persist",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "persist",
+                        "disappear",
+                        "arise",
+                        "intensify"
+                    ]
+                },
+                "a8": {
+                    "answer": "beneath",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "beneath",
+                        "from",
+                        "through",
+                        "behind"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a10": {
+                    "answer": "diplomatic",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "diplomatic",
+                        "conciliatory",
+                        "public",
+                        "small"
+                    ]
+                },
+                "a11": {
+                    "answer": "language.",
+                    "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+                    "options": [
+                        "language",
+                        "text",
+                        "picture",
+                        "child"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з формального прийменника зі значенням «попри», назви позірне зближення; далі передай збереження змістових розбіжностей під дипломатичною мовою.",
+            "accepted_target_texts": [
+                "Notwithstanding the apparent convergence, substantive disagreements persist beneath the diplomatic language.",
+                "Notwithstanding the apparent convergence, substantive disagreements remain beneath the diplomatic language.",
+                "Notwithstanding the apparent convergence, substantive disagreements continue beneath the diplomatic language.",
+                "Notwithstanding the apparent convergence, substantive differences persist beneath the diplomatic language.",
+                "Notwithstanding the apparent convergence, substantive differences remain beneath the diplomatic language.",
+                "Notwithstanding the apparent convergence, substantive differences continue beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive disagreements persist beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive disagreements remain beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive disagreements continue beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive differences persist beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive differences remain beneath the diplomatic language.",
+                "Despite the apparent convergence, substantive differences continue beneath the diplomatic language."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "remain",
+                    "continue"
+                ],
+                "a6": [
+                    "differences"
+                ],
+                "a1": [
+                    "Despite"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "remain",
+                    "continue"
+                ],
+                "a6": [
+                    "differences"
+                ],
+                "a1": [
+                    "Despite"
+                ]
+            },
+            "reorder_groups": [
+                "Notwithstanding",
+                "the apparent convergence,",
+                "substantive disagreements",
+                "persist beneath",
+                "the diplomatic language."
+            ],
+            "token_groups": [
+                "Notwithstanding",
+                "the apparent convergence,",
+                "substantive disagreements",
+                "persist beneath",
+                "the diplomatic language."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Notwithstanding",
+                "the",
+                "apparent",
+                "convergence,",
+                "substantive",
+                "disagreements",
+                "persist",
+                "beneath",
+                "the",
+                "diplomatic",
+                "language."
+            ],
+            "options": [
+                "Notwithstanding",
+                "Following",
+                "Making",
+                "Going",
+                "the",
+                "no",
+                "another",
+                "either",
+                "apparent",
+                "formal",
+                "bus",
+                "desk",
+                "convergence",
+                "unanimity",
+                "agreement",
+                "deadlock",
+                "substantive",
+                "serious",
+                "easy",
+                "difficult",
+                "disagreements",
+                "tensions",
+                "reservations",
+                "objections",
+                "persist",
+                "disappear",
+                "arise",
+                "intensify",
+                "beneath",
+                "from",
+                "through",
+                "behind",
+                "these",
+                "those",
+                "each",
+                "diplomatic",
+                "conciliatory",
+                "public",
+                "small",
+                "language",
+                "text",
+                "picture",
+                "child"
+            ],
+            "source_text_uk": "Попри позірне зближення позицій, за дипломатичними формулюваннями зберігаються змістові розбіжності.",
+            "options_by_marker": {
+                "a1": [
+                    "Notwithstanding",
+                    "Following",
+                    "Making",
+                    "Going"
+                ],
+                "a2": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a3": [
+                    "apparent",
+                    "formal",
+                    "bus",
+                    "desk"
+                ],
+                "a4": [
+                    "convergence",
+                    "unanimity",
+                    "agreement",
+                    "deadlock"
+                ],
+                "a5": [
+                    "substantive",
+                    "serious",
+                    "easy",
+                    "difficult"
+                ],
+                "a6": [
+                    "disagreements",
+                    "tensions",
+                    "reservations",
+                    "objections"
+                ],
+                "a7": [
+                    "persist",
+                    "disappear",
+                    "arise",
+                    "intensify"
+                ],
+                "a8": [
+                    "beneath",
+                    "from",
+                    "through",
+                    "behind"
+                ],
+                "a9": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a10": [
+                    "diplomatic",
+                    "conciliatory",
+                    "public",
+                    "small"
+                ],
+                "a11": [
+                    "language",
+                    "text",
+                    "picture",
+                    "child"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_role_a",
+                "a2": "ctwo_role_b",
+                "a3": "ctwo_role_b",
+                "a4": "ctwo_role_b",
+                "a5": "ctwo_role_c",
+                "a6": "ctwo_role_c",
+                "a7": "ctwo_role_d",
+                "a8": "ctwo_role_d",
+                "a9": "ctwo_role_e",
+                "a10": "ctwo_role_e",
+                "a11": "ctwo_role_e"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

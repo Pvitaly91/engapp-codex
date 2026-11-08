@@ -1,0 +1,3823 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/sentence-types.v1.json",
+        "sha256": "4702d67b33ba9d0800b4c8a287b6a2d46e2156f1ff1c09b0554a0efc6d57b511"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedSentenceTypesQualityBuilderSeeder",
+        "uuid_namespace": "basic-grammar-quality-sentence-types-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "basic_grammar_quality_sentence_types": {
+            "name": "Basic Grammar Quality: Типи речень"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "sentence_types": {
+            "name": "Sentence Types",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "sentence_types"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-sentence-types-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ворота відчинені?",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ворота відчинені?",
+            "target_text": "Is the gate open?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Побудуй пряме питання про вже відомі ворота, які англійською назви іменником однини.",
+                    "options": [
+                        "Is",
+                        "Are",
+                        "Was",
+                        "Were"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання про вже відомі ворота, які англійською назви іменником однини.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a3": {
+                    "answer": "gate",
+                    "verb_hint": "Побудуй пряме питання про вже відомі ворота, які англійською назви іменником однини.",
+                    "options": [
+                        "gate",
+                        "noisy",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a4": {
+                    "answer": "open?",
+                    "verb_hint": "Побудуй пряме питання про вже відомі ворота, які англійською назви іменником однини.",
+                    "options": [
+                        "open",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання про вже відомі ворота, які англійською назви іменником однини.",
+            "accepted_target_texts": [
+                "Is the gate open?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is the gate",
+                "open?"
+            ],
+            "token_groups": [
+                "Is the gate",
+                "open?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "gate",
+                "open?"
+            ],
+            "options": [
+                "Is",
+                "Are",
+                "Was",
+                "Were",
+                "the",
+                "this",
+                "that",
+                "these",
+                "gate",
+                "noisy",
+                "bread",
+                "milk",
+                "open",
+                "brought",
+                "took",
+                "wrote"
+            ],
+            "source_text_uk": "Ворота відчинені?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Are",
+                    "Was",
+                    "Were"
+                ],
+                "a2": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a3": [
+                    "gate",
+                    "noisy",
+                    "bread",
+                    "milk"
+                ],
+                "a4": [
+                    "open",
+                    "brought",
+                    "took",
+                    "wrote"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-sentence-types-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Закрий свій зошит.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Закрий свій зошит.",
+            "target_text": "Close your notebook.",
+            "markers": {
+                "a1": {
+                    "answer": "Close",
+                    "verb_hint": "Передай пряме спонукання до співрозмовника, не додаючи окремого підмета.",
+                    "options": [
+                        "Close",
+                        "Call",
+                        "Walk",
+                        "Open"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Передай пряме спонукання до співрозмовника, не додаючи окремого підмета.",
+                    "options": [
+                        "your",
+                        "my",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a3": {
+                    "answer": "notebook.",
+                    "verb_hint": "Передай пряме спонукання до співрозмовника, не додаючи окремого підмета.",
+                    "options": [
+                        "notebook",
+                        "card",
+                        "poster",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Передай пряме спонукання до співрозмовника, не додаючи окремого підмета.",
+            "accepted_target_texts": [
+                "Close your notebook.",
+                "Shut your notebook.",
+                "Close your exercise book.",
+                "Shut your exercise book."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Shut"
+                ]
+            },
+            "reorder_groups": [
+                "Close",
+                "your notebook."
+            ],
+            "token_groups": [
+                "Close",
+                "your notebook."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Close",
+                "your",
+                "notebook."
+            ],
+            "options": [
+                "Close",
+                "Call",
+                "Walk",
+                "Open",
+                "your",
+                "my",
+                "his",
+                "her",
+                "notebook",
+                "card",
+                "poster",
+                "letter"
+            ],
+            "source_text_uk": "Закрий свій зошит.",
+            "options_by_marker": {
+                "a1": [
+                    "Close",
+                    "Call",
+                    "Walk",
+                    "Open"
+                ],
+                "a2": [
+                    "your",
+                    "my",
+                    "his",
+                    "her"
+                ],
+                "a3": [
+                    "notebook",
+                    "card",
+                    "poster",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-sentence-types-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Який галасливий автобус!",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Який галасливий автобус!",
+            "target_text": "What a noisy bus!",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Побудуй окличну іменну групу про один автобус із питально-окличним словом на початку.",
+                    "options": [
+                        "What",
+                        "Who",
+                        "Whom",
+                        "Which"
+                    ]
+                },
+                "a2": {
+                    "answer": "a",
+                    "verb_hint": "Побудуй окличну іменну групу про один автобус із питально-окличним словом на початку.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "noisy",
+                    "verb_hint": "Побудуй окличну іменну групу про один автобус із питально-окличним словом на початку.",
+                    "options": [
+                        "noisy",
+                        "gate",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a4": {
+                    "answer": "bus!",
+                    "verb_hint": "Побудуй окличну іменну групу про один автобус із питально-окличним словом на початку.",
+                    "options": [
+                        "bus",
+                        "train",
+                        "tram",
+                        "taxi"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй окличну іменну групу про один автобус із питально-окличним словом на початку.",
+            "accepted_target_texts": [
+                "What a noisy bus!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What a",
+                "noisy bus!"
+            ],
+            "token_groups": [
+                "What a",
+                "noisy bus!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "What",
+                "a",
+                "noisy",
+                "bus!"
+            ],
+            "options": [
+                "What",
+                "Who",
+                "Whom",
+                "Which",
+                "a",
+                "the",
+                "some",
+                "any",
+                "noisy",
+                "gate",
+                "bag",
+                "book",
+                "bus",
+                "train",
+                "tram",
+                "taxi"
+            ],
+            "source_text_uk": "Який галасливий автобус!",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Who",
+                    "Whom",
+                    "Which"
+                ],
+                "a2": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "noisy",
+                    "gate",
+                    "bag",
+                    "book"
+                ],
+                "a4": [
+                    "bus",
+                    "train",
+                    "tram",
+                    "taxi"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-sentence-types-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Твій брат знайшов свій гаманець?",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Твій брат знайшов свій гаманець?",
+            "target_text": "Did your brother find his wallet?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "Did",
+                        "Hadn't",
+                        "Do",
+                        "Does"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "your",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a3": {
+                    "answer": "brother",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "brother",
+                        "side",
+                        "door",
+                        "tonight"
+                    ]
+                },
+                "a4": {
+                    "answer": "find",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "find",
+                        "leave",
+                        "see",
+                        "bring"
+                    ]
+                },
+                "a5": {
+                    "answer": "his",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "his",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a6": {
+                    "answer": "wallet?",
+                    "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+                    "options": [
+                        "wallet",
+                        "Please",
+                        "bread",
+                        "milk"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме загальне питання про минулу дію, не повторюючи минулого закінчення основного дієслова.",
+            "accepted_target_texts": [
+                "Did your brother find his wallet?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did your brother",
+                "find his wallet?"
+            ],
+            "token_groups": [
+                "Did your brother",
+                "find his wallet?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Did",
+                "your",
+                "brother",
+                "find",
+                "his",
+                "wallet?"
+            ],
+            "options": [
+                "Did",
+                "Hadn't",
+                "Do",
+                "Does",
+                "your",
+                "our",
+                "their",
+                "mine",
+                "brother",
+                "side",
+                "door",
+                "tonight",
+                "find",
+                "leave",
+                "see",
+                "bring",
+                "his",
+                "hers",
+                "ours",
+                "theirs",
+                "wallet",
+                "Please",
+                "bread",
+                "milk"
+            ],
+            "source_text_uk": "Твій брат знайшов свій гаманець?",
+            "options_by_marker": {
+                "a1": [
+                    "Did",
+                    "Hadn't",
+                    "Do",
+                    "Does"
+                ],
+                "a2": [
+                    "your",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a3": [
+                    "brother",
+                    "side",
+                    "door",
+                    "tonight"
+                ],
+                "a4": [
+                    "find",
+                    "leave",
+                    "see",
+                    "bring"
+                ],
+                "a5": [
+                    "his",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a6": [
+                    "wallet",
+                    "Please",
+                    "bread",
+                    "milk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-sentence-types-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Будь ласка, залиш бічні двері незамкненими.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Будь ласка, залиш бічні двері незамкненими.",
+            "target_text": "Please leave the side door unlocked.",
+            "markers": {
+                "a1": {
+                    "answer": "Please",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "Please",
+                        "Tonight",
+                        "Brother",
+                        "Wallet"
+                    ]
+                },
+                "a2": {
+                    "answer": "leave",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "leave",
+                        "find",
+                        "write",
+                        "work"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "side",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "side",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a5": {
+                    "answer": "door",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "door",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a6": {
+                    "answer": "unlocked.",
+                    "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+                    "options": [
+                        "unlocked",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                }
+            },
+            "verb_hint": "Передай ввічливе спонукання й збережи названий кінцевий стан дверей.",
+            "accepted_target_texts": [
+                "Please leave the side door unlocked."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please leave",
+                "the side door",
+                "unlocked."
+            ],
+            "token_groups": [
+                "Please leave",
+                "the side door",
+                "unlocked."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Please",
+                "leave",
+                "the",
+                "side",
+                "door",
+                "unlocked."
+            ],
+            "options": [
+                "Please",
+                "Tonight",
+                "Brother",
+                "Wallet",
+                "leave",
+                "find",
+                "write",
+                "work",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "side",
+                "map",
+                "letter",
+                "window",
+                "door",
+                "milk",
+                "music",
+                "food",
+                "unlocked",
+                "drove",
+                "gave",
+                "made"
+            ],
+            "source_text_uk": "Будь ласка, залиш бічні двері незамкненими.",
+            "options_by_marker": {
+                "a1": [
+                    "Please",
+                    "Tonight",
+                    "Brother",
+                    "Wallet"
+                ],
+                "a2": [
+                    "leave",
+                    "find",
+                    "write",
+                    "work"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "side",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a5": [
+                    "door",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a6": [
+                    "unlocked",
+                    "drove",
+                    "gave",
+                    "made"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-sentence-types-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Які яскраві сьогодні зорі!",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Які яскраві сьогодні зорі!",
+            "target_text": "How bright the stars are tonight!",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "How",
+                        "Why",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "bright",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "bright",
+                        "lovely",
+                        "final",
+                        "small"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "stars",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "stars",
+                        "men",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a5": {
+                    "answer": "are",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "tonight!",
+                    "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+                    "options": [
+                        "tonight",
+                        "brother",
+                        "wallet",
+                        "Please"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй окличне речення з прикметником і розповідним порядком підмета та зв'язки після нього.",
+            "accepted_target_texts": [
+                "How bright the stars are tonight!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How bright",
+                "the stars are",
+                "tonight!"
+            ],
+            "token_groups": [
+                "How bright",
+                "the stars are",
+                "tonight!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "How",
+                "bright",
+                "the",
+                "stars",
+                "are",
+                "tonight!"
+            ],
+            "options": [
+                "How",
+                "Why",
+                "Whoever",
+                "Whatever",
+                "bright",
+                "lovely",
+                "final",
+                "small",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "stars",
+                "men",
+                "women",
+                "bikes",
+                "are",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "tonight",
+                "brother",
+                "wallet",
+                "Please"
+            ],
+            "source_text_uk": "Які яскраві сьогодні зорі!",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Why",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "bright",
+                    "lovely",
+                    "final",
+                    "small"
+                ],
+                "a3": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "stars",
+                    "men",
+                    "women",
+                    "bikes"
+                ],
+                "a5": [
+                    "are",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a6": [
+                    "tonight",
+                    "brother",
+                    "wallet",
+                    "Please"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-sentence-types-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ти міг би сказати мені, коли виставка зачиняється?",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ти міг би сказати мені, коли виставка зачиняється?",
+            "target_text": "Could you tell me when the exhibition closes?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "Could",
+                        "Would",
+                        "Shall",
+                        "Should"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "you",
+                        "themselves",
+                        "I",
+                        "he"
+                    ]
+                },
+                "a3": {
+                    "answer": "tell",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "tell",
+                        "get",
+                        "go",
+                        "say"
+                    ]
+                },
+                "a4": {
+                    "answer": "me",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "me",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a5": {
+                    "answer": "when",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "when",
+                        "how",
+                        "whoever",
+                        "whatever"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "exhibition",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "exhibition",
+                        "assume",
+                        "everyone",
+                        "conversation"
+                    ]
+                },
+                "a8": {
+                    "answer": "closes?",
+                    "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+                    "options": [
+                        "closes",
+                        "brings",
+                        "takes",
+                        "reads"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй ввічливе загальне питання, усередині якого питання про час має розповідний порядок.",
+            "accepted_target_texts": [
+                "Could you tell me when the exhibition closes?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you tell",
+                "me when",
+                "the exhibition closes?"
+            ],
+            "token_groups": [
+                "Could you tell",
+                "me when",
+                "the exhibition closes?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Could",
+                "you",
+                "tell",
+                "me",
+                "when",
+                "the",
+                "exhibition",
+                "closes?"
+            ],
+            "options": [
+                "Could",
+                "Would",
+                "Shall",
+                "Should",
+                "you",
+                "themselves",
+                "I",
+                "he",
+                "tell",
+                "get",
+                "go",
+                "say",
+                "me",
+                "she",
+                "it",
+                "we",
+                "when",
+                "how",
+                "whoever",
+                "whatever",
+                "the",
+                "both",
+                "a",
+                "an",
+                "exhibition",
+                "assume",
+                "everyone",
+                "conversation",
+                "closes",
+                "brings",
+                "takes",
+                "reads"
+            ],
+            "source_text_uk": "Ти міг би сказати мені, коли виставка зачиняється?",
+            "options_by_marker": {
+                "a1": [
+                    "Could",
+                    "Would",
+                    "Shall",
+                    "Should"
+                ],
+                "a2": [
+                    "you",
+                    "themselves",
+                    "I",
+                    "he"
+                ],
+                "a3": [
+                    "tell",
+                    "get",
+                    "go",
+                    "say"
+                ],
+                "a4": [
+                    "me",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a5": [
+                    "when",
+                    "how",
+                    "whoever",
+                    "whatever"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a7": [
+                    "exhibition",
+                    "assume",
+                    "everyone",
+                    "conversation"
+                ],
+                "a8": [
+                    "closes",
+                    "brings",
+                    "takes",
+                    "reads"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-sentence-types-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Не припускай, що всі погодилися.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Не припускай, що всі погодилися.",
+            "target_text": "Do not assume that everyone has agreed.",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "Do",
+                        "Had",
+                        "Haven't",
+                        "Hasn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "not",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a3": {
+                    "answer": "assume",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "assume",
+                        "conversation",
+                        "exhibition",
+                        "school"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "everyone",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "everyone",
+                        "key",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a6": {
+                    "answer": "has",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "has",
+                        "hadn't",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "agreed.",
+                    "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+                    "options": [
+                        "agreed",
+                        "seen",
+                        "known",
+                        "broken"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечне спонукання та збережи залежне твердження повністю.",
+            "accepted_target_texts": [
+                "Do not assume that everyone has agreed.",
+                "Don't assume that everyone has agreed."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do not assume",
+                "that everyone",
+                "has agreed."
+            ],
+            "token_groups": [
+                "Do not assume",
+                "that everyone",
+                "has agreed."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "assume",
+                "that",
+                "everyone",
+                "has",
+                "agreed."
+            ],
+            "options": [
+                "Do",
+                "Had",
+                "Haven't",
+                "Hasn't",
+                "not",
+                "never",
+                "always",
+                "often",
+                "assume",
+                "conversation",
+                "exhibition",
+                "school",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "everyone",
+                "key",
+                "room",
+                "map",
+                "has",
+                "hadn't",
+                "does",
+                "did",
+                "agreed",
+                "seen",
+                "known",
+                "broken"
+            ],
+            "source_text_uk": "Не припускай, що всі погодилися.",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Had",
+                    "Haven't",
+                    "Hasn't"
+                ],
+                "a2": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a3": [
+                    "assume",
+                    "conversation",
+                    "exhibition",
+                    "school"
+                ],
+                "a4": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "everyone",
+                    "key",
+                    "room",
+                    "map"
+                ],
+                "a6": [
+                    "has",
+                    "hadn't",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "agreed",
+                    "seen",
+                    "known",
+                    "broken"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-sentence-types-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Як несподівано закінчилася розмова!",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Як несподівано закінчилася розмова!",
+            "target_text": "How unexpectedly the conversation ended!",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+                    "options": [
+                        "How",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                },
+                "a2": {
+                    "answer": "unexpectedly",
+                    "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+                    "options": [
+                        "unexpectedly",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a4": {
+                    "answer": "conversation",
+                    "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+                    "options": [
+                        "conversation",
+                        "assume",
+                        "everyone",
+                        "exhibition"
+                    ]
+                },
+                "a5": {
+                    "answer": "ended!",
+                    "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+                    "options": [
+                        "ended",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                }
+            },
+            "verb_hint": "Почни окличне речення зі слова способу, не перетворюй його на пряме питання.",
+            "accepted_target_texts": [
+                "How unexpectedly the conversation ended!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How unexpectedly",
+                "the conversation ended!"
+            ],
+            "token_groups": [
+                "How unexpectedly",
+                "the conversation ended!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "How",
+                "unexpectedly",
+                "the",
+                "conversation",
+                "ended!"
+            ],
+            "options": [
+                "How",
+                "Where",
+                "When",
+                "Why",
+                "unexpectedly",
+                "slowly",
+                "quickly",
+                "carefully",
+                "the",
+                "any",
+                "this",
+                "that",
+                "conversation",
+                "assume",
+                "everyone",
+                "exhibition",
+                "ended",
+                "needed",
+                "liked",
+                "wanted"
+            ],
+            "source_text_uk": "Як несподівано закінчилася розмова!",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Where",
+                    "When",
+                    "Why"
+                ],
+                "a2": [
+                    "unexpectedly",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ],
+                "a3": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a4": [
+                    "conversation",
+                    "assume",
+                    "everyone",
+                    "exhibition"
+                ],
+                "a5": [
+                    "ended",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-sentence-types-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Пропозиція практична чи лише привабливо звучить?",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Пропозиція практична чи лише привабливо звучить?",
+            "target_text": "Is the proposal practical, or does it merely sound attractive?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "Is",
+                        "Am",
+                        "Are",
+                        "Was"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a3": {
+                    "answer": "proposal",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "proposal",
+                        "official",
+                        "account",
+                        "dispute"
+                    ]
+                },
+                "a4": {
+                    "answer": "practical,",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "practical",
+                        "useful",
+                        "helpful",
+                        "different"
+                    ]
+                },
+                "a5": {
+                    "answer": "or",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "or",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a6": {
+                    "answer": "does",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "does",
+                        "do",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "it",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a8": {
+                    "answer": "merely",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "merely",
+                        "differently",
+                        "easily",
+                        "politely"
+                    ]
+                },
+                "a9": {
+                    "answer": "sound",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "sound",
+                        "same",
+                        "evidence",
+                        "little"
+                    ]
+                },
+                "a10": {
+                    "answer": "attractive?",
+                    "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+                    "options": [
+                        "attractive",
+                        "bright",
+                        "dark",
+                        "heavy"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй альтернативне пряме питання й збережи різні дієслівні моделі обох частин.",
+            "accepted_target_texts": [
+                "Is the proposal practical, or does it merely sound attractive?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is the proposal",
+                "practical,",
+                "or does it",
+                "merely sound attractive?"
+            ],
+            "token_groups": [
+                "Is the proposal",
+                "practical,",
+                "or does it",
+                "merely sound attractive?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Is",
+                "the",
+                "proposal",
+                "practical,",
+                "or",
+                "does",
+                "it",
+                "merely",
+                "sound",
+                "attractive?"
+            ],
+            "options": [
+                "Is",
+                "Am",
+                "Are",
+                "Was",
+                "the",
+                "each",
+                "every",
+                "no",
+                "proposal",
+                "official",
+                "account",
+                "dispute",
+                "practical",
+                "useful",
+                "helpful",
+                "different",
+                "or",
+                "because",
+                "although",
+                "though",
+                "does",
+                "do",
+                "did",
+                "don't",
+                "it",
+                "yourself",
+                "herself",
+                "ourselves",
+                "merely",
+                "differently",
+                "easily",
+                "politely",
+                "sound",
+                "same",
+                "evidence",
+                "little",
+                "attractive",
+                "bright",
+                "dark",
+                "heavy"
+            ],
+            "source_text_uk": "Пропозиція практична чи лише привабливо звучить?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Am",
+                    "Are",
+                    "Was"
+                ],
+                "a2": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a3": [
+                    "proposal",
+                    "official",
+                    "account",
+                    "dispute"
+                ],
+                "a4": [
+                    "practical",
+                    "useful",
+                    "helpful",
+                    "different"
+                ],
+                "a5": [
+                    "or",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a6": [
+                    "does",
+                    "do",
+                    "did",
+                    "don't"
+                ],
+                "a7": [
+                    "it",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a8": [
+                    "merely",
+                    "differently",
+                    "easily",
+                    "politely"
+                ],
+                "a9": [
+                    "sound",
+                    "same",
+                    "evidence",
+                    "little"
+                ],
+                "a10": [
+                    "attractive",
+                    "bright",
+                    "dark",
+                    "heavy"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-sentence-types-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Поміркуй, наскільки по-різному можна тлумачити ті самі докази.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Поміркуй, наскільки по-різному можна тлумачити ті самі докази.",
+            "target_text": "Consider how differently the same evidence could be interpreted.",
+            "markers": {
+                "a1": {
+                    "answer": "Consider",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "Consider",
+                        "Dispute",
+                        "Proposal",
+                        "Sound"
+                    ]
+                },
+                "a2": {
+                    "answer": "how",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "how",
+                        "whom",
+                        "what",
+                        "which"
+                    ]
+                },
+                "a3": {
+                    "answer": "differently",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "differently",
+                        "merely",
+                        "carefully",
+                        "well"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "same",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "same",
+                        "little",
+                        "official",
+                        "account"
+                    ]
+                },
+                "a6": {
+                    "answer": "evidence",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "evidence",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a7": {
+                    "answer": "could",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "could",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "be",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "be",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a9": {
+                    "answer": "interpreted.",
+                    "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+                    "options": [
+                        "interpreted",
+                        "known",
+                        "broken",
+                        "built"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі спонукання до роздумів і збережи непрямий порядок слів у залежній частині.",
+            "accepted_target_texts": [
+                "Consider how differently the same evidence could be interpreted."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Consider how differently",
+                "the same evidence",
+                "could be interpreted."
+            ],
+            "token_groups": [
+                "Consider how differently",
+                "the same evidence",
+                "could be interpreted."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Consider",
+                "how",
+                "differently",
+                "the",
+                "same",
+                "evidence",
+                "could",
+                "be",
+                "interpreted."
+            ],
+            "options": [
+                "Consider",
+                "Dispute",
+                "Proposal",
+                "Sound",
+                "how",
+                "whom",
+                "what",
+                "which",
+                "differently",
+                "merely",
+                "carefully",
+                "well",
+                "the",
+                "all",
+                "both",
+                "a",
+                "same",
+                "little",
+                "official",
+                "account",
+                "evidence",
+                "person",
+                "water",
+                "bread",
+                "could",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "be",
+                "was",
+                "were",
+                "been",
+                "interpreted",
+                "known",
+                "broken",
+                "built"
+            ],
+            "source_text_uk": "Поміркуй, наскільки по-різному можна тлумачити ті самі докази.",
+            "options_by_marker": {
+                "a1": [
+                    "Consider",
+                    "Dispute",
+                    "Proposal",
+                    "Sound"
+                ],
+                "a2": [
+                    "how",
+                    "whom",
+                    "what",
+                    "which"
+                ],
+                "a3": [
+                    "differently",
+                    "merely",
+                    "carefully",
+                    "well"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "same",
+                    "little",
+                    "official",
+                    "account"
+                ],
+                "a6": [
+                    "evidence",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a7": [
+                    "could",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a8": [
+                    "be",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a9": [
+                    "interpreted",
+                    "known",
+                    "broken",
+                    "built"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-sentence-types-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Як мало офіційний виклад повідомляє про суперечку!",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Як мало офіційний виклад повідомляє про суперечку!",
+            "target_text": "How little the official account reveals about the dispute!",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "How",
+                        "Who",
+                        "Whom",
+                        "What"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "little",
+                        "proposal",
+                        "sound",
+                        "Consider"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "official",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "official",
+                        "same",
+                        "evidence",
+                        "food"
+                    ]
+                },
+                "a5": {
+                    "answer": "account",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "account",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a6": {
+                    "answer": "reveals",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "reveals",
+                        "phones",
+                        "children",
+                        "teachers"
+                    ]
+                },
+                "a7": {
+                    "answer": "about",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "about",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "dispute!",
+                    "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+                    "options": [
+                        "dispute",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй окличну оцінку малої кількості інформації, не заперечуючи її повністю.",
+            "accepted_target_texts": [
+                "How little the official account reveals about the dispute!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How little",
+                "the official account",
+                "reveals about",
+                "the dispute!"
+            ],
+            "token_groups": [
+                "How little",
+                "the official account",
+                "reveals about",
+                "the dispute!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "How",
+                "little",
+                "the",
+                "official",
+                "account",
+                "reveals",
+                "about",
+                "the",
+                "dispute!"
+            ],
+            "options": [
+                "How",
+                "Who",
+                "Whom",
+                "What",
+                "little",
+                "proposal",
+                "sound",
+                "Consider",
+                "the",
+                "no",
+                "another",
+                "either",
+                "official",
+                "same",
+                "evidence",
+                "food",
+                "account",
+                "train",
+                "bus",
+                "desk",
+                "reveals",
+                "phones",
+                "children",
+                "teachers",
+                "about",
+                "into",
+                "onto",
+                "over",
+                "neither",
+                "all",
+                "both",
+                "dispute",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Як мало офіційний виклад повідомляє про суперечку!",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Who",
+                    "Whom",
+                    "What"
+                ],
+                "a2": [
+                    "little",
+                    "proposal",
+                    "sound",
+                    "Consider"
+                ],
+                "a3": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "official",
+                    "same",
+                    "evidence",
+                    "food"
+                ],
+                "a5": [
+                    "account",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a6": [
+                    "reveals",
+                    "phones",
+                    "children",
+                    "teachers"
+                ],
+                "a7": [
+                    "about",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a8": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "dispute",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-sentence-types-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Можливо, відсутність критики відображає обережність, а не згоду?",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Можливо, відсутність критики відображає обережність, а не згоду?",
+            "target_text": "Might the absence of criticism reflect caution rather than agreement?",
+            "markers": {
+                "a1": {
+                    "answer": "Might",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "Might",
+                        "Could",
+                        "Will",
+                        "Would"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "absence",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "absence",
+                        "discretion",
+                        "mistake",
+                        "coherence"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a5": {
+                    "answer": "criticism",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "criticism",
+                        "proof",
+                        "truth",
+                        "degree"
+                    ]
+                },
+                "a6": {
+                    "answer": "reflect",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "reflect",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a7": {
+                    "answer": "caution",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "caution",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                },
+                "a8": {
+                    "answer": "rather",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "rather",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a9": {
+                    "answer": "than",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "than",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a10": {
+                    "answer": "agreement?",
+                    "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+                    "options": [
+                        "agreement",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обережне пряме питання та протиставлення двох тлумачень.",
+            "accepted_target_texts": [
+                "Might the absence of criticism reflect caution rather than agreement?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Might the absence",
+                "of criticism",
+                "reflect caution",
+                "rather than agreement?"
+            ],
+            "token_groups": [
+                "Might the absence",
+                "of criticism",
+                "reflect caution",
+                "rather than agreement?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Might",
+                "the",
+                "absence",
+                "of",
+                "criticism",
+                "reflect",
+                "caution",
+                "rather",
+                "than",
+                "agreement?"
+            ],
+            "options": [
+                "Might",
+                "Could",
+                "Will",
+                "Would",
+                "the",
+                "some",
+                "any",
+                "this",
+                "absence",
+                "discretion",
+                "mistake",
+                "coherence",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "criticism",
+                "proof",
+                "truth",
+                "degree",
+                "reflect",
+                "train",
+                "bus",
+                "desk",
+                "caution",
+                "picture",
+                "child",
+                "teacher",
+                "rather",
+                "school",
+                "sister",
+                "brother",
+                "than",
+                "friend",
+                "dog",
+                "cat",
+                "agreement",
+                "person",
+                "water",
+                "bread"
+            ],
+            "source_text_uk": "Можливо, відсутність критики відображає обережність, а не згоду?",
+            "options_by_marker": {
+                "a1": [
+                    "Might",
+                    "Could",
+                    "Will",
+                    "Would"
+                ],
+                "a2": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "absence",
+                    "discretion",
+                    "mistake",
+                    "coherence"
+                ],
+                "a4": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a5": [
+                    "criticism",
+                    "proof",
+                    "truth",
+                    "degree"
+                ],
+                "a6": [
+                    "reflect",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a7": [
+                    "caution",
+                    "picture",
+                    "child",
+                    "teacher"
+                ],
+                "a8": [
+                    "rather",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a9": [
+                    "than",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a10": [
+                    "agreement",
+                    "person",
+                    "water",
+                    "bread"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-sentence-types-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Не плутай зв'язність оповіді з доказом її істинності.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Не плутай зв'язність оповіді з доказом її істинності.",
+            "target_text": "Do not mistake the coherence of the narrative for proof of its truth.",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "Do",
+                        "Doesn't",
+                        "Didn't",
+                        "Have"
+                    ]
+                },
+                "a2": {
+                    "answer": "not",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a3": {
+                    "answer": "mistake",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "mistake",
+                        "degree",
+                        "discretion",
+                        "absence"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "coherence",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "coherence",
+                        "criticism",
+                        "reflect",
+                        "caution"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "of",
+                        "from",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "narrative",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "narrative",
+                        "extraordinary",
+                        "warm",
+                        "quiet"
+                    ]
+                },
+                "a9": {
+                    "answer": "for",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "for",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a10": {
+                    "answer": "proof",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "proof",
+                        "rather",
+                        "than",
+                        "agreement"
+                    ]
+                },
+                "a11": {
+                    "answer": "of",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "of",
+                        "during",
+                        "to",
+                        "at"
+                    ]
+                },
+                "a12": {
+                    "answer": "its",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "its",
+                        "our",
+                        "their",
+                        "mine"
+                    ]
+                },
+                "a13": {
+                    "answer": "truth.",
+                    "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+                    "options": [
+                        "truth",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заперечне застереження у формі спонукання з усіма залежними групами.",
+            "accepted_target_texts": [
+                "Do not mistake the coherence of the narrative for proof of its truth.",
+                "Don't mistake the coherence of the narrative for proof of its truth."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do not mistake",
+                "the coherence",
+                "of the narrative",
+                "for proof",
+                "of its truth."
+            ],
+            "token_groups": [
+                "Do not mistake",
+                "the coherence",
+                "of the narrative",
+                "for proof",
+                "of its truth."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Do",
+                "not",
+                "mistake",
+                "the",
+                "coherence",
+                "of",
+                "the",
+                "narrative",
+                "for",
+                "proof",
+                "of",
+                "its",
+                "truth."
+            ],
+            "options": [
+                "Do",
+                "Doesn't",
+                "Didn't",
+                "Have",
+                "not",
+                "still",
+                "just",
+                "also",
+                "mistake",
+                "degree",
+                "discretion",
+                "absence",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "coherence",
+                "criticism",
+                "reflect",
+                "caution",
+                "of",
+                "from",
+                "in",
+                "on",
+                "both",
+                "a",
+                "an",
+                "narrative",
+                "extraordinary",
+                "warm",
+                "quiet",
+                "for",
+                "onto",
+                "over",
+                "under",
+                "proof",
+                "rather",
+                "than",
+                "agreement",
+                "during",
+                "to",
+                "at",
+                "its",
+                "our",
+                "their",
+                "mine",
+                "truth",
+                "desk",
+                "picture",
+                "child"
+            ],
+            "source_text_uk": "Не плутай зв'язність оповіді з доказом її істинності.",
+            "options_by_marker": {
+                "a1": [
+                    "Do",
+                    "Doesn't",
+                    "Didn't",
+                    "Have"
+                ],
+                "a2": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a3": [
+                    "mistake",
+                    "degree",
+                    "discretion",
+                    "absence"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "coherence",
+                    "criticism",
+                    "reflect",
+                    "caution"
+                ],
+                "a6": [
+                    "of",
+                    "from",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "narrative",
+                    "extraordinary",
+                    "warm",
+                    "quiet"
+                ],
+                "a9": [
+                    "for",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a10": [
+                    "proof",
+                    "rather",
+                    "than",
+                    "agreement"
+                ],
+                "a11": [
+                    "of",
+                    "during",
+                    "to",
+                    "at"
+                ],
+                "a12": [
+                    "its",
+                    "our",
+                    "their",
+                    "mine"
+                ],
+                "a13": [
+                    "truth",
+                    "desk",
+                    "picture",
+                    "child"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-sentence-types-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Яку надзвичайну свободу розсуду допускає це формулювання!",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Яку надзвичайну свободу розсуду допускає це формулювання!",
+            "target_text": "What an extraordinary degree of discretion the wording permits!",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "What",
+                        "Which",
+                        "Where",
+                        "When"
+                    ]
+                },
+                "a2": {
+                    "answer": "an",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "an",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "extraordinary",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "extraordinary",
+                        "narrative",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a4": {
+                    "answer": "degree",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "degree",
+                        "agreement",
+                        "mistake",
+                        "coherence"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "of",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "discretion",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "discretion",
+                        "proof",
+                        "truth",
+                        "absence"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "wording",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "wording",
+                        "helping",
+                        "waiting",
+                        "watching"
+                    ]
+                },
+                "a9": {
+                    "answer": "permits!",
+                    "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+                    "options": [
+                        "permits",
+                        "cars",
+                        "bags",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй окличне речення з іменною групою однини перед підметом і дієсловом.",
+            "accepted_target_texts": [
+                "What an extraordinary degree of discretion the wording permits!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What an extraordinary",
+                "degree of discretion",
+                "the wording permits!"
+            ],
+            "token_groups": [
+                "What an extraordinary",
+                "degree of discretion",
+                "the wording permits!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "What",
+                "an",
+                "extraordinary",
+                "degree",
+                "of",
+                "discretion",
+                "the",
+                "wording",
+                "permits!"
+            ],
+            "options": [
+                "What",
+                "Which",
+                "Where",
+                "When",
+                "an",
+                "all",
+                "both",
+                "a",
+                "extraordinary",
+                "narrative",
+                "heavy",
+                "light",
+                "degree",
+                "agreement",
+                "mistake",
+                "coherence",
+                "of",
+                "through",
+                "across",
+                "between",
+                "discretion",
+                "proof",
+                "truth",
+                "absence",
+                "the",
+                "some",
+                "any",
+                "this",
+                "wording",
+                "helping",
+                "waiting",
+                "watching",
+                "permits",
+                "cars",
+                "bags",
+                "books"
+            ],
+            "source_text_uk": "Яку надзвичайну свободу розсуду допускає це формулювання!",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Which",
+                    "Where",
+                    "When"
+                ],
+                "a2": [
+                    "an",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "extraordinary",
+                    "narrative",
+                    "heavy",
+                    "light"
+                ],
+                "a4": [
+                    "degree",
+                    "agreement",
+                    "mistake",
+                    "coherence"
+                ],
+                "a5": [
+                    "of",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "discretion",
+                    "proof",
+                    "truth",
+                    "absence"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "wording",
+                    "helping",
+                    "waiting",
+                    "watching"
+                ],
+                "a9": [
+                    "permits",
+                    "cars",
+                    "bags",
+                    "books"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-sentence-types-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Одностайність пояснює саме відсутність альтернативи, а не справжня підтримка?",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Одностайність пояснює саме відсутність альтернативи, а не справжня підтримка?",
+            "target_text": "Is it the absence of an alternative, rather than genuine endorsement, that explains the unanimity?",
+            "markers": {
+                "a1": {
+                    "answer": "Is",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "Is",
+                        "Were",
+                        "Be",
+                        "Been"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "it",
+                        "she",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "absence",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "absence",
+                        "evidence",
+                        "confident",
+                        "conclusion"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "an",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "an",
+                        "these",
+                        "those",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "alternative,",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "alternative",
+                        "available",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a8": {
+                    "answer": "rather",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "rather",
+                        "argument",
+                        "premise",
+                        "sound"
+                    ]
+                },
+                "a9": {
+                    "answer": "than",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "than",
+                        "Suppose",
+                        "sake",
+                        "far"
+                    ]
+                },
+                "a10": {
+                    "answer": "genuine",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "genuine",
+                        "beyond",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a11": {
+                    "answer": "endorsement,",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "endorsement",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a12": {
+                    "answer": "that",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a13": {
+                    "answer": "explains",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "explains",
+                        "reaches",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a14": {
+                    "answer": "the",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a15": {
+                    "answer": "unanimity?",
+                    "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+                    "options": [
+                        "unanimity",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Побудуй пряме питання з виділенням і збережи точне протиставлення двох причин.",
+            "accepted_target_texts": [
+                "Is it the absence of an alternative, rather than genuine endorsement, that explains the unanimity?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Is it",
+                "the absence",
+                "of an alternative,",
+                "rather than",
+                "genuine endorsement,",
+                "that explains",
+                "the unanimity?"
+            ],
+            "token_groups": [
+                "Is it",
+                "the absence",
+                "of an alternative,",
+                "rather than",
+                "genuine endorsement,",
+                "that explains",
+                "the unanimity?"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Is",
+                "it",
+                "the",
+                "absence",
+                "of",
+                "an",
+                "alternative,",
+                "rather",
+                "than",
+                "genuine",
+                "endorsement,",
+                "that",
+                "explains",
+                "the",
+                "unanimity?"
+            ],
+            "options": [
+                "Is",
+                "Were",
+                "Be",
+                "Been",
+                "it",
+                "she",
+                "we",
+                "they",
+                "the",
+                "each",
+                "every",
+                "no",
+                "absence",
+                "evidence",
+                "confident",
+                "conclusion",
+                "of",
+                "at",
+                "by",
+                "with",
+                "an",
+                "these",
+                "those",
+                "another",
+                "alternative",
+                "available",
+                "small",
+                "large",
+                "rather",
+                "argument",
+                "premise",
+                "sound",
+                "than",
+                "Suppose",
+                "sake",
+                "far",
+                "genuine",
+                "beyond",
+                "milk",
+                "music",
+                "endorsement",
+                "map",
+                "letter",
+                "window",
+                "that",
+                "some",
+                "any",
+                "this",
+                "explains",
+                "reaches",
+                "chairs",
+                "tables",
+                "either",
+                "neither",
+                "all",
+                "unanimity",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Одностайність пояснює саме відсутність альтернативи, а не справжня підтримка?",
+            "options_by_marker": {
+                "a1": [
+                    "Is",
+                    "Were",
+                    "Be",
+                    "Been"
+                ],
+                "a2": [
+                    "it",
+                    "she",
+                    "we",
+                    "they"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "absence",
+                    "evidence",
+                    "confident",
+                    "conclusion"
+                ],
+                "a5": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "an",
+                    "these",
+                    "those",
+                    "another"
+                ],
+                "a7": [
+                    "alternative",
+                    "available",
+                    "small",
+                    "large"
+                ],
+                "a8": [
+                    "rather",
+                    "argument",
+                    "premise",
+                    "sound"
+                ],
+                "a9": [
+                    "than",
+                    "Suppose",
+                    "sake",
+                    "far"
+                ],
+                "a10": [
+                    "genuine",
+                    "beyond",
+                    "milk",
+                    "music"
+                ],
+                "a11": [
+                    "endorsement",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a12": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a13": [
+                    "explains",
+                    "reaches",
+                    "chairs",
+                    "tables"
+                ],
+                "a14": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a15": [
+                    "unanimity",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-sentence-types-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Припустімо задля аргументації, що передумова обґрунтована.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Припустімо задля аргументації, що передумова обґрунтована.",
+            "target_text": "Suppose, for the sake of argument, that the premise is sound.",
+            "markers": {
+                "a1": {
+                    "answer": "Suppose,",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "Suppose",
+                        "Unanimity",
+                        "Far",
+                        "Beyond"
+                    ]
+                },
+                "a2": {
+                    "answer": "for",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "for",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "sake",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "sake",
+                        "absence",
+                        "rather",
+                        "than"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "argument,",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "argument",
+                        "evidence",
+                        "confident",
+                        "conclusion"
+                    ]
+                },
+                "a7": {
+                    "answer": "that",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "that",
+                        "this",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "the",
+                        "either",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a9": {
+                    "answer": "premise",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "premise",
+                        "genuine",
+                        "endorsement",
+                        "letter"
+                    ]
+                },
+                "a10": {
+                    "answer": "is",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "is",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a11": {
+                    "answer": "sound.",
+                    "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+                    "options": [
+                        "sound",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі спонукання до умовного припущення та не перетворюй його на твердження про істинність.",
+            "accepted_target_texts": [
+                "Suppose, for the sake of argument, that the premise is sound."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Suppose, for",
+                "the sake",
+                "of argument,",
+                "that the premise",
+                "is sound."
+            ],
+            "token_groups": [
+                "Suppose, for",
+                "the sake",
+                "of argument,",
+                "that the premise",
+                "is sound."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Suppose,",
+                "for",
+                "the",
+                "sake",
+                "of",
+                "argument,",
+                "that",
+                "the",
+                "premise",
+                "is",
+                "sound."
+            ],
+            "options": [
+                "Suppose",
+                "Unanimity",
+                "Far",
+                "Beyond",
+                "for",
+                "in",
+                "on",
+                "at",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "sake",
+                "absence",
+                "rather",
+                "than",
+                "of",
+                "with",
+                "without",
+                "into",
+                "argument",
+                "evidence",
+                "confident",
+                "conclusion",
+                "that",
+                "this",
+                "these",
+                "those",
+                "either",
+                "a",
+                "an",
+                "premise",
+                "genuine",
+                "endorsement",
+                "letter",
+                "is",
+                "were",
+                "be",
+                "been",
+                "sound",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Припустімо задля аргументації, що передумова обґрунтована.",
+            "options_by_marker": {
+                "a1": [
+                    "Suppose",
+                    "Unanimity",
+                    "Far",
+                    "Beyond"
+                ],
+                "a2": [
+                    "for",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a3": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "sake",
+                    "absence",
+                    "rather",
+                    "than"
+                ],
+                "a5": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "argument",
+                    "evidence",
+                    "confident",
+                    "conclusion"
+                ],
+                "a7": [
+                    "that",
+                    "this",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "the",
+                    "either",
+                    "a",
+                    "an"
+                ],
+                "a9": [
+                    "premise",
+                    "genuine",
+                    "endorsement",
+                    "letter"
+                ],
+                "a10": [
+                    "is",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a11": [
+                    "sound",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-sentence-types-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Наскільки далеко за межі наявних доказів заходить цей упевнений висновок!",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Наскільки далеко за межі наявних доказів заходить цей упевнений висновок!",
+            "target_text": "How far beyond the available evidence the confident conclusion reaches!",
+            "markers": {
+                "a1": {
+                    "answer": "How",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "How",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "far",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "far",
+                        "absence",
+                        "rather",
+                        "than"
+                    ]
+                },
+                "a3": {
+                    "answer": "beyond",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "beyond",
+                        "premise",
+                        "sound",
+                        "genuine"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "available",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "available",
+                        "alternative",
+                        "different",
+                        "simple"
+                    ]
+                },
+                "a6": {
+                    "answer": "evidence",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "evidence",
+                        "endorsement",
+                        "unanimity",
+                        "Suppose"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "confident",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "confident",
+                        "sake",
+                        "argument",
+                        "room"
+                    ]
+                },
+                "a9": {
+                    "answer": "conclusion",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "conclusion",
+                        "water",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a10": {
+                    "answer": "reaches!",
+                    "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+                    "options": [
+                        "reaches",
+                        "explains",
+                        "cats",
+                        "people"
+                    ]
+                }
+            },
+            "verb_hint": "Передай окличну оцінку міри відхилення з розповідним порядком підмета та дієслова.",
+            "accepted_target_texts": [
+                "How far beyond the available evidence the confident conclusion reaches!"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How far beyond",
+                "the available evidence",
+                "the confident conclusion",
+                "reaches!"
+            ],
+            "token_groups": [
+                "How far beyond",
+                "the available evidence",
+                "the confident conclusion",
+                "reaches!"
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "How",
+                "far",
+                "beyond",
+                "the",
+                "available",
+                "evidence",
+                "the",
+                "confident",
+                "conclusion",
+                "reaches!"
+            ],
+            "options": [
+                "How",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "far",
+                "absence",
+                "rather",
+                "than",
+                "beyond",
+                "premise",
+                "sound",
+                "genuine",
+                "the",
+                "any",
+                "this",
+                "that",
+                "available",
+                "alternative",
+                "different",
+                "simple",
+                "evidence",
+                "endorsement",
+                "unanimity",
+                "Suppose",
+                "every",
+                "no",
+                "another",
+                "confident",
+                "sake",
+                "argument",
+                "room",
+                "conclusion",
+                "water",
+                "bread",
+                "milk",
+                "reaches",
+                "explains",
+                "cats",
+                "people"
+            ],
+            "source_text_uk": "Наскільки далеко за межі наявних доказів заходить цей упевнений висновок!",
+            "options_by_marker": {
+                "a1": [
+                    "How",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "far",
+                    "absence",
+                    "rather",
+                    "than"
+                ],
+                "a3": [
+                    "beyond",
+                    "premise",
+                    "sound",
+                    "genuine"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "available",
+                    "alternative",
+                    "different",
+                    "simple"
+                ],
+                "a6": [
+                    "evidence",
+                    "endorsement",
+                    "unanimity",
+                    "Suppose"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "confident",
+                    "sake",
+                    "argument",
+                    "room"
+                ],
+                "a9": [
+                    "conclusion",
+                    "water",
+                    "bread",
+                    "milk"
+                ],
+                "a10": [
+                    "reaches",
+                    "explains",
+                    "cats",
+                    "people"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

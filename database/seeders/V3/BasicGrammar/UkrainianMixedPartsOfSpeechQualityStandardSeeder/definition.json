@@ -1,0 +1,1589 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/parts-of-speech.v1.json",
+        "sha256": "0fcb6c4ef75200a12229c083ceb010c7501982585a221fb7d94aed9dac8ec35b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "uuid_namespace": "basic-grammar-quality-parts-of-speech-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "basic_grammar_quality_parts_of_speech": {
+            "name": "Basic Grammar Quality: Частини мови"
+        }
+    },
+    "tags": {
+        "parts_of_speech": {
+            "name": "Parts of speech identification",
+            "category": "topic"
+        },
+        "noun_recognition": {
+            "name": "Noun recognition",
+            "category": "pattern"
+        },
+        "verb_recognition": {
+            "name": "Verb recognition",
+            "category": "pattern"
+        },
+        "adjective_recognition": {
+            "name": "Adjective recognition",
+            "category": "pattern"
+        },
+        "adverb_recognition": {
+            "name": "Adverb recognition",
+            "category": "pattern"
+        },
+        "pronoun_usage": {
+            "name": "Pronoun usage",
+            "category": "pattern"
+        },
+        "preposition_usage": {
+            "name": "Preposition usage",
+            "category": "pattern"
+        },
+        "conjunction_usage": {
+            "name": "Conjunction usage",
+            "category": "pattern"
+        },
+        "interjection_usage": {
+            "name": "Interjection usage",
+            "category": "pattern"
+        },
+        "pos_context_choice": {
+            "name": "Part-of-speech context choice",
+            "category": "usage"
+        },
+        "word_form_derivation": {
+            "name": "Word-form derivation",
+            "category": "pattern"
+        },
+        "pos_ambiguity": {
+            "name": "Part-of-speech ambiguity",
+            "category": "usage"
+        }
+    },
+    "default_tag_keys": [
+        "parts_of_speech"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-parts-of-speech-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The bag is {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Сумка важка.",
+            "target_text": "The bag is heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "heavy",
+                    "options": [
+                        "heavy",
+                        "heavily",
+                        "heaviness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Важка». Опиши вагу вже названої сумки прикметником, а не способом дії чи назвою властивості."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Важка». Опиши вагу вже названої сумки прикметником, а не способом дії чи назвою властивості.",
+            "accepted_target_texts": [
+                "The bag is heavy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bag",
+                "is heavy."
+            ],
+            "token_groups": [
+                "The bag",
+                "is heavy."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-parts-of-speech-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Please read {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Будь ласка, читай уважно.",
+            "target_text": "Please read carefully.",
+            "markers": {
+                "a1": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "care"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Уважно». Потрібен прислівник способу читання: передай уважність, не назву ознаки предмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Уважно». Потрібен прислівник способу читання: передай уважність, не назву ознаки предмета.",
+            "accepted_target_texts": [
+                "Please read carefully.",
+                "Please read with care."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "with care"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "with care"
+                ]
+            },
+            "reorder_groups": [
+                "Please read",
+                "carefully."
+            ],
+            "token_groups": [
+                "Please read",
+                "carefully."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-parts-of-speech-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Her brother is a {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Її брат — співак.",
+            "target_text": "Her brother is a singer.",
+            "markers": {
+                "a1": {
+                    "answer": "singer",
+                    "options": [
+                        "singer",
+                        "sing",
+                        "sings"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Співак». Після артикля потрібна назва людини за заняттям, а не дієслівна дія."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Співак». Після артикля потрібна назва людини за заняттям, а не дієслівна дія.",
+            "accepted_target_texts": [
+                "Her brother is a singer."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her brother",
+                "is a singer."
+            ],
+            "token_groups": [
+                "Her brother",
+                "is a singer."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-parts-of-speech-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We need {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Вони нам потрібні.",
+            "target_text": "We need them.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Їх, об’єктна форма для кількох людей». Після дієслова постав об'єктну форму займенника для кількох людей."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Їх, об’єктна форма для кількох людей». Після дієслова постав об'єктну форму займенника для кількох людей.",
+            "accepted_target_texts": [
+                "We need them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "them."
+            ],
+            "token_groups": [
+                "We need",
+                "them."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-parts-of-speech-a1-g05",
+            "author_id": "A1-g05",
+            "question": "I want tea {a1} toast.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Я хочу чай і тост.",
+            "target_text": "I want tea and toast.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "but",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання обох названих речей». Поєднай два бажані продукти додаванням, не вибором одного чи протиставленням."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання обох названих речей». Поєднай два бажані продукти додаванням, не вибором одного чи протиставленням.",
+            "accepted_target_texts": [
+                "I want tea and toast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I want",
+                "tea and toast."
+            ],
+            "token_groups": [
+                "I want",
+                "tea and toast."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-parts-of-speech-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The cup is {a1} the chair.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Чашка під стільцем.",
+            "target_text": "The cup is under the chair.",
+            "markers": {
+                "a1": {
+                    "answer": "under",
+                    "options": [
+                        "under",
+                        "because",
+                        "hers"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Під». Уведи місце під предметом прийменником, а не сполучником чи займенником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Під». Уведи місце під предметом прийменником, а не сполучником чи займенником.",
+            "accepted_target_texts": [
+                "The cup is under the chair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cup",
+                "is under",
+                "the chair."
+            ],
+            "token_groups": [
+                "The cup",
+                "is under",
+                "the chair."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-parts-of-speech-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We need to make a {a1} today.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Сьогодні нам потрібно ухвалити рішення.",
+            "target_text": "We need to make a decision today.",
+            "markers": {
+                "a1": {
+                    "answer": "decision",
+                    "options": [
+                        "decision",
+                        "decide",
+                        "decisive"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Рішення». Після артикля потрібен іменник зі значенням результату вибору, не дієслово чи ознака."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Рішення». Після артикля потрібен іменник зі значенням результату вибору, не дієслово чи ознака.",
+            "accepted_target_texts": [
+                "We need to make a decision today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "to make",
+                "a decision",
+                "today."
+            ],
+            "token_groups": [
+                "We need",
+                "to make",
+                "a decision",
+                "today."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-parts-of-speech-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The receptionist was {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Адміністраторка була готова допомогти.",
+            "target_text": "The receptionist was helpful.",
+            "markers": {
+                "a1": {
+                    "answer": "helpful",
+                    "options": [
+                        "helpful",
+                        "helpfully",
+                        "helpfulness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Готова допомогти». Після зв'язки опиши людину прикметником, не прислівником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Готова допомогти». Після зв'язки опиши людину прикметником, не прислівником.",
+            "accepted_target_texts": [
+                "The receptionist was helpful."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The receptionist",
+                "was helpful."
+            ],
+            "token_groups": [
+                "The receptionist",
+                "was helpful."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-parts-of-speech-a2-g03",
+            "author_id": "A2-g03",
+            "question": "He answered {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Він відповів ввічливо.",
+            "target_text": "He answered politely.",
+            "markers": {
+                "a1": {
+                    "answer": "politely",
+                    "options": [
+                        "politely",
+                        "polite",
+                        "politeness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ввічливо». Опиши спосіб відповіді прислівником, не назвою якості чи ознакою людини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ввічливо». Опиши спосіб відповіді прислівником, не назвою якості чи ознакою людини.",
+            "accepted_target_texts": [
+                "He answered politely."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He answered",
+                "politely."
+            ],
+            "token_groups": [
+                "He answered",
+                "politely."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-parts-of-speech-a2-g04",
+            "author_id": "A2-g04",
+            "question": "This invitation is for {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Це запрошення для нас.",
+            "target_text": "This invitation is for us.",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "we",
+                        "our"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Нас, після прийменника». Після прийменника потрібна об'єктна форма займенника, не присвійна."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Нас, після прийменника». Після прийменника потрібна об'єктна форма займенника, не присвійна.",
+            "accepted_target_texts": [
+                "This invitation is for us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This invitation",
+                "is for",
+                "us."
+            ],
+            "token_groups": [
+                "This invitation",
+                "is for",
+                "us."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-parts-of-speech-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Their {a1} means a lot to me.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Їхня дружба багато для мене означає.",
+            "target_text": "Their friendship means a lot to me.",
+            "markers": {
+                "a1": {
+                    "answer": "friendship",
+                    "options": [
+                        "friendship",
+                        "friendly",
+                        "befriend"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Дружба». Після присвійного слова потрібна назва стосунків як іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Дружба». Після присвійного слова потрібна назва стосунків як іменник.",
+            "accepted_target_texts": [
+                "Their friendship means a lot to me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their friendship",
+                "means a lot",
+                "to me."
+            ],
+            "token_groups": [
+                "Their friendship",
+                "means a lot",
+                "to me."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-parts-of-speech-a2-g06",
+            "author_id": "A2-g06",
+            "question": "We waited {a1} the cinema.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Ми чекали біля кінотеатру, надворі.",
+            "target_text": "We waited outside the cinema.",
+            "markers": {
+                "a1": {
+                    "answer": "outside",
+                    "options": [
+                        "outside",
+                        "unless",
+                        "our"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Зовні, біля будівлі». Потрібне слово, яке вводить місце зовні будівлі, а не умову чи належність."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Зовні, біля будівлі». Потрібне слово, яке вводить місце зовні будівлі, а не умову чи належність.",
+            "accepted_target_texts": [
+                "We waited outside the cinema."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We waited",
+                "outside the cinema."
+            ],
+            "token_groups": [
+                "We waited",
+                "outside the cinema."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-parts-of-speech-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The witness gave a convincing {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Свідок дав переконливе пояснення.",
+            "target_text": "The witness gave a convincing explanation.",
+            "markers": {
+                "a1": {
+                    "answer": "explanation",
+                    "options": [
+                        "explanation",
+                        "explain",
+                        "explanatory"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Пояснення». Після артикля й прикметника потрібен іменник, що називає пояснення."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Пояснення». Після артикля й прикметника потрібен іменник, що називає пояснення.",
+            "accepted_target_texts": [
+                "The witness gave a convincing explanation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "gave a convincing",
+                "explanation."
+            ],
+            "token_groups": [
+                "The witness",
+                "gave a convincing",
+                "explanation."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-parts-of-speech-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The instructions were {a1} simple.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Інструкції були напрочуд прості.",
+            "target_text": "The instructions were surprisingly simple.",
+            "markers": {
+                "a1": {
+                    "answer": "surprisingly",
+                    "options": [
+                        "surprisingly",
+                        "surprising",
+                        "surprise"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Напрочуд, несподівано за ступенем». Перед прикметником ступінь несподіваності передай прислівником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Напрочуд, несподівано за ступенем». Перед прикметником ступінь несподіваності передай прислівником.",
+            "accepted_target_texts": [
+                "The instructions were surprisingly simple."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instructions",
+                "were surprisingly",
+                "simple."
+            ],
+            "token_groups": [
+                "The instructions",
+                "were surprisingly",
+                "simple."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-parts-of-speech-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Her {a1} encouraged everyone.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Її ентузіазм підбадьорив усіх.",
+            "target_text": "Her enthusiasm encouraged everyone.",
+            "markers": {
+                "a1": {
+                    "answer": "enthusiasm",
+                    "options": [
+                        "enthusiasm",
+                        "enthusiastic",
+                        "enthusiastically"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ентузіазм». Підмет називає почуття як іменник, не спосіб дії чи ознаку людини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ентузіазм». Підмет називає почуття як іменник, не спосіб дії чи ознаку людини.",
+            "accepted_target_texts": [
+                "Her enthusiasm encouraged everyone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her enthusiasm",
+                "encouraged everyone."
+            ],
+            "token_groups": [
+                "Her enthusiasm",
+                "encouraged everyone."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-parts-of-speech-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The team performed {a1} under pressure.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Команда ефективно працювала під тиском.",
+            "target_text": "The team performed efficiently under pressure.",
+            "markers": {
+                "a1": {
+                    "answer": "efficiently",
+                    "options": [
+                        "efficiently",
+                        "efficient",
+                        "efficiency"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ефективно». Опиши спосіб роботи прислівником; сама команда вже названа."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ефективно». Опиши спосіб роботи прислівником; сама команда вже названа.",
+            "accepted_target_texts": [
+                "The team performed efficiently under pressure.",
+                "The team performed effectively under pressure."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "effectively"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "effectively"
+                ]
+            },
+            "reorder_groups": [
+                "The team",
+                "performed efficiently",
+                "under pressure."
+            ],
+            "token_groups": [
+                "The team",
+                "performed efficiently",
+                "under pressure."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-parts-of-speech-b1-g05",
+            "author_id": "B1-g05",
+            "question": "They sought {a1} to enter the restricted area.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Вони попросили дозволу ввійти до зони з обмеженим доступом.",
+            "target_text": "They sought permission to enter the restricted area.",
+            "markers": {
+                "a1": {
+                    "answer": "permission",
+                    "options": [
+                        "permission",
+                        "permit",
+                        "permissive"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Дозвіл». Після перехідного дієслова потрібна назва дозволу як іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Дозвіл». Після перехідного дієслова потрібна назва дозволу як іменник.",
+            "accepted_target_texts": [
+                "They sought permission to enter the restricted area."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They sought",
+                "permission to enter",
+                "the restricted area."
+            ],
+            "token_groups": [
+                "They sought",
+                "permission to enter",
+                "the restricted area."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-parts-of-speech-b1-g06",
+            "author_id": "B1-g06",
+            "question": "I rely on {a1} judgement.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Я покладаюся на її судження.",
+            "target_text": "I rely on her judgement.",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "she",
+                        "hers"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Її, означення належності перед іменником». Перед назвою судження потрібне присвійне означення, не самостійний займенник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Її, означення належності перед іменником». Перед назвою судження потрібне присвійне означення, не самостійний займенник.",
+            "accepted_target_texts": [
+                "I rely on her judgement.",
+                "I rely on her judgment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I rely",
+                "on her judgement."
+            ],
+            "token_groups": [
+                "I rely",
+                "on her judgement."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "bgq-parts-of-speech-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The committee questioned the proposal's {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Комітет поставив під сумнів здійсненність пропозиції.",
+            "target_text": "The committee questioned the proposal's feasibility.",
+            "markers": {
+                "a1": {
+                    "answer": "feasibility",
+                    "options": [
+                        "feasibility",
+                        "feasible",
+                        "feasibly"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Здійсненність». Після присвійної форми потрібна назва властивості як іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Здійсненність». Після присвійної форми потрібна назва властивості як іменник.",
+            "accepted_target_texts": [
+                "The committee questioned the proposal's feasibility."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "questioned the proposal's",
+                "feasibility."
+            ],
+            "token_groups": [
+                "The committee",
+                "questioned the proposal's",
+                "feasibility."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "bgq-parts-of-speech-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The figures are {a1} comparable.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Ці показники загалом зіставні.",
+            "target_text": "The figures are broadly comparable.",
+            "markers": {
+                "a1": {
+                    "answer": "broadly",
+                    "options": [
+                        "broadly",
+                        "broad",
+                        "breadth"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Загалом». Перед прикметником передай загальну міру прислівником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Загалом». Перед прикметником передай загальну міру прислівником.",
+            "accepted_target_texts": [
+                "The figures are broadly comparable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The figures",
+                "are broadly",
+                "comparable."
+            ],
+            "token_groups": [
+                "The figures",
+                "are broadly",
+                "comparable."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "bgq-parts-of-speech-b2-g03",
+            "author_id": "B2-g03",
+            "question": "His {a1} to negotiate was unexpected.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Його небажання вести переговори було несподіваним.",
+            "target_text": "His reluctance to negotiate was unexpected.",
+            "markers": {
+                "a1": {
+                    "answer": "reluctance",
+                    "options": [
+                        "reluctance",
+                        "reluctant",
+                        "reluctantly"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Небажання». Іменна група підмета називає небажання, не ознаку чи спосіб дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Небажання». Іменна група підмета називає небажання, не ознаку чи спосіб дії.",
+            "accepted_target_texts": [
+                "His reluctance to negotiate was unexpected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "His reluctance",
+                "to negotiate",
+                "was unexpected."
+            ],
+            "token_groups": [
+                "His reluctance",
+                "to negotiate",
+                "was unexpected."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "bgq-parts-of-speech-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The researchers assessed the evidence {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Дослідники оцінили докази об'єктивно.",
+            "target_text": "The researchers assessed the evidence objectively.",
+            "markers": {
+                "a1": {
+                    "answer": "objectively",
+                    "options": [
+                        "objectively",
+                        "objective",
+                        "objectivity"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Об’єктивно». Опиши спосіб оцінювання прислівником, не абстрактною назвою якості."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Об’єктивно». Опиши спосіб оцінювання прислівником, не абстрактною назвою якості.",
+            "accepted_target_texts": [
+                "The researchers assessed the evidence objectively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The researchers",
+                "assessed the evidence",
+                "objectively."
+            ],
+            "token_groups": [
+                "The researchers",
+                "assessed the evidence",
+                "objectively."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "bgq-parts-of-speech-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The consequences were {a1} serious.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Наслідки могли бути серйозними.",
+            "target_text": "The consequences were potentially serious.",
+            "markers": {
+                "a1": {
+                    "answer": "potentially",
+                    "options": [
+                        "potentially",
+                        "potential",
+                        "potentiality"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Потенційно». Перед прикметником потрібен прислівник, що вказує на можливість такої ознаки."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Потенційно». Перед прикметником потрібен прислівник, що вказує на можливість такої ознаки.",
+            "accepted_target_texts": [
+                "The consequences were potentially serious."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consequences",
+                "were potentially",
+                "serious."
+            ],
+            "token_groups": [
+                "The consequences",
+                "were potentially",
+                "serious."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "bgq-parts-of-speech-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The report revealed substantial {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Звіт виявив істотну непослідовність.",
+            "target_text": "The report revealed substantial inconsistency.",
+            "markers": {
+                "a1": {
+                    "answer": "inconsistency",
+                    "options": [
+                        "inconsistency",
+                        "inconsistent",
+                        "inconsistently"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Непослідовність». Після кількісно-якісного означення потрібен іменник, що називає властивість."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Непослідовність». Після кількісно-якісного означення потрібен іменник, що називає властивість.",
+            "accepted_target_texts": [
+                "The report revealed substantial inconsistency."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report",
+                "revealed substantial",
+                "inconsistency."
+            ],
+            "token_groups": [
+                "The report",
+                "revealed substantial",
+                "inconsistency."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "bgq-parts-of-speech-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The argument depends on a questionable {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Аргумент залежить від сумнівної передумови.",
+            "target_text": "The argument depends on a questionable presupposition.",
+            "markers": {
+                "a1": {
+                    "answer": "presupposition",
+                    "options": [
+                        "presupposition",
+                        "presuppose",
+                        "presupposedly"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Передумова». Після артикля й прикметника потрібен іменник зі значенням передумови."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Передумова». Після артикля й прикметника потрібен іменник зі значенням передумови.",
+            "accepted_target_texts": [
+                "The argument depends on a questionable presupposition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The argument",
+                "depends on",
+                "a questionable",
+                "presupposition."
+            ],
+            "token_groups": [
+                "The argument",
+                "depends on",
+                "a questionable",
+                "presupposition."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "bgq-parts-of-speech-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The distinction is {a1} useful.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Це розрізнення корисне на рівні понять.",
+            "target_text": "The distinction is conceptually useful.",
+            "markers": {
+                "a1": {
+                    "answer": "conceptually",
+                    "options": [
+                        "conceptually",
+                        "conceptual",
+                        "conception"
+                    ],
+                    "verb_hint": "Потрібний зміст: «На рівні понять». Перед прикметником уточни сферу оцінки прислівником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «На рівні понять». Перед прикметником уточни сферу оцінки прислівником.",
+            "accepted_target_texts": [
+                "The distinction is conceptually useful."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "is conceptually",
+                "useful."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is conceptually",
+                "useful."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "bgq-parts-of-speech-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Their {a1} should not be mistaken for enthusiasm.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Їхню мовчазну згоду не слід плутати з ентузіазмом.",
+            "target_text": "Their acquiescence should not be mistaken for enthusiasm.",
+            "markers": {
+                "a1": {
+                    "answer": "acquiescence",
+                    "options": [
+                        "acquiescence",
+                        "acquiescent",
+                        "acquiescently"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Мовчазна згода». Підметом зроби іменник, який називає мовчазне прийняття, не ознаку людей."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Мовчазна згода». Підметом зроби іменник, який називає мовчазне прийняття, не ознаку людей.",
+            "accepted_target_texts": [
+                "Their acquiescence should not be mistaken for enthusiasm."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their acquiescence",
+                "should not",
+                "be mistaken",
+                "for enthusiasm."
+            ],
+            "token_groups": [
+                "Their acquiescence",
+                "should not",
+                "be mistaken",
+                "for enthusiasm."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "bgq-parts-of-speech-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The proposal was {a1} sound but substantively weak.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Пропозиція була процедурно коректна, але слабка по суті.",
+            "target_text": "The proposal was procedurally sound but substantively weak.",
+            "markers": {
+                "a1": {
+                    "answer": "procedurally",
+                    "options": [
+                        "procedurally",
+                        "procedural",
+                        "procedure"
+                    ],
+                    "verb_hint": "Потрібний зміст: «З процедурного погляду». Перед прикметником потрібен прислівник, що уточнює процедурний аспект оцінки."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «З процедурного погляду». Перед прикметником потрібен прислівник, що уточнює процедурний аспект оцінки.",
+            "accepted_target_texts": [
+                "The proposal was procedurally sound but substantively weak."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "was procedurally",
+                "sound but",
+                "substantively weak."
+            ],
+            "token_groups": [
+                "The proposal",
+                "was procedurally",
+                "sound but",
+                "substantively weak."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "bgq-parts-of-speech-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The judgement exposed the {a1} of the precedent.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Рішення суду виявило крихкість прецеденту.",
+            "target_text": "The judgement exposed the fragility of the precedent.",
+            "markers": {
+                "a1": {
+                    "answer": "fragility",
+                    "options": [
+                        "fragility",
+                        "fragile",
+                        "fragilely"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Крихкість». Після артикля потрібна абстрактна назва властивості як іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Крихкість». Після артикля потрібна абстрактна назва властивості як іменник.",
+            "accepted_target_texts": [
+                "The judgement exposed the fragility of the precedent.",
+                "The judgment exposed the fragility of the precedent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judgement",
+                "exposed the fragility",
+                "of the precedent."
+            ],
+            "token_groups": [
+                "The judgement",
+                "exposed the fragility",
+                "of the precedent."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "bgq-parts-of-speech-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The findings were qualified {a1} in the final report.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "В остаточному звіті висновки належним чином обмежили застереженнями.",
+            "target_text": "The findings were qualified appropriately in the final report.",
+            "markers": {
+                "a1": {
+                    "answer": "appropriately",
+                    "options": [
+                        "appropriately",
+                        "appropriate",
+                        "appropriateness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Належним чином». Опиши доречний спосіб внесення застережень прислівником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Належним чином». Опиши доречний спосіб внесення застережень прислівником.",
+            "accepted_target_texts": [
+                "The findings were qualified appropriately in the final report.",
+                "The findings were qualified properly in the final report."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "properly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "properly"
+                ]
+            },
+            "reorder_groups": [
+                "The findings",
+                "were qualified",
+                "appropriately in",
+                "the final report."
+            ],
+            "token_groups": [
+                "The findings",
+                "were qualified",
+                "appropriately in",
+                "the final report."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "bgq-parts-of-speech-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The account rests on an implausible {a1} of identity.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Виклад спирається на неправдоподібне опредметнення ідентичності.",
+            "target_text": "The account rests on an implausible reification of identity.",
+            "markers": {
+                "a1": {
+                    "answer": "reification",
+                    "options": [
+                        "reification",
+                        "reify",
+                        "reificatory"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Опредметнення абстракції». Після артикля й прикметника потрібен іменник, що називає перетворення абстракції на річ."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Опредметнення абстракції». Після артикля й прикметника потрібен іменник, що називає перетворення абстракції на річ.",
+            "accepted_target_texts": [
+                "The account rests on an implausible reification of identity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The account",
+                "rests on",
+                "an implausible",
+                "reification of identity."
+            ],
+            "token_groups": [
+                "The account",
+                "rests on",
+                "an implausible",
+                "reification of identity."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "bgq-parts-of-speech-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The concession is {a1} significant rather than merely symbolic.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Поступка істотна з погляду теорії права, а не лише символічна.",
+            "target_text": "The concession is jurisprudentially significant rather than merely symbolic.",
+            "markers": {
+                "a1": {
+                    "answer": "jurisprudentially",
+                    "options": [
+                        "jurisprudentially",
+                        "jurisprudential",
+                        "jurisprudence"
+                    ],
+                    "verb_hint": "Потрібний зміст: «З погляду теорії права». Уточни сферу значущості прислівником, а не назвою науки чи прикметником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «З погляду теорії права». Уточни сферу значущості прислівником, а не назвою науки чи прикметником.",
+            "accepted_target_texts": [
+                "The concession is jurisprudentially significant rather than merely symbolic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "is jurisprudentially",
+                "significant rather than",
+                "merely symbolic."
+            ],
+            "token_groups": [
+                "The concession",
+                "is jurisprudentially",
+                "significant rather than",
+                "merely symbolic."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "bgq-parts-of-speech-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Its apparent {a1} conceals a series of contingent choices.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Її позірна неминучість приховує низку залежних від обставин рішень.",
+            "target_text": "Its apparent inevitability conceals a series of contingent choices.",
+            "markers": {
+                "a1": {
+                    "answer": "inevitability",
+                    "options": [
+                        "inevitability",
+                        "inevitable",
+                        "inevitably"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Неминучість». У підметовій групі потрібна назва неминучості як іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Неминучість». У підметовій групі потрібна назва неминучості як іменник.",
+            "accepted_target_texts": [
+                "Its apparent inevitability conceals a series of contingent choices."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Its apparent",
+                "inevitability conceals",
+                "a series",
+                "of contingent choices."
+            ],
+            "token_groups": [
+                "Its apparent",
+                "inevitability conceals",
+                "a series",
+                "of contingent choices."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "bgq-parts-of-speech-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The categories are {a1} exclusive but not jointly exhaustive.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Ці категорії взаємовиключні, але разом не вичерпують усіх можливостей.",
+            "target_text": "The categories are mutually exclusive but not jointly exhaustive.",
+            "markers": {
+                "a1": {
+                    "answer": "mutually",
+                    "options": [
+                        "mutually",
+                        "mutual",
+                        "mutuality"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Взаємно». Потрібен прислівник взаємного відношення, який уточнює прикметник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Взаємно». Потрібен прислівник взаємного відношення, який уточнює прикметник.",
+            "accepted_target_texts": [
+                "The categories are mutually exclusive but not jointly exhaustive."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The categories",
+                "are mutually",
+                "exclusive but",
+                "not jointly exhaustive."
+            ],
+            "token_groups": [
+                "The categories",
+                "are mutually",
+                "exclusive but",
+                "not jointly exhaustive."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "bgq-parts-of-speech-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The argument's {a1} is inversely proportional to its precision.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Переконливість аргументу обернено пропорційна його точності.",
+            "target_text": "The argument's persuasiveness is inversely proportional to its precision.",
+            "markers": {
+                "a1": {
+                    "answer": "persuasiveness",
+                    "options": [
+                        "persuasiveness",
+                        "persuasive",
+                        "persuasively"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Переконливість». Після присвійного означення потрібна абстрактна назва переконливості."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Переконливість». Після присвійного означення потрібна абстрактна назва переконливості.",
+            "accepted_target_texts": [
+                "The argument's persuasiveness is inversely proportional to its precision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The argument's",
+                "persuasiveness is inversely",
+                "proportional to",
+                "its precision."
+            ],
+            "token_groups": [
+                "The argument's",
+                "persuasiveness is inversely",
+                "proportional to",
+                "its precision."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "bgq-parts-of-speech-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The precedent was invoked {a1} rather than consistently.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "На прецедент посилалися вибірково, а не послідовно.",
+            "target_text": "The precedent was invoked selectively rather than consistently.",
+            "markers": {
+                "a1": {
+                    "answer": "selectively",
+                    "options": [
+                        "selectively",
+                        "selective",
+                        "selection"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Вибірково». Назви спосіб посилання прислівником і збережи протиставлення іншому способу."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Вибірково». Назви спосіб посилання прислівником і збережи протиставлення іншому способу.",
+            "accepted_target_texts": [
+                "The precedent was invoked selectively rather than consistently."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The precedent",
+                "was invoked",
+                "selectively rather than",
+                "consistently."
+            ],
+            "token_groups": [
+                "The precedent",
+                "was invoked",
+                "selectively rather than",
+                "consistently."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        }
+    ]
+}

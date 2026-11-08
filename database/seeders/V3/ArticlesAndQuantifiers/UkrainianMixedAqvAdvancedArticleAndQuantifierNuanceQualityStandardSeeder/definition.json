@@ -1,0 +1,706 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aqv-v1",
+    "compiled_from": {
+        "path": "docs/content/articles-quantifiers-quality/advanced-article-and-quantifier-nuance.v1.json",
+        "sha256": "d283ab0b3e3e622d005eea4c4d75a7ac4334a5175c1b77b30ae76e35e6ef160a"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ArticlesAndQuantifiers\\UkrainianMixedAqvAdvancedArticleAndQuantifierNuanceQualityStandardSeeder",
+        "uuid_namespace": "articles-quantifiers-quality-advanced-article-and-quantifier-nuance-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Articles and Quantifiers"
+    },
+    "sources": {
+        "articles_quantifiers_quality_advanced_article_and_quantifier_nuance": {
+            "name": "Articles and Quantifiers Quality: Advanced Article and Quantifier Nuance"
+        }
+    },
+    "tags": {
+        "aqn_topic": {
+            "name": "advanced article and quantifier nuance",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "advanced_article_choice": {
+            "name": "advanced article choice",
+            "category": "articles-and-quantifiers"
+        },
+        "definite_indefinite_reference": {
+            "name": "definite vs indefinite reference",
+            "category": "articles-and-quantifiers"
+        },
+        "zero_article": {
+            "name": "zero article",
+            "category": "articles-and-quantifiers"
+        },
+        "generic_reference": {
+            "name": "generic reference",
+            "category": "articles-and-quantifiers"
+        },
+        "institutions_places": {
+            "name": "article choice with institutions and places",
+            "category": "articles-and-quantifiers"
+        },
+        "specific_general": {
+            "name": "specific vs general meaning",
+            "category": "articles-and-quantifiers"
+        },
+        "countable_uncountable_nuance": {
+            "name": "countable and uncountable nuance",
+            "category": "articles-and-quantifiers"
+        },
+        "few_a_few": {
+            "name": "few and a few",
+            "category": "articles-and-quantifiers"
+        },
+        "little_a_little": {
+            "name": "little and a little",
+            "category": "articles-and-quantifiers"
+        },
+        "most_the_most": {
+            "name": "most and the most",
+            "category": "articles-and-quantifiers"
+        },
+        "all_whole_every": {
+            "name": "all whole and every",
+            "category": "articles-and-quantifiers"
+        },
+        "some_any_no": {
+            "name": "some any and no",
+            "category": "articles-and-quantifiers"
+        },
+        "either_neither": {
+            "name": "either and neither",
+            "category": "articles-and-quantifiers"
+        },
+        "formal_quantity_expressions": {
+            "name": "formal quantity expressions",
+            "category": "articles-and-quantifiers"
+        },
+        "fewer_less": {
+            "name": "fewer and less",
+            "category": "articles-and-quantifiers"
+        },
+        "amount_number": {
+            "name": "amount and number",
+            "category": "articles-and-quantifiers"
+        },
+        "translation_traps": {
+            "name": "avoiding direct translation traps",
+            "category": "articles-and-quantifiers"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "articles-and-quantifiers"
+        }
+    },
+    "default_tag_keys": [
+        "aqn_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aqv-aqn-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is {a1} orange on the tray.",
+            "level": "A1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "На таці є апельсин.",
+            "target_text": "There is an orange on the tray.",
+            "markers": {
+                "a1": {
+                    "answer": "an",
+                    "options": [
+                        "an",
+                        "a",
+                        "some"
+                    ],
+                    "verb_hint": "Назви один уперше згаданий плід; потрібен артикль перед голосним звуком."
+                }
+            },
+            "verb_hint": "Назви один уперше згаданий плід; потрібен артикль перед голосним звуком.",
+            "accepted_target_texts": [
+                "There is an orange on the tray."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "an orange",
+                "on the tray."
+            ],
+            "token_groups": [
+                "There is",
+                "an orange",
+                "on the tray."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "aqv-aqn-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We need {a1} water for the puppy.",
+            "level": "A1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Нам потрібно трохи води для цуценяти.",
+            "target_text": "We need some water for the puppy.",
+            "markers": {
+                "a1": {
+                    "answer": "some",
+                    "options": [
+                        "some",
+                        "a",
+                        "many"
+                    ],
+                    "verb_hint": "Передай невизначену невелику кількість води, не окрему пляшку чи склянку; приймаються дві природні кількісні форми."
+                }
+            },
+            "verb_hint": "Передай невизначену невелику кількість води, не окрему пляшку чи склянку; приймаються дві природні кількісні форми.",
+            "accepted_target_texts": [
+                "We need some water for the puppy.",
+                "We need a little water for the puppy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "a little"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "a little"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "some water",
+                "for the puppy."
+            ],
+            "token_groups": [
+                "We need",
+                "some water",
+                "for the puppy."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "aqv-aqn-a2-g01",
+            "author_id": "A2-g01",
+            "question": "How {a1} juice is left in the jug?",
+            "level": "A2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Скільки соку залишилося у глечику?",
+            "target_text": "How much juice is left in the jug?",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "few"
+                    ],
+                    "verb_hint": "Запитай про кількість соку як рідини; питальне слово вже наведене."
+                }
+            },
+            "verb_hint": "Запитай про кількість соку як рідини; питальне слово вже наведене.",
+            "accepted_target_texts": [
+                "How much juice is left in the jug?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much juice",
+                "is left",
+                "in the jug?"
+            ],
+            "token_groups": [
+                "How much juice",
+                "is left",
+                "in the jug?"
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "aqv-aqn-a2-g02",
+            "author_id": "A2-g02",
+            "question": "There are {a1} stamps in my desk.",
+            "level": "A2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "У моєму письмовому столі є кілька марок.",
+            "target_text": "There are a few stamps in my desk.",
+            "markers": {
+                "a1": {
+                    "answer": "a few",
+                    "options": [
+                        "a few",
+                        "a little",
+                        "much"
+                    ],
+                    "verb_hint": "Передай кілька окремих марок, а не малу кількість речовини; приймаються два кількісні відповідники."
+                }
+            },
+            "verb_hint": "Передай кілька окремих марок, а не малу кількість речовини; приймаються два кількісні відповідники.",
+            "accepted_target_texts": [
+                "There are a few stamps in my desk.",
+                "There are several stamps in my desk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "several"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "several"
+                ]
+            },
+            "reorder_groups": [
+                "There are",
+                "a few stamps",
+                "in my desk."
+            ],
+            "token_groups": [
+                "There are",
+                "a few stamps",
+                "in my desk."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "aqv-aqn-b1-g01",
+            "author_id": "B1-g01",
+            "question": "We have {a1} petrol, but not enough to reach the next town.",
+            "level": "B1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "У нас є трохи бензину, але його недостатньо, щоб дістатися наступного міста.",
+            "target_text": "We have a little petrol, but not enough to reach the next town.",
+            "markers": {
+                "a1": {
+                    "answer": "a little",
+                    "options": [
+                        "a little",
+                        "a few",
+                        "many"
+                    ],
+                    "verb_hint": "Передай наявність невеликого запасу пального; його недостатність уже названа далі. Приймаються дві природні кількісні форми."
+                }
+            },
+            "verb_hint": "Передай наявність невеликого запасу пального; його недостатність уже названа далі. Приймаються дві природні кількісні форми.",
+            "accepted_target_texts": [
+                "We have a little petrol, but not enough to reach the next town.",
+                "We have some petrol, but not enough to reach the next town."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "some"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "some"
+                ]
+            },
+            "reorder_groups": [
+                "We have",
+                "a little petrol,",
+                "but not enough",
+                "to reach",
+                "the next town."
+            ],
+            "token_groups": [
+                "We have",
+                "a little petrol,",
+                "but not enough",
+                "to reach",
+                "the next town."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "aqv-aqn-b1-g02",
+            "author_id": "B1-g02",
+            "question": "A number of volunteers {a1} waiting outside.",
+            "level": "B1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Низка волонтерів чекає надворі.",
+            "target_text": "A number of volunteers are waiting outside.",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "is",
+                        "was"
+                    ],
+                    "verb_hint": "Узгодь присудок із кількома волонтерами, а не з числом як одним показником."
+                }
+            },
+            "verb_hint": "Узгодь присудок із кількома волонтерами, а не з числом як одним показником.",
+            "accepted_target_texts": [
+                "A number of volunteers are waiting outside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A number",
+                "of volunteers",
+                "are waiting outside."
+            ],
+            "token_groups": [
+                "A number",
+                "of volunteers",
+                "are waiting outside."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "aqv-aqn-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Very {a1} applicants met all four conditions, so interviews ended early.",
+            "level": "B2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Дуже мало претендентів відповідали всім чотирьом умовам, тому співбесіди закінчилися рано.",
+            "target_text": "Very few applicants met all four conditions, so interviews ended early.",
+            "markers": {
+                "a1": {
+                    "answer": "few",
+                    "options": [
+                        "few",
+                        "little",
+                        "much"
+                    ],
+                    "verb_hint": "Підкресли малу кількість окремих претендентів; підсилювальне слово вже наведене."
+                }
+            },
+            "verb_hint": "Підкресли малу кількість окремих претендентів; підсилювальне слово вже наведене.",
+            "accepted_target_texts": [
+                "Very few applicants met all four conditions, so interviews ended early."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Very few applicants",
+                "met all",
+                "four conditions,",
+                "so interviews",
+                "ended early."
+            ],
+            "token_groups": [
+                "Very few applicants",
+                "met all",
+                "four conditions,",
+                "so interviews",
+                "ended early."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "aqv-aqn-b2-g02",
+            "author_id": "B2-g02",
+            "question": "She has {a1} Swedish.",
+            "level": "B2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Вона чудово володіє шведською.",
+            "target_text": "She has an excellent command of Swedish.",
+            "markers": {
+                "a1": {
+                    "answer": "an excellent command of",
+                    "options": [
+                        "an excellent command of",
+                        "an excellent command for",
+                        "a excellent command of"
+                    ],
+                    "verb_hint": "Передай чудове володіння мовою через іменник зі значенням опанування та потрібний прийменник."
+                }
+            },
+            "verb_hint": "Передай чудове володіння мовою через іменник зі значенням опанування та потрібний прийменник.",
+            "accepted_target_texts": [
+                "She has an excellent command of Swedish."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She has",
+                "an excellent",
+                "command of Swedish."
+            ],
+            "token_groups": [
+                "She has",
+                "an excellent",
+                "command of Swedish."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "aqv-aqn-c1-g01",
+            "author_id": "C1-g01",
+            "question": "There is {a1} room for error in this procedure.",
+            "level": "C1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "У цій процедурі майже немає права на помилку.",
+            "target_text": "There is little room for error in this procedure.",
+            "markers": {
+                "a1": {
+                    "answer": "little",
+                    "options": [
+                        "little",
+                        "few",
+                        "a few"
+                    ],
+                    "verb_hint": "Передай дуже обмежену можливість помилитися; простір тут не означає окремі кімнати. Приймаються чотири природні кількісні форми без абсолютного нуля."
+                }
+            },
+            "verb_hint": "Передай дуже обмежену можливість помилитися; простір тут не означає окремі кімнати. Приймаються чотири природні кількісні форми без абсолютного нуля.",
+            "accepted_target_texts": [
+                "There is little room for error in this procedure.",
+                "There is not much room for error in this procedure.",
+                "There is very little room for error in this procedure.",
+                "There is hardly any room for error in this procedure."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not much",
+                    "very little",
+                    "hardly any"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not much",
+                    "very little",
+                    "hardly any"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "little room",
+                "for error",
+                "in this procedure."
+            ],
+            "token_groups": [
+                "There is",
+                "little room",
+                "for error",
+                "in this procedure."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "aqv-aqn-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The number of missing entries {a1} sharply.",
+            "level": "C1",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Кількість відсутніх записів різко зменшилася.",
+            "target_text": "The number of missing entries has fallen sharply.",
+            "markers": {
+                "a1": {
+                    "answer": "has fallen",
+                    "options": [
+                        "has fallen",
+                        "have fallen",
+                        "has fell"
+                    ],
+                    "verb_hint": "Передай завершене до теперішнього скорочення самого числового показника; потрібне узгодження в однині. Приймаються чотири природні дієслівні відповідники."
+                }
+            },
+            "verb_hint": "Передай завершене до теперішнього скорочення самого числового показника; потрібне узгодження в однині. Приймаються чотири природні дієслівні відповідники.",
+            "accepted_target_texts": [
+                "The number of missing entries has fallen sharply.",
+                "The number of missing entries has decreased sharply.",
+                "The number of missing entries has dropped sharply.",
+                "The number of missing entries has declined sharply."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has decreased",
+                    "has dropped",
+                    "has declined"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has decreased",
+                    "has dropped",
+                    "has declined"
+                ]
+            },
+            "reorder_groups": [
+                "The number",
+                "of missing entries",
+                "has fallen sharply."
+            ],
+            "token_groups": [
+                "The number",
+                "of missing entries",
+                "has fallen sharply."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "aqv-aqn-c2-g01",
+            "author_id": "C2-g01",
+            "question": "There is {a1} evidence that either estimate can support so precise a claim.",
+            "level": "C2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Недостатньо свідчень того, що хоча б одна з двох оцінок здатна підтвердити настільки точне твердження.",
+            "target_text": "There is insufficient evidence that either estimate can support so precise a claim.",
+            "markers": {
+                "a1": {
+                    "answer": "insufficient",
+                    "options": [
+                        "insufficient",
+                        "conclusive",
+                        "overwhelming"
+                    ],
+                    "verb_hint": "Назви недостатню доказову підтримку, а не її повну відсутність; приймаються два близькі прикметники."
+                }
+            },
+            "verb_hint": "Назви недостатню доказову підтримку, а не її повну відсутність; приймаються два близькі прикметники.",
+            "accepted_target_texts": [
+                "There is insufficient evidence that either estimate can support so precise a claim.",
+                "There is inadequate evidence that either estimate can support so precise a claim."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "inadequate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "inadequate"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "insufficient evidence",
+                "that either estimate",
+                "can support",
+                "so precise",
+                "a claim."
+            ],
+            "token_groups": [
+                "There is",
+                "insufficient evidence",
+                "that either estimate",
+                "can support",
+                "so precise",
+                "a claim."
+            ],
+            "quality_revision": "aqv-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "aqv-aqn-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Many a promising proposal {a1} for lack of evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "articles_quantifiers_quality_advanced_article_and_quantifier_nuance",
+            "translation_uk": "Чимало перспективних пропозицій зазнали невдачі через брак доказів.",
+            "target_text": "Many a promising proposal has failed for lack of evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "has failed",
+                    "options": [
+                        "has failed",
+                        "have failed",
+                        "has fail"
+                    ],
+                    "verb_hint": "Узгодь завершений до теперішнього результат з одниною після формальної кількісної конструкції."
+                }
+            },
+            "verb_hint": "Узгодь завершений до теперішнього результат з одниною після формальної кількісної конструкції.",
+            "accepted_target_texts": [
+                "Many a promising proposal has failed for lack of evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Many a",
+                "promising proposal",
+                "has failed",
+                "for lack",
+                "of evidence."
+            ],
+            "token_groups": [
+                "Many a",
+                "promising proposal",
+                "has failed",
+                "for lack",
+                "of evidence."
+            ],
+            "quality_revision": "aqv-v1"
+        }
+    ]
+}

@@ -1,0 +1,1787 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/discourse-markers-and-cohesion.v1.json",
+        "sha256": "b3131b9451a4636634ce825167245b604c5d9bd4774faac0b1f152897d4d6b58"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedDiscourseMarkersAndCohesionQualityBuilderSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-discourse-markers-and-cohesion-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "clauses_linking_words_quality_discourse_markers_and_cohesion": {
+            "name": "Clauses and Linking Words Quality: Discourse Markers and Cohesion"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-discourse-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У саду тихо, але на вулиці гамірно.",
+            "level": "A1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "У саду тихо, але на вулиці гамірно.",
+            "target_text": "The garden is quiet, but the street is noisy.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "garden",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "garden",
+                        "met",
+                        "went",
+                        "saw"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "quiet,",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "quiet",
+                        "old",
+                        "young",
+                        "cold"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "but",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "street",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "street",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a8": {
+                    "answer": "is",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "wasn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "noisy.",
+                    "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+                    "options": [
+                        "noisy",
+                        "twice",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із саду; зістав рівень шуму у двох місцях.",
+            "accepted_target_texts": [
+                "The garden is quiet, but the street is noisy.",
+                "The garden is quiet, but the street is loud.",
+                "The garden is quiet, yet the street is noisy.",
+                "The garden is quiet, yet the street is loud."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "loud."
+                ],
+                "a5": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "loud."
+                ],
+                "a5": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The garden",
+                "is quiet,",
+                "but",
+                "the street",
+                "is noisy."
+            ],
+            "token_groups": [
+                "The garden",
+                "is quiet,",
+                "but",
+                "the street",
+                "is noisy."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "garden",
+                "is",
+                "quiet,",
+                "but",
+                "the",
+                "street",
+                "is",
+                "noisy."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "garden",
+                "met",
+                "went",
+                "saw",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "quiet",
+                "old",
+                "young",
+                "cold",
+                "but",
+                "whereas",
+                "while",
+                "if",
+                "the",
+                "that",
+                "these",
+                "those",
+                "street",
+                "box",
+                "chair",
+                "table",
+                "be",
+                "been",
+                "wasn't",
+                "noisy",
+                "twice",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "У саду тихо, але на вулиці гамірно.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "garden",
+                    "met",
+                    "went",
+                    "saw"
+                ],
+                "a3": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "quiet",
+                    "old",
+                    "young",
+                    "cold"
+                ],
+                "a5": [
+                    "but",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "street",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a8": [
+                    "is",
+                    "be",
+                    "been",
+                    "wasn't"
+                ],
+                "a9": [
+                    "noisy",
+                    "twice",
+                    "cat",
+                    "person"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "linker_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "clq-discourse-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми пропустили поворот; унаслідок цього приїхали пізно.",
+            "level": "A2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Ми пропустили поворот; унаслідок цього приїхали пізно.",
+            "target_text": "We missed the turning; as a result, we arrived late.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "missed",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "missed",
+                        "visited",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "turning;",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "turning",
+                        "closing",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a5": {
+                    "answer": "as",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "as",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "result,",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "result",
+                        "to",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a8": {
+                    "answer": "we",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a9": {
+                    "answer": "arrived",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "arrived",
+                        "needed",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a10": {
+                    "answer": "late.",
+                    "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+                    "options": [
+                        "late",
+                        "brother",
+                        "friend",
+                        "dog"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з пропущеного повороту та збережи причинний напрямок.",
+            "accepted_target_texts": [
+                "We missed the turning; as a result, we arrived late.",
+                "We missed the turning; consequently, we arrived late.",
+                "We missed the turning; therefore, we arrived late.",
+                "We missed the turn; as a result, we arrived late.",
+                "We missed the turn; consequently, we arrived late.",
+                "We missed the turn; therefore, we arrived late."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "turn;"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "turn;"
+                ]
+            },
+            "reorder_groups": [
+                "We missed",
+                "the turning;",
+                "as a result,",
+                "we arrived late."
+            ],
+            "token_groups": [
+                "We missed",
+                "the turning;",
+                "as a result,",
+                "we arrived late."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "We",
+                "missed",
+                "the",
+                "turning;",
+                "as",
+                "a",
+                "result,",
+                "we",
+                "arrived",
+                "late."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "missed",
+                "visited",
+                "cooked",
+                "found",
+                "the",
+                "that",
+                "these",
+                "those",
+                "turning",
+                "closing",
+                "helping",
+                "waiting",
+                "as",
+                "cats",
+                "people",
+                "men",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "result",
+                "to",
+                "chair",
+                "table",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "arrived",
+                "needed",
+                "called",
+                "walked",
+                "late",
+                "brother",
+                "friend",
+                "dog"
+            ],
+            "source_text_uk": "Ми пропустили поворот; унаслідок цього приїхали пізно.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "missed",
+                    "visited",
+                    "cooked",
+                    "found"
+                ],
+                "a3": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "turning",
+                    "closing",
+                    "helping",
+                    "waiting"
+                ],
+                "a5": [
+                    "as",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a6": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "result",
+                    "to",
+                    "chair",
+                    "table"
+                ],
+                "a8": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a9": [
+                    "arrived",
+                    "needed",
+                    "called",
+                    "walked"
+                ],
+                "a10": [
+                    "late",
+                    "brother",
+                    "friend",
+                    "dog"
+                ]
+            },
+            "slot_roles": {
+                "a1": "verb_phrase",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "linker_phrase",
+                "a6": "linker_phrase",
+                "a7": "linker_phrase",
+                "a8": "clause_phrase",
+                "a9": "clause_phrase",
+                "a10": "clause_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "clq-discourse-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Перша кімната виходить у парк; натомість друга — у двір.",
+            "level": "B1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Перша кімната виходить у парк; натомість друга — у двір.",
+            "target_text": "The first room faces the park; by contrast, the second faces the yard.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "first",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "first",
+                        "empty",
+                        "tiny",
+                        "local"
+                    ]
+                },
+                "a3": {
+                    "answer": "room",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "room",
+                        "reader",
+                        "engineer",
+                        "envelope"
+                    ]
+                },
+                "a4": {
+                    "answer": "faces",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "faces",
+                        "was",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "park;",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "park",
+                        "lantern",
+                        "agree",
+                        "space"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "by",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "contrast,",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "contrast",
+                        "example",
+                        "if",
+                        "phone"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a10": {
+                    "answer": "second",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "second",
+                        "morning",
+                        "afternoon",
+                        "evening"
+                    ]
+                },
+                "a11": {
+                    "answer": "faces",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "faces",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a12": {
+                    "answer": "the",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a13": {
+                    "answer": "yard.",
+                    "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+                    "options": [
+                        "yard",
+                        "ladder",
+                        "door",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з першої кімнати; зістав напрямок вікон без заперечення факту.",
+            "accepted_target_texts": [
+                "The first room faces the park; by contrast, the second faces the yard.",
+                "The first room faces the park; in contrast, the second faces the yard."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "in"
+                ]
+            },
+            "reorder_groups": [
+                "The first room",
+                "faces the park;",
+                "by contrast,",
+                "the second",
+                "faces the yard."
+            ],
+            "token_groups": [
+                "The first room",
+                "faces the park;",
+                "by contrast,",
+                "the second",
+                "faces the yard."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "first",
+                "room",
+                "faces",
+                "the",
+                "park;",
+                "by",
+                "contrast,",
+                "the",
+                "second",
+                "faces",
+                "the",
+                "yard."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "first",
+                "empty",
+                "tiny",
+                "local",
+                "room",
+                "reader",
+                "engineer",
+                "envelope",
+                "faces",
+                "was",
+                "men",
+                "women",
+                "the",
+                "these",
+                "those",
+                "each",
+                "park",
+                "lantern",
+                "agree",
+                "space",
+                "by",
+                "without",
+                "into",
+                "onto",
+                "contrast",
+                "example",
+                "if",
+                "phone",
+                "every",
+                "no",
+                "another",
+                "second",
+                "morning",
+                "afternoon",
+                "evening",
+                "tables",
+                "tickets",
+                "cups",
+                "either",
+                "neither",
+                "all",
+                "yard",
+                "ladder",
+                "door",
+                "key"
+            ],
+            "source_text_uk": "Перша кімната виходить у парк; натомість друга — у двір.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "first",
+                    "empty",
+                    "tiny",
+                    "local"
+                ],
+                "a3": [
+                    "room",
+                    "reader",
+                    "engineer",
+                    "envelope"
+                ],
+                "a4": [
+                    "faces",
+                    "was",
+                    "men",
+                    "women"
+                ],
+                "a5": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "park",
+                    "lantern",
+                    "agree",
+                    "space"
+                ],
+                "a7": [
+                    "by",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "contrast",
+                    "example",
+                    "if",
+                    "phone"
+                ],
+                "a9": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a10": [
+                    "second",
+                    "morning",
+                    "afternoon",
+                    "evening"
+                ],
+                "a11": [
+                    "faces",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a12": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a13": [
+                    "yard",
+                    "ladder",
+                    "door",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "subject_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "linker_phrase",
+                "a8": "linker_phrase",
+                "a9": "subject_phrase",
+                "a10": "subject_phrase",
+                "a11": "verb_phrase",
+                "a12": "verb_phrase",
+                "a13": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "clq-discourse-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Метод прозорий; до того ж його припущення можна перевірити.",
+            "level": "B2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Метод прозорий; до того ж його припущення можна перевірити.",
+            "target_text": "The method is transparent; moreover, its assumptions can be tested.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "method",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "method",
+                        "friend",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "transparent;",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "transparent",
+                        "twice",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a5": {
+                    "answer": "moreover,",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "moreover",
+                        "because",
+                        "although",
+                        "therefore"
+                    ]
+                },
+                "a6": {
+                    "answer": "its",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "its",
+                        "his",
+                        "her",
+                        "our"
+                    ]
+                },
+                "a7": {
+                    "answer": "assumptions",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "assumptions",
+                        "witnesses",
+                        "neighbours",
+                        "boxes"
+                    ]
+                },
+                "a8": {
+                    "answer": "can",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "can",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "be",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "be",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a10": {
+                    "answer": "tested.",
+                    "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+                    "options": [
+                        "tested",
+                        "reviewed",
+                        "open",
+                        "repaired"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з методу та додай незалежну перевагу без причинного висновку.",
+            "accepted_target_texts": [
+                "The method is transparent; moreover, its assumptions can be tested.",
+                "The method is transparent; furthermore, its assumptions can be tested.",
+                "The method is transparent; in addition, its assumptions can be tested."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "furthermore,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "furthermore,"
+                ]
+            },
+            "reorder_groups": [
+                "The method",
+                "is transparent;",
+                "moreover,",
+                "its assumptions",
+                "can be tested."
+            ],
+            "token_groups": [
+                "The method",
+                "is transparent;",
+                "moreover,",
+                "its assumptions",
+                "can be tested."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "method",
+                "is",
+                "transparent;",
+                "moreover,",
+                "its",
+                "assumptions",
+                "can",
+                "be",
+                "tested."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "method",
+                "friend",
+                "dog",
+                "cat",
+                "is",
+                "was",
+                "were",
+                "been",
+                "transparent",
+                "twice",
+                "milk",
+                "music",
+                "moreover",
+                "because",
+                "although",
+                "therefore",
+                "its",
+                "his",
+                "her",
+                "our",
+                "assumptions",
+                "witnesses",
+                "neighbours",
+                "boxes",
+                "can",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "be",
+                "being",
+                "isn't",
+                "aren't",
+                "tested",
+                "reviewed",
+                "open",
+                "repaired"
+            ],
+            "source_text_uk": "Метод прозорий; до того ж його припущення можна перевірити.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "method",
+                    "friend",
+                    "dog",
+                    "cat"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a4": [
+                    "transparent",
+                    "twice",
+                    "milk",
+                    "music"
+                ],
+                "a5": [
+                    "moreover",
+                    "because",
+                    "although",
+                    "therefore"
+                ],
+                "a6": [
+                    "its",
+                    "his",
+                    "her",
+                    "our"
+                ],
+                "a7": [
+                    "assumptions",
+                    "witnesses",
+                    "neighbours",
+                    "boxes"
+                ],
+                "a8": [
+                    "can",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a9": [
+                    "be",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a10": [
+                    "tested",
+                    "reviewed",
+                    "open",
+                    "repaired"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "linker_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "clq-discourse-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Дослідження встановлює кореляцію; однак воно не доводить причинності.",
+            "level": "C1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Дослідження встановлює кореляцію; однак воно не доводить причинності.",
+            "target_text": "The study establishes a correlation; it does not, however, demonstrate causation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "study",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "study",
+                        "close",
+                        "help",
+                        "wait"
+                    ]
+                },
+                "a3": {
+                    "answer": "establishes",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "establishes",
+                        "was",
+                        "books",
+                        "boxes"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "correlation;",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "correlation",
+                        "agree",
+                        "space",
+                        "lantern"
+                    ]
+                },
+                "a6": {
+                    "answer": "it",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "it",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a7": {
+                    "answer": "does",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "does",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a8": {
+                    "answer": "not,",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a9": {
+                    "answer": "however,",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "however",
+                        "because",
+                        "although",
+                        "therefore"
+                    ]
+                },
+                "a10": {
+                    "answer": "demonstrate",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "demonstrate",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a11": {
+                    "answer": "causation.",
+                    "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+                    "options": [
+                        "causation",
+                        "twice",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з дослідження; вставну зв’язку розмісти всередині заперечної другої частини.",
+            "accepted_target_texts": [
+                "The study establishes a correlation; it does not, however, demonstrate causation.",
+                "The study establishes a correlation; it does not, nevertheless, demonstrate causation.",
+                "The study establishes a correlation; it does not, nonetheless, demonstrate causation."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "nevertheless,",
+                    "nonetheless,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "nevertheless,",
+                    "nonetheless,"
+                ]
+            },
+            "reorder_groups": [
+                "The study",
+                "establishes a correlation;",
+                "it does not,",
+                "however,",
+                "demonstrate causation."
+            ],
+            "token_groups": [
+                "The study",
+                "establishes a correlation;",
+                "it does not,",
+                "however,",
+                "demonstrate causation."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "study",
+                "establishes",
+                "a",
+                "correlation;",
+                "it",
+                "does",
+                "not,",
+                "however,",
+                "demonstrate",
+                "causation."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "An",
+                "Some",
+                "study",
+                "close",
+                "help",
+                "wait",
+                "establishes",
+                "was",
+                "books",
+                "boxes",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "correlation",
+                "agree",
+                "space",
+                "lantern",
+                "it",
+                "yourself",
+                "herself",
+                "ourselves",
+                "does",
+                "hasn't",
+                "hadn't",
+                "do",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "however",
+                "because",
+                "although",
+                "therefore",
+                "demonstrate",
+                "desk",
+                "picture",
+                "child",
+                "causation",
+                "twice",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "Дослідження встановлює кореляцію; однак воно не доводить причинності.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "study",
+                    "close",
+                    "help",
+                    "wait"
+                ],
+                "a3": [
+                    "establishes",
+                    "was",
+                    "books",
+                    "boxes"
+                ],
+                "a4": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "correlation",
+                    "agree",
+                    "space",
+                    "lantern"
+                ],
+                "a6": [
+                    "it",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a7": [
+                    "does",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a8": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a9": [
+                    "however",
+                    "because",
+                    "although",
+                    "therefore"
+                ],
+                "a10": [
+                    "demonstrate",
+                    "desk",
+                    "picture",
+                    "child"
+                ],
+                "a11": [
+                    "causation",
+                    "twice",
+                    "car",
+                    "bag"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "linker_phrase",
+                "a10": "verb_phrase",
+                "a11": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "clq-discourse-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Тут це застереження істотне; без нього висновок вводив би в оману.",
+            "level": "C2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_discourse_markers_and_cohesion",
+            "translation_uk": "Тут це застереження істотне; без нього висновок вводив би в оману.",
+            "target_text": "The qualification matters here; in its absence, the conclusion would be misleading.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "qualification",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "qualification",
+                        "box",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a3": {
+                    "answer": "matters",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "matters",
+                        "teachers",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a4": {
+                    "answer": "here;",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "here",
+                        "twice",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "its",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "its",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a7": {
+                    "answer": "absence,",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "absence",
+                        "result",
+                        "to",
+                        "car"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "conclusion",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "conclusion",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a10": {
+                    "answer": "would",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a11": {
+                    "answer": "be",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a12": {
+                    "answer": "misleading.",
+                    "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+                    "options": [
+                        "misleading",
+                        "waiting",
+                        "helping",
+                        "watching"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із застереження; займенник у другій частині має відсилати саме до нього.",
+            "accepted_target_texts": [
+                "The qualification matters here; in its absence, the conclusion would be misleading.",
+                "The qualification matters here; in its absence, the conclusion would mislead."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The qualification",
+                "matters here;",
+                "in its absence,",
+                "the conclusion",
+                "would be misleading."
+            ],
+            "token_groups": [
+                "The qualification",
+                "matters here;",
+                "in its absence,",
+                "the conclusion",
+                "would be misleading."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "qualification",
+                "matters",
+                "here;",
+                "in",
+                "its",
+                "absence,",
+                "the",
+                "conclusion",
+                "would",
+                "be",
+                "misleading."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "qualification",
+                "box",
+                "chair",
+                "table",
+                "matters",
+                "teachers",
+                "schools",
+                "friends",
+                "here",
+                "twice",
+                "map",
+                "letter",
+                "in",
+                "with",
+                "without",
+                "into",
+                "its",
+                "theirs",
+                "whose",
+                "my",
+                "absence",
+                "result",
+                "to",
+                "car",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "conclusion",
+                "window",
+                "phone",
+                "train",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "misleading",
+                "waiting",
+                "helping",
+                "watching"
+            ],
+            "source_text_uk": "Тут це застереження істотне; без нього висновок вводив би в оману.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "qualification",
+                    "box",
+                    "chair",
+                    "table"
+                ],
+                "a3": [
+                    "matters",
+                    "teachers",
+                    "schools",
+                    "friends"
+                ],
+                "a4": [
+                    "here",
+                    "twice",
+                    "map",
+                    "letter"
+                ],
+                "a5": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "its",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a7": [
+                    "absence",
+                    "result",
+                    "to",
+                    "car"
+                ],
+                "a8": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "conclusion",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a10": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a11": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a12": [
+                    "misleading",
+                    "waiting",
+                    "helping",
+                    "watching"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "linker_phrase",
+                "a6": "linker_phrase",
+                "a7": "linker_phrase",
+                "a8": "subject_phrase",
+                "a9": "subject_phrase",
+                "a10": "verb_phrase",
+                "a11": "verb_phrase",
+                "a12": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

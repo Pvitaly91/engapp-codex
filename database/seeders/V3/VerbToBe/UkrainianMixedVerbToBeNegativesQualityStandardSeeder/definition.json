@@ -1,0 +1,1883 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/negatives.v1.json",
+        "sha256": "00d0f540da561d6c1793f68a09cab4715c4c18595cf6b883ac186676e9816b44"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbToBe\\UkrainianMixedVerbToBeNegativesQualityStandardSeeder",
+        "uuid_namespace": "verb-to-be-quality-negatives-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика / Verb to Be"
+    },
+    "sources": {
+        "verb_to_be_quality_negatives": {
+            "name": "Verb to Be Quality: Заперечення з дієсловом бути"
+        }
+    },
+    "tags": {
+        "verb_to_be_negative": {
+            "name": "Verb to Be negative forms",
+            "category": "topic"
+        },
+        "am_not_first_person": {
+            "name": "I am not (first person negative)",
+            "category": "pattern"
+        },
+        "is_not_third_person": {
+            "name": "He/She/It is not (third person singular negative)",
+            "category": "pattern"
+        },
+        "are_not_second_plural": {
+            "name": "You/We/They are not (second person & plural negative)",
+            "category": "pattern"
+        },
+        "isnt_contraction": {
+            "name": "isn't (contracted is not)",
+            "category": "pattern"
+        },
+        "arent_contraction": {
+            "name": "aren't (contracted are not)",
+            "category": "pattern"
+        },
+        "negative_full_form": {
+            "name": "Full negative form (am not / is not / are not)",
+            "category": "pattern"
+        },
+        "negative_contraction": {
+            "name": "Contracted negative (isn't / aren't)",
+            "category": "pattern"
+        },
+        "short_answer_negative": {
+            "name": "Negative short answer (No, I am not / No, she isn't)",
+            "category": "pattern"
+        },
+        "subject_be_agreement_negative": {
+            "name": "Subject-verb agreement in negative Be",
+            "category": "pattern"
+        },
+        "there_be_negative": {
+            "name": "There isn't / There aren't",
+            "category": "pattern"
+        },
+        "negative_be_in_subordinate": {
+            "name": "Negative Be in subordinate clause",
+            "category": "structure"
+        },
+        "negative_tag_question_be": {
+            "name": "Negative Be in tag question",
+            "category": "pattern"
+        },
+        "litotes_double_negative": {
+            "name": "Litotes: not + negative adjective (softened affirmative)",
+            "category": "usage"
+        },
+        "formal_register_negative": {
+            "name": "Formal/academic negative register with Be",
+            "category": "register"
+        },
+        "emphatic_negation": {
+            "name": "Emphatic negation with Be",
+            "category": "usage"
+        },
+        "hedging_with_negative_be": {
+            "name": "Hedging: not altogether / not necessarily",
+            "category": "usage"
+        },
+        "concessive_negative_be": {
+            "name": "Concessive negative (is not without merit)",
+            "category": "usage"
+        },
+        "literary_be_not_imperative": {
+            "name": "Literary 'Be not + adjective' imperative",
+            "category": "register"
+        },
+        "formal_pronoun_one_negative": {
+            "name": "One is not... (formal pronoun negative)",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "verb_to_be_negative"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-negatives-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The soup {a1} hot.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Суп не гарячий.",
+            "target_text": "The soup is not hot.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Передай заперечний теперішній стан одного предмета."
+                }
+            },
+            "verb_hint": "Передай заперечний теперішній стан одного предмета.",
+            "accepted_target_texts": [
+                "The soup is not hot.",
+                "The soup isn't hot."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The soup",
+                "is not",
+                "hot."
+            ],
+            "token_groups": [
+                "The soup",
+                "is not",
+                "hot."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "beq-negatives-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We {a1} late.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ми не запізнилися.",
+            "target_text": "We are not late.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Потрібна заперечна форма «бути» для групи, до якої входить мовець."
+                }
+            },
+            "verb_hint": "Потрібна заперечна форма «бути» для групи, до якої входить мовець.",
+            "accepted_target_texts": [
+                "We are not late.",
+                "We aren't late."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "We",
+                "are not",
+                "late."
+            ],
+            "token_groups": [
+                "We",
+                "are not",
+                "late."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "beq-negatives-a1-g03",
+            "author_id": "A1-g03",
+            "question": "I {a1} your teacher.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я не твій учитель.",
+            "target_text": "I am not your teacher.",
+            "markers": {
+                "a1": {
+                    "answer": "am not",
+                    "options": [
+                        "am not",
+                        "is not",
+                        "are not"
+                    ],
+                    "verb_hint": "Запереч назву ролі мовця правильною теперішньою формою."
+                }
+            },
+            "verb_hint": "Запереч назву ролі мовця правильною теперішньою формою.",
+            "accepted_target_texts": [
+                "I am not your teacher."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not",
+                "your teacher."
+            ],
+            "token_groups": [
+                "I",
+                "am not",
+                "your teacher."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "beq-negatives-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Tom {a1} after the walk.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Том не втомлений після прогулянки.",
+            "target_text": "Tom is not tired after the walk.",
+            "markers": {
+                "a1": {
+                    "answer": "is not tired",
+                    "options": [
+                        "is not tired",
+                        "are not tired",
+                        "am not tired"
+                    ],
+                    "verb_hint": "Передай відсутність утоми однієї людини; обставина вже наведена."
+                }
+            },
+            "verb_hint": "Передай відсутність утоми однієї людини; обставина вже наведена.",
+            "accepted_target_texts": [
+                "Tom is not tired after the walk.",
+                "Tom isn't tired after the walk."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't tired"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't tired"
+                ]
+            },
+            "reorder_groups": [
+                "Tom",
+                "is not tired",
+                "after the walk."
+            ],
+            "token_groups": [
+                "Tom",
+                "is not tired",
+                "after the walk."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "beq-negatives-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The bags {a1} empty.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Сумки не порожні.",
+            "target_text": "The bags are not empty.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь заперечну теперішню форму з множиною речей."
+                }
+            },
+            "verb_hint": "Узгодь заперечну теперішню форму з множиною речей.",
+            "accepted_target_texts": [
+                "The bags are not empty.",
+                "The bags aren't empty."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The bags",
+                "are not",
+                "empty."
+            ],
+            "token_groups": [
+                "The bags",
+                "are not",
+                "empty."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "beq-negatives-a1-g06",
+            "author_id": "A1-g06",
+            "question": "You {a1} alone.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ти не сам.",
+            "target_text": "You are not alone.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "am not",
+                        "is not"
+                    ],
+                    "verb_hint": "Запереч стан самотності співрозмовника правильною формою «бути»."
+                }
+            },
+            "verb_hint": "Запереч стан самотності співрозмовника правильною формою «бути».",
+            "accepted_target_texts": [
+                "You are not alone.",
+                "You aren't alone."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "You",
+                "are not",
+                "alone."
+            ],
+            "token_groups": [
+                "You",
+                "are not",
+                "alone."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "beq-negatives-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The book on the table {a1} mine.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Книжка на столі не моя.",
+            "target_text": "The book on the table is not mine.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч належність однієї книжки, зберігши узгодження однини."
+                }
+            },
+            "verb_hint": "Запереч належність однієї книжки, зберігши узгодження однини.",
+            "accepted_target_texts": [
+                "The book on the table is not mine.",
+                "The book on the table isn't mine."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The book",
+                "on the table",
+                "is not",
+                "mine."
+            ],
+            "token_groups": [
+                "The book",
+                "on the table",
+                "is not",
+                "mine."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "beq-negatives-a2-g02",
+            "author_id": "A2-g02",
+            "question": "These shoes {a1} comfortable enough.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ці туфлі недостатньо зручні.",
+            "target_text": "These shoes are not comfortable enough.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Потрібна заперечна теперішня форма для взуття у граматичній множині."
+                }
+            },
+            "verb_hint": "Потрібна заперечна теперішня форма для взуття у граматичній множині.",
+            "accepted_target_texts": [
+                "These shoes are not comfortable enough.",
+                "These shoes aren't comfortable enough."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "These shoes",
+                "are not",
+                "comfortable enough."
+            ],
+            "token_groups": [
+                "These shoes",
+                "are not",
+                "comfortable enough."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "beq-negatives-a2-g03",
+            "author_id": "A2-g03",
+            "question": "I {a1} in that programme.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Мене не цікавить та програма.",
+            "target_text": "I am not interested in that programme.",
+            "markers": {
+                "a1": {
+                    "answer": "am not interested",
+                    "options": [
+                        "am not interested",
+                        "is not interested",
+                        "are not interested"
+                    ],
+                    "verb_hint": "Передай відсутність зацікавлення мовця; назва об'єкта вже наведена."
+                }
+            },
+            "verb_hint": "Передай відсутність зацікавлення мовця; назва об'єкта вже наведена.",
+            "accepted_target_texts": [
+                "I am not interested in that programme."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not interested",
+                "in that programme."
+            ],
+            "token_groups": [
+                "I",
+                "am not interested",
+                "in that programme."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "beq-negatives-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The advice in this article {a1} helpful.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Порада в цій статті не корисна.",
+            "target_text": "The advice in this article is not helpful.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Незлічуваний іменник «порада» потребує заперечної форми однини."
+                }
+            },
+            "verb_hint": "Незлічуваний іменник «порада» потребує заперечної форми однини.",
+            "accepted_target_texts": [
+                "The advice in this article is not helpful.",
+                "The advice in this article isn't helpful."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The advice",
+                "in this article",
+                "is not",
+                "helpful."
+            ],
+            "token_groups": [
+                "The advice",
+                "in this article",
+                "is not",
+                "helpful."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "beq-negatives-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Our cousins {a1} old enough to drive.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Наші двоюрідні брати ще недостатньо дорослі, щоб керувати автомобілем.",
+            "target_text": "Our cousins are not old enough to drive.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь заперечну зв'язку з кількома людьми, не змінюючи вікового обмеження."
+                }
+            },
+            "verb_hint": "Узгодь заперечну зв'язку з кількома людьми, не змінюючи вікового обмеження.",
+            "accepted_target_texts": [
+                "Our cousins are not old enough to drive.",
+                "Our cousins aren't old enough to drive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "Our cousins",
+                "are not",
+                "old enough",
+                "to drive."
+            ],
+            "token_groups": [
+                "Our cousins",
+                "are not",
+                "old enough",
+                "to drive."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "beq-negatives-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The town centre {a1} far from here.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Центр міста недалеко звідси.",
+            "target_text": "The town centre is not far from here.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Передай невелику відстань через заперечну форму для одного центру міста."
+                }
+            },
+            "verb_hint": "Передай невелику відстань через заперечну форму для одного центру міста.",
+            "accepted_target_texts": [
+                "The town centre is not far from here.",
+                "The town centre isn't far from here."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The town centre",
+                "is not",
+                "far from here."
+            ],
+            "token_groups": [
+                "The town centre",
+                "is not",
+                "far from here."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "beq-negatives-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The person who answered {a1} the owner.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Людина, яка відповіла, не власник.",
+            "target_text": "The person who answered is not the owner.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь головну заперечну зв'язку з однією людиною, не з дією в означенні."
+                }
+            },
+            "verb_hint": "Узгодь головну заперечну зв'язку з однією людиною, не з дією в означенні.",
+            "accepted_target_texts": [
+                "The person who answered is not the owner.",
+                "The person who answered isn't the owner."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The person",
+                "who answered",
+                "is not",
+                "the owner."
+            ],
+            "token_groups": [
+                "The person",
+                "who answered",
+                "is not",
+                "the owner."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "beq-negatives-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The documents you requested {a1} ready yet.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Документи, які ти замовив, ще не готові.",
+            "target_text": "The documents you requested are not ready yet.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч готовність кількох документів на поточний момент."
+                }
+            },
+            "verb_hint": "Запереч готовність кількох документів на поточний момент.",
+            "accepted_target_texts": [
+                "The documents you requested are not ready yet.",
+                "The documents you requested aren't ready yet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The documents",
+                "you requested",
+                "are not",
+                "ready yet."
+            ],
+            "token_groups": [
+                "The documents",
+                "you requested",
+                "are not",
+                "ready yet."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "beq-negatives-b1-g03",
+            "author_id": "B1-g03",
+            "question": "I {a1} which platform we need.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я не певен, яка платформа нам потрібна.",
+            "target_text": "I am not sure which platform we need.",
+            "markers": {
+                "a1": {
+                    "answer": "am not sure",
+                    "options": [
+                        "am not sure",
+                        "is not sure",
+                        "are not sure"
+                    ],
+                    "verb_hint": "Передай невпевненість мовця; непряме питання вже наведене."
+                }
+            },
+            "verb_hint": "Передай невпевненість мовця; непряме питання вже наведене.",
+            "accepted_target_texts": [
+                "I am not sure which platform we need.",
+                "I am not certain which platform we need."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "am not certain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "am not certain"
+                ]
+            },
+            "reorder_groups": [
+                "I",
+                "am not sure",
+                "which platform",
+                "we need."
+            ],
+            "token_groups": [
+                "I",
+                "am not sure",
+                "which platform",
+                "we need."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "beq-negatives-b1-g04",
+            "author_id": "B1-g04",
+            "question": "One of the kitchen lights {a1} on.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Одна з кухонних ламп не ввімкнена.",
+            "target_text": "One of the kitchen lights is not on.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч стан однієї лампи, не узгоджуй дієслово з усіма лампами."
+                }
+            },
+            "verb_hint": "Запереч стан однієї лампи, не узгоджуй дієслово з усіма лампами.",
+            "accepted_target_texts": [
+                "One of the kitchen lights is not on.",
+                "One of the kitchen lights isn't on."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "One of",
+                "the kitchen lights",
+                "is not",
+                "on."
+            ],
+            "token_groups": [
+                "One of",
+                "the kitchen lights",
+                "is not",
+                "on."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "beq-negatives-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The scissors in that drawer {a1} sharp.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ножиці в тій шухляді не гострі.",
+            "target_text": "The scissors in that drawer are not sharp.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Назва ножиць має граматичну множину й потребує відповідної заперечної зв'язки."
+                }
+            },
+            "verb_hint": "Назва ножиць має граматичну множину й потребує відповідної заперечної зв'язки.",
+            "accepted_target_texts": [
+                "The scissors in that drawer are not sharp.",
+                "The scissors in that drawer aren't sharp."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The scissors",
+                "in that drawer",
+                "are not",
+                "sharp."
+            ],
+            "token_groups": [
+                "The scissors",
+                "in that drawer",
+                "are not",
+                "sharp."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "beq-negatives-b1-g06",
+            "author_id": "B1-g06",
+            "question": "What she said {a1} the whole story.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Те, що вона сказала, — ще не вся історія.",
+            "target_text": "What she said is not the whole story.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Сприймай підметову частину як одне ціле й запереч тотожність повній історії."
+                }
+            },
+            "verb_hint": "Сприймай підметову частину як одне ціле й запереч тотожність повній історії.",
+            "accepted_target_texts": [
+                "What she said is not the whole story.",
+                "What she said isn't the whole story."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "What she said",
+                "is not",
+                "the whole story."
+            ],
+            "token_groups": [
+                "What she said",
+                "is not",
+                "the whole story."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "beq-negatives-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The purpose of these meetings {a1} immediately obvious.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Мета цих зустрічей не відразу очевидна.",
+            "target_text": "The purpose of these meetings is not immediately obvious.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч очевидність однієї мети, зберігши прислівник у питанні."
+                }
+            },
+            "verb_hint": "Запереч очевидність однієї мети, зберігши прислівник у питанні.",
+            "accepted_target_texts": [
+                "The purpose of these meetings is not immediately obvious.",
+                "The purpose of these meetings isn't immediately obvious."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The purpose",
+                "of these meetings",
+                "is not",
+                "immediately obvious."
+            ],
+            "token_groups": [
+                "The purpose",
+                "of these meetings",
+                "is not",
+                "immediately obvious."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "beq-negatives-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The measures currently in place {a1} adequate.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Наявні заходи недостатні.",
+            "target_text": "The measures currently in place are not adequate.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь заперечну зв'язку з кількома заходами, не з описом їхньої чинності."
+                }
+            },
+            "verb_hint": "Узгодь заперечну зв'язку з кількома заходами, не з описом їхньої чинності.",
+            "accepted_target_texts": [
+                "The measures currently in place are not adequate.",
+                "The measures currently in place aren't adequate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The measures",
+                "currently in place",
+                "are not",
+                "adequate."
+            ],
+            "token_groups": [
+                "The measures",
+                "currently in place",
+                "are not",
+                "adequate."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "beq-negatives-b2-g03",
+            "author_id": "B2-g03",
+            "question": "I {a1} by the explanation offered.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Наведене пояснення мене не переконує.",
+            "target_text": "I am not convinced by the explanation offered.",
+            "markers": {
+                "a1": {
+                    "answer": "am not convinced",
+                    "options": [
+                        "am not convinced",
+                        "is not convinced",
+                        "are not convinced"
+                    ],
+                    "verb_hint": "Передай непереконаність мовця, не повторюючи фразу про пояснення."
+                }
+            },
+            "verb_hint": "Передай непереконаність мовця, не повторюючи фразу про пояснення.",
+            "accepted_target_texts": [
+                "I am not convinced by the explanation offered."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not convinced",
+                "by the explanation",
+                "offered."
+            ],
+            "token_groups": [
+                "I",
+                "am not convinced",
+                "by the explanation",
+                "offered."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "beq-negatives-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Whether they agree {a1} relevant to this calculation.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Чи погоджуються вони, не має стосунку до цього розрахунку.",
+            "target_text": "Whether they agree is not relevant to this calculation.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Ціле непряме питання є підметом однини; запереч його значущість."
+                }
+            },
+            "verb_hint": "Ціле непряме питання є підметом однини; запереч його значущість.",
+            "accepted_target_texts": [
+                "Whether they agree is not relevant to this calculation.",
+                "Whether they agree isn't relevant to this calculation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "Whether they agree",
+                "is not",
+                "relevant to",
+                "this calculation."
+            ],
+            "token_groups": [
+                "Whether they agree",
+                "is not",
+                "relevant to",
+                "this calculation."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "beq-negatives-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The proposed timetable {a1} workable under the current constraints.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Запропонований графік нездійсненний за нинішніх обмежень.",
+            "target_text": "The proposed timetable is not workable under the current constraints.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч практичну здійсненність одного графіка, зберігши вже наведені обмеження."
+                }
+            },
+            "verb_hint": "Запереч практичну здійсненність одного графіка, зберігши вже наведені обмеження.",
+            "accepted_target_texts": [
+                "The proposed timetable is not workable under the current constraints.",
+                "The proposed timetable isn't workable under the current constraints."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The proposed timetable",
+                "is not",
+                "workable under",
+                "the current constraints."
+            ],
+            "token_groups": [
+                "The proposed timetable",
+                "is not",
+                "workable under",
+                "the current constraints."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "beq-negatives-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The costs of replacing the equipment {a1} negligible.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Витрати на заміну обладнання не мізерні.",
+            "target_text": "The costs of replacing the equipment are not negligible.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Головний підмет називає витрати в множині; запереч їхню незначність."
+                }
+            },
+            "verb_hint": "Головний підмет називає витрати в множині; запереч їхню незначність.",
+            "accepted_target_texts": [
+                "The costs of replacing the equipment are not negligible.",
+                "The costs of replacing the equipment aren't negligible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The costs",
+                "of replacing",
+                "the equipment",
+                "are not",
+                "negligible."
+            ],
+            "token_groups": [
+                "The costs",
+                "of replacing",
+                "the equipment",
+                "are not",
+                "negligible."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "beq-negatives-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The distinction between the two categories {a1} as clear-cut as it appears.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Різниця між цими двома категоріями не така однозначна, як здається.",
+            "target_text": "The distinction between the two categories is not as clear-cut as it appears.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч однозначність однієї різниці, попри множину в означенні."
+                }
+            },
+            "verb_hint": "Запереч однозначність однієї різниці, попри множину в означенні.",
+            "accepted_target_texts": [
+                "The distinction between the two categories is not as clear-cut as it appears.",
+                "The distinction between the two categories isn't as clear-cut as it appears."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The distinction",
+                "between the two",
+                "categories is not",
+                "as clear-cut",
+                "as it appears."
+            ],
+            "token_groups": [
+                "The distinction",
+                "between the two",
+                "categories is not",
+                "as clear-cut",
+                "as it appears."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "beq-negatives-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The assumptions on which the forecast rests {a1} entirely defensible.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Припущення, на яких ґрунтується прогноз, не цілком обґрунтовані.",
+            "target_text": "The assumptions on which the forecast rests are not entirely defensible.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь заперечну зв'язку з кількома припущеннями; обмеження ступеня вже наведене."
+                }
+            },
+            "verb_hint": "Узгодь заперечну зв'язку з кількома припущеннями; обмеження ступеня вже наведене.",
+            "accepted_target_texts": [
+                "The assumptions on which the forecast rests are not entirely defensible.",
+                "The assumptions on which the forecast rests aren't entirely defensible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The assumptions",
+                "on which",
+                "the forecast rests",
+                "are not",
+                "entirely defensible."
+            ],
+            "token_groups": [
+                "The assumptions",
+                "on which",
+                "the forecast rests",
+                "are not",
+                "entirely defensible."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "beq-negatives-c1-g03",
+            "author_id": "C1-g03",
+            "question": "I {a1} to the consequences of that choice.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я усвідомлюю наслідки того вибору.",
+            "target_text": "I am not oblivious to the consequences of that choice.",
+            "markers": {
+                "a1": {
+                    "answer": "am not oblivious",
+                    "options": [
+                        "am not oblivious",
+                        "is not oblivious",
+                        "are not oblivious"
+                    ],
+                    "verb_hint": "Збережи стриману форму заперечення необізнаності мовця про наслідки."
+                }
+            },
+            "verb_hint": "Збережи стриману форму заперечення необізнаності мовця про наслідки.",
+            "accepted_target_texts": [
+                "I am not oblivious to the consequences of that choice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not oblivious",
+                "to the consequences",
+                "of that choice."
+            ],
+            "token_groups": [
+                "I",
+                "am not oblivious",
+                "to the consequences",
+                "of that choice."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "beq-negatives-c1-g04",
+            "author_id": "C1-g04",
+            "question": "What the figures reveal {a1} a causal relationship.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Те, що показують цифри, не є причинно-наслідковим зв'язком.",
+            "target_text": "What the figures reveal is not a causal relationship.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Підметова частина становить одне ціле; запереч саме причинний характер зв'язку."
+                }
+            },
+            "verb_hint": "Підметова частина становить одне ціле; запереч саме причинний характер зв'язку.",
+            "accepted_target_texts": [
+                "What the figures reveal is not a causal relationship.",
+                "What the figures reveal isn't a causal relationship."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "What the figures",
+                "reveal is not",
+                "a causal relationship."
+            ],
+            "token_groups": [
+                "What the figures",
+                "reveal is not",
+                "a causal relationship."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "beq-negatives-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The revisions to the funding framework {a1} merely cosmetic.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Зміни до системи фінансування не просто косметичні.",
+            "target_text": "The revisions to the funding framework are not merely cosmetic.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч суто поверховий характер кількох змін."
+                }
+            },
+            "verb_hint": "Запереч суто поверховий характер кількох змін.",
+            "accepted_target_texts": [
+                "The revisions to the funding framework are not merely cosmetic.",
+                "The revisions to the funding framework aren't merely cosmetic."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The revisions",
+                "to the funding",
+                "framework are not",
+                "merely cosmetic."
+            ],
+            "token_groups": [
+                "The revisions",
+                "to the funding",
+                "framework are not",
+                "merely cosmetic."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "beq-negatives-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The fact that a rule is longstanding {a1} sufficient justification.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Сам факт давнього існування правила не є достатнім виправданням.",
+            "target_text": "The fact that a rule is longstanding is not sufficient justification.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч достатність одного факту, не змінюючи дієслово всередині залежної частини."
+                }
+            },
+            "verb_hint": "Запереч достатність одного факту, не змінюючи дієслово всередині залежної частини.",
+            "accepted_target_texts": [
+                "The fact that a rule is longstanding is not sufficient justification.",
+                "The fact that a rule is longstanding isn't sufficient justification."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The fact",
+                "that a rule",
+                "is longstanding",
+                "is not",
+                "sufficient justification."
+            ],
+            "token_groups": [
+                "The fact",
+                "that a rule",
+                "is longstanding",
+                "is not",
+                "sufficient justification."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "beq-negatives-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The inference drawn from a single exceptional case {a1} logically warranted.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Висновок, зроблений з одного виняткового випадку, логічно не обґрунтований.",
+            "target_text": "The inference drawn from a single exceptional case is not logically warranted.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Головний підмет — один висновок; запереч його логічну виправданість."
+                }
+            },
+            "verb_hint": "Головний підмет — один висновок; запереч його логічну виправданість.",
+            "accepted_target_texts": [
+                "The inference drawn from a single exceptional case is not logically warranted.",
+                "The inference drawn from a single exceptional case isn't logically warranted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The inference",
+                "drawn from",
+                "a single exceptional",
+                "case is not",
+                "logically warranted."
+            ],
+            "token_groups": [
+                "The inference",
+                "drawn from",
+                "a single exceptional",
+                "case is not",
+                "logically warranted."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "beq-negatives-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The objections raised by the minority {a1} readily dismissible.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Заперечення меншості не можна просто відкинути.",
+            "target_text": "The objections raised by the minority are not readily dismissible.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Запереч легкість відхилення кількох заперечень, не посилюючи їх до безспірної істини."
+                }
+            },
+            "verb_hint": "Запереч легкість відхилення кількох заперечень, не посилюючи їх до безспірної істини.",
+            "accepted_target_texts": [
+                "The objections raised by the minority are not readily dismissible.",
+                "The objections raised by the minority aren't readily dismissible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The objections",
+                "raised by",
+                "the minority",
+                "are not",
+                "readily dismissible."
+            ],
+            "token_groups": [
+                "The objections",
+                "raised by",
+                "the minority",
+                "are not",
+                "readily dismissible."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "beq-negatives-c2-g03",
+            "author_id": "C2-g03",
+            "question": "I {a1} to the irony of invoking precedent so selectively.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я помічаю іронію настільки вибіркового посилання на прецедент.",
+            "target_text": "I am not insensible to the irony of invoking precedent so selectively.",
+            "markers": {
+                "a1": {
+                    "answer": "am not insensible",
+                    "options": [
+                        "am not insensible",
+                        "is not insensible",
+                        "are not insensible"
+                    ],
+                    "verb_hint": "Збережи риторично стримане заперечення нечутливості мовця до іронії."
+                }
+            },
+            "verb_hint": "Збережи риторично стримане заперечення нечутливості мовця до іронії.",
+            "accepted_target_texts": [
+                "I am not insensible to the irony of invoking precedent so selectively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not insensible",
+                "to the irony",
+                "of invoking precedent",
+                "so selectively."
+            ],
+            "token_groups": [
+                "I",
+                "am not insensible",
+                "to the irony",
+                "of invoking precedent",
+                "so selectively."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "beq-negatives-c2-g04",
+            "author_id": "C2-g04",
+            "question": "What appears to be administrative neutrality {a1} necessarily political impartiality.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Те, що видається адміністративною нейтральністю, не обов'язково є політичною неупередженістю.",
+            "target_text": "What appears to be administrative neutrality is not necessarily political impartiality.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Ціла підметова частина потребує однини; слово про необов'язковість уже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Ціла підметова частина потребує однини; слово про необов'язковість уже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "What appears to be administrative neutrality is not necessarily political impartiality.",
+                "What appears to be administrative neutrality isn't necessarily political impartiality."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "What appears",
+                "to be",
+                "administrative neutrality",
+                "is not",
+                "necessarily political impartiality."
+            ],
+            "token_groups": [
+                "What appears",
+                "to be",
+                "administrative neutrality",
+                "is not",
+                "necessarily political impartiality."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "beq-negatives-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The boundaries between legitimate discretion and arbitrary power {a1} immutable.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Межі між законною свободою розсуду та свавільною владою можуть змінюватися.",
+            "target_text": "The boundaries between legitimate discretion and arbitrary power are not immutable.",
+            "markers": {
+                "a1": {
+                    "answer": "are not",
+                    "options": [
+                        "are not",
+                        "is not",
+                        "am not"
+                    ],
+                    "verb_hint": "Узгодь заперечну форму з межами в множині й запереч саме їхню незмінність."
+                }
+            },
+            "verb_hint": "Узгодь заперечну форму з межами в множині й запереч саме їхню незмінність.",
+            "accepted_target_texts": [
+                "The boundaries between legitimate discretion and arbitrary power are not immutable.",
+                "The boundaries between legitimate discretion and arbitrary power aren't immutable."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't"
+                ]
+            },
+            "reorder_groups": [
+                "The boundaries",
+                "between legitimate discretion",
+                "and arbitrary power",
+                "are not",
+                "immutable."
+            ],
+            "token_groups": [
+                "The boundaries",
+                "between legitimate discretion",
+                "and arbitrary power",
+                "are not",
+                "immutable."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "beq-negatives-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The absence of an explicit prohibition {a1} tantamount to unqualified permission.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Відсутність прямої заборони не рівнозначна безумовному дозволу.",
+            "target_text": "The absence of an explicit prohibition is not tantamount to unqualified permission.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "are not",
+                        "am not"
+                    ],
+                    "verb_hint": "Головне слово — відсутність; запереч логічну тотожність двох понять."
+                }
+            },
+            "verb_hint": "Головне слово — відсутність; запереч логічну тотожність двох понять.",
+            "accepted_target_texts": [
+                "The absence of an explicit prohibition is not tantamount to unqualified permission.",
+                "The absence of an explicit prohibition isn't tantamount to unqualified permission."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't"
+                ]
+            },
+            "reorder_groups": [
+                "The absence",
+                "of an explicit",
+                "prohibition is not",
+                "tantamount to",
+                "unqualified permission."
+            ],
+            "token_groups": [
+                "The absence",
+                "of an explicit",
+                "prohibition is not",
+                "tantamount to",
+                "unqualified permission."
+            ],
+            "quality_revision": "verb-to-be-v1"
+        }
+    ]
+}

@@ -1,0 +1,1664 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/sentence-structure.v1.json",
+        "sha256": "110e09d239fdf24226d19b03bdf3ae3ace0097feaa3e5628653e9d1896bf81aa"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "uuid_namespace": "basic-grammar-quality-sentence-structure-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "basic_grammar_quality_sentence_structure": {
+            "name": "Basic Grammar Quality: Підмет, присудок і додаток"
+        }
+    },
+    "tags": {
+        "svo_order": {
+            "name": "S-V-O word order",
+            "category": "pattern"
+        },
+        "subject_identification": {
+            "name": "Subject identification",
+            "category": "pattern"
+        },
+        "verb_placement": {
+            "name": "Verb placement in SVO",
+            "category": "pattern"
+        },
+        "object_identification": {
+            "name": "Object identification",
+            "category": "pattern"
+        },
+        "svo_with_adverb": {
+            "name": "SVO with adverb placement",
+            "category": "pattern"
+        },
+        "svo_with_indirect_object": {
+            "name": "SVO with indirect object",
+            "category": "pattern"
+        },
+        "svo_negation": {
+            "name": "Negation in SVO structure",
+            "category": "pattern"
+        },
+        "svo_question_form": {
+            "name": "Question formation from SVO",
+            "category": "pattern"
+        },
+        "subject_verb_agreement": {
+            "name": "Subject-verb agreement in SVO",
+            "category": "usage"
+        },
+        "svo_compound_subject": {
+            "name": "Compound subjects in SVO",
+            "category": "pattern"
+        },
+        "svo_compound_object": {
+            "name": "Compound objects in SVO",
+            "category": "pattern"
+        },
+        "svo_passive_reorder": {
+            "name": "Active-to-passive reordering",
+            "category": "pattern"
+        },
+        "svo_relative_clause": {
+            "name": "SVO with embedded relative clause",
+            "category": "pattern"
+        },
+        "svo_fronting": {
+            "name": "Fronting and inversion",
+            "category": "pattern"
+        },
+        "svo_cleft_sentence": {
+            "name": "Cleft and pseudo-cleft structures",
+            "category": "pattern"
+        },
+        "svo_ellipsis": {
+            "name": "Ellipsis in SVO",
+            "category": "pattern"
+        }
+    },
+    "default_tag_keys": [
+        "svo_order"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-sentence-structure-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The artist {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Художниця малює портрети.",
+            "target_text": "The artist draws portraits.",
+            "markers": {
+                "a1": {
+                    "answer": "draws portraits",
+                    "options": [
+                        "draws portraits",
+                        "portraits draws",
+                        "draws portraits she"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Малює портрети». Назви дію малювання, а потім предмет цієї дії; не додавай повторного підмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Малює портрети». Назви дію малювання, а потім предмет цієї дії; не додавай повторного підмета.",
+            "accepted_target_texts": [
+                "The artist draws portraits.",
+                "The artist paints portraits."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "paints portraits"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "paints portraits"
+                ]
+            },
+            "reorder_groups": [
+                "The artist",
+                "draws portraits."
+            ],
+            "token_groups": [
+                "The artist",
+                "draws portraits."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-sentence-structure-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The rabbit {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Кролик їсть моркву.",
+            "target_text": "The rabbit eats carrots.",
+            "markers": {
+                "a1": {
+                    "answer": "eats carrots",
+                    "options": [
+                        "eats carrots",
+                        "carrots eats",
+                        "eats it carrots"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Їсть моркву». Після вже названої тварини постав дієслово, а за ним їжу як додаток."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Їсть моркву». Після вже названої тварини постав дієслово, а за ним їжу як додаток.",
+            "accepted_target_texts": [
+                "The rabbit eats carrots."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rabbit",
+                "eats carrots."
+            ],
+            "token_groups": [
+                "The rabbit",
+                "eats carrots."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-sentence-structure-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Our aunt {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Наша тітка продає квіти.",
+            "target_text": "Our aunt sells flowers.",
+            "markers": {
+                "a1": {
+                    "answer": "sells flowers",
+                    "options": [
+                        "sells flowers",
+                        "flowers sells",
+                        "sells she flowers"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Продає квіти». Передай продаж і назви його предмет після дієслова без зайвого займенника."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Продає квіти». Передай продаж і назви його предмет після дієслова без зайвого займенника.",
+            "accepted_target_texts": [
+                "Our aunt sells flowers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our aunt",
+                "sells flowers."
+            ],
+            "token_groups": [
+                "Our aunt",
+                "sells flowers."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-sentence-structure-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The boys {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Хлопчики будують вежу.",
+            "target_text": "The boys build a tower.",
+            "markers": {
+                "a1": {
+                    "answer": "build a tower",
+                    "options": [
+                        "build a tower",
+                        "a tower build",
+                        "build tower a"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Будують вежу». Постав дію перед додатком; артикль належить до назви одного предмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Будують вежу». Постав дію перед додатком; артикль належить до назви одного предмета.",
+            "accepted_target_texts": [
+                "The boys build a tower."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The boys",
+                "build a tower."
+            ],
+            "token_groups": [
+                "The boys",
+                "build a tower."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-sentence-structure-a1-g05",
+            "author_id": "A1-g05",
+            "question": "I {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Я несу кошик.",
+            "target_text": "I carry a basket.",
+            "markers": {
+                "a1": {
+                    "answer": "carry a basket",
+                    "options": [
+                        "carry a basket",
+                        "a basket carry",
+                        "carry basket a"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Несу кошик». Після вже наведеного підмета назви дію перенесення та її об'єкт."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Несу кошик». Після вже наведеного підмета назви дію перенесення та її об'єкт.",
+            "accepted_target_texts": [
+                "I carry a basket."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "carry a basket."
+            ],
+            "token_groups": [
+                "I",
+                "carry a basket."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-sentence-structure-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The farmer {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Фермер годує курей.",
+            "target_text": "The farmer feeds the hens.",
+            "markers": {
+                "a1": {
+                    "answer": "feeds the hens",
+                    "options": [
+                        "feeds the hens",
+                        "the hens feeds",
+                        "feeds hens the"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Годує цих курей». Збережи роль виконавця в наведеному підметі й постав назву курей після дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Годує цих курей». Збережи роль виконавця в наведеному підметі й постав назву курей після дії.",
+            "accepted_target_texts": [
+                "The farmer feeds the hens."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The farmer",
+                "feeds the hens."
+            ],
+            "token_groups": [
+                "The farmer",
+                "feeds the hens."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-sentence-structure-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The girl in the yellow coat {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Дівчина в жовтому пальті несе скрипку.",
+            "target_text": "The girl in the yellow coat carries a violin.",
+            "markers": {
+                "a1": {
+                    "answer": "carries a violin",
+                    "options": [
+                        "carries a violin",
+                        "a violin carries",
+                        "carries she a violin"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Несе скрипку». Після всієї групи підмета постав дію та один її об'єкт, не повторюючи виконавця."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Несе скрипку». Після всієї групи підмета постав дію та один її об'єкт, не повторюючи виконавця.",
+            "accepted_target_texts": [
+                "The girl in the yellow coat carries a violin."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The girl",
+                "in the yellow",
+                "coat",
+                "carries a violin."
+            ],
+            "token_groups": [
+                "The girl",
+                "in the yellow",
+                "coat",
+                "carries a violin."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-sentence-structure-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our neighbours {a1} in their garden.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Наші сусіди тримають бджіл у своєму саду.",
+            "target_text": "Our neighbours keep bees in their garden.",
+            "markers": {
+                "a1": {
+                    "answer": "keep bees",
+                    "options": [
+                        "keep bees",
+                        "bees keep",
+                        "keep they bees"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тримають бджіл». Назви дію утримування й додаток перед уже наведеною обставиною місця."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тримають бджіл». Назви дію утримування й додаток перед уже наведеною обставиною місця.",
+            "accepted_target_texts": [
+                "Our neighbours keep bees in their garden.",
+                "Our neighbors keep bees in their garden."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our neighbours",
+                "keep bees",
+                "in their garden."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "keep bees",
+                "in their garden."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-sentence-structure-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The mechanic {a1} yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Учора механік відремонтував мій велосипед.",
+            "target_text": "The mechanic repaired my bicycle yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "repaired my bicycle",
+                    "options": [
+                        "repaired my bicycle",
+                        "my bicycle repaired",
+                        "repaired bicycle my"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Відремонтував мій велосипед». Постав дієслово перед присвійно означеним додатком; час уже наведений."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Відремонтував мій велосипед». Постав дієслово перед присвійно означеним додатком; час уже наведений.",
+            "accepted_target_texts": [
+                "The mechanic repaired my bicycle yesterday.",
+                "The mechanic fixed my bicycle yesterday.",
+                "The mechanic repaired my bike yesterday.",
+                "The mechanic fixed my bike yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "fixed my bicycle",
+                    "repaired my bike",
+                    "fixed my bike"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "fixed my bicycle",
+                    "repaired my bike",
+                    "fixed my bike"
+                ]
+            },
+            "reorder_groups": [
+                "The mechanic",
+                "repaired my bicycle",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The mechanic",
+                "repaired my bicycle",
+                "yesterday."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-sentence-structure-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The librarian {a1} a map.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Бібліотекарка дала мені карту.",
+            "target_text": "The librarian gave me a map.",
+            "markers": {
+                "a1": {
+                    "answer": "gave me",
+                    "options": [
+                        "gave me",
+                        "me gave",
+                        "gave I"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Дала мені». Після дієслова постав адресата в об'єктній формі, а назва речі вже наведена."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Дала мені». Після дієслова постав адресата в об'єктній формі, а назва речі вже наведена.",
+            "accepted_target_texts": [
+                "The librarian gave me a map."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The librarian",
+                "gave me",
+                "a map."
+            ],
+            "token_groups": [
+                "The librarian",
+                "gave me",
+                "a map."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-sentence-structure-a2-g05",
+            "author_id": "A2-g05",
+            "question": "We {a1} to our grandparents.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Ми надіслали листівку нашим бабусі й дідусеві.",
+            "target_text": "We sent a postcard to our grandparents.",
+            "markers": {
+                "a1": {
+                    "answer": "sent a postcard",
+                    "options": [
+                        "sent a postcard",
+                        "a postcard sent",
+                        "sent postcard a"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Надіслали листівку». Постав назву надісланої речі після дієслова; адресат із прийменником уже наведений."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Надіслали листівку». Постав назву надісланої речі після дієслова; адресат із прийменником уже наведений.",
+            "accepted_target_texts": [
+                "We sent a postcard to our grandparents."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "sent a postcard",
+                "to our grandparents."
+            ],
+            "token_groups": [
+                "We",
+                "sent a postcard",
+                "to our grandparents."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-sentence-structure-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The waiter {a1} after dinner.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Після вечері офіціант приніс рахунок.",
+            "target_text": "The waiter brought the bill after dinner.",
+            "markers": {
+                "a1": {
+                    "answer": "brought the bill",
+                    "options": [
+                        "brought the bill",
+                        "the bill brought",
+                        "brought bill the"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Приніс рахунок». Передай принесення та його предмет до вже наведеної обставини часу."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Приніс рахунок». Передай принесення та його предмет до вже наведеної обставини часу.",
+            "accepted_target_texts": [
+                "The waiter brought the bill after dinner."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The waiter",
+                "brought the bill",
+                "after dinner."
+            ],
+            "token_groups": [
+                "The waiter",
+                "brought the bill",
+                "after dinner."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-sentence-structure-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The person who organised the trip {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Людина, яка організувала поїздку, скасувала бронювання.",
+            "target_text": "The person who organised the trip cancelled the booking.",
+            "markers": {
+                "a1": {
+                    "answer": "cancelled the booking",
+                    "options": [
+                        "cancelled the booking",
+                        "the booking cancelled",
+                        "cancelled it the booking"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Скасувала бронювання». Після підмета з усією означальною частиною постав дію скасування та її об'єкт."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Скасувала бронювання». Після підмета з усією означальною частиною постав дію скасування та її об'єкт.",
+            "accepted_target_texts": [
+                "The person who organised the trip cancelled the booking.",
+                "The person who organised the trip canceled the booking.",
+                "The person who organised the trip cancelled the reservation.",
+                "The person who organised the trip canceled the reservation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "canceled the booking",
+                    "cancelled the reservation",
+                    "canceled the reservation"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "canceled the booking",
+                    "cancelled the reservation",
+                    "canceled the reservation"
+                ]
+            },
+            "reorder_groups": [
+                "The person",
+                "who organised",
+                "the trip",
+                "cancelled the booking."
+            ],
+            "token_groups": [
+                "The person",
+                "who organised",
+                "the trip",
+                "cancelled the booking."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-sentence-structure-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The committee {a1} free training.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Комітет запропонував волонтерам безплатне навчання.",
+            "target_text": "The committee offered the volunteers free training.",
+            "markers": {
+                "a1": {
+                    "answer": "offered the volunteers",
+                    "options": [
+                        "offered the volunteers",
+                        "the volunteers offered",
+                        "offered they volunteers"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Запропонував волонтерам». Назви дію пропонування й адресатів перед уже наведеним предметом пропозиції."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Запропонував волонтерам». Назви дію пропонування й адресатів перед уже наведеним предметом пропозиції.",
+            "accepted_target_texts": [
+                "The committee offered the volunteers free training."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "offered the volunteers",
+                "free training."
+            ],
+            "token_groups": [
+                "The committee",
+                "offered the volunteers",
+                "free training."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-sentence-structure-b1-g03",
+            "author_id": "B1-g03",
+            "question": "A sudden gust of wind {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Раптовий порив вітру розкидав папери.",
+            "target_text": "A sudden gust of wind scattered the papers.",
+            "markers": {
+                "a1": {
+                    "answer": "scattered the papers",
+                    "options": [
+                        "scattered the papers",
+                        "the papers scattered",
+                        "scattered papers the"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Розкидав папери». Збережи порив виконавцем дії й назви папери додатком після дієслова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Розкидав папери». Збережи порив виконавцем дії й назви папери додатком після дієслова.",
+            "accepted_target_texts": [
+                "A sudden gust of wind scattered the papers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A sudden gust",
+                "of wind",
+                "scattered the papers."
+            ],
+            "token_groups": [
+                "A sudden gust",
+                "of wind",
+                "scattered the papers."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-sentence-structure-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The story about the missing painting {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Історія про зниклу картину захопила дітей.",
+            "target_text": "The story about the missing painting fascinated the children.",
+            "markers": {
+                "a1": {
+                    "answer": "fascinated the children",
+                    "options": [
+                        "fascinated the children",
+                        "the children fascinated",
+                        "fascinated they children"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Захопила дітей». Після всієї групи підмета постав дієслово впливу та людей, яких воно стосується."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Захопила дітей». Після всієї групи підмета постав дієслово впливу та людей, яких воно стосується.",
+            "accepted_target_texts": [
+                "The story about the missing painting fascinated the children.",
+                "The story about the missing painting captivated the children.",
+                "The story about the missing painting fascinated the kids.",
+                "The story about the missing painting captivated the kids."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "captivated the children",
+                    "fascinated the kids",
+                    "captivated the kids"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "captivated the children",
+                    "fascinated the kids",
+                    "captivated the kids"
+                ]
+            },
+            "reorder_groups": [
+                "The story",
+                "about the missing",
+                "painting",
+                "fascinated the children."
+            ],
+            "token_groups": [
+                "The story",
+                "about the missing",
+                "painting",
+                "fascinated the children."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-sentence-structure-b1-g05",
+            "author_id": "B1-g05",
+            "question": "What happened after the concert {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Те, що сталося після концерту, здивувало організаторів.",
+            "target_text": "What happened after the concert surprised the organisers.",
+            "markers": {
+                "a1": {
+                    "answer": "surprised the organisers",
+                    "options": [
+                        "surprised the organisers",
+                        "the organisers surprised",
+                        "surprised organisers the"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Здивувало організаторів». Ціла початкова частина є підметом; після неї назви дію та її об'єкт."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Здивувало організаторів». Ціла початкова частина є підметом; після неї назви дію та її об'єкт.",
+            "accepted_target_texts": [
+                "What happened after the concert surprised the organisers.",
+                "What happened after the concert surprised the organizers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "surprised the organizers"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "surprised the organizers"
+                ]
+            },
+            "reorder_groups": [
+                "What happened",
+                "after the concert",
+                "surprised the organisers."
+            ],
+            "token_groups": [
+                "What happened",
+                "after the concert",
+                "surprised the organisers."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-sentence-structure-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The manager {a1} unreasonable.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Керівник вважав прохання нерозумним.",
+            "target_text": "The manager considered the request unreasonable.",
+            "markers": {
+                "a1": {
+                    "answer": "considered the request",
+                    "options": [
+                        "considered the request",
+                        "the request considered",
+                        "considered it the request"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Вважав це прохання». Постав дієслово оцінювання, потім додаток, а його оцінку вже наведено."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Вважав це прохання». Постав дієслово оцінювання, потім додаток, а його оцінку вже наведено.",
+            "accepted_target_texts": [
+                "The manager considered the request unreasonable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager",
+                "considered the request",
+                "unreasonable."
+            ],
+            "token_groups": [
+                "The manager",
+                "considered the request",
+                "unreasonable."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "bgq-sentence-structure-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The report published last week {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Опублікований минулого тижня звіт поставив під сумнів це припущення.",
+            "target_text": "The report published last week challenged the assumption.",
+            "markers": {
+                "a1": {
+                    "answer": "challenged the assumption",
+                    "options": [
+                        "challenged the assumption",
+                        "the assumption challenged",
+                        "challenged it the assumption"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Поставив під сумнів це припущення». Означення належить підмету; головне дієслово має стояти перед припущенням-додатком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Поставив під сумнів це припущення». Означення належить підмету; головне дієслово має стояти перед припущенням-додатком.",
+            "accepted_target_texts": [
+                "The report published last week challenged the assumption.",
+                "The report published last week questioned the assumption."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "questioned the assumption"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "questioned the assumption"
+                ]
+            },
+            "reorder_groups": [
+                "The report",
+                "published last week",
+                "challenged the assumption."
+            ],
+            "token_groups": [
+                "The report",
+                "published last week",
+                "challenged the assumption."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "bgq-sentence-structure-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The board {a1} access to the archive.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Правління надало дослідникам доступ до архіву.",
+            "target_text": "The board granted the researchers access to the archive.",
+            "markers": {
+                "a1": {
+                    "answer": "granted the researchers",
+                    "options": [
+                        "granted the researchers",
+                        "the researchers granted",
+                        "granted they researchers"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Надало дослідникам». Після дієслова надання назви адресатів; предмет надання вже наведений далі."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Надало дослідникам». Після дієслова надання назви адресатів; предмет надання вже наведений далі.",
+            "accepted_target_texts": [
+                "The board granted the researchers access to the archive."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The board",
+                "granted the researchers",
+                "access to",
+                "the archive."
+            ],
+            "token_groups": [
+                "The board",
+                "granted the researchers",
+                "access to",
+                "the archive."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "bgq-sentence-structure-b2-g03",
+            "author_id": "B2-g03",
+            "question": "What the review revealed {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Те, що виявила перевірка, підірвало офіційну версію.",
+            "target_text": "What the review revealed undermined the official account.",
+            "markers": {
+                "a1": {
+                    "answer": "undermined the official account",
+                    "options": [
+                        "undermined the official account",
+                        "the official account undermined",
+                        "undermined it the official account"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Підірвало офіційну версію». Ціла підметова частина стоїть перед дією; назви офіційну версію її додатком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Підірвало офіційну версію». Ціла підметова частина стоїть перед дією; назви офіційну версію її додатком.",
+            "accepted_target_texts": [
+                "What the review revealed undermined the official account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the review",
+                "revealed undermined",
+                "the official account."
+            ],
+            "token_groups": [
+                "What the review",
+                "revealed undermined",
+                "the official account."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "bgq-sentence-structure-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The complexity of the procedure {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Складність процедури відштовхнула потенційних заявників.",
+            "target_text": "The complexity of the procedure discouraged potential applicants.",
+            "markers": {
+                "a1": {
+                    "answer": "discouraged potential applicants",
+                    "options": [
+                        "discouraged potential applicants",
+                        "potential applicants discouraged",
+                        "discouraged applicants potential"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Відштовхнула потенційних заявників». Збережи абстрактну причину підметом і постав людей після дієслова впливу."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Відштовхнула потенційних заявників». Збережи абстрактну причину підметом і постав людей після дієслова впливу.",
+            "accepted_target_texts": [
+                "The complexity of the procedure discouraged potential applicants.",
+                "The complexity of the procedure deterred potential applicants."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "deterred potential applicants"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "deterred potential applicants"
+                ]
+            },
+            "reorder_groups": [
+                "The complexity",
+                "of the procedure",
+                "discouraged potential applicants."
+            ],
+            "token_groups": [
+                "The complexity",
+                "of the procedure",
+                "discouraged potential applicants."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "bgq-sentence-structure-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The evidence {a1} unsafe.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Докази зробили попередній вирок ненадійним.",
+            "target_text": "The evidence rendered the earlier verdict unsafe.",
+            "markers": {
+                "a1": {
+                    "answer": "rendered the earlier verdict",
+                    "options": [
+                        "rendered the earlier verdict",
+                        "the earlier verdict rendered",
+                        "rendered it the earlier verdict"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Зробили попередній вирок». Потрібні головне дієслово й додаток перед уже наведеною оцінкою цього додатка."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Зробили попередній вирок». Потрібні головне дієслово й додаток перед уже наведеною оцінкою цього додатка.",
+            "accepted_target_texts": [
+                "The evidence rendered the earlier verdict unsafe."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "rendered the earlier",
+                "verdict unsafe."
+            ],
+            "token_groups": [
+                "The evidence",
+                "rendered the earlier",
+                "verdict unsafe."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "bgq-sentence-structure-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The spokesperson {a1} to a misunderstanding.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Речник пояснив плутанину непорозумінням.",
+            "target_text": "The spokesperson attributed the confusion to a misunderstanding.",
+            "markers": {
+                "a1": {
+                    "answer": "attributed the confusion",
+                    "options": [
+                        "attributed the confusion",
+                        "the confusion attributed",
+                        "attributed it the confusion"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Пояснив цю плутанину». Постав дію пояснення та додаток перед уже наведеним причинним прийменниковим зворотом."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Пояснив цю плутанину». Постав дію пояснення та додаток перед уже наведеним причинним прийменниковим зворотом.",
+            "accepted_target_texts": [
+                "The spokesperson attributed the confusion to a misunderstanding.",
+                "The spokesperson ascribed the confusion to a misunderstanding."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "ascribed the confusion"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "ascribed the confusion"
+                ]
+            },
+            "reorder_groups": [
+                "The spokesperson",
+                "attributed the confusion",
+                "to a misunderstanding."
+            ],
+            "token_groups": [
+                "The spokesperson",
+                "attributed the confusion",
+                "to a misunderstanding."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "bgq-sentence-structure-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The presumption of universal consent {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Припущення про загальну згоду спотворює аналіз.",
+            "target_text": "The presumption of universal consent distorts the analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "distorts the analysis",
+                    "options": [
+                        "distorts the analysis",
+                        "the analysis distorts",
+                        "distorts it the analysis"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Спотворює аналіз». Після підмета з прийменниковим означенням назви дію спотворення та її об'єкт."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Спотворює аналіз». Після підмета з прийменниковим означенням назви дію спотворення та її об'єкт.",
+            "accepted_target_texts": [
+                "The presumption of universal consent distorts the analysis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The presumption",
+                "of universal consent",
+                "distorts the analysis."
+            ],
+            "token_groups": [
+                "The presumption",
+                "of universal consent",
+                "distorts the analysis."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "bgq-sentence-structure-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The settlement {a1} limited protection.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Угода забезпечила меншості обмежений захист.",
+            "target_text": "The settlement afforded the minority limited protection.",
+            "markers": {
+                "a1": {
+                    "answer": "afforded the minority",
+                    "options": [
+                        "afforded the minority",
+                        "the minority afforded",
+                        "afforded they minority"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Забезпечила меншості». Після дієслова надання назви адресата; предмет надання вже наведений."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Забезпечила меншості». Після дієслова надання назви адресата; предмет надання вже наведений.",
+            "accepted_target_texts": [
+                "The settlement afforded the minority limited protection."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The settlement",
+                "afforded the minority",
+                "limited protection."
+            ],
+            "token_groups": [
+                "The settlement",
+                "afforded the minority",
+                "limited protection."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "bgq-sentence-structure-c1-g03",
+            "author_id": "C1-g03",
+            "question": "What the dissents expose {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Те, що виявляють окремі суддівські думки, ускладнює панівне тлумачення.",
+            "target_text": "What the dissents expose complicates the prevailing interpretation.",
+            "markers": {
+                "a1": {
+                    "answer": "complicates the prevailing interpretation",
+                    "options": [
+                        "complicates the prevailing interpretation",
+                        "the prevailing interpretation complicates",
+                        "complicates it the prevailing interpretation"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ускладнює панівне тлумачення». Ціла початкова частина є підметом; назви тлумачення додатком головного дієслова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ускладнює панівне тлумачення». Ціла початкова частина є підметом; назви тлумачення додатком головного дієслова.",
+            "accepted_target_texts": [
+                "What the dissents expose complicates the prevailing interpretation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the dissents",
+                "expose complicates",
+                "the prevailing interpretation."
+            ],
+            "token_groups": [
+                "What the dissents",
+                "expose complicates",
+                "the prevailing interpretation."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "bgq-sentence-structure-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The ambiguity in the wording {a1} uncertain.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Неоднозначність формулювання залишила заявників у непевності.",
+            "target_text": "The ambiguity in the wording left the applicants uncertain.",
+            "markers": {
+                "a1": {
+                    "answer": "left the applicants",
+                    "options": [
+                        "left the applicants",
+                        "the applicants left",
+                        "left they applicants"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Залишила заявників». Постав дієслово впливу та додаток перед уже наведеною характеристикою його стану."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Залишила заявників». Постав дієслово впливу та додаток перед уже наведеною характеристикою його стану.",
+            "accepted_target_texts": [
+                "The ambiguity in the wording left the applicants uncertain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ambiguity",
+                "in the wording",
+                "left the applicants",
+                "uncertain."
+            ],
+            "token_groups": [
+                "The ambiguity",
+                "in the wording",
+                "left the applicants",
+                "uncertain."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "bgq-sentence-structure-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The enquiry {a1} to inconsistent accounting.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Розслідування пов'язало розбіжність із непослідовним обліком.",
+            "target_text": "The enquiry traced the discrepancy to inconsistent accounting.",
+            "markers": {
+                "a1": {
+                    "answer": "traced the discrepancy",
+                    "options": [
+                        "traced the discrepancy",
+                        "the discrepancy traced",
+                        "traced it the discrepancy"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Пов’язало цю розбіжність». Після головного дієслова назви розбіжність як об'єкт простеження до джерела."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Пов’язало цю розбіжність». Після головного дієслова назви розбіжність як об'єкт простеження до джерела.",
+            "accepted_target_texts": [
+                "The enquiry traced the discrepancy to inconsistent accounting.",
+                "The inquiry traced the discrepancy to inconsistent accounting."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The enquiry",
+                "traced the discrepancy",
+                "to inconsistent accounting."
+            ],
+            "token_groups": [
+                "The enquiry",
+                "traced the discrepancy",
+                "to inconsistent accounting."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "bgq-sentence-structure-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The revised framework {a1} on the regulator.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Переглянута система покладає істотні зобов'язання на регулятора.",
+            "target_text": "The revised framework imposes substantial obligations on the regulator.",
+            "markers": {
+                "a1": {
+                    "answer": "imposes substantial obligations",
+                    "options": [
+                        "imposes substantial obligations",
+                        "substantial obligations imposes",
+                        "imposes obligations substantial"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Покладає істотні зобов’язання». Постав предмет накладення після дієслова; адресат уже наведений із прийменником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Покладає істотні зобов’язання». Постав предмет накладення після дієслова; адресат уже наведений із прийменником.",
+            "accepted_target_texts": [
+                "The revised framework imposes substantial obligations on the regulator."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The revised framework",
+                "imposes substantial obligations",
+                "on the regulator."
+            ],
+            "token_groups": [
+                "The revised framework",
+                "imposes substantial obligations",
+                "on the regulator."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "bgq-sentence-structure-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The conflation of legality with legitimacy {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Ототожнення законності з легітимністю наперед визначає висновок аргументації.",
+            "target_text": "The conflation of legality with legitimacy prejudges the argument.",
+            "markers": {
+                "a1": {
+                    "answer": "prejudges the argument",
+                    "options": [
+                        "prejudges the argument",
+                        "the argument prejudges",
+                        "prejudges it the argument"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Наперед визначає висновок аргументації». Збережи все абстрактне поняття підметом і постав аргументацію після головної дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Наперед визначає висновок аргументації». Збережи все абстрактне поняття підметом і постав аргументацію після головної дії.",
+            "accepted_target_texts": [
+                "The conflation of legality with legitimacy prejudges the argument."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conflation",
+                "of legality",
+                "with legitimacy",
+                "prejudges the argument."
+            ],
+            "token_groups": [
+                "The conflation",
+                "of legality",
+                "with legitimacy",
+                "prejudges the argument."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "bgq-sentence-structure-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The arrangement {a1} unprecedented latitude.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Ця домовленість надала виконавчій владі безпрецедентну свободу дій.",
+            "target_text": "The arrangement accorded the executive unprecedented latitude.",
+            "markers": {
+                "a1": {
+                    "answer": "accorded the executive",
+                    "options": [
+                        "accorded the executive",
+                        "the executive accorded",
+                        "accorded it the executive"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Надала виконавчій владі». Після дієслова надання постав адресата, а назва наданої свободи вже наведена."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Надала виконавчій владі». Після дієслова надання постав адресата, а назва наданої свободи вже наведена.",
+            "accepted_target_texts": [
+                "The arrangement accorded the executive unprecedented latitude."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The arrangement",
+                "accorded the executive",
+                "unprecedented latitude."
+            ],
+            "token_groups": [
+                "The arrangement",
+                "accorded the executive",
+                "unprecedented latitude."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "bgq-sentence-structure-c2-g03",
+            "author_id": "C2-g03",
+            "question": "What the historical record actually establishes {a1} to inevitability.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Те, що насправді встановлюють історичні джерела, спростовує претензію на неминучість.",
+            "target_text": "What the historical record actually establishes belies the claim to inevitability.",
+            "markers": {
+                "a1": {
+                    "answer": "belies the claim",
+                    "options": [
+                        "belies the claim",
+                        "the claim belies",
+                        "belies it the claim"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Спростовує цю претензію». Збережи цілу підметову частину й постав претензію додатком головного дієслова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Спростовує цю претензію». Збережи цілу підметову частину й постав претензію додатком головного дієслова.",
+            "accepted_target_texts": [
+                "What the historical record actually establishes belies the claim to inevitability."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the historical",
+                "record actually establishes",
+                "belies the claim",
+                "to inevitability."
+            ],
+            "token_groups": [
+                "What the historical",
+                "record actually establishes",
+                "belies the claim",
+                "to inevitability."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "bgq-sentence-structure-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The unacknowledged asymmetry between the parties {a1} misleading.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Невизнана асиметрія між сторонами робить аналогію оманливою.",
+            "target_text": "The unacknowledged asymmetry between the parties renders the analogy misleading.",
+            "markers": {
+                "a1": {
+                    "answer": "renders the analogy",
+                    "options": [
+                        "renders the analogy",
+                        "the analogy renders",
+                        "renders it the analogy"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Робить цю аналогію». Після головного дієслова постав аналогію як додаток перед уже наведеною оцінкою."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Робить цю аналогію». Після головного дієслова постав аналогію як додаток перед уже наведеною оцінкою.",
+            "accepted_target_texts": [
+                "The unacknowledged asymmetry between the parties renders the analogy misleading."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The unacknowledged asymmetry",
+                "between the parties",
+                "renders the analogy",
+                "misleading."
+            ],
+            "token_groups": [
+                "The unacknowledged asymmetry",
+                "between the parties",
+                "renders the analogy",
+                "misleading."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "bgq-sentence-structure-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The analysis {a1} with a coherence it never possessed.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Аналіз приписує установі цілісність, якої вона ніколи не мала.",
+            "target_text": "The analysis credits the institution with a coherence it never possessed.",
+            "markers": {
+                "a1": {
+                    "answer": "credits the institution",
+                    "options": [
+                        "credits the institution",
+                        "the institution credits",
+                        "credits it the institution"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Приписує цій установі». Залиш аналіз підметом і назви установу після дієслова приписування."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Приписує цій установі». Залиш аналіз підметом і назви установу після дієслова приписування.",
+            "accepted_target_texts": [
+                "The analysis credits the institution with a coherence it never possessed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analysis",
+                "credits the institution",
+                "with a coherence",
+                "it never possessed."
+            ],
+            "token_groups": [
+                "The analysis",
+                "credits the institution",
+                "with a coherence",
+                "it never possessed."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "bgq-sentence-structure-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The prescriptive ideal {a1} on which the settlement rests.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_structure",
+            "translation_uk": "Нормативний ідеал приховує залежні від обставин чинники, на яких ґрунтується угода.",
+            "target_text": "The prescriptive ideal obscures the contingencies on which the settlement rests.",
+            "markers": {
+                "a1": {
+                    "answer": "obscures the contingencies",
+                    "options": [
+                        "obscures the contingencies",
+                        "the contingencies obscures",
+                        "obscures contingencies the"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Приховує ці залежні від обставин чинники». Назви дію приховування та додаток перед його вже наведеною означальною частиною."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Приховує ці залежні від обставин чинники». Назви дію приховування та додаток перед його вже наведеною означальною частиною.",
+            "accepted_target_texts": [
+                "The prescriptive ideal obscures the contingencies on which the settlement rests."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The prescriptive ideal",
+                "obscures the contingencies",
+                "on which",
+                "the settlement rests."
+            ],
+            "token_groups": [
+                "The prescriptive ideal",
+                "obscures the contingencies",
+                "on which",
+                "the settlement rests."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        }
+    ]
+}

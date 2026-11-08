@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 65034,
+        "uuid": "mvq-sot-c2-g05",
+        "question": "To what extent {a1} reflect the claimant's conduct?",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 56,
+        "source_id": 508,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedShouldOughtToQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "should the remedy",
+                "should the remedies",
+                "does the remedy should"
+            ]
+        },
+        "theory_text_block_uuid": "f059f380-d975-5957-b5ca-ec211778c312",
+        "created_at": "2026-10-31T18:13:14.000000Z",
+        "updated_at": "2026-10-31T18:13:14.000000Z"
+    },
+    "category": {
+        "id": 56,
+        "name": "Modal Verbs",
+        "created_at": "2026-05-17T22:31:01.000000Z",
+        "updated_at": "2026-05-17T22:31:01.000000Z"
+    },
+    "source": {
+        "id": 508,
+        "name": "Modal Verbs Quality: Порада й очікування: should та ought to",
+        "created_at": "2026-10-31T18:13:12.000000Z",
+        "updated_at": "2026-10-31T18:13:12.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 15,
+                "name": "should / ought to",
+                "category": "topic",
+                "created_at": "2026-04-23T11:40:11.000000Z",
+                "updated_at": "2026-04-23T11:40:11.000000Z"
+            },
+            "pivot": {
+                "question_id": 65034,
+                "tag_id": 15,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 64650,
+                "option": "should the remedy",
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 65034,
+                "option_id": 64650,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64652,
+                "option": "should the remedies",
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 65034,
+                "option_id": 64652,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64653,
+                "option": "does the remedy should",
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 65034,
+                "option_id": 64653,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 337664,
+                "question_id": 65034,
+                "marker": "a1",
+                "option_id": 64650,
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            },
+            "option": {
+                "id": 64650,
+                "option": "should the remedy",
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54998,
+                "question_id": 65034,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 64651,
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            },
+            "option": {
+                "id": 64651,
+                "option": "Запитай про належну міру впливу; у пропуску введи модальність і підмет.",
+                "created_at": "2026-10-31T18:13:14.000000Z",
+                "updated_at": "2026-10-31T18:13:14.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57049,
+            "question_id": 65034,
+            "text": "To what extent {a1} reflect the claimant's conduct?",
+            "created_at": "2026-10-31T18:13:14.000000Z",
+            "updated_at": "2026-10-31T18:13:14.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

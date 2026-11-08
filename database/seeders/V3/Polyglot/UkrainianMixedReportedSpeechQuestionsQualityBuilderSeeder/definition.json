@@ -1,0 +1,4994 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/reported-questions.v1.json",
+        "sha256": "85cbe1a11498813d28175548ca963ba9b4a0b0ce8e9b1ea81c79522255ba8a9d"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReportedSpeechQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "reported-speech-quality-reported-questions-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "reported_speech_quality_reported_questions": {
+            "name": "Reported Speech Quality: Reported Questions"
+        }
+    },
+    "tags": {
+        "reported_speech_questions_all_levels": {
+            "name": "reported speech questions all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_whether_questions": {
+            "name": "If Whether Questions",
+            "category": "topic"
+        },
+        "wh_reported_questions": {
+            "name": "Wh Reported Questions",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "question_backshift": {
+            "name": "Question Backshift",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reported_speech_questions_all_levels": {
+            "name": "Reported Questions",
+            "category": "reported_speech"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-questions-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Лія питає, де її черевики.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Лія питає, де її черевики.",
+            "target_text": "Lia asks where her shoes are.",
+            "markers": {
+                "a1": {
+                    "answer": "Lia",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "Lia",
+                        "Omar",
+                        "Artem",
+                        "Vera"
+                    ]
+                },
+                "a2": {
+                    "answer": "asks",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "asks",
+                        "cups",
+                        "doors",
+                        "keys"
+                    ]
+                },
+                "a3": {
+                    "answer": "where",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "where",
+                        "which",
+                        "when",
+                        "why"
+                    ]
+                },
+                "a4": {
+                    "answer": "her",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "her",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a5": {
+                    "answer": "shoes",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "shoes",
+                        "neighbours",
+                        "guests",
+                        "women"
+                    ]
+                },
+                "a6": {
+                    "answer": "are.",
+                    "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+                    "options": [
+                        "are",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з імені мовця; після питального слова не роби перестановки.",
+            "accepted_target_texts": [
+                "Lia asks where her shoes are."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lia",
+                "asks",
+                "where",
+                "her shoes",
+                "are."
+            ],
+            "token_groups": [
+                "Lia",
+                "asks",
+                "where",
+                "her shoes",
+                "are."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Lia",
+                "asks",
+                "where",
+                "her",
+                "shoes",
+                "are."
+            ],
+            "options": [
+                "Lia",
+                "Omar",
+                "Artem",
+                "Vera",
+                "asks",
+                "cups",
+                "doors",
+                "keys",
+                "where",
+                "which",
+                "when",
+                "why",
+                "her",
+                "whose",
+                "my",
+                "your",
+                "shoes",
+                "neighbours",
+                "guests",
+                "women",
+                "are",
+                "being",
+                "isn't",
+                "aren't"
+            ],
+            "source_text_uk": "Лія питає, де її черевики.",
+            "options_by_marker": {
+                "a1": [
+                    "Lia",
+                    "Omar",
+                    "Artem",
+                    "Vera"
+                ],
+                "a2": [
+                    "asks",
+                    "cups",
+                    "doors",
+                    "keys"
+                ],
+                "a3": [
+                    "where",
+                    "which",
+                    "when",
+                    "why"
+                ],
+                "a4": [
+                    "her",
+                    "whose",
+                    "my",
+                    "your"
+                ],
+                "a5": [
+                    "shoes",
+                    "neighbours",
+                    "guests",
+                    "women"
+                ],
+                "a6": [
+                    "are",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_phrase",
+                "a3": "connector_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-questions-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Омар питає, чи автобус повний.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Омар питає, чи автобус повний.",
+            "target_text": "Omar asks if the bus is full.",
+            "markers": {
+                "a1": {
+                    "answer": "Omar",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "Omar",
+                        "Lia",
+                        "Daria",
+                        "Theo"
+                    ]
+                },
+                "a2": {
+                    "answer": "asks",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "asks",
+                        "shoes",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a3": {
+                    "answer": "if",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "if",
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "bus",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "bus",
+                        "boat",
+                        "ship",
+                        "bike"
+                    ]
+                },
+                "a6": {
+                    "answer": "is",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a7": {
+                    "answer": "full.",
+                    "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+                    "options": [
+                        "full",
+                        "agree",
+                        "ready",
+                        "hear"
+                    ]
+                }
+            },
+            "verb_hint": "Передай загальне питання сполучником чи та прямим порядком слів.",
+            "accepted_target_texts": [
+                "Omar asks if the bus is full.",
+                "Omar asks whether the bus is full."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "whether"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "whether"
+                ]
+            },
+            "reorder_groups": [
+                "Omar",
+                "asks",
+                "if",
+                "the bus",
+                "is full."
+            ],
+            "token_groups": [
+                "Omar",
+                "asks",
+                "if",
+                "the bus",
+                "is full."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Omar",
+                "asks",
+                "if",
+                "the",
+                "bus",
+                "is",
+                "full."
+            ],
+            "options": [
+                "Omar",
+                "Lia",
+                "Daria",
+                "Theo",
+                "asks",
+                "shoes",
+                "men",
+                "women",
+                "if",
+                "and",
+                "but",
+                "or",
+                "the",
+                "that",
+                "these",
+                "those",
+                "bus",
+                "boat",
+                "ship",
+                "bike",
+                "is",
+                "am",
+                "are",
+                "was",
+                "full",
+                "agree",
+                "ready",
+                "hear"
+            ],
+            "source_text_uk": "Омар питає, чи автобус повний.",
+            "options_by_marker": {
+                "a1": [
+                    "Omar",
+                    "Lia",
+                    "Daria",
+                    "Theo"
+                ],
+                "a2": [
+                    "asks",
+                    "shoes",
+                    "men",
+                    "women"
+                ],
+                "a3": [
+                    "if",
+                    "and",
+                    "but",
+                    "or"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "bus",
+                    "boat",
+                    "ship",
+                    "bike"
+                ],
+                "a6": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a7": [
+                    "full",
+                    "agree",
+                    "ready",
+                    "hear"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_phrase",
+                "a3": "connector_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-questions-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Дівчинка питає, що потрібно хлопчикові.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Дівчинка питає, що потрібно хлопчикові.",
+            "target_text": "The girl asks what the boy needs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "girl",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "girl",
+                        "committee",
+                        "bus",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "asks",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "asks",
+                        "shoes",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a4": {
+                    "answer": "what",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "what",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "boy",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "boy",
+                        "assistant",
+                        "full",
+                        "Lia"
+                    ]
+                },
+                "a7": {
+                    "answer": "needs.",
+                    "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+                    "options": [
+                        "needs",
+                        "lives",
+                        "buys",
+                        "gives"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи невідому річ і назви хлопчика підметом підрядної частини.",
+            "accepted_target_texts": [
+                "The girl asks what the boy needs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The girl",
+                "asks",
+                "what",
+                "the boy",
+                "needs."
+            ],
+            "token_groups": [
+                "The girl",
+                "asks",
+                "what",
+                "the boy",
+                "needs."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "girl",
+                "asks",
+                "what",
+                "the",
+                "boy",
+                "needs."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "girl",
+                "committee",
+                "bus",
+                "artist",
+                "asks",
+                "shoes",
+                "bags",
+                "books",
+                "what",
+                "wherever",
+                "whenever",
+                "who",
+                "the",
+                "some",
+                "any",
+                "this",
+                "boy",
+                "assistant",
+                "full",
+                "Lia",
+                "needs",
+                "lives",
+                "buys",
+                "gives"
+            ],
+            "source_text_uk": "Дівчинка питає, що потрібно хлопчикові.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "girl",
+                    "committee",
+                    "bus",
+                    "artist"
+                ],
+                "a3": [
+                    "asks",
+                    "shoes",
+                    "bags",
+                    "books"
+                ],
+                "a4": [
+                    "what",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "boy",
+                    "assistant",
+                    "full",
+                    "Lia"
+                ],
+                "a7": [
+                    "needs",
+                    "lives",
+                    "buys",
+                    "gives"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-questions-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Фелікс спитав, де була його валіза.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Фелікс спитав, де була його валіза.",
+            "target_text": "Felix asked where his suitcase was.",
+            "markers": {
+                "a1": {
+                    "answer": "Felix",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "Felix",
+                        "Theo",
+                        "Vera",
+                        "Robin"
+                    ]
+                },
+                "a2": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "then",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "where",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "where",
+                        "what",
+                        "which",
+                        "when"
+                    ]
+                },
+                "a4": {
+                    "answer": "his",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "his",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a5": {
+                    "answer": "suitcase",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "suitcase",
+                        "son",
+                        "mother",
+                        "artist"
+                    ]
+                },
+                "a6": {
+                    "answer": "was.",
+                    "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи власника валізи та порядок підмета перед зв’язкою.",
+            "accepted_target_texts": [
+                "Felix asked where his suitcase was."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Felix",
+                "asked",
+                "where",
+                "his suitcase",
+                "was."
+            ],
+            "token_groups": [
+                "Felix",
+                "asked",
+                "where",
+                "his suitcase",
+                "was."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Felix",
+                "asked",
+                "where",
+                "his",
+                "suitcase",
+                "was."
+            ],
+            "options": [
+                "Felix",
+                "Theo",
+                "Vera",
+                "Robin",
+                "asked",
+                "wondered",
+                "then",
+                "helped",
+                "where",
+                "what",
+                "which",
+                "when",
+                "his",
+                "her",
+                "its",
+                "our",
+                "suitcase",
+                "son",
+                "mother",
+                "artist",
+                "was",
+                "is",
+                "are",
+                "were"
+            ],
+            "source_text_uk": "Фелікс спитав, де була його валіза.",
+            "options_by_marker": {
+                "a1": [
+                    "Felix",
+                    "Theo",
+                    "Vera",
+                    "Robin"
+                ],
+                "a2": [
+                    "asked",
+                    "wondered",
+                    "then",
+                    "helped"
+                ],
+                "a3": [
+                    "where",
+                    "what",
+                    "which",
+                    "when"
+                ],
+                "a4": [
+                    "his",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a5": [
+                    "suitcase",
+                    "son",
+                    "mother",
+                    "artist"
+                ],
+                "a6": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_phrase",
+                "a3": "connector_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-questions-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Мати спитала, чи її син тоді мав ключ.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Мати спитала, чи її син тоді мав ключ.",
+            "target_text": "The mother asked if her son had a key then.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "mother",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "mother",
+                        "suitcase",
+                        "artist",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "if",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "if",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a5": {
+                    "answer": "her",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "her",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a6": {
+                    "answer": "son",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "son",
+                        "committee",
+                        "room",
+                        "Felix"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a9": {
+                    "answer": "key",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "key",
+                        "message",
+                        "picture",
+                        "child"
+                    ]
+                },
+                "a10": {
+                    "answer": "then.",
+                    "verb_hint": "Питання стосується володіння в минулій ситуації.",
+                    "options": [
+                        "then",
+                        "went",
+                        "saw",
+                        "needed"
+                    ]
+                }
+            },
+            "verb_hint": "Питання стосується володіння в минулій ситуації.",
+            "accepted_target_texts": [
+                "The mother asked if her son had a key then.",
+                "The mother asked whether her son had a key then."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "whether"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "whether"
+                ]
+            },
+            "reorder_groups": [
+                "The mother",
+                "asked",
+                "if",
+                "her son",
+                "had",
+                "a key",
+                "then."
+            ],
+            "token_groups": [
+                "The mother",
+                "asked",
+                "if",
+                "her son",
+                "had",
+                "a key",
+                "then."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "mother",
+                "asked",
+                "if",
+                "her",
+                "son",
+                "had",
+                "a",
+                "key",
+                "then."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "mother",
+                "suitcase",
+                "artist",
+                "assistant",
+                "asked",
+                "wondered",
+                "cooked",
+                "found",
+                "if",
+                "so",
+                "yet",
+                "because",
+                "her",
+                "its",
+                "our",
+                "their",
+                "son",
+                "committee",
+                "room",
+                "Felix",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "a",
+                "this",
+                "that",
+                "these",
+                "key",
+                "message",
+                "picture",
+                "child",
+                "then",
+                "went",
+                "saw",
+                "needed"
+            ],
+            "source_text_uk": "Мати спитала, чи її син тоді мав ключ.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "mother",
+                    "suitcase",
+                    "artist",
+                    "assistant"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "cooked",
+                    "found"
+                ],
+                "a4": [
+                    "if",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a5": [
+                    "her",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a6": [
+                    "son",
+                    "committee",
+                    "room",
+                    "Felix"
+                ],
+                "a7": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a8": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a9": [
+                    "key",
+                    "message",
+                    "picture",
+                    "child"
+                ],
+                "a10": [
+                    "then",
+                    "went",
+                    "saw",
+                    "needed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-questions-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Гості спитали, котра кімната була їхньою.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Гості спитали, котра кімната була їхньою.",
+            "target_text": "The guests asked which room was theirs.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "guests",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "guests",
+                        "neighbours",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "then",
+                        "opened"
+                    ]
+                },
+                "a4": {
+                    "answer": "which",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "which",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a5": {
+                    "answer": "room",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "room",
+                        "Felix",
+                        "suitcase",
+                        "mother"
+                    ]
+                },
+                "a6": {
+                    "answer": "was",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a7": {
+                    "answer": "theirs.",
+                    "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                }
+            },
+            "verb_hint": "Передай вибір кімнати й збережи самостійну присвійну форму.",
+            "accepted_target_texts": [
+                "The guests asked which room was theirs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "asked",
+                "which room",
+                "was theirs."
+            ],
+            "token_groups": [
+                "The guests",
+                "asked",
+                "which room",
+                "was theirs."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "guests",
+                "asked",
+                "which",
+                "room",
+                "was",
+                "theirs."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "guests",
+                "neighbours",
+                "rooms",
+                "maps",
+                "asked",
+                "wondered",
+                "then",
+                "opened",
+                "which",
+                "wherever",
+                "whenever",
+                "who",
+                "room",
+                "Felix",
+                "suitcase",
+                "mother",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "theirs",
+                "my",
+                "your",
+                "his"
+            ],
+            "source_text_uk": "Гості спитали, котра кімната була їхньою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "guests",
+                    "neighbours",
+                    "rooms",
+                    "maps"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "then",
+                    "opened"
+                ],
+                "a4": [
+                    "which",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a5": [
+                    "room",
+                    "Felix",
+                    "suitcase",
+                    "mother"
+                ],
+                "a6": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a7": [
+                    "theirs",
+                    "my",
+                    "your",
+                    "his"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "connector_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-questions-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Детектив спитав, де раніше зберігали зниклу картину.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Детектив спитав, де раніше зберігали зниклу картину.",
+            "target_text": "The detective asked where the missing painting had been kept.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "detective",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "detective",
+                        "arrive",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a4": {
+                    "answer": "where",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "where",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "missing",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "missing",
+                        "following",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a7": {
+                    "answer": "painting",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "painting",
+                        "working",
+                        "playing",
+                        "reading"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a10": {
+                    "answer": "kept.",
+                    "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+                    "options": [
+                        "kept",
+                        "repaired",
+                        "changed",
+                        "needed"
+                    ]
+                }
+            },
+            "verb_hint": "Потрібен непрямий порядок слів і пасив для картини до її зникнення.",
+            "accepted_target_texts": [
+                "The detective asked where the missing painting had been kept."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The detective",
+                "asked",
+                "where",
+                "the missing painting",
+                "had been kept."
+            ],
+            "token_groups": [
+                "The detective",
+                "asked",
+                "where",
+                "the missing painting",
+                "had been kept."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "detective",
+                "asked",
+                "where",
+                "the",
+                "missing",
+                "painting",
+                "had",
+                "been",
+                "kept."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "detective",
+                "arrive",
+                "lovely",
+                "final",
+                "asked",
+                "wondered",
+                "liked",
+                "wanted",
+                "where",
+                "wherever",
+                "whenever",
+                "who",
+                "the",
+                "an",
+                "some",
+                "any",
+                "missing",
+                "following",
+                "walking",
+                "opening",
+                "painting",
+                "working",
+                "playing",
+                "reading",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "kept",
+                "repaired",
+                "changed",
+                "needed"
+            ],
+            "source_text_uk": "Детектив спитав, де раніше зберігали зниклу картину.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "detective",
+                    "arrive",
+                    "lovely",
+                    "final"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "liked",
+                    "wanted"
+                ],
+                "a4": [
+                    "where",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a5": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "missing",
+                    "following",
+                    "walking",
+                    "opening"
+                ],
+                "a7": [
+                    "painting",
+                    "working",
+                    "playing",
+                    "reading"
+                ],
+                "a8": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a9": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a10": [
+                    "kept",
+                    "repaired",
+                    "changed",
+                    "needed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-questions-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Покупець спитав, чи доставка прибуде рано наступного дня.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Покупець спитав, чи доставка прибуде рано наступного дня.",
+            "target_text": "The customer asked if the delivery would arrive early the following day.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "customer",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "customer",
+                        "artist",
+                        "assistant",
+                        "committee"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "if",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "if",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "delivery",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "delivery",
+                        "plan",
+                        "coach",
+                        "chair"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "would",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a8": {
+                    "answer": "arrive",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "arrive",
+                        "detective",
+                        "dirty",
+                        "good"
+                    ]
+                },
+                "a9": {
+                    "answer": "early",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "early",
+                        "happily",
+                        "easily",
+                        "politely"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a11": {
+                    "answer": "following",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "following",
+                        "missing",
+                        "painting",
+                        "driving"
+                    ]
+                },
+                "a12": {
+                    "answer": "day.",
+                    "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+                    "options": [
+                        "day",
+                        "morning",
+                        "afternoon",
+                        "evening"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи майбутню доставку з перспективи минулого питання.",
+            "accepted_target_texts": [
+                "The customer asked if the delivery would arrive early the following day.",
+                "The customer asked whether the delivery would arrive early the following day.",
+                "The buyer asked if the delivery would arrive early the following day.",
+                "The buyer asked whether the delivery would arrive early the following day."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "whether"
+                ],
+                "a2": [
+                    "buyer"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "whether"
+                ],
+                "a2": [
+                    "buyer"
+                ]
+            },
+            "reorder_groups": [
+                "The customer",
+                "asked",
+                "if",
+                "the delivery",
+                "would arrive",
+                "early",
+                "the following day."
+            ],
+            "token_groups": [
+                "The customer",
+                "asked",
+                "if",
+                "the delivery",
+                "would arrive",
+                "early",
+                "the following day."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "customer",
+                "asked",
+                "if",
+                "the",
+                "delivery",
+                "would",
+                "arrive",
+                "early",
+                "the",
+                "following",
+                "day."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "customer",
+                "artist",
+                "assistant",
+                "committee",
+                "asked",
+                "wondered",
+                "cooked",
+                "found",
+                "if",
+                "unless",
+                "whereas",
+                "while",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "delivery",
+                "plan",
+                "coach",
+                "chair",
+                "would",
+                "can't",
+                "couldn't",
+                "won't",
+                "arrive",
+                "detective",
+                "dirty",
+                "good",
+                "early",
+                "happily",
+                "easily",
+                "politely",
+                "all",
+                "both",
+                "a",
+                "following",
+                "missing",
+                "painting",
+                "driving",
+                "day",
+                "morning",
+                "afternoon",
+                "evening"
+            ],
+            "source_text_uk": "Покупець спитав, чи доставка прибуде рано наступного дня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "customer",
+                    "artist",
+                    "assistant",
+                    "committee"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "cooked",
+                    "found"
+                ],
+                "a4": [
+                    "if",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a5": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "delivery",
+                    "plan",
+                    "coach",
+                    "chair"
+                ],
+                "a7": [
+                    "would",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a8": [
+                    "arrive",
+                    "detective",
+                    "dirty",
+                    "good"
+                ],
+                "a9": [
+                    "early",
+                    "happily",
+                    "easily",
+                    "politely"
+                ],
+                "a10": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a11": [
+                    "following",
+                    "missing",
+                    "painting",
+                    "driving"
+                ],
+                "a12": [
+                    "day",
+                    "morning",
+                    "afternoon",
+                    "evening"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "adverbial_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-questions-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Тренер спитав, чому ми раніше змінили план.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Тренер спитав, чому ми раніше змінили план.",
+            "target_text": "The coach asked why we had changed the plan.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "coach",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "coach",
+                        "committee",
+                        "customer",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a4": {
+                    "answer": "why",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "why",
+                        "what",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "we",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "changed",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "changed",
+                        "checked",
+                        "open",
+                        "arrived"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a9": {
+                    "answer": "plan.",
+                    "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+                    "options": [
+                        "plan",
+                        "message",
+                        "delivery",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Зміна передувала питанню; не використовуй порядок прямого питання.",
+            "accepted_target_texts": [
+                "The coach asked why we had changed the plan."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coach",
+                "asked",
+                "why",
+                "we",
+                "had changed",
+                "the plan."
+            ],
+            "token_groups": [
+                "The coach",
+                "asked",
+                "why",
+                "we",
+                "had changed",
+                "the plan."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "coach",
+                "asked",
+                "why",
+                "we",
+                "had",
+                "changed",
+                "the",
+                "plan."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "coach",
+                "committee",
+                "customer",
+                "artist",
+                "asked",
+                "wondered",
+                "saw",
+                "needed",
+                "why",
+                "what",
+                "which",
+                "where",
+                "we",
+                "themselves",
+                "I",
+                "you",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "changed",
+                "checked",
+                "open",
+                "arrived",
+                "the",
+                "these",
+                "those",
+                "each",
+                "plan",
+                "message",
+                "delivery",
+                "person"
+            ],
+            "source_text_uk": "Тренер спитав, чому ми раніше змінили план.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "coach",
+                    "committee",
+                    "customer",
+                    "artist"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "saw",
+                    "needed"
+                ],
+                "a4": [
+                    "why",
+                    "what",
+                    "which",
+                    "where"
+                ],
+                "a5": [
+                    "we",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a6": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a7": [
+                    "changed",
+                    "checked",
+                    "open",
+                    "arrived"
+                ],
+                "a8": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a9": [
+                    "plan",
+                    "message",
+                    "delivery",
+                    "person"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-questions-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Редактор спитав, чому авторка не розкрила конфлікт інтересів раніше.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Редактор спитав, чому авторка не розкрила конфлікт інтересів раніше.",
+            "target_text": "The editor asked why the author had not disclosed the conflict of interest earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "editor",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "editor",
+                        "assistant",
+                        "committee",
+                        "architect"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "revised",
+                        "left"
+                    ]
+                },
+                "a4": {
+                    "answer": "why",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "why",
+                        "where",
+                        "when",
+                        "how"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "author",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "author",
+                        "witness",
+                        "artist",
+                        "roof"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a9": {
+                    "answer": "disclosed",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "disclosed",
+                        "repaired",
+                        "called",
+                        "walked"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "the",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a11": {
+                    "answer": "conflict",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "conflict",
+                        "message",
+                        "load",
+                        "lawyer"
+                    ]
+                },
+                "a12": {
+                    "answer": "of",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a13": {
+                    "answer": "interest",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "interest",
+                        "breakfast",
+                        "permission",
+                        "before"
+                    ]
+                },
+                "a14": {
+                    "answer": "earlier.",
+                    "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+                    "options": [
+                        "earlier",
+                        "withstand",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи попереднє невиконання й об’єкт розкриття.",
+            "accepted_target_texts": [
+                "The editor asked why the author had not disclosed the conflict of interest earlier."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor",
+                "asked",
+                "why",
+                "the author",
+                "had not disclosed",
+                "the conflict",
+                "of interest",
+                "earlier."
+            ],
+            "token_groups": [
+                "The editor",
+                "asked",
+                "why",
+                "the author",
+                "had not disclosed",
+                "the conflict",
+                "of interest",
+                "earlier."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "editor",
+                "asked",
+                "why",
+                "the",
+                "author",
+                "had",
+                "not",
+                "disclosed",
+                "the",
+                "conflict",
+                "of",
+                "interest",
+                "earlier."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "editor",
+                "assistant",
+                "committee",
+                "architect",
+                "asked",
+                "wondered",
+                "revised",
+                "left",
+                "why",
+                "where",
+                "when",
+                "how",
+                "the",
+                "some",
+                "any",
+                "this",
+                "author",
+                "witness",
+                "artist",
+                "roof",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "disclosed",
+                "repaired",
+                "called",
+                "walked",
+                "an",
+                "that",
+                "these",
+                "conflict",
+                "message",
+                "load",
+                "lawyer",
+                "of",
+                "at",
+                "by",
+                "with",
+                "interest",
+                "breakfast",
+                "permission",
+                "before",
+                "earlier",
+                "withstand",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Редактор спитав, чому авторка не розкрила конфлікт інтересів раніше.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "editor",
+                    "assistant",
+                    "committee",
+                    "architect"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "revised",
+                    "left"
+                ],
+                "a4": [
+                    "why",
+                    "where",
+                    "when",
+                    "how"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "author",
+                    "witness",
+                    "artist",
+                    "roof"
+                ],
+                "a7": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a8": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a9": [
+                    "disclosed",
+                    "repaired",
+                    "called",
+                    "walked"
+                ],
+                "a10": [
+                    "the",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a11": [
+                    "conflict",
+                    "message",
+                    "load",
+                    "lawyer"
+                ],
+                "a12": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a13": [
+                    "interest",
+                    "breakfast",
+                    "permission",
+                    "before"
+                ],
+                "a14": [
+                    "earlier",
+                    "withstand",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase",
+                "a12": "adverbial_phrase",
+                "a13": "adverbial_phrase",
+                "a14": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-questions-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Архітекторка спитала, чи змінений дах витримає додаткове навантаження.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Архітекторка спитала, чи змінений дах витримає додаткове навантаження.",
+            "target_text": "The architect asked whether the revised roof would withstand the additional load.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "architect",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "architect",
+                        "lawyer",
+                        "witness",
+                        "editor"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "disclosed",
+                        "worked"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "whether",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "revised",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "revised",
+                        "cooked",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a7": {
+                    "answer": "roof",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "roof",
+                        "before",
+                        "author",
+                        "conflict"
+                    ]
+                },
+                "a8": {
+                    "answer": "would",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "would",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a9": {
+                    "answer": "withstand",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "withstand",
+                        "hear",
+                        "agree",
+                        "ready"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a11": {
+                    "answer": "additional",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "additional",
+                        "new",
+                        "old",
+                        "final"
+                    ]
+                },
+                "a12": {
+                    "answer": "load.",
+                    "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+                    "options": [
+                        "load",
+                        "concern",
+                        "version",
+                        "request"
+                    ]
+                }
+            },
+            "verb_hint": "Переказуй питання про майбутню здатність із минулого моменту.",
+            "accepted_target_texts": [
+                "The architect asked whether the revised roof would withstand the additional load.",
+                "The architect asked if the revised roof would withstand the additional load."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "The architect",
+                "asked",
+                "whether",
+                "the revised roof",
+                "would withstand",
+                "the additional load."
+            ],
+            "token_groups": [
+                "The architect",
+                "asked",
+                "whether",
+                "the revised roof",
+                "would withstand",
+                "the additional load."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "architect",
+                "asked",
+                "whether",
+                "the",
+                "revised",
+                "roof",
+                "would",
+                "withstand",
+                "the",
+                "additional",
+                "load."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "architect",
+                "lawyer",
+                "witness",
+                "editor",
+                "asked",
+                "wondered",
+                "disclosed",
+                "worked",
+                "whether",
+                "so",
+                "yet",
+                "because",
+                "the",
+                "this",
+                "that",
+                "these",
+                "revised",
+                "cooked",
+                "found",
+                "brought",
+                "roof",
+                "before",
+                "author",
+                "conflict",
+                "would",
+                "shouldn't",
+                "cannot",
+                "can",
+                "withstand",
+                "hear",
+                "agree",
+                "ready",
+                "an",
+                "some",
+                "any",
+                "additional",
+                "new",
+                "old",
+                "final",
+                "load",
+                "concern",
+                "version",
+                "request"
+            ],
+            "source_text_uk": "Архітекторка спитала, чи змінений дах витримає додаткове навантаження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "architect",
+                    "lawyer",
+                    "witness",
+                    "editor"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "disclosed",
+                    "worked"
+                ],
+                "a4": [
+                    "whether",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a5": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a6": [
+                    "revised",
+                    "cooked",
+                    "found",
+                    "brought"
+                ],
+                "a7": [
+                    "roof",
+                    "before",
+                    "author",
+                    "conflict"
+                ],
+                "a8": [
+                    "would",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a9": [
+                    "withstand",
+                    "hear",
+                    "agree",
+                    "ready"
+                ],
+                "a10": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a11": [
+                    "additional",
+                    "new",
+                    "old",
+                    "final"
+                ],
+                "a12": [
+                    "load",
+                    "concern",
+                    "version",
+                    "request"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-questions-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Адвокат спитав, які саме записи свідок бачив до слухання.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Адвокат спитав, які саме записи свідок бачив до слухання.",
+            "target_text": "The lawyer asked which records the witness had seen before the hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "lawyer",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "lawyer",
+                        "committee",
+                        "editor",
+                        "author"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "disclosed",
+                        "revised"
+                    ]
+                },
+                "a4": {
+                    "answer": "which",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "which",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a5": {
+                    "answer": "records",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "records",
+                        "men",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "witness",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "witness",
+                        "artist",
+                        "assistant",
+                        "architect"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a9": {
+                    "answer": "seen",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "seen",
+                        "changed",
+                        "open",
+                        "arrived"
+                    ]
+                },
+                "a10": {
+                    "answer": "before",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "before",
+                        "after",
+                        "at",
+                        "on"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a12": {
+                    "answer": "hearing.",
+                    "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+                    "options": [
+                        "hearing",
+                        "meeting",
+                        "waiting",
+                        "watching"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи вибір конкретних записів і попередність перегляду.",
+            "accepted_target_texts": [
+                "The lawyer asked which records the witness had seen before the hearing."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The lawyer",
+                "asked",
+                "which records",
+                "the witness",
+                "had seen",
+                "before the hearing."
+            ],
+            "token_groups": [
+                "The lawyer",
+                "asked",
+                "which records",
+                "the witness",
+                "had seen",
+                "before the hearing."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "lawyer",
+                "asked",
+                "which",
+                "records",
+                "the",
+                "witness",
+                "had",
+                "seen",
+                "before",
+                "the",
+                "hearing."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "lawyer",
+                "committee",
+                "editor",
+                "author",
+                "asked",
+                "wondered",
+                "disclosed",
+                "revised",
+                "which",
+                "why",
+                "how",
+                "whoever",
+                "records",
+                "men",
+                "women",
+                "bikes",
+                "the",
+                "that",
+                "these",
+                "those",
+                "witness",
+                "artist",
+                "assistant",
+                "architect",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "seen",
+                "changed",
+                "open",
+                "arrived",
+                "before",
+                "after",
+                "at",
+                "on",
+                "each",
+                "every",
+                "no",
+                "hearing",
+                "meeting",
+                "waiting",
+                "watching"
+            ],
+            "source_text_uk": "Адвокат спитав, які саме записи свідок бачив до слухання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "lawyer",
+                    "committee",
+                    "editor",
+                    "author"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "disclosed",
+                    "revised"
+                ],
+                "a4": [
+                    "which",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a5": [
+                    "records",
+                    "men",
+                    "women",
+                    "bikes"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "witness",
+                    "artist",
+                    "assistant",
+                    "architect"
+                ],
+                "a8": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a9": [
+                    "seen",
+                    "changed",
+                    "open",
+                    "arrived"
+                ],
+                "a10": [
+                    "before",
+                    "after",
+                    "at",
+                    "on"
+                ],
+                "a11": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a12": [
+                    "hearing",
+                    "meeting",
+                    "waiting",
+                    "watching"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-questions-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Посередниця спитала, чи обидві сторони раніше погодили саме це обмеження.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Посередниця спитала, чи обидві сторони раніше погодили саме це обмеження.",
+            "target_text": "The mediator asked whether both parties had agreed to that restriction.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "mediator",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "mediator",
+                        "artist",
+                        "assistant",
+                        "committee"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "whether",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a5": {
+                    "answer": "both",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "both",
+                        "this",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "parties",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "parties",
+                        "neighbours",
+                        "guests",
+                        "participants"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "agreed",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "agreed",
+                        "known",
+                        "arrived",
+                        "checked"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "to",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a10": {
+                    "answer": "that",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "that",
+                        "any",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a11": {
+                    "answer": "restriction.",
+                    "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+                    "options": [
+                        "restriction",
+                        "shelf",
+                        "entrance",
+                        "courtyard"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи двох учасників, попередню згоду й точний предмет обмеження.",
+            "accepted_target_texts": [
+                "The mediator asked whether both parties had agreed to that restriction.",
+                "The mediator asked if both parties had agreed to that restriction."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "The mediator",
+                "asked",
+                "whether",
+                "both parties",
+                "had agreed",
+                "to that restriction."
+            ],
+            "token_groups": [
+                "The mediator",
+                "asked",
+                "whether",
+                "both parties",
+                "had agreed",
+                "to that restriction."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "mediator",
+                "asked",
+                "whether",
+                "both",
+                "parties",
+                "had",
+                "agreed",
+                "to",
+                "that",
+                "restriction."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "mediator",
+                "artist",
+                "assistant",
+                "committee",
+                "asked",
+                "wondered",
+                "gave",
+                "made",
+                "whether",
+                "nor",
+                "so",
+                "yet",
+                "both",
+                "this",
+                "these",
+                "those",
+                "parties",
+                "neighbours",
+                "guests",
+                "participants",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "agreed",
+                "known",
+                "arrived",
+                "checked",
+                "to",
+                "at",
+                "by",
+                "with",
+                "that",
+                "any",
+                "each",
+                "every",
+                "restriction",
+                "shelf",
+                "entrance",
+                "courtyard"
+            ],
+            "source_text_uk": "Посередниця спитала, чи обидві сторони раніше погодили саме це обмеження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "mediator",
+                    "artist",
+                    "assistant",
+                    "committee"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "gave",
+                    "made"
+                ],
+                "a4": [
+                    "whether",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a5": [
+                    "both",
+                    "this",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "parties",
+                    "neighbours",
+                    "guests",
+                    "participants"
+                ],
+                "a7": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a8": [
+                    "agreed",
+                    "known",
+                    "arrived",
+                    "checked"
+                ],
+                "a9": [
+                    "to",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a10": [
+                    "that",
+                    "any",
+                    "each",
+                    "every"
+                ],
+                "a11": [
+                    "restriction",
+                    "shelf",
+                    "entrance",
+                    "courtyard"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "adverbial_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-questions-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Рецензент спитав, чому альтернативне пояснення відкинули без перевірки.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Рецензент спитав, чому альтернативне пояснення відкинули без перевірки.",
+            "target_text": "The reviewer asked why the alternative explanation had been dismissed without testing.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "reviewer",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "reviewer",
+                        "committee",
+                        "researcher",
+                        "mediator"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a4": {
+                    "answer": "why",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "why",
+                        "what",
+                        "which",
+                        "where"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "alternative",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "alternative",
+                        "sad",
+                        "easy",
+                        "difficult"
+                    ]
+                },
+                "a7": {
+                    "answer": "explanation",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "explanation",
+                        "long",
+                        "protocol",
+                        "change"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "been",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a10": {
+                    "answer": "dismissed",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "dismissed",
+                        "repaired",
+                        "agreed",
+                        "known"
+                    ]
+                },
+                "a11": {
+                    "answer": "without",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "without",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a12": {
+                    "answer": "testing.",
+                    "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+                    "options": [
+                        "testing",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи пасив, попередність і відсутність перевірки.",
+            "accepted_target_texts": [
+                "The reviewer asked why the alternative explanation had been dismissed without testing."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewer",
+                "asked",
+                "why",
+                "the alternative explanation",
+                "had been dismissed",
+                "without testing."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "asked",
+                "why",
+                "the alternative explanation",
+                "had been dismissed",
+                "without testing."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "reviewer",
+                "asked",
+                "why",
+                "the",
+                "alternative",
+                "explanation",
+                "had",
+                "been",
+                "dismissed",
+                "without",
+                "testing."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "reviewer",
+                "committee",
+                "researcher",
+                "mediator",
+                "asked",
+                "wondered",
+                "helped",
+                "waited",
+                "why",
+                "what",
+                "which",
+                "where",
+                "the",
+                "some",
+                "any",
+                "this",
+                "alternative",
+                "sad",
+                "easy",
+                "difficult",
+                "explanation",
+                "long",
+                "protocol",
+                "change",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "been",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "dismissed",
+                "repaired",
+                "agreed",
+                "known",
+                "without",
+                "of",
+                "in",
+                "on",
+                "testing",
+                "cooking",
+                "riding",
+                "driving"
+            ],
+            "source_text_uk": "Рецензент спитав, чому альтернативне пояснення відкинули без перевірки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "reviewer",
+                    "committee",
+                    "researcher",
+                    "mediator"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "helped",
+                    "waited"
+                ],
+                "a4": [
+                    "why",
+                    "what",
+                    "which",
+                    "where"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "alternative",
+                    "sad",
+                    "easy",
+                    "difficult"
+                ],
+                "a7": [
+                    "explanation",
+                    "long",
+                    "protocol",
+                    "change"
+                ],
+                "a8": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a9": [
+                    "been",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a10": [
+                    "dismissed",
+                    "repaired",
+                    "agreed",
+                    "known"
+                ],
+                "a11": [
+                    "without",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a12": [
+                    "testing",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-questions-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Дослідник спитав, як довго учасники знали про зміну протоколу.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Дослідник спитав, як довго учасники знали про зміну протоколу.",
+            "target_text": "The researcher asked how long the participants had known about the protocol change.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "researcher",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "researcher",
+                        "mediator",
+                        "reviewer",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a4": {
+                    "answer": "how",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "how",
+                        "whom",
+                        "what",
+                        "which"
+                    ]
+                },
+                "a5": {
+                    "answer": "long",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "long",
+                        "explanation",
+                        "restriction",
+                        "desk"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "participants",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "participants",
+                        "neighbours",
+                        "guests",
+                        "parties"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "known",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "known",
+                        "open",
+                        "agreed",
+                        "arrived"
+                    ]
+                },
+                "a10": {
+                    "answer": "about",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "about",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a11": {
+                    "answer": "the",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a12": {
+                    "answer": "protocol",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "protocol",
+                        "last",
+                        "first",
+                        "spare"
+                    ]
+                },
+                "a13": {
+                    "answer": "change.",
+                    "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+                    "options": [
+                        "change",
+                        "notebook",
+                        "bicycle",
+                        "concern"
+                    ]
+                }
+            },
+            "verb_hint": "Питай про тривалість знання до того минулого моменту.",
+            "accepted_target_texts": [
+                "The researcher asked how long the participants had known about the protocol change."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The researcher",
+                "asked",
+                "how long",
+                "the participants",
+                "had known",
+                "about",
+                "the protocol change."
+            ],
+            "token_groups": [
+                "The researcher",
+                "asked",
+                "how long",
+                "the participants",
+                "had known",
+                "about",
+                "the protocol change."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "researcher",
+                "asked",
+                "how",
+                "long",
+                "the",
+                "participants",
+                "had",
+                "known",
+                "about",
+                "the",
+                "protocol",
+                "change."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "researcher",
+                "mediator",
+                "reviewer",
+                "artist",
+                "asked",
+                "wondered",
+                "closed",
+                "helped",
+                "how",
+                "whom",
+                "what",
+                "which",
+                "long",
+                "explanation",
+                "restriction",
+                "desk",
+                "the",
+                "those",
+                "each",
+                "either",
+                "participants",
+                "neighbours",
+                "guests",
+                "parties",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "known",
+                "open",
+                "agreed",
+                "arrived",
+                "about",
+                "for",
+                "of",
+                "in",
+                "neither",
+                "all",
+                "both",
+                "protocol",
+                "last",
+                "first",
+                "spare",
+                "change",
+                "notebook",
+                "bicycle",
+                "concern"
+            ],
+            "source_text_uk": "Дослідник спитав, як довго учасники знали про зміну протоколу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "researcher",
+                    "mediator",
+                    "reviewer",
+                    "artist"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "closed",
+                    "helped"
+                ],
+                "a4": [
+                    "how",
+                    "whom",
+                    "what",
+                    "which"
+                ],
+                "a5": [
+                    "long",
+                    "explanation",
+                    "restriction",
+                    "desk"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "either"
+                ],
+                "a7": [
+                    "participants",
+                    "neighbours",
+                    "guests",
+                    "parties"
+                ],
+                "a8": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a9": [
+                    "known",
+                    "open",
+                    "agreed",
+                    "arrived"
+                ],
+                "a10": [
+                    "about",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a11": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a12": [
+                    "protocol",
+                    "last",
+                    "first",
+                    "spare"
+                ],
+                "a13": [
+                    "change",
+                    "notebook",
+                    "bicycle",
+                    "concern"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "connector_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "noun_phrase",
+                "a12": "noun_phrase",
+                "a13": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-questions-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Історикиня спитала, чия версія подій сформувала пізніше свідчення.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Історикиня спитала, чия версія подій сформувала пізніше свідчення.",
+            "target_text": "The historian asked whose account had shaped the later testimony.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "historian",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "historian",
+                        "conclusion",
+                        "expert",
+                        "distinction"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "saw",
+                        "needed"
+                    ]
+                },
+                "a4": {
+                    "answer": "whose",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "whose",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a5": {
+                    "answer": "account",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "account",
+                        "removal",
+                        "dependency",
+                        "statistician"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "shaped",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "shaped",
+                        "checked",
+                        "changed",
+                        "open"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a9": {
+                    "answer": "later",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "later",
+                        "spare",
+                        "blue",
+                        "main"
+                    ]
+                },
+                "a10": {
+                    "answer": "testimony.",
+                    "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+                    "options": [
+                        "testimony",
+                        "concern",
+                        "version",
+                        "glass"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи належність версії та її попередній вплив на свідчення.",
+            "accepted_target_texts": [
+                "The historian asked whose account had shaped the later testimony."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The historian",
+                "asked",
+                "whose account",
+                "had shaped",
+                "the later testimony."
+            ],
+            "token_groups": [
+                "The historian",
+                "asked",
+                "whose account",
+                "had shaped",
+                "the later testimony."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "historian",
+                "asked",
+                "whose",
+                "account",
+                "had",
+                "shaped",
+                "the",
+                "later",
+                "testimony."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "historian",
+                "conclusion",
+                "expert",
+                "distinction",
+                "asked",
+                "wondered",
+                "saw",
+                "needed",
+                "whose",
+                "its",
+                "our",
+                "their",
+                "account",
+                "removal",
+                "dependency",
+                "statistician",
+                "had",
+                "do",
+                "does",
+                "did",
+                "shaped",
+                "checked",
+                "changed",
+                "open",
+                "the",
+                "some",
+                "any",
+                "this",
+                "later",
+                "spare",
+                "blue",
+                "main",
+                "testimony",
+                "concern",
+                "version",
+                "glass"
+            ],
+            "source_text_uk": "Історикиня спитала, чия версія подій сформувала пізніше свідчення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "historian",
+                    "conclusion",
+                    "expert",
+                    "distinction"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "saw",
+                    "needed"
+                ],
+                "a4": [
+                    "whose",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a5": [
+                    "account",
+                    "removal",
+                    "dependency",
+                    "statistician"
+                ],
+                "a6": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "shaped",
+                    "checked",
+                    "changed",
+                    "open"
+                ],
+                "a8": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a9": [
+                    "later",
+                    "spare",
+                    "blue",
+                    "main"
+                ],
+                "a10": [
+                    "testimony",
+                    "concern",
+                    "version",
+                    "glass"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "connector_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-questions-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Статистик спитав, чи висновок збережеться після усунення цієї залежності.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Статистик спитав, чи висновок збережеться після усунення цієї залежності.",
+            "target_text": "The statistician asked whether the conclusion would survive the removal of that dependency.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "statistician",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "statistician",
+                        "expert",
+                        "distinction",
+                        "historian"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a4": {
+                    "answer": "whether",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "whether",
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "conclusion",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "conclusion",
+                        "artist",
+                        "assistant",
+                        "committee"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "would",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "survive",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "survive",
+                        "meaningless",
+                        "hungry",
+                        "thirsty"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "removal",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "removal",
+                        "message",
+                        "account",
+                        "later"
+                    ]
+                },
+                "a11": {
+                    "answer": "of",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "of",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a12": {
+                    "answer": "that",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "that",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a13": {
+                    "answer": "dependency.",
+                    "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+                    "options": [
+                        "dependency",
+                        "shelf",
+                        "courtyard",
+                        "interview"
+                    ]
+                }
+            },
+            "verb_hint": "Переказуй минуле питання про майбутній результат зміни аналізу.",
+            "accepted_target_texts": [
+                "The statistician asked whether the conclusion would survive the removal of that dependency.",
+                "The statistician asked if the conclusion would survive the removal of that dependency."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "The statistician",
+                "asked",
+                "whether",
+                "the conclusion",
+                "would survive",
+                "the removal",
+                "of that dependency."
+            ],
+            "token_groups": [
+                "The statistician",
+                "asked",
+                "whether",
+                "the conclusion",
+                "would survive",
+                "the removal",
+                "of that dependency."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "statistician",
+                "asked",
+                "whether",
+                "the",
+                "conclusion",
+                "would",
+                "survive",
+                "the",
+                "removal",
+                "of",
+                "that",
+                "dependency."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "statistician",
+                "expert",
+                "distinction",
+                "historian",
+                "asked",
+                "wondered",
+                "rode",
+                "drove",
+                "whether",
+                "and",
+                "but",
+                "or",
+                "the",
+                "no",
+                "another",
+                "both",
+                "conclusion",
+                "artist",
+                "assistant",
+                "committee",
+                "would",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "survive",
+                "meaningless",
+                "hungry",
+                "thirsty",
+                "any",
+                "this",
+                "these",
+                "removal",
+                "message",
+                "account",
+                "later",
+                "of",
+                "about",
+                "during",
+                "to",
+                "that",
+                "a",
+                "an",
+                "some",
+                "dependency",
+                "shelf",
+                "courtyard",
+                "interview"
+            ],
+            "source_text_uk": "Статистик спитав, чи висновок збережеться після усунення цієї залежності.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "statistician",
+                    "expert",
+                    "distinction",
+                    "historian"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "rode",
+                    "drove"
+                ],
+                "a4": [
+                    "whether",
+                    "and",
+                    "but",
+                    "or"
+                ],
+                "a5": [
+                    "the",
+                    "no",
+                    "another",
+                    "both"
+                ],
+                "a6": [
+                    "conclusion",
+                    "artist",
+                    "assistant",
+                    "committee"
+                ],
+                "a7": [
+                    "would",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a8": [
+                    "survive",
+                    "meaningless",
+                    "hungry",
+                    "thirsty"
+                ],
+                "a9": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a10": [
+                    "removal",
+                    "message",
+                    "account",
+                    "later"
+                ],
+                "a11": [
+                    "of",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a12": [
+                    "that",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a13": [
+                    "dependency",
+                    "shelf",
+                    "courtyard",
+                    "interview"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase",
+                "a13": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-questions-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Експертка спитала, за яких умов це розрізнення втрачало б сенс.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_questions",
+            "translation_uk": "Експертка спитала, за яких умов це розрізнення втрачало б сенс.",
+            "target_text": "The expert asked under what conditions the distinction would become meaningless.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "expert",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "expert",
+                        "assistant",
+                        "committee",
+                        "statistician"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "cooked",
+                        "found"
+                    ]
+                },
+                "a4": {
+                    "answer": "under",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "under",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a5": {
+                    "answer": "what",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "what",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a6": {
+                    "answer": "conditions",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "conditions",
+                        "cups",
+                        "doors",
+                        "keys"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "distinction",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "distinction",
+                        "artist",
+                        "historian",
+                        "account"
+                    ]
+                },
+                "a9": {
+                    "answer": "would",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "would",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a10": {
+                    "answer": "become",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "become",
+                        "help",
+                        "tell",
+                        "leave"
+                    ]
+                },
+                "a11": {
+                    "answer": "meaningless.",
+                    "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+                    "options": [
+                        "meaningless",
+                        "survive",
+                        "dirty",
+                        "good"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи умовність і питальну групу, не змінюй непрямого порядку.",
+            "accepted_target_texts": [
+                "The expert asked under what conditions the distinction would become meaningless."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The expert",
+                "asked",
+                "under what conditions",
+                "the distinction",
+                "would become",
+                "meaningless."
+            ],
+            "token_groups": [
+                "The expert",
+                "asked",
+                "under what conditions",
+                "the distinction",
+                "would become",
+                "meaningless."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "expert",
+                "asked",
+                "under",
+                "what",
+                "conditions",
+                "the",
+                "distinction",
+                "would",
+                "become",
+                "meaningless."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "expert",
+                "assistant",
+                "committee",
+                "statistician",
+                "asked",
+                "wondered",
+                "cooked",
+                "found",
+                "under",
+                "through",
+                "across",
+                "between",
+                "what",
+                "which",
+                "where",
+                "when",
+                "conditions",
+                "cups",
+                "doors",
+                "keys",
+                "the",
+                "all",
+                "both",
+                "a",
+                "distinction",
+                "artist",
+                "historian",
+                "account",
+                "would",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "become",
+                "help",
+                "tell",
+                "leave",
+                "meaningless",
+                "survive",
+                "dirty",
+                "good"
+            ],
+            "source_text_uk": "Експертка спитала, за яких умов це розрізнення втрачало б сенс.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "expert",
+                    "assistant",
+                    "committee",
+                    "statistician"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "cooked",
+                    "found"
+                ],
+                "a4": [
+                    "under",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a5": [
+                    "what",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a6": [
+                    "conditions",
+                    "cups",
+                    "doors",
+                    "keys"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "distinction",
+                    "artist",
+                    "historian",
+                    "account"
+                ],
+                "a9": [
+                    "would",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a10": [
+                    "become",
+                    "help",
+                    "tell",
+                    "leave"
+                ],
+                "a11": [
+                    "meaningless",
+                    "survive",
+                    "dirty",
+                    "good"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "connector_phrase",
+                "a5": "connector_phrase",
+                "a6": "connector_phrase",
+                "a7": "subject_phrase",
+                "a8": "subject_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "adjective_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

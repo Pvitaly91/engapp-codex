@@ -1,0 +1,1952 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/present-simple.v1.json",
+        "sha256": "497eeee985de11143ac3bbf30b6d8252cea61d46a3932e2871618a7656ea421c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePresentSimpleQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-present-simple-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_present_simple": {
+            "name": "Passive Voice Quality: Passive Voice Present Simple"
+        }
+    },
+    "tags": {
+        "passive_voice_present_simple": {
+            "name": "Passive Voice Present Simple",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "am_is_are_v3": {
+            "name": "Am Is Are V3",
+            "category": "topic"
+        },
+        "regular_passive_actions": {
+            "name": "Regular Passive Actions",
+            "category": "topic"
+        },
+        "general_facts": {
+            "name": "General Facts",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_present_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-present-simple-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The front door {a1} at nine every night.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Вхідні двері щовечора зачиняють о дев’ятій.",
+            "target_text": "The front door is closed at nine every night.",
+            "markers": {
+                "a1": {
+                    "answer": "is closed",
+                    "options": [
+                        "is closed",
+                        "are closed",
+                        "was closed"
+                    ],
+                    "verb_hint": "Зачиняють щовечора; утвори теперішній пасив від дієслова «зачиняти»."
+                }
+            },
+            "verb_hint": "Зачиняють щовечора; утвори теперішній пасив від дієслова «зачиняти».",
+            "accepted_target_texts": [
+                "The front door is closed at nine every night.",
+                "The front door is shut at nine every night."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is shut"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is shut"
+                ]
+            },
+            "reorder_groups": [
+                "The front door",
+                "is closed",
+                "at nine",
+                "every night."
+            ],
+            "token_groups": [
+                "The front door",
+                "is closed",
+                "at nine",
+                "every night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-present-simple-a1-g02",
+            "author_id": "A1-g02",
+            "question": "These windows {a1} on Fridays.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Ці вікна миють щоп’ятниці.",
+            "target_text": "These windows are washed on Fridays.",
+            "markers": {
+                "a1": {
+                    "answer": "are washed",
+                    "options": [
+                        "are washed",
+                        "is washed",
+                        "were washed"
+                    ],
+                    "verb_hint": "Миють щотижня; передай регулярну дію теперішнім пасивом від «мити»."
+                }
+            },
+            "verb_hint": "Миють щотижня; передай регулярну дію теперішнім пасивом від «мити».",
+            "accepted_target_texts": [
+                "These windows are washed on Fridays.",
+                "These windows are cleaned on Fridays."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are cleaned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are cleaned"
+                ]
+            },
+            "reorder_groups": [
+                "These windows",
+                "are washed",
+                "on Fridays."
+            ],
+            "token_groups": [
+                "These windows",
+                "are washed",
+                "on Fridays."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-present-simple-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The chairs {a1} on the tables after lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Після обіду стільці ставлять на столи.",
+            "target_text": "The chairs are put on the tables after lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "are put",
+                    "options": [
+                        "are put",
+                        "is put",
+                        "were put"
+                    ],
+                    "verb_hint": "Ставлять на іншу поверхню після обіду; потрібен теперішній пасив від «ставити»."
+                }
+            },
+            "verb_hint": "Ставлять на іншу поверхню після обіду; потрібен теперішній пасив від «ставити».",
+            "accepted_target_texts": [
+                "The chairs are put on the tables after lunch.",
+                "The chairs are placed on the tables after lunch."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are placed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are placed"
+                ]
+            },
+            "reorder_groups": [
+                "The chairs",
+                "are put",
+                "on the tables",
+                "after lunch."
+            ],
+            "token_groups": [
+                "The chairs",
+                "are put",
+                "on the tables",
+                "after lunch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-present-simple-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The dishes {a1} in cold water.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Посуд не миють у холодній воді.",
+            "target_text": "The dishes are not washed in cold water.",
+            "markers": {
+                "a1": {
+                    "answer": "are not washed",
+                    "options": [
+                        "are not washed",
+                        "is not washed",
+                        "were not washed"
+                    ],
+                    "verb_hint": "Не миють: запереч регулярну дію в теперішньому пасиві."
+                }
+            },
+            "verb_hint": "Не миють: запереч регулярну дію в теперішньому пасиві.",
+            "accepted_target_texts": [
+                "The dishes are not washed in cold water.",
+                "The dishes aren't washed in cold water."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't washed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't washed"
+                ]
+            },
+            "reorder_groups": [
+                "The dishes",
+                "are not washed",
+                "in cold water."
+            ],
+            "token_groups": [
+                "The dishes",
+                "are not washed",
+                "in cold water."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-present-simple-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Milk {a1} in the fridge.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Молоко зберігають у холодильнику.",
+            "target_text": "Milk is kept in the fridge.",
+            "markers": {
+                "a1": {
+                    "answer": "is kept",
+                    "options": [
+                        "is kept",
+                        "are kept",
+                        "was kept"
+                    ],
+                    "verb_hint": "Зберігають у прохолодному місці; утвори теперішній пасив від «зберігати»."
+                }
+            },
+            "verb_hint": "Зберігають у прохолодному місці; утвори теперішній пасив від «зберігати».",
+            "accepted_target_texts": [
+                "Milk is kept in the fridge.",
+                "Milk is stored in the fridge."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is stored"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is stored"
+                ]
+            },
+            "reorder_groups": [
+                "Milk",
+                "is kept",
+                "in the fridge."
+            ],
+            "token_groups": [
+                "Milk",
+                "is kept",
+                "in the fridge."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-present-simple-a1-g06",
+            "author_id": "A1-g06",
+            "question": "This cake {a1} with apples.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Цей пиріг готують із яблуками.",
+            "target_text": "This cake is made with apples.",
+            "markers": {
+                "a1": {
+                    "answer": "is made",
+                    "options": [
+                        "is made",
+                        "are made",
+                        "was made"
+                    ],
+                    "verb_hint": "Готують із певними складниками; потрібен теперішній пасив від «робити, готувати»."
+                }
+            },
+            "verb_hint": "Готують із певними складниками; потрібен теперішній пасив від «робити, готувати».",
+            "accepted_target_texts": [
+                "This cake is made with apples.",
+                "This cake is prepared with apples."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is prepared"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is prepared"
+                ]
+            },
+            "reorder_groups": [
+                "This cake",
+                "is made",
+                "with apples."
+            ],
+            "token_groups": [
+                "This cake",
+                "is made",
+                "with apples."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-present-simple-a2-g01",
+            "author_id": "A2-g01",
+            "question": "School uniforms {a1} in this shop.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "У цьому магазині продають шкільну форму.",
+            "target_text": "School uniforms are sold in this shop.",
+            "markers": {
+                "a1": {
+                    "answer": "are sold",
+                    "options": [
+                        "are sold",
+                        "is sold",
+                        "were sold"
+                    ],
+                    "verb_hint": "Продають у магазині; потрібен теперішній пасив від «продавати»."
+                }
+            },
+            "verb_hint": "Продають у магазині; потрібен теперішній пасив від «продавати».",
+            "accepted_target_texts": [
+                "School uniforms are sold in this shop."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "School uniforms",
+                "are sold",
+                "in this shop."
+            ],
+            "token_groups": [
+                "School uniforms",
+                "are sold",
+                "in this shop."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-present-simple-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The school bus {a1} by a local company.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Шкільний автобус обслуговує місцева компанія.",
+            "target_text": "The school bus is maintained by a local company.",
+            "markers": {
+                "a1": {
+                    "answer": "is maintained",
+                    "options": [
+                        "is maintained",
+                        "are maintained",
+                        "was maintained"
+                    ],
+                    "verb_hint": "Регулярно технічно обслуговують; передай дію теперішнім пасивом від «обслуговувати»."
+                }
+            },
+            "verb_hint": "Регулярно технічно обслуговують; передай дію теперішнім пасивом від «обслуговувати».",
+            "accepted_target_texts": [
+                "The school bus is maintained by a local company.",
+                "The school bus is serviced by a local company."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is serviced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is serviced"
+                ]
+            },
+            "reorder_groups": [
+                "The school bus",
+                "is maintained",
+                "by a",
+                "local company."
+            ],
+            "token_groups": [
+                "The school bus",
+                "is maintained",
+                "by a",
+                "local company."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-present-simple-a2-g03",
+            "author_id": "A2-g03",
+            "question": "How often {a1} at this station?",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Як часто на цій станції перевіряють квитки?",
+            "target_text": "How often are tickets checked at this station?",
+            "markers": {
+                "a1": {
+                    "answer": "are tickets checked",
+                    "options": [
+                        "are tickets checked",
+                        "is tickets checked",
+                        "were tickets checked"
+                    ],
+                    "verb_hint": "Запитай про частоту перевірки квитків; у пропуску потрібні підмет «квитки» та пасив від «перевіряти»."
+                }
+            },
+            "verb_hint": "Запитай про частоту перевірки квитків; у пропуску потрібні підмет «квитки» та пасив від «перевіряти».",
+            "accepted_target_texts": [
+                "How often are tickets checked at this station?",
+                "How often are tickets inspected at this station?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are tickets inspected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are tickets inspected"
+                ]
+            },
+            "reorder_groups": [
+                "How often",
+                "are tickets",
+                "checked",
+                "at this station?"
+            ],
+            "token_groups": [
+                "How often",
+                "are tickets",
+                "checked",
+                "at this station?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-present-simple-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Bread {a1} here before sunrise.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Тут випікають хліб до сходу сонця.",
+            "target_text": "Bread is baked here before sunrise.",
+            "markers": {
+                "a1": {
+                    "answer": "is baked",
+                    "options": [
+                        "is baked",
+                        "are baked",
+                        "was baked"
+                    ],
+                    "verb_hint": "Випікають у печі; утвори теперішній пасив від «випікати»."
+                }
+            },
+            "verb_hint": "Випікають у печі; утвори теперішній пасив від «випікати».",
+            "accepted_target_texts": [
+                "Bread is baked here before sunrise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Bread",
+                "is baked",
+                "here",
+                "before sunrise."
+            ],
+            "token_groups": [
+                "Bread",
+                "is baked",
+                "here",
+                "before sunrise."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-present-simple-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The vegetables {a1} in salt water before cooking.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Перед приготуванням овочі миють у солоній воді.",
+            "target_text": "The vegetables are washed in salt water before cooking.",
+            "markers": {
+                "a1": {
+                    "answer": "are washed",
+                    "options": [
+                        "are washed",
+                        "is washed",
+                        "were washed"
+                    ],
+                    "verb_hint": "Миють перед приготуванням; потрібен теперішній пасив від «мити»."
+                }
+            },
+            "verb_hint": "Миють перед приготуванням; потрібен теперішній пасив від «мити».",
+            "accepted_target_texts": [
+                "The vegetables are washed in salt water before cooking.",
+                "The vegetables are rinsed in salt water before cooking."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are rinsed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are rinsed"
+                ]
+            },
+            "reorder_groups": [
+                "The vegetables",
+                "are washed",
+                "in salt water",
+                "before cooking."
+            ],
+            "token_groups": [
+                "The vegetables",
+                "are washed",
+                "in salt water",
+                "before cooking."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-present-simple-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The swimming pool {a1} on Mondays.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Басейном не користуються щопонеділка.",
+            "target_text": "The swimming pool is not used on Mondays.",
+            "markers": {
+                "a1": {
+                    "answer": "is not used",
+                    "options": [
+                        "is not used",
+                        "are not used",
+                        "was not used"
+                    ],
+                    "verb_hint": "Не користуються за щотижневим розкладом; запереч теперішній пасив від «використовувати»."
+                }
+            },
+            "verb_hint": "Не користуються за щотижневим розкладом; запереч теперішній пасив від «використовувати».",
+            "accepted_target_texts": [
+                "The swimming pool is not used on Mondays.",
+                "The swimming pool isn't used on Mondays."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't used"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't used"
+                ]
+            },
+            "reorder_groups": [
+                "The swimming pool",
+                "is not used",
+                "on Mondays."
+            ],
+            "token_groups": [
+                "The swimming pool",
+                "is not used",
+                "on Mondays."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-present-simple-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Online orders {a1} within two working days.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Онлайн-замовлення відправляють протягом двох робочих днів.",
+            "target_text": "Online orders are dispatched within two working days.",
+            "markers": {
+                "a1": {
+                    "answer": "are dispatched",
+                    "options": [
+                        "are dispatched",
+                        "is dispatched",
+                        "were dispatched"
+                    ],
+                    "verb_hint": "Відправляють покупцям за стандартним графіком; потрібен теперішній пасив від «відправляти»."
+                }
+            },
+            "verb_hint": "Відправляють покупцям за стандартним графіком; потрібен теперішній пасив від «відправляти».",
+            "accepted_target_texts": [
+                "Online orders are dispatched within two working days.",
+                "Online orders are shipped within two working days.",
+                "Online orders are sent within two working days."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are shipped",
+                    "are sent"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are shipped",
+                    "are sent"
+                ]
+            },
+            "reorder_groups": [
+                "Online orders",
+                "are dispatched",
+                "within two",
+                "working days."
+            ],
+            "token_groups": [
+                "Online orders",
+                "are dispatched",
+                "within two",
+                "working days."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-present-simple-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The meeting room {a1} through the staff calendar.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Кімнату для нарад бронюють через календар працівників.",
+            "target_text": "The meeting room is booked through the staff calendar.",
+            "markers": {
+                "a1": {
+                    "answer": "is booked",
+                    "options": [
+                        "is booked",
+                        "are booked",
+                        "was booked"
+                    ],
+                    "verb_hint": "Бронюють у спільному календарі; утвори теперішній пасив від «бронювати»."
+                }
+            },
+            "verb_hint": "Бронюють у спільному календарі; утвори теперішній пасив від «бронювати».",
+            "accepted_target_texts": [
+                "The meeting room is booked through the staff calendar.",
+                "The meeting room is reserved through the staff calendar."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is reserved"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is reserved"
+                ]
+            },
+            "reorder_groups": [
+                "The meeting room",
+                "is booked",
+                "through the",
+                "staff calendar."
+            ],
+            "token_groups": [
+                "The meeting room",
+                "is booked",
+                "through the",
+                "staff calendar."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-present-simple-b1-g03",
+            "author_id": "B1-g03",
+            "question": "When {a1} to passengers?",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Коли пасажирам оголошують номери виходів на посадку?",
+            "target_text": "When are gate numbers announced to passengers?",
+            "markers": {
+                "a1": {
+                    "answer": "are gate numbers announced",
+                    "options": [
+                        "are gate numbers announced",
+                        "is gate numbers announced",
+                        "were gate numbers announced"
+                    ],
+                    "verb_hint": "Запитай про час оголошення номерів виходів на посадку; у пропуску потрібні весь підмет і теперішній пасив від «оголошувати»."
+                }
+            },
+            "verb_hint": "Запитай про час оголошення номерів виходів на посадку; у пропуску потрібні весь підмет і теперішній пасив від «оголошувати».",
+            "accepted_target_texts": [
+                "When are gate numbers announced to passengers?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "When",
+                "are gate numbers",
+                "announced",
+                "to passengers?"
+            ],
+            "token_groups": [
+                "When",
+                "are gate numbers",
+                "announced",
+                "to passengers?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-present-simple-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Damaged parcels {a1} without a photograph of the damage.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Пошкоджені посилки не приймають без фотографії пошкодження.",
+            "target_text": "Damaged parcels are not accepted without a photograph of the damage.",
+            "markers": {
+                "a1": {
+                    "answer": "are not accepted",
+                    "options": [
+                        "are not accepted",
+                        "is not accepted",
+                        "were not accepted"
+                    ],
+                    "verb_hint": "Не приймають без доказу пошкодження; запереч теперішній пасив від «приймати»."
+                }
+            },
+            "verb_hint": "Не приймають без доказу пошкодження; запереч теперішній пасив від «приймати».",
+            "accepted_target_texts": [
+                "Damaged parcels are not accepted without a photograph of the damage.",
+                "Damaged parcels aren't accepted without a photograph of the damage."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't accepted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't accepted"
+                ]
+            },
+            "reorder_groups": [
+                "Damaged parcels",
+                "are not accepted",
+                "without a photograph",
+                "of the damage."
+            ],
+            "token_groups": [
+                "Damaged parcels",
+                "are not accepted",
+                "without a photograph",
+                "of the damage."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-present-simple-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Employees {a1} about changes by email.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Працівників повідомляють про зміни електронною поштою.",
+            "target_text": "Employees are informed about changes by email.",
+            "markers": {
+                "a1": {
+                    "answer": "are informed",
+                    "options": [
+                        "are informed",
+                        "is informed",
+                        "were informed"
+                    ],
+                    "verb_hint": "Повідомляють про зміни; передай стандартну процедуру теперішнім пасивом від «інформувати»."
+                }
+            },
+            "verb_hint": "Повідомляють про зміни; передай стандартну процедуру теперішнім пасивом від «інформувати».",
+            "accepted_target_texts": [
+                "Employees are informed about changes by email.",
+                "Employees are notified about changes by email."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are notified"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are notified"
+                ]
+            },
+            "reorder_groups": [
+                "Employees",
+                "are informed",
+                "about changes",
+                "by email."
+            ],
+            "token_groups": [
+                "Employees",
+                "are informed",
+                "about changes",
+                "by email."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-present-simple-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The route map {a1} whenever a new stop opens.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Схему маршруту оновлюють щоразу, коли відкривають нову зупинку.",
+            "target_text": "The route map is updated whenever a new stop opens.",
+            "markers": {
+                "a1": {
+                    "answer": "is updated",
+                    "options": [
+                        "is updated",
+                        "are updated",
+                        "was updated"
+                    ],
+                    "verb_hint": "Оновлюють після кожної зміни маршруту; утвори теперішній пасив від «оновлювати»."
+                }
+            },
+            "verb_hint": "Оновлюють після кожної зміни маршруту; утвори теперішній пасив від «оновлювати».",
+            "accepted_target_texts": [
+                "The route map is updated whenever a new stop opens.",
+                "The route map is revised whenever a new stop opens."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is revised"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is revised"
+                ]
+            },
+            "reorder_groups": [
+                "The route map",
+                "is updated",
+                "whenever a",
+                "new stop opens."
+            ],
+            "token_groups": [
+                "The route map",
+                "is updated",
+                "whenever a",
+                "new stop opens."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-present-simple-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Each batch {a1} for contamination before it leaves the factory.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Кожну партію перевіряють на забруднення перед відправленням із заводу.",
+            "target_text": "Each batch is tested for contamination before it leaves the factory.",
+            "markers": {
+                "a1": {
+                    "answer": "is tested",
+                    "options": [
+                        "is tested",
+                        "are tested",
+                        "was tested"
+                    ],
+                    "verb_hint": "Перевіряють лабораторним випробуванням на забруднення; утвори теперішній пасив від «тестувати»."
+                }
+            },
+            "verb_hint": "Перевіряють лабораторним випробуванням на забруднення; утвори теперішній пасив від «тестувати».",
+            "accepted_target_texts": [
+                "Each batch is tested for contamination before it leaves the factory.",
+                "Each batch is checked for contamination before it leaves the factory.",
+                "Each batch is screened for contamination before it leaves the factory."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is checked",
+                    "is screened"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is checked",
+                    "is screened"
+                ]
+            },
+            "reorder_groups": [
+                "Each batch",
+                "is tested",
+                "for contamination",
+                "before it leaves",
+                "the factory."
+            ],
+            "token_groups": [
+                "Each batch",
+                "is tested",
+                "for contamination",
+                "before it leaves",
+                "the factory."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-present-simple-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Waste heat {a1} to warm the neighbouring greenhouses.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Відпрацьоване тепло повторно використовують для обігріву сусідніх теплиць.",
+            "target_text": "Waste heat is reused to warm the neighbouring greenhouses.",
+            "markers": {
+                "a1": {
+                    "answer": "is reused",
+                    "options": [
+                        "is reused",
+                        "are reused",
+                        "was reused"
+                    ],
+                    "verb_hint": "Повторно використовують тепло, яке інакше втрачалося б; утвори теперішній пасив від «повторно використовувати»."
+                }
+            },
+            "verb_hint": "Повторно використовують тепло, яке інакше втрачалося б; утвори теперішній пасив від «повторно використовувати».",
+            "accepted_target_texts": [
+                "Waste heat is reused to warm the neighbouring greenhouses.",
+                "Waste heat is recycled to warm the neighbouring greenhouses."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is recycled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is recycled"
+                ]
+            },
+            "reorder_groups": [
+                "Waste heat",
+                "is reused",
+                "to warm",
+                "the neighbouring greenhouses."
+            ],
+            "token_groups": [
+                "Waste heat",
+                "is reused",
+                "to warm",
+                "the neighbouring greenhouses."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-present-simple-b2-g03",
+            "author_id": "B2-g03",
+            "question": "How {a1} when monitoring equipment fails?",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Як оцінюють викиди, коли обладнання для моніторингу виходить із ладу?",
+            "target_text": "How are emissions estimated when monitoring equipment fails?",
+            "markers": {
+                "a1": {
+                    "answer": "are emissions estimated",
+                    "options": [
+                        "are emissions estimated",
+                        "is emissions estimated",
+                        "were emissions estimated"
+                    ],
+                    "verb_hint": "Запитай, як приблизно обчислюють викиди за відсутності вимірювань; у пропуску потрібні підмет «викиди» та пасив від «оцінювати приблизно»."
+                }
+            },
+            "verb_hint": "Запитай, як приблизно обчислюють викиди за відсутності вимірювань; у пропуску потрібні підмет «викиди» та пасив від «оцінювати приблизно».",
+            "accepted_target_texts": [
+                "How are emissions estimated when monitoring equipment fails?",
+                "How are emissions approximated when monitoring equipment fails?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are emissions approximated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are emissions approximated"
+                ]
+            },
+            "reorder_groups": [
+                "How",
+                "are emissions",
+                "estimated",
+                "when monitoring equipment",
+                "fails?"
+            ],
+            "token_groups": [
+                "How",
+                "are emissions",
+                "estimated",
+                "when monitoring equipment",
+                "fails?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-present-simple-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Raw survey responses {a1} to external contractors.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Необроблені відповіді опитування не розкривають зовнішнім підрядникам.",
+            "target_text": "Raw survey responses are not disclosed to external contractors.",
+            "markers": {
+                "a1": {
+                    "answer": "are not disclosed",
+                    "options": [
+                        "are not disclosed",
+                        "is not disclosed",
+                        "were not disclosed"
+                    ],
+                    "verb_hint": "Не розкривають стороннім особам; утвори заперечний теперішній пасив від «розкривати інформацію»."
+                }
+            },
+            "verb_hint": "Не розкривають стороннім особам; утвори заперечний теперішній пасив від «розкривати інформацію».",
+            "accepted_target_texts": [
+                "Raw survey responses are not disclosed to external contractors.",
+                "Raw survey responses aren't disclosed to external contractors.",
+                "Raw survey responses are not revealed to external contractors.",
+                "Raw survey responses aren't revealed to external contractors."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't disclosed",
+                    "are not revealed",
+                    "aren't revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't disclosed",
+                    "are not revealed",
+                    "aren't revealed"
+                ]
+            },
+            "reorder_groups": [
+                "Raw survey responses",
+                "are not disclosed",
+                "to external contractors."
+            ],
+            "token_groups": [
+                "Raw survey responses",
+                "are not disclosed",
+                "to external contractors."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-present-simple-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The instruments {a1} against a reference standard every month.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Прилади щомісяця калібрують за еталоном.",
+            "target_text": "The instruments are calibrated against a reference standard every month.",
+            "markers": {
+                "a1": {
+                    "answer": "are calibrated",
+                    "options": [
+                        "are calibrated",
+                        "is calibrated",
+                        "were calibrated"
+                    ],
+                    "verb_hint": "Калібрують за еталоном, а не просто вмикають; утвори теперішній пасив від «калібрувати»."
+                }
+            },
+            "verb_hint": "Калібрують за еталоном, а не просто вмикають; утвори теперішній пасив від «калібрувати».",
+            "accepted_target_texts": [
+                "The instruments are calibrated against a reference standard every month."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instruments",
+                "are calibrated",
+                "against a",
+                "reference standard",
+                "every month."
+            ],
+            "token_groups": [
+                "The instruments",
+                "are calibrated",
+                "against a",
+                "reference standard",
+                "every month."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-present-simple-b2-g06",
+            "author_id": "B2-g06",
+            "question": "A separate inspection {a1} whenever the seal is broken.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Окрему перевірку проводять щоразу, коли пломбу пошкоджено.",
+            "target_text": "A separate inspection is carried out whenever the seal is broken.",
+            "markers": {
+                "a1": {
+                    "answer": "is carried out",
+                    "options": [
+                        "is carried out",
+                        "are carried out",
+                        "was carried out"
+                    ],
+                    "verb_hint": "Проводять перевірку після порушення цілісності пломби; потрібен теперішній пасив від «проводити, здійснювати»."
+                }
+            },
+            "verb_hint": "Проводять перевірку після порушення цілісності пломби; потрібен теперішній пасив від «проводити, здійснювати».",
+            "accepted_target_texts": [
+                "A separate inspection is carried out whenever the seal is broken.",
+                "A separate inspection is conducted whenever the seal is broken.",
+                "A separate inspection is performed whenever the seal is broken."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is conducted",
+                    "is performed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is conducted",
+                    "is performed"
+                ]
+            },
+            "reorder_groups": [
+                "A separate inspection",
+                "is carried out",
+                "whenever the seal",
+                "is broken."
+            ],
+            "token_groups": [
+                "A separate inspection",
+                "is carried out",
+                "whenever the seal",
+                "is broken."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-present-simple-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Under the disciplinary code, anonymous allegations {a1} without corroborating evidence.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "За дисциплінарним кодексом анонімні звинувачення не беруть до розгляду без підтвердних доказів.",
+            "target_text": "Under the disciplinary code, anonymous allegations are not considered without corroborating evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "are not considered",
+                    "options": [
+                        "are not considered",
+                        "is not considered",
+                        "were not considered"
+                    ],
+                    "verb_hint": "Не беруть до розгляду за зазначеним кодексом; утвори заперечний теперішній пасив від «розглядати»."
+                }
+            },
+            "verb_hint": "Не беруть до розгляду за зазначеним кодексом; утвори заперечний теперішній пасив від «розглядати».",
+            "accepted_target_texts": [
+                "Under the disciplinary code, anonymous allegations are not considered without corroborating evidence.",
+                "Under the disciplinary code, anonymous allegations aren't considered without corroborating evidence.",
+                "Under the disciplinary code, anonymous allegations are not entertained without corroborating evidence.",
+                "Under the disciplinary code, anonymous allegations aren't entertained without corroborating evidence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't considered",
+                    "are not entertained",
+                    "aren't entertained"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't considered",
+                    "are not entertained",
+                    "aren't entertained"
+                ]
+            },
+            "reorder_groups": [
+                "Under the",
+                "disciplinary code,",
+                "anonymous allegations",
+                "are not considered",
+                "without corroborating evidence."
+            ],
+            "token_groups": [
+                "Under the",
+                "disciplinary code,",
+                "anonymous allegations",
+                "are not considered",
+                "without corroborating evidence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-present-simple-c1-g02",
+            "author_id": "C1-g02",
+            "question": "A chain-of-custody record {a1} whenever a specimen changes hands.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Документ про передачу та зберігання зразка заповнюють щоразу, коли його передають іншій особі.",
+            "target_text": "A chain-of-custody record is completed whenever a specimen changes hands.",
+            "markers": {
+                "a1": {
+                    "answer": "is completed",
+                    "options": [
+                        "is completed",
+                        "are completed",
+                        "was completed"
+                    ],
+                    "verb_hint": "Заповнюють документ про передачу й зберігання зразка; утвори теперішній пасив від «заповнювати документ»."
+                }
+            },
+            "verb_hint": "Заповнюють документ про передачу й зберігання зразка; утвори теперішній пасив від «заповнювати документ».",
+            "accepted_target_texts": [
+                "A chain-of-custody record is completed whenever a specimen changes hands.",
+                "A chain-of-custody record is filled in whenever a specimen changes hands.",
+                "A chain-of-custody record is filled out whenever a specimen changes hands."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is filled in",
+                    "is filled out"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is filled in",
+                    "is filled out"
+                ]
+            },
+            "reorder_groups": [
+                "A chain-of-custody record",
+                "is completed",
+                "whenever a specimen",
+                "changes hands."
+            ],
+            "token_groups": [
+                "A chain-of-custody record",
+                "is completed",
+                "whenever a specimen",
+                "changes hands."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-present-simple-c1-g03",
+            "author_id": "C1-g03",
+            "question": "How {a1} when two witnesses give conflicting accounts?",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Як усувають розбіжності, коли двоє свідків дають суперечливі свідчення?",
+            "target_text": "How are discrepancies resolved when two witnesses give conflicting accounts?",
+            "markers": {
+                "a1": {
+                    "answer": "are discrepancies resolved",
+                    "options": [
+                        "are discrepancies resolved",
+                        "is discrepancies resolved",
+                        "were discrepancies resolved"
+                    ],
+                    "verb_hint": "Запитай про усунення розбіжностей у свідченнях; додай підмет «розбіжності» та теперішній пасив від «усувати, розв’язувати»."
+                }
+            },
+            "verb_hint": "Запитай про усунення розбіжностей у свідченнях; додай підмет «розбіжності» та теперішній пасив від «усувати, розв’язувати».",
+            "accepted_target_texts": [
+                "How are discrepancies resolved when two witnesses give conflicting accounts?",
+                "How are discrepancies reconciled when two witnesses give conflicting accounts?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are discrepancies reconciled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are discrepancies reconciled"
+                ]
+            },
+            "reorder_groups": [
+                "How",
+                "are discrepancies",
+                "resolved",
+                "when two witnesses",
+                "give conflicting accounts?"
+            ],
+            "token_groups": [
+                "How",
+                "are discrepancies",
+                "resolved",
+                "when two witnesses",
+                "give conflicting accounts?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-present-simple-c1-g04",
+            "author_id": "C1-g04",
+            "question": "A provisional diagnosis {a1} until the confirmatory tests are complete.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Попередній діагноз не розголошують до завершення підтвердних досліджень.",
+            "target_text": "A provisional diagnosis is not disclosed until the confirmatory tests are complete.",
+            "markers": {
+                "a1": {
+                    "answer": "is not disclosed",
+                    "options": [
+                        "is not disclosed",
+                        "are not disclosed",
+                        "was not disclosed"
+                    ],
+                    "verb_hint": "Не розголошують до підтвердження; потрібен заперечний теперішній пасив від «розголошувати»."
+                }
+            },
+            "verb_hint": "Не розголошують до підтвердження; потрібен заперечний теперішній пасив від «розголошувати».",
+            "accepted_target_texts": [
+                "A provisional diagnosis is not disclosed until the confirmatory tests are complete.",
+                "A provisional diagnosis isn't disclosed until the confirmatory tests are complete.",
+                "A provisional diagnosis is not revealed until the confirmatory tests are complete.",
+                "A provisional diagnosis isn't revealed until the confirmatory tests are complete."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't disclosed",
+                    "is not revealed",
+                    "isn't revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't disclosed",
+                    "is not revealed",
+                    "isn't revealed"
+                ]
+            },
+            "reorder_groups": [
+                "A provisional diagnosis",
+                "is not disclosed",
+                "until the",
+                "confirmatory tests",
+                "are complete."
+            ],
+            "token_groups": [
+                "A provisional diagnosis",
+                "is not disclosed",
+                "until the",
+                "confirmatory tests",
+                "are complete."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-present-simple-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The allocation of laboratory time {a1} according to published criteria.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Розподіл лабораторного часу визначають за оприлюдненими критеріями.",
+            "target_text": "The allocation of laboratory time is determined according to published criteria.",
+            "markers": {
+                "a1": {
+                    "answer": "is determined",
+                    "options": [
+                        "is determined",
+                        "are determined",
+                        "was determined"
+                    ],
+                    "verb_hint": "Визначають за відкритими критеріями; утвори теперішній пасив від «визначати»."
+                }
+            },
+            "verb_hint": "Визначають за відкритими критеріями; утвори теперішній пасив від «визначати».",
+            "accepted_target_texts": [
+                "The allocation of laboratory time is determined according to published criteria.",
+                "The allocation of laboratory time is decided according to published criteria."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is decided"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is decided"
+                ]
+            },
+            "reorder_groups": [
+                "The allocation",
+                "of laboratory time",
+                "is determined",
+                "according to",
+                "published criteria."
+            ],
+            "token_groups": [
+                "The allocation",
+                "of laboratory time",
+                "is determined",
+                "according to",
+                "published criteria."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-present-simple-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Disputed deductions {a1} by an assessor who was not involved in the original decision.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Спірні відрахування переглядає експерт, який не брав участі в первинному рішенні.",
+            "target_text": "Disputed deductions are reviewed by an assessor who was not involved in the original decision.",
+            "markers": {
+                "a1": {
+                    "answer": "are reviewed",
+                    "options": [
+                        "are reviewed",
+                        "is reviewed",
+                        "were reviewed"
+                    ],
+                    "verb_hint": "Переглядають незалежно від первинного рішення; потрібен теперішній пасив від «переглядати, повторно оцінювати»."
+                }
+            },
+            "verb_hint": "Переглядають незалежно від первинного рішення; потрібен теперішній пасив від «переглядати, повторно оцінювати».",
+            "accepted_target_texts": [
+                "Disputed deductions are reviewed by an assessor who was not involved in the original decision.",
+                "Disputed deductions are reassessed by an assessor who was not involved in the original decision.",
+                "Disputed deductions are reconsidered by an assessor who was not involved in the original decision."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are reassessed",
+                    "are reconsidered"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are reassessed",
+                    "are reconsidered"
+                ]
+            },
+            "reorder_groups": [
+                "Disputed deductions",
+                "are reviewed",
+                "by an assessor",
+                "who was not",
+                "involved in",
+                "the original decision."
+            ],
+            "token_groups": [
+                "Disputed deductions",
+                "are reviewed",
+                "by an assessor",
+                "who was not",
+                "involved in",
+                "the original decision."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-present-simple-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Under the arbitration rules, an unsupported inference {a1} as a substitute for proof.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "За правилами арбітражу непідтверджений висновок не приймають як заміну доказам.",
+            "target_text": "Under the arbitration rules, an unsupported inference is not accepted as a substitute for proof.",
+            "markers": {
+                "a1": {
+                    "answer": "is not accepted",
+                    "options": [
+                        "is not accepted",
+                        "are not accepted",
+                        "was not accepted"
+                    ],
+                    "verb_hint": "Не приймають замість доказів; утвори заперечний теперішній пасив від «приймати»."
+                }
+            },
+            "verb_hint": "Не приймають замість доказів; утвори заперечний теперішній пасив від «приймати».",
+            "accepted_target_texts": [
+                "Under the arbitration rules, an unsupported inference is not accepted as a substitute for proof.",
+                "Under the arbitration rules, an unsupported inference isn't accepted as a substitute for proof.",
+                "Under the arbitration rules, an unsupported inference is not admitted as a substitute for proof.",
+                "Under the arbitration rules, an unsupported inference isn't admitted as a substitute for proof."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "isn't accepted",
+                    "is not admitted",
+                    "isn't admitted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "isn't accepted",
+                    "is not admitted",
+                    "isn't admitted"
+                ]
+            },
+            "reorder_groups": [
+                "Under the",
+                "arbitration rules,",
+                "an unsupported inference",
+                "is not accepted",
+                "as a substitute",
+                "for proof."
+            ],
+            "token_groups": [
+                "Under the",
+                "arbitration rules,",
+                "an unsupported inference",
+                "is not accepted",
+                "as a substitute",
+                "for proof."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-present-simple-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The materiality threshold {a1} in light of the entity's specific reporting circumstances.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Поріг суттєвості встановлюють з урахуванням конкретних обставин звітності організації.",
+            "target_text": "The materiality threshold is established in light of the entity's specific reporting circumstances.",
+            "markers": {
+                "a1": {
+                    "answer": "is established",
+                    "options": [
+                        "is established",
+                        "are established",
+                        "was established"
+                    ],
+                    "verb_hint": "Встановлюють поріг з огляду на обставини звітності; утвори теперішній пасив від «встановлювати»."
+                }
+            },
+            "verb_hint": "Встановлюють поріг з огляду на обставини звітності; утвори теперішній пасив від «встановлювати».",
+            "accepted_target_texts": [
+                "The materiality threshold is established in light of the entity's specific reporting circumstances.",
+                "The materiality threshold is set in light of the entity's specific reporting circumstances.",
+                "The materiality threshold is determined in light of the entity's specific reporting circumstances."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is set",
+                    "is determined"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is set",
+                    "is determined"
+                ]
+            },
+            "reorder_groups": [
+                "The materiality threshold",
+                "is established",
+                "in light of",
+                "the entity's",
+                "specific reporting circumstances."
+            ],
+            "token_groups": [
+                "The materiality threshold",
+                "is established",
+                "in light of",
+                "the entity's",
+                "specific reporting circumstances."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-present-simple-c2-g03",
+            "author_id": "C2-g03",
+            "question": "To what extent {a1} in the sensitivity analysis?",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Якою мірою невизначеності враховують в аналізі чутливості?",
+            "target_text": "To what extent are uncertainties accounted for in the sensitivity analysis?",
+            "markers": {
+                "a1": {
+                    "answer": "are uncertainties accounted for",
+                    "options": [
+                        "are uncertainties accounted for",
+                        "is uncertainties accounted for",
+                        "were uncertainties accounted for"
+                    ],
+                    "verb_hint": "Запитай, якою мірою враховують невизначеності; додай підмет «невизначеності» та теперішній пасив від «враховувати»."
+                }
+            },
+            "verb_hint": "Запитай, якою мірою враховують невизначеності; додай підмет «невизначеності» та теперішній пасив від «враховувати».",
+            "accepted_target_texts": [
+                "To what extent are uncertainties accounted for in the sensitivity analysis?",
+                "To what extent are uncertainties considered in the sensitivity analysis?",
+                "To what extent are uncertainties incorporated in the sensitivity analysis?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are uncertainties considered",
+                    "are uncertainties incorporated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are uncertainties considered",
+                    "are uncertainties incorporated"
+                ]
+            },
+            "reorder_groups": [
+                "To what extent",
+                "are uncertainties",
+                "accounted for",
+                "in the",
+                "sensitivity analysis?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "are uncertainties",
+                "accounted for",
+                "in the",
+                "sensitivity analysis?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-present-simple-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Under the confidentiality undertaking, privileged communications {a1} to third-party auditors.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "За зобов’язанням про конфіденційність привілейовану кореспонденцію не розкривають стороннім аудиторам.",
+            "target_text": "Under the confidentiality undertaking, privileged communications are not disclosed to third-party auditors.",
+            "markers": {
+                "a1": {
+                    "answer": "are not disclosed",
+                    "options": [
+                        "are not disclosed",
+                        "is not disclosed",
+                        "were not disclosed"
+                    ],
+                    "verb_hint": "Не розкривають стороннім аудиторам згідно із зобов’язанням; утвори заперечний теперішній пасив від «розкривати інформацію»."
+                }
+            },
+            "verb_hint": "Не розкривають стороннім аудиторам згідно із зобов’язанням; утвори заперечний теперішній пасив від «розкривати інформацію».",
+            "accepted_target_texts": [
+                "Under the confidentiality undertaking, privileged communications are not disclosed to third-party auditors.",
+                "Under the confidentiality undertaking, privileged communications aren't disclosed to third-party auditors.",
+                "Under the confidentiality undertaking, privileged communications are not divulged to third-party auditors.",
+                "Under the confidentiality undertaking, privileged communications aren't divulged to third-party auditors.",
+                "Under the confidentiality undertaking, privileged communications are not revealed to third-party auditors.",
+                "Under the confidentiality undertaking, privileged communications aren't revealed to third-party auditors."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "aren't disclosed",
+                    "are not divulged",
+                    "aren't divulged",
+                    "are not revealed",
+                    "aren't revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "aren't disclosed",
+                    "are not divulged",
+                    "aren't divulged",
+                    "are not revealed",
+                    "aren't revealed"
+                ]
+            },
+            "reorder_groups": [
+                "Under the",
+                "confidentiality undertaking,",
+                "privileged communications",
+                "are not disclosed",
+                "to third-party auditors."
+            ],
+            "token_groups": [
+                "Under the",
+                "confidentiality undertaking,",
+                "privileged communications",
+                "are not disclosed",
+                "to third-party auditors."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-present-simple-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The evidential weight of a retrospective account {a1} against contemporaneous records.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Доказову вагу ретроспективного свідчення оцінюють у зіставленні із записами, зробленими під час подій.",
+            "target_text": "The evidential weight of a retrospective account is assessed against contemporaneous records.",
+            "markers": {
+                "a1": {
+                    "answer": "is assessed",
+                    "options": [
+                        "is assessed",
+                        "are assessed",
+                        "was assessed"
+                    ],
+                    "verb_hint": "Оцінюють доказову вагу шляхом зіставлення з первинними записами; потрібен теперішній пасив від «оцінювати»."
+                }
+            },
+            "verb_hint": "Оцінюють доказову вагу шляхом зіставлення з первинними записами; потрібен теперішній пасив від «оцінювати».",
+            "accepted_target_texts": [
+                "The evidential weight of a retrospective account is assessed against contemporaneous records.",
+                "The evidential weight of a retrospective account is evaluated against contemporaneous records.",
+                "The evidential weight of a retrospective account is weighed against contemporaneous records."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is evaluated",
+                    "is weighed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is evaluated",
+                    "is weighed"
+                ]
+            },
+            "reorder_groups": [
+                "The evidential weight",
+                "of a",
+                "retrospective account",
+                "is assessed",
+                "against contemporaneous records."
+            ],
+            "token_groups": [
+                "The evidential weight",
+                "of a",
+                "retrospective account",
+                "is assessed",
+                "against contemporaneous records."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-present-simple-c2-g06",
+            "author_id": "C2-g06",
+            "question": "Residual liabilities {a1} to the successor entity under the restructuring agreement.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_present_simple",
+            "translation_uk": "Залишкові зобов’язання передають правонаступникові за угодою про реструктуризацію.",
+            "target_text": "Residual liabilities are transferred to the successor entity under the restructuring agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "are transferred",
+                    "options": [
+                        "are transferred",
+                        "is transferred",
+                        "were transferred"
+                    ],
+                    "verb_hint": "Передають правонаступникові за угодою; утвори теперішній пасив від «передавати»."
+                }
+            },
+            "verb_hint": "Передають правонаступникові за угодою; утвори теперішній пасив від «передавати».",
+            "accepted_target_texts": [
+                "Residual liabilities are transferred to the successor entity under the restructuring agreement.",
+                "Residual liabilities are assigned to the successor entity under the restructuring agreement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "are assigned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "are assigned"
+                ]
+            },
+            "reorder_groups": [
+                "Residual liabilities",
+                "are transferred",
+                "to the",
+                "successor entity",
+                "under the",
+                "restructuring agreement."
+            ],
+            "token_groups": [
+                "Residual liabilities",
+                "are transferred",
+                "to the",
+                "successor entity",
+                "under the",
+                "restructuring agreement."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

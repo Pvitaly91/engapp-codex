@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 271,
+        "id": 51021,
         "uuid": "pv-fut-simple-v3-c1-07",
-        "question": "The final decision {a1} by the manager when the agent is not central.",
+        "question": "To whom will the sealed specimens {a1} after the investigation?",
         "difficulty": 5,
         "level": "C1",
-        "category_id": 1,
-        "source_id": 4,
+        "category_id": 10,
+        "source_id": 345,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:45.000000Z",
-        "updated_at": "2026-05-26T15:08:15.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoiceFutureSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "be released",
+                "being released",
+                "been released",
+                "released"
+            ]
+        },
+        "theory_text_block_uuid": "c9712368-7392-5e32-a624-f8a6de328558",
+        "created_at": "2026-05-26T11:06:51.000000Z",
+        "updated_at": "2026-10-21T21:57:18.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 4,
+        "id": 345,
         "name": "Passive Voice Future Simple",
-        "created_at": "2026-05-26T15:07:44.000000Z",
-        "updated_at": "2026-05-26T15:07:44.000000Z"
+        "created_at": "2026-05-21T18:54:33.000000Z",
+        "updated_at": "2026-05-21T18:54:33.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 7,
+                "id": 83,
                 "name": "C1",
                 "category": null,
-                "created_at": "2026-05-26T15:07:32.000000Z",
-                "updated_at": "2026-05-26T15:07:32.000000Z"
+                "created_at": "2026-04-23T12:59:15.000000Z",
+                "updated_at": "2026-04-23T12:59:15.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "tag_id": 7,
+                "question_id": 51021,
+                "tag_id": 83,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 26,
-                "name": "Active Passive",
-                "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 271,
-                "tag_id": 26,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 38,
+                "id": 2717,
                 "name": "Passive Voice Future Simple",
                 "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "tag_id": 38,
+                "question_id": 51021,
+                "tag_id": 2717,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2718,
+                "name": "Will Be V3",
+                "category": "topic",
+                "created_at": "2026-05-21T18:54:33.000000Z",
+                "updated_at": "2026-05-21T18:54:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 51021,
+                "tag_id": 2718,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 123,
-                "option": "will be made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 28055,
+                "option": "released",
+                "created_at": "2026-06-27T20:20:44.000000Z",
+                "updated_at": "2026-06-27T20:20:44.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "option_id": 123,
+                "question_id": 51021,
+                "option_id": 28055,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 124,
-                "option": "will make",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53822,
+                "option": "be released",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "option_id": 124,
+                "question_id": 51021,
+                "option_id": 53822,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 125,
-                "option": "is made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53823,
+                "option": "being released",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "option_id": 125,
+                "question_id": 51021,
+                "option_id": 53823,
                 "flag": null
             }
         },
         {
             "option": {
-                "id": 126,
-                "option": "was made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53824,
+                "option": "been released",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             },
             "pivot": {
-                "question_id": 271,
-                "option_id": 126,
+                "question_id": 51021,
+                "option_id": 53824,
                 "flag": null
             }
         }
@@ -127,29 +138,47 @@
     "answers": [
         {
             "answer": {
-                "id": 271,
-                "question_id": 271,
+                "id": 321577,
+                "question_id": 51021,
                 "marker": "a1",
-                "option_id": 123,
-                "created_at": "2026-05-26T15:07:45.000000Z",
-                "updated_at": "2026-05-26T15:07:45.000000Z"
+                "option_id": 53822,
+                "created_at": "2026-10-21T21:57:18.000000Z",
+                "updated_at": "2026-10-21T21:57:18.000000Z"
             },
             "option": {
-                "id": 123,
-                "option": "will be made",
-                "created_at": "2026-05-26T15:07:44.000000Z",
-                "updated_at": "2026-05-26T15:07:44.000000Z"
+                "id": 53822,
+                "option": "be released",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
             }
         }
     ],
-    "verb_hints": [],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39051,
+                "question_id": 51021,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53825,
+                "created_at": "2026-10-21T21:57:18.000000Z",
+                "updated_at": "2026-10-21T21:57:18.000000Z"
+            },
+            "option": {
+                "id": 53825,
+                "option": "Передадуть: додай пасивну форму від «передавати, надавати для подальшого використання»; початок питання вже наведено. Приймається також доречне фразове дієслово.",
+                "created_at": "2026-10-27T19:20:09.000000Z",
+                "updated_at": "2026-10-27T19:20:09.000000Z"
+            }
+        }
+    ],
     "variants": [
         {
-            "id": 271,
-            "question_id": 271,
-            "text": "The final decision {a1} by the manager when the agent is not central.",
-            "created_at": "2026-05-26T15:07:45.000000Z",
-            "updated_at": "2026-05-26T15:07:45.000000Z"
+            "id": 51681,
+            "question_id": 51021,
+            "text": "To whom will the sealed specimens {a1} after the investigation?",
+            "created_at": "2026-10-21T21:57:18.000000Z",
+            "updated_at": "2026-10-21T21:57:18.000000Z"
         }
     ],
     "hints": [],

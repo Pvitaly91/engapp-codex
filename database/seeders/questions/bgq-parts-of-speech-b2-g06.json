@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60649,
+        "uuid": "bgq-parts-of-speech-b2-g06",
+        "question": "The report revealed substantial {a1}.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "inconsistency",
+                "inconsistent",
+                "inconsistently"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:48.000000Z",
+        "updated_at": "2026-10-27T15:50:48.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60649,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 20830,
+                "option": "inconsistency",
+                "created_at": "2026-05-17T22:32:47.000000Z",
+                "updated_at": "2026-05-17T22:32:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 60649,
+                "option_id": 20830,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52750,
+                "option": "inconsistent",
+                "created_at": "2026-10-27T13:05:07.000000Z",
+                "updated_at": "2026-10-27T13:05:07.000000Z"
+            },
+            "pivot": {
+                "question_id": 60649,
+                "option_id": 52750,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53143,
+                "option": "inconsistently",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60649,
+                "option_id": 53143,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325704,
+                "question_id": 60649,
+                "marker": "a1",
+                "option_id": 20830,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 20830,
+                "option": "inconsistency",
+                "created_at": "2026-05-17T22:32:47.000000Z",
+                "updated_at": "2026-05-17T22:32:47.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43038,
+                "question_id": 60649,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53142,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53142,
+                "option": "Потрібний зміст: «Непослідовність». Після кількісно-якісного означення потрібен іменник, що називає властивість.",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52664,
+            "question_id": 60649,
+            "text": "The report revealed substantial {a1}.",
+            "created_at": "2026-10-27T15:50:48.000000Z",
+            "updated_at": "2026-10-27T15:50:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,1837 @@
+{
+    "schema_version": 1,
+    "quality_revision": "saq-v1",
+    "compiled_from": {
+        "path": "docs/content/some-any-quality/people.v1.json",
+        "sha256": "c524385816da6a44e38c95cef915ce74f692034e082ba69f506ff2c8c3fb6931"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SomeAny\\UkrainianMixedSomeAnyPeopleQualityStandardSeeder",
+        "uuid_namespace": "some-any-quality-people-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Some / Any"
+    },
+    "sources": {
+        "some_any_quality_people": {
+            "name": "Some / Any Quality: Some / Any — People"
+        }
+    },
+    "tags": {
+        "some_any_theme": {
+            "name": "Some / Any — people, places and things",
+            "category": "topic"
+        },
+        "some_any_reference": {
+            "name": "Some / Any reference",
+            "category": "topic"
+        },
+        "some_any_page": {
+            "name": "Some / Any",
+            "category": "topic"
+        },
+        "people_page": {
+            "name": "People",
+            "category": "pattern"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "some_any_theme",
+        "some_any_reference",
+        "some_any_page",
+        "people_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "saq-people-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is {a1} at the blue door.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Біля синіх дверей хтось є.",
+            "target_text": "There is someone at the blue door.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "anyone",
+                        "nobody"
+                    ],
+                    "verb_hint": "Хтось є біля синіх дверей, але особу не названо; приймаються обидва звичні займенники зі значенням невідомої особи."
+                }
+            },
+            "verb_hint": "Хтось є біля синіх дверей, але особу не названо; приймаються обидва звичні займенники зі значенням невідомої особи.",
+            "accepted_target_texts": [
+                "There is someone at the blue door.",
+                "There is somebody at the blue door."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "someone",
+                "at the",
+                "blue door."
+            ],
+            "token_groups": [
+                "There is",
+                "someone",
+                "at the",
+                "blue door."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "saq-people-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I do not know {a1} in this class.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Я нікого не знаю в цьому класі.",
+            "target_text": "I do not know anyone in this class.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ],
+                    "verb_hint": "Нікого не знаю в цьому класі: після вже наведеного заперечення потрібен неозначений займенник без другого заперечення."
+                }
+            },
+            "verb_hint": "Нікого не знаю в цьому класі: після вже наведеного заперечення потрібен неозначений займенник без другого заперечення.",
+            "accepted_target_texts": [
+                "I do not know anyone in this class.",
+                "I do not know anybody in this class."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "I do not",
+                "know",
+                "anyone",
+                "in this class."
+            ],
+            "token_groups": [
+                "I do not",
+                "know",
+                "anyone",
+                "in this class."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "saq-people-a1-g03",
+            "author_id": "A1-g03",
+            "question": "{a1} is in the lift.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "У ліфті нікого немає.",
+            "target_text": "Nobody is in the lift.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Someone",
+                        "Everyone"
+                    ],
+                    "verb_hint": "Нікого немає в ліфті: заперечне значення передає сам підмет, а дієслово залишається стверджувальним."
+                }
+            },
+            "verb_hint": "Нікого немає в ліфті: заперечне значення передає сам підмет, а дієслово залишається стверджувальним.",
+            "accepted_target_texts": [
+                "Nobody is in the lift.",
+                "No one is in the lift."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody",
+                "is",
+                "in the lift."
+            ],
+            "token_groups": [
+                "Nobody",
+                "is",
+                "in the lift."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "saq-people-a1-g04",
+            "author_id": "A1-g04",
+            "question": "There are {a1} on the bus.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "В автобусі є кілька людей.",
+            "target_text": "There are some people on the bus.",
+            "markers": {
+                "a1": {
+                    "answer": "some people",
+                    "options": [
+                        "some people",
+                        "any people",
+                        "no people"
+                    ],
+                    "verb_hint": "Кілька людей їдуть автобусом; це ствердження про наявність невизначеної кількості людей, не про їх відсутність."
+                }
+            },
+            "verb_hint": "Кілька людей їдуть автобусом; це ствердження про наявність невизначеної кількості людей, не про їх відсутність.",
+            "accepted_target_texts": [
+                "There are some people on the bus."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "some people",
+                "on the bus."
+            ],
+            "token_groups": [
+                "There are",
+                "some people",
+                "on the bus."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "saq-people-a1-g05",
+            "author_id": "A1-g05",
+            "question": "We do not have {a1} today.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Сьогодні в нас немає жодних гостей.",
+            "target_text": "We do not have any guests today.",
+            "markers": {
+                "a1": {
+                    "answer": "any guests",
+                    "options": [
+                        "any guests",
+                        "some guests",
+                        "no guests"
+                    ],
+                    "verb_hint": "Жодних гостей сьогодні немає: заперечення вже наведено перед пропуском; гостей також можна назвати відвідувачами."
+                }
+            },
+            "verb_hint": "Жодних гостей сьогодні немає: заперечення вже наведено перед пропуском; гостей також можна назвати відвідувачами.",
+            "accepted_target_texts": [
+                "We do not have any guests today.",
+                "We do not have any visitors today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "any visitors"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "any visitors"
+                ]
+            },
+            "reorder_groups": [
+                "We do not",
+                "have",
+                "any guests",
+                "today."
+            ],
+            "token_groups": [
+                "We do not",
+                "have",
+                "any guests",
+                "today."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "saq-people-a1-g06",
+            "author_id": "A1-g06",
+            "question": "{a1} has a name.",
+            "level": "A1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Кожна людина має ім’я.",
+            "target_text": "Everyone has a name.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Someone",
+                        "Nobody"
+                    ],
+                    "verb_hint": "Кожна людина без винятку має ім’я; потрібен займенник узагальнення з дієсловом в однині."
+                }
+            },
+            "verb_hint": "Кожна людина без винятку має ім’я; потрібен займенник узагальнення з дієсловом в однині.",
+            "accepted_target_texts": [
+                "Everyone has a name.",
+                "Everybody has a name."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "has",
+                "a name."
+            ],
+            "token_groups": [
+                "Everyone",
+                "has",
+                "a name."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "saq-people-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We have {a1} from Spain today.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Сьогодні в нас кілька гостей з Іспанії.",
+            "target_text": "We have some visitors from Spain today.",
+            "markers": {
+                "a1": {
+                    "answer": "some visitors",
+                    "options": [
+                        "some visitors",
+                        "any visitors",
+                        "no visitors"
+                    ],
+                    "verb_hint": "Кілька гостей з Іспанії вже прибули: ствердження про невизначену кількість; гостей можна також назвати відвідувачами."
+                }
+            },
+            "verb_hint": "Кілька гостей з Іспанії вже прибули: ствердження про невизначену кількість; гостей можна також назвати відвідувачами.",
+            "accepted_target_texts": [
+                "We have some visitors from Spain today.",
+                "We have some guests from Spain today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "some guests"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "some guests"
+                ]
+            },
+            "reorder_groups": [
+                "We have",
+                "some visitors",
+                "from Spain",
+                "today."
+            ],
+            "token_groups": [
+                "We have",
+                "some visitors",
+                "from Spain",
+                "today."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "saq-people-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She did not tell {a1} about the surprise.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Вона нікому не розповіла про сюрприз.",
+            "target_text": "She did not tell anyone about the surprise.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "nobody"
+                    ],
+                    "verb_hint": "Нікому не розповіла про сюрприз: заперечення вже стоїть перед дієсловом, тому вдруге заперечувати не слід."
+                }
+            },
+            "verb_hint": "Нікому не розповіла про сюрприз: заперечення вже стоїть перед дієсловом, тому вдруге заперечувати не слід.",
+            "accepted_target_texts": [
+                "She did not tell anyone about the surprise.",
+                "She did not tell anybody about the surprise."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "She did not",
+                "tell",
+                "anyone",
+                "about the",
+                "surprise."
+            ],
+            "token_groups": [
+                "She did not",
+                "tell",
+                "anyone",
+                "about the",
+                "surprise."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "saq-people-a2-g03",
+            "author_id": "A2-g03",
+            "question": "{a1} answered the last question.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ніхто не відповів на останнє запитання.",
+            "target_text": "Nobody answered the last question.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Everybody"
+                    ],
+                    "verb_hint": "Жодна людина не дала відповіді на останнє запитання; заперечний підмет не потребує додаткового заперечення дієслова."
+                }
+            },
+            "verb_hint": "Жодна людина не дала відповіді на останнє запитання; заперечний підмет не потребує додаткового заперечення дієслова.",
+            "accepted_target_texts": [
+                "Nobody answered the last question.",
+                "No one answered the last question."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody",
+                "answered",
+                "the last question."
+            ],
+            "token_groups": [
+                "Nobody",
+                "answered",
+                "the last question."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "saq-people-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} in our group has paid.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Усі в нашій групі заплатили.",
+            "target_text": "Everyone in our group has paid.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Someone",
+                        "No one"
+                    ],
+                    "verb_hint": "Усі члени групи вже заплатили, без жодного винятку; потрібен узагальнювальний підмет в однині."
+                }
+            },
+            "verb_hint": "Усі члени групи вже заплатили, без жодного винятку; потрібен узагальнювальний підмет в однині.",
+            "accepted_target_texts": [
+                "Everyone in our group has paid.",
+                "Everybody in our group has paid."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "in our group",
+                "has paid."
+            ],
+            "token_groups": [
+                "Everyone",
+                "in our group",
+                "has paid."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "saq-people-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Please ask {a1} to carry this box.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Будь ласка, попроси когось перенести цю коробку.",
+            "target_text": "Please ask someone to carry this box.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "everyone",
+                        "nobody"
+                    ],
+                    "verb_hint": "Попроси одну невизначену особу перенести коробку; не всіх і не жодну людину, а когось конкретно не названого."
+                }
+            },
+            "verb_hint": "Попроси одну невизначену особу перенести коробку; не всіх і не жодну людину, а когось конкретно не названого.",
+            "accepted_target_texts": [
+                "Please ask someone to carry this box.",
+                "Please ask somebody to carry this box."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Please ask",
+                "someone",
+                "to carry",
+                "this box."
+            ],
+            "token_groups": [
+                "Please ask",
+                "someone",
+                "to carry",
+                "this box."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "saq-people-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I have not met {a1} yet.",
+            "level": "A2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Я ще не познайомився з жодними гостями.",
+            "target_text": "I have not met any guests yet.",
+            "markers": {
+                "a1": {
+                    "answer": "any guests",
+                    "options": [
+                        "any guests",
+                        "some guests",
+                        "no guests"
+                    ],
+                    "verb_hint": "Іще не зустрів жодних гостей: заперечення вже наведене; гостей тут також можна назвати відвідувачами."
+                }
+            },
+            "verb_hint": "Іще не зустрів жодних гостей: заперечення вже наведене; гостей тут також можна назвати відвідувачами.",
+            "accepted_target_texts": [
+                "I have not met any guests yet.",
+                "I have not met any visitors yet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "any visitors"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "any visitors"
+                ]
+            },
+            "reorder_groups": [
+                "I have",
+                "not met",
+                "any guests",
+                "yet."
+            ],
+            "token_groups": [
+                "I have",
+                "not met",
+                "any guests",
+                "yet."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "saq-people-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Only {a1} could stay until midnight.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Лише деякі волонтери могли залишитися до півночі.",
+            "target_text": "Only some volunteers could stay until midnight.",
+            "markers": {
+                "a1": {
+                    "answer": "some volunteers",
+                    "options": [
+                        "some volunteers",
+                        "any volunteers",
+                        "no volunteers"
+                    ],
+                    "verb_hint": "Лише частина волонтерів могла залишитися до півночі; потрібна невизначена додатна кількість після слова лише."
+                }
+            },
+            "verb_hint": "Лише частина волонтерів могла залишитися до півночі; потрібна невизначена додатна кількість після слова лише.",
+            "accepted_target_texts": [
+                "Only some volunteers could stay until midnight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only",
+                "some volunteers",
+                "could stay",
+                "until midnight."
+            ],
+            "token_groups": [
+                "Only",
+                "some volunteers",
+                "could stay",
+                "until midnight."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "saq-people-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We have not heard from {a1} since the power cut.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Після відключення електрики ми ні від кого не отримували звісток.",
+            "target_text": "We have not heard from anyone since the power cut.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ],
+                    "verb_hint": "Ні від кого не було звісток від часу відключення; заперечення вже є в реченні, можливі два рівнозначні займенники."
+                }
+            },
+            "verb_hint": "Ні від кого не було звісток від часу відключення; заперечення вже є в реченні, можливі два рівнозначні займенники.",
+            "accepted_target_texts": [
+                "We have not heard from anyone since the power cut.",
+                "We have not heard from anybody since the power cut."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "We have not",
+                "heard from",
+                "anyone",
+                "since the",
+                "power cut."
+            ],
+            "token_groups": [
+                "We have not",
+                "heard from",
+                "anyone",
+                "since the",
+                "power cut."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "saq-people-b1-g03",
+            "author_id": "B1-g03",
+            "question": "{a1} who joined signed the safety form.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Кожен, хто приєднався, підписав бланк з техніки безпеки.",
+            "target_text": "Everybody who joined signed the safety form.",
+            "markers": {
+                "a1": {
+                    "answer": "Everybody",
+                    "options": [
+                        "Everybody",
+                        "Somebody",
+                        "Nobody"
+                    ],
+                    "verb_hint": "Кожен учасник без винятку підписав бланк; підмет охоплює всіх людей, а не невідому окрему особу."
+                }
+            },
+            "verb_hint": "Кожен учасник без винятку підписав бланк; підмет охоплює всіх людей, а не невідому окрему особу.",
+            "accepted_target_texts": [
+                "Everybody who joined signed the safety form.",
+                "Everyone who joined signed the safety form."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everyone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everyone"
+                ]
+            },
+            "reorder_groups": [
+                "Everybody",
+                "who joined",
+                "signed",
+                "the safety form."
+            ],
+            "token_groups": [
+                "Everybody",
+                "who joined",
+                "signed",
+                "the safety form."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "saq-people-b1-g04",
+            "author_id": "B1-g04",
+            "question": "{a1} was hurt when the shelf collapsed.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ніхто не постраждав, коли впала полиця.",
+            "target_text": "Nobody was hurt when the shelf collapsed.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Everybody"
+                    ],
+                    "verb_hint": "Жодна людина не постраждала внаслідок падіння полиці; заперечення передає підмет, а не дієслово."
+                }
+            },
+            "verb_hint": "Жодна людина не постраждала внаслідок падіння полиці; заперечення передає підмет, а не дієслово.",
+            "accepted_target_texts": [
+                "Nobody was hurt when the shelf collapsed.",
+                "No one was hurt when the shelf collapsed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody",
+                "was hurt",
+                "when the",
+                "shelf collapsed."
+            ],
+            "token_groups": [
+                "Nobody",
+                "was hurt",
+                "when the",
+                "shelf collapsed."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "saq-people-b1-g05",
+            "author_id": "B1-g05",
+            "question": "We need {a1} who can repair bicycles.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Нам потрібен хтось, хто вміє ремонтувати велосипеди.",
+            "target_text": "We need someone who can repair bicycles.",
+            "markers": {
+                "a1": {
+                    "answer": "someone",
+                    "options": [
+                        "someone",
+                        "everyone",
+                        "no one"
+                    ],
+                    "verb_hint": "Потрібна одна людина з умінням ремонтувати велосипеди; її особа ще невідома, але потреба в такій людині стверджується."
+                }
+            },
+            "verb_hint": "Потрібна одна людина з умінням ремонтувати велосипеди; її особа ще невідома, але потреба в такій людині стверджується.",
+            "accepted_target_texts": [
+                "We need someone who can repair bicycles.",
+                "We need somebody who can repair bicycles."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "somebody"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "someone",
+                "who can",
+                "repair bicycles."
+            ],
+            "token_groups": [
+                "We need",
+                "someone",
+                "who can",
+                "repair bicycles."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "saq-people-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The guide did not leave {a1} behind.",
+            "level": "B1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Гід не залишив позаду жодного відвідувача.",
+            "target_text": "The guide did not leave any visitors behind.",
+            "markers": {
+                "a1": {
+                    "answer": "any visitors",
+                    "options": [
+                        "any visitors",
+                        "some visitors",
+                        "no visitors"
+                    ],
+                    "verb_hint": "Жодних відвідувачів не залишили позаду: перед пропуском уже є заперечення; у цьому контексті це також гості."
+                }
+            },
+            "verb_hint": "Жодних відвідувачів не залишили позаду: перед пропуском уже є заперечення; у цьому контексті це також гості.",
+            "accepted_target_texts": [
+                "The guide did not leave any visitors behind.",
+                "The guide did not leave any guests behind."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "any guests"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "any guests"
+                ]
+            },
+            "reorder_groups": [
+                "The guide",
+                "did not leave",
+                "any visitors",
+                "behind."
+            ],
+            "token_groups": [
+                "The guide",
+                "did not leave",
+                "any visitors",
+                "behind."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "saq-people-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Hardly {a1} recognised the actor without his costume.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Майже ніхто не впізнав актора без костюма.",
+            "target_text": "Hardly anyone recognised the actor without his costume.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "no one"
+                    ],
+                    "verb_hint": "Майже ніхто не впізнав актора: початкове слово вже має обмежувально-заперечний зміст, тому другого заперечення не потрібно."
+                }
+            },
+            "verb_hint": "Майже ніхто не впізнав актора: початкове слово вже має обмежувально-заперечний зміст, тому другого заперечення не потрібно.",
+            "accepted_target_texts": [
+                "Hardly anyone recognised the actor without his costume.",
+                "Hardly anybody recognised the actor without his costume."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "Hardly",
+                "anyone",
+                "recognised the actor",
+                "without his costume."
+            ],
+            "token_groups": [
+                "Hardly",
+                "anyone",
+                "recognised the actor",
+                "without his costume."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "saq-people-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} must have removed the seal before delivery.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Хтось, мабуть, зняв пломбу перед доставкою.",
+            "target_text": "Someone must have removed the seal before delivery.",
+            "markers": {
+                "a1": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "No one"
+                    ],
+                    "verb_hint": "За наявними ознаками якась невідома особа зняла пломбу; це висновок про реальну дію, а не дозвіл будь-кому діяти."
+                }
+            },
+            "verb_hint": "За наявними ознаками якась невідома особа зняла пломбу; це висновок про реальну дію, а не дозвіл будь-кому діяти.",
+            "accepted_target_texts": [
+                "Someone must have removed the seal before delivery.",
+                "Somebody must have removed the seal before delivery."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Someone",
+                "must have",
+                "removed the seal",
+                "before delivery."
+            ],
+            "token_groups": [
+                "Someone",
+                "must have",
+                "removed the seal",
+                "before delivery."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "saq-people-b2-g03",
+            "author_id": "B2-g03",
+            "question": "{a1} present was required to sign a confidentiality agreement.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Кожен присутній був зобов’язаний підписати угоду про конфіденційність.",
+            "target_text": "Everyone present was required to sign a confidentiality agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Someone",
+                        "Nobody"
+                    ],
+                    "verb_hint": "Обов’язок підписати угоду стосувався кожного присутнього без винятку; потрібен підмет узагальнення."
+                }
+            },
+            "verb_hint": "Обов’язок підписати угоду стосувався кожного присутнього без винятку; потрібен підмет узагальнення.",
+            "accepted_target_texts": [
+                "Everyone present was required to sign a confidentiality agreement.",
+                "Everybody present was required to sign a confidentiality agreement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "present was",
+                "required to sign",
+                "a confidentiality agreement."
+            ],
+            "token_groups": [
+                "Everyone",
+                "present was",
+                "required to sign",
+                "a confidentiality agreement."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "saq-people-b2-g04",
+            "author_id": "B2-g04",
+            "question": "We could not find {a1} to the collision.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ми не змогли знайти жодних свідків зіткнення.",
+            "target_text": "We could not find any witnesses to the collision.",
+            "markers": {
+                "a1": {
+                    "answer": "any witnesses",
+                    "options": [
+                        "any witnesses",
+                        "some witnesses",
+                        "no witnesses"
+                    ],
+                    "verb_hint": "Жодних свідків зіткнення не вдалося знайти; перед пропуском уже наведене заперечення, не додавай друге."
+                }
+            },
+            "verb_hint": "Жодних свідків зіткнення не вдалося знайти; перед пропуском уже наведене заперечення, не додавай друге.",
+            "accepted_target_texts": [
+                "We could not find any witnesses to the collision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We could not",
+                "find",
+                "any witnesses",
+                "to the collision."
+            ],
+            "token_groups": [
+                "We could not",
+                "find",
+                "any witnesses",
+                "to the collision."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "saq-people-b2-g05",
+            "author_id": "B2-g05",
+            "question": "{a1} on the shortlist met all three requirements.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ніхто з відібраних кандидатів не відповідав усім трьом вимогам.",
+            "target_text": "Nobody on the shortlist met all three requirements.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Someone",
+                        "Everybody"
+                    ],
+                    "verb_hint": "Жоден кандидат із короткого списку не задовольнив усіх вимог; заперечний підмет поєднується зі стверджувальною формою дієслова."
+                }
+            },
+            "verb_hint": "Жоден кандидат із короткого списку не задовольнив усіх вимог; заперечний підмет поєднується зі стверджувальною формою дієслова.",
+            "accepted_target_texts": [
+                "Nobody on the shortlist met all three requirements.",
+                "No one on the shortlist met all three requirements."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody",
+                "on the shortlist",
+                "met all",
+                "three requirements."
+            ],
+            "token_groups": [
+                "Nobody",
+                "on the shortlist",
+                "met all",
+                "three requirements."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "saq-people-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} opposed the motion, but most supported it.",
+            "level": "B2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Деякі делегати заперечували проти пропозиції, але більшість її підтримала.",
+            "target_text": "Some delegates opposed the motion, but most supported it.",
+            "markers": {
+                "a1": {
+                    "answer": "Some delegates",
+                    "options": [
+                        "Some delegates",
+                        "Any delegates",
+                        "No delegates"
+                    ],
+                    "verb_hint": "Меншість делегатів заперечувала, а більшість підтримала; потрібна додатна невизначена частина групи."
+                }
+            },
+            "verb_hint": "Меншість делегатів заперечувала, а більшість підтримала; потрібна додатна невизначена частина групи.",
+            "accepted_target_texts": [
+                "Some delegates opposed the motion, but most supported it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Some delegates",
+                "opposed the motion,",
+                "but most",
+                "supported it."
+            ],
+            "token_groups": [
+                "Some delegates",
+                "opposed the motion,",
+                "but most",
+                "supported it."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "saq-people-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Scarcely {a1} had anticipated the regulator's intervention.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Майже ніхто не передбачив втручання регулятора.",
+            "target_text": "Scarcely anyone had anticipated the regulator's intervention.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "someone",
+                        "nobody"
+                    ],
+                    "verb_hint": "Майже ніхто не очікував втручання: початковий обмежувальний прислівник уже надає реченню заперечного змісту."
+                }
+            },
+            "verb_hint": "Майже ніхто не очікував втручання: початковий обмежувальний прислівник уже надає реченню заперечного змісту.",
+            "accepted_target_texts": [
+                "Scarcely anyone had anticipated the regulator's intervention.",
+                "Scarcely anybody had anticipated the regulator's intervention."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "Scarcely",
+                "anyone",
+                "had anticipated",
+                "the regulator's intervention."
+            ],
+            "token_groups": [
+                "Scarcely",
+                "anyone",
+                "had anticipated",
+                "the regulator's intervention."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "saq-people-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} with no financial stake should chair the hearing.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Слухання має очолити хтось без фінансової зацікавленості.",
+            "target_text": "Someone with no financial stake should chair the hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Everyone",
+                        "No one"
+                    ],
+                    "verb_hint": "Потрібна одна незалежна особа без фінансової зацікавленості; стверджується необхідність такої людини, а не її відсутність."
+                }
+            },
+            "verb_hint": "Потрібна одна незалежна особа без фінансової зацікавленості; стверджується необхідність такої людини, а не її відсутність.",
+            "accepted_target_texts": [
+                "Someone with no financial stake should chair the hearing.",
+                "Somebody with no financial stake should chair the hearing."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Someone",
+                "with no",
+                "financial stake",
+                "should chair",
+                "the hearing."
+            ],
+            "token_groups": [
+                "Someone",
+                "with no",
+                "financial stake",
+                "should chair",
+                "the hearing."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "saq-people-c1-g03",
+            "author_id": "C1-g03",
+            "question": "We have yet to identify {a1} of the scheme.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ми ще не встановили жодних вигодонабувачів цієї схеми.",
+            "target_text": "We have yet to identify any beneficiaries of the scheme.",
+            "markers": {
+                "a1": {
+                    "answer": "any beneficiaries",
+                    "options": [
+                        "any beneficiaries",
+                        "some beneficiaries",
+                        "no beneficiaries"
+                    ],
+                    "verb_hint": "Жодних вигодонабувачів досі не встановлено: конструкція ще належить зробити має заперечний зміст без другого заперечного слова."
+                }
+            },
+            "verb_hint": "Жодних вигодонабувачів досі не встановлено: конструкція ще належить зробити має заперечний зміст без другого заперечного слова.",
+            "accepted_target_texts": [
+                "We have yet to identify any beneficiaries of the scheme."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "yet to identify",
+                "any beneficiaries",
+                "of the scheme."
+            ],
+            "token_groups": [
+                "We have",
+                "yet to identify",
+                "any beneficiaries",
+                "of the scheme."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "saq-people-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} whose testimony was independently verified contradicted the chronology.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ніхто з тих, чиї свідчення перевірили незалежно, не заперечив хронологію.",
+            "target_text": "Nobody whose testimony was independently verified contradicted the chronology.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Somebody",
+                        "Everybody"
+                    ],
+                    "verb_hint": "Жодна особа з незалежно перевіреними свідченнями не заперечила хронології; заперечне значення міститься в підметі."
+                }
+            },
+            "verb_hint": "Жодна особа з незалежно перевіреними свідченнями не заперечила хронології; заперечне значення міститься в підметі.",
+            "accepted_target_texts": [
+                "Nobody whose testimony was independently verified contradicted the chronology.",
+                "No one whose testimony was independently verified contradicted the chronology."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No one"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody",
+                "whose testimony",
+                "was independently verified",
+                "contradicted the chronology."
+            ],
+            "token_groups": [
+                "Nobody",
+                "whose testimony",
+                "was independently verified",
+                "contradicted the chronology."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "saq-people-c1-g05",
+            "author_id": "C1-g05",
+            "question": "{a1} affected by the restructuring is entitled to an explanation.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Кожен, кого зачепила реструктуризація, має право на пояснення.",
+            "target_text": "Everyone affected by the restructuring is entitled to an explanation.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Someone",
+                        "No one"
+                    ],
+                    "verb_hint": "Право на пояснення має кожна постраждала від реструктуризації особа без винятку; узагальнювальний підмет в однині."
+                }
+            },
+            "verb_hint": "Право на пояснення має кожна постраждала від реструктуризації особа без винятку; узагальнювальний підмет в однині.",
+            "accepted_target_texts": [
+                "Everyone affected by the restructuring is entitled to an explanation.",
+                "Everybody affected by the restructuring is entitled to an explanation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "affected by",
+                "the restructuring",
+                "is entitled",
+                "to an explanation."
+            ],
+            "token_groups": [
+                "Everyone",
+                "affected by",
+                "the restructuring",
+                "is entitled",
+                "to an explanation."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "saq-people-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Only {a1} were privy to the confidential annex.",
+            "level": "C1",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Лише деякі радники мали доступ до конфіденційного додатка.",
+            "target_text": "Only some advisers were privy to the confidential annex.",
+            "markers": {
+                "a1": {
+                    "answer": "some advisers",
+                    "options": [
+                        "some advisers",
+                        "any advisers",
+                        "no advisers"
+                    ],
+                    "verb_hint": "Доступ був лише в частини радників, а не в усіх і не в жодного; потрібна невизначена додатна кількість."
+                }
+            },
+            "verb_hint": "Доступ був лише в частини радників, а не в усіх і не в жодного; потрібна невизначена додатна кількість.",
+            "accepted_target_texts": [
+                "Only some advisers were privy to the confidential annex."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only",
+                "some advisers",
+                "were privy",
+                "to the",
+                "confidential annex."
+            ],
+            "token_groups": [
+                "Only",
+                "some advisers",
+                "were privy",
+                "to the",
+                "confidential annex."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "saq-people-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Should {a1} challenge the settlement, independent arbitration will follow.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Якщо хтось оскаржить угоду, відбудеться незалежний арбітраж.",
+            "target_text": "Should anyone challenge the settlement, independent arbitration will follow.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "no one",
+                        "everyone"
+                    ],
+                    "verb_hint": "Умовна інверсія стосується будь-якої можливої особи, яка оскаржить угоду; особу наперед не очікують і не визначають."
+                }
+            },
+            "verb_hint": "Умовна інверсія стосується будь-якої можливої особи, яка оскаржить угоду; особу наперед не очікують і не визначають.",
+            "accepted_target_texts": [
+                "Should anyone challenge the settlement, independent arbitration will follow.",
+                "Should anybody challenge the settlement, independent arbitration will follow."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "anybody"
+                ]
+            },
+            "reorder_groups": [
+                "Should",
+                "anyone",
+                "challenge the settlement,",
+                "independent arbitration",
+                "will follow."
+            ],
+            "token_groups": [
+                "Should",
+                "anyone",
+                "challenge the settlement,",
+                "independent arbitration",
+                "will follow."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "saq-people-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} with a vested interest should adjudicate the dispute.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Жодна особа з особистою зацікавленістю не повинна вирішувати цей спір.",
+            "target_text": "No one with a vested interest should adjudicate the dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "No one",
+                    "options": [
+                        "No one",
+                        "Someone",
+                        "Everyone"
+                    ],
+                    "verb_hint": "Повністю виключено всіх осіб з особистою зацікавленістю; заперечення належить підмету, не модальному дієслову."
+                }
+            },
+            "verb_hint": "Повністю виключено всіх осіб з особистою зацікавленістю; заперечення належить підмету, не модальному дієслову.",
+            "accepted_target_texts": [
+                "No one with a vested interest should adjudicate the dispute.",
+                "Nobody with a vested interest should adjudicate the dispute."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Nobody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Nobody"
+                ]
+            },
+            "reorder_groups": [
+                "No one",
+                "with a",
+                "vested interest",
+                "should adjudicate",
+                "the dispute."
+            ],
+            "token_groups": [
+                "No one",
+                "with a",
+                "vested interest",
+                "should adjudicate",
+                "the dispute."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "saq-people-c2-g03",
+            "author_id": "C2-g03",
+            "question": "We would not entrust {a1} with such unfettered discretion.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Ми не довірили б жодним посередникам таких необмежених повноважень.",
+            "target_text": "We would not entrust any intermediaries with such unfettered discretion.",
+            "markers": {
+                "a1": {
+                    "answer": "any intermediaries",
+                    "options": [
+                        "any intermediaries",
+                        "some intermediaries",
+                        "no intermediaries"
+                    ],
+                    "verb_hint": "Жодним посередникам не надали б необмежених повноважень: умовне заперечення вже наведене перед пропуском."
+                }
+            },
+            "verb_hint": "Жодним посередникам не надали б необмежених повноважень: умовне заперечення вже наведене перед пропуском.",
+            "accepted_target_texts": [
+                "We would not entrust any intermediaries with such unfettered discretion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We would not",
+                "entrust",
+                "any intermediaries",
+                "with such",
+                "unfettered discretion."
+            ],
+            "token_groups": [
+                "We would not",
+                "entrust",
+                "any intermediaries",
+                "with such",
+                "unfettered discretion."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "saq-people-c2-g04",
+            "author_id": "C2-g04",
+            "question": "{a1} within the consortium must have authorised the covert transfer.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Хтось у консорціумі, мабуть, дозволив прихований переказ.",
+            "target_text": "Someone within the consortium must have authorised the covert transfer.",
+            "markers": {
+                "a1": {
+                    "answer": "Someone",
+                    "options": [
+                        "Someone",
+                        "Anyone",
+                        "Nobody"
+                    ],
+                    "verb_hint": "Є підстави зробити висновок, що невідома особа всередині консорціуму дозволила переказ; це не вільний вибір особи."
+                }
+            },
+            "verb_hint": "Є підстави зробити висновок, що невідома особа всередині консорціуму дозволила переказ; це не вільний вибір особи.",
+            "accepted_target_texts": [
+                "Someone within the consortium must have authorised the covert transfer.",
+                "Somebody within the consortium must have authorised the covert transfer."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Somebody"
+                ]
+            },
+            "reorder_groups": [
+                "Someone",
+                "within the consortium",
+                "must have",
+                "authorised the",
+                "covert transfer."
+            ],
+            "token_groups": [
+                "Someone",
+                "within the consortium",
+                "must have",
+                "authorised the",
+                "covert transfer."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "saq-people-c2-g05",
+            "author_id": "C2-g05",
+            "question": "{a1} whose standing was contested retained access to counsel.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Кожен, чий правовий статус оскаржували, зберіг доступ до адвоката.",
+            "target_text": "Everyone whose standing was contested retained access to counsel.",
+            "markers": {
+                "a1": {
+                    "answer": "Everyone",
+                    "options": [
+                        "Everyone",
+                        "Someone",
+                        "No one"
+                    ],
+                    "verb_hint": "Доступ до адвоката зберегли всі особи з оскарженим статусом без винятку; потрібен узагальнювальний підмет в однині."
+                }
+            },
+            "verb_hint": "Доступ до адвоката зберегли всі особи з оскарженим статусом без винятку; потрібен узагальнювальний підмет в однині.",
+            "accepted_target_texts": [
+                "Everyone whose standing was contested retained access to counsel.",
+                "Everybody whose standing was contested retained access to counsel."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Everybody"
+                ]
+            },
+            "reorder_groups": [
+                "Everyone",
+                "whose standing",
+                "was contested",
+                "retained access",
+                "to counsel."
+            ],
+            "token_groups": [
+                "Everyone",
+                "whose standing",
+                "was contested",
+                "retained access",
+                "to counsel."
+            ],
+            "quality_revision": "saq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "saq-people-c2-g06",
+            "author_id": "C2-g06",
+            "question": "{a1} repudiated the accord without formally withdrawing from it.",
+            "level": "C2",
+            "type": 0,
+            "source": "some_any_quality_people",
+            "translation_uk": "Деякі підписанти відкинули угоду, формально з неї не вийшовши.",
+            "target_text": "Some signatories repudiated the accord without formally withdrawing from it.",
+            "markers": {
+                "a1": {
+                    "answer": "Some signatories",
+                    "options": [
+                        "Some signatories",
+                        "Any signatories",
+                        "No signatories"
+                    ],
+                    "verb_hint": "Частина підписантів відкинула угоду, хоча формального виходу не було; йдеться про реально наявну невизначену частину групи."
+                }
+            },
+            "verb_hint": "Частина підписантів відкинула угоду, хоча формального виходу не було; йдеться про реально наявну невизначену частину групи.",
+            "accepted_target_texts": [
+                "Some signatories repudiated the accord without formally withdrawing from it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Some signatories",
+                "repudiated the accord",
+                "without formally",
+                "withdrawing from it."
+            ],
+            "token_groups": [
+                "Some signatories",
+                "repudiated the accord",
+                "without formally",
+                "withdrawing from it."
+            ],
+            "quality_revision": "saq-v1"
+        }
+    ]
+}

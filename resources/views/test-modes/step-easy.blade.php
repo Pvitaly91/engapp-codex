@@ -253,6 +253,10 @@ function normalizeOptionsBySlot(q) {
  * Get active options for the current active slot
  */
 function getActiveOptions(q) {
+  if (typeof presentPerfectPassiveWordChoices === 'function') {
+    const choices = presentPerfectPassiveWordChoices(q, q.activeSlot, q.optionsBySlot?.[q.activeSlot] || q.options || []);
+    if (choices !== null) return choices;
+  }
   if (q.optionsBySlot && Array.isArray(q.optionsBySlot) && Array.isArray(q.optionsBySlot[q.activeSlot])) {
     return q.optionsBySlot[q.activeSlot];
   }
@@ -395,6 +399,7 @@ async function init(forceFresh = false) {
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        restoreSavedPpcRetryState(item);
         clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx] || item;
@@ -472,7 +477,7 @@ function render() {
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            ${testUi('question.show_help')}
+            <span data-authored-compose-help-label>${testUi('question.show_help')}</span>
           </button>
           ${getTheoryBlocks(q).length ? `<button type="button" id="theory-btn" class="ml-2 sm:ml-3 inline-flex items-center text-[13px] sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -519,7 +524,7 @@ function render() {
         e.stopPropagation();
         const result = applySentenceReorderAction(currentQ, reorderButton);
         if (!result) return;
-        if (result === 'checked' && currentQ.feedback === 'correct') {
+        if (result === 'checked' && currentQ.feedback === 'correct' && (!currentQ.reorder_manual_input || !currentQ.wrongAttempt)) {
           state.correct += 1;
         }
         render();
@@ -730,6 +735,10 @@ document.getElementById('question-card').addEventListener('click', (e) => {
 
 // Commit an autocomplete choice before focusout dismisses the dropdown.
 document.getElementById('question-card').addEventListener('pointerdown', (e) => {
+  if (state.items[state.current]?.reorder_manual_input && e.target.closest('button[data-reorder-action]')) {
+    e.preventDefault();
+    return;
+  }
   const suggestionBtn = e.target.closest('button[data-word-suggestion]');
   if (!suggestionBtn) return;
 
@@ -743,6 +752,16 @@ document.getElementById('question-card').addEventListener('pointerdown', (e) => 
 });
 
 document.getElementById('question-card').addEventListener('input', (e) => {
+  const reorderInput = e.target.closest('textarea[data-reorder-manual-input]');
+  if (reorderInput) {
+    const q = state.items[state.current];
+    if (q && syncSentenceReorderManualText(q, reorderInput.value)) {
+      refreshSentenceReorderManualControls(q, document.getElementById('question-card'));
+      document.getElementById('feedback').innerHTML = '';
+      persistState(state);
+    }
+    return;
+  }
   const manualInput = e.target.closest('input[data-manual-gap]');
   if (!manualInput) return;
 
@@ -759,9 +778,16 @@ document.getElementById('question-card').addEventListener('input', (e) => {
     focusManualAnswer(state.current, q.activeSlot);
     return;
   }
-  manualInput.value = manualInput.value.replace(/\s+/g, '');
+  manualInput.value = normalizeManualGapInput(q, manualInput.value, slotIndex);
   q.manualWordIndexBySlot[slotIndex] = wordIndex;
-  q.manualInputsBySlot[slotIndex] = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  const draft = collectManualAnswer(manualInput.closest('[data-manual-input-group]'));
+  if (q.manualInputsBySlot[slotIndex] !== draft && clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex)) {
+    document.getElementById('feedback').innerHTML = '';
+    manualInput.dataset.answerState = 'active';
+    manualInput.classList.remove('border-red-400', 'bg-red-50', 'text-red-800', 'ring-4', 'ring-red-100', 'focus:border-red-500', 'focus:ring-red-100');
+    manualInput.classList.add('border-indigo-300', 'focus:border-indigo-500', 'focus:ring-4', 'focus:ring-indigo-100');
+  }
+  q.manualInputsBySlot[slotIndex] = draft;
   searchManualWords(state.current, slotIndex, manualInput.value);
   persistState(state);
 });
@@ -811,6 +837,7 @@ function onChoose(opt) {
   if (testAnswerMatches(q, slotIndex, opt)) {
     rememberFeedbackAnswer(q, slotIndex, 'correct', opt);
     q.chosen[slotIndex] = opt;
+    if (typeof syncPresentPerfectPassiveWordPath === 'function') syncPresentPerfectPassiveWordPath(q);
     q.attemptsBySlot[slotIndex] = 0;
     q.lastWrongBySlot[slotIndex] = null;
     q.explanation = '';
@@ -832,6 +859,7 @@ function onChoose(opt) {
   } else {
     rememberFeedbackAnswer(q, slotIndex, 'incorrect', opt, expected);
     q.manualWordIndexBySlot[slotIndex] = 0;
+    if (isPastPerfectContinuousQuestion(q)) q.manualInputsBySlot[slotIndex] = '';
     if (!q.explanationsCache) {
       q.explanationsCache = {};
     }
@@ -844,7 +872,7 @@ function onChoose(opt) {
     q.lastWrongBySlot[slotIndex] = opt;
     q.attemptsBySlot[slotIndex] = (q.attemptsBySlot[slotIndex] || 0) + 1;
     
-    if (q.attemptsBySlot[slotIndex] >= 2) {
+    if (q.attemptsBySlot[slotIndex] >= 2 && !isPastPerfectContinuousQuestion(q)) {
       // Auto-fill with correct answer after 2 wrong attempts
       q.chosen[slotIndex] = expected;
       q.attemptsBySlot[slotIndex] = 0;
@@ -938,6 +966,8 @@ function ensureManualSlotState(q) {
 }
 
 function manualAnswerWords(q, slotIndex) {
+  if (isPassivePhraseGapQuestion(q, true)) { return composeManualAnswerWords(q, slotIndex); }
+  if (isPassivePhraseGapQuestion(q)) { return [String(q.answers?.[slotIndex] ?? '')]; }
   if (isPolyglotComposeQuestion(q)) {
     return composeManualAnswerWords(q, slotIndex);
   }
@@ -956,6 +986,14 @@ function manualAnswerProgress(q, slotIndex, value) {
     .toLowerCase();
   if (!raw) return 'empty';
   if (testAnswerMatches(q, slotIndex, value)) return 'complete';
+
+  const reviewed = typeof reviewedQuestionSurfaceAnswers === 'function'
+    ? reviewedQuestionSurfaceAnswers(q, slotIndex) : null;
+  if (reviewed !== null) {
+    const surface = EnglishAnswerVariants.normalize(value);
+    return acceptedTestAnswers(q, slotIndex).some(variant => EnglishAnswerVariants.normalize(variant).startsWith(`${surface} `))
+      ? 'prefix' : 'incorrect';
+  }
 
   const canonical = canonicalTestAnswer(value);
   const accepted = acceptedTestAnswers(q, slotIndex);
@@ -1031,7 +1069,10 @@ function renderManualSuggestions(q, idx, slotIndex) {
 
 function renderManualGapInput(q, idx, slotIndex) {
   ensureManualSlotState(q);
-  const values = String(q.manualInputsBySlot[slotIndex] || '').trim().split(/\s+/).filter(Boolean);
+  const draft = String(q.manualInputsBySlot[slotIndex] || '').trim();
+  const wholePhraseInput = (isPassivePhraseGapQuestion(q) && !isPassivePhraseGapQuestion(q, true))
+    || (isReviewedComposePhraseSlot(q, slotIndex) && Number(q.manualWordIndexBySlot[slotIndex] || 0) === 0);
+  const values = wholePhraseInput ? [draft] : draft.split(/\s+/).filter(Boolean);
   const wordCount = manualAnswerWords(q, slotIndex).length;
   const requestedWordIndex = Number(q.manualWordIndexBySlot[slotIndex] || 0);
   const activeWordIndex = Math.max(0, Math.min(wordCount - 1, requestedWordIndex));
@@ -1164,8 +1205,9 @@ function commitManualWord(idx, slotIndex, wordIndex) {
   item.pendingExplanationKey = null;
   if (progress === 'prefix') {
     rememberFeedbackAnswer(item, slotIndex, 'correct', currentWord, currentWord, wordIndex);
-    item.feedback = 'correct';
-    item.manualWordIndexBySlot[slotIndex] = wordIndex + 1;
+    // Prefix confirmation must never claim that the entire phrase is correct.
+    item.feedback = isPassivePhraseGapQuestion(item) || isReviewedComposePhraseSlot(item, slotIndex) ? '' : 'correct';
+    item.manualWordIndexBySlot[slotIndex] = isPassivePhraseGapQuestion(item) && !isPassivePhraseGapQuestion(item, true) ? 0 : wordIndex + 1;
   } else {
     const expectedWord = manualAnswerWords(item, slotIndex)[wordIndex] || item.answers[slotIndex] || '';
     rememberFeedbackAnswer(item, slotIndex, 'incorrect', currentWord, expectedWord, wordIndex);
@@ -1436,6 +1478,7 @@ function showSummary() {
 }
 
 function fetchHints(q, refresh = false) {
+  if (toggleAuthoredComposeHelp(q, 'hints', document.getElementById('help'))) return;
   const payload = q.id ? { question_id: q.id, locale: TEST_LOCALE } : { question: q.question, locale: TEST_LOCALE };
   if (refresh) payload.refresh = true;
   showLoader(true);
@@ -1462,6 +1505,10 @@ function fetchHints(q, refresh = false) {
 function renderHints(q) {
   const el = document.getElementById('hints');
   if (!el) return;
+  if (getAuthoredComposeHelpText(q)) {
+    el.innerHTML = '';
+    return;
+  }
   if (!q.hints || (!q.hints.chatgpt && !q.hints.gemini)) {
     el.innerHTML = '';
     return;

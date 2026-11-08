@@ -1,0 +1,1555 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/nominal-style-and-information-density.v1.json",
+        "sha256": "0a42221fec31b35e66bf2d777858e72cb42558f98263ada5e86ddd5564b83a51"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedFeqNominalStyleAndInformationDensityQualityBuilderSeeder",
+        "uuid_namespace": "formal-english-quality-nominal-style-and-information-density-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "formal_english_quality_nominal_style_and_information_density": {
+            "name": "Formal English Quality: Nominal Style and Information Density"
+        }
+    },
+    "tags": {
+        "nominal_style_and_information_density": {
+            "name": "nominal style and information density",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "nominal_style": {
+            "name": "nominal style",
+            "category": "formal-english"
+        },
+        "information_density": {
+            "name": "information density",
+            "category": "formal-english"
+        },
+        "compact_noun_phrasing": {
+            "name": "compact noun phrasing",
+            "category": "formal-english"
+        },
+        "noun_phrase_compression": {
+            "name": "noun phrase compression",
+            "category": "formal-english"
+        },
+        "verb_to_nominal_phrase": {
+            "name": "verb phrase to nominal phrase",
+            "category": "formal-english"
+        },
+        "modification_patterns": {
+            "name": "premodification and postmodification",
+            "category": "formal-english"
+        },
+        "apposition_clarification": {
+            "name": "apposition and clarification",
+            "category": "formal-english"
+        },
+        "academic_noun_groups": {
+            "name": "academic noun groups",
+            "category": "formal-english"
+        },
+        "concise_information_flow": {
+            "name": "concise formal information flow",
+            "category": "formal-english"
+        },
+        "avoid_overloaded_phrases": {
+            "name": "avoiding overloaded noun phrases",
+            "category": "formal-english"
+        },
+        "clarity_density_balance": {
+            "name": "balancing clarity and density",
+            "category": "formal-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "formal-english"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "nominal_style_and_information_density"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-sty-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Наш урок починається після обіду.",
+            "level": "A1",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Наш урок починається після обіду.",
+            "target_text": "Our lesson starts after lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+                    "options": [
+                        "Our",
+                        "Their",
+                        "Mine",
+                        "Yours"
+                    ]
+                },
+                "a2": {
+                    "answer": "lesson",
+                    "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+                    "options": [
+                        "lesson",
+                        "journey",
+                        "shift",
+                        "class"
+                    ]
+                },
+                "a3": {
+                    "answer": "starts",
+                    "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+                    "options": [
+                        "starts",
+                        "stops",
+                        "finishes",
+                        "changes"
+                    ]
+                },
+                "a4": {
+                    "answer": "after",
+                    "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+                    "options": [
+                        "after",
+                        "at",
+                        "before",
+                        "on"
+                    ]
+                },
+                "a5": {
+                    "answer": "lunch.",
+                    "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+                    "options": [
+                        "lunch",
+                        "Tuesday",
+                        "dinner",
+                        "midnight"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого уроку й збережи теперішній розклад; дієслово початку має два природні відповідники.",
+            "accepted_target_texts": [
+                "Our lesson starts after lunch.",
+                "Our lesson begins after lunch."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "begins"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "begins"
+                ]
+            },
+            "reorder_groups": [
+                "Our lesson",
+                "starts",
+                "after lunch."
+            ],
+            "token_groups": [
+                "Our lesson",
+                "starts",
+                "after lunch."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Our",
+                "lesson",
+                "starts",
+                "after",
+                "lunch."
+            ],
+            "options": [
+                "Our",
+                "Their",
+                "Mine",
+                "Yours",
+                "lesson",
+                "journey",
+                "shift",
+                "class",
+                "starts",
+                "stops",
+                "finishes",
+                "changes",
+                "after",
+                "at",
+                "before",
+                "on",
+                "lunch",
+                "Tuesday",
+                "dinner",
+                "midnight"
+            ],
+            "source_text_uk": "Наш урок починається після обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Their",
+                    "Mine",
+                    "Yours"
+                ],
+                "a2": [
+                    "lesson",
+                    "journey",
+                    "shift",
+                    "class"
+                ],
+                "a3": [
+                    "starts",
+                    "stops",
+                    "finishes",
+                    "changes"
+                ],
+                "a4": [
+                    "after",
+                    "at",
+                    "before",
+                    "on"
+                ],
+                "a5": [
+                    "lunch",
+                    "Tuesday",
+                    "dinner",
+                    "midnight"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_first",
+                "a2": "aone_first",
+                "a3": "aone_second",
+                "a4": "aone_third",
+                "a5": "aone_third"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "feq-sty-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Розклад екскурсії змінився вчора.",
+            "level": "A2",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Розклад екскурсії змінився вчора.",
+            "target_text": "The tour schedule changed yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "tour",
+                    "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+                    "options": [
+                        "tour",
+                        "museum",
+                        "class",
+                        "workshop"
+                    ]
+                },
+                "a3": {
+                    "answer": "schedule",
+                    "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+                    "options": [
+                        "schedule",
+                        "stop",
+                        "number",
+                        "route"
+                    ]
+                },
+                "a4": {
+                    "answer": "changed",
+                    "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+                    "options": [
+                        "changed",
+                        "improved",
+                        "returned",
+                        "ended"
+                    ]
+                },
+                "a5": {
+                    "answer": "yesterday.",
+                    "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+                    "options": [
+                        "yesterday",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи конкретний розклад екскурсії та минулу зміну; назву розкладу можна передати двома способами.",
+            "accepted_target_texts": [
+                "The tour schedule changed yesterday.",
+                "The tour timetable changed yesterday."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "timetable"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "timetable"
+                ]
+            },
+            "reorder_groups": [
+                "The tour schedule",
+                "changed",
+                "yesterday."
+            ],
+            "token_groups": [
+                "The tour schedule",
+                "changed",
+                "yesterday."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "tour",
+                "schedule",
+                "changed",
+                "yesterday."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "tour",
+                "museum",
+                "class",
+                "workshop",
+                "schedule",
+                "stop",
+                "number",
+                "route",
+                "changed",
+                "improved",
+                "returned",
+                "ended",
+                "yesterday",
+                "cat",
+                "person",
+                "water"
+            ],
+            "source_text_uk": "Розклад екскурсії змінився вчора.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "tour",
+                    "museum",
+                    "class",
+                    "workshop"
+                ],
+                "a3": [
+                    "schedule",
+                    "stop",
+                    "number",
+                    "route"
+                ],
+                "a4": [
+                    "changed",
+                    "improved",
+                    "returned",
+                    "ended"
+                ],
+                "a5": [
+                    "yesterday",
+                    "cat",
+                    "person",
+                    "water"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_first",
+                "a2": "atwo_first",
+                "a3": "atwo_first",
+                "a4": "atwo_second",
+                "a5": "atwo_third"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "feq-sty-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ранкове оголошення директора школи здивувало батьків.",
+            "level": "B1",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Ранкове оголошення директора школи здивувало батьків.",
+            "target_text": "The headteacher's morning announcement surprised the parents.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "headteacher's",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "headteacher's",
+                        "manager's",
+                        "librarian's",
+                        "caretaker's"
+                    ]
+                },
+                "a3": {
+                    "answer": "morning",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "morning",
+                        "night",
+                        "day",
+                        "week"
+                    ]
+                },
+                "a4": {
+                    "answer": "announcement",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "announcement",
+                        "report",
+                        "explanation",
+                        "invitation"
+                    ]
+                },
+                "a5": {
+                    "answer": "surprised",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "surprised",
+                        "pleased",
+                        "confused",
+                        "helped"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "parents.",
+                    "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+                    "options": [
+                        "parents",
+                        "pupils",
+                        "visitors",
+                        "teachers"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи того, хто зробив оголошення, ранковий час і реакцію батьків; назва директора школи має британський та американський відповідники.",
+            "accepted_target_texts": [
+                "The headteacher's morning announcement surprised the parents.",
+                "The principal's morning announcement surprised the parents."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "principal's"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "principal's"
+                ]
+            },
+            "reorder_groups": [
+                "The headteacher's",
+                "morning announcement",
+                "surprised the parents."
+            ],
+            "token_groups": [
+                "The headteacher's",
+                "morning announcement",
+                "surprised the parents."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "headteacher's",
+                "morning",
+                "announcement",
+                "surprised",
+                "the",
+                "parents."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "headteacher's",
+                "manager's",
+                "librarian's",
+                "caretaker's",
+                "morning",
+                "night",
+                "day",
+                "week",
+                "announcement",
+                "report",
+                "explanation",
+                "invitation",
+                "surprised",
+                "pleased",
+                "confused",
+                "helped",
+                "the",
+                "that",
+                "these",
+                "those",
+                "parents",
+                "pupils",
+                "visitors",
+                "teachers"
+            ],
+            "source_text_uk": "Ранкове оголошення директора школи здивувало батьків.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "headteacher's",
+                    "manager's",
+                    "librarian's",
+                    "caretaker's"
+                ],
+                "a3": [
+                    "morning",
+                    "night",
+                    "day",
+                    "week"
+                ],
+                "a4": [
+                    "announcement",
+                    "report",
+                    "explanation",
+                    "invitation"
+                ],
+                "a5": [
+                    "surprised",
+                    "pleased",
+                    "confused",
+                    "helped"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "parents",
+                    "pupils",
+                    "visitors",
+                    "teachers"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_first",
+                "a2": "bone_first",
+                "a3": "bone_second",
+                "a4": "bone_second",
+                "a5": "bone_third",
+                "a6": "bone_third",
+                "a7": "bone_third"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "feq-sty-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Відмова орендаря сплачувати комунальні послуги призвела до спору.",
+            "level": "B2",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Відмова орендаря сплачувати комунальні послуги призвела до спору.",
+            "target_text": "The tenant's refusal to pay the utility bills led to a dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "tenant's",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "tenant's",
+                        "resident's",
+                        "visitor's",
+                        "owner's"
+                    ]
+                },
+                "a3": {
+                    "answer": "refusal",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "refusal",
+                        "agreement",
+                        "decision",
+                        "promise"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "to",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "pay",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "pay",
+                        "collect",
+                        "renew",
+                        "inspect"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "utility",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "utility",
+                        "deposit",
+                        "legal",
+                        "repair"
+                    ]
+                },
+                "a8": {
+                    "answer": "bills",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "bills",
+                        "fees",
+                        "costs",
+                        "tables"
+                    ]
+                },
+                "a9": {
+                    "answer": "led",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "led",
+                        "coincided",
+                        "followed",
+                        "depended"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a11": {
+                    "answer": "a",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "a",
+                        "this",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a12": {
+                    "answer": "dispute.",
+                    "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+                    "options": [
+                        "dispute",
+                        "apology",
+                        "extension",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи орендаря як того, хто відмовився, предмет несплати та наслідок; причинний зв’язок можна передати двома способами.",
+            "accepted_target_texts": [
+                "The tenant's refusal to pay the utility bills led to a dispute.",
+                "The tenant's refusal to pay the utility bills resulted in a dispute."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "resulted"
+                ],
+                "a10": [
+                    "in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "resulted"
+                ],
+                "a10": [
+                    "in"
+                ]
+            },
+            "reorder_groups": [
+                "The tenant's refusal",
+                "to pay",
+                "the utility bills",
+                "led to",
+                "a dispute."
+            ],
+            "token_groups": [
+                "The tenant's refusal",
+                "to pay",
+                "the utility bills",
+                "led to",
+                "a dispute."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "tenant's",
+                "refusal",
+                "to",
+                "pay",
+                "the",
+                "utility",
+                "bills",
+                "led",
+                "to",
+                "a",
+                "dispute."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "tenant's",
+                "resident's",
+                "visitor's",
+                "owner's",
+                "refusal",
+                "agreement",
+                "decision",
+                "promise",
+                "to",
+                "of",
+                "on",
+                "at",
+                "pay",
+                "collect",
+                "renew",
+                "inspect",
+                "the",
+                "no",
+                "another",
+                "either",
+                "utility",
+                "deposit",
+                "legal",
+                "repair",
+                "bills",
+                "fees",
+                "costs",
+                "tables",
+                "led",
+                "coincided",
+                "followed",
+                "depended",
+                "over",
+                "under",
+                "through",
+                "a",
+                "this",
+                "each",
+                "every",
+                "dispute",
+                "apology",
+                "extension",
+                "delay"
+            ],
+            "source_text_uk": "Відмова орендаря сплачувати комунальні послуги призвела до спору.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "tenant's",
+                    "resident's",
+                    "visitor's",
+                    "owner's"
+                ],
+                "a3": [
+                    "refusal",
+                    "agreement",
+                    "decision",
+                    "promise"
+                ],
+                "a4": [
+                    "to",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "pay",
+                    "collect",
+                    "renew",
+                    "inspect"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "utility",
+                    "deposit",
+                    "legal",
+                    "repair"
+                ],
+                "a8": [
+                    "bills",
+                    "fees",
+                    "costs",
+                    "tables"
+                ],
+                "a9": [
+                    "led",
+                    "coincided",
+                    "followed",
+                    "depended"
+                ],
+                "a10": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a11": [
+                    "a",
+                    "this",
+                    "each",
+                    "every"
+                ],
+                "a12": [
+                    "dispute",
+                    "apology",
+                    "extension",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_first",
+                "a2": "btwo_first",
+                "a3": "btwo_first",
+                "a4": "btwo_second",
+                "a5": "btwo_second",
+                "a6": "btwo_third",
+                "a7": "btwo_third",
+                "a8": "btwo_third",
+                "a9": "btwo_fourth",
+                "a10": "btwo_fourth",
+                "a11": "btwo_fifth",
+                "a12": "btwo_fifth"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "feq-sty-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Подальше поширення чернетки без згоди авторки заборонене.",
+            "level": "C1",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Подальше поширення чернетки без згоди авторки заборонене.",
+            "target_text": "Further circulation of the draft without the author's consent is prohibited.",
+            "markers": {
+                "a1": {
+                    "answer": "Further",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "Further",
+                        "Initial",
+                        "Routine",
+                        "Independent"
+                    ]
+                },
+                "a2": {
+                    "answer": "circulation",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "circulation",
+                        "review",
+                        "revision",
+                        "publication"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "draft",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "draft",
+                        "appendix",
+                        "statement",
+                        "proposal"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "without",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "author's",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "author's",
+                        "editor's",
+                        "board's",
+                        "manager's"
+                    ]
+                },
+                "a9": {
+                    "answer": "consent",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "consent",
+                        "signature",
+                        "agreement",
+                        "approval"
+                    ]
+                },
+                "a10": {
+                    "answer": "is",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a11": {
+                    "answer": "prohibited.",
+                    "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+                    "options": [
+                        "prohibited",
+                        "required",
+                        "encouraged",
+                        "delayed"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заборону подальшого поширення саме без згоди; не забороняй згоду або будь-яке поширення взагалі. Для поширення, дозволу й заборони є близькі відповідники.",
+            "accepted_target_texts": [
+                "Further circulation of the draft without the author's consent is prohibited.",
+                "Further circulation of the draft without the author's consent is forbidden.",
+                "Further circulation of the draft without the author's permission is prohibited.",
+                "Further circulation of the draft without the author's permission is forbidden.",
+                "Further distribution of the draft without the author's consent is prohibited.",
+                "Further distribution of the draft without the author's consent is forbidden.",
+                "Further distribution of the draft without the author's permission is prohibited.",
+                "Further distribution of the draft without the author's permission is forbidden."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "forbidden."
+                ],
+                "a9": [
+                    "permission"
+                ],
+                "a2": [
+                    "distribution"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "forbidden."
+                ],
+                "a9": [
+                    "permission"
+                ],
+                "a2": [
+                    "distribution"
+                ]
+            },
+            "reorder_groups": [
+                "Further circulation",
+                "of the draft",
+                "without",
+                "the author's consent",
+                "is prohibited."
+            ],
+            "token_groups": [
+                "Further circulation",
+                "of the draft",
+                "without",
+                "the author's consent",
+                "is prohibited."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Further",
+                "circulation",
+                "of",
+                "the",
+                "draft",
+                "without",
+                "the",
+                "author's",
+                "consent",
+                "is",
+                "prohibited."
+            ],
+            "options": [
+                "Further",
+                "Initial",
+                "Routine",
+                "Independent",
+                "circulation",
+                "review",
+                "revision",
+                "publication",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "any",
+                "this",
+                "that",
+                "draft",
+                "appendix",
+                "statement",
+                "proposal",
+                "without",
+                "across",
+                "between",
+                "among",
+                "these",
+                "those",
+                "each",
+                "author's",
+                "editor's",
+                "board's",
+                "manager's",
+                "consent",
+                "signature",
+                "agreement",
+                "approval",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "prohibited",
+                "required",
+                "encouraged",
+                "delayed"
+            ],
+            "source_text_uk": "Подальше поширення чернетки без згоди авторки заборонене.",
+            "options_by_marker": {
+                "a1": [
+                    "Further",
+                    "Initial",
+                    "Routine",
+                    "Independent"
+                ],
+                "a2": [
+                    "circulation",
+                    "review",
+                    "revision",
+                    "publication"
+                ],
+                "a3": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "draft",
+                    "appendix",
+                    "statement",
+                    "proposal"
+                ],
+                "a6": [
+                    "without",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "author's",
+                    "editor's",
+                    "board's",
+                    "manager's"
+                ],
+                "a9": [
+                    "consent",
+                    "signature",
+                    "agreement",
+                    "approval"
+                ],
+                "a10": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a11": [
+                    "prohibited",
+                    "required",
+                    "encouraged",
+                    "delayed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_first",
+                "a2": "cone_first",
+                "a3": "cone_second",
+                "a4": "cone_second",
+                "a5": "cone_second",
+                "a6": "cone_third",
+                "a7": "cone_fourth",
+                "a8": "cone_fourth",
+                "a9": "cone_fourth",
+                "a10": "cone_fifth",
+                "a11": "cone_fifth"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "feq-sty-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Неповідомлення постачальником про витік ускладнило незалежну перевірку.",
+            "level": "C2",
+            "type": 4,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Неповідомлення постачальником про витік ускладнило незалежну перевірку.",
+            "target_text": "The supplier's failure to disclose the leak complicated independent verification.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "supplier's",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "supplier's",
+                        "owner's",
+                        "auditor's",
+                        "contractor's"
+                    ]
+                },
+                "a3": {
+                    "answer": "failure",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "failure",
+                        "offer",
+                        "refusal",
+                        "agreement"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a5": {
+                    "answer": "disclose",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "disclose",
+                        "contain",
+                        "repair",
+                        "explain"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "leak",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "leak",
+                        "allegation",
+                        "omission",
+                        "delay"
+                    ]
+                },
+                "a8": {
+                    "answer": "complicated",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "complicated",
+                        "enabled",
+                        "simplified",
+                        "facilitated"
+                    ]
+                },
+                "a9": {
+                    "answer": "independent",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "independent",
+                        "routine",
+                        "external",
+                        "internal"
+                    ]
+                },
+                "a10": {
+                    "answer": "verification.",
+                    "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+                    "options": [
+                        "verification",
+                        "maintenance",
+                        "review",
+                        "action"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи постачальника як того, хто не повідомив про витік, та ускладнення незалежної перевірки; не стверджуй, що перевірка стала неможливою.",
+            "accepted_target_texts": [
+                "The supplier's failure to disclose the leak complicated independent verification.",
+                "The supplier's failure to report the leak complicated independent verification.",
+                "The vendor's failure to disclose the leak complicated independent verification.",
+                "The vendor's failure to report the leak complicated independent verification."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "report"
+                ],
+                "a2": [
+                    "vendor's"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "report"
+                ],
+                "a2": [
+                    "vendor's"
+                ]
+            },
+            "reorder_groups": [
+                "The supplier's failure",
+                "to disclose",
+                "the leak",
+                "complicated independent verification."
+            ],
+            "token_groups": [
+                "The supplier's failure",
+                "to disclose",
+                "the leak",
+                "complicated independent verification."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "supplier's",
+                "failure",
+                "to",
+                "disclose",
+                "the",
+                "leak",
+                "complicated",
+                "independent",
+                "verification."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "supplier's",
+                "owner's",
+                "auditor's",
+                "contractor's",
+                "failure",
+                "offer",
+                "refusal",
+                "agreement",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "disclose",
+                "contain",
+                "repair",
+                "explain",
+                "the",
+                "any",
+                "this",
+                "that",
+                "leak",
+                "allegation",
+                "omission",
+                "delay",
+                "complicated",
+                "enabled",
+                "simplified",
+                "facilitated",
+                "independent",
+                "routine",
+                "external",
+                "internal",
+                "verification",
+                "maintenance",
+                "review",
+                "action"
+            ],
+            "source_text_uk": "Неповідомлення постачальником про витік ускладнило незалежну перевірку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "supplier's",
+                    "owner's",
+                    "auditor's",
+                    "contractor's"
+                ],
+                "a3": [
+                    "failure",
+                    "offer",
+                    "refusal",
+                    "agreement"
+                ],
+                "a4": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a5": [
+                    "disclose",
+                    "contain",
+                    "repair",
+                    "explain"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "leak",
+                    "allegation",
+                    "omission",
+                    "delay"
+                ],
+                "a8": [
+                    "complicated",
+                    "enabled",
+                    "simplified",
+                    "facilitated"
+                ],
+                "a9": [
+                    "independent",
+                    "routine",
+                    "external",
+                    "internal"
+                ],
+                "a10": [
+                    "verification",
+                    "maintenance",
+                    "review",
+                    "action"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_first",
+                "a2": "ctwo_first",
+                "a3": "ctwo_first",
+                "a4": "ctwo_second",
+                "a5": "ctwo_second",
+                "a6": "ctwo_third",
+                "a7": "ctwo_third",
+                "a8": "ctwo_fourth",
+                "a9": "ctwo_fourth",
+                "a10": "ctwo_fourth"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

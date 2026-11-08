@@ -1,0 +1,1513 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/paraphrase-and-reformulation.v1.json",
+        "sha256": "7dd2ef79804bd73dc35ed7bac8f31e35dd4def38e6485e5c75c842ca44b28990"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedFeqParaphraseAndReformulationQualityBuilderSeeder",
+        "uuid_namespace": "formal-english-quality-paraphrase-and-reformulation-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "formal_english_quality_paraphrase_and_reformulation": {
+            "name": "Formal English Quality: Paraphrase and Reformulation"
+        }
+    },
+    "tags": {
+        "paraphrase_and_reformulation": {
+            "name": "paraphrase and reformulation",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "preserve_meaning": {
+            "name": "paraphrase meaning preservation",
+            "category": "formal-english"
+        },
+        "reformulation_clarity": {
+            "name": "reformulation for clarity",
+            "category": "formal-english"
+        },
+        "formal_restatement": {
+            "name": "formal restatement",
+            "category": "formal-english"
+        },
+        "sentence_transformation": {
+            "name": "sentence transformation",
+            "category": "formal-english"
+        },
+        "precise_verbs": {
+            "name": "precise verbs",
+            "category": "formal-english"
+        },
+        "replace_vague_wording": {
+            "name": "replacing vague wording",
+            "category": "formal-english"
+        },
+        "clarify_logical_relation": {
+            "name": "clarifying logical relation",
+            "category": "formal-english"
+        },
+        "reduce_informal_tone": {
+            "name": "reducing informal tone",
+            "category": "formal-english"
+        },
+        "preserve_nuance": {
+            "name": "preserving nuance",
+            "category": "formal-english"
+        },
+        "avoid_over_formality": {
+            "name": "avoiding over formality",
+            "category": "formal-english"
+        },
+        "avoid_meaning_drift": {
+            "name": "avoiding meaning drift",
+            "category": "formal-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "formal-english"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "paraphrase_and_reformulation"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-par-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Зателефонуй мені після сніданку, будь ласка.",
+            "level": "A1",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Зателефонуй мені після сніданку, будь ласка.",
+            "target_text": "Please call me after breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "Please",
+                    "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+                    "options": [
+                        "Please",
+                        "Tomorrow",
+                        "First",
+                        "Never"
+                    ]
+                },
+                "a2": {
+                    "answer": "call",
+                    "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+                    "options": [
+                        "call",
+                        "wait",
+                        "tell",
+                        "help"
+                    ]
+                },
+                "a3": {
+                    "answer": "me",
+                    "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+                    "options": [
+                        "me",
+                        "she",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a4": {
+                    "answer": "after",
+                    "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+                    "options": [
+                        "after",
+                        "at",
+                        "on",
+                        "before"
+                    ]
+                },
+                "a5": {
+                    "answer": "breakfast.",
+                    "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+                    "options": [
+                        "breakfast",
+                        "dinner",
+                        "class",
+                        "Tuesday"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи ввічливе прохання, одержувача дзвінка й час після сніданку; дієслово телефонування має три відповідники.",
+            "accepted_target_texts": [
+                "Please call me after breakfast.",
+                "Please phone me after breakfast.",
+                "Please telephone me after breakfast."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "phone",
+                    "telephone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "phone",
+                    "telephone"
+                ]
+            },
+            "reorder_groups": [
+                "Please",
+                "call me",
+                "after breakfast."
+            ],
+            "token_groups": [
+                "Please",
+                "call me",
+                "after breakfast."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Please",
+                "call",
+                "me",
+                "after",
+                "breakfast."
+            ],
+            "options": [
+                "Please",
+                "Tomorrow",
+                "First",
+                "Never",
+                "call",
+                "wait",
+                "tell",
+                "help",
+                "me",
+                "she",
+                "it",
+                "we",
+                "after",
+                "at",
+                "on",
+                "before",
+                "breakfast",
+                "dinner",
+                "class",
+                "Tuesday"
+            ],
+            "source_text_uk": "Зателефонуй мені після сніданку, будь ласка.",
+            "options_by_marker": {
+                "a1": [
+                    "Please",
+                    "Tomorrow",
+                    "First",
+                    "Never"
+                ],
+                "a2": [
+                    "call",
+                    "wait",
+                    "tell",
+                    "help"
+                ],
+                "a3": [
+                    "me",
+                    "she",
+                    "it",
+                    "we"
+                ],
+                "a4": [
+                    "after",
+                    "at",
+                    "on",
+                    "before"
+                ],
+                "a5": [
+                    "breakfast",
+                    "dinner",
+                    "class",
+                    "Tuesday"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_first",
+                "a2": "aone_second",
+                "a3": "aone_second",
+                "a4": "aone_third",
+                "a5": "aone_third"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "feq-par-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Вони скасували прогулянку через дощ.",
+            "level": "A2",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Вони скасували прогулянку через дощ.",
+            "target_text": "They cancelled the outing because it rained.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "They",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "cancelled",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "cancelled",
+                        "delayed",
+                        "postponed",
+                        "organised"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "outing",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "outing",
+                        "meeting",
+                        "playing",
+                        "reading"
+                    ]
+                },
+                "a5": {
+                    "answer": "because",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "because",
+                        "and",
+                        "but",
+                        "or"
+                    ]
+                },
+                "a6": {
+                    "answer": "it",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "it",
+                        "she",
+                        "we",
+                        "me"
+                    ]
+                },
+                "a7": {
+                    "answer": "rained.",
+                    "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+                    "options": [
+                        "rained",
+                        "arrived",
+                        "waited",
+                        "snowed"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з тих, хто скасував подію; збережи минулий час і дощ як причину. Приймаються обидва нормативні написання дієслова та фразовий відповідник.",
+            "accepted_target_texts": [
+                "They cancelled the outing because it rained.",
+                "They cancelled the walk because it rained.",
+                "They canceled the outing because it rained.",
+                "They canceled the walk because it rained.",
+                "They called off the outing because it rained.",
+                "They called off the walk because it rained."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "walk"
+                ],
+                "a2": [
+                    "canceled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "walk"
+                ],
+                "a2": [
+                    "canceled"
+                ]
+            },
+            "reorder_groups": [
+                "They cancelled",
+                "the outing",
+                "because it rained."
+            ],
+            "token_groups": [
+                "They cancelled",
+                "the outing",
+                "because it rained."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "They",
+                "cancelled",
+                "the",
+                "outing",
+                "because",
+                "it",
+                "rained."
+            ],
+            "options": [
+                "They",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "cancelled",
+                "delayed",
+                "postponed",
+                "organised",
+                "the",
+                "a",
+                "an",
+                "some",
+                "outing",
+                "meeting",
+                "playing",
+                "reading",
+                "because",
+                "and",
+                "but",
+                "or",
+                "it",
+                "she",
+                "we",
+                "me",
+                "rained",
+                "arrived",
+                "waited",
+                "snowed"
+            ],
+            "source_text_uk": "Вони скасували прогулянку через дощ.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "cancelled",
+                    "delayed",
+                    "postponed",
+                    "organised"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "outing",
+                    "meeting",
+                    "playing",
+                    "reading"
+                ],
+                "a5": [
+                    "because",
+                    "and",
+                    "but",
+                    "or"
+                ],
+                "a6": [
+                    "it",
+                    "she",
+                    "we",
+                    "me"
+                ],
+                "a7": [
+                    "rained",
+                    "arrived",
+                    "waited",
+                    "snowed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_first",
+                "a2": "atwo_first",
+                "a3": "atwo_second",
+                "a4": "atwo_second",
+                "a5": "atwo_third",
+                "a6": "atwo_third",
+                "a7": "atwo_third"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "feq-par-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Вона надто втомлена, щоб сортувати ці конверти.",
+            "level": "B1",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Вона надто втомлена, щоб сортувати ці конверти.",
+            "target_text": "She is too tired to sort these envelopes.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "She",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "too",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "too",
+                        "rather",
+                        "very",
+                        "quite"
+                    ]
+                },
+                "a4": {
+                    "answer": "tired",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "tired",
+                        "pleased",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "sort",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "sort",
+                        "count",
+                        "post",
+                        "stamp"
+                    ]
+                },
+                "a7": {
+                    "answer": "these",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "these",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "envelopes.",
+                    "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+                    "options": [
+                        "envelopes",
+                        "letters",
+                        "folders",
+                        "packages"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи теперішній стан і неможливість сортування через надмірну втому; не перетворюй повідомлення на відмову.",
+            "accepted_target_texts": [
+                "She is too tired to sort these envelopes."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She is",
+                "too tired",
+                "to sort",
+                "these envelopes."
+            ],
+            "token_groups": [
+                "She is",
+                "too tired",
+                "to sort",
+                "these envelopes."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "She",
+                "is",
+                "too",
+                "tired",
+                "to",
+                "sort",
+                "these",
+                "envelopes."
+            ],
+            "options": [
+                "She",
+                "Them",
+                "Myself",
+                "Yourself",
+                "is",
+                "be",
+                "been",
+                "being",
+                "too",
+                "rather",
+                "very",
+                "quite",
+                "tired",
+                "pleased",
+                "wrote",
+                "rode",
+                "to",
+                "through",
+                "across",
+                "between",
+                "sort",
+                "count",
+                "post",
+                "stamp",
+                "these",
+                "any",
+                "this",
+                "that",
+                "envelopes",
+                "letters",
+                "folders",
+                "packages"
+            ],
+            "source_text_uk": "Вона надто втомлена, щоб сортувати ці конверти.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "too",
+                    "rather",
+                    "very",
+                    "quite"
+                ],
+                "a4": [
+                    "tired",
+                    "pleased",
+                    "wrote",
+                    "rode"
+                ],
+                "a5": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "sort",
+                    "count",
+                    "post",
+                    "stamp"
+                ],
+                "a7": [
+                    "these",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a8": [
+                    "envelopes",
+                    "letters",
+                    "folders",
+                    "packages"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_first",
+                "a2": "bone_first",
+                "a3": "bone_second",
+                "a4": "bone_second",
+                "a5": "bone_third",
+                "a6": "bone_third",
+                "a7": "bone_fourth",
+                "a8": "bone_fourth"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "feq-par-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Лише після огляду ми помітили тріщину.",
+            "level": "B2",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Лише після огляду ми помітили тріщину.",
+            "target_text": "We noticed the crack only after the inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "noticed",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "noticed",
+                        "ignored",
+                        "repaired",
+                        "inspected"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "crack",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "crack",
+                        "dent",
+                        "scratch",
+                        "leak"
+                    ]
+                },
+                "a5": {
+                    "answer": "only",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "only",
+                        "even",
+                        "almost",
+                        "not"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "after",
+                        "before",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "inspection.",
+                    "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+                    "options": [
+                        "inspection",
+                        "journey",
+                        "interview",
+                        "rehearsal"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи виявлення тріщини після огляду; не роби огляд причиною самої тріщини. Дієслово виявлення має два природні відповідники.",
+            "accepted_target_texts": [
+                "We noticed the crack only after the inspection.",
+                "We spotted the crack only after the inspection."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "spotted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "spotted"
+                ]
+            },
+            "reorder_groups": [
+                "We noticed",
+                "the crack",
+                "only after",
+                "the inspection."
+            ],
+            "token_groups": [
+                "We noticed",
+                "the crack",
+                "only after",
+                "the inspection."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "We",
+                "noticed",
+                "the",
+                "crack",
+                "only",
+                "after",
+                "the",
+                "inspection."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "noticed",
+                "ignored",
+                "repaired",
+                "inspected",
+                "the",
+                "some",
+                "any",
+                "this",
+                "crack",
+                "dent",
+                "scratch",
+                "leak",
+                "only",
+                "even",
+                "almost",
+                "not",
+                "after",
+                "before",
+                "milk",
+                "music",
+                "all",
+                "both",
+                "a",
+                "inspection",
+                "journey",
+                "interview",
+                "rehearsal"
+            ],
+            "source_text_uk": "Лише після огляду ми помітили тріщину.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "noticed",
+                    "ignored",
+                    "repaired",
+                    "inspected"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "crack",
+                    "dent",
+                    "scratch",
+                    "leak"
+                ],
+                "a5": [
+                    "only",
+                    "even",
+                    "almost",
+                    "not"
+                ],
+                "a6": [
+                    "after",
+                    "before",
+                    "milk",
+                    "music"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "inspection",
+                    "journey",
+                    "interview",
+                    "rehearsal"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_first",
+                "a2": "btwo_first",
+                "a3": "btwo_second",
+                "a4": "btwo_second",
+                "a5": "btwo_third",
+                "a6": "btwo_third",
+                "a7": "btwo_fourth",
+                "a8": "btwo_fourth"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "feq-par-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Це не означає, що кожне заперечення є безпідставним.",
+            "level": "C1",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Це не означає, що кожне заперечення є безпідставним.",
+            "target_text": "This does not imply that every objection is unfounded.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "This",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "does",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "does",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "imply",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "imply",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a6": {
+                    "answer": "every",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "every",
+                        "some",
+                        "any",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "objection",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "objection",
+                        "proposal",
+                        "statement",
+                        "claim"
+                    ]
+                },
+                "a8": {
+                    "answer": "is",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a9": {
+                    "answer": "unfounded.",
+                    "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+                    "options": [
+                        "unfounded",
+                        "supported",
+                        "cooked",
+                        "found"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення висновку, а не заперечення кожного доводу; не стверджуй, що всі доводи обґрунтовані. Для висновку й безпідставності є близькі відповідники.",
+            "accepted_target_texts": [
+                "This does not imply that every objection is unfounded.",
+                "This does not imply that every objection is groundless.",
+                "This does not imply that every objection is baseless.",
+                "This does not mean that every objection is unfounded.",
+                "This does not mean that every objection is groundless.",
+                "This does not mean that every objection is baseless."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "groundless.",
+                    "baseless."
+                ],
+                "a4": [
+                    "mean"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "groundless.",
+                    "baseless."
+                ],
+                "a4": [
+                    "mean"
+                ]
+            },
+            "reorder_groups": [
+                "This does",
+                "not imply",
+                "that every objection",
+                "is unfounded."
+            ],
+            "token_groups": [
+                "This does",
+                "not imply",
+                "that every objection",
+                "is unfounded."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "This",
+                "does",
+                "not",
+                "imply",
+                "that",
+                "every",
+                "objection",
+                "is",
+                "unfounded."
+            ],
+            "options": [
+                "This",
+                "Both",
+                "A",
+                "An",
+                "does",
+                "did",
+                "don't",
+                "doesn't",
+                "not",
+                "never",
+                "always",
+                "often",
+                "imply",
+                "slowly",
+                "quickly",
+                "carefully",
+                "that",
+                "no",
+                "another",
+                "either",
+                "every",
+                "some",
+                "any",
+                "these",
+                "objection",
+                "proposal",
+                "statement",
+                "claim",
+                "is",
+                "are",
+                "was",
+                "were",
+                "unfounded",
+                "supported",
+                "cooked",
+                "found"
+            ],
+            "source_text_uk": "Це не означає, що кожне заперечення є безпідставним.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "does",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "imply",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ],
+                "a5": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a6": [
+                    "every",
+                    "some",
+                    "any",
+                    "these"
+                ],
+                "a7": [
+                    "objection",
+                    "proposal",
+                    "statement",
+                    "claim"
+                ],
+                "a8": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a9": [
+                    "unfounded",
+                    "supported",
+                    "cooked",
+                    "found"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_first",
+                "a2": "cone_first",
+                "a3": "cone_second",
+                "a4": "cone_second",
+                "a5": "cone_third",
+                "a6": "cone_third",
+                "a7": "cone_third",
+                "a8": "cone_fourth",
+                "a9": "cone_fourth"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "feq-par-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Висновок стосується лише перевірених записів, а не всього архіву.",
+            "level": "C2",
+            "type": 4,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Висновок стосується лише перевірених записів, а не всього архіву.",
+            "target_text": "The conclusion concerns only the examined records, not the entire archive.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "conclusion",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "conclusion",
+                        "estimate",
+                        "assumption",
+                        "proposal"
+                    ]
+                },
+                "a3": {
+                    "answer": "concerns",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "concerns",
+                        "compares",
+                        "supports",
+                        "describes"
+                    ]
+                },
+                "a4": {
+                    "answer": "only",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "only",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a6": {
+                    "answer": "examined",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "examined",
+                        "rejected",
+                        "unsigned",
+                        "attached"
+                    ]
+                },
+                "a7": {
+                    "answer": "records,",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "records",
+                        "notes",
+                        "files",
+                        "messages"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a10": {
+                    "answer": "entire",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "entire",
+                        "complete",
+                        "original",
+                        "earlier"
+                    ]
+                },
+                "a11": {
+                    "answer": "archive.",
+                    "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+                    "options": [
+                        "archive",
+                        "happy",
+                        "sad",
+                        "easy"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обмеження висновку перевіреною групою записів; не поширюй його на решту архіву. Для відсилання, перевірки й цілого є близькі відповідники.",
+            "accepted_target_texts": [
+                "The conclusion concerns only the examined records, not the entire archive.",
+                "The conclusion concerns only the examined records, not the whole archive.",
+                "The conclusion concerns only the reviewed records, not the entire archive.",
+                "The conclusion concerns only the reviewed records, not the whole archive.",
+                "The conclusion concerns only the checked records, not the entire archive.",
+                "The conclusion concerns only the checked records, not the whole archive.",
+                "The conclusion applies only to the examined records, not the entire archive.",
+                "The conclusion applies only to the examined records, not the whole archive.",
+                "The conclusion applies only to the reviewed records, not the entire archive.",
+                "The conclusion applies only to the reviewed records, not the whole archive.",
+                "The conclusion applies only to the checked records, not the entire archive.",
+                "The conclusion applies only to the checked records, not the whole archive."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "whole"
+                ],
+                "a6": [
+                    "reviewed",
+                    "checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "whole"
+                ],
+                "a6": [
+                    "reviewed",
+                    "checked"
+                ]
+            },
+            "reorder_groups": [
+                "The conclusion",
+                "concerns only",
+                "the examined records,",
+                "not the",
+                "entire archive."
+            ],
+            "token_groups": [
+                "The conclusion",
+                "concerns only",
+                "the examined records,",
+                "not the",
+                "entire archive."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "conclusion",
+                "concerns",
+                "only",
+                "the",
+                "examined",
+                "records,",
+                "not",
+                "the",
+                "entire",
+                "archive."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "conclusion",
+                "estimate",
+                "assumption",
+                "proposal",
+                "concerns",
+                "compares",
+                "supports",
+                "describes",
+                "only",
+                "almost",
+                "never",
+                "always",
+                "the",
+                "no",
+                "another",
+                "either",
+                "examined",
+                "rejected",
+                "unsigned",
+                "attached",
+                "records",
+                "notes",
+                "files",
+                "messages",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "some",
+                "any",
+                "this",
+                "entire",
+                "complete",
+                "original",
+                "earlier",
+                "archive",
+                "happy",
+                "sad",
+                "easy"
+            ],
+            "source_text_uk": "Висновок стосується лише перевірених записів, а не всього архіву.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "conclusion",
+                    "estimate",
+                    "assumption",
+                    "proposal"
+                ],
+                "a3": [
+                    "concerns",
+                    "compares",
+                    "supports",
+                    "describes"
+                ],
+                "a4": [
+                    "only",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a5": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a6": [
+                    "examined",
+                    "rejected",
+                    "unsigned",
+                    "attached"
+                ],
+                "a7": [
+                    "records",
+                    "notes",
+                    "files",
+                    "messages"
+                ],
+                "a8": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a9": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a10": [
+                    "entire",
+                    "complete",
+                    "original",
+                    "earlier"
+                ],
+                "a11": [
+                    "archive",
+                    "happy",
+                    "sad",
+                    "easy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_first",
+                "a2": "ctwo_first",
+                "a3": "ctwo_second",
+                "a4": "ctwo_second",
+                "a5": "ctwo_third",
+                "a6": "ctwo_third",
+                "a7": "ctwo_third",
+                "a8": "ctwo_fourth",
+                "a9": "ctwo_fourth",
+                "a10": "ctwo_fifth",
+                "a11": "ctwo_fifth"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

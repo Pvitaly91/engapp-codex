@@ -1,0 +1,653 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/to-infinitive.v1.json",
+        "sha256": "d57bd4c46232a37526de28797b4f95a4851387f9fddb7d191db7cfdc1f24b0ee"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqToInfinitiveQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-to-infinitive-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_to_infinitive": {
+            "name": "Verb Patterns Quality: To-Infinitive"
+        }
+    },
+    "tags": {
+        "to_infinitive": {
+            "name": "To Infinitive",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "to_base_verb": {
+            "name": "To Base Verb",
+            "category": "topic"
+        },
+        "intention_plan_decision": {
+            "name": "Intention Plan Decision",
+            "category": "topic"
+        },
+        "purpose": {
+            "name": "Purpose",
+            "category": "topic"
+        },
+        "after_common_verbs": {
+            "name": "After Common Verbs",
+            "category": "topic"
+        },
+        "after_adjectives": {
+            "name": "After Adjectives",
+            "category": "topic"
+        },
+        "after_nouns": {
+            "name": "After Nouns",
+            "category": "topic"
+        },
+        "negative_infinitive": {
+            "name": "Negative Infinitive",
+            "category": "topic"
+        },
+        "to_vs_bare": {
+            "name": "To Vs Bare",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-to-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Artem wants {a1} a pie.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Артем хоче спекти пиріг.",
+            "target_text": "Artem wants to bake a pie.",
+            "markers": {
+                "a1": {
+                    "answer": "to bake",
+                    "options": [
+                        "to bake",
+                        "baking",
+                        "bakes"
+                    ],
+                    "verb_hint": "Передай дію «спекти»: після вже наведеного дієслова бажання додай частку інфінітива та початкову форму дієслова."
+                }
+            },
+            "verb_hint": "Передай дію «спекти»: після вже наведеного дієслова бажання додай частку інфінітива та початкову форму дієслова.",
+            "accepted_target_texts": [
+                "Artem wants to bake a pie."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Artem wants",
+                "to bake",
+                "a pie."
+            ],
+            "token_groups": [
+                "Artem wants",
+                "to bake",
+                "a pie."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-to-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We are ready {a1} now.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Ми готові вирушати зараз.",
+            "target_text": "We are ready to leave now.",
+            "markers": {
+                "a1": {
+                    "answer": "to leave",
+                    "options": [
+                        "to leave",
+                        "leaving",
+                        "leave"
+                    ],
+                    "verb_hint": "Після вже наведеного прикметника готовності передай «вирушати, йти» інфінітивом із часткою."
+                }
+            },
+            "verb_hint": "Після вже наведеного прикметника готовності передай «вирушати, йти» інфінітивом із часткою.",
+            "accepted_target_texts": [
+                "We are ready to leave now.",
+                "We are ready to go now.",
+                "We are ready to set off now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to go",
+                    "to set off"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to go",
+                    "to set off"
+                ]
+            },
+            "reorder_groups": [
+                "We are ready",
+                "to leave now."
+            ],
+            "token_groups": [
+                "We are ready",
+                "to leave now."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-to-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Kateryna saved money {a1} a camera.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Катерина відкладала гроші, щоб купити фотоапарат.",
+            "target_text": "Kateryna saved money to buy a camera.",
+            "markers": {
+                "a1": {
+                    "answer": "to buy",
+                    "options": [
+                        "to buy",
+                        "buying",
+                        "bought"
+                    ],
+                    "verb_hint": "Назви мету заощадження — «купити»; використай короткий інфінітив мети з часткою."
+                }
+            },
+            "verb_hint": "Назви мету заощадження — «купити»; використай короткий інфінітив мети з часткою.",
+            "accepted_target_texts": [
+                "Kateryna saved money to buy a camera.",
+                "Kateryna saved money to purchase a camera."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to purchase"
+                ]
+            },
+            "reorder_groups": [
+                "Kateryna saved money",
+                "to buy",
+                "a camera."
+            ],
+            "token_groups": [
+                "Kateryna saved money",
+                "to buy",
+                "a camera."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-to-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The soup is too hot {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Суп надто гарячий, щоб його їсти.",
+            "target_text": "The soup is too hot to eat.",
+            "markers": {
+                "a1": {
+                    "answer": "to eat",
+                    "options": [
+                        "to eat",
+                        "eating",
+                        "to eat it"
+                    ],
+                    "verb_hint": "Після ознаки надмірної температури передай дію «їсти» інфінітивом із часткою; предмет уже названо, тому не повторюй його займенником."
+                }
+            },
+            "verb_hint": "Після ознаки надмірної температури передай дію «їсти» інфінітивом із часткою; предмет уже названо, тому не повторюй його займенником.",
+            "accepted_target_texts": [
+                "The soup is too hot to eat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup is",
+                "too hot",
+                "to eat."
+            ],
+            "token_groups": [
+                "The soup is",
+                "too hot",
+                "to eat."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-to-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The caretaker showed us where {a1} our bicycles.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Доглядач показав нам, де поставити наші велосипеди.",
+            "target_text": "The caretaker showed us where to park our bicycles.",
+            "markers": {
+                "a1": {
+                    "answer": "to park",
+                    "options": [
+                        "to park",
+                        "parking",
+                        "park"
+                    ],
+                    "verb_hint": "Після вже наведеного питального слова передай «поставити, залишити» інфінітивом із часткою; нового підмета не додавай."
+                }
+            },
+            "verb_hint": "Після вже наведеного питального слова передай «поставити, залишити» інфінітивом із часткою; нового підмета не додавай.",
+            "accepted_target_texts": [
+                "The caretaker showed us where to park our bicycles.",
+                "The caretaker showed us where to leave our bicycles."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to leave"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to leave"
+                ]
+            },
+            "reorder_groups": [
+                "The caretaker showed",
+                "us where",
+                "to park",
+                "our bicycles."
+            ],
+            "token_groups": [
+                "The caretaker showed",
+                "us where",
+                "to park",
+                "our bicycles."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-to-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I was relieved {a1} the missing wallet.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Я відчув полегшення, коли знайшов зниклий гаманець.",
+            "target_text": "I was relieved to find the missing wallet.",
+            "markers": {
+                "a1": {
+                    "answer": "to find",
+                    "options": [
+                        "to find",
+                        "finding",
+                        "find"
+                    ],
+                    "verb_hint": "Передай дію «знайти», яка спричинила полегшення, інфінітивом із часткою після вже наведеного прикметника."
+                }
+            },
+            "verb_hint": "Передай дію «знайти», яка спричинила полегшення, інфінітивом із часткою після вже наведеного прикметника.",
+            "accepted_target_texts": [
+                "I was relieved to find the missing wallet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I was relieved",
+                "to find",
+                "the missing wallet."
+            ],
+            "token_groups": [
+                "I was relieved",
+                "to find",
+                "the missing wallet."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-to-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The visitors were fortunate {a1} the last ferry.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Відвідувачам пощастило встигнути на останній пором.",
+            "target_text": "The visitors were fortunate to catch the last ferry.",
+            "markers": {
+                "a1": {
+                    "answer": "to catch",
+                    "options": [
+                        "to catch",
+                        "catching",
+                        "to catching"
+                    ],
+                    "verb_hint": "Передай «встигнути на транспорт» інфінітивом із часткою після прикметника щасливого збігу обставин."
+                }
+            },
+            "verb_hint": "Передай «встигнути на транспорт» інфінітивом із часткою після прикметника щасливого збігу обставин.",
+            "accepted_target_texts": [
+                "The visitors were fortunate to catch the last ferry."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visitors",
+                "were fortunate",
+                "to catch",
+                "the last ferry."
+            ],
+            "token_groups": [
+                "The visitors",
+                "were fortunate",
+                "to catch",
+                "the last ferry."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-to-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We were disappointed not {a1} the northern lights.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Ми були розчаровані, що не побачили північного сяйва.",
+            "target_text": "We were disappointed not to see the northern lights.",
+            "markers": {
+                "a1": {
+                    "answer": "to see",
+                    "options": [
+                        "to see",
+                        "seeing",
+                        "to not see"
+                    ],
+                    "verb_hint": "Передай дію «побачити» інфінітивом із часткою; заперечення вже наведено перед пропуском, тому не повторюй його."
+                }
+            },
+            "verb_hint": "Передай дію «побачити» інфінітивом із часткою; заперечення вже наведено перед пропуском, тому не повторюй його.",
+            "accepted_target_texts": [
+                "We were disappointed not to see the northern lights."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We were disappointed",
+                "not to see",
+                "the northern lights."
+            ],
+            "token_groups": [
+                "We were disappointed",
+                "not to see",
+                "the northern lights."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-to-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The witness appears {a1} the invitation.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Схоже, свідок неправильно зрозумів запрошення.",
+            "target_text": "The witness appears to have misunderstood the invitation.",
+            "markers": {
+                "a1": {
+                    "answer": "to have misunderstood",
+                    "options": [
+                        "to have misunderstood",
+                        "to misunderstanding",
+                        "have misunderstood"
+                    ],
+                    "verb_hint": "Після вже наведеного дієслова враження передай попередню дію «неправильно зрозуміти» перфектним інфінітивом."
+                }
+            },
+            "verb_hint": "Після вже наведеного дієслова враження передай попередню дію «неправильно зрозуміти» перфектним інфінітивом.",
+            "accepted_target_texts": [
+                "The witness appears to have misunderstood the invitation.",
+                "The witness appears to have misinterpreted the invitation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to have misinterpreted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to have misinterpreted"
+                ]
+            },
+            "reorder_groups": [
+                "The witness appears",
+                "to have misunderstood",
+                "the invitation."
+            ],
+            "token_groups": [
+                "The witness appears",
+                "to have misunderstood",
+                "the invitation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-to-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The manuscript is believed {a1} during the evacuation.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Вважають, що рукопис зник під час евакуації.",
+            "target_text": "The manuscript is believed to have disappeared during the evacuation.",
+            "markers": {
+                "a1": {
+                    "answer": "to have disappeared",
+                    "options": [
+                        "to have disappeared",
+                        "to have been disappearing",
+                        "have disappeared"
+                    ],
+                    "verb_hint": "Передай попередню дію «зникнути» перфектним інфінітивом після вже наведеної пасивної моделі повідомлення."
+                }
+            },
+            "verb_hint": "Передай попередню дію «зникнути» перфектним інфінітивом після вже наведеної пасивної моделі повідомлення.",
+            "accepted_target_texts": [
+                "The manuscript is believed to have disappeared during the evacuation.",
+                "The manuscript is believed to have vanished during the evacuation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to have vanished"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to have vanished"
+                ]
+            },
+            "reorder_groups": [
+                "The manuscript",
+                "is believed",
+                "to have disappeared",
+                "during the evacuation."
+            ],
+            "token_groups": [
+                "The manuscript",
+                "is believed",
+                "to have disappeared",
+                "during the evacuation."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-to-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The minister is unlikely {a1} so bluntly had she seen the figures.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Навряд чи міністерка висловилася б так різко, якби бачила ці цифри.",
+            "target_text": "The minister is unlikely to have spoken so bluntly had she seen the figures.",
+            "markers": {
+                "a1": {
+                    "answer": "to have spoken",
+                    "options": [
+                        "to have spoken",
+                        "to have speaking",
+                        "have spoken"
+                    ],
+                    "verb_hint": "У моделі малоймовірного минулого наслідку передай «висловитися» перфектним інфінітивом; умовна частина вже наведена."
+                }
+            },
+            "verb_hint": "У моделі малоймовірного минулого наслідку передай «висловитися» перфектним інфінітивом; умовна частина вже наведена.",
+            "accepted_target_texts": [
+                "The minister is unlikely to have spoken so bluntly had she seen the figures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The minister",
+                "is unlikely",
+                "to have spoken",
+                "so bluntly",
+                "had she seen",
+                "the figures."
+            ],
+            "token_groups": [
+                "The minister",
+                "is unlikely",
+                "to have spoken",
+                "so bluntly",
+                "had she seen",
+                "the figures."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-to-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The omission was too consequential {a1} as a typographical error.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_to_infinitive",
+            "translation_uk": "Пропуск мав надто серйозні наслідки, щоб відмахнутися від нього як від друкарської помилки.",
+            "target_text": "The omission was too consequential to be dismissed as a typographical error.",
+            "markers": {
+                "a1": {
+                    "answer": "to be dismissed",
+                    "options": [
+                        "to be dismissed",
+                        "to dismiss",
+                        "being dismissed"
+                    ],
+                    "verb_hint": "Передай пасивне «бути відкинутим як несуттєве» інфінітивом після моделі надмірного ступеня; пропуск є об'єктом оцінювання, а не виконавцем дії."
+                }
+            },
+            "verb_hint": "Передай пасивне «бути відкинутим як несуттєве» інфінітивом після моделі надмірного ступеня; пропуск є об'єктом оцінювання, а не виконавцем дії.",
+            "accepted_target_texts": [
+                "The omission was too consequential to be dismissed as a typographical error.",
+                "The omission was too consequential to be written off as a typographical error."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to be written off"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to be written off"
+                ]
+            },
+            "reorder_groups": [
+                "The omission was",
+                "too consequential",
+                "to be dismissed",
+                "as a typographical",
+                "error."
+            ],
+            "token_groups": [
+                "The omission was",
+                "too consequential",
+                "to be dismissed",
+                "as a typographical",
+                "error."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

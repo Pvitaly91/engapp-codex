@@ -1,0 +1,1808 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/ellipsis-substitution-and-reference.v1.json",
+        "sha256": "8b221dff404524886b147c0daa18d459164a4936496f9e2dc3aed6530da5b0b3"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedSsqEllipsisSubstitutionAndReferenceQualityBuilderSeeder",
+        "uuid_namespace": "sentence-structure-quality-ellipsis-substitution-and-reference-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_structure_quality_ellipsis_substitution_and_reference": {
+            "name": "Sentence Structure Quality: Ellipsis, Substitution and Reference"
+        }
+    },
+    "tags": {
+        "ellipsis_substitution_and_reference": {
+            "name": "ellipsis substitution and reference",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "ellipsis": {
+            "name": "ellipsis",
+            "category": "grammar"
+        },
+        "avoid_repetition": {
+            "name": "avoid repetition",
+            "category": "grammar"
+        },
+        "do_so_do_it_do_that": {
+            "name": "do so do it do that",
+            "category": "grammar"
+        },
+        "so_not": {
+            "name": "so not",
+            "category": "grammar"
+        },
+        "one_ones": {
+            "name": "one ones",
+            "category": "grammar"
+        },
+        "such_reference": {
+            "name": "such reference",
+            "category": "grammar"
+        },
+        "former_latter": {
+            "name": "former latter",
+            "category": "grammar"
+        },
+        "this_that_reference": {
+            "name": "this that reference",
+            "category": "grammar"
+        },
+        "reference_clarity": {
+            "name": "reference clarity",
+            "category": "grammar"
+        },
+        "cohesion": {
+            "name": "cohesion",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        },
+        "formal_style": {
+            "name": "formal style",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "ellipsis_substitution_and_reference"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-esr-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У мене є червона кепка й синя.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "У мене є червона кепка й синя.",
+            "target_text": "I have a red cap and a blue one.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "I",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "red",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "red",
+                        "white",
+                        "yellow",
+                        "silver"
+                    ]
+                },
+                "a5": {
+                    "answer": "cap",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "cap",
+                        "cup",
+                        "door",
+                        "key"
+                    ]
+                },
+                "a6": {
+                    "answer": "and",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "and",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "blue",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "blue",
+                        "gray",
+                        "purple",
+                        "orange"
+                    ]
+                },
+                "a9": {
+                    "answer": "one.",
+                    "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+                    "options": [
+                        "one",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з «у мене є»; другу кепку назви коротким іменниковим замінником.",
+            "accepted_target_texts": [
+                "I have a red cap and a blue one.",
+                "I have got a red cap and a blue one."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "a red cap",
+                "and",
+                "a blue one."
+            ],
+            "token_groups": [
+                "I have",
+                "a red cap",
+                "and",
+                "a blue one."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "I",
+                "have",
+                "a",
+                "red",
+                "cap",
+                "and",
+                "a",
+                "blue",
+                "one."
+            ],
+            "options": [
+                "I",
+                "Them",
+                "Myself",
+                "Yourself",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "a",
+                "all",
+                "both",
+                "an",
+                "red",
+                "white",
+                "yellow",
+                "silver",
+                "cap",
+                "cup",
+                "door",
+                "key",
+                "and",
+                "yet",
+                "because",
+                "although",
+                "the",
+                "some",
+                "any",
+                "blue",
+                "gray",
+                "purple",
+                "orange",
+                "one",
+                "bike",
+                "car",
+                "bag"
+            ],
+            "source_text_uk": "У мене є червона кепка й синя.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a3": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a4": [
+                    "red",
+                    "white",
+                    "yellow",
+                    "silver"
+                ],
+                "a5": [
+                    "cap",
+                    "cup",
+                    "door",
+                    "key"
+                ],
+                "a6": [
+                    "and",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a7": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "blue",
+                    "gray",
+                    "purple",
+                    "orange"
+                ],
+                "a9": [
+                    "one",
+                    "bike",
+                    "car",
+                    "bag"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_part_one",
+                "a2": "aone_part_one",
+                "a3": "aone_part_two",
+                "a4": "aone_part_two",
+                "a5": "aone_part_two",
+                "a6": "aone_part_three",
+                "a7": "aone_part_four",
+                "a8": "aone_part_four",
+                "a9": "aone_part_four"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-esr-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Софія любить джаз, і я теж.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Софія любить джаз, і я теж.",
+            "target_text": "Sofia likes jazz, and so do I.",
+            "markers": {
+                "a1": {
+                    "answer": "Sofia",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "Sofia",
+                        "Ben",
+                        "Anna",
+                        "Leo"
+                    ]
+                },
+                "a2": {
+                    "answer": "likes",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "likes",
+                        "finds",
+                        "brings",
+                        "takes"
+                    ]
+                },
+                "a3": {
+                    "answer": "jazz,",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "jazz",
+                        "rock",
+                        "folk",
+                        "opera"
+                    ]
+                },
+                "a4": {
+                    "answer": "and",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "and",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "so",
+                        "yet",
+                        "because",
+                        "although"
+                    ]
+                },
+                "a6": {
+                    "answer": "do",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "do",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a7": {
+                    "answer": "I.",
+                    "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із Софії; у другій частині передай «так само», поставивши допоміжне дієслово перед «я».",
+            "accepted_target_texts": [
+                "Sofia likes jazz, and so do I.",
+                "Sofiia likes jazz, and so do I.",
+                "Sophia likes jazz, and so do I.",
+                "Sofia enjoys jazz, and so do I.",
+                "Sofiia enjoys jazz, and so do I.",
+                "Sophia enjoys jazz, and so do I."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Sofiia",
+                    "Sophia"
+                ],
+                "a2": [
+                    "enjoys"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Sofiia",
+                    "Sophia"
+                ],
+                "a2": [
+                    "enjoys"
+                ]
+            },
+            "reorder_groups": [
+                "Sofia likes jazz,",
+                "and so",
+                "do I."
+            ],
+            "token_groups": [
+                "Sofia likes jazz,",
+                "and so",
+                "do I."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "Sofia",
+                "likes",
+                "jazz,",
+                "and",
+                "so",
+                "do",
+                "I."
+            ],
+            "options": [
+                "Sofia",
+                "Ben",
+                "Anna",
+                "Leo",
+                "likes",
+                "finds",
+                "brings",
+                "takes",
+                "jazz",
+                "rock",
+                "folk",
+                "opera",
+                "and",
+                "but",
+                "or",
+                "nor",
+                "so",
+                "yet",
+                "because",
+                "although",
+                "do",
+                "doesn't",
+                "didn't",
+                "have",
+                "I",
+                "She",
+                "It",
+                "We"
+            ],
+            "source_text_uk": "Софія любить джаз, і я теж.",
+            "options_by_marker": {
+                "a1": [
+                    "Sofia",
+                    "Ben",
+                    "Anna",
+                    "Leo"
+                ],
+                "a2": [
+                    "likes",
+                    "finds",
+                    "brings",
+                    "takes"
+                ],
+                "a3": [
+                    "jazz",
+                    "rock",
+                    "folk",
+                    "opera"
+                ],
+                "a4": [
+                    "and",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a5": [
+                    "so",
+                    "yet",
+                    "because",
+                    "although"
+                ],
+                "a6": [
+                    "do",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a7": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_part_one",
+                "a2": "atwo_part_one",
+                "a3": "atwo_part_one",
+                "a4": "atwo_part_two",
+                "a5": "atwo_part_two",
+                "a6": "atwo_part_three",
+                "a7": "atwo_part_three"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-esr-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Зустріч закінчиться до обіду? — Сподіваємося, що так.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Зустріч закінчиться до обіду? — Сподіваємося, що так.",
+            "target_text": "Will the meeting finish before lunch? We hope so.",
+            "markers": {
+                "a1": {
+                    "answer": "Will",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "Will",
+                        "Can",
+                        "Could",
+                        "Would"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "meeting",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "meeting",
+                        "opening",
+                        "closing",
+                        "helping"
+                    ]
+                },
+                "a4": {
+                    "answer": "finish",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "finish",
+                        "continue",
+                        "start",
+                        "teacher"
+                    ]
+                },
+                "a5": {
+                    "answer": "before",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "before",
+                        "after",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a6": {
+                    "answer": "lunch?",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "lunch",
+                        "dinner",
+                        "breakfast",
+                        "midnight"
+                    ]
+                },
+                "a7": {
+                    "answer": "We",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a8": {
+                    "answer": "hope",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "hope",
+                        "fear",
+                        "think",
+                        "suppose"
+                    ]
+                },
+                "a9": {
+                    "answer": "so.",
+                    "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+                    "options": [
+                        "so",
+                        "nor",
+                        "yet",
+                        "because"
+                    ]
+                }
+            },
+            "verb_hint": "Склади запитання про завершення зустрічі й коротку відповідь зі сподіванням; не повторюй усе запитання.",
+            "accepted_target_texts": [
+                "Will the meeting finish before lunch? We hope so.",
+                "Will the meeting end before lunch? We hope so."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "end"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "end"
+                ]
+            },
+            "reorder_groups": [
+                "Will the meeting",
+                "finish before lunch?",
+                "We hope so."
+            ],
+            "token_groups": [
+                "Will the meeting",
+                "finish before lunch?",
+                "We hope so."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "Will",
+                "the",
+                "meeting",
+                "finish",
+                "before",
+                "lunch?",
+                "We",
+                "hope",
+                "so."
+            ],
+            "options": [
+                "Will",
+                "Can",
+                "Could",
+                "Would",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "meeting",
+                "opening",
+                "closing",
+                "helping",
+                "finish",
+                "continue",
+                "start",
+                "teacher",
+                "before",
+                "after",
+                "bus",
+                "desk",
+                "lunch",
+                "dinner",
+                "breakfast",
+                "midnight",
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "hope",
+                "fear",
+                "think",
+                "suppose",
+                "so",
+                "nor",
+                "yet",
+                "because"
+            ],
+            "source_text_uk": "Зустріч закінчиться до обіду? — Сподіваємося, що так.",
+            "options_by_marker": {
+                "a1": [
+                    "Will",
+                    "Can",
+                    "Could",
+                    "Would"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "meeting",
+                    "opening",
+                    "closing",
+                    "helping"
+                ],
+                "a4": [
+                    "finish",
+                    "continue",
+                    "start",
+                    "teacher"
+                ],
+                "a5": [
+                    "before",
+                    "after",
+                    "bus",
+                    "desk"
+                ],
+                "a6": [
+                    "lunch",
+                    "dinner",
+                    "breakfast",
+                    "midnight"
+                ],
+                "a7": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a8": [
+                    "hope",
+                    "fear",
+                    "think",
+                    "suppose"
+                ],
+                "a9": [
+                    "so",
+                    "nor",
+                    "yet",
+                    "because"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_part_one",
+                "a2": "bone_part_one",
+                "a3": "bone_part_one",
+                "a4": "bone_part_two",
+                "a5": "bone_part_two",
+                "a6": "bone_part_two",
+                "a7": "bone_part_three",
+                "a8": "bone_part_three",
+                "a9": "bone_part_three"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-esr-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Рута думала, що файл зберегли, а я думав, що ні.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Рута думала, що файл зберегли, а я думав, що ні.",
+            "target_text": "Ruta thought the file had been saved, but I thought not.",
+            "markers": {
+                "a1": {
+                    "answer": "Ruta",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "Ruta",
+                        "Friend",
+                        "Dog",
+                        "Cat"
+                    ]
+                },
+                "a2": {
+                    "answer": "thought",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "thought",
+                        "confirmed",
+                        "knew",
+                        "discovered"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "file",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "file",
+                        "document",
+                        "folder",
+                        "message"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a7": {
+                    "answer": "saved,",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "saved",
+                        "printed",
+                        "copied",
+                        "renamed"
+                    ]
+                },
+                "a8": {
+                    "answer": "but",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "but",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a9": {
+                    "answer": "I",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a10": {
+                    "answer": "thought",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "thought",
+                        "remained",
+                        "agreed",
+                        "said"
+                    ]
+                },
+                "a11": {
+                    "answer": "not.",
+                    "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи думку Рути про попереднє збереження файла; власну протилежну думку передай без повторення всього повідомлення.",
+            "accepted_target_texts": [
+                "Ruta thought the file had been saved, but I thought not."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ruta thought",
+                "the file",
+                "had been saved,",
+                "but I",
+                "thought not."
+            ],
+            "token_groups": [
+                "Ruta thought",
+                "the file",
+                "had been saved,",
+                "but I",
+                "thought not."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "Ruta",
+                "thought",
+                "the",
+                "file",
+                "had",
+                "been",
+                "saved,",
+                "but",
+                "I",
+                "thought",
+                "not."
+            ],
+            "options": [
+                "Ruta",
+                "Friend",
+                "Dog",
+                "Cat",
+                "thought",
+                "confirmed",
+                "knew",
+                "discovered",
+                "the",
+                "a",
+                "an",
+                "some",
+                "file",
+                "document",
+                "folder",
+                "message",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "am",
+                "is",
+                "are",
+                "saved",
+                "printed",
+                "copied",
+                "renamed",
+                "but",
+                "whereas",
+                "while",
+                "if",
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "remained",
+                "agreed",
+                "said",
+                "not",
+                "even",
+                "almost",
+                "never"
+            ],
+            "source_text_uk": "Рута думала, що файл зберегли, а я думав, що ні.",
+            "options_by_marker": {
+                "a1": [
+                    "Ruta",
+                    "Friend",
+                    "Dog",
+                    "Cat"
+                ],
+                "a2": [
+                    "thought",
+                    "confirmed",
+                    "knew",
+                    "discovered"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "file",
+                    "document",
+                    "folder",
+                    "message"
+                ],
+                "a5": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a6": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a7": [
+                    "saved",
+                    "printed",
+                    "copied",
+                    "renamed"
+                ],
+                "a8": [
+                    "but",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a9": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a10": [
+                    "thought",
+                    "remained",
+                    "agreed",
+                    "said"
+                ],
+                "a11": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_part_one",
+                "a2": "btwo_part_one",
+                "a3": "btwo_part_two",
+                "a4": "btwo_part_two",
+                "a5": "btwo_part_three",
+                "a6": "btwo_part_three",
+                "a7": "btwo_part_three",
+                "a8": "btwo_part_four",
+                "a9": "btwo_part_four",
+                "a10": "btwo_part_five",
+                "a11": "btwo_part_five"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-esr-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Марта могла скасувати бронювання, але вирішила цього не робити.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Марта могла скасувати бронювання, але вирішила цього не робити.",
+            "target_text": "Marta could have cancelled the booking, but chose not to.",
+            "markers": {
+                "a1": {
+                    "answer": "Marta",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "Marta",
+                        "Olena",
+                        "Mark",
+                        "Iryna"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "cancelled",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "cancelled",
+                        "checked",
+                        "confirmed",
+                        "made"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "booking,",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "booking",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a7": {
+                    "answer": "but",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "but",
+                        "nor",
+                        "so",
+                        "yet"
+                    ]
+                },
+                "a8": {
+                    "answer": "chose",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "chose",
+                        "offered",
+                        "promised",
+                        "planned"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a10": {
+                    "answer": "to.",
+                    "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи можливість у минулому та відмову від дії; після заперечення залиш інфінітивний маркер без повторення дії.",
+            "accepted_target_texts": [
+                "Marta could have cancelled the booking, but chose not to.",
+                "Marta could have cancelled the booking, but decided not to.",
+                "Marta could have canceled the booking, but chose not to.",
+                "Marta could have canceled the booking, but decided not to.",
+                "Marta could have cancelled the reservation, but chose not to.",
+                "Marta could have cancelled the reservation, but decided not to.",
+                "Marta could have canceled the reservation, but chose not to.",
+                "Marta could have canceled the reservation, but decided not to."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "decided"
+                ],
+                "a4": [
+                    "canceled"
+                ],
+                "a6": [
+                    "reservation,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "decided"
+                ],
+                "a4": [
+                    "canceled"
+                ],
+                "a6": [
+                    "reservation,"
+                ]
+            },
+            "reorder_groups": [
+                "Marta could have",
+                "cancelled the booking,",
+                "but chose",
+                "not to."
+            ],
+            "token_groups": [
+                "Marta could have",
+                "cancelled the booking,",
+                "but chose",
+                "not to."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "Marta",
+                "could",
+                "have",
+                "cancelled",
+                "the",
+                "booking,",
+                "but",
+                "chose",
+                "not",
+                "to."
+            ],
+            "options": [
+                "Marta",
+                "Olena",
+                "Mark",
+                "Iryna",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "cancelled",
+                "checked",
+                "confirmed",
+                "made",
+                "the",
+                "some",
+                "any",
+                "this",
+                "booking",
+                "studying",
+                "living",
+                "buying",
+                "but",
+                "nor",
+                "so",
+                "yet",
+                "chose",
+                "offered",
+                "promised",
+                "planned",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "to",
+                "over",
+                "under",
+                "through"
+            ],
+            "source_text_uk": "Марта могла скасувати бронювання, але вирішила цього не робити.",
+            "options_by_marker": {
+                "a1": [
+                    "Marta",
+                    "Olena",
+                    "Mark",
+                    "Iryna"
+                ],
+                "a2": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a3": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "cancelled",
+                    "checked",
+                    "confirmed",
+                    "made"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "booking",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a7": [
+                    "but",
+                    "nor",
+                    "so",
+                    "yet"
+                ],
+                "a8": [
+                    "chose",
+                    "offered",
+                    "promised",
+                    "planned"
+                ],
+                "a9": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a10": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_part_one",
+                "a2": "cone_part_one",
+                "a3": "cone_part_one",
+                "a4": "cone_part_two",
+                "a5": "cone_part_two",
+                "a6": "cone_part_two",
+                "a7": "cone_part_three",
+                "a8": "cone_part_three",
+                "a9": "cone_part_four",
+                "a10": "cone_part_four"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-esr-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Науковці не зобов’язані оприлюднювати вихідні дані, хоча мають право це зробити.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_structure_quality_ellipsis_substitution_and_reference",
+            "translation_uk": "Науковці не зобов’язані оприлюднювати вихідні дані, хоча мають право це зробити.",
+            "target_text": "The researchers need not disclose the raw data, although they may do so.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "researchers",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "researchers",
+                        "teachers",
+                        "engineers",
+                        "editors"
+                    ]
+                },
+                "a3": {
+                    "answer": "need",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "need",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a5": {
+                    "answer": "disclose",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "disclose",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "raw",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "raw",
+                        "interim",
+                        "original",
+                        "complete"
+                    ]
+                },
+                "a8": {
+                    "answer": "data,",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "data",
+                        "report",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a9": {
+                    "answer": "although",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "although",
+                        "if",
+                        "whether",
+                        "and"
+                    ]
+                },
+                "a10": {
+                    "answer": "they",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "they",
+                        "we",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a11": {
+                    "answer": "may",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "may",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a12": {
+                    "answer": "do",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "do",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a13": {
+                    "answer": "so.",
+                    "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+                    "options": [
+                        "so",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                }
+            },
+            "verb_hint": "Відокрем відсутність обов’язку від дозволу; наприкінці заміни вже названу дію, не повторюючи дані.",
+            "accepted_target_texts": [
+                "The researchers need not disclose the raw data, although they may do so.",
+                "The researchers need not disclose the raw data, although they may do that.",
+                "The researchers need not disclose the raw data, though they may do so.",
+                "The researchers need not disclose the raw data, though they may do that.",
+                "The researchers need not disclose the raw data, although they can do so.",
+                "The researchers need not disclose the raw data, although they can do that.",
+                "The researchers need not disclose the raw data, though they can do so.",
+                "The researchers need not disclose the raw data, though they can do that.",
+                "The researchers need not release the raw data, although they may do so.",
+                "The researchers need not release the raw data, although they may do that.",
+                "The researchers need not release the raw data, though they may do so.",
+                "The researchers need not release the raw data, though they may do that.",
+                "The researchers need not release the raw data, although they can do so.",
+                "The researchers need not release the raw data, although they can do that.",
+                "The researchers need not release the raw data, though they can do so.",
+                "The researchers need not release the raw data, though they can do that.",
+                "The researchers need not publish the raw data, although they may do so.",
+                "The researchers need not publish the raw data, although they may do that.",
+                "The researchers need not publish the raw data, though they may do so.",
+                "The researchers need not publish the raw data, though they may do that.",
+                "The researchers need not publish the raw data, although they can do so.",
+                "The researchers need not publish the raw data, although they can do that.",
+                "The researchers need not publish the raw data, though they can do so.",
+                "The researchers need not publish the raw data, though they can do that.",
+                "The scientists need not disclose the raw data, although they may do so.",
+                "The scientists need not disclose the raw data, although they may do that.",
+                "The scientists need not disclose the raw data, though they may do so.",
+                "The scientists need not disclose the raw data, though they may do that.",
+                "The scientists need not disclose the raw data, although they can do so.",
+                "The scientists need not disclose the raw data, although they can do that.",
+                "The scientists need not disclose the raw data, though they can do so.",
+                "The scientists need not disclose the raw data, though they can do that.",
+                "The scientists need not release the raw data, although they may do so.",
+                "The scientists need not release the raw data, although they may do that.",
+                "The scientists need not release the raw data, though they may do so.",
+                "The scientists need not release the raw data, though they may do that.",
+                "The scientists need not release the raw data, although they can do so.",
+                "The scientists need not release the raw data, although they can do that.",
+                "The scientists need not release the raw data, though they can do so.",
+                "The scientists need not release the raw data, though they can do that.",
+                "The scientists need not publish the raw data, although they may do so.",
+                "The scientists need not publish the raw data, although they may do that.",
+                "The scientists need not publish the raw data, though they may do so.",
+                "The scientists need not publish the raw data, though they may do that.",
+                "The scientists need not publish the raw data, although they can do so.",
+                "The scientists need not publish the raw data, although they can do that.",
+                "The scientists need not publish the raw data, though they can do so.",
+                "The scientists need not publish the raw data, though they can do that."
+            ],
+            "answer_synonyms": {
+                "a13": [
+                    "that."
+                ],
+                "a9": [
+                    "though"
+                ],
+                "a11": [
+                    "can"
+                ],
+                "a5": [
+                    "release",
+                    "publish"
+                ],
+                "a2": [
+                    "scientists"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a13": [
+                    "that."
+                ],
+                "a9": [
+                    "though"
+                ],
+                "a11": [
+                    "can"
+                ],
+                "a5": [
+                    "release",
+                    "publish"
+                ],
+                "a2": [
+                    "scientists"
+                ]
+            },
+            "reorder_groups": [
+                "The researchers",
+                "need not disclose",
+                "the raw data,",
+                "although they may",
+                "do so."
+            ],
+            "token_groups": [
+                "The researchers",
+                "need not disclose",
+                "the raw data,",
+                "although they may",
+                "do so."
+            ],
+            "quality_revision": "ssq-v1",
+            "tokens_correct": [
+                "The",
+                "researchers",
+                "need",
+                "not",
+                "disclose",
+                "the",
+                "raw",
+                "data,",
+                "although",
+                "they",
+                "may",
+                "do",
+                "so."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "These",
+                "researchers",
+                "teachers",
+                "engineers",
+                "editors",
+                "need",
+                "closed",
+                "helped",
+                "waited",
+                "not",
+                "never",
+                "always",
+                "often",
+                "disclose",
+                "letter",
+                "window",
+                "phone",
+                "the",
+                "those",
+                "each",
+                "every",
+                "raw",
+                "interim",
+                "original",
+                "complete",
+                "data",
+                "report",
+                "dog",
+                "cat",
+                "although",
+                "if",
+                "whether",
+                "and",
+                "they",
+                "we",
+                "me",
+                "him",
+                "may",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "do",
+                "didn't",
+                "have",
+                "has",
+                "so",
+                "unless",
+                "whereas",
+                "while"
+            ],
+            "source_text_uk": "Науковці не зобов’язані оприлюднювати вихідні дані, хоча мають право це зробити.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "These"
+                ],
+                "a2": [
+                    "researchers",
+                    "teachers",
+                    "engineers",
+                    "editors"
+                ],
+                "a3": [
+                    "need",
+                    "closed",
+                    "helped",
+                    "waited"
+                ],
+                "a4": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a5": [
+                    "disclose",
+                    "letter",
+                    "window",
+                    "phone"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "raw",
+                    "interim",
+                    "original",
+                    "complete"
+                ],
+                "a8": [
+                    "data",
+                    "report",
+                    "dog",
+                    "cat"
+                ],
+                "a9": [
+                    "although",
+                    "if",
+                    "whether",
+                    "and"
+                ],
+                "a10": [
+                    "they",
+                    "we",
+                    "me",
+                    "him"
+                ],
+                "a11": [
+                    "may",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a12": [
+                    "do",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a13": [
+                    "so",
+                    "unless",
+                    "whereas",
+                    "while"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_part_one",
+                "a2": "ctwo_part_one",
+                "a3": "ctwo_part_two",
+                "a4": "ctwo_part_two",
+                "a5": "ctwo_part_two",
+                "a6": "ctwo_part_three",
+                "a7": "ctwo_part_three",
+                "a8": "ctwo_part_three",
+                "a9": "ctwo_part_four",
+                "a10": "ctwo_part_four",
+                "a11": "ctwo_part_four",
+                "a12": "ctwo_part_five",
+                "a13": "ctwo_part_five"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,1809 @@
+{
+  "schema_version": 1,
+  "version": "1.0.2",
+  "base_sha": "c96e6b4e0c042f98fb0c105f61225f72d85a4850",
+  "status": "frozen",
+  "revision_history": [
+    {
+      "version": "1.0.1",
+      "previous_version": "1.0.0",
+      "previous_master": "docs/content/m66-verb-patterns-core.v1.0.0.json",
+      "previous_master_sha256": "2c50168b8df7320df427999a07083213e97e1ab99baea856dddee86b74c95069",
+      "task_id": "m66-bare-meaning-2",
+      "reason": "The English stimulus reports permission and a choice to walk, not completed walking or established non-use of the bicycle. The correct option now states only the reported choice.",
+      "old_label": "Тітка дозволила, але я велосипедом не скористався",
+      "new_label": "Тітка дозволила; я обрав піти пішки",
+      "changed_fields": [
+        "options/0",
+        "answer",
+        "accepted/0",
+        "feedback map key"
+      ],
+      "unchanged": "English stimulus, Ukrainian full-sentence translation, feedback values, all other teaching data, own-task totals, selected existing bank questions, native components and practice engine.",
+      "review": "Agent strict event-status refinement before local apply; no external human review claimed."
+    },
+    {
+      "version": "1.0.2",
+      "previous_version": "1.0.1",
+      "previous_master": "docs/content/m66-verb-patterns-core.v1.0.1.json",
+      "previous_master_sha256": "1a3abd237a413f33f053726185450d9a814c5f01a3c12dfba370268cdc709e4e",
+      "changed_path": "lessons/0/blocks/1/data/items/0/title",
+      "reason": "The actual Bare Infinitive forms card had a 367px intrinsic minimum width from an unbroken slash-separated modal list at 390px/320px viewports. Spaces around each slash allow native text wrapping without changing the model, CSS, Blade or renderer.",
+      "old_title": "підмет + can/could/must/should/may/might/will + базова форма",
+      "new_title": "підмет + can / could / must / should / may / might / will + базова форма",
+      "unchanged": "All other teaching fields, 1.0.1 semantic correction/history, practice tasks/aliases/tokens/feedback, 15 reused widget questions, metadata/navigation, native components and practice engine.",
+      "review": "Agent finite title-spacing correction after actual local browser observation; final browser recheck pending; no external human review claimed."
+    }
+  ],
+  "policy": {
+    "native_components": true,
+    "visual_changes": false,
+    "practice_engine_changes": false,
+    "production_access": false,
+    "old_question_rows_unchanged": true
+  },
+  "sources": [
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verbs-followed-infinitive",
+      "title": "Verbs followed by the infinitive",
+      "access": "direct editorial body",
+      "scope": "Main editorial article: make/let active without to, passive make with to, permission paraphrase with allowed to. Learner comments and later team replies not used as editorial body."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/make",
+      "title": "Make",
+      "access": "direct 403; publisher-indexed full editorial body",
+      "scope": "Actual editorial make article; active make without to and passive with to."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/help-somebody-to-do",
+      "title": "Help somebody (to) do",
+      "access": "direct 403; publisher-indexed full editorial body",
+      "scope": "Help in assistance sense allows object plus infinitive with/without to; ordinary assistance not help + object + ing."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/infinitives-with-and-without-to",
+      "title": "Infinitives with and without to",
+      "access": "direct 403; publisher-indexed editorial body",
+      "scope": "Actual indexed editorial URL, base-form and core-modal/let/make/help patterns; no redirect from supplied /infinitives URL claimed."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/infinitives",
+      "title": "Supplied infinitives URL",
+      "access": "direct 403 only",
+      "scope": "Access failure recorded; not treated as successful editorial retrieval or a confirmed redirect."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/hear-see-etc-object-infinitive-or-ing",
+      "title": "Hear, see, etc. + object + infinitive or -ing",
+      "access": "direct 403; publisher-indexed editorial body",
+      "scope": "Whole-event viewpoint versus action in progress; no finite second-verb tense and no infinitive to in shown active perception model."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/let-let-s",
+      "title": "Let, let’s",
+      "access": "publisher-indexed editorial body",
+      "scope": "Let permission sense and object plus without-to infinitive; permission-specific passive boundary, not all senses of let."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/make",
+      "title": "Make: CAUSE sense",
+      "access": "direct 403; publisher-indexed dictionary body",
+      "scope": "Caused reaction not limited to intentional coercion."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/can-t-couldn-t-help",
+      "title": "Can’t/couldn’t help",
+      "access": "publisher-indexed dictionary body",
+      "scope": "Different sense: inability to stop/control a reaction, with -ing."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/modality",
+      "title": "Modality: forms",
+      "access": "publisher-indexed editorial body",
+      "scope": "Core-modal base form, not after modal, inversion without do; semi-modal ought to/need boundaries."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/verbs-followed-ing-or-infinitive",
+      "access": "direct-editorial-body",
+      "checked": "Fixed enjoy/decide patterns and availability of both forms with like/love; learner comments not used."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/verbs-followed-ing-or-infinitive-change-meaning",
+      "access": "direct-editorial-body",
+      "checked": "Stop, try and remember meanings; editorial explanation only, not learner comments."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/verbs-followed-by-ing-or-infinitive",
+      "access": "publisher-indexed-full-body; direct-open-tool-error",
+      "checked": "Fixed models, overlapping hate/like/love/prefer forms and target would-like-to pattern; semantic changes."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/hate-like-love-and-prefer",
+      "access": "publisher-indexed-full-body; direct-403",
+      "checked": "Optional focus on action/experience versus habit/preference, not an absolute general/specific classifier."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/continue",
+      "access": "publisher-indexed-editorial-body; direct-open-tool-error",
+      "checked": "Both continue doing and continue to do, including continuing or resuming; no form-imposed pause contrast."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/begin",
+      "access": "publisher-indexed-editorial-body",
+      "checked": "Both begin + -ing and begin + to-infinitive in ordinary start-to-do patterns; no exhaustive restrictions claimed."
+    },
+    {
+      "url": "https://dictionaryblog.cambridge.org/2024/03/06/avoiding-common-mistakes-with-verb-patterns-2/",
+      "access": "direct-publisher-editorial-body",
+      "checked": "Liz Walter editorial article on like overlap, remember, stop and try. Reader comments not used."
+    },
+    {
+      "url": "https://downloads.bbc.co.uk/worldservice/learningenglish/ask_about_english/pdfs/aae_grees_inf_gerund.pdf",
+      "access": "direct-publisher-pdf-body",
+      "checked": "Gareth Rees explanation: simple start + -ing and start + to-infinitive examples can have same message."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verbs-followed-ing-form",
+      "requested_url": "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/verbs-followed-ing-form",
+      "publisher": "British Council",
+      "access": "initial exact-url tool-error; later old-path request redirected to this exact URL with direct editorial body",
+      "used": "Concrete -ing models and keep/finish grouping; editorial main body only."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/suggest",
+      "publisher": "Cambridge English Grammar Today",
+      "access": "publisher-indexed-editorial-body; direct 403",
+      "used": "Suggest doing with contextual performer, that-clause with named performer and targeted no suggest object + to-infinitive boundary."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/mind",
+      "publisher": "Cambridge English Grammar Today",
+      "access": "publisher-indexed-editorial-body; direct 403",
+      "used": "Do you mind + -ing requests, explicit me performer and contextual response interpretation."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/recommend",
+      "publisher": "Cambridge Dictionary",
+      "access": "publisher-indexed-dictionary-body; direct tool-error without HTTP status",
+      "used": "Recommend doing/that-clause and noun object with to-recipient; different concrete models not transferred mechanically from suggest."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/consider",
+      "publisher": "Cambridge Dictionary",
+      "access": "publisher-indexed-dictionary-body; direct tool-error without HTTP status",
+      "used": "B1 consideration of possibility + -ing versus separate opinion somebody (to be) model."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/modal-verbs?page=1",
+      "publisher": "British Council LearnEnglish Team",
+      "access": "direct-body signed team reply, not main editorial article; reply permalink /comment/169320 returned cache miss",
+      "used": "Peter M., 2021-05-08 signed LearnEnglish Team response: mind me/my + -ing same intended meaning; object form more informal. Student question and external discussion linked by the reply are not treated as editorial evidence."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/keep",
+      "publisher": "Cambridge Dictionary",
+      "access": "publisher-indexed-dictionary-body; direct tool-error without HTTP status",
+      "used": "Keep doing can describe continuation or repeated action; no transfer of continue alternatives to keep."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/finish",
+      "publisher": "Cambridge Dictionary",
+      "access": "publisher-indexed-dictionary-body",
+      "used": "Finish + -ing completes the named activity; authored email example distinguishes writing from unmentioned sending."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "access": "direct-editorial-body",
+      "checked": "Useful original teaching, no word quota, no guaranteed rankings, truthful review disclosure."
+    }
+  ],
+  "editorial_review": {
+    "status": "completed-agent-editorial-language-and-native-runtime-review",
+    "reviewer_disclosure": "Agent editorial and bilingual verification; no external human review or certification claimed.",
+    "new_own_tasks": 18,
+    "levels": [
+      "A2",
+      "B1",
+      "B1"
+    ],
+    "continuing_counts": [
+      6,
+      6,
+      6
+    ],
+    "new_practice_blocks": 3,
+    "input_methods": [
+      "manual",
+      "tokens"
+    ],
+    "linked_questions_separate": 15,
+    "planned_reuse": 15,
+    "planned_new": 0,
+    "independent_before_sha256": "517118d0fe7cf764229b5926e82fa7044b10a92535923a7301bc46602311d6a3",
+    "metadata_transitions": [],
+    "draft_changes": [
+      "Corrected one double-escaped bank class in the private Verbs + Gerund draft before projection or freeze.",
+      "Before freeze, actual native-factory test exposed and verified the finite curly-apostrophe alias feedback correction."
+    ],
+    "pre_apply_metadata": [
+      {
+        "expected_learning_resource_description": "Bare infinitive — базова форма дієслова без частки to: go — іти, be — бути, write — писати. Вибір цієї форми визначає конструкція, а не сам вигляд слова. Тут головне — конкретні модальні моделі та let/make/help; однакова базова форма в іншому реченні може мати іншу граматичну роль.",
+        "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBareInfinitiveTheorySeeder",
+        "raw_page_title": "Bare Infinitive",
+        "h1": "Bare Infinitive",
+        "expected_seo": {
+          "title": "Bare Infinitive — правила | Gramlyze",
+          "description": "Bare infinitive — базова форма дієслова без частки to: go — іти, be — бути, write — писати."
+        }
+      },
+      {
+        "expected_learning_resource_description": "Після одного дієслова інше може мати форму -ing або to + базова форма. Спочатку перевір конкретну конструкцію: іноді вибору немає, іноді обидві форми доречні, а іноді вони змінюють повідомлення. Це не універсальне протиставлення «минула реальна дія / майбутня нереальна дія».",
+        "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+        "raw_page_title": "Gerund vs Infinitive",
+        "h1": "Gerund vs Infinitive",
+        "expected_seo": {
+          "title": "Gerund vs Infinitive — правила | Gramlyze",
+          "description": "Gerund vs Infinitive. Після одного дієслова інше може мати форму -ing або to + базова форма."
+        }
+      },
+      {
+        "expected_learning_resource_description": "Вчи конкретне дієслово разом із його моделлю: enjoy reading — отримувати задоволення від читання; suggest meeting — пропонувати зустрітися. Змістові групи допомагають запам’ятати сполучення, але не визначають форму після будь-якого схожого за перекладом дієслова. Назва цього уроку не означає, що кож…",
+        "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusGerundTheorySeeder",
+        "raw_page_title": "Verbs + Gerund",
+        "h1": "Verbs + Gerund",
+        "expected_seo": {
+          "title": "Verbs + Gerund — правила | Gramlyze",
+          "description": "Verbs + Gerund. Вчи конкретне дієслово разом із його моделлю: enjoy reading — отримувати задоволення від читання; suggest meeting — пропонувати зустрітися."
+        }
+      }
+    ],
+    "practice_runtime": {
+      "unchanged_native_factory_sha256": "43b4bd3e266594ce7b6ffe697e979ba64c3a824cfb816af06fd8beef31847f8b",
+      "profiles": [
+        "served-local-draft-before-freeze"
+      ],
+      "tests_per_profile": 24,
+      "own_tasks": 18,
+      "visible_options": 32,
+      "manual_inputs": 6,
+      "token_inputs": 6,
+      "accepted_variants": 9,
+      "limitation": "Unchanged offline factory and independent finite fixtures; real browser acceptance is separate after guarded apply."
+    },
+    "largest_projected_body_bytes": 13418,
+    "body_capacity_bytes": 65535
+  },
+  "lessons": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBareInfinitiveTheorySeeder",
+      "slug": "bare-infinitive",
+      "locale": "uk",
+      "technical_block_level": "A2",
+      "display_level": "A2-B1",
+      "subtitle_html": "<p><strong>Bare Infinitive</strong> — базова форма дієслова без to після основних модальних дієслів, у моделях let/make та в одному з варіантів help.</p>",
+      "subtitle_text": "Форма без to після can, let і make; обидві моделі help, виконавець дії, питання та коротке зіставлення зі сприйняттям процесу.",
+      "blocks": [
+        {
+          "key": "bare-hero",
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "existing_source_index": 0,
+          "data": {
+            "level": "A2-B1",
+            "intro": "<strong>Bare infinitive</strong> — базова форма дієслова без частки to: go — іти, be — бути, write — писати. Вибір цієї форми визначає конструкція, а не сам вигляд слова. Тут головне — конкретні модальні моделі та let/make/help; однакова базова форма в іншому реченні може мати іншу граматичну роль.",
+            "rules": [
+              {
+                "label": "ОСНОВНІ МОДАЛЬНІ",
+                "color": "emerald",
+                "text": "Після can/could/must/should/may/might/will наступне дієслово має базову форму без to і без закінчення -s.",
+                "example": "<span lang=\"en\">She can drive.</span><br><span lang=\"uk\">Вона вміє керувати автомобілем.</span>"
+              },
+              {
+                "label": "LET І MAKE",
+                "color": "blue",
+                "text": "У цільовій активній моделі після let/make називаємо учасника, а потім дію без to.",
+                "example": "<span lang=\"en\">They made us wait.</span><br><span lang=\"uk\">Вони змусили нас чекати.</span>"
+              },
+              {
+                "label": "HELP: ДВА ВАРІАНТИ",
+                "color": "amber",
+                "text": "У значенні допомоги після help можливі інфінітив і без to, і з to. Це не помилка й не обов’язкова зміна змісту.",
+                "example": "<span lang=\"en\">Help me carry this.</span><br><span lang=\"uk\">Допоможи мені нести це.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "bare-forms",
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "existing_source_index": 1,
+          "data": {
+            "title": "Основні моделі та прості питання",
+            "intro": "Друге дієслово не отримує час або узгодження від першого: після made потрібне rewrite — переписати, не rewrote; після can — drive, не drives. Після object ставимо відповідну форму займенника: me/him/her/us/them — мене або мені / його або йому / її або їй / нас або нам / їх або їм за змістом речення.",
+            "items": [
+              {
+                "label": "ОСНОВНЕ МОДАЛЬНЕ",
+                "title": "підмет + can / could / must / should / may / might / will + базова форма",
+                "subtitle": "<span lang=\"en\">We must go.</span><br><span lang=\"uk\">Ми повинні йти.</span><br>Can go — могти йти; should stay — варто залишитися; must finish — мусити закінчити. У моделях ought to, have to та need to частку to не прибираємо: це інші конкретні сполучення."
+              },
+              {
+                "label": "ДОЗВІЛ",
+                "title": "let + учасник + базова форма",
+                "subtitle": "<span lang=\"en\">They let us leave.</span><br><span lang=\"uk\">Вони дозволили нам піти.</span><br>Дозвіл дають they, піти можемо ми — us. Не замінюй us на we через українське «щоб ми»."
+              },
+              {
+                "label": "ПРИЧИНА АБО ПРИМУС",
+                "title": "make + учасник + базова форма",
+                "subtitle": "<span lang=\"en\">The joke made us laugh.</span><br><span lang=\"uk\">Жарт розсмішив нас.</span><br>Жарт спричинив реакцію; сміялися ми. Make не завжди означає чийсь свідомий примус."
+              },
+              {
+                "label": "ДОПОМОГА",
+                "title": "help + учасник + базова форма / to + базова форма",
+                "subtitle": "<span lang=\"en\">Help me carry this.</span><br><span lang=\"uk\">Допоможи мені нести це.</span><br><span lang=\"en\">Help me to carry this.</span><br><span lang=\"uk\">Допоможи мені нести це.</span><br>Обидва варіанти граматичні. Якщо вправа просить саме форму без to, це окрема умова вправи."
+              }
+            ],
+            "outro": "Питання будуємо через головну конструкцію: <span lang=\"en\">Can she drive?</span><br><span lang=\"uk\">Вона вміє керувати автомобілем?</span><br><span lang=\"en\">Did they let you leave?</span><br><span lang=\"uk\">Вони дозволили тобі піти?</span><br><span lang=\"en\">Did they make you wait?</span><br><span lang=\"uk\">Вони змусили тебе чекати?</span><br>З can не додаємо do. Після did ставимо let/make, а дієслово leave/wait не переносимо перед учасником."
+          }
+        },
+        {
+          "key": "bare-usage",
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "existing_source_index": 2,
+          "data": {
+            "title": "Де потрібна форма без to",
+            "sections": [
+              {
+                "label": "Основні модальні: базова форма лишається базовою",
+                "color": "emerald",
+                "description": "У показаних моделях can/could/must/should/may/might/will наступна дія має форму без to. Після she не додаємо -s до цього другого дієслова. Not стоїть після модального слова; окреме do для такого заперечення не потрібне.",
+                "examples": [
+                  {
+                    "en": "You must wear a seat belt.",
+                    "ua": "Ти повинен бути пристебнутий паском безпеки."
+                  },
+                  {
+                    "en": "She can speak three languages.",
+                    "ua": "Вона вміє говорити трьома мовами."
+                  },
+                  {
+                    "en": "We might arrive late.",
+                    "ua": "Можливо, ми приїдемо пізно."
+                  },
+                  {
+                    "en": "She cannot drive.",
+                    "ua": "Вона не вміє керувати автомобілем."
+                  }
+                ],
+                "note": "Це не правило «після будь-якого слова з модальним значенням прибери to». Ought to go — слід піти; have to go — доводиться йти; need to go — потрібно йти. Ці сполучення зберігають to."
+              },
+              {
+                "label": "Let: дозвіл і його виконавець",
+                "color": "blue",
+                "description": "Let + учасник + базова форма передає дозвіл у цій ситуації. Той, хто стоїть перед let, дозволяє; учасник після let має виконати названу дію. Сам дозвіл ще не повідомляє, що людина ним скористалася.",
+                "examples": [
+                  {
+                    "en": "My parents let me stay up late.",
+                    "ua": "Батьки дозволили мені не спати допізна."
+                  },
+                  {
+                    "en": "They did not let us take photos.",
+                    "ua": "Вони не дозволили нам фотографувати."
+                  }
+                ],
+                "note": "Для відповідного пасивного повідомлення про дозвіл використовуй be allowed to: <span lang=\"en\">We were allowed to leave.</span><br><span lang=\"uk\">Нам дозволили піти.</span><br>Ця межа стосується let у значенні дозволу, а не всіх можливих значень слова."
+              },
+              {
+                "label": "Make: спричинена дія, а не завжди свідомий примус",
+                "color": "amber",
+                "description": "В активній моделі make + учасник + базова форма хтось або щось спричиняє дію іншого учасника. У вимозі вчителя це може бути примус; у реакції на жарт — причина сміху. Час показує made, тому наступне rewrite не змінюється на rewrote.",
+                "examples": [
+                  {
+                    "en": "The teacher made us rewrite the paragraph.",
+                    "ua": "Учитель змусив нас переписати абзац."
+                  },
+                  {
+                    "en": "The teacher did not make us rewrite the answer.",
+                    "ua": "Учитель не змушував нас переписувати відповідь."
+                  }
+                ],
+                "note": "Друге речення заперечує примус; воно не означає «змусив не переписувати». У відповідному пасиві make потрібне to: <span lang=\"en\">We were made to wait.</span><br><span lang=\"uk\">Нас змусили чекати.</span>"
+              },
+              {
+                "label": "Help: допомога з to або без to",
+                "color": "sky",
+                "description": "Коли help означає допомогу, після названого учасника можливі обидві інфінітивні моделі. Учасник після help отримує допомогу й виконує названу дію. Не відхиляй to лише тому, що тема сторінки — Bare Infinitive.",
+                "examples": [
+                  {
+                    "en": "Can you help me carry this box?",
+                    "ua": "Можеш допомогти мені нести цю коробку?"
+                  },
+                  {
+                    "en": "Can you help me to carry this box?",
+                    "ua": "Можеш допомогти мені нести цю коробку?"
+                  }
+                ],
+                "note": "Не змішуй допомогу з окремим висловом can’t help + -ing — не могти стриматися: <span lang=\"en\">I cannot help laughing.</span><br><span lang=\"uk\">Я не можу стримати сміху.</span><br>Тут laughing не є помилкою після help: значення й конструкція інші."
+              },
+              {
+                "label": "Сприйняття: подія як ціле або процес",
+                "color": "slate",
+                "description": "Після see/hear/watch/feel + учасник можна подати дію як цілу подію формою без to або виділити спостережуваний процес формою на -ing. Це спосіб представити побачене чи відчуте, а не універсальний тест «спостерігав кожну секунду». З -ing не випливає, що дія ніколи не завершилася.",
+                "examples": [
+                  {
+                    "en": "I saw him cross the street.",
+                    "ua": "Я бачив, як він перейшов вулицю."
+                  },
+                  {
+                    "en": "I saw him crossing the street.",
+                    "ua": "Я бачив, як він переходив вулицю."
+                  },
+                  {
+                    "en": "We heard the baby cry.",
+                    "ua": "Ми чули, як дитина плакала."
+                  },
+                  {
+                    "en": "She watched them leave the building.",
+                    "ua": "Вона спостерігала, як вони вийшли з будівлі."
+                  },
+                  {
+                    "en": "I felt the floor move.",
+                    "ua": "Я відчув, як підлога ворухнулася."
+                  }
+                ],
+                "note": "Cry саме по собі не додає значення «почала плакати»: початок потребує контексту. Форму crossing тут називаємо формою на -ing у моделі сприйняття; її роль не така сама, як у enjoy reading — отримувати задоволення від читання. Порівняння з <a href=\"/theory/verb-patterns/gerund\">Gerund</a> і <a href=\"/theory/verb-patterns/to-infinitive\">To-Infinitive</a> допоможе розділити ці конструкції."
+              }
+            ]
+          }
+        },
+        {
+          "key": "bare-mistakes",
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "A2",
+          "existing_source_index": 3,
+          "data": {
+            "title": "Типові помилки у формі",
+            "items": [
+              {
+                "label": "ОСНОВНЕ МОДАЛЬНЕ",
+                "color": "rose",
+                "title": "Не додавай to після can у цій моделі.",
+                "wrong_en": "She can to drive.",
+                "wrong_ua": "Задум: вона вміє керувати автомобілем.",
+                "right_en": "She can drive.",
+                "right_ua": "Вона вміє керувати автомобілем.",
+                "note": "Can потребує базової форми drive. Не додавай також -s: узгодження за she не переноситься на drive."
+              },
+              {
+                "label": "АКТИВНЕ LET",
+                "color": "amber",
+                "title": "Після учасника у цільовій моделі let потрібна форма без to.",
+                "wrong_en": "They let me to leave early.",
+                "wrong_ua": "Задум: вони дозволили мені піти раніше.",
+                "right_en": "They let me leave early.",
+                "right_ua": "Вони дозволили мені піти раніше.",
+                "note": "Me залишається учасником, який може піти. Виправляємо лише зайве to, не дозвіл і не час."
+              },
+              {
+                "label": "АКТИВНЕ MAKE",
+                "color": "sky",
+                "title": "Не перенось to з пасиву в активну модель make.",
+                "wrong_en": "The film made us to cry.",
+                "wrong_ua": "Задум: фільм спричинив наш плач.",
+                "right_en": "The film made us cry.",
+                "right_ua": "Фільм змусив нас плакати.",
+                "note": "Made — минулий час; cry зберігає базову форму. Спричинена реакція не обов’язково є свідомим примусом."
+              }
+            ],
+            "outro": "Не виправляй граматичне help + to лише за назвою теми. У значенні допомоги можливі обидві інфінітивні моделі; у пасивному make і в be allowed to діють власні правила."
+          }
+        },
+        {
+          "key": "bare-summary",
+          "type": "summary-list",
+          "column": "right",
+          "level": "A2",
+          "existing_source_index": 4,
+          "data": {
+            "title": "Короткий підсумок",
+            "items": [
+              "Bare infinitive — базова форма без to в конкретній конструкції; самого вигляду слова для аналізу недостатньо.",
+              "Після can/could/must/should/may/might/will наступне дієслово не отримує to, -s або окремого минулого часу. Ought to, have to й need to не втрачають to.",
+              "В активних let/make + учасник + базова форма збережи того, хто дозволяє або спричиняє, і того, хто діє. Дозвіл не доводить, що ним скористалися.",
+              "Help у значенні допомоги допускає обидві інфінітивні форми; can’t help + -ing має інше значення.",
+              "Питання й заперечення будує головна конструкція. Пасивне be made to і дозвіл із be allowed to не повторюють активне правило без to.",
+              "У моделі сприйняття bare infinitive часто подає подію як ціле, а -ing — процес. Подальший результат процесу встановлює контекст."
+            ]
+          }
+        },
+        {
+          "key": "bare-navigation",
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "existing_source_index": 5,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Gerund",
+                "url": "/theory/verb-patterns/gerund",
+                "current": false
+              },
+              {
+                "label": "To-Infinitive",
+                "url": "/theory/verb-patterns/to-infinitive",
+                "current": false
+              },
+              {
+                "label": "Bare Infinitive",
+                "url": "/theory/verb-patterns/bare-infinitive",
+                "current": true
+              },
+              {
+                "label": "Gerund vs Infinitive",
+                "url": "/theory/verb-patterns/gerund-vs-infinitive",
+                "current": false
+              },
+              {
+                "label": "Verbs + Gerund",
+                "url": "/theory/verb-patterns/verbs-plus-gerund",
+                "current": false
+              },
+              {
+                "label": "Verbs + Infinitive",
+                "url": "/theory/verb-patterns/verbs-plus-infinitive",
+                "current": false
+              },
+              {
+                "label": "Stop / Remember / Forget / Try / Regret",
+                "url": "/theory/verb-patterns/stop-remember-forget-try-regret",
+                "current": false
+              },
+              {
+                "label": "Be used to / Get used to / Used to",
+                "url": "/theory/verb-patterns/be-used-to-get-used-to-used-to",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "bare-practice",
+          "type": "practice-set",
+          "column": "left",
+          "level": "A2",
+          "existing_source_index": null,
+          "data": {
+            "title": "Практика",
+            "select_title": "Вправа 1. Обери правильну форму",
+            "select_intro": "Доповни конкретну конструкцію; збережи учасника, про якого йдеться.",
+            "choice_title": "Вправа 2. Обери правильне значення",
+            "choice_intro": "Обери те, що прямо передає ситуація. Не додавай свідомого примусу або виконаної дії, якщо цього не сказано. Переклад відкриється після перевірки.",
+            "input_title": "Вправа 3. Побудуй речення",
+            "input_intro": "Введи відповідь вручну або склади з токенів. Дотримайся заданого початку й учасників; пунктуація окремо не оцінюється.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m66-bare-form-1",
+                "source_index": 1,
+                "label": "<span lang=\"en\">Olena can ____ this gate.</span><br><span lang=\"uk\">Олена може відчинити ці ворота.</span>",
+                "options": [
+                  "open",
+                  "to open",
+                  "opens"
+                ],
+                "answer": "open",
+                "accepted": [
+                  "open"
+                ],
+                "feedback": {
+                  "open": "Olena can open this gate. — Олена може відчинити ці ворота. Після can потрібна базова форма open без to та -s.",
+                  "to open": "Olena can open this gate. — Олена може відчинити ці ворота. To не входить у цю модель після can.",
+                  "opens": "Olena can open this gate. — Олена може відчинити ці ворота. Після can не переносимо узгодження за Olena на друге дієслово."
+                }
+              },
+              {
+                "id": "m66-bare-form-2",
+                "source_index": 2,
+                "label": "Питаємо про дозвіл для нас.<br><span lang=\"en\">Did the guard let ____ enter?</span><br><span lang=\"uk\">Охоронець дозволив нам увійти?</span>",
+                "options": [
+                  "us",
+                  "we",
+                  "our"
+                ],
+                "answer": "us",
+                "accepted": [
+                  "us"
+                ],
+                "feedback": {
+                  "us": "Did the guard let us enter? — Охоронець дозволив нам увійти? Us — потрібна форма учасника після let; enter залишається базовою формою.",
+                  "we": "Did the guard let us enter? — Охоронець дозволив нам увійти? Після let у цій моделі потрібне us, а не підметова форма we.",
+                  "our": "Did the guard let us enter? — Охоронець дозволив нам увійти? Our означає належність і не називає тут учасника в потрібній формі."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m66-bare-meaning-1",
+                "source_index": 3,
+                "label": "Який висновок безпосередньо передає речення? Не домислюй чийогось наміру.",
+                "prompt": "<span lang=\"en\">The loud noise made the baby cry.</span>",
+                "options": [
+                  "Шум спричинив плач дитини",
+                  "Дитину навмисно примусили заплакати"
+                ],
+                "answer": "Шум спричинив плач дитини",
+                "accepted": [
+                  "Шум спричинив плач дитини"
+                ],
+                "feedback": {
+                  "шум спричинив плач дитини": "The loud noise made the baby cry. — Гучний шум викликав у дитини плач. Make передає спричинену реакцію; про свідомий намір когось змусити не сказано.",
+                  "дитину навмисно примусили заплакати": "The loud noise made the baby cry. — Гучний шум викликав у дитини плач. Зазначено причину реакції, але не чийсь намір примусити дитину плакати."
+                }
+              },
+              {
+                "id": "m66-bare-meaning-2",
+                "source_index": 4,
+                "label": "Відокрем дозвіл від того, що людина справді обрала зробити.",
+                "prompt": "<span lang=\"en\">My aunt let me use her bike, but I chose to walk.</span>",
+                "options": [
+                  "Тітка дозволила; я обрав піти пішки",
+                  "Тітка змусила мене їхати велосипедом"
+                ],
+                "answer": "Тітка дозволила; я обрав піти пішки",
+                "accepted": [
+                  "Тітка дозволила; я обрав піти пішки"
+                ],
+                "feedback": {
+                  "тітка дозволила; я обрав піти пішки": "My aunt let me use her bike, but I chose to walk. — Тітка дозволила мені скористатися її велосипедом, але я вирішив піти пішки. Let називає дозвіл; продовження прямо показує інший вибір.",
+                  "тітка змусила мене їхати велосипедом": "My aunt let me use her bike, but I chose to walk. — Тітка дозволила мені скористатися її велосипедом, але я вирішив піти пішки. Let не означає примус; повідомлено, що мовець обрав піти пішки."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m66-bare-build-1",
+                "source_index": 5,
+                "before": "wait. / us / make / not / did / driver / The",
+                "after": "Водій не змусив нас чекати. Почни з The driver; використай make + us + wait і заперечення минулого часу. Лексика: driver — водій, make — змусити, wait — чекати. Заперечено саме примус.",
+                "answer": "The driver did not make us wait.",
+                "accepted": [
+                  "The driver did not make us wait.",
+                  "The driver didn't make us wait."
+                ],
+                "feedback": {
+                  "the driver did not make us wait.": "The driver did not make us wait. — Водій не змусив нас чекати. Did not заперечує примус у минулому; після did маємо make, а після us — wait без to.",
+                  "the driver did not make us wait": "The driver did not make us wait. — Водій не змусив нас чекати. Did not заперечує примус у минулому; після did маємо make, а після us — wait без to.",
+                  "the driver didn't make us wait.": "The driver didn't make us wait. — Водій не змусив нас чекати. Didn't — допустиме скорочення did not; учасники й сфера заперечення збережені.",
+                  "the driver didn't make us wait": "The driver didn't make us wait. — Водій не змусив нас чекати. Didn't — допустиме скорочення did not; учасники й сфера заперечення збережені.",
+                  "the driver didn’t make us wait.": "The driver didn't make us wait. — Водій не змусив нас чекати. Didn't — допустиме скорочення did not; учасники й сфера заперечення збережені.",
+                  "the driver didn’t make us wait": "The driver didn't make us wait. — Водій не змусив нас чекати. Didn't — допустиме скорочення did not; учасники й сфера заперечення збережені.",
+                  "the driver did not made us wait.": "The driver did not make us wait. — Водій не змусив нас чекати. Час уже виражено did; після нього потрібна базова форма make, не made.",
+                  "the driver did not made us wait": "The driver did not make us wait. — Водій не змусив нас чекати. Час уже виражено did; після нього потрібна базова форма make, не made.",
+                  "the driver made us not wait.": "The driver did not make us wait. — Водій не змусив нас чекати. Граматично можлива інша сфера not, але цей варіант говорить про вимогу не чекати; умова заперечує сам примус.",
+                  "the driver made us not wait": "The driver did not make us wait. — Водій не змусив нас чекати. Граматично можлива інша сфера not, але цей варіант говорить про вимогу не чекати; умова заперечує сам примус."
+                }
+              },
+              {
+                "id": "m66-bare-build-2",
+                "source_index": 6,
+                "before": "window. / the / open / me / help / Please",
+                "after": "Будь ласка, допоможи мені відкрити вікно. Почни з Please help me; використай open — відкрити та the window — вікно. Тут приймаємо обидві інфінітивні моделі help; допомогу отримую я.",
+                "answer": "Please help me open the window.",
+                "accepted": [
+                  "Please help me open the window.",
+                  "Please help me to open the window."
+                ],
+                "feedback": {
+                  "please help me open the window.": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Me називає того, хто отримує допомогу; форма без to правильна.",
+                  "please help me open the window": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Me називає того, хто отримує допомогу; форма без to правильна.",
+                  "please help me to open the window.": "Please help me to open the window. — Будь ласка, допоможи мені відкрити вікно. У значенні допомоги help допускає також to; виконавець і зміст збережені.",
+                  "please help me to open the window": "Please help me to open the window. — Будь ласка, допоможи мені відкрити вікно. У значенні допомоги help допускає також to; виконавець і зміст збережені.",
+                  "please help i open the window.": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Після help тут потрібна форма me, не підметова форма I.",
+                  "please help i open the window": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Після help тут потрібна форма me, не підметова форма I.",
+                  "please help him open the window.": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Граматичне речення, але him змінює того, кому допомагають; в умові допомога потрібна мені.",
+                  "please help him open the window": "Please help me open the window. — Будь ласка, допоможи мені відкрити вікно. Граматичне речення, але him змінює того, кому допомагають; в умові допомога потрібна мені."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotBareInfinitiveAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "bare-perception-viewpoint",
+          "owner_block_key": "bare-usage",
+          "owner_pointer": "/sections/4",
+          "title": "Спостережуваний процес може згодом завершитися",
+          "editorial_decision": "Meaningful worked interpretation of process viewpoint and later completion; essential contrast and warning remain in visible basic.",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Що повідомлено про момент спостереження й продовження",
+                  "color": "slate",
+                  "description": "У першому реченні -ing виділяє перехід через дорогу в момент, коли Олену побачили. Продовження окремо повідомляє, що вона дійшла до іншого боку; це не суперечить формі crossing. Друге речення подає перехід як цілу спостережену подію без окремого опису процесу. Вибір не вимагає перевіряти, чи очі спостерігача безперервно стежили за кожним рухом.",
+                  "examples": [
+                    {
+                      "en": "I saw Olena crossing the street. A moment later, she reached the other side.",
+                      "ua": "Я бачив, як Олена переходила вулицю. За мить вона дійшла до іншого боку."
+                    },
+                    {
+                      "en": "I saw Olena cross the street.",
+                      "ua": "Я бачив, як Олена перейшла вулицю."
+                    }
+                  ],
+                  "note": "Той самий акцент на відчутому процесі можливий із feel: <span lang=\"en\">I felt the floor moving under my feet.</span><br><span lang=\"uk\">Я відчував, як підлога рухалася в мене під ногами.</span><br>Чи рух тривав і коли скінчився, саме це речення не встановлює."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "editorial_mapping": [
+        {
+          "source": "Bare = base form without to after modals, let, make, help",
+          "decision": "preserved-and-bounded",
+          "after": "Explicit core-modal list; ought to/have to/need to keep to; base-form appearance alone does not determine grammatical function."
+        },
+        {
+          "source": "Make card labelled Примус with The joke made us laugh",
+          "decision": "label-and-explanation-clarified",
+          "after": "Original example preserved with exact UK translation under Причина або примус; intentional coercion is not inferred from a caused reaction."
+        },
+        {
+          "source": "Let/make/help + object models and help with/without to",
+          "decision": "preserved-and-expanded-roles",
+          "after": "Object forms and participants explicit; permission is not proof of uptake; both help models remain grammatical; cannot-help-ing separated by meaning."
+        },
+        {
+          "source": "Perception described as whole event from beginning to end; baby cry translated with onset",
+          "decision": "overstrong-inference-corrected",
+          "after": "Whole-event viewpoint versus observed process; no every-second test or inference that -ing never completed; baby cry does not automatically become started crying."
+        },
+        {
+          "source": "Three genuine modal/active let/active make corrections with decorative checkmark and font-mono",
+          "decision": "preserved-targeted-corrections",
+          "after": "Same intended content and participants; paired wrong/right EN/UK fields, no authored presentation markup."
+        },
+        {
+          "source": "No explicit questions, main negative, active/passive boundary or independent own practice",
+          "decision": "new-authored-bounded-completion",
+          "after": "Can/Did let/make models; negative first verb; concise be made to/be allowed to; six own A2 tasks with help and contraction aliases."
+        },
+        {
+          "source": "Six native source slots and eight-item navigation",
+          "decision": "preserved-native-metadata",
+          "after": "Types, columns, exact technical A2 levels and navigation unchanged; new practice-set appended, no metadata transitions."
+        }
+      ],
+      "category_ancestry": [
+        "verb-patterns"
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+      "slug": "gerund-vs-infinitive",
+      "locale": "uk",
+      "technical_block_level": "B1",
+      "display_level": "B1",
+      "subtitle_html": "<p><strong>Gerund vs Infinitive</strong> — як перевірити модель після дієслова, допустити доречні альтернативи й зберегти потрібне значення.</p>",
+      "subtitle_text": "Фіксовані моделі з -ing і to-infinitive, допустимі альтернативи та зміна значення після stop, remember і try.",
+      "blocks": [
+        {
+          "key": "comparison-hero",
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "existing_source_index": 0,
+          "data": {
+            "level": "B1",
+            "intro": "Після одного дієслова інше може мати форму <strong>-ing</strong> або <strong>to + базова форма</strong>. Спочатку перевір конкретну конструкцію: іноді вибору немає, іноді обидві форми доречні, а іноді вони змінюють повідомлення. Це не універсальне протиставлення «минула реальна дія / майбутня нереальна дія».",
+            "rules": [
+              {
+                "label": "ПЕВНА МОДЕЛЬ",
+                "color": "emerald",
+                "text": "Enjoy reading — отримувати задоволення від читання; decide to read — вирішити читати. Вчи сполучення, не лише український переклад дієслова.",
+                "example": "<span lang=\"en\">I enjoy solving puzzles.</span><br><span lang=\"uk\">Мені подобається розв’язувати головоломки.</span>"
+              },
+              {
+                "label": "ДОПУСТИМІ АЛЬТЕРНАТИВИ",
+                "color": "blue",
+                "text": "Після start часто можливі обидві форми без потрібної для повідомлення різниці.",
+                "example": "<span lang=\"en\">It started raining. / It started to rain.</span><br><span lang=\"uk\">Почався дощ. / Почався дощ.</span>"
+              },
+              {
+                "label": "ЗМІНА ЗНАЧЕННЯ",
+                "color": "amber",
+                "text": "Після stop перевір, яку дію припинили, а яку названо метою зупинки.",
+                "example": "<span lang=\"en\">We stopped talking. / We stopped to talk.</span><br><span lang=\"uk\">Ми перестали розмовляти. / Ми зупинилися, щоб поговорити.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "comparison-table",
+          "type": "comparison-table",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": 1,
+          "data": {
+            "title": "Ключові контрасти: форма й повідомлення",
+            "intro": "У кожному рядку A має -ing, а B — to-infinitive. Порівняй повні речення та їхні переклади; не виводь значення з одного закінчення.",
+            "rows": [
+              {
+                "en": "A. I like walking by the river.<br>B. I like to walk by the river.",
+                "ua": "A. Мені подобається гуляти біля річки.<br>B. Я люблю гуляти біля річки.",
+                "note": "Обидві версії доречні. -Ing може підкреслювати заняття, to-infinitive — звичний вибір; тут не обов’язково є суттєва різниця. Це не жорсткий алгоритм «загальне / конкретне»."
+              },
+              {
+                "en": "A. I remember posting the card.<br>B. I remembered to post the card.",
+                "ua": "A. Я пам’ятаю, як відправив листівку.<br>B. Я не забув відправити листівку.",
+                "note": "У A є спогад про попередню подію. У B мовець повідомляє, що не забув виконати дію. Прохання з remember to ще не повідомляє про її виконання."
+              },
+              {
+                "en": "A. We stopped talking.<br>B. We stopped to talk.",
+                "ua": "A. Ми перестали розмовляти.<br>B. Ми зупинилися, щоб поговорити.",
+                "note": "У A припинилася розмова; це не обіцянка мовчати назавжди. У B to talk називає мету зупинки. Успішне виконання мети не додаємо без контексту."
+              },
+              {
+                "en": "A. I tried turning the dial.<br>B. I tried to turn the dial.",
+                "ua": "A. Я спробував повернути ручку регулятора.<br>B. Я намагався повернути ручку регулятора.",
+                "note": "У A перевіряють спосіб; у B докладають зусиль виконати дію. Try to не означає обов’язкову невдачу; try doing не гарантує, що спосіб допоміг."
+              }
+            ],
+            "warning": "Не замінюй -ing на to-infinitive механічно: результат може бути недоречною для ситуації моделлю, іншим змістом або справжньою граматичною помилкою."
+          }
+        },
+        {
+          "key": "comparison-usage",
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": 2,
+          "data": {
+            "title": "Як обрати модель у своїй ситуації",
+            "sections": [
+              {
+                "label": "Перевір конкретне дієслово й виконавця",
+                "color": "emerald",
+                "description": "Enjoy + -ing — отримувати задоволення від дії; decide + to-infinitive — вирішувати виконати дію. Так само перевіряємо avoid doing — уникати дії, hope to do — сподіватися щось зробити. Подібний переклад не робить конструкції однаковими.",
+                "examples": [
+                  {
+                    "en": "She enjoys preparing meals for her friends.",
+                    "ua": "Їй подобається готувати їжу для друзів."
+                  },
+                  {
+                    "en": "We decided to leave early.",
+                    "ua": "Ми вирішили піти раніше."
+                  }
+                ],
+                "note": "У першому реченні готує вона; у другому піти вирішили ми. Саме рішення ще не доводить, що люди пішли. Окремо існує <a href=\"/theory/verb-patterns/bare-infinitive\">Bare Infinitive</a>, але тут порівнюємо передусім -ing та інфінітив із to. Базові форми: <a href=\"/theory/verb-patterns/gerund\">Gerund</a> і <a href=\"/theory/verb-patterns/to-infinitive\">To-Infinitive</a>."
+              },
+              {
+                "label": "Не вигадуй контраст між допустимими альтернативами",
+                "color": "blue",
+                "description": "Like, love, hate, prefer — подобатися, любити, ненавидіти, віддавати перевагу — допускають обидві форми в багатьох звичайних конструкціях. -Ing може акцентувати заняття, to-infinitive — звичку чи бажаний вибір; різниця часто невелика. Start, begin, continue — починати, починати, продовжувати — також можуть мати обидва доповнення; сам вибір форми не встановлює наявність паузи.",
+                "examples": [
+                  {
+                    "en": "She started talking again.",
+                    "ua": "Вона знову почала говорити."
+                  },
+                  {
+                    "en": "She started to talk again.",
+                    "ua": "Вона знову почала говорити."
+                  }
+                ],
+                "note": "Звичайне like відрізняй від would like у значенні ввічливого бажання: <span lang=\"en\">I like visiting museums.</span><br><span lang=\"uk\">Мені подобається відвідувати музеї.</span><br><span lang=\"en\">I would like to visit this museum.</span><br><span lang=\"uk\">Я хотів би відвідати цей музей.</span><br>У другій цільовій моделі потрібне to visit. Це не правило про кожне можливе вживання would. Для незнайомого складнішого сполучення перевір словниковий pattern, а не створюй нову різницю за аналогією."
+              },
+              {
+                "label": "Відрізни спогад, нагадування, мету й спробу",
+                "color": "amber",
+                "description": "Stop doing припиняє названу дію; stop to do називає мету зупинки. Remember doing — спогад про попередню подію, remember to do — не забути потрібну дію. Після try -ing перевіряє спосіб, а to-infinitive називає спробу виконання. Потрібний зміст і статус події визначає все речення.",
+                "examples": [
+                  {
+                    "en": "Please remember to bring your ticket.",
+                    "ua": "Будь ласка, не забудь узяти свій квиток."
+                  },
+                  {
+                    "en": "I remembered to bring my ticket, and here it is.",
+                    "ua": "Я не забув узяти свій квиток, і ось він."
+                  }
+                ],
+                "note": "Прохання не підтверджує виконання; друге повідомлення прямо показує, що квиток узято. Remember to не обов’язково стосується обов’язку. Жодна модель try не є загальною гарантією успіху чи невдачі. Про forget і regret та інші контрасти — <a href=\"/theory/verb-patterns/stop-remember-forget-try-regret\">окремий урок</a>."
+              }
+            ]
+          }
+        },
+        {
+          "key": "comparison-mistakes",
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "B1",
+          "existing_source_index": 3,
+          "data": {
+            "title": "Перевір форму та заданий зміст",
+            "items": [
+              {
+                "label": "ПРИПИНЕННЯ ЗВИЧКИ",
+                "color": "rose",
+                "title": "Умова: торік людина припинила курити, а не зробила зупинку заради цигарки.",
+                "wrong_en": "I stopped to smoke last year.",
+                "wrong_ua": "Я торік зупинився, щоб покурити.",
+                "right_en": "I stopped smoking last year.",
+                "right_ua": "Я торік припинив курити.",
+                "note": "Stopped to smoke може бути граматичним, але передає іншу ситуацію. Для заданого припинення звички потрібне stopped smoking. Саме речення не обіцяє, що відмова триватиме назавжди."
+              },
+              {
+                "label": "ОДИН ЛИСТ І ПОСЛІДОВНІСТЬ ДІЙ",
+                "color": "amber",
+                "title": "Умова: лист був ще ненаписаний; мовець згадав про справу, після цього написав і надіслав саме цей лист.",
+                "wrong_en": "I remembered sending the email, so I wrote it and sent it.",
+                "wrong_ua": "Я згадав, як надіслав електронного листа, тож написав його й надіслав.",
+                "right_en": "I remembered to send the email, so I wrote it and sent it.",
+                "right_ua": "Я не забув надіслати електронного листа, тож написав його й надіслав.",
+                "note": "Sending описувало б спогад про попереднє надсилання, якого в умові ще не було. Не вигадуємо інший лист або повторне надсилання. У правильному повному реченні написання й надсилання підтверджені наступною частиною."
+              },
+              {
+                "label": "КОНКРЕТНА МОДЕЛЬ ПІСЛЯ SUGGEST",
+                "color": "sky",
+                "title": "Збережи пропозицію зустрітися пізніше.",
+                "wrong_en": "She suggested to meet later.",
+                "wrong_ua": "Задум: вона запропонувала зустрітися пізніше.",
+                "right_en": "She suggested meeting later.",
+                "right_ua": "Вона запропонувала зустрітися пізніше.",
+                "note": "У цій моделі suggest + дія потрібне meeting. Саме речення не називає всіх майбутніх учасників і не підтверджує, що зустріч відбулася. Інші моделі розглядаються в <a href=\"/theory/verb-patterns/verbs-plus-gerund\">Verbs + Gerund</a>."
+              }
+            ]
+          }
+        },
+        {
+          "key": "comparison-summary",
+          "type": "summary-list",
+          "column": "right",
+          "level": "B1",
+          "existing_source_index": 4,
+          "data": {
+            "title": "Короткий підсумок",
+            "items": [
+              "Спочатку перевір конкретний pattern: enjoy + -ing, decide + to-infinitive. Українського перекладу дієслова недостатньо.",
+              "Збережи виконавця: хто відчуває бажання, пам’ятає, вирішує та має виконати наступну дію?",
+              "Після like/love/hate/prefer та start/begin/continue можуть бути допустимі альтернативи. Не вважай будь-яку пару обов’язково різною за змістом.",
+              "Після stop, remember і try форма змінює потрібне прочитання. Перевір припинення, мету, спогад, нагадування або спробу в конкретній ситуації.",
+              "Не домислюй виконання чи успіху. Для інших пар скористайся <a href=\"/theory/verb-patterns/stop-remember-forget-try-regret\">спеціалізованим уроком</a>; незнайому дієслівну конструкцію перевір за словником."
+            ]
+          }
+        },
+        {
+          "key": "comparison-navigation",
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "existing_source_index": 5,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Gerund",
+                "url": "/theory/verb-patterns/gerund",
+                "current": false
+              },
+              {
+                "label": "To-Infinitive",
+                "url": "/theory/verb-patterns/to-infinitive",
+                "current": false
+              },
+              {
+                "label": "Bare Infinitive",
+                "url": "/theory/verb-patterns/bare-infinitive",
+                "current": false
+              },
+              {
+                "label": "Gerund vs Infinitive",
+                "url": "/theory/verb-patterns/gerund-vs-infinitive",
+                "current": true
+              },
+              {
+                "label": "Verbs + Gerund",
+                "url": "/theory/verb-patterns/verbs-plus-gerund",
+                "current": false
+              },
+              {
+                "label": "Verbs + Infinitive",
+                "url": "/theory/verb-patterns/verbs-plus-infinitive",
+                "current": false
+              },
+              {
+                "label": "Stop / Remember / Forget / Try / Regret",
+                "url": "/theory/verb-patterns/stop-remember-forget-try-regret",
+                "current": false
+              },
+              {
+                "label": "Be used to / Get used to / Used to",
+                "url": "/theory/verb-patterns/be-used-to-get-used-to-used-to",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "comparison-practice",
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": null,
+          "data": {
+            "title": "Практика",
+            "select_title": "Вправа 1. Обери правильну форму",
+            "select_intro": "Доповни задану англійську конструкцію. Повна українська умова підказує зміст, не нову граматичну модель.",
+            "choice_title": "Вправа 2. Обери правильне значення",
+            "choice_intro": "Врахуй тільки повідомлені факти. Повні переклади та пояснення відкриються після перевірки.",
+            "input_title": "Вправа 3. Побудуй речення",
+            "input_intro": "Введи речення вручну або склади з токенів. Збережи задану модель, виконавця й час. Пунктуація окремо не оцінюється.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m66-comparison-form-1",
+                "source_index": 1,
+                "label": "<span lang=\"en\">Nazar enjoys ____ old radios.</span><br><span lang=\"uk\">Назарові подобається ремонтувати старі радіоприймачі.</span>",
+                "options": [
+                  "repairing",
+                  "to repair",
+                  "repair"
+                ],
+                "answer": "repairing",
+                "accepted": [
+                  "repairing"
+                ],
+                "feedback": {
+                  "repairing": "Nazar enjoys repairing old radios. — Назарові подобається ремонтувати старі радіоприймачі. Enjoys + дія тут потребує -ing: repairing.",
+                  "to repair": "Nazar enjoys repairing old radios. — Назарові подобається ремонтувати старі радіоприймачі. Після enjoys у заданій моделі потрібне repairing, не to repair.",
+                  "repair": "Nazar enjoys repairing old radios. — Назарові подобається ремонтувати старі радіоприймачі. Bare repair тут не доповнює enjoys; потрібне repairing."
+                }
+              },
+              {
+                "id": "m66-comparison-form-2",
+                "source_index": 2,
+                "label": "<span lang=\"en\">We would like ____ a table.</span><br><span lang=\"uk\">Ми хотіли б забронювати столик.</span>",
+                "options": [
+                  "to reserve",
+                  "reserving",
+                  "reserve"
+                ],
+                "answer": "to reserve",
+                "accepted": [
+                  "to reserve"
+                ],
+                "feedback": {
+                  "to reserve": "We would like to reserve a table. — Ми хотіли б забронювати столик. Would like у цьому значенні бажання має доповнення to reserve.",
+                  "reserving": "We would like to reserve a table. — Ми хотіли б забронювати столик. Звичайне like допускає -ing, але тут задано would like у значенні ввічливого бажання.",
+                  "reserve": "We would like to reserve a table. — Ми хотіли б забронювати столик. У цій конструкції потрібен інфінітив із to, а не bare reserve."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m66-comparison-meaning-1",
+                "source_index": 3,
+                "label": "Обери твердження про початок дії. Не вигадуй паузу лише через форму після started.",
+                "prompt": "<span lang=\"en\">A. The children started drawing.</span><br><span lang=\"en\">B. The children started to draw.</span>",
+                "options": [
+                  "Обидві версії можуть повідомляти, що діти почали малювати",
+                  "Лише A означає початок; B обов’язково означає продовження після паузи"
+                ],
+                "answer": "Обидві версії можуть повідомляти, що діти почали малювати",
+                "accepted": [
+                  "Обидві версії можуть повідомляти, що діти почали малювати"
+                ],
+                "feedback": {
+                  "обидві версії можуть повідомляти, що діти почали малювати": "A. The children started drawing. — Діти почали малювати.\nB. The children started to draw. — Діти почали малювати.\nУ цій простій парі обидві форми допустимі; обов’язкової відмінності про паузу немає.",
+                  "лише a означає початок; b обов’язково означає продовження після паузи": "A. The children started drawing. — Діти почали малювати.\nB. The children started to draw. — Діти почали малювати.\nStarted в обох версіях називає початок. To draw саме по собі не означає продовження після паузи."
+                }
+              },
+              {
+                "id": "m66-comparison-meaning-2",
+                "source_index": 4,
+                "label": "Мовець описує перевірку способу покращити прийом радіосигналу. Чи підтверджено успіх?",
+                "prompt": "<span lang=\"en\">Olha tried moving the antenna.</span>",
+                "options": [
+                  "Ольга перевірила спосіб; чи допомогло це, не повідомлено",
+                  "Саме moving доводить, що радіосигнал обов’язково став кращим"
+                ],
+                "answer": "Ольга перевірила спосіб; чи допомогло це, не повідомлено",
+                "accepted": [
+                  "Ольга перевірила спосіб; чи допомогло це, не повідомлено"
+                ],
+                "feedback": {
+                  "ольга перевірила спосіб; чи допомогло це, не повідомлено": "Olha tried moving the antenna. — Ольга спробувала пересунути антену.\nУ заданій ситуації tried moving — перевірка способу. Речення не підтверджує, що прийом покращився.",
+                  "саме moving доводить, що радіосигнал обов’язково став кращим": "Olha tried moving the antenna. — Ольга спробувала пересунути антену.\nПеревірений спосіб і успішний результат — різні факти. Закінчення -ing не гарантує успіху."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m66-comparison-build-1",
+                "source_index": 5,
+                "before": "cable. / the / bring / to / remembered / Taras",
+                "after": "Тарас не забув узяти кабель із собою: він згадав про це перед виходом і справді взяв його. Почни з Taras; використай remembered — не забув, bring — узяти із собою, the cable — кабель. Потрібна проста минула форма; не замінюй це спогадом про попереднє принесення.",
+                "answer": "Taras remembered to bring the cable.",
+                "accepted": [
+                  "Taras remembered to bring the cable."
+                ],
+                "feedback": {
+                  "taras remembered to bring the cable.": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. Позитивне remembered to bring відповідає заданій виконаній дії.",
+                  "taras remembered to bring the cable": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. Позитивне remembered to bring відповідає заданій виконаній дії.",
+                  "taras remembered bringing the cable.": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. Remembered bringing — граматична конструкція про спогад, але не потрібне тут повідомлення про те, що він не забув виконати дію.",
+                  "taras remembered bringing the cable": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. Remembered bringing — граматична конструкція про спогад, але не потрібне тут повідомлення про те, що він не забув виконати дію.",
+                  "taras remembered bring the cable.": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. У заданій моделі перед базовою формою bring потрібне to.",
+                  "taras remembered bring the cable": "Taras remembered to bring the cable. — Тарас не забув узяти кабель із собою. У заданій моделі перед базовою формою bring потрібне to."
+                }
+              },
+              {
+                "id": "m66-comparison-build-2",
+                "source_index": 6,
+                "before": "trip. / a / before / route / the / check / to / likes / Marta",
+                "after": "Марта любить перевіряти маршрут перед поїздкою. Це її звичний вибір, не разове ввічливе бажання. Почни з Marta; використай likes — любить, check the route — перевіряти маршрут, before a trip — перед поїздкою. Обидві доречні форми після likes приймаються; токени подають варіант із to.",
+                "answer": "Marta likes to check the route before a trip.",
+                "accepted": [
+                  "Marta likes to check the route before a trip.",
+                  "Marta likes checking the route before a trip."
+                ],
+                "feedback": {
+                  "marta likes to check the route before a trip.": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. To check доречне для її звичного вибору; форма checking також приймається.",
+                  "marta likes to check the route before a trip": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. To check доречне для її звичного вибору; форма checking також приймається.",
+                  "marta likes checking the route before a trip.": "Marta likes checking the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Checking теж доречне; тут не вимагаємо штучної відмінності між двома правильними варіантами.",
+                  "marta likes checking the route before a trip": "Marta likes checking the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Checking теж доречне; тут не вимагаємо штучної відмінності між двома правильними варіантами.",
+                  "marta would like to check the route before a trip.": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Would like to check граматичне, але змінює задану звичку на бажання; умова прямо задає likes.",
+                  "marta would like to check the route before a trip": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Would like to check граматичне, але змінює задану звичку на бажання; умова прямо задає likes.",
+                  "marta likes check the route before a trip.": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Bare check не підходить у цій моделі; використай to check або checking.",
+                  "marta likes check the route before a trip": "Marta likes to check the route before a trip. — Марта любить перевіряти маршрут перед поїздкою. Bare check не підходить у цій моделі; використай to check або checking."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotGerundVsInfinitiveAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "comparison-event-status",
+          "owner_block_key": "comparison-usage",
+          "owner_pointer": "/sections/2",
+          "title": "Що саме доводить наступна частина речення?",
+          "editorial_decision": "Meaningful worked event-status comparison; all essential distinctions and warnings remain visible in basic.",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Та сама спроба — різні відомі результати",
+                  "color": "slate",
+                  "description": "У двох перших прикладах однакова конструкція tried to unlock. Вона повідомляє про зусилля; результат відрізняється завдяки наступній частині, а не зміні інфінітива. Третій приклад підтверджує перевірку способу з вентилятором, але прямо заперечує потрібний ефект. Не підмінюй питання «яку конструкцію обрано?» питанням «чим закінчилася ситуація?».",
+                  "examples": [
+                    {
+                      "en": "I tried to unlock the drawer, and I finally opened it.",
+                      "ua": "Я намагався відімкнути шухляду й зрештою відкрив її."
+                    },
+                    {
+                      "en": "I tried to unlock the drawer, but it stayed locked.",
+                      "ua": "Я намагався відімкнути шухляду, але вона залишилася замкненою."
+                    },
+                    {
+                      "en": "We tried using a fan, but the room was still hot.",
+                      "ua": "Ми спробували скористатися вентилятором, але в кімнаті все одно було спекотно."
+                    }
+                  ],
+                  "note": "Так само мета після stop to не тотожна підтвердженому досягненню мети. Спочатку прочитай усі повідомлені факти; лише потім вирішуй, що можна стверджувати про виконання чи успіх."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "editorial_mapping": [
+        {
+          "source": "Six native slots, B1 metadata, existing comparison-table, eight navigation items",
+          "decision": "preserved-native-metadata",
+          "after": "Same type/column/level/index for all continuing slots, unchanged navigation data; one appended B1 practice-set."
+        },
+        {
+          "source": "Three source groups: fixed pattern; both possible; meaning change",
+          "decision": "preserved-and-clarified",
+          "after": "Specific enjoy/decide models and actors; alternatives can overlap; stop/remember/try interpreted using full context."
+        },
+        {
+          "source": "Four table rows with untranslated full EN examples in note",
+          "decision": "bilingual-field-separation",
+          "after": "Full English sentence pairs in en, full Ukrainian pairs in ua, grammatical interpretation in note; same comparison-table component."
+        },
+        {
+          "source": "Like/love/hate/prefer/start and note that a contrast is always felt",
+          "decision": "overbroad-claim-corrected",
+          "after": "Small optional focus differences, not categorical general/specific; start examples can have same message; start/begin/continue do not encode a pause distinction by complement alone."
+        },
+        {
+          "source": "Remember doing/to do, stop doing/to do, try doing/to do",
+          "decision": "preserved-event-status-bounded",
+          "after": "Past recollection versus reminder; intention versus attainment; no permanent-stop or guaranteed-failure/success claims. One meaningful detail adds explicit outcome evidence."
+        },
+        {
+          "source": "I stopped to smoke last year correction with criterion hidden in hint",
+          "decision": "criterion-made-visible",
+          "after": "Intended cessation of habit explicitly precedes correction; grammatical stopped-to alternative is not globally condemned."
+        },
+        {
+          "source": "Remembered sending, so wrote/sent correction",
+          "decision": "chronology-disambiguated",
+          "after": "One not-yet-written email and subsequent writing/sending explicitly stated before answer; no invented repeat or second email."
+        },
+        {
+          "source": "Suggested to meet correction",
+          "decision": "preserved-roles-bounded",
+          "after": "Meeting correction retained without inventing meeting participants or completion."
+        }
+      ],
+      "category_ancestry": [
+        "verb-patterns"
+      ]
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusGerundTheorySeeder",
+      "slug": "verbs-plus-gerund",
+      "locale": "uk",
+      "technical_block_level": "B1",
+      "display_level": "B1",
+      "subtitle_html": "<p><strong>Verbs + Gerund</strong> — конкретні сполучення enjoy, mind, avoid, consider, suggest, recommend, keep і finish з формою на -ing: виконавець, заперечення та межі допустимих альтернатив.</p>",
+      "subtitle_text": "Дієслова з gerund: конкретні моделі, виконавці з mind і suggest, форма -ing та допустимі альтернативи continue.",
+      "blocks": [
+        {
+          "key": "verbs-gerund-hero",
+          "type": "hero",
+          "column": "header",
+          "level": "B1",
+          "existing_source_index": 0,
+          "data": {
+            "level": "B1",
+            "intro": "Вчи <strong>конкретне дієслово разом із його моделлю</strong>: enjoy reading — отримувати задоволення від читання; suggest meeting — пропонувати зустрітися. Змістові групи допомагають запам’ятати сполучення, але не визначають форму після будь-якого схожого за перекладом дієслова. Назва цього уроку не означає, що кожне згадане слово забороняє всі інші доповнення.",
+            "rules": [
+              {
+                "label": "КОНКРЕТНА МОДЕЛЬ",
+                "color": "emerald",
+                "text": "У моделі enjoy + дія потрібна форма на -ing.",
+                "example": "<span lang=\"en\">She enjoys reading.</span><br><span lang=\"uk\">Їй подобається читати.</span>"
+              },
+              {
+                "label": "ХТО ВИКОНУЄ ДІЮ",
+                "color": "blue",
+                "text": "Пропозиція не визначає виконавця автоматично: його дає контекст або названа частина речення.",
+                "example": "<span lang=\"en\">He suggested that we leave earlier.</span><br><span lang=\"uk\">Він запропонував, щоб ми пішли раніше.</span>"
+              },
+              {
+                "label": "АЛЬТЕРНАТИВИ ІСНУЮТЬ",
+                "color": "amber",
+                "text": "Continue working і continue to work можуть означати «продовжувати працювати». Обидві моделі допустимі.",
+                "example": "<span lang=\"en\">They continued working.</span><br><span lang=\"uk\">Вони продовжили працювати.</span>"
+              }
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-forms",
+          "type": "forms-grid",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": 1,
+          "data": {
+            "title": "Часті моделі: вчи сполучення цілком",
+            "intro": "Це чотири зручні групи для запам’ятовування, а не правило для всіх дієслів ставлення, поради чи тривалості. Кожну наступну модель перевіряй окремо.",
+            "items": [
+              {
+                "label": "СТАВЛЕННЯ ДО ДІЇ",
+                "title": "enjoy / mind / dislike + -ing",
+                "subtitle": "Enjoy cooking — отримувати задоволення від готування; don’t mind waiting — не бути проти очікування; dislike working late — не любити працювати допізна. У mind значення залежить також від питання або заперечення."
+              },
+              {
+                "label": "УНИКАННЯ Й РОЗГЛЯД ВАРІАНТА",
+                "title": "avoid / consider + -ing",
+                "subtitle": "Avoid making mistakes — уникати помилок; consider moving abroad — розглядати можливість переїхати за кордон. Consider тут не повідомляє про вже ухвалене рішення."
+              },
+              {
+                "label": "ПРОПОЗИЦІЯ Й РЕКОМЕНДАЦІЯ",
+                "title": "suggest / recommend + -ing",
+                "subtitle": "Suggest taking a break — пропонувати зробити перерву; recommend booking now — радити забронювати зараз. Це пропозиція або порада, не підтвердження виконання."
+              },
+              {
+                "label": "ПРОДОВЖЕННЯ Й ЗАВЕРШЕННЯ",
+                "title": "keep / finish + -ing",
+                "subtitle": "Keep working — продовжувати працювати; finish writing — закінчити писати. Для continue окремо пам’ятай обидві допустимі моделі: continue working / continue to work — продовжувати працювати."
+              }
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-usage",
+          "type": "usage-panels",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": 2,
+          "data": {
+            "title": "Як моделі передають дію й учасників",
+            "sections": [
+              {
+                "label": "Enjoy, mind, dislike: ставлення й виконавець",
+                "color": "emerald",
+                "description": "У наведених моделях enjoy, mind і dislike доповнюються дією на -ing. У питанні Do you mind waiting...? почекати просять співрозмовника. Якщо перед -ing названо me, him, her, us або them, виконавцем цієї дії є саме названа особа, а не автоматично підмет головної частини.",
+                "examples": [
+                  {
+                    "en": "I enjoy cooking for friends.",
+                    "ua": "Мені подобається готувати для друзів."
+                  },
+                  {
+                    "en": "Do you mind waiting outside?",
+                    "ua": "Ти не проти почекати надворі?"
+                  },
+                  {
+                    "en": "She dislikes working late.",
+                    "ua": "Їй не подобається працювати допізна."
+                  }
+                ],
+                "note": "На прохання почекати можна ясно погодитися: <span lang=\"en\">No, not at all. I can wait here.</span><br><span lang=\"uk\">Ні, зовсім не проти. Я можу почекати тут.</span><br>Таку повну відповідь не треба тлумачити як відмову через слово no. Голого yes/no без контексту недостатньо для надійного висновку."
+              },
+              {
+                "label": "Avoid і consider: конкретне значення й модель",
+                "color": "blue",
+                "description": "Avoid + -ing називає дію, якої уникають. Consider + -ing у значенні розгляду варіанта називає можливу дію; рішення ще може змінитися. Головне are considering може бути Continuous, а наступне renting — його доповненням: два закінчення -ing не роблять речення помилковим.",
+                "examples": [
+                  {
+                    "en": "Try to avoid using your phone while driving.",
+                    "ua": "Спробуй уникати користування телефоном за кермом."
+                  },
+                  {
+                    "en": "We are considering renting a smaller office.",
+                    "ua": "Ми розглядаємо можливість орендувати менший офіс."
+                  }
+                ],
+                "note": "Не поширюй правило на інше значення consider: <span lang=\"en\">I consider Mark to be reliable.</span><br><span lang=\"uk\">Я вважаю Марка надійним.</span><br>Це оцінка людини, а не розгляд можливості щось зробити. Тут інша словникова конструкція."
+              },
+              {
+                "label": "Suggest і recommend: пропозиція, а не виконання",
+                "color": "amber",
+                "description": "У suggest doing виконавця часто дає ситуація: це може бути спільна дія учасників, не обов’язково дія самого мовця. That-clause дозволяє назвати виконавця прямо. Для recommend у цьому уроці тренуємо doing та that-clause; не переносимо на нього всі обмеження suggest лише через схожий переклад.",
+                "examples": [
+                  {
+                    "en": "He suggested meeting after lunch.",
+                    "ua": "Він запропонував зустрітися після обіду."
+                  },
+                  {
+                    "en": "I suggest that Oksana should take the earlier train.",
+                    "ua": "Я пропоную, щоб Оксана поїхала ранішим потягом."
+                  },
+                  {
+                    "en": "I recommend booking the tickets today.",
+                    "ua": "Я раджу забронювати квитки сьогодні."
+                  }
+                ],
+                "note": "Suggest someone to do не утворюй за аналогією з advise someone to do — радити комусь зробити щось. У recommend можливі також іменникові доповнення: <span lang=\"en\">I recommend this guide to my students.</span><br><span lang=\"uk\">Я рекомендую цей посібник своїм студентам.</span><br>Тут to стоїть перед одержувачем рекомендації, не перед дієсловом. Пропозиція й рекомендація самі по собі не доводять виконання дії."
+              },
+              {
+                "label": "Keep, finish, continue: не однакові обмеження",
+                "color": "slate",
+                "description": "Keep + -ing передає продовження або повторення дії; finish + -ing — її завершення. Continue допускає і -ing, і to-infinitive. Не виводь із вибраної форми універсальної різниці «без паузи» та «після паузи».",
+                "examples": [
+                  {
+                    "en": "Please keep talking.",
+                    "ua": "Будь ласка, продовжуй говорити."
+                  },
+                  {
+                    "en": "She finished writing the email.",
+                    "ua": "Вона закінчила писати електронного листа."
+                  },
+                  {
+                    "en": "They continued working despite the noise.",
+                    "ua": "Вони продовжили працювати попри шум."
+                  },
+                  {
+                    "en": "They continued to work despite the noise.",
+                    "ua": "Вони продовжили працювати попри шум."
+                  }
+                ],
+                "note": "В останніх двох прикладах обидві моделі допустимі й можуть передавати те саме повідомлення. Finished writing підтверджує завершення написання, але не надсилання листа. Це конкретні межі цих моделей, не властивості всіх дієслів «процесу»."
+              },
+              {
+                "label": "Час, питання й область заперечення",
+                "color": "sky",
+                "description": "Змінюється головне дієслово: enjoys / enjoyed / is enjoying reading — подобається / подобалося / зараз отримує задоволення від читання. Доповнення reading зберігає -ing. Питання та головне заперечення теж будуються в головній частині; not перед -ing заперечує вже вкладену дію.",
+                "examples": [
+                  {
+                    "en": "Did they finish writing the report?",
+                    "ua": "Вони закінчили писати звіт?"
+                  },
+                  {
+                    "en": "We considered not renting the office.",
+                    "ua": "Ми розглядали можливість не орендувати офіс."
+                  },
+                  {
+                    "en": "We did not consider renting the office.",
+                    "ua": "Ми не розглядали можливості орендувати офіс."
+                  }
+                ],
+                "note": "Після did стоїть finish/consider, а не finished/considered. У другому прикладі обмірковували варіант без оренди. У третьому заперечено сам розгляд можливості оренди. Жодне з цих двох речень окремо не повідомляє, чи офіс зрештою орендували."
+              }
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-mistakes",
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "B1",
+          "existing_source_index": 3,
+          "data": {
+            "title": "Типові помилки в цих моделях",
+            "items": [
+              {
+                "label": "SUGGEST + ДІЯ",
+                "color": "rose",
+                "title": "Після suggest безпосередньо не ставимо to-infinitive.",
+                "wrong_en": "She suggested to leave earlier.",
+                "wrong_ua": "Задум: вона запропонувала піти раніше.",
+                "right_en": "She suggested leaving earlier.",
+                "right_ua": "Вона запропонувала піти раніше.",
+                "note": "У цій моделі потрібне leaving. Виконавця пропонованого виходу дає контекст; виправлення не перетворює пропозицію на повідомлення про вже виконану дію."
+              },
+              {
+                "label": "MIND + ДІЯ",
+                "color": "amber",
+                "title": "У проханні з mind використовуй форму на -ing.",
+                "wrong_en": "Do you mind to wait a minute?",
+                "wrong_ua": "Задум: ти не проти почекати хвилину?",
+                "right_en": "Do you mind waiting a minute?",
+                "right_ua": "Ти не проти почекати хвилину?",
+                "note": "Потрібне waiting; чекати просять того самого співрозмовника. Не додавай me або іншу особу, якщо її немає в задумі: це змінило б виконавця."
+              },
+              {
+                "label": "AVOID + ДІЯ",
+                "color": "sky",
+                "title": "У моделі avoid + дія потрібне -ing.",
+                "wrong_en": "He avoided to answer the question.",
+                "wrong_ua": "Задум: він ухилився від відповіді на запитання.",
+                "right_en": "He avoided answering the question.",
+                "right_ua": "Він ухилився від відповіді на запитання.",
+                "note": "У цьому значенні використовуємо avoided answering. Збережено особу, минулий час і саме запитання; це не правило для будь-якого слова зі схожим українським перекладом."
+              }
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-summary",
+          "type": "summary-list",
+          "column": "right",
+          "level": "B1",
+          "existing_source_index": 4,
+          "data": {
+            "title": "Короткий підсумок",
+            "items": [
+              "Вчи конкретне сполучення: enjoy reading — отримувати задоволення від читання; avoid answering — уникати відповіді. Значення групи не вибирає модель за тебе.",
+              "У mind перевір, хто виконує дію: названа перед -ing особа може відрізнятися від підмета головного речення. Реакцію на прохання оцінюй за повною відповіддю.",
+              "Suggest і recommend можуть доповнюватися дією на -ing; that-clause допомагає явно назвати виконавця. Пропозиція або розгляд варіанта не означають виконання.",
+              "Keep і finish мають показані моделі з -ing. Continue doing та continue to do обидва можливі; не оголошуй усі інфінітиви після continue помилковими.",
+              "Час, питання й головне заперечення виражає головна частина. Not + -ing та заперечення головного дієслова можуть змінювати різні частини змісту. Будова форми є в <a href=\"/theory/verb-patterns/gerund\">Gerund</a>, допустимі альтернативи — у <a href=\"/theory/verb-patterns/gerund-vs-infinitive\">Gerund vs Infinitive</a>, окремі зміни значення — у <a href=\"/theory/verb-patterns/stop-remember-forget-try-regret\">Stop / Remember / Forget / Try / Regret</a>."
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-navigation",
+          "type": "navigation-chips",
+          "column": "footer",
+          "level": null,
+          "existing_source_index": 5,
+          "data": {
+            "title": "Сторінки цього розділу",
+            "items": [
+              {
+                "label": "Gerund",
+                "url": "/theory/verb-patterns/gerund",
+                "current": false
+              },
+              {
+                "label": "To-Infinitive",
+                "url": "/theory/verb-patterns/to-infinitive",
+                "current": false
+              },
+              {
+                "label": "Bare Infinitive",
+                "url": "/theory/verb-patterns/bare-infinitive",
+                "current": false
+              },
+              {
+                "label": "Gerund vs Infinitive",
+                "url": "/theory/verb-patterns/gerund-vs-infinitive",
+                "current": false
+              },
+              {
+                "label": "Verbs + Gerund",
+                "url": "/theory/verb-patterns/verbs-plus-gerund",
+                "current": true
+              },
+              {
+                "label": "Verbs + Infinitive",
+                "url": "/theory/verb-patterns/verbs-plus-infinitive",
+                "current": false
+              },
+              {
+                "label": "Stop / Remember / Forget / Try / Regret",
+                "url": "/theory/verb-patterns/stop-remember-forget-try-regret",
+                "current": false
+              },
+              {
+                "label": "Be used to / Get used to / Used to",
+                "url": "/theory/verb-patterns/be-used-to-get-used-to-used-to",
+                "current": false
+              }
+            ]
+          }
+        },
+        {
+          "key": "verbs-gerund-practice",
+          "type": "practice-set",
+          "column": "left",
+          "level": "B1",
+          "existing_source_index": null,
+          "data": {
+            "title": "Практика",
+            "select_title": "Вправа 1. Обери правильну форму",
+            "select_intro": "Прочитай українську умову й доповни конкретну дієслівну модель.",
+            "choice_title": "Вправа 2. Обери правильне значення",
+            "choice_intro": "Визнач виконавця або межі повідомлення. Переклад, який розкриває відповідь, з’явиться після перевірки.",
+            "input_title": "Вправа 3. Побудуй речення",
+            "input_intro": "Введи речення вручну або склади з токенів. Збережи задану модель, учасників, час і заперечення; пунктуація окремо не оцінюється.",
+            "rephrase": [],
+            "selects": [
+              {
+                "id": "m66-verbs-gerund-form-1",
+                "source_index": 1,
+                "label": "Обери форму дієслова «орендувати». Зараз ми лише розглядаємо варіант; рішення ще немає.<br><span lang=\"en\">We are considering ____ a smaller room for the club.</span><br><span lang=\"uk\">Ми розглядаємо можливість орендувати меншу кімнату для клубу.</span>",
+                "options": [
+                  "renting",
+                  "to rent",
+                  "rent"
+                ],
+                "answer": "renting",
+                "accepted": [
+                  "renting"
+                ],
+                "feedback": {
+                  "renting": "We are considering renting a smaller room for the club. — Ми розглядаємо можливість орендувати меншу кімнату для клубу. Після consider у значенні розгляду варіанта потрібна форма на -ing. Are considering описує теперішній розгляд, renting називає можливу оренду.",
+                  "to rent": "We are considering renting a smaller room for the club. — Ми розглядаємо можливість орендувати меншу кімнату для клубу. У consider + можлива дія тут потрібне renting, не to rent. Це не заборона іншого значення consider someone to be — вважати когось кимось або якимось.",
+                  "rent": "We are considering renting a smaller room for the club. — Ми розглядаємо можливість орендувати меншу кімнату для клубу. Rent є базовою формою; у цій моделі consider потрібне дієслівне доповнення на -ing."
+                }
+              },
+              {
+                "id": "m66-verbs-gerund-form-2",
+                "source_index": 2,
+                "label": "Обери форму дієслова «відкласти». Марта запропонувала перенести зустріч; про прийняте рішення не повідомлено.<br><span lang=\"en\">Marta suggested ____ the meeting until Friday.</span><br><span lang=\"uk\">Марта запропонувала відкласти зустріч до п’ятниці.</span>",
+                "options": [
+                  "postponing",
+                  "to postpone",
+                  "postpone"
+                ],
+                "answer": "postponing",
+                "accepted": [
+                  "postponing"
+                ],
+                "feedback": {
+                  "postponing": "Marta suggested postponing the meeting until Friday. — Марта запропонувала відкласти зустріч до п’ятниці. Безпосередньо після suggested у цій моделі потрібне postponing. Пропозиція не означає, що зустріч уже перенесли.",
+                  "to postpone": "Marta suggested postponing the meeting until Friday. — Марта запропонувала відкласти зустріч до п’ятниці. У suggest + дія не ставимо to-infinitive безпосередньо після suggest; потрібне postponing.",
+                  "postpone": "Marta suggested postponing the meeting until Friday. — Марта запропонувала відкласти зустріч до п’ятниці. Потрібне postponing. Базова форма postpone без власного підмета не утворює тут that-clause."
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "m66-verbs-gerund-meaning-1",
+                "source_index": 3,
+                "label": "Хто хоче відкрити вікно? Визнач виконавця за наведеним реченням.",
+                "prompt": "<span lang=\"en\">Do you mind me opening the window?</span>",
+                "options": [
+                  "Вікно хоче відкрити мовець",
+                  "Вікно просять відкрити співрозмовника",
+                  "Повідомлено, що вікно вже відчинили"
+                ],
+                "answer": "Вікно хоче відкрити мовець",
+                "accepted": [
+                  "Вікно хоче відкрити мовець"
+                ],
+                "feedback": {
+                  "вікно хоче відкрити мовець": "Do you mind me opening the window? — Ти не проти, якщо я відкрию вікно? Me називає виконавця opening: це мовець. Речення запитує про ставлення співрозмовника, а не повідомляє про вже відчинене вікно.",
+                  "вікно просять відкрити співрозмовника": "Do you mind me opening the window? — Ти не проти, якщо я відкрию вікно? Саме me перед opening називає мовця. Do you mind opening the window? — Ти не проти відкрити вікно? Без me це вже прохання до співрозмовника.",
+                  "повідомлено, що вікно вже відчинили": "Do you mind me opening the window? — Ти не проти, якщо я відкрию вікно? Це запитання про можливу дію мовця; факту відчинення вікна не встановлено."
+                }
+              },
+              {
+                "id": "m66-verbs-gerund-meaning-2",
+                "source_index": 4,
+                "label": "Що саме встановлює речення? Не додавай дії, про яку не сказано.",
+                "prompt": "<span lang=\"en\">She finished writing the email.</span>",
+                "options": [
+                  "Вона закінчила писати лист; про надсилання не сказано",
+                  "Вона надіслала лист адресатові",
+                  "Вона лише розглядає можливість написати лист"
+                ],
+                "answer": "Вона закінчила писати лист; про надсилання не сказано",
+                "accepted": [
+                  "Вона закінчила писати лист; про надсилання не сказано"
+                ],
+                "feedback": {
+                  "вона закінчила писати лист; про надсилання не сказано": "She finished writing the email. — Вона закінчила писати електронного листа. Finished writing повідомляє про завершення написання. Для висновку про надсилання потрібна окрема інформація.",
+                  "вона надіслала лист адресатові": "She finished writing the email. — Вона закінчила писати електронного листа. Написання завершено, але надсилання є іншою дією; речення його не підтверджує.",
+                  "вона лише розглядає можливість написати лист": "She finished writing the email. — Вона закінчила писати електронного листа. Finished передає вже завершене написання, не розгляд можливості його почати."
+                }
+              }
+            ],
+            "inputs": [
+              {
+                "id": "m66-verbs-gerund-build-1",
+                "source_index": 5,
+                "before": "museum. / the / near / meeting / suggested / Olena",
+                "after": "Олена запропонувала зустрітися біля музею. Учасники обговорюють спільну зустріч; рішення ще не прийнято. Використай suggest у Past Simple і модель з -ing; почни з Olena. Лексика: meet — зустрітися; near the museum — біля музею.",
+                "answer": "Olena suggested meeting near the museum.",
+                "accepted": [
+                  "Olena suggested meeting near the museum."
+                ],
+                "feedback": {
+                  "olena suggested meeting near the museum.": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Suggested передає минулу пропозицію, meeting — задану модель з -ing. Речення не стверджує, що зустріч уже відбулася.",
+                  "olena suggested meeting near the museum": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Suggested передає минулу пропозицію, meeting — задану модель з -ing. Речення не стверджує, що зустріч уже відбулася.",
+                  "olena suggested to meet near the museum.": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Безпосередньо після suggested у цій моделі потрібне meeting, не to meet.",
+                  "olena suggested to meet near the museum": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Безпосередньо після suggested у цій моделі потрібне meeting, не to meet.",
+                  "olena suggested that we meet near the museum.": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Варіант із that we meet граматичний, але тут прямо задано модель з -ing, а не that-clause.",
+                  "olena suggested that we meet near the museum": "Olena suggested meeting near the museum. — Олена запропонувала зустрітися біля музею. Варіант із that we meet граматичний, але тут прямо задано модель з -ing, а не that-clause."
+                }
+              },
+              {
+                "id": "m66-verbs-gerund-build-2",
+                "source_index": 6,
+                "before": "office. / the / renting / not / considered / They",
+                "after": "Вони розглядали можливість не орендувати офіс. Використай consider у Past Simple та not безпосередньо перед формою на -ing; почни з They. Лексика: rent the office — орендувати офіс. Не стверджуй, що рішення вже прийнято.",
+                "answer": "They considered not renting the office.",
+                "accepted": [
+                  "They considered not renting the office."
+                ],
+                "feedback": {
+                  "they considered not renting the office.": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. Not стосується renting: обмірковували варіант без оренди. Рішення та фактична оренда не підтверджені.",
+                  "they considered not renting the office": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. Not стосується renting: обмірковували варіант без оренди. Рішення та фактична оренда не підтверджені.",
+                  "they considered not to rent the office.": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. У consider + можлива дія тут потрібне not renting, не not to rent.",
+                  "they considered not to rent the office": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. У consider + можлива дія тут потрібне not renting, не not to rent.",
+                  "they did not consider renting the office.": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. They did not consider renting the office — Вони не розглядали можливості орендувати офіс. Це граматично, але заперечує розгляд, а не саму можливу оренду, тому змінює заданий зміст.",
+                  "they did not consider renting the office": "They considered not renting the office. — Вони розглядали можливість не орендувати офіс. They did not consider renting the office — Вони не розглядали можливості орендувати офіс. Це граматично, але заперечує розгляд, а не саму можливу оренду, тому змінює заданий зміст."
+                }
+              }
+            ],
+            "linked_practice": {
+              "source": "theory_links",
+              "question_types": [
+                "4"
+              ],
+              "seeder_classes": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotVerbsPlusGerundAllLevelsLessonSeeder"
+              ],
+              "title": "Вправа 4. Побудуй речення",
+              "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+              "footer": "Завдання підібрані лише для цієї теми."
+            }
+          }
+        }
+      ],
+      "details": [
+        {
+          "key": "verbs-gerund-mind-performer",
+          "owner_block_key": "verbs-gerund-usage",
+          "owner_pointer": "/sections/0",
+          "title": "Хто має відкрити вікно?",
+          "editorial_decision": "Separate role-and-register comparison; the basic performer rule, waiting request and clear response remain visible.",
+          "fragment": {
+            "type": "usage-panels",
+            "data": {
+              "sections": [
+                {
+                  "label": "Прохання до тебе чи дозвіл для мене",
+                  "color": "slate",
+                  "description": "У першому питанні мовець просить співрозмовника відкрити вікно. У другому me прямо називає іншого виконавця: відкрити хоче сам мовець, а співрозмовника запитують, чи він не проти. У третій моделі my також називає дію мовця; цей присвійний варіант можливий і доречніший у формальнішому викладі, тоді як me звичне в розмові. Це не зміна виконавця через переклад і не правило, що me завжди неправильне перед -ing.",
+                  "examples": [
+                    {
+                      "en": "Do you mind opening the window?",
+                      "ua": "Ти не проти відкрити вікно?"
+                    },
+                    {
+                      "en": "Do you mind me opening the window?",
+                      "ua": "Ти не проти, якщо я відкрию вікно?"
+                    },
+                    {
+                      "en": "Do you mind my opening the window?",
+                      "ua": "Ти не проти, якщо я відкрию вікно?"
+                    }
+                  ],
+                  "note": "У всіх трьох питаннях спершу з’ясовують ставлення людини; сам факт відчинення не встановлено. Перед оцінюванням відповіді назви виконавця opening, а не шукай лише українське слово «відкрити»."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "editorial_mapping": [
+        {
+          "source": "Four forms-grid groups and concrete enjoy/mind/dislike, avoid/consider, suggest/recommend, keep/finish combinations",
+          "decision": "preserved-and-bounded",
+          "after": "The same useful grouping is retained with Ukrainian meanings for every phrase; group meaning is explicitly a mnemonic, not a complement-selection algorithm."
+        },
+        {
+          "source": "Continue in continuation/completion usage group",
+          "decision": "alternative-preserved-and-clarified",
+          "after": "Both continue doing and continue to do shown and translated; no invented no-pause/after-pause distinction and no blanket infinitive rejection."
+        },
+        {
+          "source": "Do you mind waiting outside?",
+          "decision": "preserved-with-performer-and-response",
+          "after": "Request preserved with a clear willing response; visible basic names the performer boundary. Separate meaningful detail compares opening/me opening/my opening and register."
+        },
+        {
+          "source": "Avoid/suggest/recommend/consider grouped as action variants",
+          "decision": "split-concrete-models-and-event-status",
+          "after": "Avoid/consider and suggest/recommend receive their own coherent points. Considered possibility and suggestion do not entail decision or execution; that-clause explicitly identifies a performer. Recommend restrictions are not mechanically copied from suggest."
+        },
+        {
+          "source": "We are considering renting a smaller office; She finished writing the email",
+          "decision": "preserved-with-functional-and-completion-boundaries",
+          "after": "The two -ing forms have separate roles; completion of writing does not imply sending. Main-verb tense/questions and not-ing are added with concrete contexts."
+        },
+        {
+          "source": "Three original mistake pairs; decorative checkmark/font-mono and semantic avoid justification",
+          "decision": "preserved-targeted-corrections-in-native-fields",
+          "after": "Same persons, event intention and corrections retained with EN/UK pairs and plain native fields; avoid is justified by its specific model, not a semantic-class algorithm."
+        },
+        {
+          "source": "Summary says gerund is safe after attitude/avoidance/advice/duration verbs",
+          "decision": "overbroad-summary-corrected",
+          "after": "Summary now requires concrete verb model, performer, available alternatives and negation scope; no universal semantic shortcut."
+        },
+        {
+          "source": "Six continuing slots, B1 technical metadata, eight navigation items",
+          "decision": "preserved-native-metadata",
+          "after": "Types, columns, continuing source indices, B1 levels and exact navigation data retained; one B1 practice-set appended. UUIDs remain deterministically derived from unchanged continuing source identity and slot."
+        }
+      ],
+      "category_ancestry": [
+        "verb-patterns"
+      ]
+    }
+  ]
+}

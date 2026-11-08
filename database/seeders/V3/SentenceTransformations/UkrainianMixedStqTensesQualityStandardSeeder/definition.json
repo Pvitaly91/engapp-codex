@@ -1,0 +1,663 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/tenses.v1.json",
+        "sha256": "61805820221ab8ae0942f92d2a02c3702edf0a01456969babfc7c4fd69fae0d9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqTensesQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-tenses-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_tenses": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Tenses"
+        }
+    },
+    "tags": {
+        "sentence_transformations_tenses_all_levels": {
+            "name": "sentence transformations tenses all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "preserve_meaning": {
+            "name": "Preserve Meaning",
+            "category": "topic"
+        },
+        "present_simple_continuous": {
+            "name": "Present Simple Continuous",
+            "category": "topic"
+        },
+        "past_simple_present_perfect": {
+            "name": "Past Simple Present Perfect",
+            "category": "topic"
+        },
+        "past_simple_continuous": {
+            "name": "Past Simple Continuous",
+            "category": "topic"
+        },
+        "future_forms": {
+            "name": "Future Forms",
+            "category": "topic"
+        },
+        "perfect_time_markers": {
+            "name": "Perfect Time Markers",
+            "category": "topic"
+        },
+        "time_markers": {
+            "name": "Time Markers",
+            "category": "topic"
+        },
+        "equivalent_time_expressions": {
+            "name": "Equivalent Time Expressions",
+            "category": "topic"
+        },
+        "keep_core_meaning": {
+            "name": "Keep Core Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-tenses-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Danylo {a1} at home now.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Данило зараз не вдома».",
+            "target_text": "Danylo is not at home now.",
+            "markers": {
+                "a1": {
+                    "answer": "is not",
+                    "options": [
+                        "is not",
+                        "does not",
+                        "not is"
+                    ],
+                    "verb_hint": "Початкове: «Данило зараз не вдома». Передай заперечення повною формою, не змінюючи часу."
+                }
+            },
+            "verb_hint": "Початкове: «Данило зараз не вдома». Передай заперечення повною формою, не змінюючи часу.",
+            "accepted_target_texts": [
+                "Danylo is not at home now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Danylo",
+                "is not",
+                "at home now."
+            ],
+            "token_groups": [
+                "Danylo",
+                "is not",
+                "at home now."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-tenses-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Hanna {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Ганна співала раніше й усе ще співає зараз».",
+            "target_text": "Hanna is still singing.",
+            "markers": {
+                "a1": {
+                    "answer": "is still singing",
+                    "options": [
+                        "is still singing",
+                        "still sings",
+                        "was still singing"
+                    ],
+                    "verb_hint": "Початкове: «Ганна співала раніше й усе ще співає зараз». Стисни опис у тривалу теперішню форму зі значенням досі."
+                }
+            },
+            "verb_hint": "Початкове: «Ганна співала раніше й усе ще співає зараз». Стисни опис у тривалу теперішню форму зі значенням досі.",
+            "accepted_target_texts": [
+                "Hanna is still singing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hanna",
+                "is still singing."
+            ],
+            "token_groups": [
+                "Hanna",
+                "is still singing."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-tenses-a2-g01",
+            "author_id": "A2-g01",
+            "question": "We {a1} the finale.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Ми відрепетирували фінал; ця робота вже виконана».",
+            "target_text": "We have already rehearsed the finale.",
+            "markers": {
+                "a1": {
+                    "answer": "have already rehearsed",
+                    "options": [
+                        "have already rehearsed",
+                        "had already rehearsed",
+                        "have already rehearsing"
+                    ],
+                    "verb_hint": "Початкове: «Ми відрепетирували фінал; ця робота вже виконана». Передай завершену дію з результатом донині та збережи значення вже."
+                }
+            },
+            "verb_hint": "Початкове: «Ми відрепетирували фінал; ця робота вже виконана». Передай завершену дію з результатом донині та збережи значення вже.",
+            "accepted_target_texts": [
+                "We have already rehearsed the finale."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "have already rehearsed",
+                "the finale."
+            ],
+            "token_groups": [
+                "We",
+                "have already rehearsed",
+                "the finale."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-tenses-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I {a1} for two days.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Мій останній виступ був два дні тому; відтоді виступів не було».",
+            "target_text": "I have not performed for two days.",
+            "markers": {
+                "a1": {
+                    "answer": "have not performed",
+                    "options": [
+                        "have not performed",
+                        "had not performed",
+                        "do not perform"
+                    ],
+                    "verb_hint": "Початкове: «Мій останній виступ був два дні тому; відтоді виступів не було». Перебудуй через заперечення дії протягом періоду донині."
+                }
+            },
+            "verb_hint": "Початкове: «Мій останній виступ був два дні тому; відтоді виступів не було». Перебудуй через заперечення дії протягом періоду донині.",
+            "accepted_target_texts": [
+                "I have not performed for two days."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "have not performed",
+                "for two days."
+            ],
+            "token_groups": [
+                "I",
+                "have not performed",
+                "for two days."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-tenses-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Lesia {a1} in Vienna since 2018.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Леся почала жити у Відні у 2018 році й досі живе там».",
+            "target_text": "Lesia has lived in Vienna since 2018.",
+            "markers": {
+                "a1": {
+                    "answer": "has lived",
+                    "options": [
+                        "has lived",
+                        "had lived",
+                        "lives"
+                    ],
+                    "verb_hint": "Початкове: «Леся почала жити у Відні у 2018 році й досі живе там». Об’єднай початок і тривання проживання в одну форму донині."
+                }
+            },
+            "verb_hint": "Початкове: «Леся почала жити у Відні у 2018 році й досі живе там». Об’єднай початок і тривання проживання в одну форму донині.",
+            "accepted_target_texts": [
+                "Lesia has lived in Vienna since 2018.",
+                "Lesia has been living in Vienna since 2018."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has been living"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has been living"
+                ]
+            },
+            "reorder_groups": [
+                "Lesia has lived",
+                "in Vienna",
+                "since 2018."
+            ],
+            "token_groups": [
+                "Lesia has lived",
+                "in Vienna",
+                "since 2018."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-tenses-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We {a1} the hall before the director arrived.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Ми вийшли із зали, а керівник прибув пізніше».",
+            "target_text": "We had left the hall before the director arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "have left",
+                        "had leave"
+                    ],
+                    "verb_hint": "Початкове: «Ми вийшли із зали, а керівник прибув пізніше». Перебудуй, позначивши вихід як попередню минулу дію."
+                }
+            },
+            "verb_hint": "Початкове: «Ми вийшли із зали, а керівник прибув пізніше». Перебудуй, позначивши вихід як попередню минулу дію.",
+            "accepted_target_texts": [
+                "We had left the hall before the director arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had left",
+                "the hall",
+                "before the",
+                "director arrived."
+            ],
+            "token_groups": [
+                "We had left",
+                "the hall",
+                "before the",
+                "director arrived."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-tenses-b2-g01",
+            "author_id": "B2-g01",
+            "question": "She {a1} this opera since 2016.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Востаннє вона бачила цю оперу у 2016 році; відтоді не бачила».",
+            "target_text": "She has not seen this opera since 2016.",
+            "markers": {
+                "a1": {
+                    "answer": "has not seen",
+                    "options": [
+                        "has not seen",
+                        "had not seen",
+                        "did not see"
+                    ],
+                    "verb_hint": "Початкове: «Востаннє вона бачила цю оперу у 2016 році; відтоді не бачила». Перебудуй через заперечення досвіду від заданої дати донині."
+                }
+            },
+            "verb_hint": "Початкове: «Востаннє вона бачила цю оперу у 2016 році; відтоді не бачила». Перебудуй через заперечення досвіду від заданої дати донині.",
+            "accepted_target_texts": [
+                "She has not seen this opera since 2016."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "has not seen",
+                "this opera",
+                "since 2016."
+            ],
+            "token_groups": [
+                "She",
+                "has not seen",
+                "this opera",
+                "since 2016."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-tenses-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The editor {a1} the libretto for three hours.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Редактор почав перевіряти лібрето три години тому й досі продовжує».",
+            "target_text": "The editor has been checking the libretto for three hours.",
+            "markers": {
+                "a1": {
+                    "answer": "has been checking",
+                    "options": [
+                        "has been checking",
+                        "had been checking",
+                        "has checking"
+                    ],
+                    "verb_hint": "Початкове: «Редактор почав перевіряти лібрето три години тому й досі продовжує». Стисни обидві частини в тривалу дію з періодом донині."
+                }
+            },
+            "verb_hint": "Початкове: «Редактор почав перевіряти лібрето три години тому й досі продовжує». Стисни обидві частини в тривалу дію з періодом донині.",
+            "accepted_target_texts": [
+                "The editor has been checking the libretto for three hours.",
+                "The editor has been reviewing the libretto for three hours.",
+                "The editor has been examining the libretto for three hours."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has been reviewing",
+                    "has been examining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has been reviewing",
+                    "has been examining"
+                ]
+            },
+            "reorder_groups": [
+                "The editor",
+                "has been checking",
+                "the libretto",
+                "for three hours."
+            ],
+            "token_groups": [
+                "The editor",
+                "has been checking",
+                "the libretto",
+                "for three hours."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-tenses-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Never {a1} heard such a balanced ensemble.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Оглядачі ще ніколи не чули такого злагодженого ансамблю».",
+            "target_text": "Never have the reviewers heard such a balanced ensemble.",
+            "markers": {
+                "a1": {
+                    "answer": "have the reviewers",
+                    "options": [
+                        "have the reviewers",
+                        "the reviewers have",
+                        "did the reviewers"
+                    ],
+                    "verb_hint": "Початкове: «Оглядачі ще ніколи не чули такого злагодженого ансамблю». Почни зі значення ніколи й побудуй інверсію досвіду донині."
+                }
+            },
+            "verb_hint": "Початкове: «Оглядачі ще ніколи не чули такого злагодженого ансамблю». Почни зі значення ніколи й побудуй інверсію досвіду донині.",
+            "accepted_target_texts": [
+                "Never have the reviewers heard such a balanced ensemble.",
+                "Never have the critics heard such a balanced ensemble."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have the critics"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have the critics"
+                ]
+            },
+            "reorder_groups": [
+                "Never",
+                "have the reviewers",
+                "heard such a",
+                "balanced ensemble."
+            ],
+            "token_groups": [
+                "Never",
+                "have the reviewers",
+                "heard such a",
+                "balanced ensemble."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-tenses-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Only after Maya {a1} the inventory did the shortage become apparent.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Лише після завершення Маєю інвентаризації нестача стала очевидною».",
+            "target_text": "Only after Maya had completed the inventory did the shortage become apparent.",
+            "markers": {
+                "a1": {
+                    "answer": "had completed",
+                    "options": [
+                        "had completed",
+                        "has completed",
+                        "had complete"
+                    ],
+                    "verb_hint": "Початкове: «Лише після завершення Маєю інвентаризації нестача стала очевидною». Збережи обмежувальний акцент і познач інвентаризацію як попередню минулу дію."
+                }
+            },
+            "verb_hint": "Початкове: «Лише після завершення Маєю інвентаризації нестача стала очевидною». Збережи обмежувальний акцент і познач інвентаризацію як попередню минулу дію.",
+            "accepted_target_texts": [
+                "Only after Maya had completed the inventory did the shortage become apparent.",
+                "Only after Maya had finished the inventory did the shortage become apparent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had finished"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had finished"
+                ]
+            },
+            "reorder_groups": [
+                "Only after Maya",
+                "had completed",
+                "the inventory",
+                "did the shortage",
+                "become apparent."
+            ],
+            "token_groups": [
+                "Only after Maya",
+                "had completed",
+                "the inventory",
+                "did the shortage",
+                "become apparent."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-tenses-c2-g01",
+            "author_id": "C2-g01",
+            "question": "By the time the archive closed, we {a1} scores for three hours.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «Коли архів зачинився, ми вже три години оцифровували партитури».",
+            "target_text": "By the time the archive closed, we had been digitising scores for three hours.",
+            "markers": {
+                "a1": {
+                    "answer": "had been digitising",
+                    "options": [
+                        "had been digitising",
+                        "have been digitising",
+                        "had digitising"
+                    ],
+                    "verb_hint": "Початкове: «Коли архів зачинився, ми вже три години оцифровували партитури». Перебудуй через тривалість до іншого минулого моменту, не заявляючи про подальше продовження."
+                }
+            },
+            "verb_hint": "Початкове: «Коли архів зачинився, ми вже три години оцифровували партитури». Перебудуй через тривалість до іншого минулого моменту, не заявляючи про подальше продовження.",
+            "accepted_target_texts": [
+                "By the time the archive closed, we had been digitising scores for three hours.",
+                "By the time the archive closed, we had been digitizing scores for three hours."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been digitizing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been digitizing"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "the archive closed,",
+                "we",
+                "had been digitising",
+                "scores",
+                "for three hours."
+            ],
+            "token_groups": [
+                "By the time",
+                "the archive closed,",
+                "we",
+                "had been digitising",
+                "scores",
+                "for three hours."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-tenses-c2-g02",
+            "author_id": "C2-g02",
+            "question": "By the time performances resume, we {a1} the running order.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_tenses",
+            "translation_uk": "Початкове: «До поновлення показів ми вже вивчимо порядок номерів».",
+            "target_text": "By the time performances resume, we will have learned the running order.",
+            "markers": {
+                "a1": {
+                    "answer": "will have learned",
+                    "options": [
+                        "will have learned",
+                        "will learn",
+                        "will have learn"
+                    ],
+                    "verb_hint": "Початкове: «До поновлення показів ми вже вивчимо порядок номерів». Перебудуй через завершеність навчання на визначений майбутній момент."
+                }
+            },
+            "verb_hint": "Початкове: «До поновлення показів ми вже вивчимо порядок номерів». Перебудуй через завершеність навчання на визначений майбутній момент.",
+            "accepted_target_texts": [
+                "By the time performances resume, we will have learned the running order.",
+                "By the time performances resume, we will have learnt the running order."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will have learnt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will have learnt"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "performances resume,",
+                "we",
+                "will have learned",
+                "the running order."
+            ],
+            "token_groups": [
+                "By the time",
+                "performances resume,",
+                "we",
+                "will have learned",
+                "the running order."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

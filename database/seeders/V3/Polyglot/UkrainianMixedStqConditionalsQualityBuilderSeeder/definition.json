@@ -1,0 +1,1700 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/conditionals.v1.json",
+        "sha256": "ffa265d9ae9ffc2059ed44b237cf589b4cbe46daf330769c6b4d1c1abee7963a"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqConditionalsQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-conditionals-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_conditionals": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Conditionals"
+        }
+    },
+    "tags": {
+        "sentence_transformations_conditionals_all_levels": {
+            "name": "sentence transformations conditionals all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "if_unless": {
+            "name": "If Unless",
+            "category": "topic"
+        },
+        "first_conditional": {
+            "name": "First Conditional",
+            "category": "topic"
+        },
+        "second_conditional": {
+            "name": "Second Conditional",
+            "category": "topic"
+        },
+        "third_conditional": {
+            "name": "Third Conditional",
+            "category": "topic"
+        },
+        "mixed_conditional": {
+            "name": "Mixed Conditional",
+            "category": "topic"
+        },
+        "wish_if_only": {
+            "name": "Wish If Only",
+            "category": "topic"
+        },
+        "would_rather": {
+            "name": "Would Rather",
+            "category": "topic"
+        },
+        "had_better": {
+            "name": "Had Better",
+            "category": "topic"
+        },
+        "provided_as_long_as_in_case": {
+            "name": "Provided As Long As In Case",
+            "category": "topic"
+        },
+        "preserve_condition_result": {
+            "name": "Preserve Condition Result",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_conditionals_all_levels": {
+            "name": "Sentence Transformations — Conditionals",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-conditionals-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Якщо Іван запізнюється, ми починаємо без нього.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Якщо Іван запізнюється, ми починаємо без нього.",
+            "target_text": "If Ivan is late, we start without him.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "If",
+                        "While",
+                        "Whether",
+                        "And"
+                    ]
+                },
+                "a2": {
+                    "answer": "Ivan",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "Ivan",
+                        "Taras",
+                        "Nina",
+                        "Lena"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "late,",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "late",
+                        "outside",
+                        "ready",
+                        "absent"
+                    ]
+                },
+                "a5": {
+                    "answer": "we",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "we",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a6": {
+                    "answer": "start",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "start",
+                        "eat",
+                        "stop",
+                        "continue"
+                    ]
+                },
+                "a7": {
+                    "answer": "without",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "without",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "him.",
+                    "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+                    "options": [
+                        "him",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичайний порядок дій умовним реченням; почни з умови.",
+            "accepted_target_texts": [
+                "If Ivan is late, we start without him."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If Ivan",
+                "is late,",
+                "we start",
+                "without him."
+            ],
+            "token_groups": [
+                "If Ivan",
+                "is late,",
+                "we start",
+                "without him."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "If",
+                "Ivan",
+                "is",
+                "late,",
+                "we",
+                "start",
+                "without",
+                "him."
+            ],
+            "options": [
+                "If",
+                "While",
+                "Whether",
+                "And",
+                "Ivan",
+                "Taras",
+                "Nina",
+                "Lena",
+                "is",
+                "was",
+                "were",
+                "be",
+                "late",
+                "outside",
+                "ready",
+                "absent",
+                "we",
+                "us",
+                "them",
+                "myself",
+                "start",
+                "eat",
+                "stop",
+                "continue",
+                "without",
+                "for",
+                "of",
+                "in",
+                "him",
+                "I",
+                "you",
+                "he"
+            ],
+            "source_text_uk": "Якщо Іван запізнюється, ми починаємо без нього.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "While",
+                    "Whether",
+                    "And"
+                ],
+                "a2": [
+                    "Ivan",
+                    "Taras",
+                    "Nina",
+                    "Lena"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "late",
+                    "outside",
+                    "ready",
+                    "absent"
+                ],
+                "a5": [
+                    "we",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a6": [
+                    "start",
+                    "eat",
+                    "stop",
+                    "continue"
+                ],
+                "a7": [
+                    "without",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "him",
+                    "I",
+                    "you",
+                    "he"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conditional_person",
+                "a2": "conditional_person",
+                "a3": "present_state",
+                "a4": "present_state",
+                "a5": "plural_action",
+                "a6": "plural_action",
+                "a7": "personal_preposition",
+                "a8": "personal_preposition"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-conditionals-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Марта не прийде, якщо ти її не запросиш.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Марта не прийде, якщо ти її не запросиш.",
+            "target_text": "Marta will not come unless you invite her.",
+            "markers": {
+                "a1": {
+                    "answer": "Marta",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "Marta",
+                        "Kate",
+                        "Iva",
+                        "Ben"
+                    ]
+                },
+                "a2": {
+                    "answer": "will",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "will",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "come",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "come",
+                        "leave",
+                        "wait",
+                        "help"
+                    ]
+                },
+                "a5": {
+                    "answer": "unless",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "unless",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "you",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "you",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a7": {
+                    "answer": "invite",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "invite",
+                        "ask",
+                        "join",
+                        "desk"
+                    ]
+                },
+                "a8": {
+                    "answer": "her.",
+                    "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+                    "options": [
+                        "her",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Марти; подай її неприхід як наслідок, а необхідне запрошення — через якщо не.",
+            "accepted_target_texts": [
+                "Marta will not come unless you invite her.",
+                "Marta won't come unless you invite her."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta",
+                "will not come",
+                "unless",
+                "you invite her."
+            ],
+            "token_groups": [
+                "Marta",
+                "will not come",
+                "unless",
+                "you invite her."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Marta",
+                "will",
+                "not",
+                "come",
+                "unless",
+                "you",
+                "invite",
+                "her."
+            ],
+            "options": [
+                "Marta",
+                "Kate",
+                "Iva",
+                "Ben",
+                "will",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "not",
+                "never",
+                "always",
+                "often",
+                "come",
+                "leave",
+                "wait",
+                "help",
+                "unless",
+                "but",
+                "or",
+                "nor",
+                "you",
+                "myself",
+                "yourself",
+                "herself",
+                "invite",
+                "ask",
+                "join",
+                "desk",
+                "her",
+                "my",
+                "your",
+                "his"
+            ],
+            "source_text_uk": "Марта не прийде, якщо ти її не запросиш.",
+            "options_by_marker": {
+                "a1": [
+                    "Marta",
+                    "Kate",
+                    "Iva",
+                    "Ben"
+                ],
+                "a2": [
+                    "will",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "come",
+                    "leave",
+                    "wait",
+                    "help"
+                ],
+                "a5": [
+                    "unless",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "you",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a7": [
+                    "invite",
+                    "ask",
+                    "join",
+                    "desk"
+                ],
+                "a8": [
+                    "her",
+                    "my",
+                    "your",
+                    "his"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "negative_future_action",
+                "a3": "negative_future_action",
+                "a4": "negative_future_action",
+                "a5": "conditional_link",
+                "a6": "second_person_clause",
+                "a7": "second_person_clause",
+                "a8": "second_person_clause"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-conditionals-b1-c01",
+            "author_id": "B1-c01",
+            "question": "На твоєму місці я попросив би повернення коштів.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "На твоєму місці я попросив би повернення коштів.",
+            "target_text": "In your position, I would request a refund.",
+            "markers": {
+                "a1": {
+                    "answer": "In",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "In",
+                        "To",
+                        "From",
+                        "Of"
+                    ]
+                },
+                "a2": {
+                    "answer": "your",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "your",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a3": {
+                    "answer": "position,",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "position",
+                        "child",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a4": {
+                    "answer": "I",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "I",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a6": {
+                    "answer": "request",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "request",
+                        "demand",
+                        "retain",
+                        "decline"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "refund.",
+                    "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+                    "options": [
+                        "refund",
+                        "advice",
+                        "replacement",
+                        "apology"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі звороту «на твоєму місці»; далі передай пораду від мовця.",
+            "accepted_target_texts": [
+                "In your position, I would request a refund.",
+                "In your position, I would ask for a refund.",
+                "In your place, I would request a refund.",
+                "In your place, I would ask for a refund."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "place,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "place,"
+                ]
+            },
+            "reorder_groups": [
+                "In your position,",
+                "I",
+                "would request",
+                "a refund."
+            ],
+            "token_groups": [
+                "In your position,",
+                "I",
+                "would request",
+                "a refund."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "In",
+                "your",
+                "position,",
+                "I",
+                "would",
+                "request",
+                "a",
+                "refund."
+            ],
+            "options": [
+                "In",
+                "To",
+                "From",
+                "Of",
+                "your",
+                "her",
+                "its",
+                "our",
+                "position",
+                "child",
+                "teacher",
+                "school",
+                "I",
+                "Us",
+                "Them",
+                "Myself",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "request",
+                "demand",
+                "retain",
+                "decline",
+                "a",
+                "those",
+                "each",
+                "every",
+                "refund",
+                "advice",
+                "replacement",
+                "apology"
+            ],
+            "source_text_uk": "На твоєму місці я попросив би повернення коштів.",
+            "options_by_marker": {
+                "a1": [
+                    "In",
+                    "To",
+                    "From",
+                    "Of"
+                ],
+                "a2": [
+                    "your",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a3": [
+                    "position",
+                    "child",
+                    "teacher",
+                    "school"
+                ],
+                "a4": [
+                    "I",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a5": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a6": [
+                    "request",
+                    "demand",
+                    "retain",
+                    "decline"
+                ],
+                "a7": [
+                    "a",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "refund",
+                    "advice",
+                    "replacement",
+                    "apology"
+                ]
+            },
+            "slot_roles": {
+                "a1": "hypothetical_position",
+                "a2": "hypothetical_position",
+                "a3": "hypothetical_position",
+                "a4": "subject",
+                "a5": "conditional_request",
+                "a6": "conditional_request",
+                "a7": "request_object",
+                "a8": "request_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-conditionals-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Якби вона вивчила італійську, вона могла б провести відвідувачів сьогодні.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Якби вона вивчила італійську, вона могла б провести відвідувачів сьогодні.",
+            "target_text": "If she had learned Italian, she could guide the visitors today.",
+            "markers": {
+                "a1": {
+                    "answer": "If",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "If",
+                        "And",
+                        "But",
+                        "Or"
+                    ]
+                },
+                "a2": {
+                    "answer": "she",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "she",
+                        "he",
+                        "it",
+                        "we"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "learned",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "learned",
+                        "studied",
+                        "practised",
+                        "opened"
+                    ]
+                },
+                "a5": {
+                    "answer": "Italian,",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "Italian",
+                        "Portuguese",
+                        "Japanese",
+                        "Chinese"
+                    ]
+                },
+                "a6": {
+                    "answer": "she",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "she",
+                        "me",
+                        "him",
+                        "us"
+                    ]
+                },
+                "a7": {
+                    "answer": "could",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a8": {
+                    "answer": "guide",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "guide",
+                        "assist",
+                        "explain",
+                        "teach"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a10": {
+                    "answer": "visitors",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "visitors",
+                        "neighbours",
+                        "colleagues",
+                        "tourists"
+                    ]
+                },
+                "a11": {
+                    "answer": "today.",
+                    "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+                    "options": [
+                        "today",
+                        "now",
+                        "door",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Перебудуй на змішану умову: нереальне минуле навчання та можливий теперішній наслідок.",
+            "accepted_target_texts": [
+                "If she had learned Italian, she could guide the visitors today.",
+                "If she had learnt Italian, she could guide the visitors today."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "learnt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "learnt"
+                ]
+            },
+            "reorder_groups": [
+                "If she",
+                "had learned Italian,",
+                "she could guide",
+                "the visitors",
+                "today."
+            ],
+            "token_groups": [
+                "If she",
+                "had learned Italian,",
+                "she could guide",
+                "the visitors",
+                "today."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "If",
+                "she",
+                "had",
+                "learned",
+                "Italian,",
+                "she",
+                "could",
+                "guide",
+                "the",
+                "visitors",
+                "today."
+            ],
+            "options": [
+                "If",
+                "And",
+                "But",
+                "Or",
+                "she",
+                "he",
+                "it",
+                "we",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "learned",
+                "studied",
+                "practised",
+                "opened",
+                "Italian",
+                "Portuguese",
+                "Japanese",
+                "Chinese",
+                "me",
+                "him",
+                "us",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "guide",
+                "assist",
+                "explain",
+                "teach",
+                "the",
+                "both",
+                "a",
+                "an",
+                "visitors",
+                "neighbours",
+                "colleagues",
+                "tourists",
+                "today",
+                "now",
+                "door",
+                "key"
+            ],
+            "source_text_uk": "Якби вона вивчила італійську, вона могла б провести відвідувачів сьогодні.",
+            "options_by_marker": {
+                "a1": [
+                    "If",
+                    "And",
+                    "But",
+                    "Or"
+                ],
+                "a2": [
+                    "she",
+                    "he",
+                    "it",
+                    "we"
+                ],
+                "a3": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "learned",
+                    "studied",
+                    "practised",
+                    "opened"
+                ],
+                "a5": [
+                    "Italian",
+                    "Portuguese",
+                    "Japanese",
+                    "Chinese"
+                ],
+                "a6": [
+                    "she",
+                    "me",
+                    "him",
+                    "us"
+                ],
+                "a7": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a8": [
+                    "guide",
+                    "assist",
+                    "explain",
+                    "teach"
+                ],
+                "a9": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a10": [
+                    "visitors",
+                    "neighbours",
+                    "colleagues",
+                    "tourists"
+                ],
+                "a11": [
+                    "today",
+                    "now",
+                    "door",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "third_conditional_subject",
+                "a2": "third_conditional_subject",
+                "a3": "past_language_learning",
+                "a4": "past_language_learning",
+                "a5": "past_language_learning",
+                "a6": "consequence_subject_verb",
+                "a7": "consequence_subject_verb",
+                "a8": "consequence_subject_verb",
+                "a9": "plural_object",
+                "a10": "plural_object",
+                "a11": "present_time"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-conditionals-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Якби датчик раптом відмовив, резервна система негайно ввімкнулася б.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Якби датчик раптом відмовив, резервна система негайно ввімкнулася б.",
+            "target_text": "Were the sensor to fail, the backup would engage immediately.",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "Were",
+                        "Are",
+                        "Was",
+                        "Be"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a3": {
+                    "answer": "sensor",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "sensor",
+                        "alarm",
+                        "camera",
+                        "lock"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "fail,",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "fail",
+                        "overheat",
+                        "leak",
+                        "break"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "backup",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "backup",
+                        "relay",
+                        "reserve",
+                        "generator"
+                    ]
+                },
+                "a8": {
+                    "answer": "would",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "would",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a9": {
+                    "answer": "engage",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "engage",
+                        "stop",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a10": {
+                    "answer": "immediately.",
+                    "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+                    "options": [
+                        "immediately",
+                        "automatically",
+                        "silently",
+                        "gradually"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з інверсії малоймовірної майбутньої умови без сполучника якби; не змінюй ступеня припущення.",
+            "accepted_target_texts": [
+                "Were the sensor to fail, the backup would engage immediately.",
+                "Were the sensor to fail, the backup would activate immediately.",
+                "Were the sensor to fail, the backup would switch on immediately.",
+                "Were the sensor to fail, the backup would start immediately."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "activate",
+                    "start"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "activate",
+                    "start"
+                ]
+            },
+            "reorder_groups": [
+                "Were the sensor",
+                "to fail,",
+                "the backup",
+                "would engage",
+                "immediately."
+            ],
+            "token_groups": [
+                "Were the sensor",
+                "to fail,",
+                "the backup",
+                "would engage",
+                "immediately."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "sensor",
+                "to",
+                "fail,",
+                "the",
+                "backup",
+                "would",
+                "engage",
+                "immediately."
+            ],
+            "options": [
+                "Were",
+                "Are",
+                "Was",
+                "Be",
+                "the",
+                "these",
+                "those",
+                "each",
+                "sensor",
+                "alarm",
+                "camera",
+                "lock",
+                "to",
+                "from",
+                "for",
+                "of",
+                "fail",
+                "overheat",
+                "leak",
+                "break",
+                "another",
+                "either",
+                "neither",
+                "backup",
+                "relay",
+                "reserve",
+                "generator",
+                "would",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "engage",
+                "stop",
+                "bike",
+                "car",
+                "immediately",
+                "automatically",
+                "silently",
+                "gradually"
+            ],
+            "source_text_uk": "Якби датчик раптом відмовив, резервна система негайно ввімкнулася б.",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Are",
+                    "Was",
+                    "Be"
+                ],
+                "a2": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a3": [
+                    "sensor",
+                    "alarm",
+                    "camera",
+                    "lock"
+                ],
+                "a4": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "fail",
+                    "overheat",
+                    "leak",
+                    "break"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "backup",
+                    "relay",
+                    "reserve",
+                    "generator"
+                ],
+                "a8": [
+                    "would",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a9": [
+                    "engage",
+                    "stop",
+                    "bike",
+                    "car"
+                ],
+                "a10": [
+                    "immediately",
+                    "automatically",
+                    "silently",
+                    "gradually"
+                ]
+            },
+            "slot_roles": {
+                "a1": "inverted_subject",
+                "a2": "inverted_subject",
+                "a3": "inverted_subject",
+                "a4": "infinitive_condition",
+                "a5": "infinitive_condition",
+                "a6": "backup_subject",
+                "a7": "backup_subject",
+                "a8": "consequence_verb",
+                "a9": "consequence_verb",
+                "a10": "manner"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-conditionals-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Якби не втручання медіатора, переговори зірвалися б.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_conditionals",
+            "translation_uk": "Якби не втручання медіатора, переговори зірвалися б.",
+            "target_text": "Had it not been for the mediator's intervention, the talks would have collapsed.",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "Had",
+                        "Don't",
+                        "Doesn't",
+                        "Didn't"
+                    ]
+                },
+                "a2": {
+                    "answer": "it",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "it",
+                        "themselves",
+                        "I",
+                        "you"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "for",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "for",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "mediator's",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "mediator's",
+                        "pilot's",
+                        "referee's",
+                        "expert's"
+                    ]
+                },
+                "a8": {
+                    "answer": "intervention,",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "intervention",
+                        "decision",
+                        "advice",
+                        "response"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "an"
+                    ]
+                },
+                "a10": {
+                    "answer": "talks",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "talks",
+                        "consultations",
+                        "deliberations",
+                        "hearings"
+                    ]
+                },
+                "a11": {
+                    "answer": "would",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "would",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a12": {
+                    "answer": "have",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "have",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a13": {
+                    "answer": "collapsed.",
+                    "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+                    "options": [
+                        "collapsed",
+                        "stalled",
+                        "ended",
+                        "stopped"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з інверсії якби не; подай зрив як нереальний минулий наслідок, не втрачаючи причини порятунку.",
+            "accepted_target_texts": [
+                "Had it not been for the mediator's intervention, the talks would have collapsed.",
+                "Had it not been for the mediator's intervention, the negotiations would have collapsed.",
+                "Had it not been for the mediator's intervention, the talks would have failed.",
+                "Had it not been for the mediator's intervention, the negotiations would have failed."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "negotiations"
+                ],
+                "a13": [
+                    "failed."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "negotiations"
+                ],
+                "a13": [
+                    "failed."
+                ]
+            },
+            "reorder_groups": [
+                "Had it",
+                "not been for",
+                "the mediator's intervention,",
+                "the talks",
+                "would have collapsed."
+            ],
+            "token_groups": [
+                "Had it",
+                "not been for",
+                "the mediator's intervention,",
+                "the talks",
+                "would have collapsed."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Had",
+                "it",
+                "not",
+                "been",
+                "for",
+                "the",
+                "mediator's",
+                "intervention,",
+                "the",
+                "talks",
+                "would",
+                "have",
+                "collapsed."
+            ],
+            "options": [
+                "Had",
+                "Don't",
+                "Doesn't",
+                "Didn't",
+                "it",
+                "themselves",
+                "I",
+                "you",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "for",
+                "at",
+                "by",
+                "with",
+                "the",
+                "all",
+                "both",
+                "a",
+                "mediator's",
+                "pilot's",
+                "referee's",
+                "expert's",
+                "intervention",
+                "decision",
+                "advice",
+                "response",
+                "either",
+                "neither",
+                "an",
+                "talks",
+                "consultations",
+                "deliberations",
+                "hearings",
+                "would",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "have",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "collapsed",
+                "stalled",
+                "ended",
+                "stopped"
+            ],
+            "source_text_uk": "Якби не втручання медіатора, переговори зірвалися б.",
+            "options_by_marker": {
+                "a1": [
+                    "Had",
+                    "Don't",
+                    "Doesn't",
+                    "Didn't"
+                ],
+                "a2": [
+                    "it",
+                    "themselves",
+                    "I",
+                    "you"
+                ],
+                "a3": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a4": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "for",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "mediator's",
+                    "pilot's",
+                    "referee's",
+                    "expert's"
+                ],
+                "a8": [
+                    "intervention",
+                    "decision",
+                    "advice",
+                    "response"
+                ],
+                "a9": [
+                    "the",
+                    "either",
+                    "neither",
+                    "an"
+                ],
+                "a10": [
+                    "talks",
+                    "consultations",
+                    "deliberations",
+                    "hearings"
+                ],
+                "a11": [
+                    "would",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a12": [
+                    "have",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a13": [
+                    "collapsed",
+                    "stalled",
+                    "ended",
+                    "stopped"
+                ]
+            },
+            "slot_roles": {
+                "a1": "inverted_auxiliary_subject",
+                "a2": "inverted_auxiliary_subject",
+                "a3": "negative_conditional_phrase",
+                "a4": "negative_conditional_phrase",
+                "a5": "negative_conditional_phrase",
+                "a6": "possessive_event",
+                "a7": "possessive_event",
+                "a8": "possessive_event",
+                "a9": "plural_subject",
+                "a10": "plural_subject",
+                "a11": "conditional_perfect_outcome",
+                "a12": "conditional_perfect_outcome",
+                "a13": "conditional_perfect_outcome"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

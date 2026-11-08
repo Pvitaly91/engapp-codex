@@ -1,0 +1,1590 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/nominalisation-formal-register.v1.json",
+        "sha256": "4a7b0f55efcc6c626c6547712633e62cc6a571b3d6dc26da8ac24b5eb266b73b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedFeqNominalisationFormalRegisterQualityBuilderSeeder",
+        "uuid_namespace": "formal-english-quality-nominalisation-formal-register-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "formal_english_quality_nominalisation_formal_register": {
+            "name": "Formal English Quality: Nominalisation and Formal Register"
+        }
+    },
+    "tags": {
+        "nominalisation_formal_register": {
+            "name": "nominalisation formal register",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "nominalisation": {
+            "name": "nominalisation",
+            "category": "grammar"
+        },
+        "verb_to_noun": {
+            "name": "verb to noun",
+            "category": "grammar"
+        },
+        "adjective_to_noun": {
+            "name": "adjective to noun",
+            "category": "grammar"
+        },
+        "noun_based_academic_style": {
+            "name": "noun based academic style",
+            "category": "grammar"
+        },
+        "formal_verbs": {
+            "name": "formal verbs",
+            "category": "grammar"
+        },
+        "reduce_personal_tone": {
+            "name": "reduce personal tone",
+            "category": "grammar"
+        },
+        "passive_impersonal_style": {
+            "name": "passive impersonal style",
+            "category": "grammar"
+        },
+        "information_density": {
+            "name": "information density",
+            "category": "grammar"
+        },
+        "avoid_over_nominalisation": {
+            "name": "avoid over nominalisation",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-nom-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Офісу потрібен новий принтер.",
+            "level": "A1",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Офісу потрібен новий принтер.",
+            "target_text": "The office needs a new printer.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "office",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "office",
+                        "shop",
+                        "school",
+                        "museum"
+                    ]
+                },
+                "a3": {
+                    "answer": "needs",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "needs",
+                        "uses",
+                        "likes",
+                        "knows"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "new",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "new",
+                        "different",
+                        "simple",
+                        "happy"
+                    ]
+                },
+                "a6": {
+                    "answer": "printer.",
+                    "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+                    "options": [
+                        "printer",
+                        "telephone",
+                        "scanner",
+                        "computer"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретного офісу; збережи теперішню потребу й новий принтер.",
+            "accepted_target_texts": [
+                "The office needs a new printer.",
+                "The office requires a new printer."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "requires"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "requires"
+                ]
+            },
+            "reorder_groups": [
+                "The office",
+                "needs",
+                "a new printer."
+            ],
+            "token_groups": [
+                "The office",
+                "needs",
+                "a new printer."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "office",
+                "needs",
+                "a",
+                "new",
+                "printer."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "office",
+                "shop",
+                "school",
+                "museum",
+                "needs",
+                "uses",
+                "likes",
+                "knows",
+                "a",
+                "both",
+                "an",
+                "that",
+                "new",
+                "different",
+                "simple",
+                "happy",
+                "printer",
+                "telephone",
+                "scanner",
+                "computer"
+            ],
+            "source_text_uk": "Офісу потрібен новий принтер.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "office",
+                    "shop",
+                    "school",
+                    "museum"
+                ],
+                "a3": [
+                    "needs",
+                    "uses",
+                    "likes",
+                    "knows"
+                ],
+                "a4": [
+                    "a",
+                    "both",
+                    "an",
+                    "that"
+                ],
+                "a5": [
+                    "new",
+                    "different",
+                    "simple",
+                    "happy"
+                ],
+                "a6": [
+                    "printer",
+                    "telephone",
+                    "scanner",
+                    "computer"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_subject",
+                "a2": "aone_subject",
+                "a3": "aone_verb",
+                "a4": "aone_object",
+                "a5": "aone_object",
+                "a6": "aone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "feq-nom-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Їхнє прибуття спричинило коротку затримку.",
+            "level": "A2",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Їхнє прибуття спричинило коротку затримку.",
+            "target_text": "Their arrival caused a short delay.",
+            "markers": {
+                "a1": {
+                    "answer": "Their",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "Their",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "arrival",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "arrival",
+                        "departure",
+                        "absence",
+                        "dog"
+                    ]
+                },
+                "a3": {
+                    "answer": "caused",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "caused",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "a",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "short",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "short",
+                        "long",
+                        "minor",
+                        "train"
+                    ]
+                },
+                "a6": {
+                    "answer": "delay.",
+                    "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+                    "options": [
+                        "delay",
+                        "change",
+                        "problem",
+                        "interruption"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з їхнього прибуття як події; збережи минулу причину та коротку затримку. Для причини й нетривалості приймаються природні відповідники.",
+            "accepted_target_texts": [
+                "Their arrival caused a short delay.",
+                "Their arrival caused a brief delay.",
+                "Their arrival led to a short delay.",
+                "Their arrival led to a brief delay.",
+                "Their arrival resulted in a short delay.",
+                "Their arrival resulted in a brief delay."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "brief"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "brief"
+                ]
+            },
+            "reorder_groups": [
+                "Their arrival",
+                "caused",
+                "a short delay."
+            ],
+            "token_groups": [
+                "Their arrival",
+                "caused",
+                "a short delay."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Their",
+                "arrival",
+                "caused",
+                "a",
+                "short",
+                "delay."
+            ],
+            "options": [
+                "Their",
+                "Yours",
+                "Hers",
+                "Ours",
+                "arrival",
+                "departure",
+                "absence",
+                "dog",
+                "caused",
+                "needed",
+                "liked",
+                "wanted",
+                "a",
+                "every",
+                "no",
+                "another",
+                "short",
+                "long",
+                "minor",
+                "train",
+                "delay",
+                "change",
+                "problem",
+                "interruption"
+            ],
+            "source_text_uk": "Їхнє прибуття спричинило коротку затримку.",
+            "options_by_marker": {
+                "a1": [
+                    "Their",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "arrival",
+                    "departure",
+                    "absence",
+                    "dog"
+                ],
+                "a3": [
+                    "caused",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a4": [
+                    "a",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "short",
+                    "long",
+                    "minor",
+                    "train"
+                ],
+                "a6": [
+                    "delay",
+                    "change",
+                    "problem",
+                    "interruption"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_subject",
+                "a2": "atwo_subject",
+                "a3": "atwo_verb",
+                "a4": "atwo_object",
+                "a5": "atwo_object",
+                "a6": "atwo_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "feq-nom-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Закриття стежки занепокоїло місцевих пішоходів.",
+            "level": "B1",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Закриття стежки занепокоїло місцевих пішоходів.",
+            "target_text": "The closure of the footpath worried local walkers.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "closure",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "closure",
+                        "repair",
+                        "condition",
+                        "location"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "of",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "footpath",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "footpath",
+                        "road",
+                        "bridge",
+                        "pavement"
+                    ]
+                },
+                "a6": {
+                    "answer": "worried",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "worried",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a7": {
+                    "answer": "local",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "local",
+                        "regular",
+                        "nearby",
+                        "frequent"
+                    ]
+                },
+                "a8": {
+                    "answer": "walkers.",
+                    "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+                    "options": [
+                        "walkers",
+                        "drivers",
+                        "cyclists",
+                        "residents"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з іменника на позначення закриття; збережи стежку й занепокоєння місцевих пішоходів. Для стежки, емоції й пішоходів приймаються близькі відповідники.",
+            "accepted_target_texts": [
+                "The closure of the footpath worried local walkers.",
+                "The closure of the footpath worried local pedestrians.",
+                "The closure of the footpath concerned local walkers.",
+                "The closure of the footpath concerned local pedestrians.",
+                "The closure of the path worried local walkers.",
+                "The closure of the path worried local pedestrians.",
+                "The closure of the path concerned local walkers.",
+                "The closure of the path concerned local pedestrians."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "pedestrians."
+                ],
+                "a6": [
+                    "concerned"
+                ],
+                "a5": [
+                    "path"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "pedestrians."
+                ],
+                "a6": [
+                    "concerned"
+                ],
+                "a5": [
+                    "path"
+                ]
+            },
+            "reorder_groups": [
+                "The closure",
+                "of the footpath",
+                "worried",
+                "local walkers."
+            ],
+            "token_groups": [
+                "The closure",
+                "of the footpath",
+                "worried",
+                "local walkers."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "closure",
+                "of",
+                "the",
+                "footpath",
+                "worried",
+                "local",
+                "walkers."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "closure",
+                "repair",
+                "condition",
+                "location",
+                "of",
+                "across",
+                "between",
+                "among",
+                "the",
+                "all",
+                "both",
+                "a",
+                "footpath",
+                "road",
+                "bridge",
+                "pavement",
+                "worried",
+                "took",
+                "wrote",
+                "rode",
+                "local",
+                "regular",
+                "nearby",
+                "frequent",
+                "walkers",
+                "drivers",
+                "cyclists",
+                "residents"
+            ],
+            "source_text_uk": "Закриття стежки занепокоїло місцевих пішоходів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "closure",
+                    "repair",
+                    "condition",
+                    "location"
+                ],
+                "a3": [
+                    "of",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "footpath",
+                    "road",
+                    "bridge",
+                    "pavement"
+                ],
+                "a6": [
+                    "worried",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a7": [
+                    "local",
+                    "regular",
+                    "nearby",
+                    "frequent"
+                ],
+                "a8": [
+                    "walkers",
+                    "drivers",
+                    "cyclists",
+                    "residents"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_subject",
+                "a2": "bone_subject",
+                "a3": "bone_verb",
+                "a4": "bone_verb",
+                "a5": "bone_verb",
+                "a6": "bone_object",
+                "a7": "bone_context",
+                "a8": "bone_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "feq-nom-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Відмова ради втрутитися залишила мешканців без підтримки.",
+            "level": "B2",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Відмова ради втрутитися залишила мешканців без підтримки.",
+            "target_text": "The council's refusal to intervene left residents without support.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "council's",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "council's",
+                        "committee's",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a3": {
+                    "answer": "refusal",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "refusal",
+                        "promise",
+                        "willingness",
+                        "decision"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a5": {
+                    "answer": "intervene",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "intervene",
+                        "reconsider",
+                        "investigate",
+                        "negotiate"
+                    ]
+                },
+                "a6": {
+                    "answer": "left",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "left",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a7": {
+                    "answer": "residents",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "residents",
+                        "businesses",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a8": {
+                    "answer": "without",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "without",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a9": {
+                    "answer": "support.",
+                    "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+                    "options": [
+                        "support",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з відмови ради; збережи невтручання й наслідок для мешканців у минулому. Підтримка допускає два природні відповідники.",
+            "accepted_target_texts": [
+                "The council's refusal to intervene left residents without support.",
+                "The council's refusal to intervene left residents without assistance."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "assistance."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "assistance."
+                ]
+            },
+            "reorder_groups": [
+                "The council's refusal",
+                "to intervene",
+                "left residents",
+                "without support."
+            ],
+            "token_groups": [
+                "The council's refusal",
+                "to intervene",
+                "left residents",
+                "without support."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "council's",
+                "refusal",
+                "to",
+                "intervene",
+                "left",
+                "residents",
+                "without",
+                "support."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "council's",
+                "committee's",
+                "tickets",
+                "cups",
+                "refusal",
+                "promise",
+                "willingness",
+                "decision",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "intervene",
+                "reconsider",
+                "investigate",
+                "negotiate",
+                "left",
+                "drove",
+                "gave",
+                "made",
+                "residents",
+                "businesses",
+                "teachers",
+                "schools",
+                "without",
+                "during",
+                "from",
+                "for",
+                "support",
+                "milk",
+                "music",
+                "food"
+            ],
+            "source_text_uk": "Відмова ради втрутитися залишила мешканців без підтримки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "council's",
+                    "committee's",
+                    "tickets",
+                    "cups"
+                ],
+                "a3": [
+                    "refusal",
+                    "promise",
+                    "willingness",
+                    "decision"
+                ],
+                "a4": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a5": [
+                    "intervene",
+                    "reconsider",
+                    "investigate",
+                    "negotiate"
+                ],
+                "a6": [
+                    "left",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a7": [
+                    "residents",
+                    "businesses",
+                    "teachers",
+                    "schools"
+                ],
+                "a8": [
+                    "without",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a9": [
+                    "support",
+                    "milk",
+                    "music",
+                    "food"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_subject",
+                "a2": "btwo_subject",
+                "a3": "btwo_subject",
+                "a4": "btwo_verb",
+                "a5": "btwo_verb",
+                "a6": "btwo_object",
+                "a7": "btwo_object",
+                "a8": "btwo_context",
+                "a9": "btwo_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "feq-nom-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Відкликання поправки усунуло потребу в другому голосуванні.",
+            "level": "C1",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Відкликання поправки усунуло потребу в другому голосуванні.",
+            "target_text": "The withdrawal of the amendment removed the need for a second vote.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "withdrawal",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "withdrawal",
+                        "rejection",
+                        "adoption",
+                        "revision"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "amendment",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "amendment",
+                        "proposal",
+                        "motion",
+                        "resolution"
+                    ]
+                },
+                "a6": {
+                    "answer": "removed",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "removed",
+                        "had",
+                        "reinforced",
+                        "created"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "the",
+                        "either",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "need",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "need",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a9": {
+                    "answer": "for",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "for",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a10": {
+                    "answer": "a",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "a",
+                        "those",
+                        "each",
+                        "any"
+                    ]
+                },
+                "a11": {
+                    "answer": "second",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "second",
+                        "month",
+                        "year",
+                        "hour"
+                    ]
+                },
+                "a12": {
+                    "answer": "vote.",
+                    "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+                    "options": [
+                        "vote",
+                        "debate",
+                        "review",
+                        "inquiry"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з відкликання поправки як події; збережи усунення потреби, а не саме скасування голосування. Дієслово усунення допускає два відповідники.",
+            "accepted_target_texts": [
+                "The withdrawal of the amendment removed the need for a second vote.",
+                "The withdrawal of the amendment eliminated the need for a second vote."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "eliminated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "eliminated"
+                ]
+            },
+            "reorder_groups": [
+                "The withdrawal",
+                "of the amendment",
+                "removed the need",
+                "for a second",
+                "vote."
+            ],
+            "token_groups": [
+                "The withdrawal",
+                "of the amendment",
+                "removed the need",
+                "for a second",
+                "vote."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "withdrawal",
+                "of",
+                "the",
+                "amendment",
+                "removed",
+                "the",
+                "need",
+                "for",
+                "a",
+                "second",
+                "vote."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "withdrawal",
+                "rejection",
+                "adoption",
+                "revision",
+                "of",
+                "at",
+                "by",
+                "with",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "amendment",
+                "proposal",
+                "motion",
+                "resolution",
+                "removed",
+                "had",
+                "reinforced",
+                "created",
+                "either",
+                "an",
+                "some",
+                "need",
+                "gave",
+                "made",
+                "left",
+                "for",
+                "without",
+                "into",
+                "onto",
+                "a",
+                "those",
+                "each",
+                "any",
+                "second",
+                "month",
+                "year",
+                "hour",
+                "vote",
+                "debate",
+                "review",
+                "inquiry"
+            ],
+            "source_text_uk": "Відкликання поправки усунуло потребу в другому голосуванні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "withdrawal",
+                    "rejection",
+                    "adoption",
+                    "revision"
+                ],
+                "a3": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "amendment",
+                    "proposal",
+                    "motion",
+                    "resolution"
+                ],
+                "a6": [
+                    "removed",
+                    "had",
+                    "reinforced",
+                    "created"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "need",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a9": [
+                    "for",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a10": [
+                    "a",
+                    "those",
+                    "each",
+                    "any"
+                ],
+                "a11": [
+                    "second",
+                    "month",
+                    "year",
+                    "hour"
+                ],
+                "a12": [
+                    "vote",
+                    "debate",
+                    "review",
+                    "inquiry"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_subject",
+                "a2": "cone_subject",
+                "a3": "cone_verb",
+                "a4": "cone_verb",
+                "a5": "cone_verb",
+                "a6": "cone_object",
+                "a7": "cone_object",
+                "a8": "cone_object",
+                "a9": "cone_context",
+                "a10": "cone_context",
+                "a11": "cone_context",
+                "a12": "cone_ending"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "feq-nom-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Будь-яке припущення про рівнозначність потребує обґрунтування, незалежного від прийнятої класифікації.",
+            "level": "C2",
+            "type": 4,
+            "source": "formal_english_quality_nominalisation_formal_register",
+            "translation_uk": "Будь-яке припущення про рівнозначність потребує обґрунтування, незалежного від прийнятої класифікації.",
+            "target_text": "Any presumption of equivalence requires justification independent of the classification adopted.",
+            "markers": {
+                "a1": {
+                    "answer": "Any",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "Any",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "presumption",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "presumption",
+                        "assertion",
+                        "inference",
+                        "conclusion"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a4": {
+                    "answer": "equivalence",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "equivalence",
+                        "similarity",
+                        "comparability",
+                        "identity"
+                    ]
+                },
+                "a5": {
+                    "answer": "requires",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "requires",
+                        "warrants",
+                        "demands",
+                        "books"
+                    ]
+                },
+                "a6": {
+                    "answer": "justification",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "justification",
+                        "confirmation",
+                        "investigation",
+                        "clarification"
+                    ]
+                },
+                "a7": {
+                    "answer": "independent",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "independent",
+                        "consistent",
+                        "dependent",
+                        "subject"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "of",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a10": {
+                    "answer": "classification",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "classification",
+                        "definition",
+                        "terminology",
+                        "methodology"
+                    ]
+                },
+                "a11": {
+                    "answer": "adopted.",
+                    "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+                    "options": [
+                        "adopted",
+                        "recommended",
+                        "proposed",
+                        "rejected"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з будь-якого припущення про рівнозначність; збережи необхідність незалежного обґрунтування та означення прийнятої класифікації. Для припущення й необхідності приймаються близькі відповідники.",
+            "accepted_target_texts": [
+                "Any presumption of equivalence requires justification independent of the classification adopted.",
+                "Any presumption of equivalence needs justification independent of the classification adopted.",
+                "Any assumption of equivalence requires justification independent of the classification adopted.",
+                "Any assumption of equivalence needs justification independent of the classification adopted."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "needs"
+                ],
+                "a2": [
+                    "assumption"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "needs"
+                ],
+                "a2": [
+                    "assumption"
+                ]
+            },
+            "reorder_groups": [
+                "Any presumption",
+                "of equivalence",
+                "requires justification",
+                "independent of",
+                "the classification",
+                "adopted."
+            ],
+            "token_groups": [
+                "Any presumption",
+                "of equivalence",
+                "requires justification",
+                "independent of",
+                "the classification",
+                "adopted."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Any",
+                "presumption",
+                "of",
+                "equivalence",
+                "requires",
+                "justification",
+                "independent",
+                "of",
+                "the",
+                "classification",
+                "adopted."
+            ],
+            "options": [
+                "Any",
+                "All",
+                "Both",
+                "A",
+                "presumption",
+                "assertion",
+                "inference",
+                "conclusion",
+                "of",
+                "by",
+                "with",
+                "without",
+                "equivalence",
+                "similarity",
+                "comparability",
+                "identity",
+                "requires",
+                "warrants",
+                "demands",
+                "books",
+                "justification",
+                "confirmation",
+                "investigation",
+                "clarification",
+                "independent",
+                "consistent",
+                "dependent",
+                "subject",
+                "about",
+                "during",
+                "to",
+                "the",
+                "those",
+                "each",
+                "every",
+                "classification",
+                "definition",
+                "terminology",
+                "methodology",
+                "adopted",
+                "recommended",
+                "proposed",
+                "rejected"
+            ],
+            "source_text_uk": "Будь-яке припущення про рівнозначність потребує обґрунтування, незалежного від прийнятої класифікації.",
+            "options_by_marker": {
+                "a1": [
+                    "Any",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "presumption",
+                    "assertion",
+                    "inference",
+                    "conclusion"
+                ],
+                "a3": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a4": [
+                    "equivalence",
+                    "similarity",
+                    "comparability",
+                    "identity"
+                ],
+                "a5": [
+                    "requires",
+                    "warrants",
+                    "demands",
+                    "books"
+                ],
+                "a6": [
+                    "justification",
+                    "confirmation",
+                    "investigation",
+                    "clarification"
+                ],
+                "a7": [
+                    "independent",
+                    "consistent",
+                    "dependent",
+                    "subject"
+                ],
+                "a8": [
+                    "of",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a9": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a10": [
+                    "classification",
+                    "definition",
+                    "terminology",
+                    "methodology"
+                ],
+                "a11": [
+                    "adopted",
+                    "recommended",
+                    "proposed",
+                    "rejected"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_subject",
+                "a2": "ctwo_subject",
+                "a3": "ctwo_verb",
+                "a4": "ctwo_verb",
+                "a5": "ctwo_object",
+                "a6": "ctwo_object",
+                "a7": "ctwo_context",
+                "a8": "ctwo_context",
+                "a9": "ctwo_ending",
+                "a10": "ctwo_ending",
+                "a11": "ctwo_condition"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

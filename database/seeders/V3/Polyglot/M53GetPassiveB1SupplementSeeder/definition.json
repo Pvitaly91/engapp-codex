@@ -1,0 +1,165 @@
+{
+    "schema_version": 1,
+    "status": "frozen",
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\M53GetPassiveB1SupplementSeeder",
+        "uuid_namespace": "M53GetPassiveB1SupplementSeeder"
+    },
+    "taxonomy_status": "confirmed-existing-only",
+    "taxonomy_note_uk": "Використано чинні category English Sentence Builder і source Get Passive. Нові taxonomy, tags та saved tests не створюються. Локальний apply виконує лише guarded insert-only M53 workflow.",
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "B1": 3
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "get_passive": {
+            "name": "Get Passive"
+        }
+    },
+    "tags": {},
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "uuid": "m53-get-b1-01",
+            "source_uid": "m53-get-b1-01",
+            "question": "Чи запросили Ірину на зустріч учора?",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Чи запросили Ірину на зустріч учора?",
+            "target_text": "Did Iryna get invited to the meeting yesterday?",
+            "tokens_correct": [
+                "Did",
+                "Iryna",
+                "get",
+                "invited",
+                "to",
+                "the",
+                "meeting",
+                "yesterday",
+                "?"
+            ],
+            "answers": {
+                "a1": "Did",
+                "a2": "Iryna",
+                "a3": "get",
+                "a4": "invited",
+                "a5": "to",
+                "a6": "the",
+                "a7": "meeting",
+                "a8": "yesterday",
+                "a9": "?"
+            },
+            "options": [
+                "Did",
+                "Iryna",
+                "get",
+                "invited",
+                "to",
+                "the",
+                "meeting",
+                "yesterday",
+                "?",
+                "does",
+                "getting",
+                "invite"
+            ],
+            "source": "get_passive"
+        },
+        {
+            "uuid": "m53-get-b1-02",
+            "source_uid": "m53-get-b1-02",
+            "question": "Нас не обрали до команди минулого тижня.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Нас не обрали до команди минулого тижня.",
+            "target_text": "We did not get selected for the team last week.",
+            "tokens_correct": [
+                "We",
+                "did",
+                "not",
+                "get",
+                "selected",
+                "for",
+                "the",
+                "team",
+                "last",
+                "week",
+                "."
+            ],
+            "answers": {
+                "a1": "We",
+                "a2": "did",
+                "a3": "not",
+                "a4": "get",
+                "a5": "selected",
+                "a6": "for",
+                "a7": "the",
+                "a8": "team",
+                "a9": "last",
+                "a10": "week",
+                "a11": "."
+            },
+            "options": [
+                "We",
+                "did",
+                "not",
+                "get",
+                "selected",
+                "for",
+                "the",
+                "team",
+                "last",
+                "week",
+                ".",
+                "got",
+                "select",
+                "getting"
+            ],
+            "source": "get_passive"
+        },
+        {
+            "uuid": "m53-get-b1-03",
+            "source_uid": "m53-get-b1-03",
+            "question": "Працівникам платять щоп’ятниці.",
+            "level": "B1",
+            "type": 4,
+            "source_text_uk": "Працівникам платять щоп’ятниці.",
+            "target_text": "Workers get paid every Friday.",
+            "tokens_correct": [
+                "Workers",
+                "get",
+                "paid",
+                "every",
+                "Friday",
+                "."
+            ],
+            "answers": {
+                "a1": "Workers",
+                "a2": "get",
+                "a3": "paid",
+                "a4": "every",
+                "a5": "Friday",
+                "a6": "."
+            },
+            "options": [
+                "Workers",
+                "get",
+                "paid",
+                "every",
+                "Friday",
+                ".",
+                "gets",
+                "pay",
+                "got"
+            ],
+            "source": "get_passive"
+        }
+    ]
+}

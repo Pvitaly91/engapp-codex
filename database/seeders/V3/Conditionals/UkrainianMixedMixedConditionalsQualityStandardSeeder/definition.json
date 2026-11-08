@@ -1,0 +1,2017 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/mixed-conditionals.v1.json",
+        "sha256": "bd19471c9a0b5a54df5b70ff9c8182eb71fc284dbca090aa2131e277a94b427f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\UkrainianMixedMixedConditionalsQualityStandardSeeder",
+        "uuid_namespace": "conditionals-quality-mixed-conditionals-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "conditionals_quality_mixed_conditionals": {
+            "name": "Conditionals Quality: Mixed Conditionals"
+        }
+    },
+    "tags": {
+        "conditionals_mixed_conditionals": {
+            "name": "Mixed Conditionals",
+            "category": "conditionals"
+        },
+        "past_condition_present_result": {
+            "name": "Past Condition Present Result",
+            "category": "topic"
+        },
+        "present_condition_past_result": {
+            "name": "Present Condition Past Result",
+            "category": "topic"
+        },
+        "unreal_past_cause": {
+            "name": "Unreal Past Cause",
+            "category": "topic"
+        },
+        "present_consequence": {
+            "name": "Present Consequence",
+            "category": "topic"
+        },
+        "present_unreal_state": {
+            "name": "Present Unreal State",
+            "category": "topic"
+        },
+        "past_consequence": {
+            "name": "Past Consequence",
+            "category": "topic"
+        },
+        "time_relationship": {
+            "name": "Time Relationship",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_mixed_conditionals"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-mixed-a1-g01",
+            "author_id": "A1-g01",
+            "question": "If I had eaten breakfast, I {a1} hungry now.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби я поснідав, я не був би зараз голодний.",
+            "target_text": "If I had eaten breakfast, I would not be hungry now.",
+            "markers": {
+                "a1": {
+                    "answer": "would not be",
+                    "options": [
+                        "would not be",
+                        "would not been",
+                        "will not be"
+                    ],
+                    "verb_hint": "Не був би зараз; минула невиконана умова має теперішній наслідок."
+                }
+            },
+            "verb_hint": "Не був би зараз; минула невиконана умова має теперішній наслідок.",
+            "accepted_target_texts": [
+                "If I had eaten breakfast, I would not be hungry now.",
+                "If I had eaten breakfast, I wouldn't be hungry now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wouldn't be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wouldn't be"
+                ]
+            },
+            "reorder_groups": [
+                "If I",
+                "had eaten",
+                "breakfast,",
+                "I",
+                "would not be",
+                "hungry now."
+            ],
+            "token_groups": [
+                "If I",
+                "had eaten",
+                "breakfast,",
+                "I",
+                "would not be",
+                "hungry now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-mixed-a1-g02",
+            "author_id": "A1-g02",
+            "question": "If we {a1} a map, we would know the way now.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби ми взяли карту, то зараз знали б дорогу.",
+            "target_text": "If we had taken a map, we would know the way now.",
+            "markers": {
+                "a1": {
+                    "answer": "had taken",
+                    "options": [
+                        "had taken",
+                        "have taken",
+                        "had take"
+                    ],
+                    "verb_hint": "Взяли б тоді; потрібна передминула умова з наслідком зараз."
+                }
+            },
+            "verb_hint": "Взяли б тоді; потрібна передминула умова з наслідком зараз.",
+            "accepted_target_texts": [
+                "If we had taken a map, we would know the way now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "we",
+                "had taken",
+                "a map,",
+                "we would know",
+                "the way now."
+            ],
+            "token_groups": [
+                "If",
+                "we",
+                "had taken",
+                "a map,",
+                "we would know",
+                "the way now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-mixed-a1-g03",
+            "author_id": "A1-g03",
+            "question": "If I {a1} taller, I would have reached that shelf yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби я був вищим, то вчора дістав би до тієї полиці.",
+            "target_text": "If I were taller, I would have reached that shelf yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "am",
+                        "be"
+                    ],
+                    "verb_hint": "Був би вищим узагалі; теперішня властивість пояснює минулий результат."
+                }
+            },
+            "verb_hint": "Був би вищим узагалі; теперішня властивість пояснює минулий результат.",
+            "accepted_target_texts": [
+                "If I were taller, I would have reached that shelf yesterday.",
+                "If I was taller, I would have reached that shelf yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If I",
+                "were",
+                "taller,",
+                "I would have",
+                "reached",
+                "that shelf",
+                "yesterday."
+            ],
+            "token_groups": [
+                "If I",
+                "were",
+                "taller,",
+                "I would have",
+                "reached",
+                "that shelf",
+                "yesterday."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-mixed-a1-g04",
+            "author_id": "A1-g04",
+            "question": "If Kim had kept the ticket, she {a1} a seat now.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби Кім зберегла квиток, вона зараз мала б місце.",
+            "target_text": "If Kim had kept the ticket, she would have a seat now.",
+            "markers": {
+                "a1": {
+                    "answer": "would have",
+                    "options": [
+                        "would have",
+                        "would had",
+                        "will have"
+                    ],
+                    "verb_hint": "Мала б зараз; не додавай передминулої форми до теперішнього наслідку."
+                }
+            },
+            "verb_hint": "Мала б зараз; не додавай передминулої форми до теперішнього наслідку.",
+            "accepted_target_texts": [
+                "If Kim had kept the ticket, she would have a seat now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "Kim",
+                "had kept",
+                "the ticket,",
+                "she",
+                "would have",
+                "a seat now."
+            ],
+            "token_groups": [
+                "If",
+                "Kim",
+                "had kept",
+                "the ticket,",
+                "she",
+                "would have",
+                "a seat now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-mixed-a1-g05",
+            "author_id": "A1-g05",
+            "question": "If we {a1} nearby, we would have visited you last night.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби ми жили поруч, то зайшли б до тебе вчора ввечері.",
+            "target_text": "If we lived nearby, we would have visited you last night.",
+            "markers": {
+                "a1": {
+                    "answer": "lived",
+                    "options": [
+                        "lived",
+                        "live",
+                        "had live"
+                    ],
+                    "verb_hint": "Жили б поруч узагалі; ця теперішня умова пояснює минулу подію."
+                }
+            },
+            "verb_hint": "Жили б поруч узагалі; ця теперішня умова пояснює минулу подію.",
+            "accepted_target_texts": [
+                "If we lived nearby, we would have visited you last night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "we",
+                "lived",
+                "nearby,",
+                "we would have",
+                "visited",
+                "you last night."
+            ],
+            "token_groups": [
+                "If",
+                "we",
+                "lived",
+                "nearby,",
+                "we would have",
+                "visited",
+                "you last night."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-mixed-a1-g06",
+            "author_id": "A1-g06",
+            "question": "If he were careful, he {a1} the cup this morning.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби він був обережним, то не розбив би чашку сьогодні вранці.",
+            "target_text": "If he were careful, he would not have broken the cup this morning.",
+            "markers": {
+                "a1": {
+                    "answer": "would not have broken",
+                    "options": [
+                        "would not have broken",
+                        "would not broken",
+                        "would not have break"
+                    ],
+                    "verb_hint": "Не розбив би тоді; теперішня риса пов’язана з минулим результатом."
+                }
+            },
+            "verb_hint": "Не розбив би тоді; теперішня риса пов’язана з минулим результатом.",
+            "accepted_target_texts": [
+                "If he were careful, he would not have broken the cup this morning.",
+                "If he were careful, he wouldn't have broken the cup this morning."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wouldn't have broken"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wouldn't have broken"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "he",
+                "were careful,",
+                "he",
+                "would not have",
+                "broken",
+                "the cup",
+                "this morning."
+            ],
+            "token_groups": [
+                "If",
+                "he",
+                "were careful,",
+                "he",
+                "would not have",
+                "broken",
+                "the cup",
+                "this morning."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-mixed-a2-g01",
+            "author_id": "A2-g01",
+            "question": "If Nina had charged her phone, she {a1} us now.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби Ніна зарядила телефон, вона могла б зараз нам зателефонувати.",
+            "target_text": "If Nina had charged her phone, she could call us now.",
+            "markers": {
+                "a1": {
+                    "answer": "could call",
+                    "options": [
+                        "could call",
+                        "could called",
+                        "could to call"
+                    ],
+                    "verb_hint": "Могла б зараз телефонувати; потрібна теперішня можливість після минулої умови."
+                }
+            },
+            "verb_hint": "Могла б зараз телефонувати; потрібна теперішня можливість після минулої умови.",
+            "accepted_target_texts": [
+                "If Nina had charged her phone, she could call us now.",
+                "If Nina had charged her phone, she could phone us now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could phone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could phone"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "Nina",
+                "had charged",
+                "her phone,",
+                "she",
+                "could call",
+                "us now."
+            ],
+            "token_groups": [
+                "If",
+                "Nina",
+                "had charged",
+                "her phone,",
+                "she",
+                "could call",
+                "us now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-mixed-a2-g02",
+            "author_id": "A2-g02",
+            "question": "If I {a1} late, I would feel better today.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби я не засидівся допізна, сьогодні почувався б краще.",
+            "target_text": "If I had not stayed up late, I would feel better today.",
+            "markers": {
+                "a1": {
+                    "answer": "had not stayed up",
+                    "options": [
+                        "had not stayed up",
+                        "had not stay up",
+                        "have not stayed up"
+                    ],
+                    "verb_hint": "Не засидівся б тоді; потрібна заперечна передминула група умови."
+                }
+            },
+            "verb_hint": "Не засидівся б тоді; потрібна заперечна передминула група умови.",
+            "accepted_target_texts": [
+                "If I had not stayed up late, I would feel better today.",
+                "If I hadn't stayed up late, I would feel better today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't stayed up"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't stayed up"
+                ]
+            },
+            "reorder_groups": [
+                "If I",
+                "had not",
+                "stayed up",
+                "late,",
+                "I would feel",
+                "better today."
+            ],
+            "token_groups": [
+                "If I",
+                "had not",
+                "stayed up",
+                "late,",
+                "I would feel",
+                "better today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-mixed-a2-g03",
+            "author_id": "A2-g03",
+            "question": "If he {a1} Italian, he would have understood the announcement yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби він знав італійську, то вчора зрозумів би оголошення.",
+            "target_text": "If he spoke Italian, he would have understood the announcement yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "spoke",
+                    "options": [
+                        "spoke",
+                        "speaks",
+                        "had speak"
+                    ],
+                    "verb_hint": "Говорив би цією мовою взагалі; минула подія залежить від теперішнього вміння."
+                }
+            },
+            "verb_hint": "Говорив би цією мовою взагалі; минула подія залежить від теперішнього вміння.",
+            "accepted_target_texts": [
+                "If he spoke Italian, he would have understood the announcement yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "he",
+                "spoke",
+                "Italian,",
+                "he would have",
+                "understood",
+                "the announcement",
+                "yesterday."
+            ],
+            "token_groups": [
+                "If",
+                "he",
+                "spoke",
+                "Italian,",
+                "he would have",
+                "understood",
+                "the announcement",
+                "yesterday."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-mixed-a2-g04",
+            "author_id": "A2-g04",
+            "question": "If we had booked another room, we {a1} together tonight.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби ми забронювали іншу кімнату, сьогодні ввечері жили б разом.",
+            "target_text": "If we had booked another room, we would be staying together tonight.",
+            "markers": {
+                "a1": {
+                    "answer": "would be staying",
+                    "options": [
+                        "would be staying",
+                        "would been staying",
+                        "will be staying"
+                    ],
+                    "verb_hint": "Перебували б разом сьогодні ввечері; потрібна тривала група уявного теперішнього наслідку."
+                }
+            },
+            "verb_hint": "Перебували б разом сьогодні ввечері; потрібна тривала група уявного теперішнього наслідку.",
+            "accepted_target_texts": [
+                "If we had booked another room, we would be staying together tonight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "we",
+                "had booked",
+                "another room,",
+                "we",
+                "would be staying",
+                "together tonight."
+            ],
+            "token_groups": [
+                "If",
+                "we",
+                "had booked",
+                "another room,",
+                "we",
+                "would be staying",
+                "together tonight."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-mixed-a2-g05",
+            "author_id": "A2-g05",
+            "question": "If I {a1} crowds, I would have joined the parade last week.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби я не відчував неприязні до натовпів, то приєднався б до параду минулого тижня.",
+            "target_text": "If I did not dislike crowds, I would have joined the parade last week.",
+            "markers": {
+                "a1": {
+                    "answer": "did not dislike",
+                    "options": [
+                        "did not dislike",
+                        "did not disliked",
+                        "do not dislike"
+                    ],
+                    "verb_hint": "Не відчував би неприязні до натовпів узагалі; збережи заперечення теперішньої риси."
+                }
+            },
+            "verb_hint": "Не відчував би неприязні до натовпів узагалі; збережи заперечення теперішньої риси.",
+            "accepted_target_texts": [
+                "If I did not dislike crowds, I would have joined the parade last week.",
+                "If I didn't dislike crowds, I would have joined the parade last week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't dislike"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't dislike"
+                ]
+            },
+            "reorder_groups": [
+                "If I",
+                "did not dislike",
+                "crowds,",
+                "I would have",
+                "joined",
+                "the parade",
+                "last week."
+            ],
+            "token_groups": [
+                "If I",
+                "did not dislike",
+                "crowds,",
+                "I would have",
+                "joined",
+                "the parade",
+                "last week."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-mixed-a2-g06",
+            "author_id": "A2-g06",
+            "question": "If she were organised, she {a1} the bags last night.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби вона була організованою, то спакувала б сумки вчора ввечері.",
+            "target_text": "If she were organised, she would have packed the bags last night.",
+            "markers": {
+                "a1": {
+                    "answer": "would have packed",
+                    "options": [
+                        "would have packed",
+                        "would packed",
+                        "would have pack"
+                    ],
+                    "verb_hint": "Спакувала б тоді; теперішня риса пояснює невиконаний минулий результат."
+                }
+            },
+            "verb_hint": "Спакувала б тоді; теперішня риса пояснює невиконаний минулий результат.",
+            "accepted_target_texts": [
+                "If she were organised, she would have packed the bags last night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "she",
+                "were organised,",
+                "she",
+                "would have",
+                "packed",
+                "the bags",
+                "last night."
+            ],
+            "token_groups": [
+                "If",
+                "she",
+                "were organised,",
+                "she",
+                "would have",
+                "packed",
+                "the bags",
+                "last night."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-mixed-b1-g01",
+            "author_id": "B1-g01",
+            "question": "If the council had repaired the bridge, traffic {a1} more freely now.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби рада відремонтувала міст, рух зараз був би вільнішим.",
+            "target_text": "If the council had repaired the bridge, traffic would flow more freely now.",
+            "markers": {
+                "a1": {
+                    "answer": "would flow",
+                    "options": [
+                        "would flow",
+                        "would flowed",
+                        "will flow"
+                    ],
+                    "verb_hint": "Рухався б вільніше зараз; передай теперішній наслідок минулого рішення."
+                }
+            },
+            "verb_hint": "Рухався б вільніше зараз; передай теперішній наслідок минулого рішення.",
+            "accepted_target_texts": [
+                "If the council had repaired the bridge, traffic would flow more freely now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the council",
+                "had repaired",
+                "the bridge,",
+                "traffic",
+                "would flow",
+                "more freely now."
+            ],
+            "token_groups": [
+                "If",
+                "the council",
+                "had repaired",
+                "the bridge,",
+                "traffic",
+                "would flow",
+                "more freely now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-mixed-b1-g02",
+            "author_id": "B1-g02",
+            "question": "If I {a1} the transfer, I would be living abroad this year.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби я погодився на переведення, цього року жив би за кордоном.",
+            "target_text": "If I had accepted the transfer, I would be living abroad this year.",
+            "markers": {
+                "a1": {
+                    "answer": "had accepted",
+                    "options": [
+                        "had accepted",
+                        "have accepted",
+                        "had accept"
+                    ],
+                    "verb_hint": "Погодився б тоді; потрібна передминула група умови."
+                }
+            },
+            "verb_hint": "Погодився б тоді; потрібна передминула група умови.",
+            "accepted_target_texts": [
+                "If I had accepted the transfer, I would be living abroad this year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If I",
+                "had accepted",
+                "the transfer,",
+                "I would be",
+                "living abroad",
+                "this year."
+            ],
+            "token_groups": [
+                "If I",
+                "had accepted",
+                "the transfer,",
+                "I would be",
+                "living abroad",
+                "this year."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-mixed-b1-g03",
+            "author_id": "B1-g03",
+            "question": "If Tomas {a1} less shy, he would have introduced himself at yesterday's event.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби Томас був менш сором’язливим, він представився б на вчорашній події.",
+            "target_text": "If Tomas were less shy, he would have introduced himself at yesterday's event.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "be"
+                    ],
+                    "verb_hint": "Був би менш сором’язливим узагалі; теперішня риса пояснює минулу поведінку."
+                }
+            },
+            "verb_hint": "Був би менш сором’язливим узагалі; теперішня риса пояснює минулу поведінку.",
+            "accepted_target_texts": [
+                "If Tomas were less shy, he would have introduced himself at yesterday's event.",
+                "If Tomas was less shy, he would have introduced himself at yesterday's event."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "Tomas",
+                "were",
+                "less shy,",
+                "he would have",
+                "introduced himself",
+                "at yesterday's event."
+            ],
+            "token_groups": [
+                "If",
+                "Tomas",
+                "were",
+                "less shy,",
+                "he would have",
+                "introduced himself",
+                "at yesterday's event."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-mixed-b1-g04",
+            "author_id": "B1-g04",
+            "question": "If the company had retained the engineer, we {a1} this problem today.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби компанія втримала інженера, ми могли б розв’язати цю проблему сьогодні.",
+            "target_text": "If the company had retained the engineer, we could solve this problem today.",
+            "markers": {
+                "a1": {
+                    "answer": "could solve",
+                    "options": [
+                        "could solve",
+                        "could solved",
+                        "could to solve"
+                    ],
+                    "verb_hint": "Могли б розв’язати зараз; теперішня можливість залежить від минулого рішення."
+                }
+            },
+            "verb_hint": "Могли б розв’язати зараз; теперішня можливість залежить від минулого рішення.",
+            "accepted_target_texts": [
+                "If the company had retained the engineer, we could solve this problem today.",
+                "If the company had retained the engineer, we could resolve this problem today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "could resolve"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "could resolve"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the company",
+                "had retained",
+                "the engineer,",
+                "we",
+                "could solve",
+                "this problem today."
+            ],
+            "token_groups": [
+                "If",
+                "the company",
+                "had retained",
+                "the engineer,",
+                "we",
+                "could solve",
+                "this problem today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-mixed-b1-g05",
+            "author_id": "B1-g05",
+            "question": "If they {a1} us, they would not have shared those files yesterday.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби вони нам не довіряли, то вчора не поділилися б тими файлами.",
+            "target_text": "If they did not trust us, they would not have shared those files yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "did not trust",
+                    "options": [
+                        "did not trust",
+                        "did not trusted",
+                        "do not trust"
+                    ],
+                    "verb_hint": "Не довіряли б узагалі; потрібна заперечна умова про теперішнє ставлення."
+                }
+            },
+            "verb_hint": "Не довіряли б узагалі; потрібна заперечна умова про теперішнє ставлення.",
+            "accepted_target_texts": [
+                "If they did not trust us, they would not have shared those files yesterday.",
+                "If they didn't trust us, they would not have shared those files yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't trust"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't trust"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "they",
+                "did not trust",
+                "us,",
+                "they would not",
+                "have shared",
+                "those files",
+                "yesterday."
+            ],
+            "token_groups": [
+                "If",
+                "they",
+                "did not trust",
+                "us,",
+                "they would not",
+                "have shared",
+                "those files",
+                "yesterday."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-mixed-b1-g06",
+            "author_id": "B1-g06",
+            "question": "If she understood the risks, she {a1} the waiver last month.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби вона розуміла ризики, то минулого місяця не підписала б відмову від претензій.",
+            "target_text": "If she understood the risks, she would not have signed the waiver last month.",
+            "markers": {
+                "a1": {
+                    "answer": "would not have signed",
+                    "options": [
+                        "would not have signed",
+                        "would not signed",
+                        "would not have sign"
+                    ],
+                    "verb_hint": "Не підписала б тоді; потрібна повна заперечна група минулого результату."
+                }
+            },
+            "verb_hint": "Не підписала б тоді; потрібна повна заперечна група минулого результату.",
+            "accepted_target_texts": [
+                "If she understood the risks, she would not have signed the waiver last month.",
+                "If she understood the risks, she wouldn't have signed the waiver last month."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wouldn't have signed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wouldn't have signed"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "she",
+                "understood",
+                "the risks,",
+                "she",
+                "would not have",
+                "signed",
+                "the waiver",
+                "last month."
+            ],
+            "token_groups": [
+                "If",
+                "she",
+                "understood",
+                "the risks,",
+                "she",
+                "would not have",
+                "signed",
+                "the waiver",
+                "last month."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "cqq-mixed-b2-g01",
+            "author_id": "B2-g01",
+            "question": "If the landlord had renewed the lease, the studio {a1} available today.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби орендодавець поновив договір, студія була б досі доступна сьогодні.",
+            "target_text": "If the landlord had renewed the lease, the studio would still be available today.",
+            "markers": {
+                "a1": {
+                    "answer": "would still be",
+                    "options": [
+                        "would still be",
+                        "would still been",
+                        "will still be"
+                    ],
+                    "verb_hint": "Була б досі доступна; потрібна теперішня група наслідку минулої умови."
+                }
+            },
+            "verb_hint": "Була б досі доступна; потрібна теперішня група наслідку минулої умови.",
+            "accepted_target_texts": [
+                "If the landlord had renewed the lease, the studio would still be available today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the landlord",
+                "had renewed",
+                "the lease,",
+                "the studio",
+                "would still be",
+                "available today."
+            ],
+            "token_groups": [
+                "If",
+                "the landlord",
+                "had renewed",
+                "the lease,",
+                "the studio",
+                "would still be",
+                "available today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "cqq-mixed-b2-g02",
+            "author_id": "B2-g02",
+            "question": "If we {a1} the sample, our estimates would be more stable now.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби ми не скоротили вибірку, наші оцінки зараз були б стабільнішими.",
+            "target_text": "If we had not reduced the sample, our estimates would be more stable now.",
+            "markers": {
+                "a1": {
+                    "answer": "had not reduced",
+                    "options": [
+                        "had not reduced",
+                        "had not reduce",
+                        "have not reduced"
+                    ],
+                    "verb_hint": "Не скоротили б тоді; потрібна заперечна передминула умова."
+                }
+            },
+            "verb_hint": "Не скоротили б тоді; потрібна заперечна передминула умова.",
+            "accepted_target_texts": [
+                "If we had not reduced the sample, our estimates would be more stable now.",
+                "If we hadn't reduced the sample, our estimates would be more stable now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't reduced"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't reduced"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "we",
+                "had not",
+                "reduced",
+                "the sample,",
+                "our estimates",
+                "would be",
+                "more stable now."
+            ],
+            "token_groups": [
+                "If",
+                "we",
+                "had not",
+                "reduced",
+                "the sample,",
+                "our estimates",
+                "would be",
+                "more stable now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "cqq-mixed-b2-g03",
+            "author_id": "B2-g03",
+            "question": "If the firm {a1} an effective complaints procedure, it would have resolved that dispute last year.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби фірма мала дієву процедуру розгляду скарг, вона розв’язала б ту суперечку торік.",
+            "target_text": "If the firm had an effective complaints procedure, it would have resolved that dispute last year.",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "has",
+                        "would have"
+                    ],
+                    "verb_hint": "Мала б дієву процедуру зараз і загалом; ця властивість пояснює минулий результат."
+                }
+            },
+            "verb_hint": "Мала б дієву процедуру зараз і загалом; ця властивість пояснює минулий результат.",
+            "accepted_target_texts": [
+                "If the firm had an effective complaints procedure, it would have resolved that dispute last year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the firm",
+                "had",
+                "an effective",
+                "complaints procedure,",
+                "it would have",
+                "resolved",
+                "that dispute",
+                "last year."
+            ],
+            "token_groups": [
+                "If",
+                "the firm",
+                "had",
+                "an effective",
+                "complaints procedure,",
+                "it would have",
+                "resolved",
+                "that dispute",
+                "last year."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "cqq-mixed-b2-g04",
+            "author_id": "B2-g04",
+            "question": "If the policy had been communicated clearly, staff {a1} their responsibilities now.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби політику чітко пояснили, працівники зараз знали б свої обов’язки.",
+            "target_text": "If the policy had been communicated clearly, staff would know their responsibilities now.",
+            "markers": {
+                "a1": {
+                    "answer": "would know",
+                    "options": [
+                        "would know",
+                        "would knew",
+                        "will know"
+                    ],
+                    "verb_hint": "Знали б зараз; не перетворюй теперішнє знання на минулий результат."
+                }
+            },
+            "verb_hint": "Знали б зараз; не перетворюй теперішнє знання на минулий результат.",
+            "accepted_target_texts": [
+                "If the policy had been communicated clearly, staff would know their responsibilities now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the policy",
+                "had been",
+                "communicated clearly,",
+                "staff",
+                "would know",
+                "their responsibilities now."
+            ],
+            "token_groups": [
+                "If",
+                "the policy",
+                "had been",
+                "communicated clearly,",
+                "staff",
+                "would know",
+                "their responsibilities now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "cqq-mixed-b2-g05",
+            "author_id": "B2-g05",
+            "question": "If the chair {a1} genuinely impartial, she would not have dismissed that objection so readily.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби голова була справді неупередженою, вона не відкинула б те заперечення так легко.",
+            "target_text": "If the chair were genuinely impartial, she would not have dismissed that objection so readily.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "be"
+                    ],
+                    "verb_hint": "Була б неупередженою взагалі; потрібна теперішня уявна риса."
+                }
+            },
+            "verb_hint": "Була б неупередженою взагалі; потрібна теперішня уявна риса.",
+            "accepted_target_texts": [
+                "If the chair were genuinely impartial, she would not have dismissed that objection so readily.",
+                "If the chair was genuinely impartial, she would not have dismissed that objection so readily."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the chair",
+                "were",
+                "genuinely impartial,",
+                "she would not",
+                "have dismissed",
+                "that objection",
+                "so readily."
+            ],
+            "token_groups": [
+                "If",
+                "the chair",
+                "were",
+                "genuinely impartial,",
+                "she would not",
+                "have dismissed",
+                "that objection",
+                "so readily."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "cqq-mixed-b2-g06",
+            "author_id": "B2-g06",
+            "question": "If access did not depend on connections, the committee {a1} our application last spring.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби доступ не залежав від зв’язків, комітет розглянув би нашу заявку минулої весни.",
+            "target_text": "If access did not depend on connections, the committee would have considered our application last spring.",
+            "markers": {
+                "a1": {
+                    "answer": "would have considered",
+                    "options": [
+                        "would have considered",
+                        "would considered",
+                        "would have consider"
+                    ],
+                    "verb_hint": "Розглянув би тоді; теперішня системна умова пов’язана з минулим результатом."
+                }
+            },
+            "verb_hint": "Розглянув би тоді; теперішня системна умова пов’язана з минулим результатом.",
+            "accepted_target_texts": [
+                "If access did not depend on connections, the committee would have considered our application last spring."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "access",
+                "did not depend",
+                "on connections,",
+                "the committee",
+                "would have",
+                "considered",
+                "our application",
+                "last spring."
+            ],
+            "token_groups": [
+                "If",
+                "access",
+                "did not depend",
+                "on connections,",
+                "the committee",
+                "would have",
+                "considered",
+                "our application",
+                "last spring."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "cqq-mixed-c1-g01",
+            "author_id": "C1-g01",
+            "question": "If the edition had documented its interventions, readers {a1} conjecture from evidence today.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби видання задокументувало свої втручання, читачі сьогодні могли б відрізнити припущення від доказів.",
+            "target_text": "If the edition had documented its interventions, readers could distinguish conjecture from evidence today.",
+            "markers": {
+                "a1": {
+                    "answer": "could distinguish",
+                    "options": [
+                        "could distinguish",
+                        "could distinguished",
+                        "could to distinguish"
+                    ],
+                    "verb_hint": "Могли б розрізняти сьогодні; передай теперішню можливість після минулої умови."
+                }
+            },
+            "verb_hint": "Могли б розрізняти сьогодні; передай теперішню можливість після минулої умови.",
+            "accepted_target_texts": [
+                "If the edition had documented its interventions, readers could distinguish conjecture from evidence today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the edition",
+                "had documented",
+                "its interventions,",
+                "readers",
+                "could distinguish",
+                "conjecture from evidence",
+                "today."
+            ],
+            "token_groups": [
+                "If",
+                "the edition",
+                "had documented",
+                "its interventions,",
+                "readers",
+                "could distinguish",
+                "conjecture from evidence",
+                "today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "cqq-mixed-c1-g02",
+            "author_id": "C1-g02",
+            "question": "If the inquiry {a1} the raw testimony, we would be in a position to reassess the finding now.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби розслідування зберегло первинні свідчення, ми могли б зараз переоцінити висновок.",
+            "target_text": "If the inquiry had retained the raw testimony, we would be in a position to reassess the finding now.",
+            "markers": {
+                "a1": {
+                    "answer": "had retained",
+                    "options": [
+                        "had retained",
+                        "has retained",
+                        "had retain"
+                    ],
+                    "verb_hint": "Зберегло б тоді; потрібна передминула умова з нинішнім наслідком."
+                }
+            },
+            "verb_hint": "Зберегло б тоді; потрібна передминула умова з нинішнім наслідком.",
+            "accepted_target_texts": [
+                "If the inquiry had retained the raw testimony, we would be in a position to reassess the finding now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the inquiry",
+                "had retained",
+                "the raw testimony,",
+                "we would be",
+                "in a position",
+                "to reassess",
+                "the finding now."
+            ],
+            "token_groups": [
+                "If",
+                "the inquiry",
+                "had retained",
+                "the raw testimony,",
+                "we would be",
+                "in a position",
+                "to reassess",
+                "the finding now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "cqq-mixed-c1-g03",
+            "author_id": "C1-g03",
+            "question": "If the analyst {a1} less committed to that framework, she would have entertained the rival account last week.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби аналітикиня менше трималася тієї схеми, вона розглянула б альтернативну версію минулого тижня.",
+            "target_text": "If the analyst were less committed to that framework, she would have entertained the rival account last week.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "be"
+                    ],
+                    "verb_hint": "Була б менш прив’язаною до схеми загалом; ця риса пояснює минуле рішення."
+                }
+            },
+            "verb_hint": "Була б менш прив’язаною до схеми загалом; ця риса пояснює минуле рішення.",
+            "accepted_target_texts": [
+                "If the analyst were less committed to that framework, she would have entertained the rival account last week.",
+                "If the analyst was less committed to that framework, she would have entertained the rival account last week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the analyst",
+                "were",
+                "less committed",
+                "to that framework,",
+                "she would have",
+                "entertained",
+                "the rival account",
+                "last week."
+            ],
+            "token_groups": [
+                "If",
+                "the analyst",
+                "were",
+                "less committed",
+                "to that framework,",
+                "she would have",
+                "entertained",
+                "the rival account",
+                "last week."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "cqq-mixed-c1-g04",
+            "author_id": "C1-g04",
+            "question": "If the reservation had been recorded explicitly, neither party {a1} unconditional consent now.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби застереження прямо зафіксували, жодна сторона зараз не заявляла б про безумовну згоду.",
+            "target_text": "If the reservation had been recorded explicitly, neither party would claim unconditional consent now.",
+            "markers": {
+                "a1": {
+                    "answer": "would claim",
+                    "options": [
+                        "would claim",
+                        "would claimed",
+                        "will claim"
+                    ],
+                    "verb_hint": "Заявляла б зараз; заперечення вже передане словами про жодну сторону."
+                }
+            },
+            "verb_hint": "Заявляла б зараз; заперечення вже передане словами про жодну сторону.",
+            "accepted_target_texts": [
+                "If the reservation had been recorded explicitly, neither party would claim unconditional consent now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the reservation",
+                "had been",
+                "recorded explicitly,",
+                "neither party",
+                "would claim",
+                "unconditional consent now."
+            ],
+            "token_groups": [
+                "If",
+                "the reservation",
+                "had been",
+                "recorded explicitly,",
+                "neither party",
+                "would claim",
+                "unconditional consent now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "cqq-mixed-c1-g05",
+            "author_id": "C1-g05",
+            "question": "If the archive {a1} consultation, we could have compared the witnesses during our visit.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби архів не обмежував доступу, ми могли б порівняти джерела під час нашого візиту.",
+            "target_text": "If the archive did not restrict consultation, we could have compared the witnesses during our visit.",
+            "markers": {
+                "a1": {
+                    "answer": "did not restrict",
+                    "options": [
+                        "did not restrict",
+                        "did not restricted",
+                        "does not restrict"
+                    ],
+                    "verb_hint": "Не обмежував би доступ узагалі; ця чинна політика пояснює минулий результат."
+                }
+            },
+            "verb_hint": "Не обмежував би доступ узагалі; ця чинна політика пояснює минулий результат.",
+            "accepted_target_texts": [
+                "If the archive did not restrict consultation, we could have compared the witnesses during our visit.",
+                "If the archive didn't restrict consultation, we could have compared the witnesses during our visit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't restrict"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't restrict"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the archive",
+                "did not restrict",
+                "consultation,",
+                "we could have",
+                "compared",
+                "the witnesses",
+                "during our visit."
+            ],
+            "token_groups": [
+                "If",
+                "the archive",
+                "did not restrict",
+                "consultation,",
+                "we could have",
+                "compared",
+                "the witnesses",
+                "during our visit."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "cqq-mixed-c1-g06",
+            "author_id": "C1-g06",
+            "question": "If the model separated mechanism from association, its designers {a1} its explanatory reach in that paper.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби модель відокремлювала механізм від зв’язку, її розробники не перебільшили б пояснювальні можливості в тій статті.",
+            "target_text": "If the model separated mechanism from association, its designers would not have overstated its explanatory reach in that paper.",
+            "markers": {
+                "a1": {
+                    "answer": "would not have overstated",
+                    "options": [
+                        "would not have overstated",
+                        "would not overstated",
+                        "would not have overstate"
+                    ],
+                    "verb_hint": "Не перебільшили б тоді; теперішня властивість моделі пояснює минулий висновок."
+                }
+            },
+            "verb_hint": "Не перебільшили б тоді; теперішня властивість моделі пояснює минулий висновок.",
+            "accepted_target_texts": [
+                "If the model separated mechanism from association, its designers would not have overstated its explanatory reach in that paper.",
+                "If the model separated mechanism from association, its designers wouldn't have overstated its explanatory reach in that paper."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wouldn't have overstated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wouldn't have overstated"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the model",
+                "separated",
+                "mechanism from association,",
+                "its designers",
+                "would not have",
+                "overstated",
+                "its explanatory reach",
+                "in that paper."
+            ],
+            "token_groups": [
+                "If",
+                "the model",
+                "separated",
+                "mechanism from association,",
+                "its designers",
+                "would not have",
+                "overstated",
+                "its explanatory reach",
+                "in that paper."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "cqq-mixed-c2-g01",
+            "author_id": "C2-g01",
+            "question": "If the paraphrase had preserved the original hesitation, it {a1} certainty now.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби перефразування зберегло початкове вагання, воно зараз не означало б певності.",
+            "target_text": "If the paraphrase had preserved the original hesitation, it would not imply certainty now.",
+            "markers": {
+                "a1": {
+                    "answer": "would not imply",
+                    "options": [
+                        "would not imply",
+                        "would not implied",
+                        "will not imply"
+                    ],
+                    "verb_hint": "Не означало б зараз; потрібен теперішній наслідок минулого редагування."
+                }
+            },
+            "verb_hint": "Не означало б зараз; потрібен теперішній наслідок минулого редагування.",
+            "accepted_target_texts": [
+                "If the paraphrase had preserved the original hesitation, it would not imply certainty now.",
+                "If the paraphrase had preserved the original hesitation, it wouldn't imply certainty now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wouldn't imply"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wouldn't imply"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the paraphrase",
+                "had preserved",
+                "the original hesitation,",
+                "it",
+                "would not imply",
+                "certainty now."
+            ],
+            "token_groups": [
+                "If",
+                "the paraphrase",
+                "had preserved",
+                "the original hesitation,",
+                "it",
+                "would not imply",
+                "certainty now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "cqq-mixed-c2-g02",
+            "author_id": "C2-g02",
+            "question": "If the manuscript {a1}, we could still trace the competing readings.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби рукопис не уніфікували, ми досі могли б простежити конкуруючі прочитання.",
+            "target_text": "If the manuscript had not been normalised, we could still trace the competing readings.",
+            "markers": {
+                "a1": {
+                    "answer": "had not been normalised",
+                    "options": [
+                        "had not been normalised",
+                        "had not normalised",
+                        "has not been normalised"
+                    ],
+                    "verb_hint": "Не був би уніфікований тоді; потрібна заперечна передминула пасивна умова."
+                }
+            },
+            "verb_hint": "Не був би уніфікований тоді; потрібна заперечна передминула пасивна умова.",
+            "accepted_target_texts": [
+                "If the manuscript had not been normalised, we could still trace the competing readings.",
+                "If the manuscript hadn't been normalised, we could still trace the competing readings.",
+                "If the manuscript had not been normalized, we could still trace the competing readings.",
+                "If the manuscript hadn't been normalized, we could still trace the competing readings."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hadn't been normalised",
+                    "had not been normalized",
+                    "hadn't been normalized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hadn't been normalised",
+                    "had not been normalized",
+                    "hadn't been normalized"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the manuscript",
+                "had not been",
+                "normalised,",
+                "we could still",
+                "trace",
+                "the competing readings."
+            ],
+            "token_groups": [
+                "If",
+                "the manuscript",
+                "had not been",
+                "normalised,",
+                "we could still",
+                "trace",
+                "the competing readings."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "cqq-mixed-c2-g03",
+            "author_id": "C2-g03",
+            "question": "If the theory {a1} genuinely falsifiable, that observation would have counted against it at the time.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби теорія справді допускала спростування, те спостереження тоді було б аргументом проти неї.",
+            "target_text": "If the theory were genuinely falsifiable, that observation would have counted against it at the time.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "be"
+                    ],
+                    "verb_hint": "Була б спростовуваною як властивість; наслідок стосується минулого спостереження."
+                }
+            },
+            "verb_hint": "Була б спростовуваною як властивість; наслідок стосується минулого спостереження.",
+            "accepted_target_texts": [
+                "If the theory were genuinely falsifiable, that observation would have counted against it at the time.",
+                "If the theory was genuinely falsifiable, that observation would have counted against it at the time."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the theory",
+                "were",
+                "genuinely falsifiable,",
+                "that observation",
+                "would have counted",
+                "against it",
+                "at the time."
+            ],
+            "token_groups": [
+                "If",
+                "the theory",
+                "were",
+                "genuinely falsifiable,",
+                "that observation",
+                "would have counted",
+                "against it",
+                "at the time."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "cqq-mixed-c2-g04",
+            "author_id": "C2-g04",
+            "question": "If the dissent had been accurately characterised, the settlement {a1} greater legitimacy today.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби незгоду точно охарактеризували, врегулювання сьогодні мало б більшу легітимність.",
+            "target_text": "If the dissent had been accurately characterised, the settlement would command greater legitimacy today.",
+            "markers": {
+                "a1": {
+                    "answer": "would command",
+                    "options": [
+                        "would command",
+                        "would commanded",
+                        "will command"
+                    ],
+                    "verb_hint": "Мало б більшу легітимність сьогодні; потрібен теперішній умовний результат."
+                }
+            },
+            "verb_hint": "Мало б більшу легітимність сьогодні; потрібен теперішній умовний результат.",
+            "accepted_target_texts": [
+                "If the dissent had been accurately characterised, the settlement would command greater legitimacy today."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "the dissent",
+                "had been",
+                "accurately characterised,",
+                "the settlement",
+                "would command",
+                "greater legitimacy today."
+            ],
+            "token_groups": [
+                "If",
+                "the dissent",
+                "had been",
+                "accurately characterised,",
+                "the settlement",
+                "would command",
+                "greater legitimacy today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "cqq-mixed-c2-g05",
+            "author_id": "C2-g05",
+            "question": "If the commentator {a1} permission with obligation, she would have retained the qualification in yesterday's summary.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби коментаторка не змішувала дозвіл з обов’язком, вона зберегла б застереження у вчорашньому викладі.",
+            "target_text": "If the commentator did not conflate permission with obligation, she would have retained the qualification in yesterday's summary.",
+            "markers": {
+                "a1": {
+                    "answer": "did not conflate",
+                    "options": [
+                        "did not conflate",
+                        "did not conflated",
+                        "does not conflate"
+                    ],
+                    "verb_hint": "Не змішувала б ці поняття взагалі; теперішній підхід пояснює минулий виклад."
+                }
+            },
+            "verb_hint": "Не змішувала б ці поняття взагалі; теперішній підхід пояснює минулий виклад.",
+            "accepted_target_texts": [
+                "If the commentator did not conflate permission with obligation, she would have retained the qualification in yesterday's summary.",
+                "If the commentator didn't conflate permission with obligation, she would have retained the qualification in yesterday's summary."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "didn't conflate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "didn't conflate"
+                ]
+            },
+            "reorder_groups": [
+                "If",
+                "the commentator",
+                "did not conflate",
+                "permission with obligation,",
+                "she would have",
+                "retained",
+                "the qualification",
+                "in yesterday's summary."
+            ],
+            "token_groups": [
+                "If",
+                "the commentator",
+                "did not conflate",
+                "permission with obligation,",
+                "she would have",
+                "retained",
+                "the qualification",
+                "in yesterday's summary."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "cqq-mixed-c2-g06",
+            "author_id": "C2-g06",
+            "question": "If our categories captured that asymmetry, we {a1} the earlier cases differently.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_mixed_conditionals",
+            "translation_uk": "Якби наші категорії відображали цю асиметрію, ми інакше класифікували б попередні випадки.",
+            "target_text": "If our categories captured that asymmetry, we would have classified the earlier cases differently.",
+            "markers": {
+                "a1": {
+                    "answer": "would have classified",
+                    "options": [
+                        "would have classified",
+                        "would classified",
+                        "would have classify"
+                    ],
+                    "verb_hint": "Класифікували б тоді; теперішня властивість категорій пояснює минуле рішення."
+                }
+            },
+            "verb_hint": "Класифікували б тоді; теперішня властивість категорій пояснює минуле рішення.",
+            "accepted_target_texts": [
+                "If our categories captured that asymmetry, we would have classified the earlier cases differently."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "If",
+                "our categories",
+                "captured",
+                "that asymmetry,",
+                "we",
+                "would have",
+                "classified",
+                "the earlier cases",
+                "differently."
+            ],
+            "token_groups": [
+                "If",
+                "our categories",
+                "captured",
+                "that asymmetry,",
+                "we",
+                "would have",
+                "classified",
+                "the earlier cases",
+                "differently."
+            ],
+            "quality_revision": "cqq-v1"
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67198,
+        "uuid": "stq-clauses-a2-g01",
+        "question": "I kept the receipt {a1} the shop might ask for it.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 63,
+        "source_id": 576,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqRelativeClausesLinkingWordsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "because",
+                "although",
+                "unless"
+            ]
+        },
+        "theory_text_block_uuid": "52108efd-0bbc-5505-9def-93e98f5a34c9",
+        "created_at": "2026-11-03T01:30:48.000000Z",
+        "updated_at": "2026-11-03T01:30:48.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 576,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Relative Clauses and Linking Words",
+        "created_at": "2026-11-03T01:30:48.000000Z",
+        "updated_at": "2026-11-03T01:30:48.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 2760,
+                "option": "because",
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 67198,
+                "option_id": 2760,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4923,
+                "option": "although",
+                "created_at": "2026-04-23T14:41:22.000000Z",
+                "updated_at": "2026-04-23T14:41:22.000000Z"
+            },
+            "pivot": {
+                "question_id": 67198,
+                "option_id": 4923,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 7093,
+                "option": "Unless",
+                "created_at": "2026-04-23T14:46:57.000000Z",
+                "updated_at": "2026-04-23T14:46:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 67198,
+                "option_id": 7093,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343314,
+                "question_id": 67198,
+                "marker": "a1",
+                "option_id": 2760,
+                "created_at": "2026-11-03T01:30:48.000000Z",
+                "updated_at": "2026-11-03T01:30:48.000000Z"
+            },
+            "option": {
+                "id": 2760,
+                "option": "because",
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60648,
+                "question_id": 67198,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71448,
+                "created_at": "2026-11-03T01:30:48.000000Z",
+                "updated_at": "2026-11-03T01:30:48.000000Z"
+            },
+            "option": {
+                "id": 71448,
+                "option": "Пов’яжи збереження чека з названою причиною; введи лише причинний сполучник, решта повідомлення вже наведена.",
+                "created_at": "2026-11-03T01:30:48.000000Z",
+                "updated_at": "2026-11-03T01:30:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59213,
+            "question_id": 67198,
+            "text": "I kept the receipt {a1} the shop might ask for it.",
+            "created_at": "2026-11-03T01:30:48.000000Z",
+            "updated_at": "2026-11-03T01:30:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

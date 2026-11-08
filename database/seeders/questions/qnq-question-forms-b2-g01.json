@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62210,
+        "uuid": "qnq-question-forms-b2-g01",
+        "question": "How long {a1} the diver been missing?",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 60,
+        "source_id": 456,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionFormsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had",
+                "was",
+                "did"
+            ]
+        },
+        "theory_text_block_uuid": "791ef826-2ea0-5076-a8f2-6432f8ff715d",
+        "created_at": "2026-10-30T13:52:00.000000Z",
+        "updated_at": "2026-10-30T13:52:00.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 456,
+        "name": "Questions and Negations Quality: Question Forms",
+        "created_at": "2026-10-30T13:51:58.000000Z",
+        "updated_at": "2026-10-30T13:51:58.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 284,
+                "name": "Question Forms",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62210,
+                "tag_id": 284,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 26,
+                "option": "was",
+                "created_at": "2026-04-23T11:39:52.000000Z",
+                "updated_at": "2026-04-23T11:39:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 62210,
+                "option_id": 26,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49,
+                "option": "did",
+                "created_at": "2026-04-23T11:39:54.000000Z",
+                "updated_at": "2026-04-23T11:39:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62210,
+                "option_id": 49,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 458,
+                "option": "had",
+                "created_at": "2026-04-23T11:41:34.000000Z",
+                "updated_at": "2026-04-23T11:41:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 62210,
+                "option_id": 458,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 331486,
+                "question_id": 62210,
+                "marker": "a1",
+                "option_id": 458,
+                "created_at": "2026-10-30T13:52:00.000000Z",
+                "updated_at": "2026-10-30T13:52:00.000000Z"
+            },
+            "option": {
+                "id": 458,
+                "option": "had",
+                "created_at": "2026-04-23T11:41:34.000000Z",
+                "updated_at": "2026-04-23T11:41:34.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 48820,
+                "question_id": 62210,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56267,
+                "created_at": "2026-10-30T13:52:00.000000Z",
+                "updated_at": "2026-10-30T13:52:00.000000Z"
+            },
+            "option": {
+                "id": 56267,
+                "option": "Запитай про стан до встановленого минулого моменту; решта складеної форми вже подана.",
+                "created_at": "2026-10-30T13:52:00.000000Z",
+                "updated_at": "2026-10-30T13:52:00.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54225,
+            "question_id": 62210,
+            "text": "How long {a1} the diver been missing?",
+            "created_at": "2026-10-30T13:52:00.000000Z",
+            "updated_at": "2026-10-30T13:52:00.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

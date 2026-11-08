@@ -1,0 +1,682 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cmq-v1",
+    "compiled_from": {
+        "path": "docs/content/common-mistakes-quality/prepositions-common-mistakes.v1.json",
+        "sha256": "8d2c7300c7f83f094e21b8d14c39df15d4624fef42a25dc5376425553ef02647"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\CommonMistakes\\UkrainianMixedCmqPrepositionsQualityStandardSeeder",
+        "uuid_namespace": "common-mistakes-quality-prepositions-common-mistakes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Common Mistakes"
+    },
+    "sources": {
+        "common_mistakes_quality_prepositions_common_mistakes": {
+            "name": "Common Mistakes Quality: Prepositions: Common Mistakes"
+        }
+    },
+    "tags": {
+        "common_mistakes_prepositions_common_mistakes_all_levels": {
+            "name": "common mistakes prepositions common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "in_on_at_time": {
+            "name": "In On At Time",
+            "category": "topic"
+        },
+        "in_on_at_place": {
+            "name": "In On At Place",
+            "category": "topic"
+        },
+        "movement_prepositions": {
+            "name": "Movement Prepositions",
+            "category": "topic"
+        },
+        "for_since": {
+            "name": "For Since",
+            "category": "topic"
+        },
+        "by_until": {
+            "name": "By Until",
+            "category": "topic"
+        },
+        "during_while": {
+            "name": "During While",
+            "category": "topic"
+        },
+        "dependent_prepositions": {
+            "name": "Dependent Prepositions",
+            "category": "topic"
+        },
+        "adjective_prepositions": {
+            "name": "Adjective Prepositions",
+            "category": "topic"
+        },
+        "noun_prepositions": {
+            "name": "Noun Prepositions",
+            "category": "topic"
+        },
+        "translation_traps": {
+            "name": "Translation Traps",
+            "category": "topic"
+        },
+        "unnecessary_preposition": {
+            "name": "Unnecessary Preposition",
+            "category": "topic"
+        },
+        "missing_preposition": {
+            "name": "Missing Preposition",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cmq-prepositions-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The shoes are {a1} the sofa, not on it.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Взуття під диваном, а не на ньому.",
+            "target_text": "The shoes are under the sofa, not on it.",
+            "markers": {
+                "a1": {
+                    "answer": "under",
+                    "options": [
+                        "under",
+                        "on",
+                        "above"
+                    ],
+                    "verb_hint": "Під: назви місце нижче дивана."
+                }
+            },
+            "verb_hint": "Під: назви місце нижче дивана.",
+            "accepted_target_texts": [
+                "The shoes are under the sofa, not on it.",
+                "The shoes are beneath the sofa, not on it.",
+                "The shoes are underneath the sofa, not on it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "beneath",
+                    "underneath"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "beneath",
+                    "underneath"
+                ]
+            },
+            "reorder_groups": [
+                "The shoes",
+                "are under",
+                "the sofa,",
+                "not on it."
+            ],
+            "token_groups": [
+                "The shoes",
+                "are under",
+                "the sofa,",
+                "not on it."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cmq-prepositions-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The birthday party is {a1} Saturday.",
+            "level": "A1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Святкування дня народження — у суботу.",
+            "target_text": "The birthday party is on Saturday.",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "in",
+                        "at"
+                    ],
+                    "verb_hint": "Перед назвою конкретного дня тижня потрібен часовий прийменник."
+                }
+            },
+            "verb_hint": "Перед назвою конкретного дня тижня потрібен часовий прийменник.",
+            "accepted_target_texts": [
+                "The birthday party is on Saturday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The birthday party",
+                "is on Saturday."
+            ],
+            "token_groups": [
+                "The birthday party",
+                "is on Saturday."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cmq-prepositions-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The hikers arrived {a1} Estonia in June.",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Туристи прибули до Естонії в червні.",
+            "target_text": "The hikers arrived in Estonia in June.",
+            "markers": {
+                "a1": {
+                    "answer": "in",
+                    "options": [
+                        "in",
+                        "to",
+                        "at"
+                    ],
+                    "verb_hint": "Прибути до країни; після дієслова прибуття потрібен прийменник території."
+                }
+            },
+            "verb_hint": "Прибути до країни; після дієслова прибуття потрібен прийменник території.",
+            "accepted_target_texts": [
+                "The hikers arrived in Estonia in June."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hikers arrived",
+                "in Estonia",
+                "in June."
+            ],
+            "token_groups": [
+                "The hikers arrived",
+                "in Estonia",
+                "in June."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cmq-prepositions-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Please wait {a1} the break; I cannot talk now.",
+            "level": "A2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Почекай до перерви; зараз я не можу говорити.",
+            "target_text": "Please wait until the break; I cannot talk now.",
+            "markers": {
+                "a1": {
+                    "answer": "until",
+                    "options": [
+                        "until",
+                        "during",
+                        "since"
+                    ],
+                    "verb_hint": "До настання перерви: назви часову межу очікування."
+                }
+            },
+            "verb_hint": "До настання перерви: назви часову межу очікування.",
+            "accepted_target_texts": [
+                "Please wait until the break; I cannot talk now.",
+                "Please wait till the break; I cannot talk now."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "till"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "till"
+                ]
+            },
+            "reorder_groups": [
+                "Please wait",
+                "until the break;",
+                "I cannot",
+                "talk now."
+            ],
+            "token_groups": [
+                "Please wait",
+                "until the break;",
+                "I cannot",
+                "talk now."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cmq-prepositions-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Please congratulate Mira {a1} winning the chess contest.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Привітай Міру з перемогою в шаховому конкурсі.",
+            "target_text": "Please congratulate Mira on winning the chess contest.",
+            "markers": {
+                "a1": {
+                    "answer": "on",
+                    "options": [
+                        "on",
+                        "about",
+                        "at"
+                    ],
+                    "verb_hint": "З перемогою: назви причину привітання, не його адресатку."
+                }
+            },
+            "verb_hint": "З перемогою: назви причину привітання, не його адресатку.",
+            "accepted_target_texts": [
+                "Please congratulate Mira on winning the chess contest.",
+                "Please congratulate Mira for winning the chess contest."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "for"
+                ]
+            },
+            "reorder_groups": [
+                "Please congratulate",
+                "Mira on winning",
+                "the chess contest."
+            ],
+            "token_groups": [
+                "Please congratulate",
+                "Mira on winning",
+                "the chess contest."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cmq-prepositions-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The manager apologised {a1} us for the delay.",
+            "level": "B1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Менеджер перепросив нас за затримку.",
+            "target_text": "The manager apologised to us for the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "to",
+                    "options": [
+                        "to",
+                        "at",
+                        "on"
+                    ],
+                    "verb_hint": "Нам: потрібен прийменник адресата вибачення; причина вже названа далі."
+                }
+            },
+            "verb_hint": "Нам: потрібен прийменник адресата вибачення; причина вже названа далі.",
+            "accepted_target_texts": [
+                "The manager apologised to us for the delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager",
+                "apologised to us",
+                "for the delay."
+            ],
+            "token_groups": [
+                "The manager",
+                "apologised to us",
+                "for the delay."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cmq-prepositions-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The committee objected {a1} the application without an interview.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Комітет заперечив проти відхилення заявки без співбесіди.",
+            "target_text": "The committee objected to rejecting the application without an interview.",
+            "markers": {
+                "a1": {
+                    "answer": "to rejecting",
+                    "options": [
+                        "to rejecting",
+                        "to reject",
+                        "against rejecting"
+                    ],
+                    "verb_hint": "Проти відхилення: залежний прийменник поєднай з назвою дії, а не з інфінітивом."
+                }
+            },
+            "verb_hint": "Проти відхилення: залежний прийменник поєднай з назвою дії, а не з інфінітивом.",
+            "accepted_target_texts": [
+                "The committee objected to rejecting the application without an interview.",
+                "The committee objected to refusing the application without an interview.",
+                "The committee objected to dismissing the application without an interview.",
+                "The committee objected to turning down the application without an interview.",
+                "The committee objected to denying the application without an interview."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to refusing",
+                    "to dismissing",
+                    "to turning down",
+                    "to denying"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to refusing",
+                    "to dismissing",
+                    "to turning down",
+                    "to denying"
+                ]
+            },
+            "reorder_groups": [
+                "The committee",
+                "objected to rejecting",
+                "the application",
+                "without an interview."
+            ],
+            "token_groups": [
+                "The committee",
+                "objected to rejecting",
+                "the application",
+                "without an interview."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cmq-prepositions-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The receptionist mistook the visitor {a1} a courier.",
+            "level": "B2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Адміністратор помилково прийняв відвідувача за кур’єра.",
+            "target_text": "The receptionist mistook the visitor for a courier.",
+            "markers": {
+                "a1": {
+                    "answer": "for",
+                    "options": [
+                        "for",
+                        "as",
+                        "with"
+                    ],
+                    "verb_hint": "За когось іншого: потрібен прийменник помилкової ідентифікації."
+                }
+            },
+            "verb_hint": "За когось іншого: потрібен прийменник помилкової ідентифікації.",
+            "accepted_target_texts": [
+                "The receptionist mistook the visitor for a courier."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The receptionist",
+                "mistook the visitor",
+                "for a courier."
+            ],
+            "token_groups": [
+                "The receptionist",
+                "mistook the visitor",
+                "for a courier."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cmq-prepositions-c1-g01",
+            "author_id": "C1-g01",
+            "question": "We make no distinction {a1} permanent and temporary staff here.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Ми тут не робимо різниці між постійними й тимчасовими працівниками.",
+            "target_text": "We make no distinction between permanent and temporary staff here.",
+            "markers": {
+                "a1": {
+                    "answer": "between",
+                    "options": [
+                        "between",
+                        "among",
+                        "from"
+                    ],
+                    "verb_hint": "Між двома названими категоріями персоналу; обери прийменник розмежування."
+                }
+            },
+            "verb_hint": "Між двома названими категоріями персоналу; обери прийменник розмежування.",
+            "accepted_target_texts": [
+                "We make no distinction between permanent and temporary staff here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We make",
+                "no distinction",
+                "between permanent",
+                "and temporary staff",
+                "here."
+            ],
+            "token_groups": [
+                "We make",
+                "no distinction",
+                "between permanent",
+                "and temporary staff",
+                "here."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cmq-prepositions-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The claim is inconsistent {a1} the witness's earlier account.",
+            "level": "C1",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Це твердження суперечить попередній розповіді свідка.",
+            "target_text": "The claim is inconsistent with the witness's earlier account.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "to",
+                        "for"
+                    ],
+                    "verb_hint": "З розповіддю: після прикметника несумісності потрібен залежний прийменник."
+                }
+            },
+            "verb_hint": "З розповіддю: після прикметника несумісності потрібен залежний прийменник.",
+            "accepted_target_texts": [
+                "The claim is inconsistent with the witness's earlier account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The claim",
+                "is inconsistent",
+                "with the witness's",
+                "earlier account."
+            ],
+            "token_groups": [
+                "The claim",
+                "is inconsistent",
+                "with the witness's",
+                "earlier account."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cmq-prepositions-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The waiver is conditional {a1} full compliance with the disclosure requirement.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Звільнення від обов’язку залежить від повного виконання вимоги розкрити інформацію.",
+            "target_text": "The waiver is conditional upon full compliance with the disclosure requirement.",
+            "markers": {
+                "a1": {
+                    "answer": "upon",
+                    "options": [
+                        "upon",
+                        "with",
+                        "for"
+                    ],
+                    "verb_hint": "Від виконання умови: після прикметника умовності назви залежний прийменник."
+                }
+            },
+            "verb_hint": "Від виконання умови: після прикметника умовності назви залежний прийменник.",
+            "accepted_target_texts": [
+                "The waiver is conditional upon full compliance with the disclosure requirement.",
+                "The waiver is conditional on full compliance with the disclosure requirement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "on"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "on"
+                ]
+            },
+            "reorder_groups": [
+                "The waiver",
+                "is conditional",
+                "upon full compliance",
+                "with the",
+                "disclosure requirement."
+            ],
+            "token_groups": [
+                "The waiver",
+                "is conditional",
+                "upon full compliance",
+                "with the",
+                "disclosure requirement."
+            ],
+            "quality_revision": "cmq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cmq-prepositions-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The amendment is {a1} the rights already acquired by residents.",
+            "level": "C2",
+            "type": 0,
+            "source": "common_mistakes_quality_prepositions_common_mistakes",
+            "translation_uk": "Поправка не зачіпає прав, які мешканці вже набули.",
+            "target_text": "The amendment is without prejudice to the rights already acquired by residents.",
+            "markers": {
+                "a1": {
+                    "answer": "without prejudice to",
+                    "options": [
+                        "without prejudice to",
+                        "without prejudice for",
+                        "without prejudicing to"
+                    ],
+                    "verb_hint": "Без шкоди для цих прав: потрібен повний формальний прийменниковий зворот."
+                }
+            },
+            "verb_hint": "Без шкоди для цих прав: потрібен повний формальний прийменниковий зворот.",
+            "accepted_target_texts": [
+                "The amendment is without prejudice to the rights already acquired by residents.",
+                "The amendment is without detriment to the rights already acquired by residents."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "without detriment to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "without detriment to"
+                ]
+            },
+            "reorder_groups": [
+                "The amendment",
+                "is without prejudice",
+                "to the rights",
+                "already acquired",
+                "by residents."
+            ],
+            "token_groups": [
+                "The amendment",
+                "is without prejudice",
+                "to the rights",
+                "already acquired",
+                "by residents."
+            ],
+            "quality_revision": "cmq-v1"
+        }
+    ]
+}

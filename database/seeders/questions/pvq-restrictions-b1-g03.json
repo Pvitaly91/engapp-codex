@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 63880,
+        "uuid": "pvq-restrictions-b1-g03",
+        "question": "The soup {a1} rather salty.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 10,
+        "source_id": 487,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceRestrictionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "tastes",
+                "tasted",
+                "will taste"
+            ]
+        },
+        "theory_text_block_uuid": "1bd842ee-a151-5f56-822f-420fdab79619",
+        "created_at": "2026-10-30T20:16:50.000000Z",
+        "updated_at": "2026-10-30T20:16:50.000000Z"
+    },
+    "category": {
+        "id": 10,
+        "name": "Passive Voice",
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
+    },
+    "source": {
+        "id": 487,
+        "name": "Passive Voice Quality: Обмеження пасивного стану",
+        "created_at": "2026-10-30T20:16:49.000000Z",
+        "updated_at": "2026-10-30T20:16:49.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 2998,
+                "option": "tastes",
+                "created_at": "2026-04-23T14:18:47.000000Z",
+                "updated_at": "2026-04-23T14:18:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 63880,
+                "option_id": 2998,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 20647,
+                "option": "tasted",
+                "created_at": "2026-05-17T20:43:37.000000Z",
+                "updated_at": "2026-05-17T20:43:37.000000Z"
+            },
+            "pivot": {
+                "question_id": 63880,
+                "option_id": 20647,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 61396,
+                "option": "will taste",
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "pivot": {
+                "question_id": 63880,
+                "option_id": 61396,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 334851,
+                "question_id": 63880,
+                "marker": "a1",
+                "option_id": 2998,
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "option": {
+                "id": 2998,
+                "option": "tastes",
+                "created_at": "2026-04-23T14:18:47.000000Z",
+                "updated_at": "2026-04-23T14:18:47.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 52185,
+                "question_id": 63880,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 61395,
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            },
+            "option": {
+                "id": 61395,
+                "option": "Передай теперішню ознаку смаку дієсловом-зв'язкою без пасивної форми.",
+                "created_at": "2026-10-30T20:16:50.000000Z",
+                "updated_at": "2026-10-30T20:16:50.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55895,
+            "question_id": 63880,
+            "text": "The soup {a1} rather salty.",
+            "created_at": "2026-10-30T20:16:50.000000Z",
+            "updated_at": "2026-10-30T20:16:50.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

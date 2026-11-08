@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62806,
+        "uuid": "qnq-double-negatives-b2-g03",
+        "question": "Not all the witnesses {a1} the account.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 60,
+        "source_id": 467,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedDoubleNegativesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "corroborated",
+                "did not corroborate",
+                "never corroborated"
+            ]
+        },
+        "theory_text_block_uuid": "b30a1048-f8e1-51c0-b053-a06bb705b5a4",
+        "created_at": "2026-10-30T13:53:54.000000Z",
+        "updated_at": "2026-10-30T13:53:54.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 467,
+        "name": "Questions and Negations Quality: Double Negatives",
+        "created_at": "2026-10-30T13:53:52.000000Z",
+        "updated_at": "2026-10-30T13:53:52.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2673,
+                "name": "Double Negatives",
+                "category": null,
+                "created_at": "2026-05-21T17:53:26.000000Z",
+                "updated_at": "2026-05-21T17:53:26.000000Z"
+            },
+            "pivot": {
+                "question_id": 62806,
+                "tag_id": 2673,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 33832,
+                "option": "corroborated",
+                "created_at": "2026-07-08T20:07:59.000000Z",
+                "updated_at": "2026-07-08T20:07:59.000000Z"
+            },
+            "pivot": {
+                "question_id": 62806,
+                "option_id": 33832,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 58021,
+                "option": "did not corroborate",
+                "created_at": "2026-10-30T13:53:54.000000Z",
+                "updated_at": "2026-10-30T13:53:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62806,
+                "option_id": 58021,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 58022,
+                "option": "never corroborated",
+                "created_at": "2026-10-30T13:53:54.000000Z",
+                "updated_at": "2026-10-30T13:53:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62806,
+                "option_id": 58022,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332677,
+                "question_id": 62806,
+                "marker": "a1",
+                "option_id": 33832,
+                "created_at": "2026-10-30T13:53:54.000000Z",
+                "updated_at": "2026-10-30T13:53:54.000000Z"
+            },
+            "option": {
+                "id": 33832,
+                "option": "corroborated",
+                "created_at": "2026-07-08T20:07:59.000000Z",
+                "updated_at": "2026-07-08T20:07:59.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50011,
+                "question_id": 62806,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58020,
+                "created_at": "2026-10-30T13:53:54.000000Z",
+                "updated_at": "2026-10-30T13:53:54.000000Z"
+            },
+            "option": {
+                "id": 58020,
+                "option": "Заперечення стосується повноти групи, а не дії кожного; збережи стверджувальний присудок.",
+                "created_at": "2026-10-30T13:53:54.000000Z",
+                "updated_at": "2026-10-30T13:53:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54821,
+            "question_id": 62806,
+            "text": "Not all the witnesses {a1} the account.",
+            "created_at": "2026-10-30T13:53:54.000000Z",
+            "updated_at": "2026-10-30T13:53:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

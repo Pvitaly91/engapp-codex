@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66166,
+        "uuid": "rsq-questions-c2-g03",
+        "question": "The counsel asked whose interests the disclosure {a1} to protect.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 62,
+        "source_id": 529,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had been intended",
+                "had intended",
+                "has been intended"
+            ]
+        },
+        "theory_text_block_uuid": "18c44d6a-938f-590a-b7be-ad91b970972d",
+        "created_at": "2026-11-01T20:04:41.000000Z",
+        "updated_at": "2026-11-01T20:04:41.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 529,
+        "name": "Reported Speech Quality: Reported Questions",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68223,
+                "option": "had been intended",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66166,
+                "option_id": 68223,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68225,
+                "option": "had intended",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66166,
+                "option_id": 68225,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68226,
+                "option": "has been intended",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66166,
+                "option_id": 68226,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340855,
+                "question_id": 66166,
+                "marker": "a1",
+                "option_id": 68223,
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "option": {
+                "id": 68223,
+                "option": "had been intended",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58189,
+                "question_id": 66166,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68224,
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "option": {
+                "id": 68224,
+                "option": "Було задумане раніше; збережи пасив наміру після вже названого підмета.",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58181,
+            "question_id": 66166,
+            "text": "The counsel asked whose interests the disclosure {a1} to protect.",
+            "created_at": "2026-11-01T20:04:41.000000Z",
+            "updated_at": "2026-11-01T20:04:41.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

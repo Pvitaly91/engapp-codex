@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 64949,
+        "uuid": "mvq-mht-a1-g04",
+        "question": "You {a1} in the library.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 56,
+        "source_id": 507,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ModalVerbs\\UkrainianMixedMustHaveToQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "must not shout",
+                "must not shouts",
+                "must not to shout"
+            ]
+        },
+        "theory_text_block_uuid": "f1ef252c-5534-5830-acc1-6e25959020ab",
+        "created_at": "2026-10-31T18:13:06.000000Z",
+        "updated_at": "2026-10-31T18:13:06.000000Z"
+    },
+    "category": {
+        "id": 56,
+        "name": "Modal Verbs",
+        "created_at": "2026-05-17T22:31:01.000000Z",
+        "updated_at": "2026-05-17T22:31:01.000000Z"
+    },
+    "source": {
+        "id": 507,
+        "name": "Modal Verbs Quality: Must and Have to",
+        "created_at": "2026-10-31T18:13:06.000000Z",
+        "updated_at": "2026-10-31T18:13:06.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 18,
+                "name": "must / have to",
+                "category": "topic",
+                "created_at": "2026-04-23T11:40:15.000000Z",
+                "updated_at": "2026-04-23T11:40:15.000000Z"
+            },
+            "pivot": {
+                "question_id": 64949,
+                "tag_id": 18,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 64363,
+                "option": "must not shout",
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 64949,
+                "option_id": 64363,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64365,
+                "option": "must not shouts",
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 64949,
+                "option_id": 64365,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 64366,
+                "option": "must not to shout",
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            },
+            "pivot": {
+                "question_id": 64949,
+                "option_id": 64366,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 337450,
+                "question_id": 64949,
+                "marker": "a1",
+                "option_id": 64363,
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            },
+            "option": {
+                "id": 64363,
+                "option": "must not shout",
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 54784,
+                "question_id": 64949,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 64364,
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            },
+            "option": {
+                "id": 64364,
+                "option": "Кричати заборонено; не замінюй заборону відсутністю потреби.",
+                "created_at": "2026-10-31T18:13:06.000000Z",
+                "updated_at": "2026-10-31T18:13:06.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 56964,
+            "question_id": 64949,
+            "text": "You {a1} in the library.",
+            "created_at": "2026-10-31T18:13:06.000000Z",
+            "updated_at": "2026-10-31T18:13:06.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

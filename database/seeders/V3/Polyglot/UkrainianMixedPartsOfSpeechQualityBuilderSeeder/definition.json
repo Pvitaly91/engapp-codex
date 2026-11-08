@@ -1,0 +1,3416 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/parts-of-speech.v1.json",
+        "sha256": "0fcb6c4ef75200a12229c083ceb010c7501982585a221fb7d94aed9dac8ec35b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPartsOfSpeechQualityBuilderSeeder",
+        "uuid_namespace": "basic-grammar-quality-parts-of-speech-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "basic_grammar_quality_parts_of_speech": {
+            "name": "Basic Grammar Quality: Частини мови"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_parts_of_speech": {
+            "name": "Parts of Speech",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_parts_of_speech"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-parts-of-speech-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Молодий пекар усміхається.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Молодий пекар усміхається.",
+            "target_text": "The young baker smiles.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з уже відомого пекаря з ознакою молодості, а потім назви звичну дію простим теперішнім часом.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "young",
+                    "verb_hint": "Почни з уже відомого пекаря з ознакою молодості, а потім назви звичну дію простим теперішнім часом.",
+                    "options": [
+                        "young",
+                        "bright",
+                        "old",
+                        "cold"
+                    ]
+                },
+                "a3": {
+                    "answer": "baker",
+                    "verb_hint": "Почни з уже відомого пекаря з ознакою молодості, а потім назви звичну дію простим теперішнім часом.",
+                    "options": [
+                        "baker",
+                        "driver",
+                        "neighbour",
+                        "nurse"
+                    ]
+                },
+                "a4": {
+                    "answer": "smiles.",
+                    "verb_hint": "Почни з уже відомого пекаря з ознакою молодості, а потім назви звичну дію простим теперішнім часом.",
+                    "options": [
+                        "smiles",
+                        "speaks",
+                        "shines",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з уже відомого пекаря з ознакою молодості, а потім назви звичну дію простим теперішнім часом.",
+            "accepted_target_texts": [
+                "The young baker smiles."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The young baker",
+                "smiles."
+            ],
+            "token_groups": [
+                "The young baker",
+                "smiles."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "young",
+                "baker",
+                "smiles."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "young",
+                "bright",
+                "old",
+                "cold",
+                "baker",
+                "driver",
+                "neighbour",
+                "nurse",
+                "smiles",
+                "speaks",
+                "shines",
+                "books"
+            ],
+            "source_text_uk": "Молодий пекар усміхається.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "young",
+                    "bright",
+                    "old",
+                    "cold"
+                ],
+                "a3": [
+                    "baker",
+                    "driver",
+                    "neighbour",
+                    "nurse"
+                ],
+                "a4": [
+                    "smiles",
+                    "speaks",
+                    "shines",
+                    "books"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-parts-of-speech-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Моя тітка говорить тихо.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Моя тітка говорить тихо.",
+            "target_text": "My aunt speaks quietly.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Передай звичний спосіб мовлення простим теперішнім часом; після дієслова постав слово способу.",
+                    "options": [
+                        "My",
+                        "Hers",
+                        "Ours",
+                        "Theirs"
+                    ]
+                },
+                "a2": {
+                    "answer": "aunt",
+                    "verb_hint": "Передай звичний спосіб мовлення простим теперішнім часом; після дієслова постав слово способу.",
+                    "options": [
+                        "aunt",
+                        "above",
+                        "star",
+                        "car"
+                    ]
+                },
+                "a3": {
+                    "answer": "speaks",
+                    "verb_hint": "Передай звичний спосіб мовлення простим теперішнім часом; після дієслова постав слово способу.",
+                    "options": [
+                        "speaks",
+                        "smiles",
+                        "shines",
+                        "chairs"
+                    ]
+                },
+                "a4": {
+                    "answer": "quietly.",
+                    "verb_hint": "Передай звичний спосіб мовлення простим теперішнім часом; після дієслова постав слово способу.",
+                    "options": [
+                        "quietly",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                }
+            },
+            "verb_hint": "Передай звичний спосіб мовлення простим теперішнім часом; після дієслова постав слово способу.",
+            "accepted_target_texts": [
+                "My aunt speaks quietly.",
+                "My aunt talks quietly.",
+                "My aunt speaks softly.",
+                "My aunt talks softly."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "talks"
+                ],
+                "a4": [
+                    "softly."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "talks"
+                ],
+                "a4": [
+                    "softly."
+                ]
+            },
+            "reorder_groups": [
+                "My aunt",
+                "speaks quietly."
+            ],
+            "token_groups": [
+                "My aunt",
+                "speaks quietly."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "My",
+                "aunt",
+                "speaks",
+                "quietly."
+            ],
+            "options": [
+                "My",
+                "Hers",
+                "Ours",
+                "Theirs",
+                "aunt",
+                "above",
+                "star",
+                "car",
+                "speaks",
+                "smiles",
+                "shines",
+                "chairs",
+                "quietly",
+                "slowly",
+                "quickly",
+                "carefully"
+            ],
+            "source_text_uk": "Моя тітка говорить тихо.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Hers",
+                    "Ours",
+                    "Theirs"
+                ],
+                "a2": [
+                    "aunt",
+                    "above",
+                    "star",
+                    "car"
+                ],
+                "a3": [
+                    "speaks",
+                    "smiles",
+                    "shines",
+                    "chairs"
+                ],
+                "a4": [
+                    "quietly",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-parts-of-speech-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Над нами сяє яскрава зірка.",
+            "level": "A1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Над нами сяє яскрава зірка.",
+            "target_text": "A bright star shines above us.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "A",
+                        "An",
+                        "The",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "bright",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "bright",
+                        "young",
+                        "small",
+                        "large"
+                    ]
+                },
+                "a3": {
+                    "answer": "star",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "star",
+                        "aunt",
+                        "dog",
+                        "cat"
+                    ]
+                },
+                "a4": {
+                    "answer": "shines",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "shines",
+                        "speaks",
+                        "smiles",
+                        "women"
+                    ]
+                },
+                "a5": {
+                    "answer": "above",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "above",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a6": {
+                    "answer": "us.",
+                    "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+                    "options": [
+                        "us",
+                        "we",
+                        "they",
+                        "me"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з першої згадки про одну зірку, додай її ознаку й дію, далі місце.",
+            "accepted_target_texts": [
+                "A bright star shines above us."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A bright star",
+                "shines above us."
+            ],
+            "token_groups": [
+                "A bright star",
+                "shines above us."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "A",
+                "bright",
+                "star",
+                "shines",
+                "above",
+                "us."
+            ],
+            "options": [
+                "A",
+                "An",
+                "The",
+                "Some",
+                "bright",
+                "young",
+                "small",
+                "large",
+                "star",
+                "aunt",
+                "dog",
+                "cat",
+                "shines",
+                "speaks",
+                "smiles",
+                "women",
+                "above",
+                "table",
+                "ticket",
+                "cup",
+                "us",
+                "we",
+                "they",
+                "me"
+            ],
+            "source_text_uk": "Над нами сяє яскрава зірка.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "An",
+                    "The",
+                    "Some"
+                ],
+                "a2": [
+                    "bright",
+                    "young",
+                    "small",
+                    "large"
+                ],
+                "a3": [
+                    "star",
+                    "aunt",
+                    "dog",
+                    "cat"
+                ],
+                "a4": [
+                    "shines",
+                    "speaks",
+                    "smiles",
+                    "women"
+                ],
+                "a5": [
+                    "above",
+                    "table",
+                    "ticket",
+                    "cup"
+                ],
+                "a6": [
+                    "us",
+                    "we",
+                    "they",
+                    "me"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-parts-of-speech-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Уважний водій негайно зупинився.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Уважний водій негайно зупинився.",
+            "target_text": "The careful driver stopped immediately.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "careful",
+                    "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+                    "options": [
+                        "careful",
+                        "useful",
+                        "friendly",
+                        "small"
+                    ]
+                },
+                "a3": {
+                    "answer": "driver",
+                    "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+                    "options": [
+                        "driver",
+                        "worker",
+                        "visitor",
+                        "teacher"
+                    ]
+                },
+                "a4": {
+                    "answer": "stopped",
+                    "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+                    "options": [
+                        "stopped",
+                        "gave",
+                        "showed",
+                        "closed"
+                    ]
+                },
+                "a5": {
+                    "answer": "immediately.",
+                    "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+                    "options": [
+                        "immediately",
+                        "happily",
+                        "easily",
+                        "politely"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з уже відомого водія, опиши його прикметником і дію прислівником.",
+            "accepted_target_texts": [
+                "The careful driver stopped immediately.",
+                "The careful driver stopped instantly."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "instantly."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "instantly."
+                ]
+            },
+            "reorder_groups": [
+                "The careful driver",
+                "stopped immediately."
+            ],
+            "token_groups": [
+                "The careful driver",
+                "stopped immediately."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "careful",
+                "driver",
+                "stopped",
+                "immediately."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "careful",
+                "useful",
+                "friendly",
+                "small",
+                "driver",
+                "worker",
+                "visitor",
+                "teacher",
+                "stopped",
+                "gave",
+                "showed",
+                "closed",
+                "immediately",
+                "happily",
+                "easily",
+                "politely"
+            ],
+            "source_text_uk": "Уважний водій негайно зупинився.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "careful",
+                    "useful",
+                    "friendly",
+                    "small"
+                ],
+                "a3": [
+                    "driver",
+                    "worker",
+                    "visitor",
+                    "teacher"
+                ],
+                "a4": [
+                    "stopped",
+                    "gave",
+                    "showed",
+                    "closed"
+                ],
+                "a5": [
+                    "immediately",
+                    "happily",
+                    "easily",
+                    "politely"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-parts-of-speech-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Вони дали нам корисну пораду.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Вони дали нам корисну пораду.",
+            "target_text": "They gave us useful advice.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+                    "options": [
+                        "They",
+                        "Them",
+                        "Myself",
+                        "Yourself"
+                    ]
+                },
+                "a2": {
+                    "answer": "gave",
+                    "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+                    "options": [
+                        "gave",
+                        "showed",
+                        "stopped",
+                        "went"
+                    ]
+                },
+                "a3": {
+                    "answer": "us",
+                    "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+                    "options": [
+                        "us",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "useful",
+                    "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+                    "options": [
+                        "useful",
+                        "friendly",
+                        "careful",
+                        "different"
+                    ]
+                },
+                "a5": {
+                    "answer": "advice.",
+                    "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+                    "options": [
+                        "advice",
+                        "guide",
+                        "castle",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Постав об'єктний займенник після дієслова й опиши пораду прикметником.",
+            "accepted_target_texts": [
+                "They gave us useful advice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They gave",
+                "us useful advice."
+            ],
+            "token_groups": [
+                "They gave",
+                "us useful advice."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "They",
+                "gave",
+                "us",
+                "useful",
+                "advice."
+            ],
+            "options": [
+                "They",
+                "Them",
+                "Myself",
+                "Yourself",
+                "gave",
+                "showed",
+                "stopped",
+                "went",
+                "us",
+                "herself",
+                "ourselves",
+                "themselves",
+                "useful",
+                "friendly",
+                "careful",
+                "different",
+                "advice",
+                "guide",
+                "castle",
+                "sister"
+            ],
+            "source_text_uk": "Вони дали нам корисну пораду.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Them",
+                    "Myself",
+                    "Yourself"
+                ],
+                "a2": [
+                    "gave",
+                    "showed",
+                    "stopped",
+                    "went"
+                ],
+                "a3": [
+                    "us",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "useful",
+                    "friendly",
+                    "careful",
+                    "different"
+                ],
+                "a5": [
+                    "advice",
+                    "guide",
+                    "castle",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-parts-of-speech-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Привітний екскурсовод показав нам замок.",
+            "level": "A2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Привітний екскурсовод показав нам замок.",
+            "target_text": "A friendly guide showed us the castle.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "A",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "friendly",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "friendly",
+                        "careful",
+                        "useful",
+                        "clean"
+                    ]
+                },
+                "a3": {
+                    "answer": "guide",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "guide",
+                        "advice",
+                        "door",
+                        "key"
+                    ]
+                },
+                "a4": {
+                    "answer": "showed",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "showed",
+                        "stopped",
+                        "gave",
+                        "drove"
+                    ]
+                },
+                "a5": {
+                    "answer": "us",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "us",
+                        "it",
+                        "we",
+                        "they"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "castle.",
+                    "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+                    "options": [
+                        "castle",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з першої згадки про людину та не перетворюй прикметник на прислівник.",
+            "accepted_target_texts": [
+                "A friendly guide showed us the castle."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A friendly guide",
+                "showed us",
+                "the castle."
+            ],
+            "token_groups": [
+                "A friendly guide",
+                "showed us",
+                "the castle."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "A",
+                "friendly",
+                "guide",
+                "showed",
+                "us",
+                "the",
+                "castle."
+            ],
+            "options": [
+                "A",
+                "These",
+                "Those",
+                "Each",
+                "friendly",
+                "careful",
+                "useful",
+                "clean",
+                "guide",
+                "advice",
+                "door",
+                "key",
+                "showed",
+                "stopped",
+                "gave",
+                "drove",
+                "us",
+                "it",
+                "we",
+                "they",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "castle",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Привітний екскурсовод показав нам замок.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "friendly",
+                    "careful",
+                    "useful",
+                    "clean"
+                ],
+                "a3": [
+                    "guide",
+                    "advice",
+                    "door",
+                    "key"
+                ],
+                "a4": [
+                    "showed",
+                    "stopped",
+                    "gave",
+                    "drove"
+                ],
+                "a5": [
+                    "us",
+                    "it",
+                    "we",
+                    "they"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "castle",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-parts-of-speech-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Раптова тиша викликала в усіх ніяковість.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Раптова тиша викликала в усіх ніяковість.",
+            "target_text": "The sudden silence made everyone uncomfortable.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "sudden",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "sudden",
+                        "delayed",
+                        "explained",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "silence",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "silence",
+                        "cooperate",
+                        "investigation",
+                        "problem"
+                    ]
+                },
+                "a4": {
+                    "answer": "made",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "made",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a5": {
+                    "answer": "everyone",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "everyone",
+                        "refusal",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a6": {
+                    "answer": "uncomfortable.",
+                    "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+                    "options": [
+                        "uncomfortable",
+                        "final",
+                        "small",
+                        "large"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з іменника з ознакою, а стан людей передай прикметником після додатка.",
+            "accepted_target_texts": [
+                "The sudden silence made everyone uncomfortable."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sudden silence",
+                "made everyone",
+                "uncomfortable."
+            ],
+            "token_groups": [
+                "The sudden silence",
+                "made everyone",
+                "uncomfortable."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "sudden",
+                "silence",
+                "made",
+                "everyone",
+                "uncomfortable."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "sudden",
+                "delayed",
+                "explained",
+                "helped",
+                "silence",
+                "cooperate",
+                "investigation",
+                "problem",
+                "made",
+                "took",
+                "wrote",
+                "rode",
+                "everyone",
+                "refusal",
+                "window",
+                "phone",
+                "uncomfortable",
+                "final",
+                "small",
+                "large"
+            ],
+            "source_text_uk": "Раптова тиша викликала в усіх ніяковість.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "sudden",
+                    "delayed",
+                    "explained",
+                    "helped"
+                ],
+                "a3": [
+                    "silence",
+                    "cooperate",
+                    "investigation",
+                    "problem"
+                ],
+                "a4": [
+                    "made",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a5": [
+                    "everyone",
+                    "refusal",
+                    "window",
+                    "phone"
+                ],
+                "a6": [
+                    "uncomfortable",
+                    "final",
+                    "small",
+                    "large"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-parts-of-speech-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Вона пояснила проблему ясно й терпляче.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Вона пояснила проблему ясно й терпляче.",
+            "target_text": "She explained the problem clearly and patiently.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "She",
+                        "He",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "explained",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "explained",
+                        "made",
+                        "delayed",
+                        "sudden"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a4": {
+                    "answer": "problem",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "problem",
+                        "cooperate",
+                        "investigation",
+                        "silence"
+                    ]
+                },
+                "a5": {
+                    "answer": "clearly",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "clearly",
+                        "politely",
+                        "loudly",
+                        "quietly"
+                    ]
+                },
+                "a6": {
+                    "answer": "and",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "and",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a7": {
+                    "answer": "patiently.",
+                    "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+                    "options": [
+                        "patiently",
+                        "well",
+                        "badly",
+                        "safely"
+                    ]
+                }
+            },
+            "verb_hint": "Поєднай два прислівники, які описують спосіб пояснення, не саму проблему.",
+            "accepted_target_texts": [
+                "She explained the problem clearly and patiently."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She explained",
+                "the problem",
+                "clearly and patiently."
+            ],
+            "token_groups": [
+                "She explained",
+                "the problem",
+                "clearly and patiently."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "She",
+                "explained",
+                "the",
+                "problem",
+                "clearly",
+                "and",
+                "patiently."
+            ],
+            "options": [
+                "She",
+                "He",
+                "It",
+                "We",
+                "explained",
+                "made",
+                "delayed",
+                "sudden",
+                "the",
+                "any",
+                "this",
+                "that",
+                "problem",
+                "cooperate",
+                "investigation",
+                "silence",
+                "clearly",
+                "politely",
+                "loudly",
+                "quietly",
+                "and",
+                "because",
+                "although",
+                "though",
+                "patiently",
+                "well",
+                "badly",
+                "safely"
+            ],
+            "source_text_uk": "Вона пояснила проблему ясно й терпляче.",
+            "options_by_marker": {
+                "a1": [
+                    "She",
+                    "He",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "explained",
+                    "made",
+                    "delayed",
+                    "sudden"
+                ],
+                "a3": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a4": [
+                    "problem",
+                    "cooperate",
+                    "investigation",
+                    "silence"
+                ],
+                "a5": [
+                    "clearly",
+                    "politely",
+                    "loudly",
+                    "quietly"
+                ],
+                "a6": [
+                    "and",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a7": [
+                    "patiently",
+                    "well",
+                    "badly",
+                    "safely"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-parts-of-speech-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Їхня відмова співпрацювати затримала розслідування.",
+            "level": "B1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Їхня відмова співпрацювати затримала розслідування.",
+            "target_text": "Their refusal to cooperate delayed the investigation.",
+            "markers": {
+                "a1": {
+                    "answer": "Their",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "Their",
+                        "Our",
+                        "Mine",
+                        "Yours"
+                    ]
+                },
+                "a2": {
+                    "answer": "refusal",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "refusal",
+                        "silence",
+                        "everyone",
+                        "problem"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a4": {
+                    "answer": "cooperate",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "cooperate",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a5": {
+                    "answer": "delayed",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "delayed",
+                        "sudden",
+                        "made",
+                        "explained"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "investigation.",
+                    "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+                    "options": [
+                        "investigation",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Зроби назву відмови підметом, а залежний інфінітив залиш при ній.",
+            "accepted_target_texts": [
+                "Their refusal to cooperate delayed the investigation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their refusal",
+                "to cooperate",
+                "delayed the investigation."
+            ],
+            "token_groups": [
+                "Their refusal",
+                "to cooperate",
+                "delayed the investigation."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Their",
+                "refusal",
+                "to",
+                "cooperate",
+                "delayed",
+                "the",
+                "investigation."
+            ],
+            "options": [
+                "Their",
+                "Our",
+                "Mine",
+                "Yours",
+                "refusal",
+                "silence",
+                "everyone",
+                "problem",
+                "to",
+                "under",
+                "through",
+                "across",
+                "cooperate",
+                "door",
+                "key",
+                "room",
+                "delayed",
+                "sudden",
+                "made",
+                "explained",
+                "the",
+                "a",
+                "an",
+                "some",
+                "investigation",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Їхня відмова співпрацювати затримала розслідування.",
+            "options_by_marker": {
+                "a1": [
+                    "Their",
+                    "Our",
+                    "Mine",
+                    "Yours"
+                ],
+                "a2": [
+                    "refusal",
+                    "silence",
+                    "everyone",
+                    "problem"
+                ],
+                "a3": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a4": [
+                    "cooperate",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a5": [
+                    "delayed",
+                    "sudden",
+                    "made",
+                    "explained"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "investigation",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-parts-of-speech-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Позірно незначна зміна мала істотні наслідки.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Позірно незначна зміна мала істотні наслідки.",
+            "target_text": "The apparently minor change had significant consequences.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "apparently",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "apparently",
+                        "happily",
+                        "easily",
+                        "politely"
+                    ]
+                },
+                "a3": {
+                    "answer": "minor",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "minor",
+                        "courtesy",
+                        "thorough",
+                        "precision"
+                    ]
+                },
+                "a4": {
+                    "answer": "change",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "change",
+                        "applicant",
+                        "imagination",
+                        "child"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a6": {
+                    "answer": "significant",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "significant",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a7": {
+                    "answer": "consequences.",
+                    "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+                    "options": [
+                        "consequences",
+                        "requires",
+                        "analysis",
+                        "men"
+                    ]
+                }
+            },
+            "verb_hint": "Нехай прислівник уточнює прикметник, а прикметники описують зміну й наслідки.",
+            "accepted_target_texts": [
+                "The apparently minor change had significant consequences."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The apparently minor",
+                "change had",
+                "significant consequences."
+            ],
+            "token_groups": [
+                "The apparently minor",
+                "change had",
+                "significant consequences."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "apparently",
+                "minor",
+                "change",
+                "had",
+                "significant",
+                "consequences."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "apparently",
+                "happily",
+                "easily",
+                "politely",
+                "minor",
+                "courtesy",
+                "thorough",
+                "precision",
+                "change",
+                "applicant",
+                "imagination",
+                "child",
+                "had",
+                "do",
+                "does",
+                "did",
+                "significant",
+                "milk",
+                "music",
+                "food",
+                "consequences",
+                "requires",
+                "analysis",
+                "men"
+            ],
+            "source_text_uk": "Позірно незначна зміна мала істотні наслідки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "apparently",
+                    "happily",
+                    "easily",
+                    "politely"
+                ],
+                "a3": [
+                    "minor",
+                    "courtesy",
+                    "thorough",
+                    "precision"
+                ],
+                "a4": [
+                    "change",
+                    "applicant",
+                    "imagination",
+                    "child"
+                ],
+                "a5": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a6": [
+                    "significant",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a7": [
+                    "consequences",
+                    "requires",
+                    "analysis",
+                    "men"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-parts-of-speech-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Вони поставилися до заявника з винятковою ввічливістю.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Вони поставилися до заявника з винятковою ввічливістю.",
+            "target_text": "They treated the applicant with remarkable courtesy.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "They",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "treated",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "treated",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "applicant",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "applicant",
+                        "significant",
+                        "thorough",
+                        "precision"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "with",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a6": {
+                    "answer": "remarkable",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "remarkable",
+                        "good",
+                        "bad",
+                        "friendly"
+                    ]
+                },
+                "a7": {
+                    "answer": "courtesy.",
+                    "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+                    "options": [
+                        "courtesy",
+                        "minor",
+                        "change",
+                        "imagination"
+                    ]
+                }
+            },
+            "verb_hint": "Після прийменника та прикметника постав іменник, що називає ввічливість.",
+            "accepted_target_texts": [
+                "They treated the applicant with remarkable courtesy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They treated",
+                "the applicant",
+                "with remarkable courtesy."
+            ],
+            "token_groups": [
+                "They treated",
+                "the applicant",
+                "with remarkable courtesy."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "They",
+                "treated",
+                "the",
+                "applicant",
+                "with",
+                "remarkable",
+                "courtesy."
+            ],
+            "options": [
+                "They",
+                "He",
+                "She",
+                "It",
+                "treated",
+                "closed",
+                "helped",
+                "waited",
+                "the",
+                "both",
+                "a",
+                "an",
+                "applicant",
+                "significant",
+                "thorough",
+                "precision",
+                "with",
+                "for",
+                "of",
+                "in",
+                "remarkable",
+                "good",
+                "bad",
+                "friendly",
+                "courtesy",
+                "minor",
+                "change",
+                "imagination"
+            ],
+            "source_text_uk": "Вони поставилися до заявника з винятковою ввічливістю.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "treated",
+                    "closed",
+                    "helped",
+                    "waited"
+                ],
+                "a3": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "applicant",
+                    "significant",
+                    "thorough",
+                    "precision"
+                ],
+                "a5": [
+                    "with",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a6": [
+                    "remarkable",
+                    "good",
+                    "bad",
+                    "friendly"
+                ],
+                "a7": [
+                    "courtesy",
+                    "minor",
+                    "change",
+                    "imagination"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-parts-of-speech-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ретельний аналіз потребує і точності, і уяви.",
+            "level": "B2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Ретельний аналіз потребує і точності, і уяви.",
+            "target_text": "A thorough analysis requires both precision and imagination.",
+            "markers": {
+                "a1": {
+                    "answer": "A",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "A",
+                        "All",
+                        "An",
+                        "The"
+                    ]
+                },
+                "a2": {
+                    "answer": "thorough",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "thorough",
+                        "applicant",
+                        "courtesy",
+                        "minor"
+                    ]
+                },
+                "a3": {
+                    "answer": "analysis",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "analysis",
+                        "consequences",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "requires",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "requires",
+                        "cars",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a5": {
+                    "answer": "both",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "both",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "precision",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "precision",
+                        "significant",
+                        "change",
+                        "friend"
+                    ]
+                },
+                "a7": {
+                    "answer": "and",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "and",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                },
+                "a8": {
+                    "answer": "imagination.",
+                    "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+                    "options": [
+                        "imagination",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із загального поняття аналізу з прикметником і поєднай два іменники-додатки.",
+            "accepted_target_texts": [
+                "A thorough analysis requires both precision and imagination."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A thorough analysis",
+                "requires both",
+                "precision and imagination."
+            ],
+            "token_groups": [
+                "A thorough analysis",
+                "requires both",
+                "precision and imagination."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "A",
+                "thorough",
+                "analysis",
+                "requires",
+                "both",
+                "precision",
+                "and",
+                "imagination."
+            ],
+            "options": [
+                "A",
+                "All",
+                "An",
+                "The",
+                "thorough",
+                "applicant",
+                "courtesy",
+                "minor",
+                "analysis",
+                "consequences",
+                "letters",
+                "windows",
+                "requires",
+                "cars",
+                "bags",
+                "books",
+                "both",
+                "some",
+                "any",
+                "this",
+                "precision",
+                "significant",
+                "change",
+                "friend",
+                "and",
+                "though",
+                "unless",
+                "whereas",
+                "imagination",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Ретельний аналіз потребує і точності, і уяви.",
+            "options_by_marker": {
+                "a1": [
+                    "A",
+                    "All",
+                    "An",
+                    "The"
+                ],
+                "a2": [
+                    "thorough",
+                    "applicant",
+                    "courtesy",
+                    "minor"
+                ],
+                "a3": [
+                    "analysis",
+                    "consequences",
+                    "letters",
+                    "windows"
+                ],
+                "a4": [
+                    "requires",
+                    "cars",
+                    "bags",
+                    "books"
+                ],
+                "a5": [
+                    "both",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "precision",
+                    "significant",
+                    "change",
+                    "friend"
+                ],
+                "a7": [
+                    "and",
+                    "though",
+                    "unless",
+                    "whereas"
+                ],
+                "a8": [
+                    "imagination",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-parts-of-speech-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Нібито нейтральна система послідовно ставить менші організації в невигідне становище.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Нібито нейтральна система послідовно ставить менші організації в невигідне становище.",
+            "target_text": "The ostensibly neutral framework systematically disadvantages smaller organisations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "ostensibly",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "ostensibly",
+                        "ethically",
+                        "intellectually",
+                        "carefully"
+                    ]
+                },
+                "a3": {
+                    "answer": "neutral",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "neutral",
+                        "uniformity",
+                        "important",
+                        "assessment"
+                    ]
+                },
+                "a4": {
+                    "answer": "framework",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "framework",
+                        "absolute",
+                        "insistence",
+                        "music"
+                    ]
+                },
+                "a5": {
+                    "answer": "systematically",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "systematically",
+                        "quietly",
+                        "slowly",
+                        "quickly"
+                    ]
+                },
+                "a6": {
+                    "answer": "disadvantages",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "disadvantages",
+                        "distinctions",
+                        "obscures",
+                        "doors"
+                    ]
+                },
+                "a7": {
+                    "answer": "smaller",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "smaller",
+                        "school",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "organisations.",
+                    "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+                    "options": [
+                        "organisations",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Нехай перший прислівник уточнює ознаку системи, а другий — її дію.",
+            "accepted_target_texts": [
+                "The ostensibly neutral framework systematically disadvantages smaller organisations.",
+                "The ostensibly neutral framework systematically disadvantages smaller organizations."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "organizations."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "organizations."
+                ]
+            },
+            "reorder_groups": [
+                "The ostensibly neutral",
+                "framework systematically",
+                "disadvantages smaller organisations."
+            ],
+            "token_groups": [
+                "The ostensibly neutral",
+                "framework systematically",
+                "disadvantages smaller organisations."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "ostensibly",
+                "neutral",
+                "framework",
+                "systematically",
+                "disadvantages",
+                "smaller",
+                "organisations."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "ostensibly",
+                "ethically",
+                "intellectually",
+                "carefully",
+                "neutral",
+                "uniformity",
+                "important",
+                "assessment",
+                "framework",
+                "absolute",
+                "insistence",
+                "music",
+                "systematically",
+                "quietly",
+                "slowly",
+                "quickly",
+                "disadvantages",
+                "distinctions",
+                "obscures",
+                "doors",
+                "smaller",
+                "school",
+                "sister",
+                "brother",
+                "organisations",
+                "letters",
+                "windows",
+                "phones"
+            ],
+            "source_text_uk": "Нібито нейтральна система послідовно ставить менші організації в невигідне становище.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "ostensibly",
+                    "ethically",
+                    "intellectually",
+                    "carefully"
+                ],
+                "a3": [
+                    "neutral",
+                    "uniformity",
+                    "important",
+                    "assessment"
+                ],
+                "a4": [
+                    "framework",
+                    "absolute",
+                    "insistence",
+                    "music"
+                ],
+                "a5": [
+                    "systematically",
+                    "quietly",
+                    "slowly",
+                    "quickly"
+                ],
+                "a6": [
+                    "disadvantages",
+                    "distinctions",
+                    "obscures",
+                    "doors"
+                ],
+                "a7": [
+                    "smaller",
+                    "school",
+                    "sister",
+                    "brother"
+                ],
+                "a8": [
+                    "organisations",
+                    "letters",
+                    "windows",
+                    "phones"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-parts-of-speech-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Їхнє наполягання на цілковитій одноманітності приховує важливі відмінності.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Їхнє наполягання на цілковитій одноманітності приховує важливі відмінності.",
+            "target_text": "Their insistence on absolute uniformity obscures important distinctions.",
+            "markers": {
+                "a1": {
+                    "answer": "Their",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "Their",
+                        "Your",
+                        "His",
+                        "Her"
+                    ]
+                },
+                "a2": {
+                    "answer": "insistence",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "insistence",
+                        "assessment",
+                        "neutral",
+                        "framework"
+                    ]
+                },
+                "a3": {
+                    "answer": "on",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "on",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a4": {
+                    "answer": "absolute",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "absolute",
+                        "smaller",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a5": {
+                    "answer": "uniformity",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "uniformity",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a6": {
+                    "answer": "obscures",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "obscures",
+                        "disadvantages",
+                        "organisations",
+                        "cats"
+                    ]
+                },
+                "a7": {
+                    "answer": "important",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "important",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a8": {
+                    "answer": "distinctions.",
+                    "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+                    "options": [
+                        "distinctions",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                }
+            },
+            "verb_hint": "Підметом має бути іменна назва наполягання із залежною прийменниковою групою.",
+            "accepted_target_texts": [
+                "Their insistence on absolute uniformity obscures important distinctions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their insistence",
+                "on absolute uniformity",
+                "obscures important distinctions."
+            ],
+            "token_groups": [
+                "Their insistence",
+                "on absolute uniformity",
+                "obscures important distinctions."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Their",
+                "insistence",
+                "on",
+                "absolute",
+                "uniformity",
+                "obscures",
+                "important",
+                "distinctions."
+            ],
+            "options": [
+                "Their",
+                "Your",
+                "His",
+                "Her",
+                "insistence",
+                "assessment",
+                "neutral",
+                "framework",
+                "on",
+                "into",
+                "onto",
+                "over",
+                "absolute",
+                "smaller",
+                "key",
+                "room",
+                "uniformity",
+                "ticket",
+                "cup",
+                "door",
+                "obscures",
+                "disadvantages",
+                "organisations",
+                "cats",
+                "important",
+                "map",
+                "letter",
+                "window",
+                "distinctions",
+                "people",
+                "men",
+                "women"
+            ],
+            "source_text_uk": "Їхнє наполягання на цілковитій одноманітності приховує важливі відмінності.",
+            "options_by_marker": {
+                "a1": [
+                    "Their",
+                    "Your",
+                    "His",
+                    "Her"
+                ],
+                "a2": [
+                    "insistence",
+                    "assessment",
+                    "neutral",
+                    "framework"
+                ],
+                "a3": [
+                    "on",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a4": [
+                    "absolute",
+                    "smaller",
+                    "key",
+                    "room"
+                ],
+                "a5": [
+                    "uniformity",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a6": [
+                    "obscures",
+                    "disadvantages",
+                    "organisations",
+                    "cats"
+                ],
+                "a7": [
+                    "important",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a8": [
+                    "distinctions",
+                    "people",
+                    "men",
+                    "women"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-parts-of-speech-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Оцінювання було інтелектуально ретельним, але етично тривожним.",
+            "level": "C1",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Оцінювання було інтелектуально ретельним, але етично тривожним.",
+            "target_text": "The assessment was intellectually rigorous but ethically troubling.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "assessment",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "assessment",
+                        "absolute",
+                        "uniformity",
+                        "important"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "intellectually",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "intellectually",
+                        "systematically",
+                        "ostensibly",
+                        "badly"
+                    ]
+                },
+                "a5": {
+                    "answer": "rigorous",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "rigorous",
+                        "happy",
+                        "sad",
+                        "easy"
+                    ]
+                },
+                "a6": {
+                    "answer": "but",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "but",
+                        "and",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a7": {
+                    "answer": "ethically",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "ethically",
+                        "slowly",
+                        "quickly",
+                        "carefully"
+                    ]
+                },
+                "a8": {
+                    "answer": "troubling.",
+                    "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+                    "options": [
+                        "troubling",
+                        "helping",
+                        "waiting",
+                        "watching"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи два прислівникові уточнення різних прикметникових оцінок.",
+            "accepted_target_texts": [
+                "The assessment was intellectually rigorous but ethically troubling."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assessment",
+                "was intellectually rigorous",
+                "but ethically troubling."
+            ],
+            "token_groups": [
+                "The assessment",
+                "was intellectually rigorous",
+                "but ethically troubling."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "assessment",
+                "was",
+                "intellectually",
+                "rigorous",
+                "but",
+                "ethically",
+                "troubling."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "assessment",
+                "absolute",
+                "uniformity",
+                "important",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "intellectually",
+                "systematically",
+                "ostensibly",
+                "badly",
+                "rigorous",
+                "happy",
+                "sad",
+                "easy",
+                "but",
+                "and",
+                "or",
+                "nor",
+                "ethically",
+                "slowly",
+                "quickly",
+                "carefully",
+                "troubling",
+                "helping",
+                "waiting",
+                "watching"
+            ],
+            "source_text_uk": "Оцінювання було інтелектуально ретельним, але етично тривожним.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "assessment",
+                    "absolute",
+                    "uniformity",
+                    "important"
+                ],
+                "a3": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "intellectually",
+                    "systematically",
+                    "ostensibly",
+                    "badly"
+                ],
+                "a5": [
+                    "rigorous",
+                    "happy",
+                    "sad",
+                    "easy"
+                ],
+                "a6": [
+                    "but",
+                    "and",
+                    "or",
+                    "nor"
+                ],
+                "a7": [
+                    "ethically",
+                    "slowly",
+                    "quickly",
+                    "carefully"
+                ],
+                "a8": [
+                    "troubling",
+                    "helping",
+                    "waiting",
+                    "watching"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-parts-of-speech-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Позірно нешкідливе застереження докорінно змінює сферу дії твердження.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Позірно нешкідливе застереження докорінно змінює сферу дії твердження.",
+            "target_text": "The seemingly innocuous qualification fundamentally alters the proposition's scope.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "seemingly",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "seemingly",
+                        "descriptively",
+                        "normatively",
+                        "carefully"
+                    ]
+                },
+                "a3": {
+                    "answer": "innocuous",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "innocuous",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                },
+                "a4": {
+                    "answer": "qualification",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "qualification",
+                        "tacit",
+                        "acceptance",
+                        "premise"
+                    ]
+                },
+                "a5": {
+                    "answer": "fundamentally",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "fundamentally",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a6": {
+                    "answer": "alters",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "alters",
+                        "analysis",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a8": {
+                    "answer": "proposition's",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "proposition's",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a9": {
+                    "answer": "scope.",
+                    "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+                    "options": [
+                        "scope",
+                        "indeterminate",
+                        "establish",
+                        "truth"
+                    ]
+                }
+            },
+            "verb_hint": "Розрізни прислівник при прикметнику та прислівник при дієслові, не змінюючи їхніх зв'язків.",
+            "accepted_target_texts": [
+                "The seemingly innocuous qualification fundamentally alters the proposition's scope."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The seemingly innocuous",
+                "qualification fundamentally",
+                "alters the proposition's",
+                "scope."
+            ],
+            "token_groups": [
+                "The seemingly innocuous",
+                "qualification fundamentally",
+                "alters the proposition's",
+                "scope."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "seemingly",
+                "innocuous",
+                "qualification",
+                "fundamentally",
+                "alters",
+                "the",
+                "proposition's",
+                "scope."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "seemingly",
+                "descriptively",
+                "normatively",
+                "carefully",
+                "innocuous",
+                "large",
+                "new",
+                "old",
+                "qualification",
+                "tacit",
+                "acceptance",
+                "premise",
+                "fundamentally",
+                "loudly",
+                "quietly",
+                "slowly",
+                "alters",
+                "analysis",
+                "rooms",
+                "maps",
+                "the",
+                "a",
+                "an",
+                "that",
+                "proposition's",
+                "letters",
+                "windows",
+                "phones",
+                "scope",
+                "indeterminate",
+                "establish",
+                "truth"
+            ],
+            "source_text_uk": "Позірно нешкідливе застереження докорінно змінює сферу дії твердження.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "seemingly",
+                    "descriptively",
+                    "normatively",
+                    "carefully"
+                ],
+                "a3": [
+                    "innocuous",
+                    "large",
+                    "new",
+                    "old"
+                ],
+                "a4": [
+                    "qualification",
+                    "tacit",
+                    "acceptance",
+                    "premise"
+                ],
+                "a5": [
+                    "fundamentally",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a6": [
+                    "alters",
+                    "analysis",
+                    "rooms",
+                    "maps"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "that"
+                ],
+                "a8": [
+                    "proposition's",
+                    "letters",
+                    "windows",
+                    "phones"
+                ],
+                "a9": [
+                    "scope",
+                    "indeterminate",
+                    "establish",
+                    "truth"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-parts-of-speech-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Їхнє мовчазне прийняття передумови не доводить її істинності.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Їхнє мовчазне прийняття передумови не доводить її істинності.",
+            "target_text": "Their tacit acceptance of the premise does not establish its truth.",
+            "markers": {
+                "a1": {
+                    "answer": "Their",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "Their",
+                        "Ours",
+                        "Theirs",
+                        "Whose"
+                    ]
+                },
+                "a2": {
+                    "answer": "tacit",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "tacit",
+                        "adequate",
+                        "indeterminate",
+                        "qualification"
+                    ]
+                },
+                "a3": {
+                    "answer": "acceptance",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "acceptance",
+                        "scope",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "of",
+                        "from",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "premise",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "premise",
+                        "bread",
+                        "milk",
+                        "bike"
+                    ]
+                },
+                "a7": {
+                    "answer": "does",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "does",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a9": {
+                    "answer": "establish",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "establish",
+                        "child",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "its",
+                        "our",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a11": {
+                    "answer": "truth.",
+                    "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+                    "options": [
+                        "truth",
+                        "cup",
+                        "door",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи іменний підмет із залежними словами та іменний додаток після запереченого дієслова.",
+            "accepted_target_texts": [
+                "Their tacit acceptance of the premise does not establish its truth.",
+                "Their tacit acceptance of the premise doesn't establish its truth."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their tacit",
+                "acceptance of",
+                "the premise",
+                "does not establish",
+                "its truth."
+            ],
+            "token_groups": [
+                "Their tacit",
+                "acceptance of",
+                "the premise",
+                "does not establish",
+                "its truth."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "Their",
+                "tacit",
+                "acceptance",
+                "of",
+                "the",
+                "premise",
+                "does",
+                "not",
+                "establish",
+                "its",
+                "truth."
+            ],
+            "options": [
+                "Their",
+                "Ours",
+                "Theirs",
+                "Whose",
+                "tacit",
+                "adequate",
+                "indeterminate",
+                "qualification",
+                "acceptance",
+                "scope",
+                "music",
+                "food",
+                "of",
+                "from",
+                "for",
+                "in",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "premise",
+                "bread",
+                "milk",
+                "bike",
+                "does",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "establish",
+                "child",
+                "teacher",
+                "school",
+                "its",
+                "our",
+                "mine",
+                "yours",
+                "truth",
+                "cup",
+                "door",
+                "key"
+            ],
+            "source_text_uk": "Їхнє мовчазне прийняття передумови не доводить її істинності.",
+            "options_by_marker": {
+                "a1": [
+                    "Their",
+                    "Ours",
+                    "Theirs",
+                    "Whose"
+                ],
+                "a2": [
+                    "tacit",
+                    "adequate",
+                    "indeterminate",
+                    "qualification"
+                ],
+                "a3": [
+                    "acceptance",
+                    "scope",
+                    "music",
+                    "food"
+                ],
+                "a4": [
+                    "of",
+                    "from",
+                    "for",
+                    "in"
+                ],
+                "a5": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "premise",
+                    "bread",
+                    "milk",
+                    "bike"
+                ],
+                "a7": [
+                    "does",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a8": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a9": [
+                    "establish",
+                    "child",
+                    "teacher",
+                    "school"
+                ],
+                "a10": [
+                    "its",
+                    "our",
+                    "mine",
+                    "yours"
+                ],
+                "a11": [
+                    "truth",
+                    "cup",
+                    "door",
+                    "key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-parts-of-speech-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Аналіз адекватний як опис, проте невизначений щодо нормативних висновків.",
+            "level": "C2",
+            "type": 4,
+            "source": "basic_grammar_quality_parts_of_speech",
+            "translation_uk": "Аналіз адекватний як опис, проте невизначений щодо нормативних висновків.",
+            "target_text": "The analysis is descriptively adequate yet normatively indeterminate.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "analysis",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "analysis",
+                        "proposition's",
+                        "alters",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "descriptively",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "descriptively",
+                        "seemingly",
+                        "fundamentally",
+                        "clearly"
+                    ]
+                },
+                "a5": {
+                    "answer": "adequate",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "adequate",
+                        "tacit",
+                        "acceptance",
+                        "premise"
+                    ]
+                },
+                "a6": {
+                    "answer": "yet",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "yet",
+                        "unless",
+                        "whereas",
+                        "while"
+                    ]
+                },
+                "a7": {
+                    "answer": "normatively",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "normatively",
+                        "badly",
+                        "safely",
+                        "happily"
+                    ]
+                },
+                "a8": {
+                    "answer": "indeterminate.",
+                    "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+                    "options": [
+                        "indeterminate",
+                        "truth",
+                        "qualification",
+                        "scope"
+                    ]
+                }
+            },
+            "verb_hint": "Передай два різні аспекти прикметникової оцінки за допомогою прислівників.",
+            "accepted_target_texts": [
+                "The analysis is descriptively adequate yet normatively indeterminate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analysis",
+                "is descriptively adequate",
+                "yet normatively",
+                "indeterminate."
+            ],
+            "token_groups": [
+                "The analysis",
+                "is descriptively adequate",
+                "yet normatively",
+                "indeterminate."
+            ],
+            "quality_revision": "basic-grammar-v1",
+            "tokens_correct": [
+                "The",
+                "analysis",
+                "is",
+                "descriptively",
+                "adequate",
+                "yet",
+                "normatively",
+                "indeterminate."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "analysis",
+                "proposition's",
+                "alters",
+                "windows",
+                "is",
+                "are",
+                "was",
+                "were",
+                "descriptively",
+                "seemingly",
+                "fundamentally",
+                "clearly",
+                "adequate",
+                "tacit",
+                "acceptance",
+                "premise",
+                "yet",
+                "unless",
+                "whereas",
+                "while",
+                "normatively",
+                "badly",
+                "safely",
+                "happily",
+                "indeterminate",
+                "truth",
+                "qualification",
+                "scope"
+            ],
+            "source_text_uk": "Аналіз адекватний як опис, проте невизначений щодо нормативних висновків.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "analysis",
+                    "proposition's",
+                    "alters",
+                    "windows"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "descriptively",
+                    "seemingly",
+                    "fundamentally",
+                    "clearly"
+                ],
+                "a5": [
+                    "adequate",
+                    "tacit",
+                    "acceptance",
+                    "premise"
+                ],
+                "a6": [
+                    "yet",
+                    "unless",
+                    "whereas",
+                    "while"
+                ],
+                "a7": [
+                    "normatively",
+                    "badly",
+                    "safely",
+                    "happily"
+                ],
+                "a8": [
+                    "indeterminate",
+                    "truth",
+                    "qualification",
+                    "scope"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

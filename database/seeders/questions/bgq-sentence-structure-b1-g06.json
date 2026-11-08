@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60697,
+        "uuid": "bgq-sentence-structure-b1-g06",
+        "question": "The manager {a1} unreasonable.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "considered the request",
+                "the request considered",
+                "considered it the request"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:54.000000Z",
+        "updated_at": "2026-10-27T15:50:54.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60697,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53288,
+                "option": "considered the request",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60697,
+                "option_id": 53288,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53290,
+                "option": "the request considered",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60697,
+                "option_id": 53290,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53291,
+                "option": "considered it the request",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60697,
+                "option_id": 53291,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325858,
+                "question_id": 60697,
+                "marker": "a1",
+                "option_id": 53288,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53288,
+                "option": "considered the request",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43192,
+                "question_id": 60697,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53289,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53289,
+                "option": "Потрібний зміст: «Вважав це прохання». Постав дієслово оцінювання, потім додаток, а його оцінку вже наведено.",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52712,
+            "question_id": 60697,
+            "text": "The manager {a1} unreasonable.",
+            "created_at": "2026-10-27T15:50:54.000000Z",
+            "updated_at": "2026-10-27T15:50:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

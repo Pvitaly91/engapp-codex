@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 63112,
+        "uuid": "aaq-eding-a1-g03",
+        "question": "She felt {a1} after the trip.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 6,
+        "source_id": 473,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedEdIngAdjectivesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "tired",
+                "tiring",
+                "tire"
+            ]
+        },
+        "theory_text_block_uuid": "3b1b7594-5b90-554d-aee0-52edb21ff743",
+        "created_at": "2026-10-30T16:07:50.000000Z",
+        "updated_at": "2026-10-30T16:07:50.000000Z"
+    },
+    "category": {
+        "id": 6,
+        "name": "Adjectives and Adverbs",
+        "created_at": "2026-04-23T14:17:03.000000Z",
+        "updated_at": "2026-04-23T14:17:03.000000Z"
+    },
+    "source": {
+        "id": 473,
+        "name": "Adjectives and Adverbs Quality: Прикметники на -ed та -ing",
+        "created_at": "2026-10-30T16:07:50.000000Z",
+        "updated_at": "2026-10-30T16:07:50.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 165,
+                "name": "Adjectives and adverbs usage",
+                "category": null,
+                "created_at": "2026-04-23T14:15:34.000000Z",
+                "updated_at": "2026-04-23T14:15:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 63112,
+                "tag_id": 165,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 201,
+                "name": "-ed / -ing Adjectives",
+                "category": null,
+                "created_at": "2026-04-23T14:15:47.000000Z",
+                "updated_at": "2026-04-23T14:15:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 63112,
+                "tag_id": 201,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 360,
+                "option": "tired",
+                "created_at": "2026-04-23T11:40:33.000000Z",
+                "updated_at": "2026-04-23T11:40:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 63112,
+                "option_id": 360,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 1513,
+                "option": "tiring",
+                "created_at": "2026-04-23T14:17:03.000000Z",
+                "updated_at": "2026-04-23T14:17:03.000000Z"
+            },
+            "pivot": {
+                "question_id": 63112,
+                "option_id": 1513,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2302,
+                "option": "tire",
+                "created_at": "2026-04-23T14:17:38.000000Z",
+                "updated_at": "2026-04-23T14:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 63112,
+                "option_id": 2302,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 333359,
+                "question_id": 63112,
+                "marker": "a1",
+                "option_id": 360,
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            },
+            "option": {
+                "id": 360,
+                "option": "tired",
+                "created_at": "2026-04-23T11:40:33.000000Z",
+                "updated_at": "2026-04-23T11:40:33.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50693,
+                "question_id": 63112,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58877,
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            },
+            "option": {
+                "id": 58877,
+                "option": "Втомлений: потрібен прикметник стану людини, не причини втоми.",
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55127,
+            "question_id": 63112,
+            "text": "She felt {a1} after the trip.",
+            "created_at": "2026-10-30T16:07:50.000000Z",
+            "updated_at": "2026-10-30T16:07:50.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Polyglot\\M64ReasonB1SupplementSeeder",
+    "uuid_namespace": "M64ReasonB1SupplementSeeder"
+  },
+  "taxonomy_status": "confirmed-existing-only",
+  "taxonomy_note_uk": "Використано чинні English Sentence Builder та source цієї теми. Це versioned авторське доповнення; робочу БД змінює лише окремий guarded insert-only M64 workflow, не reseed.",
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 4,
+    "level_difficulty": {
+      "B1": 3
+    }
+  },
+  "category": {
+    "name": "English Sentence Builder"
+  },
+  "sources": {
+    "reason": {
+      "name": "Reason: because / since / as"
+    }
+  },
+  "tags": {},
+  "default_tag_keys": [],
+  "questions": [
+    {
+      "uuid": "m64-reason-b1-01",
+      "source_uid": "m64-reason-b1-01",
+      "question": "Оскільки кімната була вільна, ми перенесли туди урок. Вільна кімната — уже відома причина рішення. Почни з As і збережи минулий час.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Оскільки кімната була вільна, ми перенесли туди урок. Вільна кімната — уже відома причина рішення. Почни з As і збережи минулий час.",
+      "target_text": "As the room was free, we moved the lesson there.",
+      "tokens_correct": [
+        "As",
+        "the",
+        "room",
+        "was",
+        "free",
+        ",",
+        "we",
+        "moved",
+        "the",
+        "lesson",
+        "there",
+        "."
+      ],
+      "answers": {
+        "a1": "As",
+        "a2": "the",
+        "a3": "room",
+        "a4": "was",
+        "a5": "free",
+        "a6": ",",
+        "a7": "we",
+        "a8": "moved",
+        "a9": "the",
+        "a10": "lesson",
+        "a11": "there",
+        "a12": "."
+      },
+      "options": [
+        "As",
+        "the",
+        "room",
+        "was",
+        "free",
+        ",",
+        "we",
+        "moved",
+        "the",
+        "lesson",
+        "there",
+        ".",
+        "because",
+        "so",
+        "although"
+      ],
+      "source": "reason"
+    },
+    {
+      "uuid": "m64-reason-b1-02",
+      "source_uid": "m64-reason-b1-02",
+      "question": "Вона не поїхала через страйк. Страйк зірвав поїздку: заперечено саму подорож, не її причину. Використай because of та повне заперечення без скорочення; почни із She.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Вона не поїхала через страйк. Страйк зірвав поїздку: заперечено саму подорож, не її причину. Використай because of та повне заперечення без скорочення; почни із She.",
+      "target_text": "She did not travel because of the strike.",
+      "tokens_correct": [
+        "She",
+        "did",
+        "not",
+        "travel",
+        "because",
+        "of",
+        "the",
+        "strike",
+        "."
+      ],
+      "answers": {
+        "a1": "She",
+        "a2": "did",
+        "a3": "not",
+        "a4": "travel",
+        "a5": "because",
+        "a6": "of",
+        "a7": "the",
+        "a8": "strike",
+        "a9": "."
+      },
+      "options": [
+        "She",
+        "did",
+        "not",
+        "travel",
+        "because",
+        "of",
+        "the",
+        "strike",
+        ".",
+        "since",
+        "although",
+        "does"
+      ],
+      "source": "reason"
+    },
+    {
+      "uuid": "m64-reason-b1-03",
+      "source_uid": "m64-reason-b1-03",
+      "question": "Ти пішов чи пішла, бо музика була гучною? Мовець запитує, чи саме гучна музика стала причиною виходу. Побудуй загальне питання в минулому часі з because; leave — іти.",
+      "level": "B1",
+      "type": 4,
+      "source_text_uk": "Ти пішов чи пішла, бо музика була гучною? Мовець запитує, чи саме гучна музика стала причиною виходу. Побудуй загальне питання в минулому часі з because; leave — іти.",
+      "target_text": "Did you leave because the music was loud?",
+      "tokens_correct": [
+        "Did",
+        "you",
+        "leave",
+        "because",
+        "the",
+        "music",
+        "was",
+        "loud",
+        "?"
+      ],
+      "answers": {
+        "a1": "Did",
+        "a2": "you",
+        "a3": "leave",
+        "a4": "because",
+        "a5": "the",
+        "a6": "music",
+        "a7": "was",
+        "a8": "loud",
+        "a9": "?"
+      },
+      "options": [
+        "Did",
+        "you",
+        "leave",
+        "because",
+        "the",
+        "music",
+        "was",
+        "loud",
+        "?",
+        "since",
+        "as",
+        "do"
+      ],
+      "source": "reason"
+    }
+  ]
+}

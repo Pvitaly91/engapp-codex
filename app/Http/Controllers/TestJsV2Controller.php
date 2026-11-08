@@ -167,10 +167,30 @@ class TestJsV2Controller extends Controller
         $savedState = $this->activeJsSavedState($stateKey);
         $isAdmin = $this->isAdminUser();
         $showTechnicalInfo = $this->shouldShowTechnicalInfo($isAdmin);
+        \App\Support\PassiveVoiceDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\ModalVerbsDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\ConditionalsDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\ReportedSpeechDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\ClausesLinkingDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\PrepositionsPhrasalDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\CommonMistakesDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\SentenceTransformationsDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\VerbPatternsDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\MixedRevisionDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\AcademicEnglishDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\ArticlesQuantifiersDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\FormalEnglishDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\RelativeClausesDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\SentenceStructureDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
+        \App\Support\VocabCollocationsDerivedQuestionCache::prune(request()->session(), $test, app()->getLocale(), $this->jsQuestionDataSessionKey($test));
         $questions = $this->persistedQuestionData($test, $savedState);
 
-        if (! is_array($questions) || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
-            $questions = $this->buildQuestionDataset($resolved, $savedState === null, $showTechnicalInfo);
+        $needsContentRefresh = is_array($questions) && (\App\Support\LocalizedComposeText::cachedNeedsRefresh($questions)
+            || \App\Support\PassivePracticeQuality::knownCatalogNeedsRefresh($questions)
+            || \App\Support\FinitePracticeQualityCatalogs::testContextNeedsRefresh($questions,
+                is_array($test->filters ?? null) ? $test->filters : [], app()->getLocale(), (string) ($test->uuid ?? '')));
+        if (! is_array($questions) || $needsContentRefresh || ($showTechnicalInfo && ! $this->datasetContainsTechnicalInfo($questions, $test))) {
+            $questions = $this->buildQuestionDataset($resolved, $needsContentRefresh ? false : $savedState === null, $showTechnicalInfo);
         } else {
             $questions = $this->localizePersistedQuestionVerbHints($questions);
         }
@@ -391,7 +411,7 @@ class TestJsV2Controller extends Controller
     protected function buildQuestionDataset($resolved, bool $freshVariants = false, bool $includeTechnicalInfo = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryTextBlocks'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryTextBlocks', 'hints'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -409,8 +429,11 @@ class TestJsV2Controller extends Controller
                 $this->variantService->clearForTest($test->slug);
                 $questions = $this->variantService->applyRandomVariants($test, $questions, $previousVariants);
             } else {
-                $questions = $questions->map(function ($question) use ($test) {
-                    $this->variantService->applyStoredVariant($test->slug, $question);
+                $storedVariants = $this->variantService->getStoredVariants($test->slug);
+                $questions = $questions->map(function ($question) use ($test, $storedVariants) {
+                    if (\App\Support\LocalizedComposeText::storedVariantIsCurrent($question, $storedVariants[$question->id] ?? null)) {
+                        $this->variantService->applyStoredVariant($test->slug, $question);
+                    }
 
                     return $question;
                 });
@@ -443,7 +466,7 @@ class TestJsV2Controller extends Controller
             $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
             if ((string) $q->type === (string) Question::TYPE_COMPOSE_TOKENS) {
                 $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
-                $answerList = ComposeTokenCase::normalize(array_values($answerMap));
+                $answerList = \App\Support\LocalizedComposeText::normalizeTokens($q, array_values($answerMap));
                 $answerMap = array_combine($markers, $answerList) ?: [];
             } else {
                 $answerMap = AnswerOptionCase::align($answerMap, $markers, $optionsByMarker);
@@ -486,6 +509,69 @@ class TestJsV2Controller extends Controller
                     if (! $block || $block->uuid === null) {
                         continue;
                     }
+                    $block = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M55PassiveReviewInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M60ReportedSpeechBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M61ReportedSpeechChangesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M66VerbPatternsCorePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block === null) { continue; }
+                    $block = \App\Support\M67VerbPatternsCompletion::preserveExcludedTextBlock($block, 'standalone_test');
+                    if ($block !== null) { $block = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M73GenericIrregularCollective::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M74OtherPronounsBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M75PronounForms::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M76PronounRelations::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M77OnePrepositionsPhrasal::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M78PhrasalQuestionBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M79QuestionTypesCompletion::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M80NegativesTransformations::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M89PresentPerfectCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block !== null) { $block = \App\Support\M94RelativeClausesWhoseWhich::preserveExcludedTextBlock($block, 'standalone_test'); }
+                    if ($block === null) { continue; }
                     if (isset($seenBlockUuids[$block->uuid])) {
                         continue;
                     }
@@ -501,6 +587,51 @@ class TestJsV2Controller extends Controller
 
             if ($theoryBlocks === [] && ! empty($q->theory_text_block_uuid)) {
                 $textBlock = TextBlock::where('uuid', $q->theory_text_block_uuid)->first();
+                if ($textBlock) { $textBlock = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M55PassiveReviewInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M60ReportedSpeechBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M61ReportedSpeechChangesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M66VerbPatternsCorePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M67VerbPatternsCompletion::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M73GenericIrregularCollective::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M74OtherPronounsBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M75PronounForms::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M76PronounRelations::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M77OnePrepositionsPhrasal::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M78PhrasalQuestionBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M79QuestionTypesCompletion::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M80NegativesTransformations::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M89PresentPerfectCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+                if ($textBlock) { $textBlock = \App\Support\M94RelativeClausesWhoseWhich::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
                 if ($textBlock) {
                     $theoryBlocks[] = [
                         'uuid' => $textBlock->uuid,
@@ -516,11 +647,12 @@ class TestJsV2Controller extends Controller
             // Load marker tags for each answer marker
             $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
 
-            return [
+            $serialized = [
                 'id' => $q->id,
                 'uuid' => $q->uuid,
                 'type' => $q->type,
-                'question' => $q->question,
+                'question' => (string) $q->type === Question::TYPE_COMPOSE_TOKENS ? \App\Support\LocalizedComposeText::source($q) : $q->question,
+                'compose_source_text' => \App\Support\LocalizedComposeText::optedIn($q) ? \App\Support\LocalizedComposeText::source($q) : null,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
@@ -536,14 +668,23 @@ class TestJsV2Controller extends Controller
                 'verb_hints' => $verbHints,
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
+                'is_past_perfect_continuous' => \App\Support\PastPerfectContinuousTestIdentity::forQuestion($q),
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
                 'theory_blocks' => $theoryBlocks,
                 'marker_tags' => $markerTags,
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
+            if (($revision = \App\Support\LocalizedComposeText::revision($q)) !== null) {
+                $serialized['compose_content_revision'] = $revision;
+                $serialized['hint'] = \App\Support\LocalizedComposeText::hint($q);
+            }
+
+            return $serialized;
         })->map(
-            static fn (array $question): array => FuturePerfectAnswerSynonyms::decorate($question)
+            static fn (array $question): array => \App\Support\VocabCollocationsPracticeQuality::restoreClarifiedHints(\App\Support\SentenceStructurePracticeQuality::restoreClarifiedHints(\App\Support\RelativeClausesPracticeQuality::restoreClarifiedHints(\App\Support\FormalEnglishPracticeQuality::restoreClarifiedHints(\App\Support\ArticlesQuantifiersPracticeQuality::restoreClarifiedHints(\App\Support\AcademicEnglishPracticeQuality::restoreClarifiedHints(\App\Support\MixedRevisionPracticeQuality::restoreClarifiedHints(\App\Support\VerbPatternsPracticeQuality::restoreClarifiedHints(\App\Support\SentenceTransformationsPracticeQuality::restoreClarifiedHints(
+                \App\Support\PassivePracticeQuality::decorateKnown(FuturePerfectAnswerSynonyms::decorate($question)), app()->getLocale()
+            ), app()->getLocale()), app()->getLocale()), app()->getLocale()), app()->getLocale()), app()->getLocale()), app()->getLocale()), app()->getLocale()), app()->getLocale())
         )->values()->all();
 
         return SentenceReorderQuestionFactory::addToMixedTheoryTest(
@@ -647,7 +788,7 @@ class TestJsV2Controller extends Controller
         }
 
         $models = Question::query()
-            ->with('verbHints.option')
+            ->with(['verbHints.option', 'hints', 'category'])
             ->where(function ($query) use ($questionIds, $questionUuids): void {
                 if ($questionIds !== []) {
                     $query->whereIn('id', $questionIds);
@@ -687,11 +828,50 @@ class TestJsV2Controller extends Controller
             $marker = $this->firstQuestionVerbHintMarker($question, $verbHints);
 
             $question['verb_hints'] = $verbHints;
+            $question['is_past_perfect_continuous'] = \App\Support\PastPerfectContinuousTestIdentity::forQuestion($model);
             $question['verb_hint'] = $marker !== null
                 ? ($verbHints[$marker] ?? reset($verbHints) ?: '')
                 : '';
 
-            $questionData[$index] = $question;
+            // Only explicitly authored prompts opt into content refresh. Keep
+            // cached answer placements and legacy/variant question text intact.
+            if (\App\Support\LocalizedComposeText::revisionEligible($model)) {
+                $sourceText = \App\Support\LocalizedComposeText::source($model);
+                $question['compose_source_text'] = $sourceText;
+                if ((string) $model->type === Question::TYPE_COMPOSE_TOKENS) {
+                    $question['question'] = $sourceText;
+                }
+                if (array_key_exists('sourceTextUk', $question)) {
+                    $question['sourceTextUk'] = $sourceText;
+                }
+                $question['hint'] = \App\Support\LocalizedComposeText::hint($model);
+                if (array_key_exists('hintUk', $question)) {
+                    $question['hintUk'] = $question['hint'];
+                }
+                if (($question['presentation'] ?? null) === SentenceReorderQuestionFactory::PRESENTATION) {
+                    $question['reorder_template_constraint'] = true;
+                }
+            }
+
+            $questionData[$index] = \App\Support\QuestionsNegationsPracticeQuality::restoreClarifiedHints($question,app()->getLocale());
+            $questionData[$index] = \App\Support\AdjectivesAdverbsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\SomeAnyPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\PassiveVoicePracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\ModalVerbsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\ConditionalsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\ReportedSpeechPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\ClausesLinkingPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\PrepositionsPhrasalPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\CommonMistakesPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\SentenceTransformationsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\VerbPatternsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\MixedRevisionPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\AcademicEnglishPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\ArticlesQuantifiersPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\FormalEnglishPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\RelativeClausesPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\SentenceStructurePracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
+            $questionData[$index] = \App\Support\VocabCollocationsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
         }
 
         return $questionData;
@@ -738,6 +918,9 @@ class TestJsV2Controller extends Controller
     protected function jsStateSessionKey($test, string $view): string
     {
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+        $namespace = \App\Support\FinitePracticeQualityCatalogs::stateNamespace(
+            is_array($test->filters ?? null) ? $test->filters : [], app()->getLocale(), (string) ($test->uuid ?? ''));
+        if ($namespace !== null) { $key .= ':'.$namespace; }
         $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
 
         return $launchToken ? $key.':'.$launchToken : $key;
@@ -746,6 +929,9 @@ class TestJsV2Controller extends Controller
     protected function jsQuestionDataSessionKey($test): string
     {
         $key = sprintf('saved_test_js_questions:%s', $test->slug);
+        $namespace = \App\Support\FinitePracticeQualityCatalogs::stateNamespace(
+            is_array($test->filters ?? null) ? $test->filters : [], app()->getLocale(), (string) ($test->uuid ?? ''));
+        if ($namespace !== null) { $key .= ':'.$namespace; }
         $launchToken = $this->sanitizeJsLaunchToken(request()->query('launch'));
 
         return $launchToken ? $key.':'.$launchToken : $key;
@@ -1178,6 +1364,7 @@ class TestJsV2Controller extends Controller
 
     protected function composeHintText(Question $question): ?string
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::hint($question); }
         if (! $question->relationLoaded('hints')) {
             return null;
         }
@@ -1191,6 +1378,7 @@ class TestJsV2Controller extends Controller
 
     protected function composeExplanationMap(Question $question): array
     {
+        if (\App\Support\LocalizedComposeText::optedIn($question)) { return \App\Support\LocalizedComposeText::explanations($question); }
         if (! $question->relationLoaded('chatgptExplanations')) {
             return [];
         }
@@ -1233,7 +1421,7 @@ class TestJsV2Controller extends Controller
             ->values()
             ->all();
 
-        $correctTokens = ComposeTokenCase::normalize($correctTokens);
+        $correctTokens = \App\Support\LocalizedComposeText::normalizeTokens($question, $correctTokens);
 
         if ($correctTokens === []) {
             return null;
@@ -1258,7 +1446,7 @@ class TestJsV2Controller extends Controller
             'uuid' => $question->uuid,
             'type' => $question->type,
             'level' => $question->level,
-            'sourceTextUk' => $question->question,
+            'sourceTextUk' => \App\Support\LocalizedComposeText::source($question),
             'correctTokens' => $correctTokens,
             'correctTokenValues' => $correctTokens,
             'correctTokenIds' => $correctTokenIds,
@@ -1266,6 +1454,8 @@ class TestJsV2Controller extends Controller
             'tokensPool' => collect($tokenBank)->pluck('value')->unique()->values()->all(),
             'correctText' => $this->buildComposeSentence($correctTokens, $punctuation),
             'hintUk' => $this->composeHintText($question),
+            'showPreAnswerHint' => (string) $question->type === Question::TYPE_COMPOSE_TOKENS
+                && \App\Support\LocalizedComposeText::revisionEligible($question),
             'explanations' => $this->composeExplanationMap($question),
             'punctuation' => $punctuation,
             'theory_block' => $theoryBlocks[0] ?? null,
@@ -1290,6 +1480,69 @@ class TestJsV2Controller extends Controller
                 if (! $block || $block->uuid === null || isset($seen[$block->uuid])) {
                     continue;
                 }
+                $block = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M55PassiveReviewInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M60ReportedSpeechBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M61ReportedSpeechChangesPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M66VerbPatternsCorePackage::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block === null) { continue; }
+                $block = \App\Support\M67VerbPatternsCompletion::preserveExcludedTextBlock($block, 'standalone_test');
+                if ($block !== null) { $block = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M72PartitivesNegativesGeography::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M73GenericIrregularCollective::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M74OtherPronounsBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M75PronounForms::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M76PronounRelations::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M77OnePrepositionsPhrasal::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M78PhrasalQuestionBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M79QuestionTypesCompletion::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M80NegativesTransformations::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M81TransformationsCommonMistakes::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M84WordOrderHaveGot::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M85VerbToBe::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M89PresentPerfectCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block !== null) { $block = \App\Support\M94RelativeClausesWhoseWhich::preserveExcludedTextBlock($block, 'standalone_test'); }
+                if ($block === null) { continue; }
                 $seen[$block->uuid] = true;
                 $blocks[] = [
                     'uuid' => $block->uuid,
@@ -1302,6 +1555,51 @@ class TestJsV2Controller extends Controller
 
         if ($blocks === [] && ! empty($question->theory_text_block_uuid)) {
             $textBlock = TextBlock::where('uuid', $question->theory_text_block_uuid)->first();
+            if ($textBlock) { $textBlock = \App\Support\M50ObligationAdvicePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M51ModalMeaningsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M52PassiveBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M53PassiveConstructionsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M54PassivePatternsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M55PassiveReviewInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M56GerundSimplePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M57ContinuousPerfectPassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M58PastFuturePassivesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M59PassiveFutureAgentReviewPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M60ReportedSpeechBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M61ReportedSpeechChangesPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M62ReportedReviewRelativeBasicsPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M63RelativeCompletionLinkingPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M64ReasonResultContrastPackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M65PurposeGerundInfinitivePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M66VerbPatternsCorePackage::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M67VerbPatternsCompletion::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M68ComparisonBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M69AdjectivesAdverbs::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M70IntensifiersNounBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M71ArticlesQuantifiers::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M72PartitivesNegativesGeography::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M73GenericIrregularCollective::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M74OtherPronounsBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M75PronounForms::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M76PronounRelations::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M77OnePrepositionsPhrasal::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M78PhrasalQuestionBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M79QuestionTypesCompletion::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M80NegativesTransformations::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M81TransformationsCommonMistakes::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M82CommonMistakesLevelRevision::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M83B2RevisionBasicGrammar::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M84WordOrderHaveGot::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M85VerbToBe::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M86PresentSimpleContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M87ContinuousCompletionPastSimple::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M88PastContinuousPresentPerfectBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M89PresentPerfectCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M90PastPerfectFutureSimpleBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M91FutureSimpleCompletionContinuous::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M92FuturePerfectContinuousBasics::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M93FutureCompletionDemonstrativesSomeAny::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
+            if ($textBlock) { $textBlock = \App\Support\M94RelativeClausesWhoseWhich::preserveExcludedTextBlock($textBlock, 'standalone_test'); }
             if ($textBlock) {
                 $blocks[] = [
                     'uuid' => $textBlock->uuid,

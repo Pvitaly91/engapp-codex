@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62572,
+        "uuid": "qnq-negative-questions-a1-g03",
+        "question": "{a1} hear the bell?",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 60,
+        "source_id": 463,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedNegativeQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Can't you",
+                "Don't you",
+                "Aren't you"
+            ]
+        },
+        "theory_text_block_uuid": "9c44271a-5eaf-5ed5-ba06-921becdbd041",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 463,
+        "name": "Questions and Negations Quality: Negative Questions: заперечні питання",
+        "created_at": "2026-10-30T13:53:08.000000Z",
+        "updated_at": "2026-10-30T13:53:08.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 289,
+                "name": "Negative Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62572,
+                "tag_id": 289,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 4782,
+                "option": "don't you",
+                "created_at": "2026-04-23T14:41:14.000000Z",
+                "updated_at": "2026-04-23T14:41:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 62572,
+                "option_id": 4782,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4783,
+                "option": "aren't you",
+                "created_at": "2026-04-23T14:41:14.000000Z",
+                "updated_at": "2026-04-23T14:41:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 62572,
+                "option_id": 4783,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 6363,
+                "option": "can't you",
+                "created_at": "2026-04-23T14:44:47.000000Z",
+                "updated_at": "2026-04-23T14:44:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 62572,
+                "option_id": 6363,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332235,
+                "question_id": 62572,
+                "marker": "a1",
+                "option_id": 6363,
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "option": {
+                "id": 6363,
+                "option": "can't you",
+                "created_at": "2026-04-23T14:44:47.000000Z",
+                "updated_at": "2026-04-23T14:44:47.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49569,
+                "question_id": 62572,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57165,
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            },
+            "option": {
+                "id": 57165,
+                "option": "Використай заперечну модальну форму можливості сприйняти звук. Підмет для введення: ти.",
+                "created_at": "2026-10-30T13:53:08.000000Z",
+                "updated_at": "2026-10-30T13:53:08.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54587,
+            "question_id": 62572,
+            "text": "{a1} hear the bell?",
+            "created_at": "2026-10-30T13:53:08.000000Z",
+            "updated_at": "2026-10-30T13:53:08.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

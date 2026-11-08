@@ -1,0 +1,3774 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/subject.v1.json",
+        "sha256": "b8d937445e3f420831faa4225fc9a21b5c718648a4bb3e49c19647cd7890f44b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedSubjectQuestionsQualityBuilderSeeder",
+        "uuid_namespace": "questions-negations-quality-subject-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "questions_negations_quality_subject": {
+            "name": "Questions and Negations Quality: Subject Questions"
+        }
+    },
+    "tags": {
+        "polyglot_subject_questions": {
+            "name": "Subject Questions",
+            "category": "questions_negations"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "who_what_subject": {
+            "name": "Who What Subject",
+            "category": "topic"
+        },
+        "no_do_does_did": {
+            "name": "No Do Does Did",
+            "category": "topic"
+        },
+        "affirmative_word_order": {
+            "name": "Affirmative Word Order",
+            "category": "topic"
+        },
+        "who_called": {
+            "name": "Who Called",
+            "category": "topic"
+        },
+        "what_happened": {
+            "name": "What Happened",
+            "category": "topic"
+        },
+        "who_knows": {
+            "name": "Who Knows",
+            "category": "topic"
+        },
+        "subject_vs_object_question": {
+            "name": "Subject Vs Object Question",
+            "category": "topic"
+        },
+        "third_person_singular": {
+            "name": "Third Person Singular",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_subject_questions",
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-subject-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Хто годує наших курей?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто годує наших курей?",
+            "target_text": "Who feeds our chickens?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про виконавця звичної дії, без окремого допоміжного дієслова.",
+                    "options": [
+                        "Who",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                },
+                "a2": {
+                    "answer": "feeds",
+                    "verb_hint": "Запитай про виконавця звичної дії, без окремого допоміжного дієслова.",
+                    "options": [
+                        "feeds",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a3": {
+                    "answer": "our",
+                    "verb_hint": "Запитай про виконавця звичної дії, без окремого допоміжного дієслова.",
+                    "options": [
+                        "our",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a4": {
+                    "answer": "chickens?",
+                    "verb_hint": "Запитай про виконавця звичної дії, без окремого допоміжного дієслова.",
+                    "options": [
+                        "chickens",
+                        "passports",
+                        "instructions",
+                        "books"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про виконавця звичної дії, без окремого допоміжного дієслова.",
+            "accepted_target_texts": [
+                "Who feeds our chickens?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "feeds",
+                "our chickens?"
+            ],
+            "token_groups": [
+                "Who",
+                "feeds",
+                "our chickens?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "feeds",
+                "our",
+                "chickens?"
+            ],
+            "options": [
+                "Who",
+                "Where",
+                "When",
+                "Why",
+                "feeds",
+                "women",
+                "bikes",
+                "cars",
+                "our",
+                "mine",
+                "yours",
+                "hers",
+                "chickens",
+                "passports",
+                "instructions",
+                "books"
+            ],
+            "source_text_uk": "Хто годує наших курей?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Where",
+                    "When",
+                    "Why"
+                ],
+                "a2": [
+                    "feeds",
+                    "women",
+                    "bikes",
+                    "cars"
+                ],
+                "a3": [
+                    "our",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a4": [
+                    "chickens",
+                    "passports",
+                    "instructions",
+                    "books"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-subject-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Який автобус їде до музею?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Який автобус їде до музею?",
+            "target_text": "Which bus goes to the museum?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "Which",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                },
+                "a2": {
+                    "answer": "bus",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "bus",
+                        "van",
+                        "bicycle",
+                        "plane"
+                    ]
+                },
+                "a3": {
+                    "answer": "goes",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "goes",
+                        "wants",
+                        "sees",
+                        "finds"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "museum?",
+                    "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+                    "options": [
+                        "museum",
+                        "week",
+                        "care",
+                        "notice"
+                    ]
+                }
+            },
+            "verb_hint": "Запитальна група називає один транспортний засіб; після неї постав особову форму.",
+            "accepted_target_texts": [
+                "Which bus goes to the museum?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which bus",
+                "goes",
+                "to the museum?"
+            ],
+            "token_groups": [
+                "Which bus",
+                "goes",
+                "to the museum?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "bus",
+                "goes",
+                "to",
+                "the",
+                "museum?"
+            ],
+            "options": [
+                "Which",
+                "Where",
+                "When",
+                "Why",
+                "bus",
+                "van",
+                "bicycle",
+                "plane",
+                "goes",
+                "wants",
+                "sees",
+                "finds",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "the",
+                "some",
+                "any",
+                "this",
+                "museum",
+                "week",
+                "care",
+                "notice"
+            ],
+            "source_text_uk": "Який автобус їде до музею?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "Where",
+                    "When",
+                    "Why"
+                ],
+                "a2": [
+                    "bus",
+                    "van",
+                    "bicycle",
+                    "plane"
+                ],
+                "a3": [
+                    "goes",
+                    "wants",
+                    "sees",
+                    "finds"
+                ],
+                "a4": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "museum",
+                    "week",
+                    "care",
+                    "notice"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "adjunct",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-subject-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Що лежить під столом?",
+            "level": "A1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що лежить під столом?",
+            "target_text": "What is under the table?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про невідому річ у названому місці.",
+                    "options": [
+                        "What",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Запитай про невідому річ у названому місці.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a3": {
+                    "answer": "under",
+                    "verb_hint": "Запитай про невідому річ у названому місці.",
+                    "options": [
+                        "under",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про невідому річ у названому місці.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "table?",
+                    "verb_hint": "Запитай про невідому річ у названому місці.",
+                    "options": [
+                        "table",
+                        "bright",
+                        "dark",
+                        "heavy"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про невідому річ у названому місці.",
+            "accepted_target_texts": [
+                "What is under the table?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "is",
+                "under the table?"
+            ],
+            "token_groups": [
+                "What",
+                "is",
+                "under the table?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "is",
+                "under",
+                "the",
+                "table?"
+            ],
+            "options": [
+                "What",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "is",
+                "was",
+                "were",
+                "be",
+                "under",
+                "from",
+                "for",
+                "of",
+                "the",
+                "an",
+                "some",
+                "any",
+                "table",
+                "bright",
+                "dark",
+                "heavy"
+            ],
+            "source_text_uk": "Що лежить під столом?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a3": [
+                    "under",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "table",
+                    "bright",
+                    "dark",
+                    "heavy"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "auxiliary",
+                "a3": "adjunct",
+                "a4": "adjunct",
+                "a5": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-subject-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Хто залишив ці рукавички на лавці?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто залишив ці рукавички на лавці?",
+            "target_text": "Who left these gloves on the bench?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "Who",
+                        "Which",
+                        "Where",
+                        "When"
+                    ]
+                },
+                "a2": {
+                    "answer": "left",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "left",
+                        "open",
+                        "won",
+                        "gave"
+                    ]
+                },
+                "a3": {
+                    "answer": "these",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "these",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a4": {
+                    "answer": "gloves",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "gloves",
+                        "instructions",
+                        "passports",
+                        "Saturday's"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "on",
+                        "of",
+                        "in",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "the",
+                        "that",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "bench?",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+                    "options": [
+                        "bench",
+                        "deadline",
+                        "review",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про невідомого виконавця завершеної минулої дії.",
+            "accepted_target_texts": [
+                "Who left these gloves on the bench?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "left",
+                "these gloves",
+                "on the bench?"
+            ],
+            "token_groups": [
+                "Who",
+                "left",
+                "these gloves",
+                "on the bench?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "left",
+                "these",
+                "gloves",
+                "on",
+                "the",
+                "bench?"
+            ],
+            "options": [
+                "Who",
+                "Which",
+                "Where",
+                "When",
+                "left",
+                "open",
+                "won",
+                "gave",
+                "these",
+                "those",
+                "each",
+                "every",
+                "gloves",
+                "instructions",
+                "passports",
+                "Saturday's",
+                "on",
+                "of",
+                "in",
+                "at",
+                "the",
+                "that",
+                "no",
+                "another",
+                "bench",
+                "deadline",
+                "review",
+                "week"
+            ],
+            "source_text_uk": "Хто залишив ці рукавички на лавці?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Which",
+                    "Where",
+                    "When"
+                ],
+                "a2": [
+                    "left",
+                    "open",
+                    "won",
+                    "gave"
+                ],
+                "a3": [
+                    "these",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a4": [
+                    "gloves",
+                    "instructions",
+                    "passports",
+                    "Saturday's"
+                ],
+                "a5": [
+                    "on",
+                    "of",
+                    "in",
+                    "at"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "bench",
+                    "deadline",
+                    "review",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "noun_phrase",
+                "a4": "noun_phrase",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-subject-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Яка команда виграла суботній матч?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Яка команда виграла суботній матч?",
+            "target_text": "Which team won Saturday’s match?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+                    "options": [
+                        "Which",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "team",
+                    "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+                    "options": [
+                        "team",
+                        "many",
+                        "long",
+                        "whom"
+                    ]
+                },
+                "a3": {
+                    "answer": "won",
+                    "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+                    "options": [
+                        "won",
+                        "left",
+                        "open",
+                        "needed"
+                    ]
+                },
+                "a4": {
+                    "answer": "Saturday’s",
+                    "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+                    "options": [
+                        "Saturday's",
+                        "Gloves",
+                        "Schools",
+                        "Friends"
+                    ]
+                },
+                "a5": {
+                    "answer": "match?",
+                    "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+                    "options": [
+                        "match",
+                        "entrance",
+                        "now",
+                        "bench"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про переможця як підмет; потрібна минула форма без зайвого допоміжного.",
+            "accepted_target_texts": [
+                "Which team won Saturday’s match?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which team",
+                "won",
+                "Saturday’s match?"
+            ],
+            "token_groups": [
+                "Which team",
+                "won",
+                "Saturday’s match?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "team",
+                "won",
+                "Saturday’s",
+                "match?"
+            ],
+            "options": [
+                "Which",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "team",
+                "many",
+                "long",
+                "whom",
+                "won",
+                "left",
+                "open",
+                "needed",
+                "Saturday's",
+                "Gloves",
+                "Schools",
+                "Friends",
+                "match",
+                "entrance",
+                "now",
+                "bench"
+            ],
+            "source_text_uk": "Яка команда виграла суботній матч?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "team",
+                    "many",
+                    "long",
+                    "whom"
+                ],
+                "a3": [
+                    "won",
+                    "left",
+                    "open",
+                    "needed"
+                ],
+                "a4": [
+                    "Saturday's",
+                    "Gloves",
+                    "Schools",
+                    "Friends"
+                ],
+                "a5": [
+                    "match",
+                    "entrance",
+                    "now",
+                    "bench"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-subject-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Що зараз відбувається у дворі?",
+            "level": "A2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що зараз відбувається у дворі?",
+            "target_text": "What is happening in the yard now?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "What",
+                        "Whom",
+                        "Which",
+                        "Where"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "happening",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "happening",
+                        "waiting",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "in",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "yard",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "yard",
+                        "care",
+                        "station",
+                        "deadline"
+                    ]
+                },
+                "a7": {
+                    "answer": "now?",
+                    "verb_hint": "Запитай про подію, що розгортається зараз.",
+                    "options": [
+                        "now",
+                        "bench",
+                        "team",
+                        "match"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про подію, що розгортається зараз.",
+            "accepted_target_texts": [
+                "What is happening in the yard now?",
+                "What is happening in the courtyard now?"
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "courtyard"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "courtyard"
+                ]
+            },
+            "reorder_groups": [
+                "What",
+                "is happening",
+                "in the yard",
+                "now?"
+            ],
+            "token_groups": [
+                "What",
+                "is happening",
+                "in the yard",
+                "now?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "is",
+                "happening",
+                "in",
+                "the",
+                "yard",
+                "now?"
+            ],
+            "options": [
+                "What",
+                "Whom",
+                "Which",
+                "Where",
+                "is",
+                "are",
+                "was",
+                "were",
+                "happening",
+                "waiting",
+                "going",
+                "taking",
+                "in",
+                "by",
+                "with",
+                "without",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "yard",
+                "care",
+                "station",
+                "deadline",
+                "now",
+                "bench",
+                "team",
+                "match"
+            ],
+            "source_text_uk": "Що зараз відбувається у дворі?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whom",
+                    "Which",
+                    "Where"
+                ],
+                "a2": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a3": [
+                    "happening",
+                    "waiting",
+                    "going",
+                    "taking"
+                ],
+                "a4": [
+                    "in",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "yard",
+                    "care",
+                    "station",
+                    "deadline"
+                ],
+                "a7": [
+                    "now",
+                    "bench",
+                    "team",
+                    "match"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "adjunct",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-subject-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Хто вже прочитав новий розклад?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто вже прочитав новий розклад?",
+            "target_text": "Who has already read the new timetable?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "Who",
+                        "Why",
+                        "How",
+                        "Whoever"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "has",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a3": {
+                    "answer": "already",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "already",
+                        "even",
+                        "almost",
+                        "not"
+                    ]
+                },
+                "a4": {
+                    "answer": "read",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "read",
+                        "study",
+                        "live",
+                        "buy"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "new",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "new",
+                        "old",
+                        "clear",
+                        "final"
+                    ]
+                },
+                "a7": {
+                    "answer": "timetable?",
+                    "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+                    "options": [
+                        "timetable",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про невідомого виконавця завершеної дії з актуальним результатом.",
+            "accepted_target_texts": [
+                "Who has already read the new timetable?",
+                "Who has already read the new schedule?"
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "schedule?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "schedule?"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "has already read",
+                "the new timetable?"
+            ],
+            "token_groups": [
+                "Who",
+                "has already read",
+                "the new timetable?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "has",
+                "already",
+                "read",
+                "the",
+                "new",
+                "timetable?"
+            ],
+            "options": [
+                "Who",
+                "Why",
+                "How",
+                "Whoever",
+                "has",
+                "hadn't",
+                "do",
+                "does",
+                "already",
+                "even",
+                "almost",
+                "not",
+                "read",
+                "study",
+                "live",
+                "buy",
+                "the",
+                "those",
+                "each",
+                "every",
+                "new",
+                "old",
+                "clear",
+                "final",
+                "timetable",
+                "dark",
+                "heavy",
+                "light"
+            ],
+            "source_text_uk": "Хто вже прочитав новий розклад?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Why",
+                    "How",
+                    "Whoever"
+                ],
+                "a2": [
+                    "has",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a3": [
+                    "already",
+                    "even",
+                    "almost",
+                    "not"
+                ],
+                "a4": [
+                    "read",
+                    "study",
+                    "live",
+                    "buy"
+                ],
+                "a5": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "new",
+                    "old",
+                    "clear",
+                    "final"
+                ],
+                "a7": [
+                    "timetable",
+                    "dark",
+                    "heavy",
+                    "light"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-subject-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Які дерева посадили минулої весни?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які дерева посадили минулої весни?",
+            "target_text": "Which trees were planted last spring?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "Which",
+                        "When",
+                        "Why",
+                        "How"
+                    ]
+                },
+                "a2": {
+                    "answer": "trees",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "trees",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "were",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "planted",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "planted",
+                        "checked",
+                        "delivered",
+                        "approved"
+                    ]
+                },
+                "a5": {
+                    "answer": "last",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "last",
+                        "on",
+                        "before",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "spring?",
+                    "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+                    "options": [
+                        "spring",
+                        "returning",
+                        "living",
+                        "buying"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про кілька об’єктів дії у минулому пасиві.",
+            "accepted_target_texts": [
+                "Which trees were planted last spring?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which trees",
+                "were planted",
+                "last spring?"
+            ],
+            "token_groups": [
+                "Which trees",
+                "were planted",
+                "last spring?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "trees",
+                "were",
+                "planted",
+                "last",
+                "spring?"
+            ],
+            "options": [
+                "Which",
+                "When",
+                "Why",
+                "How",
+                "trees",
+                "tickets",
+                "cups",
+                "doors",
+                "were",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "planted",
+                "checked",
+                "delivered",
+                "approved",
+                "last",
+                "on",
+                "before",
+                "without",
+                "spring",
+                "returning",
+                "living",
+                "buying"
+            ],
+            "source_text_uk": "Які дерева посадили минулої весни?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "When",
+                    "Why",
+                    "How"
+                ],
+                "a2": [
+                    "trees",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ],
+                "a3": [
+                    "were",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "planted",
+                    "checked",
+                    "delivered",
+                    "approved"
+                ],
+                "a5": [
+                    "last",
+                    "on",
+                    "before",
+                    "without"
+                ],
+                "a6": [
+                    "spring",
+                    "returning",
+                    "living",
+                    "buying"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-subject-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Що завадило їм повернутися вчасно?",
+            "level": "B1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що завадило їм повернутися вчасно?",
+            "target_text": "What prevented them from returning on time?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "What",
+                        "Whom",
+                        "Which",
+                        "Where"
+                    ]
+                },
+                "a2": {
+                    "answer": "prevented",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "prevented",
+                        "been",
+                        "had",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "them",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "them",
+                        "I",
+                        "you",
+                        "he"
+                    ]
+                },
+                "a4": {
+                    "answer": "from",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "from",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a5": {
+                    "answer": "returning",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "returning",
+                        "waiting",
+                        "spring",
+                        "living"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "on",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "time?",
+                    "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+                    "options": [
+                        "time",
+                        "Saturday",
+                        "permission",
+                        "dinner"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про причину перешкоди; після дієслова збережи прийменниковий зв’язок.",
+            "accepted_target_texts": [
+                "What prevented them from returning on time?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "prevented them",
+                "from returning",
+                "on time?"
+            ],
+            "token_groups": [
+                "What",
+                "prevented them",
+                "from returning",
+                "on time?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "prevented",
+                "them",
+                "from",
+                "returning",
+                "on",
+                "time?"
+            ],
+            "options": [
+                "What",
+                "Whom",
+                "Which",
+                "Where",
+                "prevented",
+                "been",
+                "had",
+                "helped",
+                "them",
+                "I",
+                "you",
+                "he",
+                "from",
+                "under",
+                "through",
+                "across",
+                "returning",
+                "waiting",
+                "spring",
+                "living",
+                "on",
+                "between",
+                "among",
+                "about",
+                "time",
+                "Saturday",
+                "permission",
+                "dinner"
+            ],
+            "source_text_uk": "Що завадило їм повернутися вчасно?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whom",
+                    "Which",
+                    "Where"
+                ],
+                "a2": [
+                    "prevented",
+                    "been",
+                    "had",
+                    "helped"
+                ],
+                "a3": [
+                    "them",
+                    "I",
+                    "you",
+                    "he"
+                ],
+                "a4": [
+                    "from",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a5": [
+                    "returning",
+                    "waiting",
+                    "spring",
+                    "living"
+                ],
+                "a6": [
+                    "on",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "time",
+                    "Saturday",
+                    "permission",
+                    "dinner"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-subject-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Хто міг розкрити конфіденційний код?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто міг розкрити конфіденційний код?",
+            "target_text": "Who could have disclosed the confidential code?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "Who",
+                        "Wherever",
+                        "Whenever",
+                        "Whom"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "could",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "disclosed",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "disclosed",
+                        "challenged",
+                        "seen",
+                        "known"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "confidential",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "confidential",
+                        "main",
+                        "fair",
+                        "result"
+                    ]
+                },
+                "a7": {
+                    "answer": "code?",
+                    "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+                    "options": [
+                        "code",
+                        "bridge",
+                        "solution",
+                        "claim"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про можливого виконавця вже минулої дії.",
+            "accepted_target_texts": [
+                "Who could have disclosed the confidential code?",
+                "Who could have revealed the confidential code?"
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "revealed"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "could have disclosed",
+                "the confidential code?"
+            ],
+            "token_groups": [
+                "Who",
+                "could have disclosed",
+                "the confidential code?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "could",
+                "have",
+                "disclosed",
+                "the",
+                "confidential",
+                "code?"
+            ],
+            "options": [
+                "Who",
+                "Wherever",
+                "Whenever",
+                "Whom",
+                "could",
+                "should",
+                "may",
+                "might",
+                "have",
+                "do",
+                "does",
+                "did",
+                "disclosed",
+                "challenged",
+                "seen",
+                "known",
+                "the",
+                "any",
+                "this",
+                "that",
+                "confidential",
+                "main",
+                "fair",
+                "result",
+                "code",
+                "bridge",
+                "solution",
+                "claim"
+            ],
+            "source_text_uk": "Хто міг розкрити конфіденційний код?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Wherever",
+                    "Whenever",
+                    "Whom"
+                ],
+                "a2": [
+                    "could",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a3": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "disclosed",
+                    "challenged",
+                    "seen",
+                    "known"
+                ],
+                "a5": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a6": [
+                    "confidential",
+                    "main",
+                    "fair",
+                    "result"
+                ],
+                "a7": [
+                    "code",
+                    "bridge",
+                    "solution",
+                    "claim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-subject-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Які припущення було поставлено під сумнів?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які припущення було поставлено під сумнів?",
+            "target_text": "Which assumptions have been challenged?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+                    "options": [
+                        "Which",
+                        "When",
+                        "Why",
+                        "How"
+                    ]
+                },
+                "a2": {
+                    "answer": "assumptions",
+                    "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+                    "options": [
+                        "assumptions",
+                        "friends",
+                        "dogs",
+                        "cats"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "been",
+                    "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "challenged?",
+                    "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+                    "options": [
+                        "challenged",
+                        "disclosed",
+                        "done",
+                        "needed"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про об’єкти дії з актуальним результатом у перфектному пасиві.",
+            "accepted_target_texts": [
+                "Which assumptions have been challenged?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which assumptions",
+                "have been challenged?"
+            ],
+            "token_groups": [
+                "Which assumptions",
+                "have been challenged?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "assumptions",
+                "have",
+                "been",
+                "challenged?"
+            ],
+            "options": [
+                "Which",
+                "When",
+                "Why",
+                "How",
+                "assumptions",
+                "friends",
+                "dogs",
+                "cats",
+                "have",
+                "do",
+                "does",
+                "did",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "challenged",
+                "disclosed",
+                "done",
+                "needed"
+            ],
+            "source_text_uk": "Які припущення було поставлено під сумнів?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "When",
+                    "Why",
+                    "How"
+                ],
+                "a2": [
+                    "assumptions",
+                    "friends",
+                    "dogs",
+                    "cats"
+                ],
+                "a3": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "challenged",
+                    "disclosed",
+                    "done",
+                    "needed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-subject-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Що стало б наслідком скасування субсидії?",
+            "level": "B2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що стало б наслідком скасування субсидії?",
+            "target_text": "What would result from withdrawing the subsidy?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "What",
+                        "Who",
+                        "Whom",
+                        "Which"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "result",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "result",
+                        "prefer",
+                        "select",
+                        "code"
+                    ]
+                },
+                "a4": {
+                    "answer": "from",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "from",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a5": {
+                    "answer": "withdrawing",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "withdrawing",
+                        "waiting",
+                        "watching",
+                        "visiting"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "subsidy?",
+                    "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+                    "options": [
+                        "subsidy",
+                        "entrance",
+                        "confidential",
+                        "room"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про уявний наслідок; після дієслова збережи прийменник причини.",
+            "accepted_target_texts": [
+                "What would result from withdrawing the subsidy?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "would result",
+                "from withdrawing",
+                "the subsidy?"
+            ],
+            "token_groups": [
+                "What",
+                "would result",
+                "from withdrawing",
+                "the subsidy?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "would",
+                "result",
+                "from",
+                "withdrawing",
+                "the",
+                "subsidy?"
+            ],
+            "options": [
+                "What",
+                "Who",
+                "Whom",
+                "Which",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "result",
+                "prefer",
+                "select",
+                "code",
+                "from",
+                "under",
+                "through",
+                "across",
+                "withdrawing",
+                "waiting",
+                "watching",
+                "visiting",
+                "the",
+                "a",
+                "an",
+                "some",
+                "subsidy",
+                "entrance",
+                "confidential",
+                "room"
+            ],
+            "source_text_uk": "Що стало б наслідком скасування субсидії?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Who",
+                    "Whom",
+                    "Which"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "result",
+                    "prefer",
+                    "select",
+                    "code"
+                ],
+                "a4": [
+                    "from",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a5": [
+                    "withdrawing",
+                    "waiting",
+                    "watching",
+                    "visiting"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "subsidy",
+                    "entrance",
+                    "confidential",
+                    "room"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-subject-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Хто мав передбачити наслідки цієї прогалини?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто мав передбачити наслідки цієї прогалини?",
+            "target_text": "Who should have foreseen the consequences of this omission?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "Who",
+                        "Whom",
+                        "What",
+                        "Which"
+                    ]
+                },
+                "a2": {
+                    "answer": "should",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "should",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a4": {
+                    "answer": "foreseen",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "foreseen",
+                        "substantiated",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "consequences",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "consequences",
+                        "passports",
+                        "instructions",
+                        "conclusions"
+                    ]
+                },
+                "a7": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "of",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "this",
+                        "some",
+                        "any",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "omission?",
+                    "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+                    "options": [
+                        "omission",
+                        "data",
+                        "deadline",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про особу, від якої належало очікувати передбачення минулих наслідків.",
+            "accepted_target_texts": [
+                "Who should have foreseen the consequences of this omission?",
+                "Who should have anticipated the consequences of this omission?"
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "anticipated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "anticipated"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "should have foreseen",
+                "the consequences",
+                "of this omission?"
+            ],
+            "token_groups": [
+                "Who",
+                "should have foreseen",
+                "the consequences",
+                "of this omission?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "should",
+                "have",
+                "foreseen",
+                "the",
+                "consequences",
+                "of",
+                "this",
+                "omission?"
+            ],
+            "options": [
+                "Who",
+                "Whom",
+                "What",
+                "Which",
+                "should",
+                "shouldn't",
+                "cannot",
+                "can",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "foreseen",
+                "substantiated",
+                "opened",
+                "closed",
+                "the",
+                "every",
+                "no",
+                "another",
+                "consequences",
+                "passports",
+                "instructions",
+                "conclusions",
+                "of",
+                "onto",
+                "over",
+                "under",
+                "this",
+                "some",
+                "any",
+                "that",
+                "omission",
+                "data",
+                "deadline",
+                "station"
+            ],
+            "source_text_uk": "Хто мав передбачити наслідки цієї прогалини?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Whom",
+                    "What",
+                    "Which"
+                ],
+                "a2": [
+                    "should",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a3": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a4": [
+                    "foreseen",
+                    "substantiated",
+                    "opened",
+                    "closed"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "consequences",
+                    "passports",
+                    "instructions",
+                    "conclusions"
+                ],
+                "a7": [
+                    "of",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "this",
+                    "some",
+                    "any",
+                    "that"
+                ],
+                "a9": [
+                    "omission",
+                    "data",
+                    "deadline",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-subject-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Які висновки можуть бути обґрунтовані незалежними даними?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які висновки можуть бути обґрунтовані незалежними даними?",
+            "target_text": "Which conclusions can be substantiated by independent data?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "Which",
+                        "How",
+                        "Whoever",
+                        "Whatever"
+                    ]
+                },
+                "a2": {
+                    "answer": "conclusions",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "conclusions",
+                        "consequences",
+                        "bags",
+                        "books"
+                    ]
+                },
+                "a3": {
+                    "answer": "can",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "can",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "be",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "be",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "substantiated",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "substantiated",
+                        "foreseen",
+                        "built",
+                        "bought"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "independent",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "independent",
+                        "the",
+                        "a",
+                        "great"
+                    ]
+                },
+                "a8": {
+                    "answer": "data?",
+                    "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+                    "options": [
+                        "data",
+                        "omission",
+                        "station",
+                        "deadline"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про кілька висновків у пасивній моделі можливості підтвердження.",
+            "accepted_target_texts": [
+                "Which conclusions can be substantiated by independent data?",
+                "Which conclusions can be supported by independent data?"
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "supported"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "supported"
+                ]
+            },
+            "reorder_groups": [
+                "Which conclusions",
+                "can be substantiated",
+                "by independent data?"
+            ],
+            "token_groups": [
+                "Which conclusions",
+                "can be substantiated",
+                "by independent data?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "conclusions",
+                "can",
+                "be",
+                "substantiated",
+                "by",
+                "independent",
+                "data?"
+            ],
+            "options": [
+                "Which",
+                "How",
+                "Whoever",
+                "Whatever",
+                "conclusions",
+                "consequences",
+                "bags",
+                "books",
+                "can",
+                "must",
+                "can't",
+                "couldn't",
+                "be",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "substantiated",
+                "foreseen",
+                "built",
+                "bought",
+                "by",
+                "among",
+                "about",
+                "during",
+                "independent",
+                "the",
+                "a",
+                "great",
+                "data",
+                "omission",
+                "station",
+                "deadline"
+            ],
+            "source_text_uk": "Які висновки можуть бути обґрунтовані незалежними даними?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "How",
+                    "Whoever",
+                    "Whatever"
+                ],
+                "a2": [
+                    "conclusions",
+                    "consequences",
+                    "bags",
+                    "books"
+                ],
+                "a3": [
+                    "can",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a4": [
+                    "be",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "substantiated",
+                    "foreseen",
+                    "built",
+                    "bought"
+                ],
+                "a6": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "independent",
+                    "the",
+                    "a",
+                    "great"
+                ],
+                "a8": [
+                    "data",
+                    "omission",
+                    "station",
+                    "deadline"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-subject-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Що змусило б комітет переглянути свою позицію?",
+            "level": "C1",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що змусило б комітет переглянути свою позицію?",
+            "target_text": "What would induce the committee to reconsider its position?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "What",
+                        "Whenever",
+                        "Who",
+                        "Whom"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "induce",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "induce",
+                        "prefer",
+                        "select",
+                        "omission"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a5": {
+                    "answer": "committee",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "committee",
+                        "entrance",
+                        "data",
+                        "independent"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a7": {
+                    "answer": "reconsider",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "reconsider",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a8": {
+                    "answer": "its",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "its",
+                        "their",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a9": {
+                    "answer": "position?",
+                    "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+                    "options": [
+                        "position",
+                        "desk",
+                        "picture",
+                        "child"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про уявний чинник впливу; збережи конструкцію спонукання до дії.",
+            "accepted_target_texts": [
+                "What would induce the committee to reconsider its position?",
+                "What would prompt the committee to reconsider its position?"
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "prompt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "prompt"
+                ]
+            },
+            "reorder_groups": [
+                "What",
+                "would induce",
+                "the committee",
+                "to reconsider",
+                "its position?"
+            ],
+            "token_groups": [
+                "What",
+                "would induce",
+                "the committee",
+                "to reconsider",
+                "its position?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "would",
+                "induce",
+                "the",
+                "committee",
+                "to",
+                "reconsider",
+                "its",
+                "position?"
+            ],
+            "options": [
+                "What",
+                "Whenever",
+                "Who",
+                "Whom",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "induce",
+                "prefer",
+                "select",
+                "omission",
+                "the",
+                "any",
+                "this",
+                "that",
+                "committee",
+                "entrance",
+                "data",
+                "independent",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "reconsider",
+                "window",
+                "phone",
+                "train",
+                "its",
+                "their",
+                "mine",
+                "yours",
+                "position",
+                "desk",
+                "picture",
+                "child"
+            ],
+            "source_text_uk": "Що змусило б комітет переглянути свою позицію?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Whenever",
+                    "Who",
+                    "Whom"
+                ],
+                "a2": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "induce",
+                    "prefer",
+                    "select",
+                    "omission"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a5": [
+                    "committee",
+                    "entrance",
+                    "data",
+                    "independent"
+                ],
+                "a6": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a7": [
+                    "reconsider",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a8": [
+                    "its",
+                    "their",
+                    "mine",
+                    "yours"
+                ],
+                "a9": [
+                    "position",
+                    "desk",
+                    "picture",
+                    "child"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "noun_phrase",
+                "a5": "noun_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-subject-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Що могло б похитнути презумпцію, на якій ґрунтується це рішення?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що могло б похитнути презумпцію, на якій ґрунтується це рішення?",
+            "target_text": "What could have undermined the presumption on which this ruling rests?",
+            "markers": {
+                "a1": {
+                    "answer": "What",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "What",
+                        "Where",
+                        "When",
+                        "Why"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a4": {
+                    "answer": "undermined",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "undermined",
+                        "remained",
+                        "given",
+                        "made"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "presumption",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "presumption",
+                        "entrance",
+                        "contest",
+                        "very"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "on",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a8": {
+                    "answer": "which",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "which",
+                        "wherever",
+                        "whenever",
+                        "who"
+                    ]
+                },
+                "a9": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "this",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a10": {
+                    "answer": "ruling",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "ruling",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a11": {
+                    "answer": "rests?",
+                    "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+                    "options": [
+                        "rests",
+                        "consequences",
+                        "men",
+                        "women"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про нереалізований минулий чинник; збережи формальний відносний зв’язок.",
+            "accepted_target_texts": [
+                "What could have undermined the presumption on which this ruling rests?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "could have undermined",
+                "the presumption",
+                "on which",
+                "this ruling rests?"
+            ],
+            "token_groups": [
+                "What",
+                "could have undermined",
+                "the presumption",
+                "on which",
+                "this ruling rests?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "What",
+                "could",
+                "have",
+                "undermined",
+                "the",
+                "presumption",
+                "on",
+                "which",
+                "this",
+                "ruling",
+                "rests?"
+            ],
+            "options": [
+                "What",
+                "Where",
+                "When",
+                "Why",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "have",
+                "do",
+                "does",
+                "did",
+                "undermined",
+                "remained",
+                "given",
+                "made",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "presumption",
+                "entrance",
+                "contest",
+                "very",
+                "on",
+                "from",
+                "for",
+                "of",
+                "which",
+                "wherever",
+                "whenever",
+                "who",
+                "this",
+                "an",
+                "some",
+                "any",
+                "ruling",
+                "making",
+                "going",
+                "taking",
+                "rests",
+                "consequences",
+                "men",
+                "women"
+            ],
+            "source_text_uk": "Що могло б похитнути презумпцію, на якій ґрунтується це рішення?",
+            "options_by_marker": {
+                "a1": [
+                    "What",
+                    "Where",
+                    "When",
+                    "Why"
+                ],
+                "a2": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a3": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a4": [
+                    "undermined",
+                    "remained",
+                    "given",
+                    "made"
+                ],
+                "a5": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "presumption",
+                    "entrance",
+                    "contest",
+                    "very"
+                ],
+                "a7": [
+                    "on",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a8": [
+                    "which",
+                    "wherever",
+                    "whenever",
+                    "who"
+                ],
+                "a9": [
+                    "this",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a10": [
+                    "ruling",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a11": [
+                    "rests",
+                    "consequences",
+                    "men",
+                    "women"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "subject",
+                "a10": "subject",
+                "a11": "subject"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-subject-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Які наслідки могли залишитися непоміченими за межами безпосередньої юрисдикції?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які наслідки могли залишитися непоміченими за межами безпосередньої юрисдикції?",
+            "target_text": "Which consequences might have remained unnoticed beyond the immediate jurisdiction?",
+            "markers": {
+                "a1": {
+                    "answer": "Which",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "Which",
+                        "Whoever",
+                        "Whatever",
+                        "Wherever"
+                    ]
+                },
+                "a2": {
+                    "answer": "consequences",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "consequences",
+                        "rests",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a3": {
+                    "answer": "might",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "might",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "remained",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "remained",
+                        "undermined",
+                        "bought",
+                        "checked"
+                    ]
+                },
+                "a6": {
+                    "answer": "unnoticed",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "unnoticed",
+                        "reliable",
+                        "green",
+                        "blue"
+                    ]
+                },
+                "a7": {
+                    "answer": "beyond",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "beyond",
+                        "very",
+                        "premise",
+                        "compromise"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a9": {
+                    "answer": "immediate",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "immediate",
+                        "fair",
+                        "main",
+                        "presumption"
+                    ]
+                },
+                "a10": {
+                    "answer": "jurisdiction?",
+                    "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+                    "options": [
+                        "jurisdiction",
+                        "answer",
+                        "report",
+                        "claim"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про можливий минулий стан невиявленості; збережи межу юрисдикції.",
+            "accepted_target_texts": [
+                "Which consequences might have remained unnoticed beyond the immediate jurisdiction?"
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which consequences",
+                "might have remained",
+                "unnoticed",
+                "beyond",
+                "the immediate jurisdiction?"
+            ],
+            "token_groups": [
+                "Which consequences",
+                "might have remained",
+                "unnoticed",
+                "beyond",
+                "the immediate jurisdiction?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Which",
+                "consequences",
+                "might",
+                "have",
+                "remained",
+                "unnoticed",
+                "beyond",
+                "the",
+                "immediate",
+                "jurisdiction?"
+            ],
+            "options": [
+                "Which",
+                "Whoever",
+                "Whatever",
+                "Wherever",
+                "consequences",
+                "rests",
+                "tickets",
+                "cups",
+                "might",
+                "must",
+                "can't",
+                "couldn't",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "remained",
+                "undermined",
+                "bought",
+                "checked",
+                "unnoticed",
+                "reliable",
+                "green",
+                "blue",
+                "beyond",
+                "very",
+                "premise",
+                "compromise",
+                "the",
+                "some",
+                "any",
+                "this",
+                "immediate",
+                "fair",
+                "main",
+                "presumption",
+                "jurisdiction",
+                "answer",
+                "report",
+                "claim"
+            ],
+            "source_text_uk": "Які наслідки могли залишитися непоміченими за межами безпосередньої юрисдикції?",
+            "options_by_marker": {
+                "a1": [
+                    "Which",
+                    "Whoever",
+                    "Whatever",
+                    "Wherever"
+                ],
+                "a2": [
+                    "consequences",
+                    "rests",
+                    "tickets",
+                    "cups"
+                ],
+                "a3": [
+                    "might",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "remained",
+                    "undermined",
+                    "bought",
+                    "checked"
+                ],
+                "a6": [
+                    "unnoticed",
+                    "reliable",
+                    "green",
+                    "blue"
+                ],
+                "a7": [
+                    "beyond",
+                    "very",
+                    "premise",
+                    "compromise"
+                ],
+                "a8": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a9": [
+                    "immediate",
+                    "fair",
+                    "main",
+                    "presumption"
+                ],
+                "a10": [
+                    "jurisdiction",
+                    "answer",
+                    "report",
+                    "claim"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "question_word",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "adjective",
+                "a7": "adjunct",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-subject-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Хто міг би обґрунтовано заперечити саму передумову цього компромісу?",
+            "level": "C2",
+            "type": 4,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто міг би обґрунтовано заперечити саму передумову цього компромісу?",
+            "target_text": "Who could reasonably contest the very premise of this compromise?",
+            "markers": {
+                "a1": {
+                    "answer": "Who",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "Who",
+                        "Whom",
+                        "What",
+                        "Which"
+                    ]
+                },
+                "a2": {
+                    "answer": "could",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "reasonably",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "reasonably",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "contest",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "contest",
+                        "presumption",
+                        "beyond",
+                        "immediate"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "very",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "very",
+                        "main",
+                        "fair",
+                        "jurisdiction"
+                    ]
+                },
+                "a7": {
+                    "answer": "premise",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "premise",
+                        "bridge",
+                        "folder",
+                        "hall"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "of",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "this",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "this",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a10": {
+                    "answer": "compromise?",
+                    "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+                    "options": [
+                        "compromise",
+                        "notice",
+                        "station",
+                        "deadline"
+                    ]
+                }
+            },
+            "verb_hint": "Запитай про потенційного учасника обґрунтованого заперечення; оцінку розумності залиш при присудку.",
+            "accepted_target_texts": [
+                "Who could reasonably contest the very premise of this compromise?",
+                "Who could reasonably challenge the very premise of this compromise?"
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "challenge"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "challenge"
+                ]
+            },
+            "reorder_groups": [
+                "Who",
+                "could reasonably contest",
+                "the very premise",
+                "of this compromise?"
+            ],
+            "token_groups": [
+                "Who",
+                "could reasonably contest",
+                "the very premise",
+                "of this compromise?"
+            ],
+            "quality_revision": "qnq-v1",
+            "tokens_correct": [
+                "Who",
+                "could",
+                "reasonably",
+                "contest",
+                "the",
+                "very",
+                "premise",
+                "of",
+                "this",
+                "compromise?"
+            ],
+            "options": [
+                "Who",
+                "Whom",
+                "What",
+                "Which",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "reasonably",
+                "loudly",
+                "quietly",
+                "slowly",
+                "contest",
+                "presumption",
+                "beyond",
+                "immediate",
+                "the",
+                "that",
+                "these",
+                "those",
+                "very",
+                "main",
+                "fair",
+                "jurisdiction",
+                "premise",
+                "bridge",
+                "folder",
+                "hall",
+                "of",
+                "by",
+                "with",
+                "without",
+                "this",
+                "each",
+                "every",
+                "no",
+                "compromise",
+                "notice",
+                "station",
+                "deadline"
+            ],
+            "source_text_uk": "Хто міг би обґрунтовано заперечити саму передумову цього компромісу?",
+            "options_by_marker": {
+                "a1": [
+                    "Who",
+                    "Whom",
+                    "What",
+                    "Which"
+                ],
+                "a2": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a3": [
+                    "reasonably",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "contest",
+                    "presumption",
+                    "beyond",
+                    "immediate"
+                ],
+                "a5": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "very",
+                    "main",
+                    "fair",
+                    "jurisdiction"
+                ],
+                "a7": [
+                    "premise",
+                    "bridge",
+                    "folder",
+                    "hall"
+                ],
+                "a8": [
+                    "of",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a9": [
+                    "this",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a10": [
+                    "compromise",
+                    "notice",
+                    "station",
+                    "deadline"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question_word",
+                "a2": "verb_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "noun_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

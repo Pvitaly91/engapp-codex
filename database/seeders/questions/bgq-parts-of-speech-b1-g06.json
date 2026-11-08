@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60643,
+        "uuid": "bgq-parts-of-speech-b1-g06",
+        "question": "I rely on {a1} judgement.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "her",
+                "she",
+                "hers"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:48.000000Z",
+        "updated_at": "2026-10-27T15:50:48.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60643,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 9,
+                "option": "She",
+                "created_at": "2026-04-23T11:39:51.000000Z",
+                "updated_at": "2026-04-23T11:39:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 60643,
+                "option_id": 9,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 69,
+                "option": "her",
+                "created_at": "2026-04-23T11:39:57.000000Z",
+                "updated_at": "2026-04-23T11:39:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 60643,
+                "option_id": 69,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 3309,
+                "option": "hers",
+                "created_at": "2026-04-23T14:19:12.000000Z",
+                "updated_at": "2026-04-23T14:19:12.000000Z"
+            },
+            "pivot": {
+                "question_id": 60643,
+                "option_id": 3309,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325698,
+                "question_id": 60643,
+                "marker": "a1",
+                "option_id": 69,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 69,
+                "option": "her",
+                "created_at": "2026-04-23T11:39:57.000000Z",
+                "updated_at": "2026-04-23T11:39:57.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43032,
+                "question_id": 60643,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53130,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53130,
+                "option": "Потрібний зміст: «Її, означення належності перед іменником». Перед назвою судження потрібне присвійне означення, не самостійний займенник.",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52658,
+            "question_id": 60643,
+            "text": "I rely on {a1} judgement.",
+            "created_at": "2026-10-27T15:50:48.000000Z",
+            "updated_at": "2026-10-27T15:50:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

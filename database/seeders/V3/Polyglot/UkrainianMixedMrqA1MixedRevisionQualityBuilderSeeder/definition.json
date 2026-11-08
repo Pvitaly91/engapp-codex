@@ -1,0 +1,1659 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/a1-mixed-revision.v1.json",
+        "sha256": "a179a8761d7eb2dc33353d8458eb2ca8e5f9fd6b06acf77ea8c9aa453085960f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedMrqA1MixedRevisionQualityBuilderSeeder",
+        "uuid_namespace": "mixed-revision-quality-a1-mixed-revision-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_a1_mixed_revision": {
+            "name": "Mixed Revision Quality: A1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-a1-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Наша тітка тримає червоний велосипед у гаражі.",
+            "level": "A1",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Наша тітка тримає червоний велосипед у гаражі.",
+            "target_text": "Our aunt keeps a red bicycle in the garage.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "Our",
+                        "My",
+                        "Your",
+                        "His"
+                    ]
+                },
+                "a2": {
+                    "answer": "aunt",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "aunt",
+                        "uncle",
+                        "friend",
+                        "teacher"
+                    ]
+                },
+                "a3": {
+                    "answer": "keeps",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "keeps",
+                        "repairs",
+                        "paints",
+                        "carries"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "red",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "red",
+                        "golden",
+                        "brown",
+                        "pink"
+                    ]
+                },
+                "a6": {
+                    "answer": "bicycle",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "bicycle",
+                        "van",
+                        "plane",
+                        "boat"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "in",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a9": {
+                    "answer": "garage.",
+                    "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+                    "options": [
+                        "garage",
+                        "cupboard",
+                        "tent",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашої тітки, назви звичне зберігання велосипеда й наприкінці вкажи гараж; не пропускай артиклі.",
+            "accepted_target_texts": [
+                "Our aunt keeps a red bicycle in the garage.",
+                "Our aunt stores a red bicycle in the garage.",
+                "Our aunt keeps a red bike in the garage.",
+                "Our aunt stores a red bike in the garage."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "stores"
+                ],
+                "a6": [
+                    "bike"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "stores"
+                ],
+                "a6": [
+                    "bike"
+                ]
+            },
+            "reorder_groups": [
+                "Our aunt",
+                "keeps",
+                "a red bicycle",
+                "in the garage."
+            ],
+            "token_groups": [
+                "Our aunt",
+                "keeps",
+                "a red bicycle",
+                "in the garage."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Our",
+                "aunt",
+                "keeps",
+                "a",
+                "red",
+                "bicycle",
+                "in",
+                "the",
+                "garage."
+            ],
+            "options": [
+                "Our",
+                "My",
+                "Your",
+                "His",
+                "aunt",
+                "uncle",
+                "friend",
+                "teacher",
+                "keeps",
+                "repairs",
+                "paints",
+                "carries",
+                "a",
+                "all",
+                "both",
+                "an",
+                "red",
+                "golden",
+                "brown",
+                "pink",
+                "bicycle",
+                "van",
+                "plane",
+                "boat",
+                "in",
+                "by",
+                "with",
+                "without",
+                "the",
+                "some",
+                "any",
+                "this",
+                "garage",
+                "cupboard",
+                "tent",
+                "window"
+            ],
+            "source_text_uk": "Наша тітка тримає червоний велосипед у гаражі.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "My",
+                    "Your",
+                    "His"
+                ],
+                "a2": [
+                    "aunt",
+                    "uncle",
+                    "friend",
+                    "teacher"
+                ],
+                "a3": [
+                    "keeps",
+                    "repairs",
+                    "paints",
+                    "carries"
+                ],
+                "a4": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a5": [
+                    "red",
+                    "golden",
+                    "brown",
+                    "pink"
+                ],
+                "a6": [
+                    "bicycle",
+                    "van",
+                    "plane",
+                    "boat"
+                ],
+                "a7": [
+                    "in",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a8": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a9": [
+                    "garage",
+                    "cupboard",
+                    "tent",
+                    "window"
+                ]
+            },
+            "slot_roles": {
+                "a1": "relative_subject",
+                "a2": "relative_subject",
+                "a3": "present_transitive",
+                "a4": "colour_object",
+                "a5": "colour_object",
+                "a6": "colour_object",
+                "a7": "indoor_place",
+                "a8": "indoor_place",
+                "a9": "indoor_place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-a1-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Діти малювали маленькі човни, коли пролунав дзвінок.",
+            "level": "A2",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Діти малювали маленькі човни, коли пролунав дзвінок.",
+            "target_text": "The children were drawing tiny boats when the bell rang.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "children",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "children",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "were",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "drawing",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "drawing",
+                        "washing",
+                        "making",
+                        "measuring"
+                    ]
+                },
+                "a5": {
+                    "answer": "tiny",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "tiny",
+                        "clay",
+                        "paper",
+                        "cardboard"
+                    ]
+                },
+                "a6": {
+                    "answer": "boats",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "boats",
+                        "flowers",
+                        "toys",
+                        "kites"
+                    ]
+                },
+                "a7": {
+                    "answer": "when",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "when",
+                        "where",
+                        "why",
+                        "how"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "bell",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "bell",
+                        "door",
+                        "engine",
+                        "bird"
+                    ]
+                },
+                "a10": {
+                    "answer": "rang.",
+                    "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+                    "options": [
+                        "rang",
+                        "fell",
+                        "disappeared",
+                        "returned"
+                    ]
+                }
+            },
+            "verb_hint": "Спочатку назви дітей та процес малювання в минулому; коротку подію з дзвінком постав після часової сполуки.",
+            "accepted_target_texts": [
+                "The children were drawing tiny boats when the bell rang.",
+                "The children were drawing small boats when the bell rang.",
+                "The children were sketching tiny boats when the bell rang.",
+                "The children were sketching small boats when the bell rang.",
+                "The children were painting tiny boats when the bell rang.",
+                "The children were painting small boats when the bell rang."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "small"
+                ],
+                "a4": [
+                    "sketching",
+                    "painting"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "small"
+                ],
+                "a4": [
+                    "sketching",
+                    "painting"
+                ]
+            },
+            "reorder_groups": [
+                "The children",
+                "were drawing",
+                "tiny boats",
+                "when the bell",
+                "rang."
+            ],
+            "token_groups": [
+                "The children",
+                "were drawing",
+                "tiny boats",
+                "when the bell",
+                "rang."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "children",
+                "were",
+                "drawing",
+                "tiny",
+                "boats",
+                "when",
+                "the",
+                "bell",
+                "rang."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "children",
+                "called",
+                "walked",
+                "opened",
+                "were",
+                "being",
+                "isn't",
+                "aren't",
+                "drawing",
+                "washing",
+                "making",
+                "measuring",
+                "tiny",
+                "clay",
+                "paper",
+                "cardboard",
+                "boats",
+                "flowers",
+                "toys",
+                "kites",
+                "when",
+                "where",
+                "why",
+                "how",
+                "the",
+                "a",
+                "an",
+                "that",
+                "bell",
+                "door",
+                "engine",
+                "bird",
+                "rang",
+                "fell",
+                "disappeared",
+                "returned"
+            ],
+            "source_text_uk": "Діти малювали маленькі човни, коли пролунав дзвінок.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "children",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a3": [
+                    "were",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "drawing",
+                    "washing",
+                    "making",
+                    "measuring"
+                ],
+                "a5": [
+                    "tiny",
+                    "clay",
+                    "paper",
+                    "cardboard"
+                ],
+                "a6": [
+                    "boats",
+                    "flowers",
+                    "toys",
+                    "kites"
+                ],
+                "a7": [
+                    "when",
+                    "where",
+                    "why",
+                    "how"
+                ],
+                "a8": [
+                    "the",
+                    "a",
+                    "an",
+                    "that"
+                ],
+                "a9": [
+                    "bell",
+                    "door",
+                    "engine",
+                    "bird"
+                ],
+                "a10": [
+                    "rang",
+                    "fell",
+                    "disappeared",
+                    "returned"
+                ]
+            },
+            "slot_roles": {
+                "a1": "plural_subject",
+                "a2": "plural_subject",
+                "a3": "past_continuous",
+                "a4": "past_continuous",
+                "a5": "plural_craft_object",
+                "a6": "plural_craft_object",
+                "a7": "when_singular_subject",
+                "a8": "when_singular_subject",
+                "a9": "when_singular_subject",
+                "a10": "past_event"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-a1-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Марта ніколи не пробувала вирощувати гриби в приміщенні.",
+            "level": "B1",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Марта ніколи не пробувала вирощувати гриби в приміщенні.",
+            "target_text": "Marta has never tried growing mushrooms indoors.",
+            "markers": {
+                "a1": {
+                    "answer": "Marta",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "Marta",
+                        "Ivan",
+                        "Maria",
+                        "Petro"
+                    ]
+                },
+                "a2": {
+                    "answer": "has",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "has",
+                        "have",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a3": {
+                    "answer": "never",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "never",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a4": {
+                    "answer": "tried",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "tried",
+                        "avoided",
+                        "started",
+                        "enjoyed"
+                    ]
+                },
+                "a5": {
+                    "answer": "growing",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "growing",
+                        "pruning",
+                        "digging",
+                        "watering"
+                    ]
+                },
+                "a6": {
+                    "answer": "mushrooms",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "mushrooms",
+                        "orchids",
+                        "seedlings",
+                        "hedges"
+                    ]
+                },
+                "a7": {
+                    "answer": "indoors.",
+                    "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+                    "options": [
+                        "indoors",
+                        "upstairs",
+                        "downstairs",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Передай відсутність такого досвіду донині; після дієслова проби назви заняття формою із закінченням -інг.",
+            "accepted_target_texts": [
+                "Marta has never tried growing mushrooms indoors.",
+                "Marta has never tried cultivating mushrooms indoors.",
+                "Marta has never tried growing mushrooms inside.",
+                "Marta has never tried cultivating mushrooms inside."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "cultivating"
+                ],
+                "a7": [
+                    "inside."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "cultivating"
+                ],
+                "a7": [
+                    "inside."
+                ]
+            },
+            "reorder_groups": [
+                "Marta",
+                "has never tried",
+                "growing mushrooms",
+                "indoors."
+            ],
+            "token_groups": [
+                "Marta",
+                "has never tried",
+                "growing mushrooms",
+                "indoors."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Marta",
+                "has",
+                "never",
+                "tried",
+                "growing",
+                "mushrooms",
+                "indoors."
+            ],
+            "options": [
+                "Marta",
+                "Ivan",
+                "Maria",
+                "Petro",
+                "has",
+                "have",
+                "had",
+                "haven't",
+                "never",
+                "sometimes",
+                "already",
+                "still",
+                "tried",
+                "avoided",
+                "started",
+                "enjoyed",
+                "growing",
+                "pruning",
+                "digging",
+                "watering",
+                "mushrooms",
+                "orchids",
+                "seedlings",
+                "hedges",
+                "indoors",
+                "upstairs",
+                "downstairs",
+                "phones"
+            ],
+            "source_text_uk": "Марта ніколи не пробувала вирощувати гриби в приміщенні.",
+            "options_by_marker": {
+                "a1": [
+                    "Marta",
+                    "Ivan",
+                    "Maria",
+                    "Petro"
+                ],
+                "a2": [
+                    "has",
+                    "have",
+                    "had",
+                    "haven't"
+                ],
+                "a3": [
+                    "never",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a4": [
+                    "tried",
+                    "avoided",
+                    "started",
+                    "enjoyed"
+                ],
+                "a5": [
+                    "growing",
+                    "pruning",
+                    "digging",
+                    "watering"
+                ],
+                "a6": [
+                    "mushrooms",
+                    "orchids",
+                    "seedlings",
+                    "hedges"
+                ],
+                "a7": [
+                    "indoors",
+                    "upstairs",
+                    "downstairs",
+                    "phones"
+                ]
+            },
+            "slot_roles": {
+                "a1": "named_subject",
+                "a2": "experience_predicate",
+                "a3": "experience_predicate",
+                "a4": "experience_predicate",
+                "a5": "gardening_activity",
+                "a6": "gardening_activity",
+                "a7": "location_adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-a1-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Фреску вже відновлять до того, як відкриється виставка.",
+            "level": "B2",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Фреску вже відновлять до того, як відкриється виставка.",
+            "target_text": "The mural will have been restored before the exhibition opens.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "mural",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "mural",
+                        "miniature",
+                        "portrait",
+                        "statue"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "will",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a6": {
+                    "answer": "restored",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "restored",
+                        "protected",
+                        "photographed",
+                        "displayed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "before",
+                        "book",
+                        "box",
+                        "chair"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "exhibition",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "exhibition",
+                        "market",
+                        "concert",
+                        "auction"
+                    ]
+                },
+                "a10": {
+                    "answer": "opens.",
+                    "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+                    "options": [
+                        "opens",
+                        "closes",
+                        "needs",
+                        "likes"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з твору мистецтва; поєднай майбутню завершеність із пасивом, а в часовій підрядній частині вживи теперішню форму.",
+            "accepted_target_texts": [
+                "The mural will have been restored before the exhibition opens.",
+                "The fresco will have been restored before the exhibition opens.",
+                "The mural will have been restored before the show opens.",
+                "The fresco will have been restored before the show opens."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "fresco"
+                ],
+                "a9": [
+                    "show"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "fresco"
+                ],
+                "a9": [
+                    "show"
+                ]
+            },
+            "reorder_groups": [
+                "The mural",
+                "will have been",
+                "restored",
+                "before the exhibition",
+                "opens."
+            ],
+            "token_groups": [
+                "The mural",
+                "will have been",
+                "restored",
+                "before the exhibition",
+                "opens."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "The",
+                "mural",
+                "will",
+                "have",
+                "been",
+                "restored",
+                "before",
+                "the",
+                "exhibition",
+                "opens."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "mural",
+                "miniature",
+                "portrait",
+                "statue",
+                "will",
+                "can't",
+                "couldn't",
+                "won't",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "are",
+                "was",
+                "were",
+                "restored",
+                "protected",
+                "photographed",
+                "displayed",
+                "before",
+                "book",
+                "box",
+                "chair",
+                "the",
+                "those",
+                "each",
+                "every",
+                "exhibition",
+                "market",
+                "concert",
+                "auction",
+                "opens",
+                "closes",
+                "needs",
+                "likes"
+            ],
+            "source_text_uk": "Фреску вже відновлять до того, як відкриється виставка.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "mural",
+                    "miniature",
+                    "portrait",
+                    "statue"
+                ],
+                "a3": [
+                    "will",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a4": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a5": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a6": [
+                    "restored",
+                    "protected",
+                    "photographed",
+                    "displayed"
+                ],
+                "a7": [
+                    "before",
+                    "book",
+                    "box",
+                    "chair"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "exhibition",
+                    "market",
+                    "concert",
+                    "auction"
+                ],
+                "a10": [
+                    "opens",
+                    "closes",
+                    "needs",
+                    "likes"
+                ]
+            },
+            "slot_roles": {
+                "a1": "art_subject",
+                "a2": "art_subject",
+                "a3": "future_perfect_passive",
+                "a4": "future_perfect_passive",
+                "a5": "future_perfect_passive",
+                "a6": "art_participle",
+                "a7": "before_event",
+                "a8": "before_event",
+                "a9": "before_event",
+                "a10": "present_event"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-a1-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Лише після демонстрації учень зрозумів механізм.",
+            "level": "C1",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Лише після демонстрації учень зрозумів механізм.",
+            "target_text": "Only after the demonstration did the apprentice understand the mechanism.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "Only",
+                        "Even",
+                        "Almost",
+                        "Not"
+                    ]
+                },
+                "a2": {
+                    "answer": "after",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "after",
+                        "before",
+                        "chair",
+                        "table"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "demonstration",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "demonstration",
+                        "discussion",
+                        "interview",
+                        "announcement"
+                    ]
+                },
+                "a5": {
+                    "answer": "did",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "did",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "apprentice",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "apprentice",
+                        "curator",
+                        "visitor",
+                        "colleague"
+                    ]
+                },
+                "a8": {
+                    "answer": "understand",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "understand",
+                        "describe",
+                        "recognise",
+                        "examine"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a10": {
+                    "answer": "mechanism.",
+                    "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+                    "options": [
+                        "mechanism",
+                        "pattern",
+                        "problem",
+                        "procedure"
+                    ]
+                }
+            },
+            "verb_hint": "Винеси «лише після демонстрації» на початок; у головній частині постав допоміжне минулого часу перед учнем і поверни дієслово розуміння до початкової форми.",
+            "accepted_target_texts": [
+                "Only after the demonstration did the apprentice understand the mechanism.",
+                "Only after the demonstration did the trainee understand the mechanism.",
+                "Only after the demonstration did the apprentice grasp the mechanism.",
+                "Only after the demonstration did the trainee grasp the mechanism."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "trainee"
+                ],
+                "a8": [
+                    "grasp"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "trainee"
+                ],
+                "a8": [
+                    "grasp"
+                ]
+            },
+            "reorder_groups": [
+                "Only after",
+                "the demonstration",
+                "did the apprentice",
+                "understand",
+                "the mechanism."
+            ],
+            "token_groups": [
+                "Only after",
+                "the demonstration",
+                "did the apprentice",
+                "understand",
+                "the mechanism."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Only",
+                "after",
+                "the",
+                "demonstration",
+                "did",
+                "the",
+                "apprentice",
+                "understand",
+                "the",
+                "mechanism."
+            ],
+            "options": [
+                "Only",
+                "Even",
+                "Almost",
+                "Not",
+                "after",
+                "before",
+                "chair",
+                "table",
+                "the",
+                "some",
+                "any",
+                "this",
+                "demonstration",
+                "discussion",
+                "interview",
+                "announcement",
+                "did",
+                "didn't",
+                "have",
+                "has",
+                "that",
+                "these",
+                "those",
+                "apprentice",
+                "curator",
+                "visitor",
+                "colleague",
+                "understand",
+                "describe",
+                "recognise",
+                "examine",
+                "each",
+                "every",
+                "no",
+                "mechanism",
+                "pattern",
+                "problem",
+                "procedure"
+            ],
+            "source_text_uk": "Лише після демонстрації учень зрозумів механізм.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Even",
+                    "Almost",
+                    "Not"
+                ],
+                "a2": [
+                    "after",
+                    "before",
+                    "chair",
+                    "table"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "demonstration",
+                    "discussion",
+                    "interview",
+                    "announcement"
+                ],
+                "a5": [
+                    "did",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a6": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "apprentice",
+                    "curator",
+                    "visitor",
+                    "colleague"
+                ],
+                "a8": [
+                    "understand",
+                    "describe",
+                    "recognise",
+                    "examine"
+                ],
+                "a9": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a10": [
+                    "mechanism",
+                    "pattern",
+                    "problem",
+                    "procedure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "restrictive_fronting",
+                "a2": "restrictive_fronting",
+                "a3": "instruction_event",
+                "a4": "instruction_event",
+                "a5": "inverted_past_subject",
+                "a6": "inverted_past_subject",
+                "a7": "inverted_past_subject",
+                "a8": "cognition_verb",
+                "a9": "technical_object",
+                "a10": "technical_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-a1-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Якби скульптура не була такою крихкою, вона могла б витримати експонування просто неба.",
+            "level": "C2",
+            "type": 4,
+            "source": "mixed_revision_quality_a1_mixed_revision",
+            "translation_uk": "Якби скульптура не була такою крихкою, вона могла б витримати експонування просто неба.",
+            "target_text": "Were the sculpture not so fragile, it could withstand outdoor display.",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "Were",
+                        "Aren't",
+                        "Wasn't",
+                        "Weren't"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a3": {
+                    "answer": "sculpture",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "sculpture",
+                        "portrait",
+                        "vessel",
+                        "panel"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "so",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a6": {
+                    "answer": "fragile,",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "fragile",
+                        "intricate",
+                        "unusual",
+                        "milk"
+                    ]
+                },
+                "a7": {
+                    "answer": "it",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "it",
+                        "them",
+                        "myself",
+                        "yourself"
+                    ]
+                },
+                "a8": {
+                    "answer": "could",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "could",
+                        "would",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a9": {
+                    "answer": "withstand",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "withstand",
+                        "support",
+                        "permit",
+                        "resist"
+                    ]
+                },
+                "a10": {
+                    "answer": "outdoor",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "outdoor",
+                        "direct",
+                        "frequent",
+                        "letter"
+                    ]
+                },
+                "a11": {
+                    "answer": "display.",
+                    "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+                    "options": [
+                        "display",
+                        "transport",
+                        "examination",
+                        "relocation"
+                    ]
+                }
+            },
+            "verb_hint": "Постав інверсійну умовну частину з теперішньою нереальною ознакою на початок; у наслідку збережи значення можливості та зовнішні умови експонування.",
+            "accepted_target_texts": [
+                "Were the sculpture not so fragile, it could withstand outdoor display.",
+                "Were the sculpture not so fragile, it could endure outdoor display.",
+                "Were the sculpture not so fragile, it could withstand display outdoors.",
+                "Were the sculpture not so fragile, it could endure display outdoors."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "endure"
+                ],
+                "a10": [
+                    "display"
+                ],
+                "a11": [
+                    "outdoors."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "endure"
+                ],
+                "a10": [
+                    "display"
+                ],
+                "a11": [
+                    "outdoors."
+                ]
+            },
+            "reorder_groups": [
+                "Were the sculpture",
+                "not so fragile,",
+                "it could withstand",
+                "outdoor display."
+            ],
+            "token_groups": [
+                "Were the sculpture",
+                "not so fragile,",
+                "it could withstand",
+                "outdoor display."
+            ],
+            "quality_revision": "mrq-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "sculpture",
+                "not",
+                "so",
+                "fragile,",
+                "it",
+                "could",
+                "withstand",
+                "outdoor",
+                "display."
+            ],
+            "options": [
+                "Were",
+                "Aren't",
+                "Wasn't",
+                "Weren't",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "sculpture",
+                "portrait",
+                "vessel",
+                "panel",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "so",
+                "whereas",
+                "while",
+                "if",
+                "fragile",
+                "intricate",
+                "unusual",
+                "milk",
+                "it",
+                "them",
+                "myself",
+                "yourself",
+                "could",
+                "would",
+                "shall",
+                "should",
+                "withstand",
+                "support",
+                "permit",
+                "resist",
+                "outdoor",
+                "direct",
+                "frequent",
+                "letter",
+                "display",
+                "transport",
+                "examination",
+                "relocation"
+            ],
+            "source_text_uk": "Якби скульптура не була такою крихкою, вона могла б витримати експонування просто неба.",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Aren't",
+                    "Wasn't",
+                    "Weren't"
+                ],
+                "a2": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a3": [
+                    "sculpture",
+                    "portrait",
+                    "vessel",
+                    "panel"
+                ],
+                "a4": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a5": [
+                    "so",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a6": [
+                    "fragile",
+                    "intricate",
+                    "unusual",
+                    "milk"
+                ],
+                "a7": [
+                    "it",
+                    "them",
+                    "myself",
+                    "yourself"
+                ],
+                "a8": [
+                    "could",
+                    "would",
+                    "shall",
+                    "should"
+                ],
+                "a9": [
+                    "withstand",
+                    "support",
+                    "permit",
+                    "resist"
+                ],
+                "a10": [
+                    "outdoor",
+                    "direct",
+                    "frequent",
+                    "letter"
+                ],
+                "a11": [
+                    "display",
+                    "transport",
+                    "examination",
+                    "relocation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "conditional_inverted_subject",
+                "a2": "conditional_inverted_subject",
+                "a3": "conditional_inverted_subject",
+                "a4": "negative_quality",
+                "a5": "negative_quality",
+                "a6": "negative_quality",
+                "a7": "conditional_result",
+                "a8": "conditional_result",
+                "a9": "conditional_result",
+                "a10": "display_condition",
+                "a11": "display_condition"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

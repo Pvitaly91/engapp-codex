@@ -1,0 +1,1974 @@
+{
+    "schema_version": 1,
+    "quality_revision": "fccq-v1",
+    "compiled_from": {
+        "path": "docs/content/future-continuous-comparison-quality/comparison.v1.json",
+        "sha256": "3783718e2a5ed06f85d71a3f2d3494bfcbb05a858d4f8e00fe68ef627d2290a5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FutureForms\\UkrainianMixedFutureContinuousVsFuturePerfectContinuousQualityStandardSeeder",
+        "uuid_namespace": "future-continuous-comparison-quality-comparison-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Future Forms"
+    },
+    "sources": {
+        "future_continuous_comparison_quality_comparison": {
+            "name": "Future Continuous Comparison Quality: Future Continuous vs Future Perfect Continuous"
+        }
+    },
+    "tags": {
+        "future_forms_future_continuous_vs_future_perfect_continuous": {
+            "name": "Future Continuous vs Future Perfect Continuous",
+            "category": "future-forms"
+        },
+        "future_continuous": {
+            "name": "Future Continuous",
+            "category": "topic"
+        },
+        "future_perfect_continuous": {
+            "name": "Future Perfect Continuous",
+            "category": "topic"
+        },
+        "in_progress_future": {
+            "name": "In Progress Future",
+            "category": "topic"
+        },
+        "duration_up_to_future": {
+            "name": "Duration Up To Future",
+            "category": "topic"
+        },
+        "at_future_time": {
+            "name": "At Future Time",
+            "category": "topic"
+        },
+        "by_future_time": {
+            "name": "By Future Time",
+            "category": "topic"
+        },
+        "for_since": {
+            "name": "For Since",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "future_forms_future_continuous_vs_future_perfect_continuous"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "fccq-comparison-a1-g01",
+            "author_id": "A1-g01",
+            "question": "At one tomorrow, Mila will {a1} lunch.",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Завтра о першій Міла обідатиме.",
+            "target_text": "At one tomorrow, Mila will be eating lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "be eating",
+                    "options": [
+                        "be eating",
+                        "have been eating",
+                        "have eaten"
+                    ],
+                    "verb_hint": "Обідатиме саме в цей момент. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Обідатиме саме в цей момент. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "At one tomorrow, Mila will be eating lunch.",
+                "At one tomorrow, Mila will be having lunch."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be having"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be having"
+                ]
+            },
+            "reorder_groups": [
+                "At one tomorrow,",
+                "Mila will",
+                "be eating",
+                "lunch."
+            ],
+            "token_groups": [
+                "At one tomorrow,",
+                "Mila will",
+                "be eating",
+                "lunch."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "fccq-comparison-a1-g02",
+            "author_id": "A1-g02",
+            "question": "By ten tonight, Ben will {a1} for two hours.",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До десятої сьогодні ввечері Бен спатиме вже дві години.",
+            "target_text": "By ten tonight, Ben will have been sleeping for two hours.",
+            "markers": {
+                "a1": {
+                    "answer": "have been sleeping",
+                    "options": [
+                        "have been sleeping",
+                        "be sleeping",
+                        "have slept"
+                    ],
+                    "verb_hint": "Спатиме вже дві години до вказаного часу. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Спатиме вже дві години до вказаного часу. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By ten tonight, Ben will have been sleeping for two hours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By ten tonight,",
+                "Ben will",
+                "have been",
+                "sleeping",
+                "for two hours."
+            ],
+            "token_groups": [
+                "By ten tonight,",
+                "Ben will",
+                "have been",
+                "sleeping",
+                "for two hours."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "fccq-comparison-a1-g03",
+            "author_id": "A1-g03",
+            "question": "By Friday, our cat will {a1} here for a week.",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До п’ятниці наш кіт житиме тут уже тиждень.",
+            "target_text": "By Friday, our cat will have been living here for a week.",
+            "markers": {
+                "a1": {
+                    "answer": "have been living",
+                    "options": [
+                        "have been living",
+                        "be living",
+                        "have lived"
+                    ],
+                    "verb_hint": "Житиме тут уже тиждень до п’ятниці. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Житиме тут уже тиждень до п’ятниці. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By Friday, our cat will have been living here for a week.",
+                "By Friday, our cat will have been staying here for a week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been staying"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been staying"
+                ]
+            },
+            "reorder_groups": [
+                "By Friday,",
+                "our cat",
+                "will have been",
+                "living here",
+                "for a week."
+            ],
+            "token_groups": [
+                "By Friday,",
+                "our cat",
+                "will have been",
+                "living here",
+                "for a week."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "fccq-comparison-a1-g04",
+            "author_id": "A1-g04",
+            "question": "At nine tomorrow, Dad will {a1} the car.",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Завтра о дев’ятій тато митиме машину.",
+            "target_text": "At nine tomorrow, Dad will be washing the car.",
+            "markers": {
+                "a1": {
+                    "answer": "be washing",
+                    "options": [
+                        "be washing",
+                        "have been washing",
+                        "have washed"
+                    ],
+                    "verb_hint": "Митиме машину водою в той момент. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Митиме машину водою в той момент. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "At nine tomorrow, Dad will be washing the car.",
+                "At nine tomorrow, Dad will be cleaning the car."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be cleaning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be cleaning"
+                ]
+            },
+            "reorder_groups": [
+                "At nine tomorrow,",
+                "Dad will",
+                "be washing",
+                "the car."
+            ],
+            "token_groups": [
+                "At nine tomorrow,",
+                "Dad will",
+                "be washing",
+                "the car."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "fccq-comparison-a1-g05",
+            "author_id": "A1-g05",
+            "question": "At eight this evening, I will not {a1} the oven.",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Сьогодні о восьмій вечора я не користуватимуся духовкою.",
+            "target_text": "At eight this evening, I will not be using the oven.",
+            "markers": {
+                "a1": {
+                    "answer": "be using",
+                    "options": [
+                        "be using",
+                        "have been using",
+                        "have used"
+                    ],
+                    "verb_hint": "Не користуватимуся духовкою в зазначений момент; заперечення вже наведене. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Не користуватимуся духовкою в зазначений момент; заперечення вже наведене. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "At eight this evening, I will not be using the oven."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At eight",
+                "this evening,",
+                "I will not",
+                "be using",
+                "the oven."
+            ],
+            "token_groups": [
+                "At eight",
+                "this evening,",
+                "I will not",
+                "be using",
+                "the oven."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "fccq-comparison-a1-g06",
+            "author_id": "A1-g06",
+            "question": "By noon, will you {a1} for an hour?",
+            "level": "A1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До полудня ти читатимеш уже годину?",
+            "target_text": "By noon, will you have been reading for an hour?",
+            "markers": {
+                "a1": {
+                    "answer": "have been reading",
+                    "options": [
+                        "have been reading",
+                        "be reading",
+                        "have read"
+                    ],
+                    "verb_hint": "Чи читатимеш уже годину до полудня? Допоміжне дієслово й підмет уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Чи читатимеш уже годину до полудня? Допоміжне дієслово й підмет уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By noon, will you have been reading for an hour?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By noon,",
+                "will you",
+                "have been",
+                "reading",
+                "for an hour?"
+            ],
+            "token_groups": [
+                "By noon,",
+                "will you",
+                "have been",
+                "reading",
+                "for an hour?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "fccq-comparison-a2-g01",
+            "author_id": "A2-g01",
+            "question": "During tomorrow's trip, Alex will {a1} photos from the train.",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Під час завтрашньої поїздки Алекс фотографуватиме з поїзда.",
+            "target_text": "During tomorrow's trip, Alex will be taking photos from the train.",
+            "markers": {
+                "a1": {
+                    "answer": "be taking",
+                    "options": [
+                        "be taking",
+                        "have been taking",
+                        "have taken"
+                    ],
+                    "verb_hint": "Робитиме фотографії під час поїздки; назву фотографій уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Робитиме фотографії під час поїздки; назву фотографій уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "During tomorrow's trip, Alex will be taking photos from the train."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "During tomorrow's trip,",
+                "Alex will",
+                "be taking",
+                "photos",
+                "from the train."
+            ],
+            "token_groups": [
+                "During tomorrow's trip,",
+                "Alex will",
+                "be taking",
+                "photos",
+                "from the train."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "fccq-comparison-a2-g02",
+            "author_id": "A2-g02",
+            "question": "By the end of July, my aunt will {a1} at this school for ten years.",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До кінця липня моя тітка викладатиме в цій школі вже десять років.",
+            "target_text": "By the end of July, my aunt will have been teaching at this school for ten years.",
+            "markers": {
+                "a1": {
+                    "answer": "have been teaching",
+                    "options": [
+                        "have been teaching",
+                        "be teaching",
+                        "have taught"
+                    ],
+                    "verb_hint": "Викладатиме в школі вже десять років до вказаної межі. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Викладатиме в школі вже десять років до вказаної межі. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the end of July, my aunt will have been teaching at this school for ten years."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By the end",
+                "of July,",
+                "my aunt",
+                "will have been",
+                "teaching",
+                "at this school",
+                "for ten years."
+            ],
+            "token_groups": [
+                "By the end",
+                "of July,",
+                "my aunt",
+                "will have been",
+                "teaching",
+                "at this school",
+                "for ten years."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "fccq-comparison-a2-g03",
+            "author_id": "A2-g03",
+            "question": "How long will your brother {a1} at the bakery by Christmas?",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Скільки часу до Різдва твій брат уже працюватиме в пекарні?",
+            "target_text": "How long will your brother have been working at the bakery by Christmas?",
+            "markers": {
+                "a1": {
+                    "answer": "have been working",
+                    "options": [
+                        "have been working",
+                        "be working",
+                        "have worked"
+                    ],
+                    "verb_hint": "Запитай про тривалість роботи, накопичену до Різдва. Питальні слова й підмет уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Запитай про тривалість роботи, накопичену до Різдва. Питальні слова й підмет уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "How long will your brother have been working at the bakery by Christmas?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How long",
+                "will your brother",
+                "have been",
+                "working",
+                "at the bakery",
+                "by Christmas?"
+            ],
+            "token_groups": [
+                "How long",
+                "will your brother",
+                "have been",
+                "working",
+                "at the bakery",
+                "by Christmas?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "fccq-comparison-a2-g04",
+            "author_id": "A2-g04",
+            "question": "When you call tomorrow, we will {a1} the tent.",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли ти зателефонуєш завтра, ми встановлюватимемо намет.",
+            "target_text": "When you call tomorrow, we will be pitching the tent.",
+            "markers": {
+                "a1": {
+                    "answer": "be pitching",
+                    "options": [
+                        "be pitching",
+                        "have been pitching",
+                        "have pitched"
+                    ],
+                    "verb_hint": "Встановлюватимемо намет саме під час дзвінка. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Встановлюватимемо намет саме під час дзвінка. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "When you call tomorrow, we will be pitching the tent.",
+                "When you call tomorrow, we will be putting up the tent.",
+                "When you call tomorrow, we will be setting up the tent.",
+                "When you call tomorrow, we will be erecting the tent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be putting up",
+                    "be setting up",
+                    "be erecting"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be putting up",
+                    "be setting up",
+                    "be erecting"
+                ]
+            },
+            "reorder_groups": [
+                "When you call",
+                "tomorrow,",
+                "we will",
+                "be pitching",
+                "the tent."
+            ],
+            "token_groups": [
+                "When you call",
+                "tomorrow,",
+                "we will",
+                "be pitching",
+                "the tent."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "fccq-comparison-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Will Nina {a1} her blue coat at the concert?",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Ніна буде у своєму синьому пальті на концерті?",
+            "target_text": "Will Nina be wearing her blue coat at the concert?",
+            "markers": {
+                "a1": {
+                    "answer": "be wearing",
+                    "options": [
+                        "be wearing",
+                        "have been wearing",
+                        "have worn"
+                    ],
+                    "verb_hint": "Запитай, чи буде одягнена у своє пальто під час концерту. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Запитай, чи буде одягнена у своє пальто під час концерту. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "Will Nina be wearing her blue coat at the concert?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Will Nina",
+                "be wearing",
+                "her blue coat",
+                "at the concert?"
+            ],
+            "token_groups": [
+                "Will Nina",
+                "be wearing",
+                "her blue coat",
+                "at the concert?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "fccq-comparison-a2-g06",
+            "author_id": "A2-g06",
+            "question": "By Saturday, the shop will not {a1} for a full month.",
+            "level": "A2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До суботи магазин працюватиме ще не повний місяць.",
+            "target_text": "By Saturday, the shop will not have been operating for a full month.",
+            "markers": {
+                "a1": {
+                    "answer": "have been operating",
+                    "options": [
+                        "have been operating",
+                        "be operating",
+                        "have operated"
+                    ],
+                    "verb_hint": "До суботи тривалість роботи магазину ще не становитиме повного місяця; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "До суботи тривалість роботи магазину ще не становитиме повного місяця; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By Saturday, the shop will not have been operating for a full month.",
+                "By Saturday, the shop will not have been trading for a full month."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been trading"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been trading"
+                ]
+            },
+            "reorder_groups": [
+                "By Saturday,",
+                "the shop",
+                "will not",
+                "have been",
+                "operating",
+                "for",
+                "a full month."
+            ],
+            "token_groups": [
+                "By Saturday,",
+                "the shop",
+                "will not",
+                "have been",
+                "operating",
+                "for",
+                "a full month."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "fccq-comparison-b1-g01",
+            "author_id": "B1-g01",
+            "question": "While the guests eat, Sara will {a1} the violin.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Поки гості їстимуть, Сара гратиме на скрипці.",
+            "target_text": "While the guests eat, Sara will be playing the violin.",
+            "markers": {
+                "a1": {
+                    "answer": "be playing",
+                    "options": [
+                        "be playing",
+                        "have been playing",
+                        "have played"
+                    ],
+                    "verb_hint": "Гратиме на скрипці під час трапези гостей. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Гратиме на скрипці під час трапези гостей. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "While the guests eat, Sara will be playing the violin."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "While the guests",
+                "eat,",
+                "Sara will",
+                "be playing",
+                "the violin."
+            ],
+            "token_groups": [
+                "While the guests",
+                "eat,",
+                "Sara will",
+                "be playing",
+                "the violin."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "fccq-comparison-b1-g02",
+            "author_id": "B1-g02",
+            "question": "By the time the ferry docks, we will {a1} for six hours.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли пором причалить, ми плистимемо вже шість годин.",
+            "target_text": "By the time the ferry docks, we will have been sailing for six hours.",
+            "markers": {
+                "a1": {
+                    "answer": "have been sailing",
+                    "options": [
+                        "have been sailing",
+                        "be sailing",
+                        "have sailed"
+                    ],
+                    "verb_hint": "Плистимемо вже шість годин до причалювання порома. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Плистимемо вже шість годин до причалювання порома. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the time the ferry docks, we will have been sailing for six hours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By the time",
+                "the ferry docks,",
+                "we will",
+                "have been",
+                "sailing",
+                "for six hours."
+            ],
+            "token_groups": [
+                "By the time",
+                "the ferry docks,",
+                "we will",
+                "have been",
+                "sailing",
+                "for six hours."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "fccq-comparison-b1-g03",
+            "author_id": "B1-g03",
+            "question": "At tomorrow's briefing, Eva will {a1} with complaints since dawn.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "На завтрашньому брифінгу Єва працюватиме зі скаргами вже від світанку.",
+            "target_text": "At tomorrow's briefing, Eva will have been dealing with complaints since dawn.",
+            "markers": {
+                "a1": {
+                    "answer": "have been dealing",
+                    "options": [
+                        "have been dealing",
+                        "be dealing",
+                        "have dealt"
+                    ],
+                    "verb_hint": "Працюватиме зі скаргами від світанку до брифінгу; прийменник уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Працюватиме зі скаргами від світанку до брифінгу; прийменник уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "At tomorrow's briefing, Eva will have been dealing with complaints since dawn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At tomorrow's briefing,",
+                "Eva will",
+                "have been",
+                "dealing with complaints",
+                "since dawn."
+            ],
+            "token_groups": [
+                "At tomorrow's briefing,",
+                "Eva will",
+                "have been",
+                "dealing with complaints",
+                "since dawn."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "fccq-comparison-b1-g04",
+            "author_id": "B1-g04",
+            "question": "We will {a1} signatures when the councillors arrive.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Ми збиратимемо підписи, коли прибудуть члени ради.",
+            "target_text": "We will be collecting signatures when the councillors arrive.",
+            "markers": {
+                "a1": {
+                    "answer": "be collecting",
+                    "options": [
+                        "be collecting",
+                        "have been collecting",
+                        "have collected"
+                    ],
+                    "verb_hint": "Збиратимемо підписи в момент прибуття членів ради. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Збиратимемо підписи в момент прибуття членів ради. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "We will be collecting signatures when the councillors arrive.",
+                "We will be gathering signatures when the councillors arrive."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be gathering"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be gathering"
+                ]
+            },
+            "reorder_groups": [
+                "We will",
+                "be collecting signatures",
+                "when the councillors",
+                "arrive."
+            ],
+            "token_groups": [
+                "We will",
+                "be collecting signatures",
+                "when the councillors",
+                "arrive."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "fccq-comparison-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The guide will not {a1} tours during the repairs.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Гід не проводитиме екскурсій під час ремонту.",
+            "target_text": "The guide will not be leading tours during the repairs.",
+            "markers": {
+                "a1": {
+                    "answer": "be leading",
+                    "options": [
+                        "be leading",
+                        "have been leading",
+                        "have led"
+                    ],
+                    "verb_hint": "Не проводитиме екскурсій у період ремонту; заперечення вже наведене. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Не проводитиме екскурсій у період ремонту; заперечення вже наведене. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "The guide will not be leading tours during the repairs.",
+                "The guide will not be conducting tours during the repairs.",
+                "The guide will not be giving tours during the repairs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be conducting",
+                    "be giving"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be conducting",
+                    "be giving"
+                ]
+            },
+            "reorder_groups": [
+                "The guide",
+                "will not",
+                "be leading tours",
+                "during the repairs."
+            ],
+            "token_groups": [
+                "The guide",
+                "will not",
+                "be leading tours",
+                "during the repairs."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "fccq-comparison-b1-g06",
+            "author_id": "B1-g06",
+            "question": "By February, the doctors will {a1} his recovery for six months.",
+            "level": "B1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До лютого лікарі стежитимуть за його відновленням уже шість місяців.",
+            "target_text": "By February, the doctors will have been monitoring his recovery for six months.",
+            "markers": {
+                "a1": {
+                    "answer": "have been monitoring",
+                    "options": [
+                        "have been monitoring",
+                        "be monitoring",
+                        "have monitored"
+                    ],
+                    "verb_hint": "Стежитимуть за відновленням уже шість місяців до лютого. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Стежитимуть за відновленням уже шість місяців до лютого. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By February, the doctors will have been monitoring his recovery for six months.",
+                "By February, the doctors will have been tracking his recovery for six months.",
+                "By February, the doctors will have been observing his recovery for six months."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been tracking",
+                    "have been observing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been tracking",
+                    "have been observing"
+                ]
+            },
+            "reorder_groups": [
+                "By February,",
+                "the doctors",
+                "will have been",
+                "monitoring his recovery",
+                "for six months."
+            ],
+            "token_groups": [
+                "By February,",
+                "the doctors",
+                "will have been",
+                "monitoring his recovery",
+                "for six months."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "fccq-comparison-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Throughout the inspection tomorrow, the technicians will {a1} pressure readings.",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Упродовж завтрашньої перевірки техніки перевірятимуть показники тиску.",
+            "target_text": "Throughout the inspection tomorrow, the technicians will be checking pressure readings.",
+            "markers": {
+                "a1": {
+                    "answer": "be checking",
+                    "options": [
+                        "be checking",
+                        "have been checking",
+                        "have checked"
+                    ],
+                    "verb_hint": "Перевірятимуть показники тиску протягом інспекції. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Перевірятимуть показники тиску протягом інспекції. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "Throughout the inspection tomorrow, the technicians will be checking pressure readings.",
+                "Throughout the inspection tomorrow, the technicians will be examining pressure readings.",
+                "Throughout the inspection tomorrow, the technicians will be reviewing pressure readings."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be examining",
+                    "be reviewing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be examining",
+                    "be reviewing"
+                ]
+            },
+            "reorder_groups": [
+                "Throughout the inspection",
+                "tomorrow,",
+                "the technicians",
+                "will be checking",
+                "pressure readings."
+            ],
+            "token_groups": [
+                "Throughout the inspection",
+                "tomorrow,",
+                "the technicians",
+                "will be checking",
+                "pressure readings."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "fccq-comparison-b2-g02",
+            "author_id": "B2-g02",
+            "question": "When the delegates reach an agreement, they will {a1} for three consecutive days.",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли делегати дійдуть згоди, вони вестимуть переговори вже три дні поспіль.",
+            "target_text": "When the delegates reach an agreement, they will have been negotiating for three consecutive days.",
+            "markers": {
+                "a1": {
+                    "answer": "have been negotiating",
+                    "options": [
+                        "have been negotiating",
+                        "be negotiating",
+                        "have negotiated"
+                    ],
+                    "verb_hint": "Вестимуть переговори вже три дні поспіль до моменту досягнення згоди. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Вестимуть переговори вже три дні поспіль до моменту досягнення згоди. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "When the delegates reach an agreement, they will have been negotiating for three consecutive days.",
+                "When the delegates reach an agreement, they will have been bargaining for three consecutive days."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been bargaining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been bargaining"
+                ]
+            },
+            "reorder_groups": [
+                "When the delegates",
+                "reach an agreement,",
+                "they will",
+                "have been",
+                "negotiating",
+                "for",
+                "three consecutive days."
+            ],
+            "token_groups": [
+                "When the delegates",
+                "reach an agreement,",
+                "they will",
+                "have been",
+                "negotiating",
+                "for",
+                "three consecutive days."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "fccq-comparison-b2-g03",
+            "author_id": "B2-g03",
+            "question": "By the end of the trial period, the council will {a1} the service for eighteen months.",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До кінця випробувального періоду рада субсидуватиме цю службу вже вісімнадцять місяців.",
+            "target_text": "By the end of the trial period, the council will have been subsidising the service for eighteen months.",
+            "markers": {
+                "a1": {
+                    "answer": "have been subsidising",
+                    "options": [
+                        "have been subsidising",
+                        "be subsidising",
+                        "have subsidised"
+                    ],
+                    "verb_hint": "Субсидуватиме службу вже вісімнадцять місяців до кінця випробувального періоду. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Субсидуватиме службу вже вісімнадцять місяців до кінця випробувального періоду. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the end of the trial period, the council will have been subsidising the service for eighteen months.",
+                "By the end of the trial period, the council will have been subsidizing the service for eighteen months."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been subsidizing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been subsidizing"
+                ]
+            },
+            "reorder_groups": [
+                "By",
+                "the end",
+                "of",
+                "the trial period,",
+                "the council",
+                "will have been",
+                "subsidising the service",
+                "for eighteen months."
+            ],
+            "token_groups": [
+                "By",
+                "the end",
+                "of",
+                "the trial period,",
+                "the council",
+                "will have been",
+                "subsidising the service",
+                "for eighteen months."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "fccq-comparison-b2-g04",
+            "author_id": "B2-g04",
+            "question": "What will the panel {a1} while the candidates perform?",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Що комісія оцінюватиме під час виступів кандидатів?",
+            "target_text": "What will the panel be assessing while the candidates perform?",
+            "markers": {
+                "a1": {
+                    "answer": "be assessing",
+                    "options": [
+                        "be assessing",
+                        "have been assessing",
+                        "have assessed"
+                    ],
+                    "verb_hint": "Оцінюватиме під час виступів. Питальне слово й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Оцінюватиме під час виступів. Питальне слово й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "What will the panel be assessing while the candidates perform?",
+                "What will the panel be evaluating while the candidates perform?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be evaluating"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be evaluating"
+                ]
+            },
+            "reorder_groups": [
+                "What will",
+                "the panel",
+                "be assessing",
+                "while the candidates",
+                "perform?"
+            ],
+            "token_groups": [
+                "What will",
+                "the panel",
+                "be assessing",
+                "while the candidates",
+                "perform?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "fccq-comparison-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The charity will {a1} blankets after the storm passes.",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Благодійна організація роздаватиме ковдри після того, як буря вщухне.",
+            "target_text": "The charity will be distributing blankets after the storm passes.",
+            "markers": {
+                "a1": {
+                    "answer": "be distributing",
+                    "options": [
+                        "be distributing",
+                        "have been distributing",
+                        "have distributed"
+                    ],
+                    "verb_hint": "Роздаватиме ковдри після бурі; покажи запланований процес, не результат завершеної роздачі. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Роздаватиме ковдри після бурі; покажи запланований процес, не результат завершеної роздачі. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "The charity will be distributing blankets after the storm passes.",
+                "The charity will be handing out blankets after the storm passes."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be handing out"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be handing out"
+                ]
+            },
+            "reorder_groups": [
+                "The charity",
+                "will be distributing",
+                "blankets",
+                "after the storm",
+                "passes."
+            ],
+            "token_groups": [
+                "The charity",
+                "will be distributing",
+                "blankets",
+                "after the storm",
+                "passes."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "fccq-comparison-b2-g06",
+            "author_id": "B2-g06",
+            "question": "By the review date, the adviser will not {a1} the family for long.",
+            "level": "B2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "На дату перегляду радник представлятиме цю родину ще лише короткий час.",
+            "target_text": "By the review date, the adviser will not have been representing the family for long.",
+            "markers": {
+                "a1": {
+                    "answer": "have been representing",
+                    "options": [
+                        "have been representing",
+                        "be representing",
+                        "have represented"
+                    ],
+                    "verb_hint": "Стаж представництва на дату перегляду ще буде невеликим; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Стаж представництва на дату перегляду ще буде невеликим; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the review date, the adviser will not have been representing the family for long."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By",
+                "the review date,",
+                "the adviser",
+                "will not",
+                "have been",
+                "representing the family",
+                "for long."
+            ],
+            "token_groups": [
+                "By",
+                "the review date,",
+                "the adviser",
+                "will not",
+                "have been",
+                "representing the family",
+                "for long."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "fccq-comparison-c1-g01",
+            "author_id": "C1-g01",
+            "question": "When the first objections are raised, the chair will {a1} competing interpretations.",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли пролунають перші заперечення, голова зважуватиме конкуруючі тлумачення.",
+            "target_text": "When the first objections are raised, the chair will be weighing competing interpretations.",
+            "markers": {
+                "a1": {
+                    "answer": "be weighing",
+                    "options": [
+                        "be weighing",
+                        "have been weighing",
+                        "have weighed"
+                    ],
+                    "verb_hint": "Зважуватиме конкуруючі тлумачення, коли пролунають заперечення. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Зважуватиме конкуруючі тлумачення, коли пролунають заперечення. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "When the first objections are raised, the chair will be weighing competing interpretations.",
+                "When the first objections are raised, the chair will be considering competing interpretations.",
+                "When the first objections are raised, the chair will be evaluating competing interpretations."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be considering",
+                    "be evaluating"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be considering",
+                    "be evaluating"
+                ]
+            },
+            "reorder_groups": [
+                "When",
+                "the first objections",
+                "are raised,",
+                "the chair",
+                "will be weighing",
+                "competing interpretations."
+            ],
+            "token_groups": [
+                "When",
+                "the first objections",
+                "are raised,",
+                "the chair",
+                "will be weighing",
+                "competing interpretations."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "fccq-comparison-c1-g02",
+            "author_id": "C1-g02",
+            "question": "By the next evaluation, the laboratory will {a1} this protocol for nearly a decade.",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До наступного оцінювання лабораторія вдосконалюватиме цей протокол уже майже десятиліття.",
+            "target_text": "By the next evaluation, the laboratory will have been refining this protocol for nearly a decade.",
+            "markers": {
+                "a1": {
+                    "answer": "have been refining",
+                    "options": [
+                        "have been refining",
+                        "be refining",
+                        "have refined"
+                    ],
+                    "verb_hint": "Вдосконалюватиме протокол уже майже десятиліття до наступного оцінювання. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Вдосконалюватиме протокол уже майже десятиліття до наступного оцінювання. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the next evaluation, the laboratory will have been refining this protocol for nearly a decade.",
+                "By the next evaluation, the laboratory will have been improving this protocol for nearly a decade."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been improving"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been improving"
+                ]
+            },
+            "reorder_groups": [
+                "By",
+                "the next evaluation,",
+                "the laboratory",
+                "will have been",
+                "refining this protocol",
+                "for",
+                "nearly a decade."
+            ],
+            "token_groups": [
+                "By",
+                "the next evaluation,",
+                "the laboratory",
+                "will have been",
+                "refining this protocol",
+                "for",
+                "nearly a decade."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "fccq-comparison-c1-g03",
+            "author_id": "C1-g03",
+            "question": "By the time the exemption expires, the firm will {a1} on it for five consecutive tax years.",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли пільга втратить чинність, фірма покладатиметься на неї вже п’ять податкових років поспіль.",
+            "target_text": "By the time the exemption expires, the firm will have been relying on it for five consecutive tax years.",
+            "markers": {
+                "a1": {
+                    "answer": "have been relying",
+                    "options": [
+                        "have been relying",
+                        "be relying",
+                        "have relied"
+                    ],
+                    "verb_hint": "Покладатиметься на пільгу вже п’ять податкових років; прийменник уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Покладатиметься на пільгу вже п’ять податкових років; прийменник уже наведено. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the time the exemption expires, the firm will have been relying on it for five consecutive tax years.",
+                "By the time the exemption expires, the firm will have been depending on it for five consecutive tax years."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been depending"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been depending"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "the exemption expires,",
+                "the firm",
+                "will have been",
+                "relying on it",
+                "for",
+                "five",
+                "consecutive tax years."
+            ],
+            "token_groups": [
+                "By the time",
+                "the exemption expires,",
+                "the firm",
+                "will have been",
+                "relying on it",
+                "for",
+                "five",
+                "consecutive tax years."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "fccq-comparison-c1-g04",
+            "author_id": "C1-g04",
+            "question": "While the appeal is pending, we will {a1} the disputed sum.",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Поки апеляція перебуватиме на розгляді, ми утримуватимемо спірну суму.",
+            "target_text": "While the appeal is pending, we will be withholding the disputed sum.",
+            "markers": {
+                "a1": {
+                    "answer": "be withholding",
+                    "options": [
+                        "be withholding",
+                        "have been withholding",
+                        "have withheld"
+                    ],
+                    "verb_hint": "Утримуватимемо спірну суму в період розгляду апеляції. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Утримуватимемо спірну суму в період розгляду апеляції. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "While the appeal is pending, we will be withholding the disputed sum.",
+                "While the appeal is pending, we will be retaining the disputed sum."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be retaining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be retaining"
+                ]
+            },
+            "reorder_groups": [
+                "While the appeal",
+                "is pending,",
+                "we will",
+                "be withholding",
+                "the disputed sum."
+            ],
+            "token_groups": [
+                "While the appeal",
+                "is pending,",
+                "we will",
+                "be withholding",
+                "the disputed sum."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "fccq-comparison-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Which assumptions will the researchers {a1} during the sensitivity analysis?",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Які припущення дослідники переглядатимуть під час аналізу чутливості?",
+            "target_text": "Which assumptions will the researchers be revisiting during the sensitivity analysis?",
+            "markers": {
+                "a1": {
+                    "answer": "be revisiting",
+                    "options": [
+                        "be revisiting",
+                        "have been revisiting",
+                        "have revisited"
+                    ],
+                    "verb_hint": "Заново переглядатимуть припущення під час аналізу. Питальні слова й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Заново переглядатимуть припущення під час аналізу. Питальні слова й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "Which assumptions will the researchers be revisiting during the sensitivity analysis?",
+                "Which assumptions will the researchers be reassessing during the sensitivity analysis?",
+                "Which assumptions will the researchers be reexamining during the sensitivity analysis?",
+                "Which assumptions will the researchers be re-examining during the sensitivity analysis?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be reassessing",
+                    "be reexamining",
+                    "be re-examining"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be reassessing",
+                    "be reexamining",
+                    "be re-examining"
+                ]
+            },
+            "reorder_groups": [
+                "Which assumptions",
+                "will the researchers",
+                "be revisiting",
+                "during",
+                "the sensitivity analysis?"
+            ],
+            "token_groups": [
+                "Which assumptions",
+                "will the researchers",
+                "be revisiting",
+                "during",
+                "the sensitivity analysis?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "fccq-comparison-c1-g06",
+            "author_id": "C1-g06",
+            "question": "By the accession anniversary, the administration will {a1} its standards for a decade.",
+            "level": "C1",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "До річниці вступу адміністрація узгоджуватиме свої стандарти вже десятиліття.",
+            "target_text": "By the accession anniversary, the administration will have been harmonising its standards for a decade.",
+            "markers": {
+                "a1": {
+                    "answer": "have been harmonising",
+                    "options": [
+                        "have been harmonising",
+                        "be harmonising",
+                        "have harmonised"
+                    ],
+                    "verb_hint": "Узгоджуватиме свої стандарти вже десятиліття до річниці вступу. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Узгоджуватиме свої стандарти вже десятиліття до річниці вступу. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the accession anniversary, the administration will have been harmonising its standards for a decade.",
+                "By the accession anniversary, the administration will have been harmonizing its standards for a decade.",
+                "By the accession anniversary, the administration will have been aligning its standards for a decade."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been harmonizing",
+                    "have been aligning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been harmonizing",
+                    "have been aligning"
+                ]
+            },
+            "reorder_groups": [
+                "By",
+                "the accession anniversary,",
+                "the administration",
+                "will have been",
+                "harmonising its standards",
+                "for a decade."
+            ],
+            "token_groups": [
+                "By",
+                "the accession anniversary,",
+                "the administration",
+                "will have been",
+                "harmonising its standards",
+                "for a decade."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "fccq-comparison-c2-g01",
+            "author_id": "C2-g01",
+            "question": "During the next round of scrutiny, we will {a1} institutional continuity as a premise rather than a finding.",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Під час наступного етапу перевірки ми трактуватимемо інституційну безперервність як передумову, а не як висновок.",
+            "target_text": "During the next round of scrutiny, we will be treating institutional continuity as a premise rather than a finding.",
+            "markers": {
+                "a1": {
+                    "answer": "be treating",
+                    "options": [
+                        "be treating",
+                        "have been treating",
+                        "have treated"
+                    ],
+                    "verb_hint": "Трактуватимемо безперервність як передумову на цьому етапі аналізу, а не стверджуватимемо вже доведеного висновку. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Трактуватимемо безперервність як передумову на цьому етапі аналізу, а не стверджуватимемо вже доведеного висновку. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "During the next round of scrutiny, we will be treating institutional continuity as a premise rather than a finding.",
+                "During the next round of scrutiny, we will be construing institutional continuity as a premise rather than a finding."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be construing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be construing"
+                ]
+            },
+            "reorder_groups": [
+                "During",
+                "the next round",
+                "of scrutiny,",
+                "we will",
+                "be treating",
+                "institutional continuity",
+                "as a premise",
+                "rather than",
+                "a finding."
+            ],
+            "token_groups": [
+                "During",
+                "the next round",
+                "of scrutiny,",
+                "we will",
+                "be treating",
+                "institutional continuity",
+                "as a premise",
+                "rather than",
+                "a finding."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "fccq-comparison-c2-g02",
+            "author_id": "C2-g02",
+            "question": "By the time a durable settlement emerges, the parties will {a1} the allocation of residual risk for a generation.",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли постане стійке врегулювання, сторони оспорюватимуть розподіл залишкового ризику вже ціле покоління.",
+            "target_text": "By the time a durable settlement emerges, the parties will have been contesting the allocation of residual risk for a generation.",
+            "markers": {
+                "a1": {
+                    "answer": "have been contesting",
+                    "options": [
+                        "have been contesting",
+                        "be contesting",
+                        "have contested"
+                    ],
+                    "verb_hint": "Оспорюватимуть розподіл ризику вже ціле покоління до досягнення стійкого врегулювання. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Оспорюватимуть розподіл ризику вже ціле покоління до досягнення стійкого врегулювання. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the time a durable settlement emerges, the parties will have been contesting the allocation of residual risk for a generation.",
+                "By the time a durable settlement emerges, the parties will have been disputing the allocation of residual risk for a generation.",
+                "By the time a durable settlement emerges, the parties will have been challenging the allocation of residual risk for a generation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been disputing",
+                    "have been challenging"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been disputing",
+                    "have been challenging"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "a durable settlement",
+                "emerges,",
+                "the parties",
+                "will have been",
+                "contesting the allocation",
+                "of residual risk",
+                "for a generation."
+            ],
+            "token_groups": [
+                "By the time",
+                "a durable settlement",
+                "emerges,",
+                "the parties",
+                "will have been",
+                "contesting the allocation",
+                "of residual risk",
+                "for a generation."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "fccq-comparison-c2-g03",
+            "author_id": "C2-g03",
+            "question": "When the doctrine is finally reconsidered, courts will {a1} that silence as consent for decades.",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли доктрину нарешті переглянуть, суди тлумачитимуть те мовчання як згоду вже десятиліттями.",
+            "target_text": "When the doctrine is finally reconsidered, courts will have been reading that silence as consent for decades.",
+            "markers": {
+                "a1": {
+                    "answer": "have been reading",
+                    "options": [
+                        "have been reading",
+                        "be reading",
+                        "have read"
+                    ],
+                    "verb_hint": "Тлумачитимуть мовчання як згоду вже десятиліттями до перегляду доктрини. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Тлумачитимуть мовчання як згоду вже десятиліттями до перегляду доктрини. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "When the doctrine is finally reconsidered, courts will have been reading that silence as consent for decades.",
+                "When the doctrine is finally reconsidered, courts will have been construing that silence as consent for decades.",
+                "When the doctrine is finally reconsidered, courts will have been treating that silence as consent for decades."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been construing",
+                    "have been treating"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been construing",
+                    "have been treating"
+                ]
+            },
+            "reorder_groups": [
+                "When the doctrine",
+                "is finally reconsidered,",
+                "courts will",
+                "have been",
+                "reading that silence",
+                "as consent",
+                "for decades."
+            ],
+            "token_groups": [
+                "When the doctrine",
+                "is finally reconsidered,",
+                "courts will",
+                "have been",
+                "reading that silence",
+                "as consent",
+                "for decades."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "fccq-comparison-c2-g04",
+            "author_id": "C2-g04",
+            "question": "During next week's deliberations, the secretariat will {a1} procedural compliance from substantive endorsement.",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Під час обговорень наступного тижня секретаріат розрізнятиме дотримання процедури та змістовне схвалення.",
+            "target_text": "During next week's deliberations, the secretariat will be distinguishing procedural compliance from substantive endorsement.",
+            "markers": {
+                "a1": {
+                    "answer": "be distinguishing",
+                    "options": [
+                        "be distinguishing",
+                        "have been distinguishing",
+                        "have distinguished"
+                    ],
+                    "verb_hint": "Розрізнятиме дотримання процедури й змістовне схвалення під час майбутніх обговорень. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Розрізнятиме дотримання процедури й змістовне схвалення під час майбутніх обговорень. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "During next week's deliberations, the secretariat will be distinguishing procedural compliance from substantive endorsement.",
+                "During next week's deliberations, the secretariat will be differentiating procedural compliance from substantive endorsement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be differentiating"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be differentiating"
+                ]
+            },
+            "reorder_groups": [
+                "During",
+                "next week's deliberations,",
+                "the secretariat",
+                "will be distinguishing",
+                "procedural compliance",
+                "from substantive endorsement."
+            ],
+            "token_groups": [
+                "During",
+                "next week's deliberations,",
+                "the secretariat",
+                "will be distinguishing",
+                "procedural compliance",
+                "from substantive endorsement."
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "fccq-comparison-c2-g05",
+            "author_id": "C2-g05",
+            "question": "How will the model {a1} endogenous changes while preserving comparability across cohorts?",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Як модель враховуватиме ендогенні зміни, зберігаючи порівнюваність між когортами?",
+            "target_text": "How will the model be accommodating endogenous changes while preserving comparability across cohorts?",
+            "markers": {
+                "a1": {
+                    "answer": "be accommodating",
+                    "options": [
+                        "be accommodating",
+                        "have been accommodating",
+                        "have accommodated"
+                    ],
+                    "verb_hint": "Враховуватиме ендогенні зміни під час застосування моделі. Питальне слово й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом."
+                }
+            },
+            "verb_hint": "Враховуватиме ендогенні зміни під час застосування моделі. Питальне слово й підмет уже наведено. Передай процес у названий майбутній момент майбутнім тривалим часом.",
+            "accepted_target_texts": [
+                "How will the model be accommodating endogenous changes while preserving comparability across cohorts?",
+                "How will the model be allowing for endogenous changes while preserving comparability across cohorts?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "be allowing for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "be allowing for"
+                ]
+            },
+            "reorder_groups": [
+                "How will",
+                "the model",
+                "be accommodating",
+                "endogenous changes",
+                "while preserving comparability",
+                "across cohorts?"
+            ],
+            "token_groups": [
+                "How will",
+                "the model",
+                "be accommodating",
+                "endogenous changes",
+                "while preserving comparability",
+                "across cohorts?"
+            ],
+            "quality_revision": "fccq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "fccq-comparison-c2-g06",
+            "author_id": "C2-g06",
+            "question": "By the time the precedent is overturned, the system will not {a1} under a coherent set of rules for even a full parliamentary term.",
+            "level": "C2",
+            "type": 0,
+            "source": "future_continuous_comparison_quality_comparison",
+            "translation_uk": "Коли прецедент скасують, система діятиме за узгодженими правилами ще не повну парламентську каденцію.",
+            "target_text": "By the time the precedent is overturned, the system will not have been operating under a coherent set of rules for even a full parliamentary term.",
+            "markers": {
+                "a1": {
+                    "answer": "have been operating",
+                    "options": [
+                        "have been operating",
+                        "be operating",
+                        "have operated"
+                    ],
+                    "verb_hint": "Діятиме за узгодженими правилами ще менше повної каденції до скасування прецеденту; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою."
+                }
+            },
+            "verb_hint": "Діятиме за узгодженими правилами ще менше повної каденції до скасування прецеденту; заперечення вже наведене. Підкресли накопичену до названого майбутнього моменту тривалість доконано-тривалою формою.",
+            "accepted_target_texts": [
+                "By the time the precedent is overturned, the system will not have been operating under a coherent set of rules for even a full parliamentary term.",
+                "By the time the precedent is overturned, the system will not have been functioning under a coherent set of rules for even a full parliamentary term."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "have been functioning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "have been functioning"
+                ]
+            },
+            "reorder_groups": [
+                "By the time",
+                "the precedent",
+                "is overturned,",
+                "the system",
+                "will not",
+                "have been",
+                "operating",
+                "under",
+                "a coherent set",
+                "of rules",
+                "for",
+                "even",
+                "a",
+                "full parliamentary term."
+            ],
+            "token_groups": [
+                "By the time",
+                "the precedent",
+                "is overturned,",
+                "the system",
+                "will not",
+                "have been",
+                "operating",
+                "under",
+                "a coherent set",
+                "of rules",
+                "for",
+                "even",
+                "a",
+                "full parliamentary term."
+            ],
+            "quality_revision": "fccq-v1"
+        }
+    ]
+}

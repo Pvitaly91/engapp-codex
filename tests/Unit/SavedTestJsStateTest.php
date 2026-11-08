@@ -8,6 +8,23 @@ use PHPUnit\Framework\TestCase;
 
 class SavedTestJsStateTest extends TestCase
 {
+    public function test_psp_content_fields_refresh_without_erasing_answer_progress(): void
+    {
+        $item = ['uuid' => 'psp', 'question' => 'Old', 'chosen' => ['The'], 'done' => false,
+            'wrongAttempt' => true, 'manualInputsBySlot' => ['The'], 'reorderManualText' => 'The gate',
+            'presentation' => 'sentence_reorder', 'reorder_answer' => 'Old answer'];
+        $fresh = ['uuid' => 'psp', 'question' => 'New', 'psp_content_revision' => str_repeat('a', 64),
+            'compose_accepted_sentences' => ['The gate is checked.']];
+        $merged = SavedTestJsState::mergeCurrentQuestionData(['items' => [$item]], [$fresh]);
+        foreach (['chosen', 'done', 'wrongAttempt', 'manualInputsBySlot', 'reorderManualText'] as $field) {
+            $this->assertSame($item[$field], $merged['items'][0][$field]);
+        }
+        $this->assertSame($fresh['compose_accepted_sentences'], $merged['items'][0]['compose_accepted_sentences']);
+        $this->assertSame($fresh['psp_content_revision'], $merged['items'][0]['psp_content_revision']);
+        $this->assertArrayNotHasKey('presentation', $merged['items'][0]);
+        $this->assertArrayNotHasKey('reorder_answer', $merged['items'][0]);
+    }
+
     public function test_grouped_contraction_progress_is_not_overwritten_with_split_source_markers(): void
     {
         $item = ['uuid' => 'example', 'answers' => ['I will call', 'tomorrow'], 'chosen' => ["I'll call", null], 'contraction_slots_version' => 1];

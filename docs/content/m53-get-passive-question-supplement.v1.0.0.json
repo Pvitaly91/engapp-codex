@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "content_type": "M53_Get_Passive_minimal_question_supplement",
+  "status": "frozen",
+  "reason": "Unmodified exact Get bank matcher first5 contains adjectival got lost and UK locked/closed mismatch; three new UUID-earlier event-passive questions retain two sound old questions without rewriting/deleting old payloads/links.",
+  "seeder": {
+    "class": "Database\\Seeders\\V3\\Polyglot\\M53GetPassiveB1SupplementSeeder",
+    "uuid_namespace": "M53GetPassiveB1SupplementSeeder"
+  },
+  "defaults": {
+    "default_locale": "uk",
+    "flag": 0,
+    "type": 4,
+    "level_difficulty": {
+      "B1": 3
+    }
+  },
+  "scope": {
+    "page_identity": "Database\\Seeders\\Page_V3\\PassiveVoice\\Basics\\PassiveVoiceGetPassiveTheorySeeder",
+    "page_id": 95,
+    "locale": "uk",
+    "practice_level": "B1",
+    "expected_existing_bank": "Database\\Seeders\\V3\\Polyglot\\PolyglotPassiveVoiceGetPassiveAllLevelsLessonSeeder",
+    "theory_links": "exact new UK practice only",
+    "saved_test_rows": 0,
+    "saved_test_question_rows": 0,
+    "question_tag_rows": 0,
+    "question_marker_tag_rows": 0,
+    "old_question_updates": 0,
+    "old_option_updates": 0,
+    "old_answer_updates": 0,
+    "old_theory_link_updates_or_deletes": 0,
+    "questions_insert": 3,
+    "options_policy": "Reuse exact existing shared values case-insensitively without mutations; only missing values may be inserted under reviewed writer scope.",
+    "answers_insert": 26,
+    "question_option_pivots_insert": 35,
+    "theory_links_insert": 3,
+    "practice_uuid": "b98b2d83-ea88-5a72-aac1-9b94dd1a74be"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "uuid": "m53-get-b1-01",
+      "level": "B1",
+      "type": 4,
+      "question": "Чи запросили Ірину на зустріч учора?",
+      "source_text_uk": "Чи запросили Ірину на зустріч учора?",
+      "target_text": "Did Iryna get invited to the meeting yesterday?",
+      "tokens_correct": [
+        "Did",
+        "Iryna",
+        "get",
+        "invited",
+        "to",
+        "the",
+        "meeting",
+        "yesterday",
+        "?"
+      ],
+      "answers": {
+        "a1": "Did",
+        "a2": "Iryna",
+        "a3": "get",
+        "a4": "invited",
+        "a5": "to",
+        "a6": "the",
+        "a7": "meeting",
+        "a8": "yesterday",
+        "a9": "?"
+      },
+      "options": [
+        "Did",
+        "Iryna",
+        "get",
+        "invited",
+        "to",
+        "the",
+        "meeting",
+        "yesterday",
+        "?",
+        "does",
+        "getting",
+        "invite"
+      ],
+      "distractors": [
+        "does",
+        "getting",
+        "invite"
+      ]
+    },
+    {
+      "id": 2,
+      "uuid": "m53-get-b1-02",
+      "level": "B1",
+      "type": 4,
+      "question": "Нас не обрали до команди минулого тижня.",
+      "source_text_uk": "Нас не обрали до команди минулого тижня.",
+      "target_text": "We did not get selected for the team last week.",
+      "tokens_correct": [
+        "We",
+        "did",
+        "not",
+        "get",
+        "selected",
+        "for",
+        "the",
+        "team",
+        "last",
+        "week",
+        "."
+      ],
+      "answers": {
+        "a1": "We",
+        "a2": "did",
+        "a3": "not",
+        "a4": "get",
+        "a5": "selected",
+        "a6": "for",
+        "a7": "the",
+        "a8": "team",
+        "a9": "last",
+        "a10": "week",
+        "a11": "."
+      },
+      "options": [
+        "We",
+        "did",
+        "not",
+        "get",
+        "selected",
+        "for",
+        "the",
+        "team",
+        "last",
+        "week",
+        ".",
+        "got",
+        "select",
+        "getting"
+      ],
+      "distractors": [
+        "got",
+        "select",
+        "getting"
+      ]
+    },
+    {
+      "id": 3,
+      "uuid": "m53-get-b1-03",
+      "level": "B1",
+      "type": 4,
+      "question": "Працівникам платять щоп’ятниці.",
+      "source_text_uk": "Працівникам платять щоп’ятниці.",
+      "target_text": "Workers get paid every Friday.",
+      "tokens_correct": [
+        "Workers",
+        "get",
+        "paid",
+        "every",
+        "Friday",
+        "."
+      ],
+      "answers": {
+        "a1": "Workers",
+        "a2": "get",
+        "a3": "paid",
+        "a4": "every",
+        "a5": "Friday",
+        "a6": "."
+      },
+      "options": [
+        "Workers",
+        "get",
+        "paid",
+        "every",
+        "Friday",
+        ".",
+        "gets",
+        "pay",
+        "got"
+      ],
+      "distractors": [
+        "gets",
+        "pay",
+        "got"
+      ]
+    }
+  ],
+  "expected_matcher_uuids": [
+    "m53-get-b1-01",
+    "m53-get-b1-02",
+    "m53-get-b1-03",
+    "pvgp-poly-b1-01",
+    "pvgp-poly-b1-02"
+  ],
+  "finite_intro_uk": "У цих п’яти завданнях використай get-passive. Для питання про Ірину й заперечення про команду потрібний Past Simple; для працівників — Present Simple. Починай із Did, We або Workers відповідно до умови; обставини часу став наприкінці. Для двох повідомлень про минулі події починай із He або She. Be-passive може бути граматичним, але тут задано іншу модель.",
+  "global_matcher_changes": false,
+  "shared_visual_or_engine_changes": false,
+  "no_http_or_startup_apply_hook": true,
+  "version": "1.0.0",
+  "source_draft_sha256": "7c21a82ea9f600fac3369640f448dbaefda1442d7abf736f4c53d2e9ba23f44f"
+}

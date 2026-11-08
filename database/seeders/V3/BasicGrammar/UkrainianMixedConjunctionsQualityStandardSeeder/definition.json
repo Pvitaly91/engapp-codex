@@ -1,0 +1,1798 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/conjunctions.v1.json",
+        "sha256": "3974c23d59f6982d268d44bc04c0a65615608ffccd7dd3c00271635fef45acd9"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedConjunctionsQualityStandardSeeder",
+        "uuid_namespace": "basic-grammar-quality-conjunctions-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "basic_grammar_quality_conjunctions": {
+            "name": "Basic Grammar Quality: Основні сполучники"
+        }
+    },
+    "tags": {
+        "conjunction_and": {
+            "name": "Conjunction 'and' — addition",
+            "category": "pattern"
+        },
+        "conjunction_but": {
+            "name": "Conjunction 'but' — contrast",
+            "category": "pattern"
+        },
+        "conjunction_or": {
+            "name": "Conjunction 'or' — alternative",
+            "category": "pattern"
+        },
+        "conjunction_because": {
+            "name": "Conjunction 'because' — reason",
+            "category": "pattern"
+        },
+        "conjunction_so": {
+            "name": "Conjunction 'so' — result",
+            "category": "pattern"
+        },
+        "coordinating_conjunctions": {
+            "name": "Coordinating conjunctions",
+            "category": "pattern"
+        },
+        "subordinating_conjunctions": {
+            "name": "Subordinating conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_contrast": {
+            "name": "Contrast conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_cause_result": {
+            "name": "Cause-result conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_choice": {
+            "name": "Choice conjunctions",
+            "category": "pattern"
+        },
+        "conjunction_addition": {
+            "name": "Addition conjunctions",
+            "category": "pattern"
+        },
+        "clause_linking": {
+            "name": "Clause linking",
+            "category": "usage"
+        },
+        "formal_conjunction_usage": {
+            "name": "Formal conjunction usage",
+            "category": "register"
+        }
+    },
+    "default_tag_keys": [
+        "coordinating_conjunctions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-conjunctions-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I like apples {a1} pears.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Мені подобаються яблука і груші.",
+            "target_text": "I like apples and pears.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Поєднай два однаково правдиві вподобання додаванням, не вибором одного варіанта."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Поєднай два однаково правдиві вподобання додаванням, не вибором одного варіанта.",
+            "accepted_target_texts": [
+                "I like apples and pears."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I like",
+                "apples and pears."
+            ],
+            "token_groups": [
+                "I like",
+                "apples and pears."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-conjunctions-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The box is small, {a1} it is heavy.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Коробка маленька, але важка.",
+            "target_text": "The box is small, but it is heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи обидва факти та передай задане протиставлення розміру й ваги."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи обидва факти та передай задане протиставлення розміру й ваги.",
+            "accepted_target_texts": [
+                "The box is small, but it is heavy.",
+                "The box is small, yet it is heavy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The box",
+                "is small,",
+                "but it is",
+                "heavy."
+            ],
+            "token_groups": [
+                "The box",
+                "is small,",
+                "but it is",
+                "heavy."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-conjunctions-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Choose juice {a1} water.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Обери сік або воду.",
+            "target_text": "Choose juice or water.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Потрібен вибір одного з двох напоїв, а не одночасне замовлення обох."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Потрібен вибір одного з двох напоїв, а не одночасне замовлення обох.",
+            "accepted_target_texts": [
+                "Choose juice or water."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Choose juice",
+                "or water."
+            ],
+            "token_groups": [
+                "Choose juice",
+                "or water."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-conjunctions-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The dog is wet {a1} it is raining.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Собака мокрий, бо йде дощ.",
+            "target_text": "The dog is wet because it is raining.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Після повідомлення про стан уведи цілу частину, яка називає його причину."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Після повідомлення про стан уведи цілу частину, яка називає його причину.",
+            "accepted_target_texts": [
+                "The dog is wet because it is raining.",
+                "The dog is wet since it is raining.",
+                "The dog is wet as it is raining."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The dog",
+                "is wet",
+                "because it is",
+                "raining."
+            ],
+            "token_groups": [
+                "The dog",
+                "is wet",
+                "because it is",
+                "raining."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-conjunctions-a1-g05",
+            "author_id": "A1-g05",
+            "question": "I am cold, {a1} I need a coat.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Мені холодно, тому мені потрібне пальто.",
+            "target_text": "I am cold, so I need a coat.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Перша частина є причиною, а друга — її наслідком; збережи цей напрям зв'язку."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Перша частина є причиною, а друга — її наслідком; збережи цей напрям зв'язку.",
+            "accepted_target_texts": [
+                "I am cold, so I need a coat.",
+                "I am cold, and therefore I need a coat.",
+                "I am cold, and so I need a coat."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "I am cold,",
+                "so I need",
+                "a coat."
+            ],
+            "token_groups": [
+                "I am cold,",
+                "so I need",
+                "a coat."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-conjunctions-a1-g06",
+            "author_id": "A1-g06",
+            "question": "We sing {a1} dance.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ми співаємо і танцюємо.",
+            "target_text": "We sing and dance.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Поєднай дві виконувані дії додаванням, не вибором чи поясненням причини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Поєднай дві виконувані дії додаванням, не вибором чи поясненням причини.",
+            "accepted_target_texts": [
+                "We sing and dance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We sing",
+                "and dance."
+            ],
+            "token_groups": [
+                "We sing",
+                "and dance."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-conjunctions-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The suitcase is old, {a1} the wheels still work.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Валіза стара, але коліщатка досі працюють.",
+            "target_text": "The suitcase is old, but the wheels still work.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Передай задане протиставлення старості речі та справності її частин."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Передай задане протиставлення старості речі та справності її частин.",
+            "accepted_target_texts": [
+                "The suitcase is old, but the wheels still work.",
+                "The suitcase is old, yet the wheels still work."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The suitcase",
+                "is old,",
+                "but the wheels",
+                "still work."
+            ],
+            "token_groups": [
+                "The suitcase",
+                "is old,",
+                "but the wheels",
+                "still work."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-conjunctions-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We missed the train {a1} our taxi broke down.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ми пропустили потяг, тому що наше таксі зламалося.",
+            "target_text": "We missed the train because our taxi broke down.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи поломку як причину пропущеного потяга; далі стоїть ціла частина з підметом."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи поломку як причину пропущеного потяга; далі стоїть ціла частина з підметом.",
+            "accepted_target_texts": [
+                "We missed the train because our taxi broke down.",
+                "We missed the train since our taxi broke down.",
+                "We missed the train as our taxi broke down."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "We missed",
+                "the train",
+                "because our taxi",
+                "broke down."
+            ],
+            "token_groups": [
+                "We missed",
+                "the train",
+                "because our taxi",
+                "broke down."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-conjunctions-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The path was flooded, {a1} we used the bridge.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Стежку затопило, тому ми скористалися мостом.",
+            "target_text": "The path was flooded, so we used the bridge.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Збережи затоплення причиною, а використання мосту — наслідком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Збережи затоплення причиною, а використання мосту — наслідком.",
+            "accepted_target_texts": [
+                "The path was flooded, so we used the bridge.",
+                "The path was flooded, and therefore we used the bridge.",
+                "The path was flooded, and so we used the bridge."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "The path",
+                "was flooded,",
+                "so we used",
+                "the bridge."
+            ],
+            "token_groups": [
+                "The path",
+                "was flooded,",
+                "so we used",
+                "the bridge."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-conjunctions-a2-g04",
+            "author_id": "A2-g04",
+            "question": "You can borrow my bike {a1} wait for the bus.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ти можеш позичити мій велосипед або зачекати на автобус.",
+            "target_text": "You can borrow my bike or wait for the bus.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Запропонуй дві альтернативи, з яких обирають одну."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Запропонуй дві альтернативи, з яких обирають одну.",
+            "accepted_target_texts": [
+                "You can borrow my bike or wait for the bus."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You can",
+                "borrow my bike",
+                "or wait",
+                "for the bus."
+            ],
+            "token_groups": [
+                "You can",
+                "borrow my bike",
+                "or wait",
+                "for the bus."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-conjunctions-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Marta bought bread {a1} cheese for the picnic.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Марта купила хліб і сир для пікніка.",
+            "target_text": "Marta bought bread and cheese for the picnic.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Потрібне додавання двох справді куплених продуктів, не сумнів щодо вибору."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Потрібне додавання двох справді куплених продуктів, не сумнів щодо вибору.",
+            "accepted_target_texts": [
+                "Marta bought bread and cheese for the picnic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta bought",
+                "bread and cheese",
+                "for the picnic."
+            ],
+            "token_groups": [
+                "Marta bought",
+                "bread and cheese",
+                "for the picnic."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-conjunctions-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I do not drink coffee {a1} energy drinks.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Я не п'ю ні кави, ні енергетиків.",
+            "target_text": "I do not drink coffee or energy drinks.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "but",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечено кожен із двох напоїв; поєднай їх як альтернативи в області одного заперечення."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечено кожен із двох напоїв; поєднай їх як альтернативи в області одного заперечення.",
+            "accepted_target_texts": [
+                "I do not drink coffee or energy drinks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I do not",
+                "drink coffee",
+                "or energy drinks."
+            ],
+            "token_groups": [
+                "I do not",
+                "drink coffee",
+                "or energy drinks."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-conjunctions-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The hotel was fully booked, {a1} we stayed with friends.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "У готелі не було вільних місць, тому ми зупинилися у друзів.",
+            "target_text": "The hotel was fully booked, so we stayed with friends.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Перше повідомлення пояснює причину, після сполучника назви її наслідок."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Перше повідомлення пояснює причину, після сполучника назви її наслідок.",
+            "accepted_target_texts": [
+                "The hotel was fully booked, so we stayed with friends.",
+                "The hotel was fully booked, and therefore we stayed with friends.",
+                "The hotel was fully booked, and so we stayed with friends."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "The hotel",
+                "was fully booked,",
+                "so we stayed",
+                "with friends."
+            ],
+            "token_groups": [
+                "The hotel",
+                "was fully booked,",
+                "so we stayed",
+                "with friends."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-conjunctions-b1-g02",
+            "author_id": "B1-g02",
+            "question": "She accepted the invitation {a1} she wanted to meet the author.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Вона прийняла запрошення, бо хотіла зустрітися з автором.",
+            "target_text": "She accepted the invitation because she wanted to meet the author.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи мотив прийняття запрошення цілою причинною частиною."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи мотив прийняття запрошення цілою причинною частиною.",
+            "accepted_target_texts": [
+                "She accepted the invitation because she wanted to meet the author.",
+                "She accepted the invitation since she wanted to meet the author.",
+                "She accepted the invitation as she wanted to meet the author."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "She accepted",
+                "the invitation",
+                "because she wanted",
+                "to meet",
+                "the author."
+            ],
+            "token_groups": [
+                "She accepted",
+                "the invitation",
+                "because she wanted",
+                "to meet",
+                "the author."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-conjunctions-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The route is shorter, {a1} it crosses a dangerous junction.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Маршрут коротший, але перетинає небезпечне перехрестя.",
+            "target_text": "The route is shorter, but it crosses a dangerous junction.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи позитивний і негативний факти як контраст, не як альтернативи."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи позитивний і негативний факти як контраст, не як альтернативи.",
+            "accepted_target_texts": [
+                "The route is shorter, but it crosses a dangerous junction.",
+                "The route is shorter, yet it crosses a dangerous junction."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The route",
+                "is shorter,",
+                "but it crosses",
+                "a dangerous junction."
+            ],
+            "token_groups": [
+                "The route",
+                "is shorter,",
+                "but it crosses",
+                "a dangerous junction."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-conjunctions-b1-g04",
+            "author_id": "B1-g04",
+            "question": "They inspected the roof {a1} checked the drains.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Вони оглянули дах і перевірили водостоки.",
+            "target_text": "They inspected the roof and checked the drains.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Обидві завершені дії справді відбулися; поєднай їх додаванням."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Обидві завершені дії справді відбулися; поєднай їх додаванням.",
+            "accepted_target_texts": [
+                "They inspected the roof and checked the drains."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They inspected",
+                "the roof",
+                "and checked",
+                "the drains."
+            ],
+            "token_groups": [
+                "They inspected",
+                "the roof",
+                "and checked",
+                "the drains."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-conjunctions-b1-g05",
+            "author_id": "B1-g05",
+            "question": "You must leave now {a1} you will miss the connection.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ти мусиш вирушити зараз, інакше пропустиш пересадку.",
+            "target_text": "You must leave now or you will miss the connection.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "because",
+                        "and"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Уведи небажану альтернативу, яка настане без виконання першої дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Уведи небажану альтернативу, яка настане без виконання першої дії.",
+            "accepted_target_texts": [
+                "You must leave now or you will miss the connection.",
+                "You must leave now or else you will miss the connection."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "or else"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "or else"
+                ]
+            },
+            "reorder_groups": [
+                "You must",
+                "leave now",
+                "or you will",
+                "miss the connection."
+            ],
+            "token_groups": [
+                "You must",
+                "leave now",
+                "or you will",
+                "miss the connection."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-conjunctions-b1-g06",
+            "author_id": "B1-g06",
+            "question": "We did not invite Leo {a1} his sister.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Ми не запросили ні Лео, ні його сестру.",
+            "target_text": "We did not invite Leo or his sister.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "but",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечення має охопити обох людей окремо; не стверджуй запрошення другої людини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заперечення має охопити обох людей окремо; не стверджуй запрошення другої людини.",
+            "accepted_target_texts": [
+                "We did not invite Leo or his sister."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We did not",
+                "invite Leo",
+                "or his sister."
+            ],
+            "token_groups": [
+                "We did not",
+                "invite Leo",
+                "or his sister."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "bgq-conjunctions-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The proposal is ambitious, {a1} its funding remains uncertain.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Пропозиція амбітна, але її фінансування залишається непевним.",
+            "target_text": "The proposal is ambitious, but its funding remains uncertain.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи контраст позитивної характеристики й фінансового обмеження."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи контраст позитивної характеристики й фінансового обмеження.",
+            "accepted_target_texts": [
+                "The proposal is ambitious, but its funding remains uncertain.",
+                "The proposal is ambitious, yet its funding remains uncertain."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "is ambitious,",
+                "but its funding",
+                "remains uncertain."
+            ],
+            "token_groups": [
+                "The proposal",
+                "is ambitious,",
+                "but its funding",
+                "remains uncertain."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "bgq-conjunctions-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The sample was too small, {a1} the researchers avoided broad claims.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Вибірка була замала, тому дослідники уникали широких висновків.",
+            "target_text": "The sample was too small, so the researchers avoided broad claims.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Недостатній розмір вибірки є причиною, а обережність висновків — наслідком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Недостатній розмір вибірки є причиною, а обережність висновків — наслідком.",
+            "accepted_target_texts": [
+                "The sample was too small, so the researchers avoided broad claims.",
+                "The sample was too small, and therefore the researchers avoided broad claims.",
+                "The sample was too small, and so the researchers avoided broad claims."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "The sample",
+                "was too small,",
+                "so the researchers",
+                "avoided broad claims."
+            ],
+            "token_groups": [
+                "The sample",
+                "was too small,",
+                "so the researchers",
+                "avoided broad claims."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "bgq-conjunctions-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The board reopened the discussion {a1} new evidence had emerged.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Правління відновило обговорення, тому що з'явилися нові докази.",
+            "target_text": "The board reopened the discussion because new evidence had emerged.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи появу нових доказів як причину відновлення обговорення."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи появу нових доказів як причину відновлення обговорення.",
+            "accepted_target_texts": [
+                "The board reopened the discussion because new evidence had emerged.",
+                "The board reopened the discussion since new evidence had emerged.",
+                "The board reopened the discussion as new evidence had emerged."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The board",
+                "reopened the discussion",
+                "because new evidence",
+                "had emerged."
+            ],
+            "token_groups": [
+                "The board",
+                "reopened the discussion",
+                "because new evidence",
+                "had emerged."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "bgq-conjunctions-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Either the figures are inaccurate {a1} the assumption is wrong.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Або показники неточні, або припущення хибне.",
+            "target_text": "Either the figures are inaccurate or the assumption is wrong.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію двох альтернатив без додавання третього твердження."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію двох альтернатив без додавання третього твердження.",
+            "accepted_target_texts": [
+                "Either the figures are inaccurate or the assumption is wrong."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Either the figures",
+                "are inaccurate",
+                "or the assumption",
+                "is wrong."
+            ],
+            "token_groups": [
+                "Either the figures",
+                "are inaccurate",
+                "or the assumption",
+                "is wrong."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "bgq-conjunctions-b2-g05",
+            "author_id": "B2-g05",
+            "question": "They revised the methodology {a1} published the full dataset.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Вони переглянули методологію й оприлюднили повний набір даних.",
+            "target_text": "They revised the methodology and published the full dataset.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Обидві дії відбулися; передай додавання, а не вибір лише однієї."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Обидві дії відбулися; передай додавання, а не вибір лише однієї.",
+            "accepted_target_texts": [
+                "They revised the methodology and published the full dataset."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They revised",
+                "the methodology",
+                "and published",
+                "the full dataset."
+            ],
+            "token_groups": [
+                "They revised",
+                "the methodology",
+                "and published",
+                "the full dataset."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "bgq-conjunctions-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The restriction does not apply to research {a1} teaching.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Обмеження не поширюється ні на дослідження, ні на викладання.",
+            "target_text": "The restriction does not apply to research or teaching.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "but",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Збережи обидві сфери поза дією обмеження в області одного заперечення."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Збережи обидві сфери поза дією обмеження в області одного заперечення.",
+            "accepted_target_texts": [
+                "The restriction does not apply to research or teaching."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restriction",
+                "does not apply",
+                "to research",
+                "or teaching."
+            ],
+            "token_groups": [
+                "The restriction",
+                "does not apply",
+                "to research",
+                "or teaching."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "bgq-conjunctions-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The distinction is analytically useful, {a1} it is difficult to sustain in practice.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Розрізнення корисне для аналізу, але його важко підтримувати на практиці.",
+            "target_text": "The distinction is analytically useful, but it is difficult to sustain in practice.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Передай контраст аналітичної користі й практичної складності, зберігши обидва факти."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Передай контраст аналітичної користі й практичної складності, зберігши обидва факти.",
+            "accepted_target_texts": [
+                "The distinction is analytically useful, but it is difficult to sustain in practice.",
+                "The distinction is analytically useful, yet it is difficult to sustain in practice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The distinction",
+                "is analytically useful,",
+                "but it is",
+                "difficult to sustain",
+                "in practice."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is analytically useful,",
+                "but it is",
+                "difficult to sustain",
+                "in practice."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "bgq-conjunctions-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The mandate was ambiguous, {a1} the agencies interpreted it differently.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Повноваження були неоднозначні, тому установи тлумачили їх по-різному.",
+            "target_text": "The mandate was ambiguous, so the agencies interpreted it differently.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Неоднозначність є причиною різного тлумачення, не його наслідком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Неоднозначність є причиною різного тлумачення, не його наслідком.",
+            "accepted_target_texts": [
+                "The mandate was ambiguous, so the agencies interpreted it differently.",
+                "The mandate was ambiguous, and therefore the agencies interpreted it differently.",
+                "The mandate was ambiguous, and so the agencies interpreted it differently."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "The mandate",
+                "was ambiguous,",
+                "so the agencies",
+                "interpreted it differently."
+            ],
+            "token_groups": [
+                "The mandate",
+                "was ambiguous,",
+                "so the agencies",
+                "interpreted it differently."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "bgq-conjunctions-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The claim is unconvincing {a1} its premises remain untested.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Твердження непереконливе, бо його передумови ще не перевірені.",
+            "target_text": "The claim is unconvincing because its premises remain untested.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи неперевіреність передумов як причину оцінки твердження."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи неперевіреність передумов як причину оцінки твердження.",
+            "accepted_target_texts": [
+                "The claim is unconvincing because its premises remain untested.",
+                "The claim is unconvincing since its premises remain untested.",
+                "The claim is unconvincing as its premises remain untested."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The claim",
+                "is unconvincing",
+                "because its premises",
+                "remain untested."
+            ],
+            "token_groups": [
+                "The claim",
+                "is unconvincing",
+                "because its premises",
+                "remain untested."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "bgq-conjunctions-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The account acknowledges the exception {a1} explains why it matters.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Виклад визнає виняток і пояснює його значення.",
+            "target_text": "The account acknowledges the exception and explains why it matters.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "but"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Обидва внески викладу справді наявні; поєднай їх додаванням."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Обидва внески викладу справді наявні; поєднай їх додаванням.",
+            "accepted_target_texts": [
+                "The account acknowledges the exception and explains why it matters."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The account",
+                "acknowledges the exception",
+                "and explains",
+                "why it matters."
+            ],
+            "token_groups": [
+                "The account",
+                "acknowledges the exception",
+                "and explains",
+                "why it matters."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "bgq-conjunctions-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Either the concession is substantive {a1} it is merely symbolic.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Або ця поступка змістовна, або лише символічна.",
+            "target_text": "Either the concession is substantive or it is merely symbolic.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію взаємно протиставлених альтернатив."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши вже почату парну конструкцію взаємно протиставлених альтернатив.",
+            "accepted_target_texts": [
+                "Either the concession is substantive or it is merely symbolic."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Either the concession",
+                "is substantive",
+                "or it is",
+                "merely symbolic."
+            ],
+            "token_groups": [
+                "Either the concession",
+                "is substantive",
+                "or it is",
+                "merely symbolic."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "bgq-conjunctions-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The report endorses neither compulsion {a1} exclusion.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Звіт не підтримує ні примусу, ні виключення.",
+            "target_text": "The report endorses neither compulsion nor exclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "nor",
+                    "options": [
+                        "nor",
+                        "or",
+                        "and"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши парну конструкцію з уже наведеним першим від'ємним словом, без подвійного заперечення."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши парну конструкцію з уже наведеним першим від'ємним словом, без подвійного заперечення.",
+            "accepted_target_texts": [
+                "The report endorses neither compulsion nor exclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report",
+                "endorses neither",
+                "compulsion nor exclusion."
+            ],
+            "token_groups": [
+                "The report",
+                "endorses neither",
+                "compulsion nor exclusion."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "bgq-conjunctions-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The narrative is coherent, {a1} coherence alone cannot establish its truth.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Оповідь зв'язна, але самої зв'язності недостатньо, щоб довести її істинність.",
+            "target_text": "The narrative is coherent, but coherence alone cannot establish its truth.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи визнання зв'язності та контрастне обмеження її доказової сили."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Але, протиставлення». Збережи визнання зв'язності та контрастне обмеження її доказової сили.",
+            "accepted_target_texts": [
+                "The narrative is coherent, but coherence alone cannot establish its truth.",
+                "The narrative is coherent, yet coherence alone cannot establish its truth."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "yet"
+                ]
+            },
+            "reorder_groups": [
+                "The narrative",
+                "is coherent,",
+                "but coherence alone",
+                "cannot establish",
+                "its truth."
+            ],
+            "token_groups": [
+                "The narrative",
+                "is coherent,",
+                "but coherence alone",
+                "cannot establish",
+                "its truth."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "bgq-conjunctions-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The categories overlap, {a1} the inference of mutual exclusivity is unwarranted.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Категорії перетинаються, тому висновок про їхню взаємовиключність необґрунтований.",
+            "target_text": "The categories overlap, so the inference of mutual exclusivity is unwarranted.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "or"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому, наслідок». Перетин є причиною оцінки висновку, а не наслідком такої оцінки."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому, наслідок». Перетин є причиною оцінки висновку, а не наслідком такої оцінки.",
+            "accepted_target_texts": [
+                "The categories overlap, so the inference of mutual exclusivity is unwarranted.",
+                "The categories overlap, and therefore the inference of mutual exclusivity is unwarranted.",
+                "The categories overlap, and so the inference of mutual exclusivity is unwarranted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "and therefore",
+                    "and so"
+                ]
+            },
+            "reorder_groups": [
+                "The categories",
+                "overlap,",
+                "so the inference",
+                "of mutual exclusivity",
+                "is unwarranted."
+            ],
+            "token_groups": [
+                "The categories",
+                "overlap,",
+                "so the inference",
+                "of mutual exclusivity",
+                "is unwarranted."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "bgq-conjunctions-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The analogy fails {a1} the relevant asymmetry is structural.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Аналогія не працює, бо відповідна асиметрія структурна.",
+            "target_text": "The analogy fails because the relevant asymmetry is structural.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "because of",
+                        "so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи структурний характер асиметрії як причину невдалої аналогії цілою частиною."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Тому що, причина». Уведи структурний характер асиметрії як причину невдалої аналогії цілою частиною.",
+            "accepted_target_texts": [
+                "The analogy fails because the relevant asymmetry is structural.",
+                "The analogy fails since the relevant asymmetry is structural.",
+                "The analogy fails as the relevant asymmetry is structural."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "The analogy",
+                "fails because",
+                "the relevant asymmetry",
+                "is structural."
+            ],
+            "token_groups": [
+                "The analogy",
+                "fails because",
+                "the relevant asymmetry",
+                "is structural."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "bgq-conjunctions-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Either legitimacy derives from consent {a1} the appeal to consent is redundant.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Або легітимність випливає зі згоди, або посилання на згоду зайве.",
+            "target_text": "Either legitimacy derives from consent or the appeal to consent is redundant.",
+            "markers": {
+                "a1": {
+                    "answer": "or",
+                    "options": [
+                        "or",
+                        "and",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши почату парну конструкцію двох альтернативних засновків міркування."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Або, зв’язок альтернатив». Заверши почату парну конструкцію двох альтернативних засновків міркування.",
+            "accepted_target_texts": [
+                "Either legitimacy derives from consent or the appeal to consent is redundant."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Either legitimacy",
+                "derives from consent",
+                "or the appeal",
+                "to consent",
+                "is redundant."
+            ],
+            "token_groups": [
+                "Either legitimacy",
+                "derives from consent",
+                "or the appeal",
+                "to consent",
+                "is redundant."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "bgq-conjunctions-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The judgement distinguishes legality from legitimacy {a1} insists on their difference.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Рішення суду розрізняє законність і легітимність та наполягає на цій відмінності.",
+            "target_text": "The judgement distinguishes legality from legitimacy and insists on their difference.",
+            "markers": {
+                "a1": {
+                    "answer": "and",
+                    "options": [
+                        "and",
+                        "or",
+                        "because"
+                    ],
+                    "verb_hint": "Потрібний зміст: «І, додавання». Поєднай дві реально здійснені інтелектуальні дії додаванням."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «І, додавання». Поєднай дві реально здійснені інтелектуальні дії додаванням.",
+            "accepted_target_texts": [
+                "The judgement distinguishes legality from legitimacy and insists on their difference.",
+                "The judgment distinguishes legality from legitimacy and insists on their difference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judgement",
+                "distinguishes legality",
+                "from legitimacy",
+                "and insists",
+                "on their difference."
+            ],
+            "token_groups": [
+                "The judgement",
+                "distinguishes legality",
+                "from legitimacy",
+                "and insists",
+                "on their difference."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "bgq-conjunctions-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The silence establishes neither endorsement {a1} indifference.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_conjunctions",
+            "translation_uk": "Мовчання не доводить ні підтримки, ні байдужості.",
+            "target_text": "The silence establishes neither endorsement nor indifference.",
+            "markers": {
+                "a1": {
+                    "answer": "nor",
+                    "options": [
+                        "nor",
+                        "or",
+                        "and"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши від'ємну парну конструкцію, зберігши відсутність доказу обох станів."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ні, друга частина парного заперечення». Заверши від'ємну парну конструкцію, зберігши відсутність доказу обох станів.",
+            "accepted_target_texts": [
+                "The silence establishes neither endorsement nor indifference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The silence",
+                "establishes neither",
+                "endorsement nor indifference."
+            ],
+            "token_groups": [
+                "The silence",
+                "establishes neither",
+                "endorsement nor indifference."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        }
+    ]
+}

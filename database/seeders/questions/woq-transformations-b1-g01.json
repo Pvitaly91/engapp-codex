@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 60206,
+        "uuid": "woq-transformations-b1-g01",
+        "question": "Please tell me {a1}.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 63,
+        "source_id": 419,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedSentenceTransformationsWordOrderEmphasisQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "why the printer stopped",
+                "why did the printer stop",
+                "why stopped the printer"
+            ]
+        },
+        "theory_text_block_uuid": "782663f2-26dd-579b-be51-560b6d068356",
+        "created_at": "2026-10-27T01:01:33.000000Z",
+        "updated_at": "2026-10-27T01:01:33.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 419,
+        "name": "Word Order Quality: Перетворення речень: порядок слів і наголос",
+        "created_at": "2026-10-27T01:01:32.000000Z",
+        "updated_at": "2026-10-27T01:01:32.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 52276,
+                "option": "why the printer stopped",
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 60206,
+                "option_id": 52276,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52278,
+                "option": "why did the printer stop",
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 60206,
+                "option_id": 52278,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 52279,
+                "option": "why stopped the printer",
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 60206,
+                "option_id": 52279,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 324048,
+                "question_id": 60206,
+                "marker": "a1",
+                "option_id": 52276,
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            },
+            "option": {
+                "id": 52276,
+                "option": "why the printer stopped",
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 41382,
+                "question_id": 60206,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 52277,
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            },
+            "option": {
+                "id": 52277,
+                "option": "У залежному питанні після «чому» назви принтер, а потім минулу дію; допоміжного дієслова не додавай.",
+                "created_at": "2026-10-27T01:01:33.000000Z",
+                "updated_at": "2026-10-27T01:01:33.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52221,
+            "question_id": 60206,
+            "text": "Please tell me {a1}.",
+            "created_at": "2026-10-27T01:01:33.000000Z",
+            "updated_at": "2026-10-27T01:01:33.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

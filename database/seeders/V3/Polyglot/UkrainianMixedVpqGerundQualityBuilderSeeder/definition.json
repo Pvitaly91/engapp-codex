@@ -1,0 +1,1310 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/gerund.v1.json",
+        "sha256": "84ac569f519cd7d8481c2a31860e2978bdd8b02a7ad606a48166b11fceec28ef"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVpqGerundQualityBuilderSeeder",
+        "uuid_namespace": "verb-patterns-quality-gerund-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_patterns_quality_gerund": {
+            "name": "Verb Patterns Quality: Gerund"
+        }
+    },
+    "tags": {
+        "polyglot_gerund": {
+            "name": "Gerund",
+            "category": "verb_patterns"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "verb_ing": {
+            "name": "Verb Ing",
+            "category": "topic"
+        },
+        "gerund_subject": {
+            "name": "Gerund Subject",
+            "category": "topic"
+        },
+        "gerund_object": {
+            "name": "Gerund Object",
+            "category": "topic"
+        },
+        "after_prepositions": {
+            "name": "After Prepositions",
+            "category": "topic"
+        },
+        "after_common_verbs": {
+            "name": "After Common Verbs",
+            "category": "topic"
+        },
+        "spelling_changes": {
+            "name": "Spelling Changes",
+            "category": "topic"
+        },
+        "negative_gerund": {
+            "name": "Negative Gerund",
+            "category": "topic"
+        },
+        "noun_like_action": {
+            "name": "Noun Like Action",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-gerund-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я люблю малювати маленьких роботів.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Я люблю малювати маленьких роботів.",
+            "target_text": "I like drawing little robots.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+                    "options": [
+                        "I",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "like",
+                    "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+                    "options": [
+                        "like",
+                        "call",
+                        "walk",
+                        "open"
+                    ]
+                },
+                "a3": {
+                    "answer": "drawing",
+                    "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+                    "options": [
+                        "drawing",
+                        "building",
+                        "cleaning",
+                        "repairing"
+                    ]
+                },
+                "a4": {
+                    "answer": "little",
+                    "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+                    "options": [
+                        "little",
+                        "paper",
+                        "tiny",
+                        "door"
+                    ]
+                },
+                "a5": {
+                    "answer": "robots.",
+                    "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+                    "options": [
+                        "robots",
+                        "bridges",
+                        "bicycles",
+                        "stars"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця, далі передай вподобання та дію малювання; наприкінці назви маленьких роботів.",
+            "accepted_target_texts": [
+                "I like drawing little robots.",
+                "I like drawing small robots.",
+                "I like painting little robots.",
+                "I like painting small robots.",
+                "I enjoy drawing little robots.",
+                "I enjoy drawing small robots.",
+                "I enjoy painting little robots.",
+                "I enjoy painting small robots.",
+                "I love drawing little robots.",
+                "I love drawing small robots.",
+                "I love painting little robots.",
+                "I love painting small robots."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "small"
+                ],
+                "a3": [
+                    "painting"
+                ],
+                "a2": [
+                    "enjoy",
+                    "love"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "small"
+                ],
+                "a3": [
+                    "painting"
+                ],
+                "a2": [
+                    "enjoy",
+                    "love"
+                ]
+            },
+            "reorder_groups": [
+                "I like",
+                "drawing",
+                "little robots."
+            ],
+            "token_groups": [
+                "I like",
+                "drawing",
+                "little robots."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "I",
+                "like",
+                "drawing",
+                "little",
+                "robots."
+            ],
+            "options": [
+                "I",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "like",
+                "call",
+                "walk",
+                "open",
+                "drawing",
+                "building",
+                "cleaning",
+                "repairing",
+                "little",
+                "paper",
+                "tiny",
+                "door",
+                "robots",
+                "bridges",
+                "bicycles",
+                "stars"
+            ],
+            "source_text_uk": "Я люблю малювати маленьких роботів.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "like",
+                    "call",
+                    "walk",
+                    "open"
+                ],
+                "a3": [
+                    "drawing",
+                    "building",
+                    "cleaning",
+                    "repairing"
+                ],
+                "a4": [
+                    "little",
+                    "paper",
+                    "tiny",
+                    "door"
+                ],
+                "a5": [
+                    "robots",
+                    "bridges",
+                    "bicycles",
+                    "stars"
+                ]
+            },
+            "slot_roles": {
+                "a1": "personal_preference",
+                "a2": "personal_preference",
+                "a3": "transitive_gerund",
+                "a4": "plural_object",
+                "a5": "plural_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-gerund-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми із задоволенням годуємо качок після школи.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Ми із задоволенням годуємо качок після школи.",
+            "target_text": "We enjoy feeding the ducks after school.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "We",
+                        "It",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "enjoy",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "enjoy",
+                        "hate",
+                        "dislike",
+                        "sister"
+                    ]
+                },
+                "a3": {
+                    "answer": "feeding",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "feeding",
+                        "building",
+                        "folding",
+                        "painting"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "ducks",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "ducks",
+                        "chairs",
+                        "blankets",
+                        "windows"
+                    ]
+                },
+                "a6": {
+                    "answer": "after",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "after",
+                        "before",
+                        "every",
+                        "each"
+                    ]
+                },
+                "a7": {
+                    "answer": "school.",
+                    "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+                    "options": [
+                        "school",
+                        "breakfast",
+                        "weekend",
+                        "lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Використай дієслово задоволення, після нього назви годування качок формою із закінченням -інг; збережи обставину часу.",
+            "accepted_target_texts": [
+                "We enjoy feeding the ducks after school.",
+                "We like feeding the ducks after school.",
+                "We love feeding the ducks after school."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "like",
+                    "love"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "like",
+                    "love"
+                ]
+            },
+            "reorder_groups": [
+                "We enjoy",
+                "feeding the ducks",
+                "after school."
+            ],
+            "token_groups": [
+                "We enjoy",
+                "feeding the ducks",
+                "after school."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "enjoy",
+                "feeding",
+                "the",
+                "ducks",
+                "after",
+                "school."
+            ],
+            "options": [
+                "We",
+                "It",
+                "They",
+                "Me",
+                "enjoy",
+                "hate",
+                "dislike",
+                "sister",
+                "feeding",
+                "building",
+                "folding",
+                "painting",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "ducks",
+                "chairs",
+                "blankets",
+                "windows",
+                "after",
+                "before",
+                "every",
+                "each",
+                "school",
+                "breakfast",
+                "weekend",
+                "lunch"
+            ],
+            "source_text_uk": "Ми із задоволенням годуємо качок після школи.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "It",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "enjoy",
+                    "hate",
+                    "dislike",
+                    "sister"
+                ],
+                "a3": [
+                    "feeding",
+                    "building",
+                    "folding",
+                    "painting"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "ducks",
+                    "chairs",
+                    "blankets",
+                    "windows"
+                ],
+                "a6": [
+                    "after",
+                    "before",
+                    "every",
+                    "each"
+                ],
+                "a7": [
+                    "school",
+                    "breakfast",
+                    "weekend",
+                    "lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "personal_preference",
+                "a2": "personal_preference",
+                "a3": "gerund_object",
+                "a4": "gerund_object",
+                "a5": "gerund_object",
+                "a6": "time_phrase",
+                "a7": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-gerund-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Надія визнала, що загубила ключ від музею.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Надія визнала, що загубила ключ від музею.",
+            "target_text": "Nadiia admitted losing the museum key.",
+            "markers": {
+                "a1": {
+                    "answer": "Nadiia",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "Nadiia",
+                        "Oksana",
+                        "Bohdan",
+                        "Kateryna"
+                    ]
+                },
+                "a2": {
+                    "answer": "admitted",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "admitted",
+                        "recalled",
+                        "suggested",
+                        "considered"
+                    ]
+                },
+                "a3": {
+                    "answer": "losing",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "losing",
+                        "finding",
+                        "forgetting",
+                        "moving"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "museum",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "museum",
+                        "brass",
+                        "silver",
+                        "ancient"
+                    ]
+                },
+                "a6": {
+                    "answer": "key.",
+                    "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+                    "options": [
+                        "key",
+                        "envelope",
+                        "wallet",
+                        "handle"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Надії; після дієслова визнання передай втрату ключа формою із закінченням -інг, без окремого підрядного речення.",
+            "accepted_target_texts": [
+                "Nadiia admitted losing the museum key.",
+                "Nadiia admitted having lost the museum key.",
+                "Nadiia acknowledged losing the museum key.",
+                "Nadiia acknowledged having lost the museum key."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "acknowledged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "acknowledged"
+                ]
+            },
+            "reorder_groups": [
+                "Nadiia",
+                "admitted losing",
+                "the museum key."
+            ],
+            "token_groups": [
+                "Nadiia",
+                "admitted losing",
+                "the museum key."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Nadiia",
+                "admitted",
+                "losing",
+                "the",
+                "museum",
+                "key."
+            ],
+            "options": [
+                "Nadiia",
+                "Oksana",
+                "Bohdan",
+                "Kateryna",
+                "admitted",
+                "recalled",
+                "suggested",
+                "considered",
+                "losing",
+                "finding",
+                "forgetting",
+                "moving",
+                "the",
+                "this",
+                "that",
+                "these",
+                "museum",
+                "brass",
+                "silver",
+                "ancient",
+                "key",
+                "envelope",
+                "wallet",
+                "handle"
+            ],
+            "source_text_uk": "Надія визнала, що загубила ключ від музею.",
+            "options_by_marker": {
+                "a1": [
+                    "Nadiia",
+                    "Oksana",
+                    "Bohdan",
+                    "Kateryna"
+                ],
+                "a2": [
+                    "admitted",
+                    "recalled",
+                    "suggested",
+                    "considered"
+                ],
+                "a3": [
+                    "losing",
+                    "finding",
+                    "forgetting",
+                    "moving"
+                ],
+                "a4": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a5": [
+                    "museum",
+                    "brass",
+                    "silver",
+                    "ancient"
+                ],
+                "a6": [
+                    "key",
+                    "envelope",
+                    "wallet",
+                    "handle"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reported_gerund",
+                "a3": "reported_gerund",
+                "a4": "singular_object",
+                "a5": "singular_object",
+                "a6": "singular_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-gerund-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Він перепросив за те, що перервав нашу репетицію.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Він перепросив за те, що перервав нашу репетицію.",
+            "target_text": "He apologised for interrupting our rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "He",
+                        "I",
+                        "You",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "apologised",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "apologised",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "for",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "for",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a4": {
+                    "answer": "interrupting",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "interrupting",
+                        "coughing",
+                        "complaining",
+                        "interfering"
+                    ]
+                },
+                "a5": {
+                    "answer": "our",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "our",
+                        "your",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a6": {
+                    "answer": "rehearsal.",
+                    "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+                    "options": [
+                        "rehearsal",
+                        "ceremony",
+                        "conversation",
+                        "discussion"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова вибачення постав прийменник і герундій зі значенням «перервати»; збережи належність репетиції нашій групі.",
+            "accepted_target_texts": [
+                "He apologised for interrupting our rehearsal.",
+                "He apologized for interrupting our rehearsal."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "apologized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "apologized"
+                ]
+            },
+            "reorder_groups": [
+                "He apologised",
+                "for interrupting",
+                "our rehearsal."
+            ],
+            "token_groups": [
+                "He apologised",
+                "for interrupting",
+                "our rehearsal."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "He",
+                "apologised",
+                "for",
+                "interrupting",
+                "our",
+                "rehearsal."
+            ],
+            "options": [
+                "He",
+                "I",
+                "You",
+                "She",
+                "apologised",
+                "gave",
+                "made",
+                "left",
+                "for",
+                "in",
+                "on",
+                "at",
+                "interrupting",
+                "coughing",
+                "complaining",
+                "interfering",
+                "our",
+                "your",
+                "his",
+                "her",
+                "rehearsal",
+                "ceremony",
+                "conversation",
+                "discussion"
+            ],
+            "source_text_uk": "Він перепросив за те, що перервав нашу репетицію.",
+            "options_by_marker": {
+                "a1": [
+                    "He",
+                    "I",
+                    "You",
+                    "She"
+                ],
+                "a2": [
+                    "apologised",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a3": [
+                    "for",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a4": [
+                    "interrupting",
+                    "coughing",
+                    "complaining",
+                    "interfering"
+                ],
+                "a5": [
+                    "our",
+                    "your",
+                    "his",
+                    "her"
+                ],
+                "a6": [
+                    "rehearsal",
+                    "ceremony",
+                    "conversation",
+                    "discussion"
+                ]
+            },
+            "slot_roles": {
+                "a1": "past_apology",
+                "a2": "past_apology",
+                "a3": "prepositional_gerund",
+                "a4": "prepositional_gerund",
+                "a5": "possessive_event",
+                "a6": "possessive_event"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-gerund-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Її відмова йти на компроміс затримала переговори.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Її відмова йти на компроміс затримала переговори.",
+            "target_text": "Her refusing to compromise delayed the negotiations.",
+            "markers": {
+                "a1": {
+                    "answer": "Her",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "Her",
+                        "Its",
+                        "Our",
+                        "Their"
+                    ]
+                },
+                "a2": {
+                    "answer": "refusing",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "refusing",
+                        "insisting",
+                        "failing",
+                        "declining"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a4": {
+                    "answer": "compromise",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "compromise",
+                        "negotiate",
+                        "resign",
+                        "cooperate"
+                    ]
+                },
+                "a5": {
+                    "answer": "delayed",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "delayed",
+                        "undermined",
+                        "prolonged",
+                        "strengthened"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "negotiations.",
+                    "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+                    "options": [
+                        "negotiations",
+                        "chances",
+                        "people",
+                        "men"
+                    ]
+                }
+            },
+            "verb_hint": "Постав присвійну форму жіночого роду перед герундієм «відмовлятися»; далі назви компроміс і наслідок для переговорів.",
+            "accepted_target_texts": [
+                "Her refusing to compromise delayed the negotiations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Her refusing",
+                "to compromise",
+                "delayed the negotiations."
+            ],
+            "token_groups": [
+                "Her refusing",
+                "to compromise",
+                "delayed the negotiations."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Her",
+                "refusing",
+                "to",
+                "compromise",
+                "delayed",
+                "the",
+                "negotiations."
+            ],
+            "options": [
+                "Her",
+                "Its",
+                "Our",
+                "Their",
+                "refusing",
+                "insisting",
+                "failing",
+                "declining",
+                "to",
+                "on",
+                "at",
+                "by",
+                "compromise",
+                "negotiate",
+                "resign",
+                "cooperate",
+                "delayed",
+                "undermined",
+                "prolonged",
+                "strengthened",
+                "the",
+                "those",
+                "each",
+                "every",
+                "negotiations",
+                "chances",
+                "people",
+                "men"
+            ],
+            "source_text_uk": "Її відмова йти на компроміс затримала переговори.",
+            "options_by_marker": {
+                "a1": [
+                    "Her",
+                    "Its",
+                    "Our",
+                    "Their"
+                ],
+                "a2": [
+                    "refusing",
+                    "insisting",
+                    "failing",
+                    "declining"
+                ],
+                "a3": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a4": [
+                    "compromise",
+                    "negotiate",
+                    "resign",
+                    "cooperate"
+                ],
+                "a5": [
+                    "delayed",
+                    "undermined",
+                    "prolonged",
+                    "strengthened"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "negotiations",
+                    "chances",
+                    "people",
+                    "men"
+                ]
+            },
+            "slot_roles": {
+                "a1": "possessive_gerund",
+                "a2": "possessive_gerund",
+                "a3": "infinitive_complement",
+                "a4": "infinitive_complement",
+                "a5": "past_consequence",
+                "a6": "past_consequence",
+                "a7": "past_consequence"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-gerund-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Те, що його неправильно процитували, підірвало довіру до інтерв'ю.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_patterns_quality_gerund",
+            "translation_uk": "Те, що його неправильно процитували, підірвало довіру до інтерв'ю.",
+            "target_text": "His having been misquoted undermined confidence in the interview.",
+            "markers": {
+                "a1": {
+                    "answer": "His",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "His",
+                        "Hers",
+                        "Ours",
+                        "Theirs"
+                    ]
+                },
+                "a2": {
+                    "answer": "having",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "having",
+                        "waiting",
+                        "watching",
+                        "visiting"
+                    ]
+                },
+                "a3": {
+                    "answer": "been",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "misquoted",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "misquoted",
+                        "interrupted",
+                        "misled",
+                        "misunderstood"
+                    ]
+                },
+                "a5": {
+                    "answer": "undermined",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "undermined",
+                        "provoked",
+                        "aroused",
+                        "prompted"
+                    ]
+                },
+                "a6": {
+                    "answer": "confidence",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "confidence",
+                        "suspicion",
+                        "concern",
+                        "tension"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "in",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a9": {
+                    "answer": "interview.",
+                    "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+                    "options": [
+                        "interview",
+                        "report",
+                        "evidence",
+                        "inquiry"
+                    ]
+                }
+            },
+            "verb_hint": "Виділи попередню пасивну дію «бути неправильно процитованим»; уся початкова герундіальна група є підметом, а підрив довіри — її наслідком.",
+            "accepted_target_texts": [
+                "His having been misquoted undermined confidence in the interview.",
+                "His having been misquoted damaged confidence in the interview.",
+                "His having been misquoted undermined trust in the interview.",
+                "His having been misquoted damaged trust in the interview."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "damaged"
+                ],
+                "a6": [
+                    "trust"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "damaged"
+                ],
+                "a6": [
+                    "trust"
+                ]
+            },
+            "reorder_groups": [
+                "His having been",
+                "misquoted",
+                "undermined confidence",
+                "in the interview."
+            ],
+            "token_groups": [
+                "His having been",
+                "misquoted",
+                "undermined confidence",
+                "in the interview."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "His",
+                "having",
+                "been",
+                "misquoted",
+                "undermined",
+                "confidence",
+                "in",
+                "the",
+                "interview."
+            ],
+            "options": [
+                "His",
+                "Hers",
+                "Ours",
+                "Theirs",
+                "having",
+                "waiting",
+                "watching",
+                "visiting",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "misquoted",
+                "interrupted",
+                "misled",
+                "misunderstood",
+                "undermined",
+                "provoked",
+                "aroused",
+                "prompted",
+                "confidence",
+                "suspicion",
+                "concern",
+                "tension",
+                "in",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "each",
+                "every",
+                "no",
+                "interview",
+                "report",
+                "evidence",
+                "inquiry"
+            ],
+            "source_text_uk": "Те, що його неправильно процитували, підірвало довіру до інтерв'ю.",
+            "options_by_marker": {
+                "a1": [
+                    "His",
+                    "Hers",
+                    "Ours",
+                    "Theirs"
+                ],
+                "a2": [
+                    "having",
+                    "waiting",
+                    "watching",
+                    "visiting"
+                ],
+                "a3": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "misquoted",
+                    "interrupted",
+                    "misled",
+                    "misunderstood"
+                ],
+                "a5": [
+                    "undermined",
+                    "provoked",
+                    "aroused",
+                    "prompted"
+                ],
+                "a6": [
+                    "confidence",
+                    "suspicion",
+                    "concern",
+                    "tension"
+                ],
+                "a7": [
+                    "in",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a9": [
+                    "interview",
+                    "report",
+                    "evidence",
+                    "inquiry"
+                ]
+            },
+            "slot_roles": {
+                "a1": "perfect_passive_gerund_head",
+                "a2": "perfect_passive_gerund_head",
+                "a3": "perfect_passive_gerund_head",
+                "a4": "past_participle",
+                "a5": "finite_consequence",
+                "a6": "finite_consequence",
+                "a7": "prepositional_topic",
+                "a8": "prepositional_topic",
+                "a9": "prepositional_topic"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

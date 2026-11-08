@@ -1,0 +1,756 @@
+{
+    "schema_version": 1,
+    "topic_key": "relative-clauses-linking-words",
+    "title": "Sentence Transformations: Relative Clauses and Linking Words",
+    "choice_pools": {
+        "person_subject": [
+            "The driver",
+            "A young painter",
+            "My older brother",
+            "The engineer",
+            "Our new neighbour",
+            "An experienced sailor",
+            "The visitor",
+            "That musician"
+        ],
+        "human_relative_action": [
+            "who paints",
+            "who sings",
+            "who brings",
+            "who holds",
+            "who chooses",
+            "who delivers",
+            "who repairs",
+            "who opens"
+        ],
+        "singular_object": [
+            "a small parcel",
+            "the red bag",
+            "her old bicycle",
+            "the wooden door",
+            "an empty basket",
+            "his warm coat",
+            "a long letter",
+            "the broken screen"
+        ],
+        "singular_link": [
+            "was",
+            "became",
+            "seems",
+            "remains",
+            "looks",
+            "sounds",
+            "appears",
+            "felt"
+        ],
+        "family_complement": [
+            "my aunt",
+            "her brother",
+            "our nephew",
+            "his father",
+            "their uncle",
+            "your sister",
+            "my grandchild",
+            "our niece"
+        ],
+        "thing_subject": [
+            "The river",
+            "The tunnel",
+            "A narrow bridge",
+            "The machine",
+            "The garden",
+            "The roof",
+            "A small stream",
+            "The harbour"
+        ],
+        "past_adjective_state": [
+            "was cold",
+            "was narrow",
+            "was quiet",
+            "was dangerous",
+            "was wet",
+            "was dark",
+            "was uneven",
+            "was crowded"
+        ],
+        "result_link": [
+            "when",
+            "and",
+            "but",
+            "yet",
+            "because",
+            "although",
+            "unless",
+            "while"
+        ],
+        "past_driving_clause": [
+            "I walked",
+            "they travelled",
+            "she cycled",
+            "we stopped",
+            "he continued",
+            "they returned",
+            "I turned",
+            "we waited"
+        ],
+        "past_use_clause": [
+            "she used",
+            "he used",
+            "they used",
+            "you used",
+            "we took",
+            "they took",
+            "she took",
+            "he took"
+        ],
+        "access_object": [
+            "the escalator",
+            "the ladder",
+            "a side entrance",
+            "another route",
+            "the ramp",
+            "a service lift",
+            "the back door",
+            "a narrow passage"
+        ],
+        "manner_adverb": [
+            "carefully",
+            "quickly",
+            "quietly",
+            "safely",
+            "cautiously",
+            "eagerly",
+            "reluctantly",
+            "happily"
+        ],
+        "concessive_clause_link": [
+            "Because",
+            "Since",
+            "As",
+            "When",
+            "While",
+            "If",
+            "Unless",
+            "Before"
+        ],
+        "proper_past_action": [
+            "Marta lifted",
+            "Taras pulled",
+            "Hanna carried",
+            "Danylo moved",
+            "Nazar brought",
+            "Iryna dragged",
+            "Petro pushed",
+            "Sofiia raised"
+        ],
+        "object_direction": [
+            "it downstairs",
+            "it outside",
+            "it inside",
+            "it home",
+            "it away",
+            "it back",
+            "it forward",
+            "it aside"
+        ],
+        "past_event_verb": [
+            "collapsed",
+            "fell",
+            "cracked",
+            "vanished",
+            "failed",
+            "reopened",
+            "closed",
+            "survived"
+        ],
+        "concessive_preposition": [
+            "because of",
+            "owing to",
+            "due to",
+            "without",
+            "near",
+            "behind",
+            "beside",
+            "under"
+        ],
+        "modified_definite": [
+            "the very old",
+            "the recently repaired",
+            "the badly damaged",
+            "the unusually high",
+            "the partly finished",
+            "the poorly maintained",
+            "the carefully reinforced",
+            "the newly restored"
+        ],
+        "structure_noun": [
+            "bridge",
+            "wall",
+            "barrier",
+            "embankment",
+            "fence",
+            "reservoir",
+            "tunnel",
+            "breakwater"
+        ],
+        "formal_relative_preposition": [
+            "with whom",
+            "for whom",
+            "about whom",
+            "from whom",
+            "against whom",
+            "beside whom",
+            "near whom",
+            "behind whom"
+        ],
+        "passive_past": [
+            "was sent",
+            "was delivered",
+            "was reported",
+            "was returned",
+            "was presented",
+            "was submitted",
+            "was forwarded",
+            "was explained"
+        ],
+        "degree_concession": [
+            "Even though",
+            "Although",
+            "Though",
+            "Whereas",
+            "While",
+            "Even if",
+            "Because",
+            "As soon as"
+        ],
+        "first_person_evaluation": [
+            "I appreciate",
+            "I doubt",
+            "I value",
+            "I respect",
+            "I distrust",
+            "I recognise",
+            "I criticise",
+            "I understand"
+        ],
+        "possessed_quality": [
+            "her patience",
+            "his honesty",
+            "their skill",
+            "your confidence",
+            "her accuracy",
+            "his restraint",
+            "their kindness",
+            "her wisdom"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "My aunt is a baker {a1} makes fresh rolls.",
+            "target": "My aunt is a baker who makes fresh rolls.",
+            "uk": "Моя тітка — пекарка. Вона пече свіжі булочки.",
+            "hint_uk": "Об’єднай повідомлення: додай означальну частину «яка пече свіжі булочки» словом для людини, не повторюючи займенник.",
+            "groups": [
+                "My aunt",
+                "is a baker",
+                "who makes",
+                "fresh rolls."
+            ],
+            "answer": "who",
+            "options": [
+                "who",
+                "which",
+                "where"
+            ],
+            "answer_synonyms": [
+                "that"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I wanted to walk, {a1} it began to snow.",
+            "target": "I wanted to walk, but it began to snow.",
+            "uk": "Я хотів погуляти, але почався сніг.",
+            "hint_uk": "Об’єднай бажання погуляти й початок снігу сполучником протиставлення; причина бажання тут не названа.",
+            "groups": [
+                "I wanted",
+                "to walk,",
+                "but it began",
+                "to snow."
+            ],
+            "answer": "but",
+            "options": [
+                "but",
+                "and",
+                "because"
+            ],
+            "answer_synonyms": [
+                "yet"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Хлопчик, який несе прапор, — мій двоюрідний брат.",
+            "target": "The boy who carries the flag is my cousin.",
+            "uk": "Хлопчик, який несе прапор, — мій двоюрідний брат.",
+            "hint_uk": "Почни з хлопчика; уточни його дію означальною частиною та назви родинний зв’язок.",
+            "groups": [
+                "The boy",
+                "who carries",
+                "the flag",
+                "is",
+                "my cousin."
+            ],
+            "compose_slots": [
+                "The boy",
+                "who carries",
+                "the flag",
+                "is",
+                "my cousin."
+            ],
+            "slot_roles": [
+                "person_subject",
+                "human_relative_action",
+                "singular_object",
+                "singular_link",
+                "family_complement"
+            ],
+            "accepted_targets": [
+                "The boy that carries the flag is my cousin."
+            ],
+            "display_synonyms": {
+                "who carries": [
+                    "that carries"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "I kept the receipt {a1} the shop might ask for it.",
+            "target": "I kept the receipt because the shop might ask for it.",
+            "uk": "Я зберіг чек, бо в магазині могли його попросити.",
+            "hint_uk": "Пов’яжи збереження чека з названою причиною; введи лише причинний сполучник, решта повідомлення вже наведена.",
+            "groups": [
+                "I kept",
+                "the receipt",
+                "because the shop",
+                "might ask",
+                "for it."
+            ],
+            "answer": "because",
+            "options": [
+                "because",
+                "although",
+                "unless"
+            ],
+            "answer_synonyms": [
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "This is the bench {a1} we painted yesterday.",
+            "target": "This is the bench that we painted yesterday.",
+            "uk": "Ось лавка. Ми пофарбували її вчора.",
+            "hint_uk": "Об’єднай повідомлення явним означальним словом для предмета; у цьому завданні не пропускай його.",
+            "groups": [
+                "This is",
+                "the bench",
+                "that we painted",
+                "yesterday."
+            ],
+            "answer": "that",
+            "options": [
+                "that",
+                "who",
+                "where"
+            ],
+            "answer_synonyms": [
+                "which"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Ліфт був зламаний, тому ми скористалися сходами.",
+            "target": "The lift was broken, so we used the stairs.",
+            "uk": "Ліфт був зламаний, тому ми скористалися сходами.",
+            "hint_uk": "Перше повідомлення пояснює вибір сходів, друге — наслідок поломки; збережи минулий час.",
+            "groups": [
+                "The lift",
+                "was broken,",
+                "so",
+                "we used",
+                "the stairs."
+            ],
+            "compose_slots": [
+                "The lift",
+                "was broken,",
+                "so",
+                "we used",
+                "the stairs."
+            ],
+            "slot_roles": [
+                "thing_subject",
+                "past_adjective_state",
+                "result_link",
+                "past_use_clause",
+                "access_object"
+            ],
+            "accepted_targets": [
+                "The lift was broken, so we took the stairs."
+            ],
+            "display_synonyms": {
+                "we used": [
+                    "we took"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "The student {a1} bicycle was stolen called us.",
+            "target": "The student whose bicycle was stolen called us.",
+            "uk": "У студента вкрали велосипед. Цей студент зателефонував нам.",
+            "hint_uk": "Об’єднай повідомлення присвійним означальним словом перед назвою велосипеда; власник і предмет мають залишитися пов’язаними.",
+            "groups": [
+                "The student",
+                "whose bicycle",
+                "was stolen",
+                "called us."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "who's",
+                "whom"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "We stayed indoors {a1} the strong wind.",
+            "target": "We stayed indoors because of the strong wind.",
+            "uk": "Ми залишилися в приміщенні, бо вітер був сильним.",
+            "hint_uk": "Перебудуй причину з речення на прийменникову групу перед назвою вітру; не додавай нового підмета.",
+            "groups": [
+                "We stayed indoors",
+                "because of",
+                "the strong wind."
+            ],
+            "answer": "because of",
+            "options": [
+                "because of",
+                "because",
+                "although"
+            ],
+            "answer_synonyms": [
+                "owing to",
+                "due to"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Хоча валіза була важкою, Оксана віднесла її нагору.",
+            "target": "Although the suitcase was heavy, Oksana carried it upstairs.",
+            "uk": "Хоча валіза була важкою, Оксана віднесла її нагору.",
+            "hint_uk": "Вага могла завадити підйому, проте не завадила; збережи обидві минулі частини.",
+            "groups": [
+                "Although",
+                "the suitcase",
+                "was heavy,",
+                "Oksana carried",
+                "it upstairs."
+            ],
+            "compose_slots": [
+                "Although",
+                "the suitcase",
+                "was heavy,",
+                "Oksana carried",
+                "it upstairs."
+            ],
+            "slot_roles": [
+                "concessive_clause_link",
+                "singular_object",
+                "past_adjective_state",
+                "proper_past_action",
+                "object_direction"
+            ],
+            "accepted_targets": [
+                "Though the suitcase was heavy, Oksana carried it upstairs.",
+                "While the suitcase was heavy, Oksana carried it upstairs."
+            ],
+            "display_synonyms": {
+                "Although": [
+                    "Though",
+                    "While"
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The archive, {a1} I visit monthly, has moved.",
+            "target": "The archive, which I visit monthly, has moved.",
+            "uk": "Архів переїхав. Додатково повідомляю: я відвідую цей уже відомий архів щомісяця.",
+            "hint_uk": "Встав означальне слово для предмета в додаткову частину між комами; вона не визначає, який саме архів мається на увазі.",
+            "groups": [
+                "The archive,",
+                "which I visit",
+                "monthly,",
+                "has moved."
+            ],
+            "answer": "which",
+            "options": [
+                "which",
+                "that",
+                "where"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "He wore gloves in order {a1} leave any fingerprints.",
+            "target": "He wore gloves in order not to leave any fingerprints.",
+            "uk": "Він надягнув рукавички, щоб не залишити відбитків пальців.",
+            "hint_uk": "Перебудуй заперечну мету після вже наведеної початкової частини; введи заперечення й частку перед дієсловом.",
+            "groups": [
+                "He wore gloves",
+                "in order",
+                "not to leave",
+                "any fingerprints."
+            ],
+            "answer": "not to",
+            "options": [
+                "not to",
+                "not",
+                "so not to"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Долину затопило попри щойно збудовану дамбу.",
+            "target": "The valley flooded despite the newly built dam.",
+            "uk": "Долину затопило попри щойно збудовану дамбу.",
+            "hint_uk": "Дамба — факт, який не запобіг затопленню; після прийменника потрібна іменникова, не підрядна частина.",
+            "groups": [
+                "The valley",
+                "flooded",
+                "despite",
+                "the newly built",
+                "dam."
+            ],
+            "compose_slots": [
+                "The valley",
+                "flooded",
+                "despite",
+                "the newly built",
+                "dam."
+            ],
+            "slot_roles": [
+                "thing_subject",
+                "past_event_verb",
+                "concessive_preposition",
+                "modified_definite",
+                "structure_noun"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The curator spoke to Mira, {a1} had restored the mural.",
+            "target": "The curator spoke to Mira, who had restored the mural.",
+            "uk": "Куратор поговорив із Мірою. Додаткова відома обставина: саме вона відреставрувала стінопис.",
+            "hint_uk": "Приєднай додаткове повідомлення про названу людину після коми; означальне слово є виконавцем реставрації.",
+            "groups": [
+                "The curator spoke",
+                "to Mira,",
+                "who had restored",
+                "the mural."
+            ],
+            "answer": "who",
+            "options": [
+                "who",
+                "whom",
+                "which"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The proposal was rejected {a1} it addressed a different problem.",
+            "target": "The proposal was rejected on the grounds that it addressed a different problem.",
+            "uk": "Пропозицію відхилили на тій підставі, що вона стосувалася іншої проблеми.",
+            "hint_uk": "Перебудуй причинний зв’язок формальною сполучниковою групою зі значенням підстави; після неї вже наведено ціле речення.",
+            "groups": [
+                "The proposal",
+                "was rejected",
+                "on the grounds",
+                "that it addressed",
+                "a different problem."
+            ],
+            "answer": "on the grounds that",
+            "options": [
+                "on the grounds that",
+                "on the grounds of",
+                "in order that"
+            ],
+            "answer_synonyms": [
+                "because",
+                "since",
+                "as"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Консультант, якому адресували скаргу, звільнився.",
+            "target": "The consultant to whom the complaint was addressed resigned.",
+            "uk": "Консультант, якому адресували скаргу, звільнився.",
+            "hint_uk": "Скарга залишається адресованою названому фахівцеві; прийменник винеси перед означальним словом для людини.",
+            "groups": [
+                "The consultant",
+                "to whom",
+                "the complaint",
+                "was addressed",
+                "resigned."
+            ],
+            "compose_slots": [
+                "The consultant",
+                "to whom",
+                "the complaint",
+                "was addressed",
+                "resigned."
+            ],
+            "slot_roles": [
+                "person_subject",
+                "formal_relative_preposition",
+                "singular_object",
+                "passive_past",
+                "past_event_verb"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "She offered four explanations, {a1} did much to allay our concerns.",
+            "target": "She offered four explanations, none of which did much to allay our concerns.",
+            "uk": "Вона запропонувала чотири пояснення. Жодне з них істотно не розвіяло наших побоювань.",
+            "hint_uk": "Об’єднай повідомлення додатковою означальною частиною після коми; збережи заперечення щодо всіх чотирьох пояснень.",
+            "groups": [
+                "She offered",
+                "four explanations,",
+                "none of which",
+                "did much",
+                "to allay",
+                "our concerns."
+            ],
+            "answer": "none of which",
+            "options": [
+                "none of which",
+                "none of them",
+                "neither of which"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The audit must be completed, {a1} the launch will be postponed.",
+            "target": "The audit must be completed, failing which the launch will be postponed.",
+            "uk": "Аудит треба завершити; інакше запуск відкладуть.",
+            "hint_uk": "Стисни умову невиконання попередньої вимоги у формальний зв’язок із наступним наслідком; не перетворюй його на поступку.",
+            "groups": [
+                "The audit",
+                "must be completed,",
+                "failing which",
+                "the launch",
+                "will be postponed."
+            ],
+            "answer": "failing which",
+            "options": [
+                "failing which",
+                "despite which",
+                "insofar as"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Хоча я дуже захоплююся її сміливістю, я сумніваюся в її розсудливості.",
+            "target": "Much as I admire her courage, I question her judgement.",
+            "uk": "Хоча я дуже захоплююся її сміливістю, я сумніваюся в її розсудливості.",
+            "hint_uk": "Поступка стосується сили захоплення, а не сумніву; збережи одну й ту саму жінку та дві різні якості.",
+            "groups": [
+                "Much as",
+                "I admire",
+                "her courage,",
+                "I question",
+                "her judgement."
+            ],
+            "compose_slots": [
+                "Much as",
+                "I admire",
+                "her courage,",
+                "I question",
+                "her judgement."
+            ],
+            "slot_roles": [
+                "degree_concession",
+                "first_person_evaluation",
+                "possessed_quality",
+                "first_person_evaluation",
+                "possessed_quality"
+            ],
+            "accepted_targets": [
+                "Much as I admire her courage, I question her judgment.",
+                "Much as I admire her courage, I doubt her judgement.",
+                "Much as I admire her courage, I doubt her judgment."
+            ],
+            "display_synonyms": {
+                "I question": [
+                    "I doubt"
+                ],
+                "her judgement": [
+                    "her judgment"
+                ]
+            }
+        }
+    ]
+}

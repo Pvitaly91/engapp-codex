@@ -1,0 +1,1819 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/time-and-place-changes.v1.json",
+        "sha256": "13fb215356439f6664e16e7dac20db4c6fcee4c654ed6294161827355d63a280"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechTimePlaceChangesQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-time-and-place-changes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_time_and_place_changes": {
+            "name": "Reported Speech Quality: Time and Place Changes"
+        }
+    },
+    "tags": {
+        "reported_speech_time_place_changes_all_levels": {
+            "name": "reported speech time place changes all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "now_then": {
+            "name": "Now Then",
+            "category": "topic"
+        },
+        "today_that_day": {
+            "name": "Today That Day",
+            "category": "topic"
+        },
+        "yesterday_previous_day": {
+            "name": "Yesterday Previous Day",
+            "category": "topic"
+        },
+        "tomorrow_next_day": {
+            "name": "Tomorrow Next Day",
+            "category": "topic"
+        },
+        "this_that": {
+            "name": "This That",
+            "category": "topic"
+        },
+        "these_those": {
+            "name": "These Those",
+            "category": "topic"
+        },
+        "here_there": {
+            "name": "Here There",
+            "category": "topic"
+        },
+        "ago_before": {
+            "name": "Ago Before",
+            "category": "topic"
+        },
+        "last_week_before": {
+            "name": "Last Week Before",
+            "category": "topic"
+        },
+        "next_week_following": {
+            "name": "Next Week Following",
+            "category": "topic"
+        },
+        "context_dependent": {
+            "name": "Context Dependent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-timeplace-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Pia said that her backpack was {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Пія сказала, що її рюкзак там.",
+            "target_text": "Pia said that her backpack was there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "home"
+                    ],
+                    "verb_hint": "Переказ відбувається в іншому місці; заміни близьке місце на віддалене."
+                }
+            },
+            "verb_hint": "Переказ відбувається в іншому місці; заміни близьке місце на віддалене.",
+            "accepted_target_texts": [
+                "Pia said that her backpack was there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Pia said that",
+                "her backpack",
+                "was",
+                "there."
+            ],
+            "token_groups": [
+                "Pia said that",
+                "her backpack",
+                "was",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-timeplace-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Aron said that he was busy {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Арон сказав, що того дня був зайнятий.",
+            "target_text": "Aron said that he was busy that day.",
+            "markers": {
+                "a1": {
+                    "answer": "that day",
+                    "options": [
+                        "that day",
+                        "today",
+                        "the next day"
+                    ],
+                    "verb_hint": "Переказ відбувається пізніше; день відраховуємо від минулих слів, не від сьогодні."
+                }
+            },
+            "verb_hint": "Переказ відбувається пізніше; день відраховуємо від минулих слів, не від сьогодні.",
+            "accepted_target_texts": [
+                "Aron said that he was busy that day."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Aron said that",
+                "he was busy",
+                "that day."
+            ],
+            "token_groups": [
+                "Aron said that",
+                "he was busy",
+                "that day."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-timeplace-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Vera said that she would leave {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Вера сказала, що поїде наступного дня.",
+            "target_text": "Vera said that she would leave the next day.",
+            "markers": {
+                "a1": {
+                    "answer": "the next day",
+                    "options": [
+                        "the next day",
+                        "the day before",
+                        "that day"
+                    ],
+                    "verb_hint": "День після її минулих слів; уведи повну відносну обставину."
+                }
+            },
+            "verb_hint": "День після її минулих слів; уведи повну відносну обставину.",
+            "accepted_target_texts": [
+                "Vera said that she would leave the next day.",
+                "Vera said that she would leave the following day."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the following day"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the following day"
+                ]
+            },
+            "reorder_groups": [
+                "Vera said that",
+                "she would leave",
+                "the next day."
+            ],
+            "token_groups": [
+                "Vera said that",
+                "she would leave",
+                "the next day."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-timeplace-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Lina said that {a1} chair was hers.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ліна сказала, що той стілець її.",
+            "target_text": "Lina said that that chair was hers.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "this",
+                        "these"
+                    ],
+                    "verb_hint": "На стілець більше не вказують як на близький; сполучник уже є перед пропуском."
+                }
+            },
+            "verb_hint": "На стілець більше не вказують як на близький; сполучник уже є перед пропуском.",
+            "accepted_target_texts": [
+                "Lina said that that chair was hers."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lina said that",
+                "that",
+                "chair",
+                "was hers."
+            ],
+            "token_groups": [
+                "Lina said that",
+                "that",
+                "chair",
+                "was hers."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-timeplace-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Sven said that {a1} shells were beautiful.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Свен сказав, що ті мушлі гарні.",
+            "target_text": "Sven said that those shells were beautiful.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "these",
+                        "that"
+                    ],
+                    "verb_hint": "Переказувач віддалений від кількох мушель; потрібна віддалена множина."
+                }
+            },
+            "verb_hint": "Переказувач віддалений від кількох мушель; потрібна віддалена множина.",
+            "accepted_target_texts": [
+                "Sven said that those shells were beautiful."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Sven said that",
+                "those",
+                "shells",
+                "were beautiful."
+            ],
+            "token_groups": [
+                "Sven said that",
+                "those",
+                "shells",
+                "were beautiful."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-timeplace-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Rita said that she was ready {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ріта сказала, що тоді була готова.",
+            "target_text": "Rita said that she was ready then.",
+            "markers": {
+                "a1": {
+                    "answer": "then",
+                    "options": [
+                        "then",
+                        "now",
+                        "tomorrow"
+                    ],
+                    "verb_hint": "Йдеться про момент її минулих слів, не про нинішню готовність."
+                }
+            },
+            "verb_hint": "Йдеться про момент її минулих слів, не про нинішню готовність.",
+            "accepted_target_texts": [
+                "Rita said that she was ready then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Rita said that",
+                "she was ready",
+                "then."
+            ],
+            "token_groups": [
+                "Rita said that",
+                "she was ready",
+                "then."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-timeplace-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Noel said that he had visited the aquarium {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ноель сказав, що відвідав акваріум напередодні.",
+            "target_text": "Noel said that he had visited the aquarium the day before.",
+            "markers": {
+                "a1": {
+                    "answer": "the day before",
+                    "options": [
+                        "the day before",
+                        "that day",
+                        "the next day"
+                    ],
+                    "verb_hint": "Відвідування було за день до його минулих слів; нині інший день."
+                }
+            },
+            "verb_hint": "Відвідування було за день до його минулих слів; нині інший день.",
+            "accepted_target_texts": [
+                "Noel said that he had visited the aquarium the day before.",
+                "Noel said that he had visited the aquarium the previous day."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the previous day"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the previous day"
+                ]
+            },
+            "reorder_groups": [
+                "Noel said that",
+                "he had visited",
+                "the aquarium",
+                "the day before."
+            ],
+            "token_groups": [
+                "Noel said that",
+                "he had visited",
+                "the aquarium",
+                "the day before."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-timeplace-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Asta said that she would return {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Аста сказала, що повернеться наступного місяця.",
+            "target_text": "Asta said that she would return the following month.",
+            "markers": {
+                "a1": {
+                    "answer": "the following month",
+                    "options": [
+                        "the following month",
+                        "the previous month",
+                        "that month"
+                    ],
+                    "verb_hint": "Місяць відраховуємо від її минулої репліки, не від нинішнього календаря."
+                }
+            },
+            "verb_hint": "Місяць відраховуємо від її минулої репліки, не від нинішнього календаря.",
+            "accepted_target_texts": [
+                "Asta said that she would return the following month.",
+                "Asta said that she would return the next month."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the next month"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the next month"
+                ]
+            },
+            "reorder_groups": [
+                "Asta said that",
+                "she would return",
+                "the following month."
+            ],
+            "token_groups": [
+                "Asta said that",
+                "she would return",
+                "the following month."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-timeplace-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The cousins said that they had met {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Двоюрідні брати сказали, що зустрілися там.",
+            "target_text": "The cousins said that they had met there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "now"
+                    ],
+                    "verb_hint": "Нинішній переказувач перебуває не в місці тієї зустрічі."
+                }
+            },
+            "verb_hint": "Нинішній переказувач перебуває не в місці тієї зустрічі.",
+            "accepted_target_texts": [
+                "The cousins said that they had met there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cousins",
+                "said that",
+                "they had met",
+                "there."
+            ],
+            "token_groups": [
+                "The cousins",
+                "said that",
+                "they had met",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-timeplace-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Faye said that she had lost {a1} receipt.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Фей сказала, що загубила той чек.",
+            "target_text": "Faye said that she had lost that receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "this",
+                        "those"
+                    ],
+                    "verb_hint": "Предмет віддалений від нинішнього мовця; перед одним чеком потрібна відповідна вказівна форма."
+                }
+            },
+            "verb_hint": "Предмет віддалений від нинішнього мовця; перед одним чеком потрібна відповідна вказівна форма.",
+            "accepted_target_texts": [
+                "Faye said that she had lost that receipt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Faye said that",
+                "she had lost",
+                "that",
+                "receipt."
+            ],
+            "token_groups": [
+                "Faye said that",
+                "she had lost",
+                "that",
+                "receipt."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-timeplace-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Remi said that he had called {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ремі сказав, що телефонував за два дні до того.",
+            "target_text": "Remi said that he had called two days earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "two days earlier",
+                    "options": [
+                        "two days earlier",
+                        "two days later",
+                        "two days ahead"
+                    ],
+                    "verb_hint": "Два дні відлічуємо назад від його минулих слів."
+                }
+            },
+            "verb_hint": "Два дні відлічуємо назад від його минулих слів.",
+            "accepted_target_texts": [
+                "Remi said that he had called two days earlier.",
+                "Remi said that he had called two days before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "two days before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "two days before"
+                ]
+            },
+            "reorder_groups": [
+                "Remi said that",
+                "he had called",
+                "two days earlier."
+            ],
+            "token_groups": [
+                "Remi said that",
+                "he had called",
+                "two days earlier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-timeplace-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The porter said that he was leaving {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Носій сказав, що йде того вечора.",
+            "target_text": "The porter said that he was leaving that evening.",
+            "markers": {
+                "a1": {
+                    "answer": "that evening",
+                    "options": [
+                        "that evening",
+                        "this evening",
+                        "the previous evening"
+                    ],
+                    "verb_hint": "Йдеться про вечір дня його минулої репліки, не про нинішній вечір."
+                }
+            },
+            "verb_hint": "Йдеться про вечір дня його минулої репліки, не про нинішній вечір.",
+            "accepted_target_texts": [
+                "The porter said that he was leaving that evening."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The porter",
+                "said that",
+                "he was leaving",
+                "that evening."
+            ],
+            "token_groups": [
+                "The porter",
+                "said that",
+                "he was leaving",
+                "that evening."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-timeplace-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The courier said that the package had arrived {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Кур’єр сказав, що пакунок прибув попереднього тижня.",
+            "target_text": "The courier said that the package had arrived the previous week.",
+            "markers": {
+                "a1": {
+                    "answer": "the previous week",
+                    "options": [
+                        "the previous week",
+                        "the following week",
+                        "that week"
+                    ],
+                    "verb_hint": "Тиждень передував його минулим словам; переказ відбувається згодом."
+                }
+            },
+            "verb_hint": "Тиждень передував його минулим словам; переказ відбувається згодом.",
+            "accepted_target_texts": [
+                "The courier said that the package had arrived the previous week.",
+                "The courier said that the package had arrived the week before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the week before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the week before"
+                ]
+            },
+            "reorder_groups": [
+                "The courier",
+                "said that",
+                "the package",
+                "had arrived",
+                "the previous week."
+            ],
+            "token_groups": [
+                "The courier",
+                "said that",
+                "the package",
+                "had arrived",
+                "the previous week."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-timeplace-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The ranger said that {a1} tracks were fresh.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Єгер сказав, що ті сліди свіжі.",
+            "target_text": "The ranger said that those tracks were fresh.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "these",
+                        "this"
+                    ],
+                    "verb_hint": "Сліди тепер віддалені від переказувача; збережи множину."
+                }
+            },
+            "verb_hint": "Сліди тепер віддалені від переказувача; збережи множину.",
+            "accepted_target_texts": [
+                "The ranger said that those tracks were fresh."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ranger",
+                "said that",
+                "those",
+                "tracks",
+                "were fresh."
+            ],
+            "token_groups": [
+                "The ranger",
+                "said that",
+                "those",
+                "tracks",
+                "were fresh."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-timeplace-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Elisa said that she would inspect the cabin {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Еліза сказала, що огляне хатину наступної весни.",
+            "target_text": "Elisa said that she would inspect the cabin the following spring.",
+            "markers": {
+                "a1": {
+                    "answer": "the following spring",
+                    "options": [
+                        "the following spring",
+                        "the previous spring",
+                        "that spring"
+                    ],
+                    "verb_hint": "Йдеться про найближчу весну після її минулої репліки; не відраховуй від нинішньої дати."
+                }
+            },
+            "verb_hint": "Йдеться про найближчу весну після її минулої репліки; не відраховуй від нинішньої дати.",
+            "accepted_target_texts": [
+                "Elisa said that she would inspect the cabin the following spring.",
+                "Elisa said that she would inspect the cabin the next spring."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the next spring"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the next spring"
+                ]
+            },
+            "reorder_groups": [
+                "Elisa said that",
+                "she would inspect",
+                "the cabin",
+                "the following spring."
+            ],
+            "token_groups": [
+                "Elisa said that",
+                "she would inspect",
+                "the cabin",
+                "the following spring."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-timeplace-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The climbers said that the camp was {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Альпіністи сказали, що табір там.",
+            "target_text": "The climbers said that the camp was there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "now"
+                    ],
+                    "verb_hint": "Переказувач перебуває в іншому місці; табір не є його близькою точкою."
+                }
+            },
+            "verb_hint": "Переказувач перебуває в іншому місці; табір не є його близькою точкою.",
+            "accepted_target_texts": [
+                "The climbers said that the camp was there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The climbers",
+                "said that",
+                "the camp",
+                "was",
+                "there."
+            ],
+            "token_groups": [
+                "The climbers",
+                "said that",
+                "the camp",
+                "was",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-timeplace-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Odin said that he had read the notice {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Одін сказав, що прочитав оголошення за три години до того.",
+            "target_text": "Odin said that he had read the notice three hours earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "three hours earlier",
+                    "options": [
+                        "three hours earlier",
+                        "three hours later",
+                        "three hours ahead"
+                    ],
+                    "verb_hint": "Години відраховуємо назад від його минулого повідомлення."
+                }
+            },
+            "verb_hint": "Години відраховуємо назад від його минулого повідомлення.",
+            "accepted_target_texts": [
+                "Odin said that he had read the notice three hours earlier.",
+                "Odin said that he had read the notice three hours before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "three hours before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "three hours before"
+                ]
+            },
+            "reorder_groups": [
+                "Odin said that",
+                "he had read",
+                "the notice",
+                "three hours earlier."
+            ],
+            "token_groups": [
+                "Odin said that",
+                "he had read",
+                "the notice",
+                "three hours earlier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-timeplace-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The registrar said that {a1} form was incomplete.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Реєстратор сказав, що та анкета незаповнена.",
+            "target_text": "The registrar said that that form was incomplete.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "this",
+                        "these"
+                    ],
+                    "verb_hint": "На анкету вже не вказують як на близьку; потрібна форма однини."
+                }
+            },
+            "verb_hint": "На анкету вже не вказують як на близьку; потрібна форма однини.",
+            "accepted_target_texts": [
+                "The registrar said that that form was incomplete."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The registrar",
+                "said that",
+                "that",
+                "form",
+                "was incomplete."
+            ],
+            "token_groups": [
+                "The registrar",
+                "said that",
+                "that",
+                "form",
+                "was incomplete."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-timeplace-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The expedition leader said that the beacon had failed {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Керівник експедиції сказав, що маяк вийшов із ладу попередньої зими.",
+            "target_text": "The expedition leader said that the beacon had failed the previous winter.",
+            "markers": {
+                "a1": {
+                    "answer": "the previous winter",
+                    "options": [
+                        "the previous winter",
+                        "the following winter",
+                        "that winter"
+                    ],
+                    "verb_hint": "Йдеться про найближчу зиму перед його минулими словами; нинішній календар не є точкою відліку."
+                }
+            },
+            "verb_hint": "Йдеться про найближчу зиму перед його минулими словами; нинішній календар не є точкою відліку.",
+            "accepted_target_texts": [
+                "The expedition leader said that the beacon had failed the previous winter.",
+                "The expedition leader said that the beacon had failed the winter before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the winter before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the winter before"
+                ]
+            },
+            "reorder_groups": [
+                "The expedition",
+                "leader said that",
+                "the beacon",
+                "had failed",
+                "the previous winter."
+            ],
+            "token_groups": [
+                "The expedition",
+                "leader said that",
+                "the beacon",
+                "had failed",
+                "the previous winter."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-timeplace-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The envoy said that the talks would resume {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Посланець сказав, що переговори поновляться за два дні після того.",
+            "target_text": "The envoy said that the talks would resume two days later.",
+            "markers": {
+                "a1": {
+                    "answer": "two days later",
+                    "options": [
+                        "two days later",
+                        "two days earlier",
+                        "the day before"
+                    ],
+                    "verb_hint": "Два дні відраховуємо вперед від його минулих слів, не від нинішнього дня."
+                }
+            },
+            "verb_hint": "Два дні відраховуємо вперед від його минулих слів, не від нинішнього дня.",
+            "accepted_target_texts": [
+                "The envoy said that the talks would resume two days later."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The envoy",
+                "said that",
+                "the talks",
+                "would resume",
+                "two days later."
+            ],
+            "token_groups": [
+                "The envoy",
+                "said that",
+                "the talks",
+                "would resume",
+                "two days later."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-timeplace-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The survey team said that {a1} coordinates marked the inlet.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Група геодезистів сказала, що ті координати позначають бухту.",
+            "target_text": "The survey team said that those coordinates marked the inlet.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "these",
+                        "that"
+                    ],
+                    "verb_hint": "Переказувач більше не показує близькі координати; збережи множину."
+                }
+            },
+            "verb_hint": "Переказувач більше не показує близькі координати; збережи множину.",
+            "accepted_target_texts": [
+                "The survey team said that those coordinates marked the inlet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The survey team",
+                "said that",
+                "those",
+                "coordinates",
+                "marked the inlet."
+            ],
+            "token_groups": [
+                "The survey team",
+                "said that",
+                "those",
+                "coordinates",
+                "marked the inlet."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-timeplace-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Selma said that the records were stored {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Сельма сказала, що документи зберігалися там.",
+            "target_text": "Selma said that the records were stored there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "now"
+                    ],
+                    "verb_hint": "Архів віддалений від нинішнього місця переказу."
+                }
+            },
+            "verb_hint": "Архів віддалений від нинішнього місця переказу.",
+            "accepted_target_texts": [
+                "Selma said that the records were stored there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Selma said that",
+                "the records",
+                "were stored",
+                "there."
+            ],
+            "token_groups": [
+                "Selma said that",
+                "the records",
+                "were stored",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-timeplace-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The steward said that the lock had jammed {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Розпорядник сказав, що замок заклинило того ранку.",
+            "target_text": "The steward said that the lock had jammed that morning.",
+            "markers": {
+                "a1": {
+                    "answer": "that morning",
+                    "options": [
+                        "that morning",
+                        "this morning",
+                        "the following morning"
+                    ],
+                    "verb_hint": "Ранок належить дню його минулих слів; тепер інший день."
+                }
+            },
+            "verb_hint": "Ранок належить дню його минулих слів; тепер інший день.",
+            "accepted_target_texts": [
+                "The steward said that the lock had jammed that morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The steward",
+                "said that",
+                "the lock",
+                "had jammed",
+                "that morning."
+            ],
+            "token_groups": [
+                "The steward",
+                "said that",
+                "the lock",
+                "had jammed",
+                "that morning."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-timeplace-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The pilot said that the mist had cleared {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Пілот сказав, що туман розсіявся за годину до того.",
+            "target_text": "The pilot said that the mist had cleared an hour earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "an hour earlier",
+                    "options": [
+                        "an hour earlier",
+                        "an hour later",
+                        "the next hour"
+                    ],
+                    "verb_hint": "Годину відраховуємо назад від минулої репліки."
+                }
+            },
+            "verb_hint": "Годину відраховуємо назад від минулої репліки.",
+            "accepted_target_texts": [
+                "The pilot said that the mist had cleared an hour earlier.",
+                "The pilot said that the mist had cleared an hour before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "an hour before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "an hour before"
+                ]
+            },
+            "reorder_groups": [
+                "The pilot",
+                "said that",
+                "the mist",
+                "had cleared",
+                "an hour earlier."
+            ],
+            "token_groups": [
+                "The pilot",
+                "said that",
+                "the mist",
+                "had cleared",
+                "an hour earlier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-timeplace-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The diplomat recalled that the assurance had been given {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Дипломат згадав, що запевнення дали попередньої осені.",
+            "target_text": "The diplomat recalled that the assurance had been given the preceding autumn.",
+            "markers": {
+                "a1": {
+                    "answer": "the preceding autumn",
+                    "options": [
+                        "the preceding autumn",
+                        "the following autumn",
+                        "that autumn"
+                    ],
+                    "verb_hint": "Осінь передувала часовій точці його минулого повідомлення."
+                }
+            },
+            "verb_hint": "Осінь передувала часовій точці його минулого повідомлення.",
+            "accepted_target_texts": [
+                "The diplomat recalled that the assurance had been given the preceding autumn.",
+                "The diplomat recalled that the assurance had been given the previous autumn."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the previous autumn"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the previous autumn"
+                ]
+            },
+            "reorder_groups": [
+                "The diplomat",
+                "recalled that",
+                "the assurance",
+                "had been given",
+                "the preceding autumn."
+            ],
+            "token_groups": [
+                "The diplomat",
+                "recalled that",
+                "the assurance",
+                "had been given",
+                "the preceding autumn."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-timeplace-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The rapporteur said that the amendment would be circulated {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Доповідач сказав, що поправку поширять наступного кварталу.",
+            "target_text": "The rapporteur said that the amendment would be circulated the following quarter.",
+            "markers": {
+                "a1": {
+                    "answer": "the following quarter",
+                    "options": [
+                        "the following quarter",
+                        "the preceding quarter",
+                        "that quarter"
+                    ],
+                    "verb_hint": "Квартал іде після кварталу його минулих слів; зараз інший відлік."
+                }
+            },
+            "verb_hint": "Квартал іде після кварталу його минулих слів; зараз інший відлік.",
+            "accepted_target_texts": [
+                "The rapporteur said that the amendment would be circulated the following quarter.",
+                "The rapporteur said that the amendment would be circulated the next quarter."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the next quarter"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the next quarter"
+                ]
+            },
+            "reorder_groups": [
+                "The rapporteur",
+                "said that",
+                "the amendment",
+                "would be circulated",
+                "the following quarter."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "said that",
+                "the amendment",
+                "would be circulated",
+                "the following quarter."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-timeplace-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The curator confirmed that {a1} provenance record remained disputed.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Куратор підтвердив, що той запис про походження досі спірний.",
+            "target_text": "The curator confirmed that that provenance record remained disputed.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "this",
+                        "these"
+                    ],
+                    "verb_hint": "Нинішній переказувач не вказує на близький запис; потрібна віддалена однина."
+                }
+            },
+            "verb_hint": "Нинішній переказувач не вказує на близький запис; потрібна віддалена однина.",
+            "accepted_target_texts": [
+                "The curator confirmed that that provenance record remained disputed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curator",
+                "confirmed that",
+                "that",
+                "provenance record",
+                "remained disputed."
+            ],
+            "token_groups": [
+                "The curator",
+                "confirmed that",
+                "that",
+                "provenance record",
+                "remained disputed."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-timeplace-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The witness stated that the exchange had occurred {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Свідок заявив, що обмін відбувся там.",
+            "target_text": "The witness stated that the exchange had occurred there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "now"
+                    ],
+                    "verb_hint": "Нинішнє місце переказу відрізняється від місця обміну."
+                }
+            },
+            "verb_hint": "Нинішнє місце переказу відрізняється від місця обміну.",
+            "accepted_target_texts": [
+                "The witness stated that the exchange had occurred there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "stated that",
+                "the exchange",
+                "had occurred",
+                "there."
+            ],
+            "token_groups": [
+                "The witness",
+                "stated that",
+                "the exchange",
+                "had occurred",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-timeplace-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The commissioner said that the distinction was essential {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Комісар сказав, що в той час розмежування було істотним.",
+            "target_text": "The commissioner said that the distinction was essential at that time.",
+            "markers": {
+                "a1": {
+                    "answer": "at that time",
+                    "options": [
+                        "at that time",
+                        "at this time",
+                        "by tomorrow"
+                    ],
+                    "verb_hint": "Потрібна обставина, що відсилає до моменту минулих слів, не до сьогодення."
+                }
+            },
+            "verb_hint": "Потрібна обставина, що відсилає до моменту минулих слів, не до сьогодення.",
+            "accepted_target_texts": [
+                "The commissioner said that the distinction was essential at that time.",
+                "The commissioner said that the distinction was essential then."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "then"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "then"
+                ]
+            },
+            "reorder_groups": [
+                "The commissioner",
+                "said that",
+                "the distinction",
+                "was essential",
+                "at that time."
+            ],
+            "token_groups": [
+                "The commissioner",
+                "said that",
+                "the distinction",
+                "was essential",
+                "at that time."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-timeplace-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The negotiator said that the concession had been offered {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Переговорник сказав, що поступку запропонували за два тижні до того.",
+            "target_text": "The negotiator said that the concession had been offered a fortnight earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "a fortnight earlier",
+                    "options": [
+                        "a fortnight earlier",
+                        "a fortnight later",
+                        "the following fortnight"
+                    ],
+                    "verb_hint": "Два тижні відлічуємо назад від його минулого повідомлення."
+                }
+            },
+            "verb_hint": "Два тижні відлічуємо назад від його минулого повідомлення.",
+            "accepted_target_texts": [
+                "The negotiator said that the concession had been offered a fortnight earlier.",
+                "The negotiator said that the concession had been offered two weeks earlier.",
+                "The negotiator said that the concession had been offered a fortnight before.",
+                "The negotiator said that the concession had been offered two weeks before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "two weeks earlier",
+                    "a fortnight before",
+                    "two weeks before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "two weeks earlier",
+                    "a fortnight before",
+                    "two weeks before"
+                ]
+            },
+            "reorder_groups": [
+                "The negotiator",
+                "said that",
+                "the concession",
+                "had been offered",
+                "a fortnight earlier."
+            ],
+            "token_groups": [
+                "The negotiator",
+                "said that",
+                "the concession",
+                "had been offered",
+                "a fortnight earlier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-timeplace-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The memoirist recalled that the undertaking had been revoked {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Автор мемуарів згадав, що зобов’язання скасували попереднього десятиліття.",
+            "target_text": "The memoirist recalled that the undertaking had been revoked the preceding decade.",
+            "markers": {
+                "a1": {
+                    "answer": "the preceding decade",
+                    "options": [
+                        "the preceding decade",
+                        "the following decade",
+                        "that decade"
+                    ],
+                    "verb_hint": "Десятиліття відраховуємо від часової точки його минулого повідомлення."
+                }
+            },
+            "verb_hint": "Десятиліття відраховуємо від часової точки його минулого повідомлення.",
+            "accepted_target_texts": [
+                "The memoirist recalled that the undertaking had been revoked the preceding decade.",
+                "The memoirist recalled that the undertaking had been revoked the previous decade.",
+                "The memoirist recalled that the undertaking had been revoked the decade before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the previous decade",
+                    "the decade before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the previous decade",
+                    "the decade before"
+                ]
+            },
+            "reorder_groups": [
+                "The memoirist",
+                "recalled that",
+                "the undertaking",
+                "had been revoked",
+                "the preceding decade."
+            ],
+            "token_groups": [
+                "The memoirist",
+                "recalled that",
+                "the undertaking",
+                "had been revoked",
+                "the preceding decade."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-timeplace-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The plenipotentiary said that the instrument would enter into force {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Повноважний представник сказав, що документ набуде чинності наступного січня.",
+            "target_text": "The plenipotentiary said that the instrument would enter into force the following January.",
+            "markers": {
+                "a1": {
+                    "answer": "the following January",
+                    "options": [
+                        "the following January",
+                        "the preceding January",
+                        "that January"
+                    ],
+                    "verb_hint": "Січень відраховуємо вперед від його минулої репліки, а не від нинішньої дати."
+                }
+            },
+            "verb_hint": "Січень відраховуємо вперед від його минулої репліки, а не від нинішньої дати.",
+            "accepted_target_texts": [
+                "The plenipotentiary said that the instrument would enter into force the following January.",
+                "The plenipotentiary said that the instrument would enter into force the next January."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the next January"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the next January"
+                ]
+            },
+            "reorder_groups": [
+                "The plenipotentiary",
+                "said that",
+                "the instrument",
+                "would enter",
+                "into force",
+                "the following January."
+            ],
+            "token_groups": [
+                "The plenipotentiary",
+                "said that",
+                "the instrument",
+                "would enter",
+                "into force",
+                "the following January."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-timeplace-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The editor observed that {a1} marginalia had altered the perceived emphasis.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Редактор зауважив, що ті примітки на полях змінили сприйнятий акцент.",
+            "target_text": "The editor observed that those marginalia had altered the perceived emphasis.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "these",
+                        "this"
+                    ],
+                    "verb_hint": "Примітки віддалені від нинішнього мовця; збережи множину."
+                }
+            },
+            "verb_hint": "Примітки віддалені від нинішнього мовця; збережи множину.",
+            "accepted_target_texts": [
+                "The editor observed that those marginalia had altered the perceived emphasis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor",
+                "observed that",
+                "those",
+                "marginalia",
+                "had altered",
+                "the perceived emphasis."
+            ],
+            "token_groups": [
+                "The editor",
+                "observed that",
+                "those",
+                "marginalia",
+                "had altered",
+                "the perceived emphasis."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-timeplace-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The custodian testified that the manuscript had remained {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Хранитель засвідчив, що рукопис залишався там.",
+            "target_text": "The custodian testified that the manuscript had remained there.",
+            "markers": {
+                "a1": {
+                    "answer": "there",
+                    "options": [
+                        "there",
+                        "here",
+                        "now"
+                    ],
+                    "verb_hint": "Місце зберігання не збігається з нинішнім місцем переказу."
+                }
+            },
+            "verb_hint": "Місце зберігання не збігається з нинішнім місцем переказу.",
+            "accepted_target_texts": [
+                "The custodian testified that the manuscript had remained there."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The custodian",
+                "testified that",
+                "the manuscript",
+                "had remained",
+                "there."
+            ],
+            "token_groups": [
+                "The custodian",
+                "testified that",
+                "the manuscript",
+                "had remained",
+                "there."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-timeplace-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The signatory said that the reservation had been entered {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Підписант сказав, що застереження внесли за два роки до того.",
+            "target_text": "The signatory said that the reservation had been entered two years earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "two years earlier",
+                    "options": [
+                        "two years earlier",
+                        "two years later",
+                        "the following year"
+                    ],
+                    "verb_hint": "Два роки відраховуємо назад від його минулої репліки."
+                }
+            },
+            "verb_hint": "Два роки відраховуємо назад від його минулої репліки.",
+            "accepted_target_texts": [
+                "The signatory said that the reservation had been entered two years earlier.",
+                "The signatory said that the reservation had been entered two years before."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "two years before"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "two years before"
+                ]
+            },
+            "reorder_groups": [
+                "The signatory",
+                "said that",
+                "the reservation",
+                "had been entered",
+                "two years earlier."
+            ],
+            "token_groups": [
+                "The signatory",
+                "said that",
+                "the reservation",
+                "had been entered",
+                "two years earlier."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-timeplace-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The historian remarked that the implication had been apparent {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Історик зауважив, що наслідок був очевидний уже тоді.",
+            "target_text": "The historian remarked that the implication had been apparent even then.",
+            "markers": {
+                "a1": {
+                    "answer": "even then",
+                    "options": [
+                        "even then",
+                        "only now",
+                        "not yet"
+                    ],
+                    "verb_hint": "Наголоси, що очевидність існувала вже в момент тих минулих слів, не лише тепер."
+                }
+            },
+            "verb_hint": "Наголоси, що очевидність існувала вже в момент тих минулих слів, не лише тепер.",
+            "accepted_target_texts": [
+                "The historian remarked that the implication had been apparent even then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The historian",
+                "remarked that",
+                "the implication",
+                "had been apparent",
+                "even then."
+            ],
+            "token_groups": [
+                "The historian",
+                "remarked that",
+                "the implication",
+                "had been apparent",
+                "even then."
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

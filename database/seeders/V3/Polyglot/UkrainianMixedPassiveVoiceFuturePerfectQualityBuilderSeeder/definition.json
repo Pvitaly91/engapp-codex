@@ -1,0 +1,4609 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/future-perfect.v1.json",
+        "sha256": "141bebb4c15e31cc634dd5a24a8ab5d5adf1f14c2361c79600e01611404ce39f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceFuturePerfectQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-future-perfect-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_future_perfect": {
+            "name": "Passive Voice Quality: Passive Voice Future Perfect"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_future_perfect": {
+            "name": "Passive Voice Future Perfect",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "will_have_been_v3": {
+            "name": "Will Have Been V3",
+            "category": "topic"
+        },
+        "completed_before_future": {
+            "name": "Completed Before Future",
+            "category": "topic"
+        },
+        "future_deadline_markers": {
+            "name": "Future Deadline Markers",
+            "category": "topic"
+        },
+        "result_before_future": {
+            "name": "Result Before Future",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-future-perfect-a1-c01",
+            "author_id": "A1-c01",
+            "question": "До суботи подарунок на день народження вже загорнуть.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До суботи подарунок на день народження вже загорнуть.",
+            "target_text": "The birthday present will have been wrapped before Saturday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "birthday",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "birthday",
+                        "puppy",
+                        "next",
+                        "party"
+                    ]
+                },
+                "a3": {
+                    "answer": "present",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "present",
+                        "letter",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a7": {
+                    "answer": "wrapped",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "wrapped",
+                        "removed",
+                        "replaced",
+                        "vaccinated"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "after",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "Saturday.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "Saturday",
+                        "Lunch",
+                        "Noon",
+                        "Delay"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «загортати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The birthday present will have been wrapped before Saturday.",
+                "The birthday gift will have been wrapped before Saturday."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "gift"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "gift"
+                ]
+            },
+            "reorder_groups": [
+                "The birthday present",
+                "will have been",
+                "wrapped",
+                "before Saturday."
+            ],
+            "token_groups": [
+                "The birthday present",
+                "will have been",
+                "wrapped",
+                "before Saturday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "birthday",
+                "present",
+                "will",
+                "have",
+                "been",
+                "wrapped",
+                "before",
+                "Saturday."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "birthday",
+                "puppy",
+                "next",
+                "party",
+                "present",
+                "letter",
+                "window",
+                "phone",
+                "will",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "have",
+                "do",
+                "does",
+                "did",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "wrapped",
+                "removed",
+                "replaced",
+                "vaccinated",
+                "before",
+                "at",
+                "after",
+                "without",
+                "Saturday",
+                "Lunch",
+                "Noon",
+                "Delay"
+            ],
+            "source_text_uk": "До суботи подарунок на день народження вже загорнуть.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "birthday",
+                    "puppy",
+                    "next",
+                    "party"
+                ],
+                "a3": [
+                    "present",
+                    "letter",
+                    "window",
+                    "phone"
+                ],
+                "a4": [
+                    "will",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a5": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a6": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a7": [
+                    "wrapped",
+                    "removed",
+                    "replaced",
+                    "vaccinated"
+                ],
+                "a8": [
+                    "before",
+                    "at",
+                    "after",
+                    "without"
+                ],
+                "a9": [
+                    "Saturday",
+                    "Lunch",
+                    "Noon",
+                    "Delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-future-perfect-a1-c02",
+            "author_id": "A1-c02",
+            "question": "До наступного тижня цуценя вже вакцинують.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До наступного тижня цуценя вже вакцинують.",
+            "target_text": "The puppy will have been vaccinated by next week.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "puppy",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "puppy",
+                        "window",
+                        "account",
+                        "display"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "can",
+                        "could",
+                        "would"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a6": {
+                    "answer": "vaccinated",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "vaccinated",
+                        "folded",
+                        "prepared",
+                        "delivered"
+                    ]
+                },
+                "a7": {
+                    "answer": "by",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "by",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a8": {
+                    "answer": "next",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "next",
+                        "great",
+                        "party",
+                        "birthday"
+                    ]
+                },
+                "a9": {
+                    "answer": "week.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "week",
+                        "evening",
+                        "night",
+                        "day"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «вакцинувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The puppy will have been vaccinated by next week."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puppy",
+                "will have been",
+                "vaccinated",
+                "by next week."
+            ],
+            "token_groups": [
+                "The puppy",
+                "will have been",
+                "vaccinated",
+                "by next week."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "puppy",
+                "will",
+                "have",
+                "been",
+                "vaccinated",
+                "by",
+                "next",
+                "week."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "puppy",
+                "window",
+                "account",
+                "display",
+                "will",
+                "can",
+                "could",
+                "would",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "been",
+                "is",
+                "are",
+                "was",
+                "vaccinated",
+                "folded",
+                "prepared",
+                "delivered",
+                "by",
+                "under",
+                "through",
+                "across",
+                "next",
+                "great",
+                "party",
+                "birthday",
+                "week",
+                "evening",
+                "night",
+                "day"
+            ],
+            "source_text_uk": "До наступного тижня цуценя вже вакцинують.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "puppy",
+                    "window",
+                    "account",
+                    "display"
+                ],
+                "a3": [
+                    "will",
+                    "can",
+                    "could",
+                    "would"
+                ],
+                "a4": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a5": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a6": [
+                    "vaccinated",
+                    "folded",
+                    "prepared",
+                    "delivered"
+                ],
+                "a7": [
+                    "by",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a8": [
+                    "next",
+                    "great",
+                    "party",
+                    "birthday"
+                ],
+                "a9": [
+                    "week",
+                    "evening",
+                    "night",
+                    "day"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "future_perfect_aux",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-future-perfect-a1-c03",
+            "author_id": "A1-c03",
+            "question": "До свята стільці вже заберуть.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До свята стільці вже заберуть.",
+            "target_text": "The chairs will have been collected before the party.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "chairs",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "chairs",
+                        "records",
+                        "measurements",
+                        "receipts"
+                    ]
+                },
+                "a3": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a4": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "has",
+                        "had",
+                        "haven't"
+                    ]
+                },
+                "a5": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a6": {
+                    "answer": "collected",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "collected",
+                        "delivered",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a7": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "in",
+                        "with"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a9": {
+                    "answer": "party.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "party",
+                        "station",
+                        "hall",
+                        "care"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «забирати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The chairs will have been collected before the party."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chairs",
+                "will have been",
+                "collected",
+                "before the party."
+            ],
+            "token_groups": [
+                "The chairs",
+                "will have been",
+                "collected",
+                "before the party."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "chairs",
+                "will",
+                "have",
+                "been",
+                "collected",
+                "before",
+                "the",
+                "party."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "chairs",
+                "records",
+                "measurements",
+                "receipts",
+                "will",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "have",
+                "has",
+                "had",
+                "haven't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "collected",
+                "delivered",
+                "opened",
+                "closed",
+                "before",
+                "at",
+                "in",
+                "with",
+                "the",
+                "that",
+                "these",
+                "those",
+                "party",
+                "station",
+                "hall",
+                "care"
+            ],
+            "source_text_uk": "До свята стільці вже заберуть.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "chairs",
+                    "records",
+                    "measurements",
+                    "receipts"
+                ],
+                "a3": [
+                    "will",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a4": [
+                    "have",
+                    "has",
+                    "had",
+                    "haven't"
+                ],
+                "a5": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a6": [
+                    "collected",
+                    "delivered",
+                    "opened",
+                    "closed"
+                ],
+                "a7": [
+                    "before",
+                    "at",
+                    "in",
+                    "with"
+                ],
+                "a8": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a9": [
+                    "party",
+                    "station",
+                    "hall",
+                    "care"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "future_perfect_aux",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "participle",
+                "a7": "adjunct",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-future-perfect-a2-c01",
+            "author_id": "A2-c01",
+            "question": "До наступного понеділка читацькі картки вже видадуть.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До наступного понеділка читацькі картки вже видадуть.",
+            "target_text": "The library cards will have been issued by next Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "library",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "library",
+                        "young",
+                        "cold",
+                        "warm"
+                    ]
+                },
+                "a3": {
+                    "answer": "cards",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "cards",
+                        "beds",
+                        "documents",
+                        "keys"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "issued",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "issued",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "by",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a9": {
+                    "answer": "next",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "next",
+                        "great",
+                        "tomorrow",
+                        "before"
+                    ]
+                },
+                "a10": {
+                    "answer": "Monday.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "Monday",
+                        "Hall",
+                        "Care",
+                        "Station"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «видавати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The library cards will have been issued by next Monday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The library cards",
+                "will have been",
+                "issued",
+                "by next Monday."
+            ],
+            "token_groups": [
+                "The library cards",
+                "will have been",
+                "issued",
+                "by next Monday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "library",
+                "cards",
+                "will",
+                "have",
+                "been",
+                "issued",
+                "by",
+                "next",
+                "Monday."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "library",
+                "young",
+                "cold",
+                "warm",
+                "cards",
+                "beds",
+                "documents",
+                "keys",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "have",
+                "hadn't",
+                "do",
+                "does",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "issued",
+                "selected",
+                "removed",
+                "replaced",
+                "by",
+                "into",
+                "onto",
+                "over",
+                "next",
+                "great",
+                "tomorrow",
+                "before",
+                "Monday",
+                "Hall",
+                "Care",
+                "Station"
+            ],
+            "source_text_uk": "До наступного понеділка читацькі картки вже видадуть.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "library",
+                    "young",
+                    "cold",
+                    "warm"
+                ],
+                "a3": [
+                    "cards",
+                    "beds",
+                    "documents",
+                    "keys"
+                ],
+                "a4": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a5": [
+                    "have",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a6": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a7": [
+                    "issued",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a8": [
+                    "by",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a9": [
+                    "next",
+                    "great",
+                    "tomorrow",
+                    "before"
+                ],
+                "a10": [
+                    "Monday",
+                    "Hall",
+                    "Care",
+                    "Station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-future-perfect-a2-c02",
+            "author_id": "A2-c02",
+            "question": "До відкриття клумби вже засадять.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До відкриття клумби вже засадять.",
+            "target_text": "The flower beds will have been planted before the opening.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "flower",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "flower",
+                        "travel",
+                        "tomorrow",
+                        "next"
+                    ]
+                },
+                "a3": {
+                    "answer": "beds",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "beds",
+                        "cards",
+                        "documents",
+                        "boxes"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a7": {
+                    "answer": "planted",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "planted",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "by",
+                        "in",
+                        "with"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a10": {
+                    "answer": "opening.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "opening",
+                        "evening",
+                        "working",
+                        "playing"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засаджувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The flower beds will have been planted before the opening."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The flower beds",
+                "will have been",
+                "planted",
+                "before the opening."
+            ],
+            "token_groups": [
+                "The flower beds",
+                "will have been",
+                "planted",
+                "before the opening."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "flower",
+                "beds",
+                "will",
+                "have",
+                "been",
+                "planted",
+                "before",
+                "the",
+                "opening."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "flower",
+                "travel",
+                "tomorrow",
+                "next",
+                "beds",
+                "cards",
+                "documents",
+                "boxes",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "have",
+                "do",
+                "does",
+                "did",
+                "been",
+                "was",
+                "were",
+                "be",
+                "planted",
+                "washed",
+                "painted",
+                "folded",
+                "before",
+                "by",
+                "in",
+                "with",
+                "the",
+                "these",
+                "those",
+                "each",
+                "opening",
+                "evening",
+                "working",
+                "playing"
+            ],
+            "source_text_uk": "До відкриття клумби вже засадять.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "flower",
+                    "travel",
+                    "tomorrow",
+                    "next"
+                ],
+                "a3": [
+                    "beds",
+                    "cards",
+                    "documents",
+                    "boxes"
+                ],
+                "a4": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a5": [
+                    "have",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a6": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a7": [
+                    "planted",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a8": [
+                    "before",
+                    "by",
+                    "in",
+                    "with"
+                ],
+                "a9": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a10": [
+                    "opening",
+                    "evening",
+                    "working",
+                    "playing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-future-perfect-a2-c03",
+            "author_id": "A2-c03",
+            "question": "До завтрашнього вечора проїзні документи вже скопіюють.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До завтрашнього вечора проїзні документи вже скопіюють.",
+            "target_text": "The travel documents will have been copied by tomorrow evening.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "travel",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "travel",
+                        "flower",
+                        "next",
+                        "Monday"
+                    ]
+                },
+                "a3": {
+                    "answer": "documents",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "documents",
+                        "beds",
+                        "cards",
+                        "phones"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a7": {
+                    "answer": "copied",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "copied",
+                        "folded",
+                        "prepared",
+                        "delivered"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "by",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a9": {
+                    "answer": "tomorrow",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "tomorrow",
+                        "great",
+                        "before",
+                        "cat"
+                    ]
+                },
+                "a10": {
+                    "answer": "evening.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "evening",
+                        "week",
+                        "month",
+                        "year"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «копіювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The travel documents will have been copied by tomorrow evening."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The travel documents",
+                "will have been",
+                "copied",
+                "by tomorrow evening."
+            ],
+            "token_groups": [
+                "The travel documents",
+                "will have been",
+                "copied",
+                "by tomorrow evening."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "travel",
+                "documents",
+                "will",
+                "have",
+                "been",
+                "copied",
+                "by",
+                "tomorrow",
+                "evening."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "travel",
+                "flower",
+                "next",
+                "Monday",
+                "documents",
+                "beds",
+                "cards",
+                "phones",
+                "will",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "am",
+                "is",
+                "are",
+                "copied",
+                "folded",
+                "prepared",
+                "delivered",
+                "by",
+                "during",
+                "to",
+                "from",
+                "tomorrow",
+                "great",
+                "before",
+                "cat",
+                "evening",
+                "week",
+                "month",
+                "year"
+            ],
+            "source_text_uk": "До завтрашнього вечора проїзні документи вже скопіюють.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "travel",
+                    "flower",
+                    "next",
+                    "Monday"
+                ],
+                "a3": [
+                    "documents",
+                    "beds",
+                    "cards",
+                    "phones"
+                ],
+                "a4": [
+                    "will",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a5": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a6": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a7": [
+                    "copied",
+                    "folded",
+                    "prepared",
+                    "delivered"
+                ],
+                "a8": [
+                    "by",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a9": [
+                    "tomorrow",
+                    "great",
+                    "before",
+                    "cat"
+                ],
+                "a10": [
+                    "evening",
+                    "week",
+                    "month",
+                    "year"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-future-perfect-b1-c01",
+            "author_id": "B1-c01",
+            "question": "До високого сезону історичний маршрут уже обладнають вказівниками.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До високого сезону історичний маршрут уже обладнають вказівниками.",
+            "target_text": "The heritage trail will have been signposted before peak season.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "heritage",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "heritage",
+                        "independent",
+                        "valuation",
+                        "auction"
+                    ]
+                },
+                "a3": {
+                    "answer": "trail",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "trail",
+                        "witness",
+                        "month-end",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "signposted",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "signposted",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "peak",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "peak",
+                        "great",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a10": {
+                    "answer": "season.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "season",
+                        "hall",
+                        "care",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «обладнувати вказівниками» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The heritage trail will have been signposted before peak season."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The heritage trail",
+                "will have been",
+                "signposted",
+                "before peak season."
+            ],
+            "token_groups": [
+                "The heritage trail",
+                "will have been",
+                "signposted",
+                "before peak season."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "heritage",
+                "trail",
+                "will",
+                "have",
+                "been",
+                "signposted",
+                "before",
+                "peak",
+                "season."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "heritage",
+                "independent",
+                "valuation",
+                "auction",
+                "trail",
+                "witness",
+                "month-end",
+                "food",
+                "will",
+                "shouldn't",
+                "cannot",
+                "can",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "signposted",
+                "selected",
+                "removed",
+                "replaced",
+                "before",
+                "in",
+                "with",
+                "at",
+                "peak",
+                "great",
+                "milk",
+                "music",
+                "season",
+                "hall",
+                "care",
+                "station"
+            ],
+            "source_text_uk": "До високого сезону історичний маршрут уже обладнають вказівниками.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "heritage",
+                    "independent",
+                    "valuation",
+                    "auction"
+                ],
+                "a3": [
+                    "trail",
+                    "witness",
+                    "month-end",
+                    "food"
+                ],
+                "a4": [
+                    "will",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a5": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "signposted",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a8": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a9": [
+                    "peak",
+                    "great",
+                    "milk",
+                    "music"
+                ],
+                "a10": [
+                    "season",
+                    "hall",
+                    "care",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-future-perfect-b1-c02",
+            "author_id": "B1-c02",
+            "question": "До аукціону незалежне оцінювання вже завершать.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До аукціону незалежне оцінювання вже завершать.",
+            "target_text": "The independent valuation will have been completed before the auction.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "independent",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "independent",
+                        "heritage",
+                        "trail",
+                        "peak"
+                    ]
+                },
+                "a3": {
+                    "answer": "valuation",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "valuation",
+                        "season",
+                        "witness",
+                        "month-end"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a7": {
+                    "answer": "completed",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "completed",
+                        "opened",
+                        "closed",
+                        "selected"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a10": {
+                    "answer": "auction.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "auction",
+                        "care",
+                        "hall",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «завершувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The independent valuation will have been completed before the auction.",
+                "The independent valuation will have been finished before the auction."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "finished"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "finished"
+                ]
+            },
+            "reorder_groups": [
+                "The independent valuation",
+                "will have been",
+                "completed",
+                "before the auction."
+            ],
+            "token_groups": [
+                "The independent valuation",
+                "will have been",
+                "completed",
+                "before the auction."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "independent",
+                "valuation",
+                "will",
+                "have",
+                "been",
+                "completed",
+                "before",
+                "the",
+                "auction."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "independent",
+                "heritage",
+                "trail",
+                "peak",
+                "valuation",
+                "season",
+                "witness",
+                "month-end",
+                "will",
+                "shouldn't",
+                "cannot",
+                "can",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "completed",
+                "opened",
+                "closed",
+                "selected",
+                "before",
+                "at",
+                "by",
+                "with",
+                "the",
+                "an",
+                "some",
+                "any",
+                "auction",
+                "care",
+                "hall",
+                "station"
+            ],
+            "source_text_uk": "До аукціону незалежне оцінювання вже завершать.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "independent",
+                    "heritage",
+                    "trail",
+                    "peak"
+                ],
+                "a3": [
+                    "valuation",
+                    "season",
+                    "witness",
+                    "month-end"
+                ],
+                "a4": [
+                    "will",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a5": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a6": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a7": [
+                    "completed",
+                    "opened",
+                    "closed",
+                    "selected"
+                ],
+                "a8": [
+                    "before",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a9": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a10": [
+                    "auction",
+                    "care",
+                    "hall",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-future-perfect-b1-c03",
+            "author_id": "B1-c03",
+            "question": "До кінця місяця витрати свідків уже відшкодують.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До кінця місяця витрати свідків уже відшкодують.",
+            "target_text": "The witness expenses will have been reimbursed by month-end.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "witness",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "witness",
+                        "before",
+                        "peak",
+                        "season"
+                    ]
+                },
+                "a3": {
+                    "answer": "expenses",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "expenses",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "wouldn't",
+                        "shouldn't",
+                        "cannot"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "reimbursed",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "reimbursed",
+                        "opened",
+                        "repaired",
+                        "selected"
+                    ]
+                },
+                "a8": {
+                    "answer": "by",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a9": {
+                    "answer": "month-end.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "month-end",
+                        "lunch",
+                        "noon",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «відшкодовувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The witness expenses will have been reimbursed by month-end."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness expenses",
+                "will have been",
+                "reimbursed",
+                "by month-end."
+            ],
+            "token_groups": [
+                "The witness expenses",
+                "will have been",
+                "reimbursed",
+                "by month-end."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "witness",
+                "expenses",
+                "will",
+                "have",
+                "been",
+                "reimbursed",
+                "by",
+                "month-end."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "witness",
+                "before",
+                "peak",
+                "season",
+                "expenses",
+                "keys",
+                "rooms",
+                "maps",
+                "will",
+                "wouldn't",
+                "shouldn't",
+                "cannot",
+                "have",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "reimbursed",
+                "opened",
+                "repaired",
+                "selected",
+                "by",
+                "among",
+                "about",
+                "during",
+                "month-end",
+                "lunch",
+                "noon",
+                "delay"
+            ],
+            "source_text_uk": "До кінця місяця витрати свідків уже відшкодують.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "witness",
+                    "before",
+                    "peak",
+                    "season"
+                ],
+                "a3": [
+                    "expenses",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ],
+                "a4": [
+                    "will",
+                    "wouldn't",
+                    "shouldn't",
+                    "cannot"
+                ],
+                "a5": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "reimbursed",
+                    "opened",
+                    "repaired",
+                    "selected"
+                ],
+                "a8": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a9": [
+                    "month-end",
+                    "lunch",
+                    "noon",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-future-perfect-b2-c01",
+            "author_id": "B2-c01",
+            "question": "До початку будівництва вихідний стан довкілля вже визначать.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До початку будівництва вихідний стан довкілля вже визначать.",
+            "target_text": "The environmental baseline will have been established before construction commences.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "environmental",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "environmental",
+                        "procurement",
+                        "interoperability",
+                        "system"
+                    ]
+                },
+                "a3": {
+                    "answer": "baseline",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "baseline",
+                        "integration",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "established",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "established",
+                        "closed",
+                        "repaired",
+                        "selected"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "by",
+                        "at",
+                        "in"
+                    ]
+                },
+                "a9": {
+                    "answer": "construction",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "construction",
+                        "great",
+                        "ticket",
+                        "cup"
+                    ]
+                },
+                "a10": {
+                    "answer": "commences.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "commences",
+                        "tests",
+                        "conditions",
+                        "phones"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The environmental baseline will have been established before construction commences.",
+                "The environmental baseline will have been created before construction commences."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "created"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "created"
+                ]
+            },
+            "reorder_groups": [
+                "The environmental baseline",
+                "will have been",
+                "established",
+                "before construction commences."
+            ],
+            "token_groups": [
+                "The environmental baseline",
+                "will have been",
+                "established",
+                "before construction commences."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "environmental",
+                "baseline",
+                "will",
+                "have",
+                "been",
+                "established",
+                "before",
+                "construction",
+                "commences."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "environmental",
+                "procurement",
+                "interoperability",
+                "system",
+                "baseline",
+                "integration",
+                "key",
+                "room",
+                "will",
+                "might",
+                "must",
+                "can't",
+                "have",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "are",
+                "was",
+                "were",
+                "established",
+                "closed",
+                "repaired",
+                "selected",
+                "before",
+                "by",
+                "at",
+                "in",
+                "construction",
+                "great",
+                "ticket",
+                "cup",
+                "commences",
+                "tests",
+                "conditions",
+                "phones"
+            ],
+            "source_text_uk": "До початку будівництва вихідний стан довкілля вже визначать.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "environmental",
+                    "procurement",
+                    "interoperability",
+                    "system"
+                ],
+                "a3": [
+                    "baseline",
+                    "integration",
+                    "key",
+                    "room"
+                ],
+                "a4": [
+                    "will",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a5": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a6": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "established",
+                    "closed",
+                    "repaired",
+                    "selected"
+                ],
+                "a8": [
+                    "before",
+                    "by",
+                    "at",
+                    "in"
+                ],
+                "a9": [
+                    "construction",
+                    "great",
+                    "ticket",
+                    "cup"
+                ],
+                "a10": [
+                    "commences",
+                    "tests",
+                    "conditions",
+                    "phones"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_singular",
+                "a2": "subject_singular",
+                "a3": "subject_singular",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-future-perfect-b2-c02",
+            "author_id": "B2-c02",
+            "question": "До оголошення тендеру умови закупівлі вже переглянуть.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До оголошення тендеру умови закупівлі вже переглянуть.",
+            "target_text": "The procurement conditions will have been revised before tendering.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "procurement",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "procurement",
+                        "interoperability",
+                        "integration",
+                        "environmental"
+                    ]
+                },
+                "a3": {
+                    "answer": "conditions",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "conditions",
+                        "tests",
+                        "commences",
+                        "maps"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a7": {
+                    "answer": "revised",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "revised",
+                        "delivered",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "without",
+                        "after",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "tendering.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "tendering",
+                        "playing",
+                        "reading",
+                        "writing"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переглядати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The procurement conditions will have been revised before tendering."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The procurement conditions",
+                "will have been",
+                "revised",
+                "before tendering."
+            ],
+            "token_groups": [
+                "The procurement conditions",
+                "will have been",
+                "revised",
+                "before tendering."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "procurement",
+                "conditions",
+                "will",
+                "have",
+                "been",
+                "revised",
+                "before",
+                "tendering."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "procurement",
+                "interoperability",
+                "integration",
+                "environmental",
+                "conditions",
+                "tests",
+                "commences",
+                "maps",
+                "will",
+                "cannot",
+                "can",
+                "could",
+                "have",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "is",
+                "are",
+                "was",
+                "revised",
+                "delivered",
+                "opened",
+                "closed",
+                "before",
+                "without",
+                "after",
+                "at",
+                "tendering",
+                "playing",
+                "reading",
+                "writing"
+            ],
+            "source_text_uk": "До оголошення тендеру умови закупівлі вже переглянуть.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "procurement",
+                    "interoperability",
+                    "integration",
+                    "environmental"
+                ],
+                "a3": [
+                    "conditions",
+                    "tests",
+                    "commences",
+                    "maps"
+                ],
+                "a4": [
+                    "will",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a5": [
+                    "have",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a6": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a7": [
+                    "revised",
+                    "delivered",
+                    "opened",
+                    "closed"
+                ],
+                "a8": [
+                    "before",
+                    "without",
+                    "after",
+                    "at"
+                ],
+                "a9": [
+                    "tendering",
+                    "playing",
+                    "reading",
+                    "writing"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-future-perfect-b2-c03",
+            "author_id": "B2-c03",
+            "question": "До інтеграції систем випробування сумісності вже проведуть.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До інтеграції систем випробування сумісності вже проведуть.",
+            "target_text": "The interoperability tests will have been performed before system integration.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "interoperability",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "interoperability",
+                        "procurement",
+                        "construction",
+                        "environmental"
+                    ]
+                },
+                "a3": {
+                    "answer": "tests",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "tests",
+                        "conditions",
+                        "commences",
+                        "tables"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a7": {
+                    "answer": "performed",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "performed",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "in",
+                        "with",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "system",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "system",
+                        "great",
+                        "baseline",
+                        "window"
+                    ]
+                },
+                "a10": {
+                    "answer": "integration.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "integration",
+                        "station",
+                        "inspection",
+                        "hall"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «проводити» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The interoperability tests will have been performed before system integration."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interoperability tests",
+                "will have been",
+                "performed",
+                "before system integration."
+            ],
+            "token_groups": [
+                "The interoperability tests",
+                "will have been",
+                "performed",
+                "before system integration."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "interoperability",
+                "tests",
+                "will",
+                "have",
+                "been",
+                "performed",
+                "before",
+                "system",
+                "integration."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "interoperability",
+                "procurement",
+                "construction",
+                "environmental",
+                "tests",
+                "conditions",
+                "commences",
+                "tables",
+                "will",
+                "shall",
+                "should",
+                "may",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "was",
+                "were",
+                "be",
+                "performed",
+                "washed",
+                "painted",
+                "folded",
+                "before",
+                "in",
+                "with",
+                "at",
+                "system",
+                "great",
+                "baseline",
+                "window",
+                "integration",
+                "station",
+                "inspection",
+                "hall"
+            ],
+            "source_text_uk": "До інтеграції систем випробування сумісності вже проведуть.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "interoperability",
+                    "procurement",
+                    "construction",
+                    "environmental"
+                ],
+                "a3": [
+                    "tests",
+                    "conditions",
+                    "commences",
+                    "tables"
+                ],
+                "a4": [
+                    "will",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a5": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a7": [
+                    "performed",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a8": [
+                    "before",
+                    "in",
+                    "with",
+                    "at"
+                ],
+                "a9": [
+                    "system",
+                    "great",
+                    "baseline",
+                    "window"
+                ],
+                "a10": [
+                    "integration",
+                    "station",
+                    "inspection",
+                    "hall"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-future-perfect-c1-c01",
+            "author_id": "C1-c01",
+            "question": "До подання зведення доказів уже засвідчать.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До подання зведення доказів уже засвідчать.",
+            "target_text": "The evidential summaries will have been authenticated before submission.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "evidential",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "evidential",
+                        "residual",
+                        "authorisation",
+                        "commencement"
+                    ]
+                },
+                "a3": {
+                    "answer": "summaries",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "summaries",
+                        "safeguards",
+                        "exposures",
+                        "tables"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "authenticated",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "authenticated",
+                        "replaced",
+                        "reassessed",
+                        "incorporated"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "at",
+                        "after",
+                        "without"
+                    ]
+                },
+                "a9": {
+                    "answer": "submission.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "submission",
+                        "lunch",
+                        "noon",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «засвідчувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The evidential summaries will have been authenticated before submission."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidential summaries",
+                "will have been",
+                "authenticated",
+                "before submission."
+            ],
+            "token_groups": [
+                "The evidential summaries",
+                "will have been",
+                "authenticated",
+                "before submission."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "evidential",
+                "summaries",
+                "will",
+                "have",
+                "been",
+                "authenticated",
+                "before",
+                "submission."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "evidential",
+                "residual",
+                "authorisation",
+                "commencement",
+                "summaries",
+                "safeguards",
+                "exposures",
+                "tables",
+                "will",
+                "might",
+                "must",
+                "can't",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "authenticated",
+                "replaced",
+                "reassessed",
+                "incorporated",
+                "before",
+                "at",
+                "after",
+                "without",
+                "submission",
+                "lunch",
+                "noon",
+                "delay"
+            ],
+            "source_text_uk": "До подання зведення доказів уже засвідчать.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "evidential",
+                    "residual",
+                    "authorisation",
+                    "commencement"
+                ],
+                "a3": [
+                    "summaries",
+                    "safeguards",
+                    "exposures",
+                    "tables"
+                ],
+                "a4": [
+                    "will",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a5": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "authenticated",
+                    "replaced",
+                    "reassessed",
+                    "incorporated"
+                ],
+                "a8": [
+                    "before",
+                    "at",
+                    "after",
+                    "without"
+                ],
+                "a9": [
+                    "submission",
+                    "lunch",
+                    "noon",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-future-perfect-c1-c02",
+            "author_id": "C1-c02",
+            "question": "До надання дозволу залишкові ризики вже переоцінять.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До надання дозволу залишкові ризики вже переоцінять.",
+            "target_text": "The residual exposures will have been reassessed before authorisation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "residual",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "residual",
+                        "evidential",
+                        "submission",
+                        "commencement"
+                    ]
+                },
+                "a3": {
+                    "answer": "exposures",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "exposures",
+                        "safeguards",
+                        "summaries",
+                        "people"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "am",
+                        "is",
+                        "are"
+                    ]
+                },
+                "a7": {
+                    "answer": "reassessed",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "reassessed",
+                        "delivered",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "authorisation.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "authorisation",
+                        "midnight",
+                        "lunch",
+                        "noon"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «переоцінювати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The residual exposures will have been reassessed before authorisation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The residual exposures",
+                "will have been",
+                "reassessed",
+                "before authorisation."
+            ],
+            "token_groups": [
+                "The residual exposures",
+                "will have been",
+                "reassessed",
+                "before authorisation."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "residual",
+                "exposures",
+                "will",
+                "have",
+                "been",
+                "reassessed",
+                "before",
+                "authorisation."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "residual",
+                "evidential",
+                "submission",
+                "commencement",
+                "exposures",
+                "safeguards",
+                "summaries",
+                "people",
+                "will",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "been",
+                "am",
+                "is",
+                "are",
+                "reassessed",
+                "delivered",
+                "opened",
+                "closed",
+                "before",
+                "after",
+                "without",
+                "at",
+                "authorisation",
+                "midnight",
+                "lunch",
+                "noon"
+            ],
+            "source_text_uk": "До надання дозволу залишкові ризики вже переоцінять.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "residual",
+                    "evidential",
+                    "submission",
+                    "commencement"
+                ],
+                "a3": [
+                    "exposures",
+                    "safeguards",
+                    "summaries",
+                    "people"
+                ],
+                "a4": [
+                    "will",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a5": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a6": [
+                    "been",
+                    "am",
+                    "is",
+                    "are"
+                ],
+                "a7": [
+                    "reassessed",
+                    "delivered",
+                    "opened",
+                    "closed"
+                ],
+                "a8": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a9": [
+                    "authorisation",
+                    "midnight",
+                    "lunch",
+                    "noon"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-future-perfect-c1-c03",
+            "author_id": "C1-c03",
+            "question": "До початку дії обов’язкові гарантії вже включать до відповідних положень.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До початку дії обов’язкові гарантії вже включать до відповідних положень.",
+            "target_text": "The mandatory safeguards will have been incorporated before commencement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "mandatory",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "mandatory",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a3": {
+                    "answer": "safeguards",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "safeguards",
+                        "summaries",
+                        "exposures",
+                        "bikes"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "can",
+                        "could",
+                        "would"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a7": {
+                    "answer": "incorporated",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "incorporated",
+                        "painted",
+                        "washed",
+                        "folded"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "without",
+                        "after",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "commencement.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "commencement",
+                        "submission",
+                        "authorisation",
+                        "delay"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «включати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The mandatory safeguards will have been incorporated before commencement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mandatory safeguards",
+                "will have been",
+                "incorporated",
+                "before commencement."
+            ],
+            "token_groups": [
+                "The mandatory safeguards",
+                "will have been",
+                "incorporated",
+                "before commencement."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "mandatory",
+                "safeguards",
+                "will",
+                "have",
+                "been",
+                "incorporated",
+                "before",
+                "commencement."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "mandatory",
+                "friendly",
+                "lovely",
+                "final",
+                "safeguards",
+                "summaries",
+                "exposures",
+                "bikes",
+                "will",
+                "can",
+                "could",
+                "would",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "incorporated",
+                "painted",
+                "washed",
+                "folded",
+                "before",
+                "without",
+                "after",
+                "at",
+                "commencement",
+                "submission",
+                "authorisation",
+                "delay"
+            ],
+            "source_text_uk": "До початку дії обов’язкові гарантії вже включать до відповідних положень.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "mandatory",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ],
+                "a3": [
+                    "safeguards",
+                    "summaries",
+                    "exposures",
+                    "bikes"
+                ],
+                "a4": [
+                    "will",
+                    "can",
+                    "could",
+                    "would"
+                ],
+                "a5": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a6": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a7": [
+                    "incorporated",
+                    "painted",
+                    "washed",
+                    "folded"
+                ],
+                "a8": [
+                    "before",
+                    "without",
+                    "after",
+                    "at"
+                ],
+                "a9": [
+                    "commencement",
+                    "submission",
+                    "authorisation",
+                    "delay"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-future-perfect-c2-c01",
+            "author_id": "C2-c01",
+            "question": "До винесення рішення конкуруючі презумпції вже зважать.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До винесення рішення конкуруючі презумпції вже зважать.",
+            "target_text": "The competing presumptions will have been weighed before determination.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "competing",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "competing",
+                        "watching",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a3": {
+                    "answer": "presumptions",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "presumptions",
+                        "anomalies",
+                        "awards",
+                        "phones"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "weighed",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "weighed",
+                        "quantified",
+                        "replaced",
+                        "washed"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "determination.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "determination",
+                        "enforcement",
+                        "promulgation",
+                        "lunch"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «зважувати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The competing presumptions will have been weighed before determination."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The competing presumptions",
+                "will have been",
+                "weighed",
+                "before determination."
+            ],
+            "token_groups": [
+                "The competing presumptions",
+                "will have been",
+                "weighed",
+                "before determination."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "competing",
+                "presumptions",
+                "will",
+                "have",
+                "been",
+                "weighed",
+                "before",
+                "determination."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "competing",
+                "watching",
+                "visiting",
+                "cooking",
+                "presumptions",
+                "anomalies",
+                "awards",
+                "phones",
+                "will",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "weighed",
+                "quantified",
+                "replaced",
+                "washed",
+                "before",
+                "after",
+                "without",
+                "at",
+                "determination",
+                "enforcement",
+                "promulgation",
+                "lunch"
+            ],
+            "source_text_uk": "До винесення рішення конкуруючі презумпції вже зважать.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "competing",
+                    "watching",
+                    "visiting",
+                    "cooking"
+                ],
+                "a3": [
+                    "presumptions",
+                    "anomalies",
+                    "awards",
+                    "phones"
+                ],
+                "a4": [
+                    "will",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a5": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "weighed",
+                    "quantified",
+                    "replaced",
+                    "washed"
+                ],
+                "a8": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a9": [
+                    "determination",
+                    "enforcement",
+                    "promulgation",
+                    "lunch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-future-perfect-c2-c02",
+            "author_id": "C2-c02",
+            "question": "До примусового виконання присуджені суми реституції вже визначать кількісно.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До примусового виконання присуджені суми реституції вже визначать кількісно.",
+            "target_text": "The restitutionary awards will have been quantified before enforcement.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "restitutionary",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "restitutionary",
+                        "bad",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a3": {
+                    "answer": "awards",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "awards",
+                        "presumptions",
+                        "anomalies",
+                        "tickets"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "quantified",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "quantified",
+                        "removed",
+                        "replaced",
+                        "rectified"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "without",
+                        "after",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "enforcement.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "enforcement",
+                        "lunch",
+                        "noon",
+                        "midnight"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «кількісно визначати» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The restitutionary awards will have been quantified before enforcement."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restitutionary awards",
+                "will have been",
+                "quantified",
+                "before enforcement."
+            ],
+            "token_groups": [
+                "The restitutionary awards",
+                "will have been",
+                "quantified",
+                "before enforcement."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "restitutionary",
+                "awards",
+                "will",
+                "have",
+                "been",
+                "quantified",
+                "before",
+                "enforcement."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "restitutionary",
+                "bad",
+                "friendly",
+                "lovely",
+                "awards",
+                "presumptions",
+                "anomalies",
+                "tickets",
+                "will",
+                "must",
+                "can't",
+                "couldn't",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "quantified",
+                "removed",
+                "replaced",
+                "rectified",
+                "before",
+                "without",
+                "after",
+                "at",
+                "enforcement",
+                "lunch",
+                "noon",
+                "midnight"
+            ],
+            "source_text_uk": "До примусового виконання присуджені суми реституції вже визначать кількісно.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "restitutionary",
+                    "bad",
+                    "friendly",
+                    "lovely"
+                ],
+                "a3": [
+                    "awards",
+                    "presumptions",
+                    "anomalies",
+                    "tickets"
+                ],
+                "a4": [
+                    "will",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a5": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "quantified",
+                    "removed",
+                    "replaced",
+                    "rectified"
+                ],
+                "a8": [
+                    "before",
+                    "without",
+                    "after",
+                    "at"
+                ],
+                "a9": [
+                    "enforcement",
+                    "lunch",
+                    "noon",
+                    "midnight"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-future-perfect-c2-c03",
+            "author_id": "C2-c03",
+            "question": "До офіційного оприлюднення процедурні відхилення вже виправлять.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_future_perfect",
+            "translation_uk": "До офіційного оприлюднення процедурні відхилення вже виправлять.",
+            "target_text": "The procedural anomalies will have been rectified before promulgation.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "procedural",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "procedural",
+                        "determination",
+                        "enforcement",
+                        "map"
+                    ]
+                },
+                "a3": {
+                    "answer": "anomalies",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "anomalies",
+                        "presumptions",
+                        "awards",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "will",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "will",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a5": {
+                    "answer": "have",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "rectified",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "rectified",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "before",
+                        "after",
+                        "without",
+                        "at"
+                    ]
+                },
+                "a9": {
+                    "answer": "promulgation.",
+                    "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+                    "options": [
+                        "promulgation",
+                        "noon",
+                        "delay",
+                        "midnight"
+                    ]
+                }
+            },
+            "verb_hint": "Результат уже буде готовий до названої майбутньої межі; передай «виправляти» через майбутній доконаний пасив. Почни з предмета дії та збережи часову обставину.",
+            "accepted_target_texts": [
+                "The procedural anomalies will have been rectified before promulgation."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The procedural anomalies",
+                "will have been",
+                "rectified",
+                "before promulgation."
+            ],
+            "token_groups": [
+                "The procedural anomalies",
+                "will have been",
+                "rectified",
+                "before promulgation."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "procedural",
+                "anomalies",
+                "will",
+                "have",
+                "been",
+                "rectified",
+                "before",
+                "promulgation."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "procedural",
+                "determination",
+                "enforcement",
+                "map",
+                "anomalies",
+                "presumptions",
+                "awards",
+                "windows",
+                "will",
+                "should",
+                "may",
+                "might",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "rectified",
+                "washed",
+                "painted",
+                "folded",
+                "before",
+                "after",
+                "without",
+                "at",
+                "promulgation",
+                "noon",
+                "delay",
+                "midnight"
+            ],
+            "source_text_uk": "До офіційного оприлюднення процедурні відхилення вже виправлять.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "procedural",
+                    "determination",
+                    "enforcement",
+                    "map"
+                ],
+                "a3": [
+                    "anomalies",
+                    "presumptions",
+                    "awards",
+                    "windows"
+                ],
+                "a4": [
+                    "will",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a5": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a6": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a7": [
+                    "rectified",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a8": [
+                    "before",
+                    "after",
+                    "without",
+                    "at"
+                ],
+                "a9": [
+                    "promulgation",
+                    "noon",
+                    "delay",
+                    "midnight"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_plural",
+                "a2": "subject_plural",
+                "a3": "subject_plural",
+                "a4": "future_perfect_aux",
+                "a5": "future_perfect_aux",
+                "a6": "future_perfect_aux",
+                "a7": "participle",
+                "a8": "adjunct",
+                "a9": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

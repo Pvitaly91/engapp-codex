@@ -1,0 +1,567 @@
+{
+    "schema_version": 1,
+    "topic_key": "non-defining-relative-clauses",
+    "title": "Non-defining Relative Clauses",
+    "choice_pools": {
+        "subject_phrase": [
+            "the visitor",
+            "our neighbour",
+            "the children",
+            "a gardener",
+            "the artist",
+            "the travellers",
+            "the reader",
+            "my cousin",
+            "the team",
+            "the witness"
+        ],
+        "noun_phrase": [
+            "a green door",
+            "the spare button",
+            "a fresh loaf",
+            "the old map",
+            "her little dog",
+            "a small bowl",
+            "the main entrance",
+            "a written reply",
+            "a careful account",
+            "a useful distinction"
+        ],
+        "verb_phrase": [
+            "is open",
+            "lives nearby",
+            "was missing",
+            "needs attention",
+            "arrived early",
+            "had disappeared",
+            "remains unclear",
+            "cannot be verified",
+            "was postponed",
+            "has changed"
+        ],
+        "relative_phrase": [
+            "who lives",
+            "which belongs",
+            "whose windows",
+            "that we found",
+            "whom they trusted",
+            "where she works",
+            "which I borrowed",
+            "who helped us",
+            "whose cover",
+            "which explains"
+        ],
+        "connector_phrase": [
+            "because",
+            "since",
+            "as",
+            "so",
+            "therefore",
+            "consequently",
+            "although",
+            "however",
+            "whereas",
+            "if",
+            "when",
+            "unless"
+        ],
+        "adverbial_phrase": [
+            "after lunch",
+            "near the gate",
+            "on the table",
+            "in the courtyard",
+            "without warning",
+            "for two weeks",
+            "in this case",
+            "at the time",
+            "with great care",
+            "by contrast"
+        ],
+        "proper_noun": [
+            "Mia",
+            "Oleh",
+            "Nora",
+            "Lena",
+            "Tomas",
+            "Iryna",
+            "Ruth",
+            "Ada",
+            "Kyiv",
+            "Bristol"
+        ],
+        "preposition_phrase": [
+            "from the shelf",
+            "by the river",
+            "to the owner",
+            "for the guests",
+            "under the bench",
+            "in the archive",
+            "with the editor",
+            "about the proposal",
+            "on the evidence",
+            "at the workshop"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "My mum, {a1} a teacher, likes music.",
+            "target": "My mum, who is a teacher, likes music.",
+            "uk": "Моя мама, яка працює вчителькою, любить музику.",
+            "hint_uk": "Яка є; додай відомості про вже названу маму, узгодивши одну людину.",
+            "groups": [
+                "My mum,",
+                "who is",
+                "a teacher,",
+                "likes music."
+            ],
+            "answer": "who is",
+            "options": [
+                "who is",
+                "which is",
+                "who are"
+            ]
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "My bike, {a1} red, is outside.",
+            "target": "My bike, which is red, is outside.",
+            "uk": "Мій велосипед, який червоний, стоїть надворі.",
+            "hint_uk": "Який є; додаткова ознака стосується однієї речі.",
+            "groups": [
+                "My bike,",
+                "which is",
+                "red,",
+                "is outside."
+            ],
+            "answer": "which is",
+            "options": [
+                "which is",
+                "who is",
+                "which are"
+            ]
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Мій тато, який готує вечерю, вдома.",
+            "target": "My dad, who cooks dinner, is at home.",
+            "uk": "Мій тато, який готує вечерю, вдома.",
+            "hint_uk": "Додай відомості про вже визначеного тата; використовуй відносне слово для людини.",
+            "groups": [
+                "My dad,",
+                "who cooks",
+                "dinner,",
+                "is",
+                "at home."
+            ],
+            "compose_slots": [
+                "My dad,",
+                "who cooks",
+                "dinner,",
+                "is",
+                "at home."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "noun_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "My father, who cooks dinner, is at home."
+            ],
+            "display_synonyms": {
+                "My dad,": [
+                    "My father,"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "Lena, {a1} sits beside me, loves drawing.",
+            "target": "Lena, who sits beside me, loves drawing.",
+            "uk": "Лена, яка сидить поряд зі мною, любить малювати.",
+            "hint_uk": "Яка сидить; відносне слово саме є виконавцем і додає відомості про Лену.",
+            "groups": [
+                "Lena,",
+                "who",
+                "sits beside me,",
+                "loves drawing."
+            ],
+            "answer": "who",
+            "options": [
+                "who",
+                "whose",
+                "which"
+            ]
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "Our piano, {a1} belonged to Grandma, is very old.",
+            "target": "Our piano, which belonged to Grandma, is very old.",
+            "uk": "Наше піаніно, яке належало бабусі, дуже старе.",
+            "hint_uk": "Яке належало; додаткова частина описує річ, а не людину.",
+            "groups": [
+                "Our piano,",
+                "which",
+                "belonged to Grandma,",
+                "is very old."
+            ],
+            "answer": "which",
+            "options": [
+                "which",
+                "who",
+                "whose"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Олег, чия сестра в моєму класі, живе неподалік.",
+            "target": "Oleh, whose sister is in my class, lives nearby.",
+            "uk": "Олег, чия сестра в моєму класі, живе неподалік.",
+            "hint_uk": "Додай відомості до імені Олега; збережи сестру як підмет додаткової частини.",
+            "groups": [
+                "Oleh,",
+                "whose sister",
+                "is",
+                "in my class,",
+                "lives nearby."
+            ],
+            "compose_slots": [
+                "Oleh,",
+                "whose sister",
+                "is",
+                "in my class,",
+                "lives nearby."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "relative_phrase",
+                "verb_phrase",
+                "preposition_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Bristol, {a1} we spent a weekend, has a busy harbour.",
+            "target": "Bristol, where we spent a weekend, has a busy harbour.",
+            "uk": "Бристоль, де ми провели вихідні, має жвавий порт.",
+            "hint_uk": "Де провели; додаткова частина називає місце вже названої події.",
+            "groups": [
+                "Bristol,",
+                "where",
+                "we spent",
+                "a weekend,",
+                "has",
+                "a busy harbour."
+            ],
+            "answer": "where",
+            "options": [
+                "where",
+                "which",
+                "whose"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Ruth, {a1} passport was missing, called the embassy.",
+            "target": "Ruth, whose passport was missing, called the embassy.",
+            "uk": "Рут, чий паспорт зник, зателефонувала до посольства.",
+            "hint_uk": "Чий паспорт; зв’яжи відому власницю з названим документом.",
+            "groups": [
+                "Ruth,",
+                "whose passport",
+                "was missing,",
+                "called the embassy."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "who",
+                "whom"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Моя валіза, яку авіакомпанія загубила, прибула сьогодні.",
+            "target": "My suitcase, which the airline lost, arrived today.",
+            "uk": "Моя валіза, яку авіакомпанія загубила, прибула сьогодні.",
+            "hint_uk": "Додай факт про вже визначену валізу; у відносній частині не пропускай сполучне слово.",
+            "groups": [
+                "My suitcase,",
+                "which the airline",
+                "lost,",
+                "arrived today."
+            ],
+            "compose_slots": [
+                "My suitcase,",
+                "which the airline",
+                "lost,",
+                "arrived today."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "verb_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The festival was cancelled, {a1} disappointed the local traders.",
+            "target": "The festival was cancelled, which disappointed the local traders.",
+            "uk": "Фестиваль скасували, що розчарувало місцевих торговців.",
+            "hint_uk": "Що розчарувало; відносне слово коментує весь факт скасування.",
+            "groups": [
+                "The festival",
+                "was cancelled,",
+                "which",
+                "disappointed",
+                "the local traders."
+            ],
+            "answer": "which",
+            "options": [
+                "which",
+                "that",
+                "what"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "Dr Shah, {a1} I had already spoken, joined the call.",
+            "target": "Dr Shah, to whom I had already spoken, joined the call.",
+            "uk": "Доктор Шах, з якою я вже поговорив, долучилася до дзвінка.",
+            "hint_uk": "З якою; після винесеного прийменника використай об’єктну форму для людини.",
+            "groups": [
+                "Dr Shah,",
+                "to whom",
+                "I had",
+                "already spoken,",
+                "joined the call."
+            ],
+            "answer": "to whom",
+            "options": [
+                "to whom",
+                "to that",
+                "to whose"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Наш новий ліфт, який установили в березні, знову зламався.",
+            "target": "Our new lift, which was installed in March, has broken down again.",
+            "uk": "Наш новий ліфт, який установили в березні, знову зламався.",
+            "hint_uk": "Йдеться про вже відомий ліфт; додай пасивну інформацію про встановлення без пропуску відносного слова.",
+            "groups": [
+                "Our new lift,",
+                "which was installed",
+                "in March,",
+                "has broken down",
+                "again."
+            ],
+            "compose_slots": [
+                "Our new lift,",
+                "which was installed",
+                "in March,",
+                "has broken down",
+                "again."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "adverbial_phrase",
+                "verb_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "Our new elevator, which was installed in March, has broken down again."
+            ],
+            "display_synonyms": {
+                "Our new lift,": [
+                    "Our new elevator,"
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The survey included twelve villages, {a1} had reliable electricity.",
+            "target": "The survey included twelve villages, none of which had reliable electricity.",
+            "uk": "Опитування охопило дванадцять сіл, жодне з яких не мало надійного електропостачання.",
+            "hint_uk": "Жодне з яких; часткова відносна група стосується сіл, не людей.",
+            "groups": [
+                "The survey",
+                "included twelve villages,",
+                "none of which",
+                "had reliable electricity."
+            ],
+            "answer": "none of which",
+            "options": [
+                "none of which",
+                "none of that",
+                "none of whom"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The agreement, {a1} scope remained disputed, was never implemented.",
+            "target": "The agreement, whose scope remained disputed, was never implemented.",
+            "uk": "Угоду, сфера дії якої залишалася спірною, так і не виконали.",
+            "hint_uk": "Сфера дії якої; присвійна форма може відсилати й до неживого документа.",
+            "groups": [
+                "The agreement,",
+                "whose scope",
+                "remained disputed,",
+                "was never implemented."
+            ],
+            "answer": "whose",
+            "options": [
+                "whose",
+                "which",
+                "whom"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Професорка Вейл, з чиєю критикою ми погодилися, відмовилася від нагороди.",
+            "target": "Professor Vale, with whose criticism we agreed, declined the award.",
+            "uk": "Професорка Вейл, з чиєю критикою ми погодилися, відмовилася від нагороди.",
+            "hint_uk": "Збережи власницю критики та винесений прийменник перед присвійною відносною групою.",
+            "groups": [
+                "Professor Vale,",
+                "with whose criticism",
+                "we agreed,",
+                "declined",
+                "the award."
+            ],
+            "compose_slots": [
+                "Professor Vale,",
+                "with whose criticism",
+                "we agreed,",
+                "declined",
+                "the award."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The excavations exposed six seals, {a1} owners remain unidentified.",
+            "target": "The excavations exposed six seals, two of whose owners remain unidentified.",
+            "uk": "Розкопки відкрили шість печаток, власники двох із яких залишаються невідомими.",
+            "hint_uk": "Власники двох із яких; після часткової присвійної групи стоїть назва власників печаток.",
+            "groups": [
+                "The excavations",
+                "exposed six seals,",
+                "two of whose",
+                "owners",
+                "remain unidentified."
+            ],
+            "answer": "two of whose",
+            "options": [
+                "two of whose",
+                "two of which",
+                "two of whom"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The panel reversed its earlier finding, {a1} rendered the appeal moot.",
+            "target": "The panel reversed its earlier finding, which rendered the appeal moot.",
+            "uk": "Колегія змінила попередній висновок, що позбавило апеляцію предмета.",
+            "hint_uk": "Що спричинило; додаткова частина оцінює наслідок цілого попереднього рішення.",
+            "groups": [
+                "The panel",
+                "reversed",
+                "its earlier finding,",
+                "which",
+                "rendered the appeal",
+                "moot."
+            ],
+            "answer": "which",
+            "options": [
+                "which",
+                "what",
+                "that"
+            ]
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Архів містить два проєкти, жоден із яких не відповідає опублікованому тексту.",
+            "target": "The archive contains two drafts, neither of which matches the published text.",
+            "uk": "Архів містить два проєкти, жоден із яких не відповідає опублікованому тексту.",
+            "hint_uk": "Збережи кількість два та заперечну часткову відносну групу для обох проєктів.",
+            "groups": [
+                "The archive",
+                "contains two drafts,",
+                "neither of which",
+                "matches",
+                "the published text."
+            ],
+            "compose_slots": [
+                "The archive",
+                "contains two drafts,",
+                "neither of which",
+                "matches",
+                "the published text."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "verb_phrase",
+                "relative_phrase",
+                "verb_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

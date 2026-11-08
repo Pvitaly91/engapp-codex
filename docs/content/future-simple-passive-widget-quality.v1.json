@@ -1,0 +1,59 @@
+{
+    "schema_version": 1,
+    "quality_revision": "future-simple-passive-widget-v1",
+    "source_path": "docs/content/m58-past-future-passives-widget-questions.v1.0.0.json",
+    "source_sha256": "8c71919ee6adcab859d0756468a9d6797243f362124280d3725bc3e8e9fce62a",
+    "bank_seeder": "Database\\Seeders\\V3\\Polyglot\\M58FutureSimplePassiveB1SupplementSeeder",
+    "page_id": 107,
+    "category_id": 45,
+    "source_id": 345,
+    "level": "B1",
+    "type": 4,
+    "questions": [
+        {
+            "uuid": "m58-fs-b1-01",
+            "original_question": "В оголошенні повідомляють: переможця оголосять завтра. Побудуй пасив із will; почни з назви переможця, час постав наприкінці.",
+            "original_tokens": ["The", "winner", "will", "be", "announced", "tomorrow", "."],
+            "verb_hint": "Почни з назви переможця. Перед основним дієсловом потрібні два службові слова для майбутнього пасиву; час залиш наприкінці.",
+            "accepted_target_texts": ["The winner will be announced tomorrow."],
+            "additional_options": [],
+            "token_labels": {}
+        },
+        {
+            "uuid": "m58-fs-b1-02",
+            "original_question": "У повідомленні сказано: квитки не продаватимуть до понеділка. Використай повне заперечення Future Simple Passive; обставину часу постав наприкінці.",
+            "original_tokens": ["The", "tickets", "will", "not", "be", "sold", "until", "Monday", "."],
+            "verb_hint": "Збережи повне заперечення майбутнього пасиву: заперечне слово йде після першого службового дієслова. Почни з квитків, строк постав наприкінці.",
+            "accepted_target_texts": ["The tickets will not be sold until Monday."],
+            "additional_options": [],
+            "token_labels": {}
+        },
+        {
+            "uuid": "m58-fs-b1-03",
+            "original_question": "Запитай співрозмовника: чи повідомлять його про зміни? У прямому запитанні звернися на «ти» й використай Future Simple Passive.",
+            "original_tokens": ["Will", "you", "be", "informed", "about", "the", "changes", "?"],
+            "verb_hint": "Побудуй пряме запитання до співрозмовника. Для «повідомлять» можливі два природні дієслова; збережи частину про зміни.",
+            "accepted_target_texts": ["Will you be informed about the changes?", "Will you be notified about the changes?"],
+            "additional_options": ["notified"],
+            "token_labels": {"informed": "informed (notified)"}
+        },
+        {
+            "uuid": "m58-fs-b1-04",
+            "original_question": "Запитай, що саме надішлють після зустрічі. Побудуй запитання до підмета у Future Simple Passive; частину про зустріч постав наприкінці.",
+            "original_tokens": ["What", "will", "be", "sent", "after", "the", "meeting", "?"],
+            "verb_hint": "Запитай про сам предмет надсилання, не додаючи окремого підмета. Для «надішлють» можливі два природні дієслова; обставину часу залиш наприкінці.",
+            "accepted_target_texts": ["What will be sent after the meeting?", "What will be dispatched after the meeting?"],
+            "additional_options": ["dispatched"],
+            "token_labels": {"sent": "sent (dispatched)"}
+        },
+        {
+            "uuid": "m58-fs-b1-05",
+            "original_question": "Коли менеджер прийде, документи перевірять. У головній частині використай Future Simple Passive; почни речення з часової частини про прихід менеджера.",
+            "original_tokens": ["When", "the", "manager", "arrives", ",", "the", "documents", "will", "be", "checked", "."],
+            "verb_hint": "Почни з часової частини про прихід менеджера. У ній не додавай показника майбутнього; майбутній пасив потрібний у головній частині. Для «перевірять» можливі два природні дієслова.",
+            "accepted_target_texts": ["When the manager arrives, the documents will be checked.", "When the manager arrives, the documents will be inspected."],
+            "additional_options": ["inspected"],
+            "token_labels": {"checked": "checked (inspected)"}
+        }
+    ]
+}

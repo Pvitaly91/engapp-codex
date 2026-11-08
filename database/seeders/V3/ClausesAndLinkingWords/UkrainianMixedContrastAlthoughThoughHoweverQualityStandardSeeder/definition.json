@@ -1,0 +1,701 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/contrast-although-though-however.v1.json",
+        "sha256": "de58926dac870d5642a3134854131aa44167a851deddfd743b198625eb5d8ff8"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedContrastAlthoughThoughHoweverQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-contrast-although-though-however-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_contrast_although_though_however": {
+            "name": "Clauses and Linking Words Quality: Contrast: although / though / however"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_contrast": {
+            "name": "Contrast: although / though / however",
+            "category": "clauses_and_linking_words"
+        },
+        "although_clause": {
+            "name": "Although Clause",
+            "category": "topic"
+        },
+        "though_clause": {
+            "name": "Though Clause",
+            "category": "topic"
+        },
+        "even_though": {
+            "name": "Even Though",
+            "category": "topic"
+        },
+        "however": {
+            "name": "However",
+            "category": "topic"
+        },
+        "nevertheless": {
+            "name": "Nevertheless",
+            "category": "topic"
+        },
+        "despite_in_spite_of": {
+            "name": "Despite In Spite Of",
+            "category": "topic"
+        },
+        "contrast_clause_position": {
+            "name": "Contrast Clause Position",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "although_vs_however": {
+            "name": "Although Vs However",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_contrast"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-contrast-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} the mug is heavy, I like it.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Хоча кухоль важкий, він мені подобається.",
+            "target_text": "Although the mug is heavy, I like it.",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Because",
+                        "Unless"
+                    ],
+                    "verb_hint": "Визнай вагу кухля як факт, що не заважає вподобанню."
+                }
+            },
+            "verb_hint": "Визнай вагу кухля як факт, що не заважає вподобанню.",
+            "accepted_target_texts": [
+                "Although the mug is heavy, I like it.",
+                "Though the mug is heavy, I like it.",
+                "Even though the mug is heavy, I like it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "reorder_groups": [
+                "Although",
+                "the mug",
+                "is heavy,",
+                "I like it."
+            ],
+            "token_groups": [
+                "Although",
+                "the mug",
+                "is heavy,",
+                "I like it."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-contrast-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The puppy is tiny, {a1} its paws are large.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Цуценя крихітне, але лапи в нього великі.",
+            "target_text": "The puppy is tiny, but its paws are large.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "so",
+                        "because"
+                    ],
+                    "verb_hint": "Протистав розмір цуценяти й лап, не називаючи наслідку."
+                }
+            },
+            "verb_hint": "Протистав розмір цуценяти й лап, не називаючи наслідку.",
+            "accepted_target_texts": [
+                "The puppy is tiny, but its paws are large."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The puppy",
+                "is tiny,",
+                "but",
+                "its paws",
+                "are large."
+            ],
+            "token_groups": [
+                "The puppy",
+                "is tiny,",
+                "but",
+                "its paws",
+                "are large."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-contrast-a2-g01",
+            "author_id": "A2-g01",
+            "question": "I was tired; {a1}, I finished the puzzle.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Я втомився; однак я завершив головоломку.",
+            "target_text": "I was tired; however, I finished the puzzle.",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "because",
+                        "so that"
+                    ],
+                    "verb_hint": "Між двома завершеними повідомленнями потрібна вставна зв’язка протиставлення."
+                }
+            },
+            "verb_hint": "Між двома завершеними повідомленнями потрібна вставна зв’язка протиставлення.",
+            "accepted_target_texts": [
+                "I was tired; however, I finished the puzzle.",
+                "I was tired; nevertheless, I finished the puzzle.",
+                "I was tired; nonetheless, I finished the puzzle."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "reorder_groups": [
+                "I was tired;",
+                "however,",
+                "I finished",
+                "the puzzle."
+            ],
+            "token_groups": [
+                "I was tired;",
+                "however,",
+                "I finished",
+                "the puzzle."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-contrast-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} the slippery floor, nobody fell.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Попри слизьку підлогу, ніхто не впав.",
+            "target_text": "Despite the slippery floor, nobody fell.",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Перед іменниковою групою потрібен прийменник поступки."
+                }
+            },
+            "verb_hint": "Перед іменниковою групою потрібен прийменник поступки.",
+            "accepted_target_texts": [
+                "Despite the slippery floor, nobody fell.",
+                "In spite of the slippery floor, nobody fell."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "In spite of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "In spite of"
+                ]
+            },
+            "reorder_groups": [
+                "Despite",
+                "the slippery floor,",
+                "nobody fell."
+            ],
+            "token_groups": [
+                "Despite",
+                "the slippery floor,",
+                "nobody fell."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-contrast-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The north gate opens early, {a1} the south gate opens at noon.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Північні ворота відчиняються рано, тоді як південні — опівдні.",
+            "target_text": "The north gate opens early, whereas the south gate opens at noon.",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "because",
+                        "unless"
+                    ],
+                    "verb_hint": "Порівняй два розклади як факти, не подаючи причину."
+                }
+            },
+            "verb_hint": "Порівняй два розклади як факти, не подаючи причину.",
+            "accepted_target_texts": [
+                "The north gate opens early, whereas the south gate opens at noon.",
+                "The north gate opens early, while the south gate opens at noon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "reorder_groups": [
+                "The north gate",
+                "opens early,",
+                "whereas",
+                "the south gate",
+                "opens at noon."
+            ],
+            "token_groups": [
+                "The north gate",
+                "opens early,",
+                "whereas",
+                "the south gate",
+                "opens at noon."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-contrast-b1-g02",
+            "author_id": "B1-g02",
+            "question": "{a1} she knew the route, she checked the map again.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Хоча вона знала маршрут, вона знову перевірила карту.",
+            "target_text": "Even though she knew the route, she checked the map again.",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Even if",
+                        "Because"
+                    ],
+                    "verb_hint": "Знання маршруту є встановленим фактом; посиль допустове протиставлення."
+                }
+            },
+            "verb_hint": "Знання маршруту є встановленим фактом; посиль допустове протиставлення.",
+            "accepted_target_texts": [
+                "Even though she knew the route, she checked the map again.",
+                "Although she knew the route, she checked the map again.",
+                "Though she knew the route, she checked the map again."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Though"
+                ]
+            },
+            "reorder_groups": [
+                "Even though",
+                "she knew",
+                "the route,",
+                "she checked",
+                "the map again."
+            ],
+            "token_groups": [
+                "Even though",
+                "she knew",
+                "the route,",
+                "she checked",
+                "the map again."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-contrast-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The first design prioritises speed; {a1}, the second prioritises durability.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Перший проєкт надає перевагу швидкості; натомість другий — довговічності.",
+            "target_text": "The first design prioritises speed; by contrast, the second prioritises durability.",
+            "markers": {
+                "a1": {
+                    "answer": "by contrast",
+                    "options": [
+                        "by contrast",
+                        "as a result",
+                        "for example"
+                    ],
+                    "verb_hint": "Зістав два різні пріоритети, не стверджуючи причинності."
+                }
+            },
+            "verb_hint": "Зістав два різні пріоритети, не стверджуючи причинності.",
+            "accepted_target_texts": [
+                "The first design prioritises speed; by contrast, the second prioritises durability.",
+                "The first design prioritises speed; in contrast, the second prioritises durability."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in contrast"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in contrast"
+                ]
+            },
+            "reorder_groups": [
+                "The first design",
+                "prioritises speed;",
+                "by contrast,",
+                "the second",
+                "prioritises durability."
+            ],
+            "token_groups": [
+                "The first design",
+                "prioritises speed;",
+                "by contrast,",
+                "the second",
+                "prioritises durability."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-contrast-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We will proceed {a1} the funding decision is delayed.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Ми продовжимо роботу, навіть якщо рішення про фінансування затримається.",
+            "target_text": "We will proceed even if the funding decision is delayed.",
+            "markers": {
+                "a1": {
+                    "answer": "even if",
+                    "options": [
+                        "even if",
+                        "even though",
+                        "because"
+                    ],
+                    "verb_hint": "Затримка лише можлива; результат збережеться і за цієї умови."
+                }
+            },
+            "verb_hint": "Затримка лише можлива; результат збережеться і за цієї умови.",
+            "accepted_target_texts": [
+                "We will proceed even if the funding decision is delayed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We will proceed",
+                "even if",
+                "the funding decision",
+                "is delayed."
+            ],
+            "token_groups": [
+                "We will proceed",
+                "even if",
+                "the funding decision",
+                "is delayed."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-contrast-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} these reservations, the committee endorsed the proposal.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Попри ці застереження, комітет підтримав пропозицію.",
+            "target_text": "Notwithstanding these reservations, the committee endorsed the proposal.",
+            "markers": {
+                "a1": {
+                    "answer": "Notwithstanding",
+                    "options": [
+                        "Notwithstanding",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Перед іменниковою групою потрібна формальна допустова зв’язка."
+                }
+            },
+            "verb_hint": "Перед іменниковою групою потрібна формальна допустова зв’язка.",
+            "accepted_target_texts": [
+                "Notwithstanding these reservations, the committee endorsed the proposal.",
+                "Despite these reservations, the committee endorsed the proposal.",
+                "In spite of these reservations, the committee endorsed the proposal."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Despite",
+                    "In spite of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Despite",
+                    "In spite of"
+                ]
+            },
+            "reorder_groups": [
+                "Notwithstanding",
+                "these reservations,",
+                "the committee",
+                "endorsed the proposal."
+            ],
+            "token_groups": [
+                "Notwithstanding",
+                "these reservations,",
+                "the committee",
+                "endorsed the proposal."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-contrast-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The findings are suggestive; {a1}, they do not establish causation.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Результати показові; проте вони не встановлюють причинності.",
+            "target_text": "The findings are suggestive; nevertheless, they do not establish causation.",
+            "markers": {
+                "a1": {
+                    "answer": "nevertheless",
+                    "options": [
+                        "nevertheless",
+                        "consequently",
+                        "similarly"
+                    ],
+                    "verb_hint": "Визнай цінність результатів і водночас обмеж висновок."
+                }
+            },
+            "verb_hint": "Визнай цінність результатів і водночас обмеж висновок.",
+            "accepted_target_texts": [
+                "The findings are suggestive; nevertheless, they do not establish causation.",
+                "The findings are suggestive; nonetheless, they do not establish causation.",
+                "The findings are suggestive; however, they do not establish causation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nonetheless",
+                    "however"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nonetheless",
+                    "however"
+                ]
+            },
+            "reorder_groups": [
+                "The findings",
+                "are suggestive;",
+                "nevertheless,",
+                "they do not",
+                "establish causation."
+            ],
+            "token_groups": [
+                "The findings",
+                "are suggestive;",
+                "nevertheless,",
+                "they do not",
+                "establish causation."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-contrast-c2-g01",
+            "author_id": "C2-g01",
+            "question": "{a1} I admire the argument's elegance, I cannot accept its central premise.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Хоч як я захоплююся витонченістю аргументу, я не можу прийняти його центральну передумову.",
+            "target_text": "Much as I admire the argument's elegance, I cannot accept its central premise.",
+            "markers": {
+                "a1": {
+                    "answer": "Much as",
+                    "options": [
+                        "Much as",
+                        "So that",
+                        "Because of"
+                    ],
+                    "verb_hint": "Початкова поступка виражає високий ступінь захоплення, а не причину відмови."
+                }
+            },
+            "verb_hint": "Початкова поступка виражає високий ступінь захоплення, а не причину відмови.",
+            "accepted_target_texts": [
+                "Much as I admire the argument's elegance, I cannot accept its central premise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Much as",
+                "I admire",
+                "the argument's elegance,",
+                "I cannot accept",
+                "its central premise."
+            ],
+            "token_groups": [
+                "Much as",
+                "I admire",
+                "the argument's elegance,",
+                "I cannot accept",
+                "its central premise."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-contrast-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The exception is narrow; {a1}, its implications extend beyond the immediate dispute.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_contrast_although_though_however",
+            "translation_uk": "Виняток вузький; попри це його наслідки виходять за межі безпосереднього спору.",
+            "target_text": "The exception is narrow; all the same, its implications extend beyond the immediate dispute.",
+            "markers": {
+                "a1": {
+                    "answer": "all the same",
+                    "options": [
+                        "all the same",
+                        "for this reason",
+                        "in other words"
+                    ],
+                    "verb_hint": "Вставна розмовно-нейтральна зв’язка зберігає протиставлення обсягу й наслідків."
+                }
+            },
+            "verb_hint": "Вставна розмовно-нейтральна зв’язка зберігає протиставлення обсягу й наслідків.",
+            "accepted_target_texts": [
+                "The exception is narrow; all the same, its implications extend beyond the immediate dispute.",
+                "The exception is narrow; nevertheless, its implications extend beyond the immediate dispute.",
+                "The exception is narrow; nonetheless, its implications extend beyond the immediate dispute.",
+                "The exception is narrow; however, its implications extend beyond the immediate dispute.",
+                "The exception is narrow; even so, its implications extend beyond the immediate dispute."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "however",
+                    "even so"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless",
+                    "however",
+                    "even so"
+                ]
+            },
+            "reorder_groups": [
+                "The exception",
+                "is narrow;",
+                "all the same,",
+                "its implications",
+                "extend beyond",
+                "the immediate dispute."
+            ],
+            "token_groups": [
+                "The exception",
+                "is narrow;",
+                "all the same,",
+                "its implications",
+                "extend beyond",
+                "the immediate dispute."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

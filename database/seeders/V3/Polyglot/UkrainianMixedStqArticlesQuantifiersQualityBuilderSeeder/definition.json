@@ -1,0 +1,1397 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/articles-quantifiers.v1.json",
+        "sha256": "f0ee9a716eb42722a550487875082facffd57042a2c0bfec82941b5165e359f5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedStqArticlesQuantifiersQualityBuilderSeeder",
+        "uuid_namespace": "sentence-transformations-quality-articles-quantifiers-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "sentence_transformations_quality_articles_quantifiers": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Articles and Quantifiers"
+        }
+    },
+    "tags": {
+        "sentence_transformations_articles_quantifiers_all_levels": {
+            "name": "sentence transformations articles quantifiers all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "articles": {
+            "name": "Articles",
+            "category": "topic"
+        },
+        "zero_article": {
+            "name": "Zero Article",
+            "category": "topic"
+        },
+        "countable_uncountable": {
+            "name": "Countable Uncountable",
+            "category": "topic"
+        },
+        "much_many_a_lot": {
+            "name": "Much Many A Lot",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "no_none_neither_either": {
+            "name": "No None Neither Either",
+            "category": "topic"
+        },
+        "another_other": {
+            "name": "Another Other",
+            "category": "topic"
+        },
+        "partitives": {
+            "name": "Partitives",
+            "category": "topic"
+        },
+        "preserve_quantity": {
+            "name": "Preserve Quantity",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_sentence_transformations_articles_quantifiers_all_levels": {
+            "name": "Sentence Transformations — Articles / Quantifiers",
+            "category": "sentence_transformations"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-articles-a1-c01",
+            "author_id": "A1-c01",
+            "question": "У мене є жовта парасоля.",
+            "level": "A1",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "У мене є жовта парасоля.",
+            "target_text": "I have a yellow umbrella.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "have",
+                    "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+                    "options": [
+                        "have",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "a",
+                    "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "yellow",
+                    "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+                    "options": [
+                        "yellow",
+                        "silver",
+                        "golden",
+                        "brown"
+                    ]
+                },
+                "a5": {
+                    "answer": "umbrella.",
+                    "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+                    "options": [
+                        "umbrella",
+                        "basket",
+                        "blanket",
+                        "bottle"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+            "accepted_target_texts": [
+                "I have a yellow umbrella."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "a yellow umbrella."
+            ],
+            "token_groups": [
+                "I have",
+                "a yellow umbrella."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "I",
+                "have",
+                "a",
+                "yellow",
+                "umbrella."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "have",
+                "don't",
+                "doesn't",
+                "didn't",
+                "a",
+                "all",
+                "both",
+                "an",
+                "yellow",
+                "silver",
+                "golden",
+                "brown",
+                "umbrella",
+                "basket",
+                "blanket",
+                "bottle"
+            ],
+            "source_text_uk": "У мене є жовта парасоля.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "have",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a3": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a4": [
+                    "yellow",
+                    "silver",
+                    "golden",
+                    "brown"
+                ],
+                "a5": [
+                    "umbrella",
+                    "basket",
+                    "blanket",
+                    "bottle"
+                ]
+            },
+            "slot_roles": {
+                "a1": "possession_clause",
+                "a2": "possession_clause",
+                "a3": "singular_object",
+                "a4": "singular_object",
+                "a5": "singular_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "stq-articles-a2-c01",
+            "author_id": "A2-c01",
+            "question": "У мисці є трохи винограду.",
+            "level": "A2",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "У мисці є трохи винограду.",
+            "target_text": "There are some grapes in the bowl.",
+            "markers": {
+                "a1": {
+                    "answer": "There",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "There",
+                        "Here",
+                        "It",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "are",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "some",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "some",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a4": {
+                    "answer": "grapes",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "grapes",
+                        "apples",
+                        "postcards",
+                        "cherries"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "in",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "bowl.",
+                    "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+                    "options": [
+                        "bowl",
+                        "school",
+                        "gate",
+                        "cupboard"
+                    ]
+                }
+            },
+            "verb_hint": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+            "accepted_target_texts": [
+                "There are some grapes in the bowl."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There are",
+                "some grapes",
+                "in the bowl."
+            ],
+            "token_groups": [
+                "There are",
+                "some grapes",
+                "in the bowl."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "There",
+                "are",
+                "some",
+                "grapes",
+                "in",
+                "the",
+                "bowl."
+            ],
+            "options": [
+                "There",
+                "Here",
+                "It",
+                "They",
+                "are",
+                "were",
+                "be",
+                "been",
+                "some",
+                "both",
+                "a",
+                "an",
+                "grapes",
+                "apples",
+                "postcards",
+                "cherries",
+                "in",
+                "of",
+                "on",
+                "at",
+                "the",
+                "any",
+                "this",
+                "that",
+                "bowl",
+                "school",
+                "gate",
+                "cupboard"
+            ],
+            "source_text_uk": "У мисці є трохи винограду.",
+            "options_by_marker": {
+                "a1": [
+                    "There",
+                    "Here",
+                    "It",
+                    "They"
+                ],
+                "a2": [
+                    "are",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "some",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a4": [
+                    "grapes",
+                    "apples",
+                    "postcards",
+                    "cherries"
+                ],
+                "a5": [
+                    "in",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "bowl",
+                    "school",
+                    "gate",
+                    "cupboard"
+                ]
+            },
+            "slot_roles": {
+                "a1": "existence_clause",
+                "a2": "existence_clause",
+                "a3": "plural_quantity",
+                "a4": "plural_quantity",
+                "a5": "place_phrase",
+                "a6": "place_phrase",
+                "a7": "place_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "stq-articles-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Усі місця в цьому автобусі зайняті.",
+            "level": "B1",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Усі місця в цьому автобусі зайняті.",
+            "target_text": "All the seats on this bus are taken.",
+            "markers": {
+                "a1": {
+                    "answer": "All",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "All",
+                        "Either",
+                        "Neither",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "seats",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "seats",
+                        "maps",
+                        "roads",
+                        "actors"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "on",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "this",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a6": {
+                    "answer": "bus",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "bus",
+                        "tram",
+                        "taxi",
+                        "van"
+                    ]
+                },
+                "a7": {
+                    "answer": "are",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "are",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "taken.",
+                    "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+                    "options": [
+                        "taken",
+                        "repaired",
+                        "broken",
+                        "vanished"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+            "accepted_target_texts": [
+                "All the seats on this bus are taken."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "All the seats",
+                "on this bus",
+                "are taken."
+            ],
+            "token_groups": [
+                "All the seats",
+                "on this bus",
+                "are taken."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "All",
+                "the",
+                "seats",
+                "on",
+                "this",
+                "bus",
+                "are",
+                "taken."
+            ],
+            "options": [
+                "All",
+                "Either",
+                "Neither",
+                "Both",
+                "the",
+                "an",
+                "some",
+                "any",
+                "seats",
+                "maps",
+                "roads",
+                "actors",
+                "on",
+                "from",
+                "for",
+                "of",
+                "this",
+                "that",
+                "these",
+                "those",
+                "bus",
+                "tram",
+                "taxi",
+                "van",
+                "are",
+                "been",
+                "being",
+                "isn't",
+                "taken",
+                "repaired",
+                "broken",
+                "vanished"
+            ],
+            "source_text_uk": "Усі місця в цьому автобусі зайняті.",
+            "options_by_marker": {
+                "a1": [
+                    "All",
+                    "Either",
+                    "Neither",
+                    "Both"
+                ],
+                "a2": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "seats",
+                    "maps",
+                    "roads",
+                    "actors"
+                ],
+                "a4": [
+                    "on",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "this",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a6": [
+                    "bus",
+                    "tram",
+                    "taxi",
+                    "van"
+                ],
+                "a7": [
+                    "are",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "taken",
+                    "repaired",
+                    "broken",
+                    "vanished"
+                ]
+            },
+            "slot_roles": {
+                "a1": "whole_plural_subject",
+                "a2": "whole_plural_subject",
+                "a3": "whole_plural_subject",
+                "a4": "place_phrase",
+                "a5": "place_phrase",
+                "a6": "place_phrase",
+                "a7": "plural_state",
+                "a8": "plural_state"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "stq-articles-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Не кожного кандидата запросили на співбесіду.",
+            "level": "B2",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Не кожного кандидата запросили на співбесіду.",
+            "target_text": "Not every applicant was invited to an interview.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "Not",
+                        "Also",
+                        "Usually",
+                        "Rarely"
+                    ]
+                },
+                "a2": {
+                    "answer": "every",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "every",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a3": {
+                    "answer": "applicant",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "applicant",
+                        "climber",
+                        "employee",
+                        "candidate"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a5": {
+                    "answer": "invited",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "invited",
+                        "dismissed",
+                        "accepted",
+                        "welcomed"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "an",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "an",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "interview.",
+                    "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+                    "options": [
+                        "interview",
+                        "examination",
+                        "ceremony",
+                        "audition"
+                    ]
+                }
+            },
+            "verb_hint": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+            "accepted_target_texts": [
+                "Not every applicant was invited to an interview."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not every applicant",
+                "was invited",
+                "to an interview."
+            ],
+            "token_groups": [
+                "Not every applicant",
+                "was invited",
+                "to an interview."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Not",
+                "every",
+                "applicant",
+                "was",
+                "invited",
+                "to",
+                "an",
+                "interview."
+            ],
+            "options": [
+                "Not",
+                "Also",
+                "Usually",
+                "Rarely",
+                "every",
+                "this",
+                "that",
+                "these",
+                "applicant",
+                "climber",
+                "employee",
+                "candidate",
+                "was",
+                "were",
+                "be",
+                "been",
+                "invited",
+                "dismissed",
+                "accepted",
+                "welcomed",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "an",
+                "another",
+                "either",
+                "neither",
+                "interview",
+                "examination",
+                "ceremony",
+                "audition"
+            ],
+            "source_text_uk": "Не кожного кандидата запросили на співбесіду.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Also",
+                    "Usually",
+                    "Rarely"
+                ],
+                "a2": [
+                    "every",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a3": [
+                    "applicant",
+                    "climber",
+                    "employee",
+                    "candidate"
+                ],
+                "a4": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a5": [
+                    "invited",
+                    "dismissed",
+                    "accepted",
+                    "welcomed"
+                ],
+                "a6": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "an",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "interview",
+                    "examination",
+                    "ceremony",
+                    "audition"
+                ]
+            },
+            "slot_roles": {
+                "a1": "limited_singular_subject",
+                "a2": "limited_singular_subject",
+                "a3": "limited_singular_subject",
+                "a4": "passive_past",
+                "a5": "passive_past",
+                "a6": "purpose_phrase",
+                "a7": "purpose_phrase",
+                "a8": "purpose_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "stq-articles-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Жоден інший свідок не дав такого детального опису.",
+            "level": "C1",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "Жоден інший свідок не дав такого детального опису.",
+            "target_text": "No other witness gave such a detailed account.",
+            "markers": {
+                "a1": {
+                    "answer": "No",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "No",
+                        "The",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "other",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "other",
+                        "younger",
+                        "local",
+                        "independent"
+                    ]
+                },
+                "a3": {
+                    "answer": "witness",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "witness",
+                        "painter",
+                        "journalist",
+                        "observer"
+                    ]
+                },
+                "a4": {
+                    "answer": "gave",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "gave",
+                        "rejected",
+                        "ignored",
+                        "lost"
+                    ]
+                },
+                "a5": {
+                    "answer": "such",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "such",
+                        "another",
+                        "an",
+                        "one"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "detailed",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "detailed",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a8": {
+                    "answer": "account.",
+                    "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+                    "options": [
+                        "account",
+                        "outline",
+                        "statement",
+                        "response"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+            "accepted_target_texts": [
+                "No other witness gave such a detailed account.",
+                "No other witness gave such a detailed description.",
+                "No other witness provided such a detailed account.",
+                "No other witness provided such a detailed description.",
+                "No other witness offered such a detailed account.",
+                "No other witness offered such a detailed description.",
+                "No other witness supplied such a detailed account.",
+                "No other witness supplied such a detailed description.",
+                "No other witness presented such a detailed account.",
+                "No other witness presented such a detailed description."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "description."
+                ],
+                "a4": [
+                    "provided",
+                    "offered",
+                    "supplied",
+                    "presented"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "description."
+                ],
+                "a4": [
+                    "provided",
+                    "offered",
+                    "supplied",
+                    "presented"
+                ]
+            },
+            "reorder_groups": [
+                "No other witness",
+                "gave",
+                "such a detailed",
+                "account."
+            ],
+            "token_groups": [
+                "No other witness",
+                "gave",
+                "such a detailed",
+                "account."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "No",
+                "other",
+                "witness",
+                "gave",
+                "such",
+                "a",
+                "detailed",
+                "account."
+            ],
+            "options": [
+                "No",
+                "The",
+                "Some",
+                "Any",
+                "other",
+                "younger",
+                "local",
+                "independent",
+                "witness",
+                "painter",
+                "journalist",
+                "observer",
+                "gave",
+                "rejected",
+                "ignored",
+                "lost",
+                "such",
+                "another",
+                "an",
+                "one",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "detailed",
+                "took",
+                "wrote",
+                "rode",
+                "account",
+                "outline",
+                "statement",
+                "response"
+            ],
+            "source_text_uk": "Жоден інший свідок не дав такого детального опису.",
+            "options_by_marker": {
+                "a1": [
+                    "No",
+                    "The",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "other",
+                    "younger",
+                    "local",
+                    "independent"
+                ],
+                "a3": [
+                    "witness",
+                    "painter",
+                    "journalist",
+                    "observer"
+                ],
+                "a4": [
+                    "gave",
+                    "rejected",
+                    "ignored",
+                    "lost"
+                ],
+                "a5": [
+                    "such",
+                    "another",
+                    "an",
+                    "one"
+                ],
+                "a6": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "detailed",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a8": [
+                    "account",
+                    "outline",
+                    "statement",
+                    "response"
+                ]
+            },
+            "slot_roles": {
+                "a1": "exclusive_subject",
+                "a2": "exclusive_subject",
+                "a3": "exclusive_subject",
+                "a4": "past_reporting_verb",
+                "a5": "degree_modifier",
+                "a6": "degree_modifier",
+                "a7": "degree_modifier",
+                "a8": "report_noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "stq-articles-c2-c01",
+            "author_id": "C2-c01",
+            "question": "До огляду вже видалили всі до останнього сліди пігменту.",
+            "level": "C2",
+            "type": 4,
+            "source": "sentence_transformations_quality_articles_quantifiers",
+            "translation_uk": "До огляду вже видалили всі до останнього сліди пігменту.",
+            "target_text": "Every last trace of pigment had been removed before inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "Every",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "Every",
+                        "Those",
+                        "Each",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "last",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "last",
+                        "single",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a3": {
+                    "answer": "trace",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "trace",
+                        "particle",
+                        "drop",
+                        "residue"
+                    ]
+                },
+                "a4": {
+                    "answer": "of",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a5": {
+                    "answer": "pigment",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "pigment",
+                        "dust",
+                        "ink",
+                        "rust"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "removed",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "removed",
+                        "recorded",
+                        "recovered",
+                        "cleaned"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "before",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                },
+                "a10": {
+                    "answer": "inspection.",
+                    "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+                    "options": [
+                        "inspection",
+                        "restoration",
+                        "brother",
+                        "friend"
+                    ]
+                }
+            },
+            "verb_hint": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+            "accepted_target_texts": [
+                "Every last trace of pigment had been removed before inspection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Every last trace",
+                "of pigment",
+                "had been removed",
+                "before inspection."
+            ],
+            "token_groups": [
+                "Every last trace",
+                "of pigment",
+                "had been removed",
+                "before inspection."
+            ],
+            "quality_revision": "stq-v1",
+            "tokens_correct": [
+                "Every",
+                "last",
+                "trace",
+                "of",
+                "pigment",
+                "had",
+                "been",
+                "removed",
+                "before",
+                "inspection."
+            ],
+            "options": [
+                "Every",
+                "Those",
+                "Each",
+                "No",
+                "last",
+                "single",
+                "food",
+                "bike",
+                "trace",
+                "particle",
+                "drop",
+                "residue",
+                "of",
+                "in",
+                "on",
+                "at",
+                "pigment",
+                "dust",
+                "ink",
+                "rust",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "removed",
+                "recorded",
+                "recovered",
+                "cleaned",
+                "before",
+                "bus",
+                "desk",
+                "picture",
+                "inspection",
+                "restoration",
+                "brother",
+                "friend"
+            ],
+            "source_text_uk": "До огляду вже видалили всі до останнього сліди пігменту.",
+            "options_by_marker": {
+                "a1": [
+                    "Every",
+                    "Those",
+                    "Each",
+                    "No"
+                ],
+                "a2": [
+                    "last",
+                    "single",
+                    "food",
+                    "bike"
+                ],
+                "a3": [
+                    "trace",
+                    "particle",
+                    "drop",
+                    "residue"
+                ],
+                "a4": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a5": [
+                    "pigment",
+                    "dust",
+                    "ink",
+                    "rust"
+                ],
+                "a6": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a7": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "removed",
+                    "recorded",
+                    "recovered",
+                    "cleaned"
+                ],
+                "a9": [
+                    "before",
+                    "bus",
+                    "desk",
+                    "picture"
+                ],
+                "a10": [
+                    "inspection",
+                    "restoration",
+                    "brother",
+                    "friend"
+                ]
+            },
+            "slot_roles": {
+                "a1": "exhaustive_subject",
+                "a2": "exhaustive_subject",
+                "a3": "exhaustive_subject",
+                "a4": "material_phrase",
+                "a5": "material_phrase",
+                "a6": "past_perfect_passive",
+                "a7": "past_perfect_passive",
+                "a8": "past_perfect_passive",
+                "a9": "time_phrase",
+                "a10": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

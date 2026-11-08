@@ -1,0 +1,1457 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/bare-infinitive.v1.json",
+        "sha256": "9e825d3370dc916097d9465f3066978d01e87537df0605c50448d96b4b98e3b8"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVpqBareInfinitiveQualityBuilderSeeder",
+        "uuid_namespace": "verb-patterns-quality-bare-infinitive-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_patterns_quality_bare_infinitive": {
+            "name": "Verb Patterns Quality: Bare Infinitive"
+        }
+    },
+    "tags": {
+        "polyglot_bare_infinitive": {
+            "name": "Bare Infinitive",
+            "category": "verb_patterns"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "base_without_to": {
+            "name": "Base Without To",
+            "category": "topic"
+        },
+        "after_modals": {
+            "name": "After Modals",
+            "category": "topic"
+        },
+        "after_let": {
+            "name": "After Let",
+            "category": "topic"
+        },
+        "after_make": {
+            "name": "After Make",
+            "category": "topic"
+        },
+        "after_help": {
+            "name": "After Help",
+            "category": "topic"
+        },
+        "perception_verbs": {
+            "name": "Perception Verbs",
+            "category": "topic"
+        },
+        "do_support": {
+            "name": "Do Support",
+            "category": "topic"
+        },
+        "bare_vs_to": {
+            "name": "Bare Vs To",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-bare-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я можу понести цю маленьку коробку.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Я можу понести цю маленьку коробку.",
+            "target_text": "I can carry this little box.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "can",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "can",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a3": {
+                    "answer": "carry",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "carry",
+                        "paint",
+                        "lift",
+                        "move"
+                    ]
+                },
+                "a4": {
+                    "answer": "this",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "this",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "little",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "little",
+                        "metal",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a6": {
+                    "answer": "box.",
+                    "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+                    "options": [
+                        "box",
+                        "bucket",
+                        "lamp",
+                        "bag"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з мовця та модального дієслова можливості; дію перенесення назви початковою формою без частки.",
+            "accepted_target_texts": [
+                "I can carry this little box.",
+                "I can carry this small box."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "small"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "small"
+                ]
+            },
+            "reorder_groups": [
+                "I can",
+                "carry",
+                "this little box."
+            ],
+            "token_groups": [
+                "I can",
+                "carry",
+                "this little box."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "I",
+                "can",
+                "carry",
+                "this",
+                "little",
+                "box."
+            ],
+            "options": [
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "can",
+                "shall",
+                "should",
+                "may",
+                "carry",
+                "paint",
+                "lift",
+                "move",
+                "this",
+                "both",
+                "a",
+                "an",
+                "little",
+                "metal",
+                "cat",
+                "person",
+                "box",
+                "bucket",
+                "lamp",
+                "bag"
+            ],
+            "source_text_uk": "Я можу понести цю маленьку коробку.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "can",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a3": [
+                    "carry",
+                    "paint",
+                    "lift",
+                    "move"
+                ],
+                "a4": [
+                    "this",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "little",
+                    "metal",
+                    "cat",
+                    "person"
+                ],
+                "a6": [
+                    "box",
+                    "bucket",
+                    "lamp",
+                    "bag"
+                ]
+            },
+            "slot_roles": {
+                "a1": "personal_modal",
+                "a2": "personal_modal",
+                "a3": "transitive_base",
+                "a4": "demonstrative_object",
+                "a5": "demonstrative_object",
+                "a6": "demonstrative_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-bare-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Дозволь собаці поспати біля печі.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Дозволь собаці поспати біля печі.",
+            "target_text": "Let the dog sleep beside the stove.",
+            "markers": {
+                "a1": {
+                    "answer": "Let",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "Let",
+                        "Brought",
+                        "Took",
+                        "Wrote"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a3": {
+                    "answer": "dog",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "dog",
+                        "cat",
+                        "bird",
+                        "horse"
+                    ]
+                },
+                "a4": {
+                    "answer": "sleep",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "sleep",
+                        "sit",
+                        "lie",
+                        "hide"
+                    ]
+                },
+                "a5": {
+                    "answer": "beside",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "beside",
+                        "inside",
+                        "near",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "stove.",
+                    "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+                    "options": [
+                        "stove",
+                        "sofa",
+                        "fireplace",
+                        "door"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з наказової форми дозволу, назви собаку, потім дію сну без частки; наприкінці збережи місце.",
+            "accepted_target_texts": [
+                "Let the dog sleep beside the stove.",
+                "Let the dog sleep by the stove.",
+                "Let the dog sleep next to the stove."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "by"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "by"
+                ]
+            },
+            "reorder_groups": [
+                "Let",
+                "the dog",
+                "sleep",
+                "beside the stove."
+            ],
+            "token_groups": [
+                "Let",
+                "the dog",
+                "sleep",
+                "beside the stove."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Let",
+                "the",
+                "dog",
+                "sleep",
+                "beside",
+                "the",
+                "stove."
+            ],
+            "options": [
+                "Let",
+                "Brought",
+                "Took",
+                "Wrote",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "dog",
+                "cat",
+                "bird",
+                "horse",
+                "sleep",
+                "sit",
+                "lie",
+                "hide",
+                "beside",
+                "inside",
+                "near",
+                "under",
+                "no",
+                "another",
+                "either",
+                "stove",
+                "sofa",
+                "fireplace",
+                "door"
+            ],
+            "source_text_uk": "Дозволь собаці поспати біля печі.",
+            "options_by_marker": {
+                "a1": [
+                    "Let",
+                    "Brought",
+                    "Took",
+                    "Wrote"
+                ],
+                "a2": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a3": [
+                    "dog",
+                    "cat",
+                    "bird",
+                    "horse"
+                ],
+                "a4": [
+                    "sleep",
+                    "sit",
+                    "lie",
+                    "hide"
+                ],
+                "a5": [
+                    "beside",
+                    "inside",
+                    "near",
+                    "under"
+                ],
+                "a6": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "stove",
+                    "sofa",
+                    "fireplace",
+                    "door"
+                ]
+            },
+            "slot_roles": {
+                "a1": "causative_base",
+                "a2": "animal_object",
+                "a3": "animal_object",
+                "a4": "intransitive_base",
+                "a5": "place_phrase",
+                "a6": "place_phrase",
+                "a7": "place_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-bare-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Ми краще зачекаємо надворі, ніж заважатимемо їм.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Ми краще зачекаємо надворі, ніж заважатимемо їм.",
+            "target_text": "We would rather wait outside than disturb them.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "would",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "would",
+                        "can't",
+                        "couldn't",
+                        "won't"
+                    ]
+                },
+                "a3": {
+                    "answer": "rather",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "rather",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                },
+                "a4": {
+                    "answer": "wait",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "wait",
+                        "leave",
+                        "call",
+                        "walk"
+                    ]
+                },
+                "a5": {
+                    "answer": "outside",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "outside",
+                        "here",
+                        "silent",
+                        "later"
+                    ]
+                },
+                "a6": {
+                    "answer": "than",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "than",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a7": {
+                    "answer": "disturb",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "disturb",
+                        "interrupt",
+                        "alarm",
+                        "disappoint"
+                    ]
+                },
+                "a8": {
+                    "answer": "them.",
+                    "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+                    "options": [
+                        "them",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                }
+            },
+            "verb_hint": "Передай перевагу однієї дії над іншою; після моделі переваги й після порівняльного сполучника вжий початкові форми без частки.",
+            "accepted_target_texts": [
+                "We would rather wait outside than disturb them.",
+                "We would rather wait outside than bother them.",
+                "We would sooner wait outside than disturb them.",
+                "We would sooner wait outside than bother them."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "bother"
+                ],
+                "a3": [
+                    "sooner"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "bother"
+                ],
+                "a3": [
+                    "sooner"
+                ]
+            },
+            "reorder_groups": [
+                "We would rather",
+                "wait outside",
+                "than disturb them."
+            ],
+            "token_groups": [
+                "We would rather",
+                "wait outside",
+                "than disturb them."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "would",
+                "rather",
+                "wait",
+                "outside",
+                "than",
+                "disturb",
+                "them."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "would",
+                "can't",
+                "couldn't",
+                "won't",
+                "rather",
+                "map",
+                "letter",
+                "window",
+                "wait",
+                "leave",
+                "call",
+                "walk",
+                "outside",
+                "here",
+                "silent",
+                "later",
+                "than",
+                "door",
+                "key",
+                "room",
+                "disturb",
+                "interrupt",
+                "alarm",
+                "disappoint",
+                "them",
+                "ourselves",
+                "themselves",
+                "I"
+            ],
+            "source_text_uk": "Ми краще зачекаємо надворі, ніж заважатимемо їм.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "would",
+                    "can't",
+                    "couldn't",
+                    "won't"
+                ],
+                "a3": [
+                    "rather",
+                    "map",
+                    "letter",
+                    "window"
+                ],
+                "a4": [
+                    "wait",
+                    "leave",
+                    "call",
+                    "walk"
+                ],
+                "a5": [
+                    "outside",
+                    "here",
+                    "silent",
+                    "later"
+                ],
+                "a6": [
+                    "than",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a7": [
+                    "disturb",
+                    "interrupt",
+                    "alarm",
+                    "disappoint"
+                ],
+                "a8": [
+                    "them",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ]
+            },
+            "slot_roles": {
+                "a1": "personal_preference",
+                "a2": "personal_preference",
+                "a3": "personal_preference",
+                "a4": "waiting_phrase",
+                "a5": "waiting_phrase",
+                "a6": "comparative_complement",
+                "a7": "comparative_complement",
+                "a8": "comparative_complement"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-bare-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Я спостерігав, як кур'єр перейшов затоплену вулицю.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Я спостерігав, як кур'єр перейшов затоплену вулицю.",
+            "target_text": "I watched the courier cross the flooded street.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "I",
+                        "Themselves",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "watched",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "watched",
+                        "noticed",
+                        "observed",
+                        "saw"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "courier",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "courier",
+                        "visitor",
+                        "driver",
+                        "stranger"
+                    ]
+                },
+                "a5": {
+                    "answer": "cross",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "cross",
+                        "circle",
+                        "enter",
+                        "approach"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "flooded",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "flooded",
+                        "crowded",
+                        "wooden",
+                        "fenced"
+                    ]
+                },
+                "a8": {
+                    "answer": "street.",
+                    "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+                    "options": [
+                        "street",
+                        "platform",
+                        "entrance",
+                        "staircase"
+                    ]
+                }
+            },
+            "verb_hint": "Після дієслова спостереження назви кур'єра, а завершену сприйняту подію переходу передай початковою формою без частки.",
+            "accepted_target_texts": [
+                "I watched the courier cross the flooded street.",
+                "I watched the courier cross the waterlogged street."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "waterlogged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "waterlogged"
+                ]
+            },
+            "reorder_groups": [
+                "I watched",
+                "the courier",
+                "cross",
+                "the flooded street."
+            ],
+            "token_groups": [
+                "I watched",
+                "the courier",
+                "cross",
+                "the flooded street."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "I",
+                "watched",
+                "the",
+                "courier",
+                "cross",
+                "the",
+                "flooded",
+                "street."
+            ],
+            "options": [
+                "I",
+                "Themselves",
+                "You",
+                "He",
+                "watched",
+                "noticed",
+                "observed",
+                "saw",
+                "the",
+                "no",
+                "another",
+                "either",
+                "courier",
+                "visitor",
+                "driver",
+                "stranger",
+                "cross",
+                "circle",
+                "enter",
+                "approach",
+                "every",
+                "neither",
+                "all",
+                "flooded",
+                "crowded",
+                "wooden",
+                "fenced",
+                "street",
+                "platform",
+                "entrance",
+                "staircase"
+            ],
+            "source_text_uk": "Я спостерігав, як кур'єр перейшов затоплену вулицю.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "Themselves",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "watched",
+                    "noticed",
+                    "observed",
+                    "saw"
+                ],
+                "a3": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "courier",
+                    "visitor",
+                    "driver",
+                    "stranger"
+                ],
+                "a5": [
+                    "cross",
+                    "circle",
+                    "enter",
+                    "approach"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "flooded",
+                    "crowded",
+                    "wooden",
+                    "fenced"
+                ],
+                "a8": [
+                    "street",
+                    "platform",
+                    "entrance",
+                    "staircase"
+                ]
+            },
+            "slot_roles": {
+                "a1": "perception_past",
+                "a2": "perception_past",
+                "a3": "person_object",
+                "a4": "person_object",
+                "a5": "motion_base",
+                "a6": "place_object",
+                "a7": "place_object",
+                "a8": "place_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-bare-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Замість того щоб здогадуватися, нам слід дослідити оригінальну облікову книгу.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Замість того щоб здогадуватися, нам слід дослідити оригінальну облікову книгу.",
+            "target_text": "Rather than speculate, we should examine the original ledger.",
+            "markers": {
+                "a1": {
+                    "answer": "Rather",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "Rather",
+                        "Dog",
+                        "Cat",
+                        "Person"
+                    ]
+                },
+                "a2": {
+                    "answer": "than",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "than",
+                        "bike",
+                        "car",
+                        "bag"
+                    ]
+                },
+                "a3": {
+                    "answer": "speculate,",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "speculate",
+                        "conceal",
+                        "complain",
+                        "hesitate"
+                    ]
+                },
+                "a4": {
+                    "answer": "we",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "we",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a5": {
+                    "answer": "should",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "should",
+                        "may",
+                        "might",
+                        "must"
+                    ]
+                },
+                "a6": {
+                    "answer": "examine",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "examine",
+                        "compare",
+                        "verify",
+                        "consult"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "original",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "original",
+                        "official",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a9": {
+                    "answer": "ledger.",
+                    "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+                    "options": [
+                        "ledger",
+                        "agreement",
+                        "correspondence",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Після початкової конструкції альтернативи й після модального дієслова використай початкові форми без частки; предмет дослідження збережи наприкінці.",
+            "accepted_target_texts": [
+                "Rather than speculate, we should examine the original ledger.",
+                "Rather than guess, we should examine the original ledger.",
+                "Rather than speculate, we should inspect the original ledger.",
+                "Rather than guess, we should inspect the original ledger."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "guess,"
+                ],
+                "a6": [
+                    "inspect"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "guess,"
+                ],
+                "a6": [
+                    "inspect"
+                ]
+            },
+            "reorder_groups": [
+                "Rather than speculate,",
+                "we should",
+                "examine",
+                "the original ledger."
+            ],
+            "token_groups": [
+                "Rather than speculate,",
+                "we should",
+                "examine",
+                "the original ledger."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "Rather",
+                "than",
+                "speculate,",
+                "we",
+                "should",
+                "examine",
+                "the",
+                "original",
+                "ledger."
+            ],
+            "options": [
+                "Rather",
+                "Dog",
+                "Cat",
+                "Person",
+                "than",
+                "bike",
+                "car",
+                "bag",
+                "speculate",
+                "conceal",
+                "complain",
+                "hesitate",
+                "we",
+                "myself",
+                "yourself",
+                "herself",
+                "should",
+                "may",
+                "might",
+                "must",
+                "examine",
+                "compare",
+                "verify",
+                "consult",
+                "the",
+                "no",
+                "another",
+                "either",
+                "original",
+                "official",
+                "book",
+                "box",
+                "ledger",
+                "agreement",
+                "correspondence",
+                "record"
+            ],
+            "source_text_uk": "Замість того щоб здогадуватися, нам слід дослідити оригінальну облікову книгу.",
+            "options_by_marker": {
+                "a1": [
+                    "Rather",
+                    "Dog",
+                    "Cat",
+                    "Person"
+                ],
+                "a2": [
+                    "than",
+                    "bike",
+                    "car",
+                    "bag"
+                ],
+                "a3": [
+                    "speculate",
+                    "conceal",
+                    "complain",
+                    "hesitate"
+                ],
+                "a4": [
+                    "we",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a5": [
+                    "should",
+                    "may",
+                    "might",
+                    "must"
+                ],
+                "a6": [
+                    "examine",
+                    "compare",
+                    "verify",
+                    "consult"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "original",
+                    "official",
+                    "book",
+                    "box"
+                ],
+                "a9": [
+                    "ledger",
+                    "agreement",
+                    "correspondence",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "alternative_clause",
+                "a2": "alternative_clause",
+                "a3": "alternative_clause",
+                "a4": "personal_advice",
+                "a5": "personal_advice",
+                "a6": "investigation_base",
+                "a7": "document_object",
+                "a8": "document_object",
+                "a9": "document_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-bare-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Ми не можемо не засуджувати відмову комітету переглянути рішення.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Ми не можемо не засуджувати відмову комітету переглянути рішення.",
+            "target_text": "We cannot but deplore the committee's refusal to reconsider.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "We",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "cannot",
+                        "wouldn't",
+                        "shouldn't",
+                        "can"
+                    ]
+                },
+                "a3": {
+                    "answer": "but",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "but",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a4": {
+                    "answer": "deplore",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "deplore",
+                        "question",
+                        "dispute",
+                        "accept"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "committee's",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "committee's",
+                        "director's",
+                        "board's",
+                        "council's"
+                    ]
+                },
+                "a7": {
+                    "answer": "refusal",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "refusal",
+                        "hesitation",
+                        "unwillingness",
+                        "determination"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "to",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a9": {
+                    "answer": "reconsider.",
+                    "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+                    "options": [
+                        "reconsider",
+                        "negotiate",
+                        "apologise",
+                        "withdraw"
+                    ]
+                }
+            },
+            "verb_hint": "Після формальної заперечної модальної конструкції зі сполучником протиставлення постав початкову форму «засуджувати» без частки; інфінітив наприкінці належить до іменника відмови.",
+            "accepted_target_texts": [
+                "We cannot but deplore the committee's refusal to reconsider.",
+                "We cannot but condemn the committee's refusal to reconsider."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "condemn"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "condemn"
+                ]
+            },
+            "reorder_groups": [
+                "We cannot but",
+                "deplore",
+                "the committee's refusal",
+                "to reconsider."
+            ],
+            "token_groups": [
+                "We cannot but",
+                "deplore",
+                "the committee's refusal",
+                "to reconsider."
+            ],
+            "quality_revision": "vpq-v1",
+            "tokens_correct": [
+                "We",
+                "cannot",
+                "but",
+                "deplore",
+                "the",
+                "committee's",
+                "refusal",
+                "to",
+                "reconsider."
+            ],
+            "options": [
+                "We",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "cannot",
+                "wouldn't",
+                "shouldn't",
+                "can",
+                "but",
+                "whereas",
+                "while",
+                "if",
+                "deplore",
+                "question",
+                "dispute",
+                "accept",
+                "the",
+                "every",
+                "no",
+                "another",
+                "committee's",
+                "director's",
+                "board's",
+                "council's",
+                "refusal",
+                "hesitation",
+                "unwillingness",
+                "determination",
+                "to",
+                "at",
+                "by",
+                "with",
+                "reconsider",
+                "negotiate",
+                "apologise",
+                "withdraw"
+            ],
+            "source_text_uk": "Ми не можемо не засуджувати відмову комітету переглянути рішення.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "cannot",
+                    "wouldn't",
+                    "shouldn't",
+                    "can"
+                ],
+                "a3": [
+                    "but",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a4": [
+                    "deplore",
+                    "question",
+                    "dispute",
+                    "accept"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "committee's",
+                    "director's",
+                    "board's",
+                    "council's"
+                ],
+                "a7": [
+                    "refusal",
+                    "hesitation",
+                    "unwillingness",
+                    "determination"
+                ],
+                "a8": [
+                    "to",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a9": [
+                    "reconsider",
+                    "negotiate",
+                    "apologise",
+                    "withdraw"
+                ]
+            },
+            "slot_roles": {
+                "a1": "formal_necessity",
+                "a2": "formal_necessity",
+                "a3": "formal_necessity",
+                "a4": "evaluative_base",
+                "a5": "possessive_refusal",
+                "a6": "possessive_refusal",
+                "a7": "possessive_refusal",
+                "a8": "infinitive_complement",
+                "a9": "infinitive_complement"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

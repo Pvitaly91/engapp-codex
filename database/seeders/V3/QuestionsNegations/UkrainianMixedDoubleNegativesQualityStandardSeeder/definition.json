@@ -1,0 +1,1626 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/double-negatives.v1.json",
+        "sha256": "3ed92df920c631369459f4cfeef06afed0748047c28b06cfb5663c332be71360"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedDoubleNegativesQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-double-negatives-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_double_negatives": {
+            "name": "Questions and Negations Quality: Double Negatives"
+        }
+    },
+    "tags": {
+        "double_negatives": {
+            "name": "Double Negatives",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "avoid_double_negatives": {
+            "name": "Avoid Double Negatives",
+            "category": "topic"
+        },
+        "not_any": {
+            "name": "Not Any",
+            "category": "topic"
+        },
+        "no_affirmative": {
+            "name": "No Affirmative",
+            "category": "topic"
+        },
+        "no_pronoun_affirmative": {
+            "name": "No Pronoun Affirmative",
+            "category": "topic"
+        },
+        "never_affirmative": {
+            "name": "Never Affirmative",
+            "category": "topic"
+        },
+        "neither_no_second_negative": {
+            "name": "Neither No Second Negative",
+            "category": "topic"
+        },
+        "dont_know_anything": {
+            "name": "Dont Know Anything",
+            "category": "topic"
+        },
+        "know_nothing": {
+            "name": "Know Nothing",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "double_negatives"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-double-negatives-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I have {a1} pencils.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У мене немає олівців.",
+            "target_text": "I have no pencils.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not",
+                        "none"
+                    ],
+                    "verb_hint": "Перед іменником запереч наявність; іншого заперечення в реченні немає."
+                }
+            },
+            "verb_hint": "Перед іменником запереч наявність; іншого заперечення в реченні немає.",
+            "accepted_target_texts": [
+                "I have no pencils."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have",
+                "no",
+                "pencils."
+            ],
+            "token_groups": [
+                "I have",
+                "no",
+                "pencils."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-double-negatives-a1-g02",
+            "author_id": "A1-g02",
+            "question": "There is {a1} in this cup.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У цій чашці нічого немає.",
+            "target_text": "There is nothing in this cup.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "not",
+                        "none"
+                    ],
+                    "verb_hint": "Використай одне заперечне слово зі значенням нічого; не додавай допоміжного заперечення."
+                }
+            },
+            "verb_hint": "Використай одне заперечне слово зі значенням нічого; не додавай допоміжного заперечення.",
+            "accepted_target_texts": [
+                "There is nothing in this cup."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "nothing",
+                "in this cup."
+            ],
+            "token_groups": [
+                "There is",
+                "nothing",
+                "in this cup."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-double-negatives-a1-g03",
+            "author_id": "A1-g03",
+            "question": "We do not have {a1} milk.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У нас немає молока.",
+            "target_text": "We do not have any milk.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "nothing"
+                    ],
+                    "verb_hint": "Заперечення вже стоїть у присудку; перед незлічуваним іменником потрібне незаперечне означення."
+                }
+            },
+            "verb_hint": "Заперечення вже стоїть у присудку; перед незлічуваним іменником потрібне незаперечне означення.",
+            "accepted_target_texts": [
+                "We do not have any milk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We do not",
+                "have",
+                "any",
+                "milk."
+            ],
+            "token_groups": [
+                "We do not",
+                "have",
+                "any",
+                "milk."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-double-negatives-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} is in the garden.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У саду нікого немає.",
+            "target_text": "Nobody is in the garden.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody",
+                        "Not"
+                    ],
+                    "verb_hint": "Заперечний підмет сам передає відсутність людей; присудок лишається стверджувальним."
+                }
+            },
+            "verb_hint": "Заперечний підмет сам передає відсутність людей; присудок лишається стверджувальним.",
+            "accepted_target_texts": [
+                "Nobody is in the garden."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "is in",
+                "the garden."
+            ],
+            "token_groups": [
+                "Nobody",
+                "is in",
+                "the garden."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-double-negatives-a1-g05",
+            "author_id": "A1-g05",
+            "question": "She does not see {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Вона нікого не бачить.",
+            "target_text": "She does not see anyone.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no"
+                    ],
+                    "verb_hint": "Заперечення вже є перед дієсловом; додаток не повинен створювати подвійного заперечення."
+                }
+            },
+            "verb_hint": "Заперечення вже є перед дієсловом; додаток не повинен створювати подвійного заперечення.",
+            "accepted_target_texts": [
+                "She does not see anyone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She does not",
+                "see",
+                "anyone."
+            ],
+            "token_groups": [
+                "She does not",
+                "see",
+                "anyone."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-double-negatives-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The jar has {a1} lid.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Банка не має кришки.",
+            "target_text": "The jar has no lid.",
+            "markers": {
+                "a1": {
+                    "answer": "no",
+                    "options": [
+                        "no",
+                        "not",
+                        "none"
+                    ],
+                    "verb_hint": "Перед назвою предмета використай одне заперечне означення без додаткового заперечення присудка."
+                }
+            },
+            "verb_hint": "Перед назвою предмета використай одне заперечне означення без додаткового заперечення присудка.",
+            "accepted_target_texts": [
+                "The jar has no lid."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jar has",
+                "no",
+                "lid."
+            ],
+            "token_groups": [
+                "The jar has",
+                "no",
+                "lid."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-double-negatives-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The bus did not stop {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Автобус ніде не зупинився.",
+            "target_text": "The bus did not stop anywhere.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "nowhere",
+                        "no"
+                    ],
+                    "verb_hint": "Минулий присудок уже заперечний; обставина місця не повинна бути другим запереченням."
+                }
+            },
+            "verb_hint": "Минулий присудок уже заперечний; обставина місця не повинна бути другим запереченням.",
+            "accepted_target_texts": [
+                "The bus did not stop anywhere."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bus did",
+                "not",
+                "stop",
+                "anywhere."
+            ],
+            "token_groups": [
+                "The bus did",
+                "not",
+                "stop",
+                "anywhere."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-double-negatives-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} phoned during lunch.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Під час обіду ніхто не телефонував.",
+            "target_text": "Nobody phoned during lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "options": [
+                        "Nobody",
+                        "Anybody",
+                        "Not"
+                    ],
+                    "verb_hint": "Запереч людей через підмет; решта речення залишається стверджувальною."
+                }
+            },
+            "verb_hint": "Запереч людей через підмет; решта речення залишається стверджувальною.",
+            "accepted_target_texts": [
+                "Nobody phoned during lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "phoned",
+                "during lunch."
+            ],
+            "token_groups": [
+                "Nobody",
+                "phoned",
+                "during lunch."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-double-negatives-a2-g03",
+            "author_id": "A2-g03",
+            "question": "There was {a1} to read.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Читати було нічого.",
+            "target_text": "There was nothing to read.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "not",
+                        "none"
+                    ],
+                    "verb_hint": "Використай єдиний заперечний займенник зі значенням відсутності речей."
+                }
+            },
+            "verb_hint": "Використай єдиний заперечний займенник зі значенням відсутності речей.",
+            "accepted_target_texts": [
+                "There was nothing to read."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There was",
+                "nothing",
+                "to read."
+            ],
+            "token_groups": [
+                "There was",
+                "nothing",
+                "to read."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-double-negatives-a2-g04",
+            "author_id": "A2-g04",
+            "question": "My cousin never buys {a1} sweets.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Мій двоюрідний брат ніколи не купує солодощів.",
+            "target_text": "My cousin never buys any sweets.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Прислівник частотності вже заперечний; перед іменником не додавай другого заперечення."
+                }
+            },
+            "verb_hint": "Прислівник частотності вже заперечний; перед іменником не додавай другого заперечення.",
+            "accepted_target_texts": [
+                "My cousin never buys any sweets."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My cousin never",
+                "buys",
+                "any",
+                "sweets."
+            ],
+            "token_groups": [
+                "My cousin never",
+                "buys",
+                "any",
+                "sweets."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-double-negatives-a2-g05",
+            "author_id": "A2-g05",
+            "question": "We did not take {a1} photographs.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ми не зробили жодних фотографій.",
+            "target_text": "We did not take any photographs.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Збережи вже наведене заперечення минулого присудка; означення має бути незаперечним."
+                }
+            },
+            "verb_hint": "Збережи вже наведене заперечення минулого присудка; означення має бути незаперечним.",
+            "accepted_target_texts": [
+                "We did not take any photographs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We did not",
+                "take",
+                "any",
+                "photographs."
+            ],
+            "token_groups": [
+                "We did not",
+                "take",
+                "any",
+                "photographs."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-double-negatives-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The empty shop sold {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "У порожньому магазині нічого не продали.",
+            "target_text": "The empty shop sold nothing.",
+            "markers": {
+                "a1": {
+                    "answer": "nothing",
+                    "options": [
+                        "nothing",
+                        "not",
+                        "none"
+                    ],
+                    "verb_hint": "Передай заперечення одним додатком зі значенням нічого."
+                }
+            },
+            "verb_hint": "Передай заперечення одним додатком зі значенням нічого.",
+            "accepted_target_texts": [
+                "The empty shop sold nothing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The empty shop",
+                "sold",
+                "nothing."
+            ],
+            "token_groups": [
+                "The empty shop",
+                "sold",
+                "nothing."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-double-negatives-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Neither candidate has offered {a1} details.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жоден із двох кандидатів не надав подробиць.",
+            "target_text": "Neither candidate has offered any details.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Підмет уже заперечний; перед іменником не повторюй заперечення."
+                }
+            },
+            "verb_hint": "Підмет уже заперечний; перед іменником не повторюй заперечення.",
+            "accepted_target_texts": [
+                "Neither candidate has offered any details."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither candidate",
+                "has offered",
+                "any",
+                "details."
+            ],
+            "token_groups": [
+                "Neither candidate",
+                "has offered",
+                "any",
+                "details."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-double-negatives-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Hardly {a1} noticed the missing label.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Майже ніхто не помітив відсутньої етикетки.",
+            "target_text": "Hardly anyone noticed the missing label.",
+            "markers": {
+                "a1": {
+                    "answer": "anyone",
+                    "options": [
+                        "anyone",
+                        "nobody",
+                        "no"
+                    ],
+                    "verb_hint": "Слово зі значенням майже не створює заперечний контекст; не додавай заперечного займенника."
+                }
+            },
+            "verb_hint": "Слово зі значенням майже не створює заперечний контекст; не додавай заперечного займенника.",
+            "accepted_target_texts": [
+                "Hardly anyone noticed the missing label."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hardly",
+                "anyone",
+                "noticed",
+                "the missing label."
+            ],
+            "token_groups": [
+                "Hardly",
+                "anyone",
+                "noticed",
+                "the missing label."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-double-negatives-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The guide never mentioned {a1} restrictions.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Екскурсовод ніколи не згадував жодних обмежень.",
+            "target_text": "The guide never mentioned any restrictions.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Прислівник уже заперечує дію; використай незаперечне означення перед множиною."
+                }
+            },
+            "verb_hint": "Прислівник уже заперечує дію; використай незаперечне означення перед множиною.",
+            "accepted_target_texts": [
+                "The guide never mentioned any restrictions."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "never mentioned",
+                "any",
+                "restrictions."
+            ],
+            "token_groups": [
+                "The guide",
+                "never mentioned",
+                "any",
+                "restrictions."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-double-negatives-b1-g04",
+            "author_id": "B1-g04",
+            "question": "I have not heard from {a1} of them.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Я не отримав звістки від жодного з них двох.",
+            "target_text": "I have not heard from either of them.",
+            "markers": {
+                "a1": {
+                    "answer": "either",
+                    "options": [
+                        "either",
+                        "neither",
+                        "no"
+                    ],
+                    "verb_hint": "Присудок уже заперечний; обери слово для одного або другого з двох без повторного заперечення."
+                }
+            },
+            "verb_hint": "Присудок уже заперечний; обери слово для одного або другого з двох без повторного заперечення.",
+            "accepted_target_texts": [
+                "I have not heard from either of them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have not",
+                "heard from",
+                "either",
+                "of them."
+            ],
+            "token_groups": [
+                "I have not",
+                "heard from",
+                "either",
+                "of them."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-double-negatives-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Nobody has said {a1} about the delay.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ніхто нічого не сказав про затримку.",
+            "target_text": "Nobody has said anything about the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "anything",
+                    "options": [
+                        "anything",
+                        "nothing",
+                        "no"
+                    ],
+                    "verb_hint": "Підмет уже заперечує речення; додаток не має містити другого заперечення."
+                }
+            },
+            "verb_hint": "Підмет уже заперечує речення; додаток не має містити другого заперечення.",
+            "accepted_target_texts": [
+                "Nobody has said anything about the delay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody has",
+                "said",
+                "anything",
+                "about the delay."
+            ],
+            "token_groups": [
+                "Nobody has",
+                "said",
+                "anything",
+                "about the delay."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-double-negatives-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The answer could not be found {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Відповіді ніде не можна було знайти.",
+            "target_text": "The answer could not be found anywhere.",
+            "markers": {
+                "a1": {
+                    "answer": "anywhere",
+                    "options": [
+                        "anywhere",
+                        "nowhere",
+                        "no"
+                    ],
+                    "verb_hint": "Присудок уже заперечний; обставина місця не повинна містити другого заперечення."
+                }
+            },
+            "verb_hint": "Присудок уже заперечний; обставина місця не повинна містити другого заперечення.",
+            "accepted_target_texts": [
+                "The answer could not be found anywhere."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The answer",
+                "could not",
+                "be found",
+                "anywhere."
+            ],
+            "token_groups": [
+                "The answer",
+                "could not",
+                "be found",
+                "anywhere."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-double-negatives-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The chair could not {a1} the contradiction.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Голова не міг не помітити суперечність: він обов’язково її помітив.",
+            "target_text": "The chair could not overlook the contradiction.",
+            "markers": {
+                "a1": {
+                    "answer": "overlook",
+                    "options": [
+                        "overlook",
+                        "not overlook",
+                        "never overlook"
+                    ],
+                    "verb_hint": "Для заданого змісту неможливості пропустити суперечність залиш лише наведене заперечення."
+                }
+            },
+            "verb_hint": "Для заданого змісту неможливості пропустити суперечність залиш лише наведене заперечення.",
+            "accepted_target_texts": [
+                "The chair could not overlook the contradiction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "could not",
+                "overlook",
+                "the contradiction."
+            ],
+            "token_groups": [
+                "The chair",
+                "could not",
+                "overlook",
+                "the contradiction."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-double-negatives-b2-g02",
+            "author_id": "B2-g02",
+            "question": "There is scarcely {a1} scope for compromise.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Можливостей для компромісу майже немає.",
+            "target_text": "There is scarcely any scope for compromise.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Слово зі значенням ледве вже створює негативний контекст; означення не має бути другим запереченням."
+                }
+            },
+            "verb_hint": "Слово зі значенням ледве вже створює негативний контекст; означення не має бути другим запереченням.",
+            "accepted_target_texts": [
+                "There is scarcely any scope for compromise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is scarcely",
+                "any",
+                "scope for compromise."
+            ],
+            "token_groups": [
+                "There is scarcely",
+                "any",
+                "scope for compromise."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-double-negatives-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Not all the witnesses {a1} the account.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Не всі свідки підтвердили цю розповідь.",
+            "target_text": "Not all the witnesses corroborated the account.",
+            "markers": {
+                "a1": {
+                    "answer": "corroborated",
+                    "options": [
+                        "corroborated",
+                        "did not corroborate",
+                        "never corroborated"
+                    ],
+                    "verb_hint": "Заперечення стосується повноти групи, а не дії кожного; збережи стверджувальний присудок."
+                }
+            },
+            "verb_hint": "Заперечення стосується повноти групи, а не дії кожного; збережи стверджувальний присудок.",
+            "accepted_target_texts": [
+                "Not all the witnesses corroborated the account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not all",
+                "the witnesses",
+                "corroborated",
+                "the account."
+            ],
+            "token_groups": [
+                "Not all",
+                "the witnesses",
+                "corroborated",
+                "the account."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-double-negatives-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Neither explanation is {a1} convincing.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жодне з двох пояснень навіть близько не переконує.",
+            "target_text": "Neither explanation is remotely convincing.",
+            "markers": {
+                "a1": {
+                    "answer": "remotely",
+                    "options": [
+                        "remotely",
+                        "not remotely",
+                        "never remotely"
+                    ],
+                    "verb_hint": "Заперечний підмет уже виконує всю роботу; прислівник підсилює оцінку без нового заперечення."
+                }
+            },
+            "verb_hint": "Заперечний підмет уже виконує всю роботу; прислівник підсилює оцінку без нового заперечення.",
+            "accepted_target_texts": [
+                "Neither explanation is remotely convincing."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither explanation",
+                "is",
+                "remotely",
+                "convincing."
+            ],
+            "token_groups": [
+                "Neither explanation",
+                "is",
+                "remotely",
+                "convincing."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-double-negatives-b2-g05",
+            "author_id": "B2-g05",
+            "question": "We have no objection {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ми зовсім не заперечуємо.",
+            "target_text": "We have no objection whatsoever.",
+            "markers": {
+                "a1": {
+                    "answer": "whatsoever",
+                    "options": [
+                        "whatsoever",
+                        "not whatsoever",
+                        "never whatsoever"
+                    ],
+                    "verb_hint": "Іменна група вже заперечна; додай лише підсилення зі значенням зовсім."
+                }
+            },
+            "verb_hint": "Іменна група вже заперечна; додай лише підсилення зі значенням зовсім.",
+            "accepted_target_texts": [
+                "We have no objection whatsoever."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We have",
+                "no objection",
+                "whatsoever."
+            ],
+            "token_groups": [
+                "We have",
+                "no objection",
+                "whatsoever."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-double-negatives-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Without {a1} further warning, the lights failed.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Без жодного додаткового попередження світло згасло.",
+            "target_text": "Without any further warning, the lights failed.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Прийменник уже передає відсутність; не дублюй заперечення перед іменником."
+                }
+            },
+            "verb_hint": "Прийменник уже передає відсутність; не дублюй заперечення перед іменником.",
+            "accepted_target_texts": [
+                "Without any further warning, the lights failed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Without",
+                "any",
+                "further warning,",
+                "the lights failed."
+            ],
+            "token_groups": [
+                "Without",
+                "any",
+                "further warning,",
+                "the lights failed."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-double-negatives-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The impact was not {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Вплив був досить істотним, хоч мовець висловлюється стримано.",
+            "target_text": "The impact was not insignificant.",
+            "markers": {
+                "a1": {
+                    "answer": "insignificant",
+                    "options": [
+                        "insignificant",
+                        "not insignificant",
+                        "never insignificant"
+                    ],
+                    "verb_hint": "Збережи літоту: запереч слабкість впливу, не додаючи ще однієї частки."
+                }
+            },
+            "verb_hint": "Збережи літоту: запереч слабкість впливу, не додаючи ще однієї частки.",
+            "accepted_target_texts": [
+                "The impact was not insignificant."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The impact was",
+                "not",
+                "insignificant."
+            ],
+            "token_groups": [
+                "The impact was",
+                "not",
+                "insignificant."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-double-negatives-c1-g02",
+            "author_id": "C1-g02",
+            "question": "No party can reasonably claim {a1} advantage.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жодна сторона не може обґрунтовано заявляти про якусь перевагу.",
+            "target_text": "No party can reasonably claim any advantage.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Підмет уже заперечний; перед іменником потрібне незаперечне означення."
+                }
+            },
+            "verb_hint": "Підмет уже заперечний; перед іменником потрібне незаперечне означення.",
+            "accepted_target_texts": [
+                "No party can reasonably claim any advantage."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No party",
+                "can reasonably claim",
+                "any",
+                "advantage."
+            ],
+            "token_groups": [
+                "No party",
+                "can reasonably claim",
+                "any",
+                "advantage."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-double-negatives-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The argument is not entirely {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Аргумент певною мірою має рацію.",
+            "target_text": "The argument is not entirely without merit.",
+            "markers": {
+                "a1": {
+                    "answer": "without merit",
+                    "options": [
+                        "without merit",
+                        "not without merit",
+                        "never without merit"
+                    ],
+                    "verb_hint": "Запереч повну відсутність переваг, щоб утворити стриману позитивну оцінку."
+                }
+            },
+            "verb_hint": "Запереч повну відсутність переваг, щоб утворити стриману позитивну оцінку.",
+            "accepted_target_texts": [
+                "The argument is not entirely without merit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The argument is",
+                "not entirely",
+                "without merit."
+            ],
+            "token_groups": [
+                "The argument is",
+                "not entirely",
+                "without merit."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-double-negatives-c1-g04",
+            "author_id": "C1-g04",
+            "question": "None of the evidence {a1} the allegation.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жоден доказ не підтверджує звинувачення.",
+            "target_text": "None of the evidence supports the allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "supports",
+                    "options": [
+                        "supports",
+                        "does not support",
+                        "never supports"
+                    ],
+                    "verb_hint": "Підмет уже передає заперечення; присудок залиш стверджувальним і узгодженим із незлічуваним іменником."
+                }
+            },
+            "verb_hint": "Підмет уже передає заперечення; присудок залиш стверджувальним і узгодженим із незлічуваним іменником.",
+            "accepted_target_texts": [
+                "None of the evidence supports the allegation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "None of",
+                "the evidence",
+                "supports",
+                "the allegation."
+            ],
+            "token_groups": [
+                "None of",
+                "the evidence",
+                "supports",
+                "the allegation."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-double-negatives-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The outcome was by no means {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Цей наслідок аж ніяк не був неминучим.",
+            "target_text": "The outcome was by no means inevitable.",
+            "markers": {
+                "a1": {
+                    "answer": "inevitable",
+                    "options": [
+                        "inevitable",
+                        "not inevitable",
+                        "never inevitable"
+                    ],
+                    "verb_hint": "Заперечний зворот уже є; після нього потрібна позитивна форма прикметника зі значенням неминучий."
+                }
+            },
+            "verb_hint": "Заперечний зворот уже є; після нього потрібна позитивна форма прикметника зі значенням неминучий.",
+            "accepted_target_texts": [
+                "The outcome was by no means inevitable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The outcome was",
+                "by no means",
+                "inevitable."
+            ],
+            "token_groups": [
+                "The outcome was",
+                "by no means",
+                "inevitable."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-double-negatives-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The proposal is not {a1} criticism.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Пропозиція не захищена від критики.",
+            "target_text": "The proposal is not immune to criticism.",
+            "markers": {
+                "a1": {
+                    "answer": "immune to",
+                    "options": [
+                        "immune to",
+                        "not immune to",
+                        "never immune to"
+                    ],
+                    "verb_hint": "Використай лише вже наявне граматичне заперечення й зворот зі значенням захищений від."
+                }
+            },
+            "verb_hint": "Використай лише вже наявне граматичне заперечення й зворот зі значенням захищений від.",
+            "accepted_target_texts": [
+                "The proposal is not immune to criticism."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal is",
+                "not",
+                "immune to",
+                "criticism."
+            ],
+            "token_groups": [
+                "The proposal is",
+                "not",
+                "immune to",
+                "criticism."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-double-negatives-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The distinction is not {a1} to the appeal.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Це розрізнення певною мірою стосується апеляції.",
+            "target_text": "The distinction is not irrelevant to the appeal.",
+            "markers": {
+                "a1": {
+                    "answer": "irrelevant",
+                    "options": [
+                        "irrelevant",
+                        "not irrelevant",
+                        "never irrelevant"
+                    ],
+                    "verb_hint": "Збережи літоту зі значенням обережного визнання релевантності."
+                }
+            },
+            "verb_hint": "Збережи літоту зі значенням обережного визнання релевантності.",
+            "accepted_target_texts": [
+                "The distinction is not irrelevant to the appeal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction is",
+                "not",
+                "irrelevant",
+                "to the appeal."
+            ],
+            "token_groups": [
+                "The distinction is",
+                "not",
+                "irrelevant",
+                "to the appeal."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-double-negatives-c2-g02",
+            "author_id": "C2-g02",
+            "question": "No presumption arises in {a1} circumstances whatsoever.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жодна презумпція не виникає за жодних обставин.",
+            "target_text": "No presumption arises in any circumstances whatsoever.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Заперечення вже міститься в підметі; означення перед обставинами не дублює його."
+                }
+            },
+            "verb_hint": "Заперечення вже міститься в підметі; означення перед обставинами не дублює його.",
+            "accepted_target_texts": [
+                "No presumption arises in any circumstances whatsoever."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No presumption",
+                "arises in",
+                "any",
+                "circumstances whatsoever."
+            ],
+            "token_groups": [
+                "No presumption",
+                "arises in",
+                "any",
+                "circumstances whatsoever."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-double-negatives-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The tribunal was not {a1} the anomaly.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Трибунал зважав на цю аномалію, хоча це висловлено стримано.",
+            "target_text": "The tribunal was not unmindful of the anomaly.",
+            "markers": {
+                "a1": {
+                    "answer": "unmindful of",
+                    "options": [
+                        "unmindful of",
+                        "not unmindful of",
+                        "never unmindful of"
+                    ],
+                    "verb_hint": "Через заперечення неуважності передай визнання обізнаності."
+                }
+            },
+            "verb_hint": "Через заперечення неуважності передай визнання обізнаності.",
+            "accepted_target_texts": [
+                "The tribunal was not unmindful of the anomaly."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal was",
+                "not",
+                "unmindful of",
+                "the anomaly."
+            ],
+            "token_groups": [
+                "The tribunal was",
+                "not",
+                "unmindful of",
+                "the anomaly."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-double-negatives-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Neither construction leaves {a1} room for arbitrariness.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Жодне з двох тлумачень не залишає простору для свавілля.",
+            "target_text": "Neither construction leaves any room for arbitrariness.",
+            "markers": {
+                "a1": {
+                    "answer": "any",
+                    "options": [
+                        "any",
+                        "no",
+                        "none"
+                    ],
+                    "verb_hint": "Підмет уже заперечує весь вислів; перед незлічуваною назвою простору потрібне незаперечне означення."
+                }
+            },
+            "verb_hint": "Підмет уже заперечує весь вислів; перед незлічуваною назвою простору потрібне незаперечне означення.",
+            "accepted_target_texts": [
+                "Neither construction leaves any room for arbitrariness."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither construction",
+                "leaves",
+                "any",
+                "room for arbitrariness."
+            ],
+            "token_groups": [
+                "Neither construction",
+                "leaves",
+                "any",
+                "room for arbitrariness."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-double-negatives-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The concession was not {a1} by precedent.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Поступка мала певну опору в прецеденті.",
+            "target_text": "The concession was not unsupported by precedent.",
+            "markers": {
+                "a1": {
+                    "answer": "unsupported",
+                    "options": [
+                        "unsupported",
+                        "not unsupported",
+                        "never unsupported"
+                    ],
+                    "verb_hint": "Збережи літоту: запереч відсутність підтримки, а не саму підтримку."
+                }
+            },
+            "verb_hint": "Збережи літоту: запереч відсутність підтримки, а не саму підтримку.",
+            "accepted_target_texts": [
+                "The concession was not unsupported by precedent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession was",
+                "not",
+                "unsupported",
+                "by precedent."
+            ],
+            "token_groups": [
+                "The concession was",
+                "not",
+                "unsupported",
+                "by precedent."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-double-negatives-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The evidence cannot be {a1} immaterial.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_double_negatives",
+            "translation_uk": "Ці докази не можна відкинути як неістотні.",
+            "target_text": "The evidence cannot be dismissed as immaterial.",
+            "markers": {
+                "a1": {
+                    "answer": "dismissed as",
+                    "options": [
+                        "dismissed as",
+                        "not dismissed as",
+                        "never dismissed as"
+                    ],
+                    "verb_hint": "Граматичне заперечення вже є; дієслівний зворот не повинен додавати нового."
+                }
+            },
+            "verb_hint": "Граматичне заперечення вже є; дієслівний зворот не повинен додавати нового.",
+            "accepted_target_texts": [
+                "The evidence cannot be dismissed as immaterial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "cannot be",
+                "dismissed as",
+                "immaterial."
+            ],
+            "token_groups": [
+                "The evidence",
+                "cannot be",
+                "dismissed as",
+                "immaterial."
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

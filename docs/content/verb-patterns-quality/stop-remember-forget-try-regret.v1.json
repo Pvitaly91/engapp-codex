@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "topic_key": "stop-remember-forget-try-regret",
+  "title": "Stop / Remember / Forget / Try / Regret",
+  "choice_pools": {
+    "past_pause": ["We stopped", "They waited", "I stayed", "She left", "He returned", "You paused", "The bus stopped", "Our friends came"],
+    "infinitive_purpose": ["to have lunch", "to drink water", "to buy bread", "to find shelter", "to take photos", "to rest", "to wash", "to eat dinner"],
+    "proper_attempt": ["Taras tried", "Olena wanted", "Nina decided", "Danylo hoped", "Marta planned", "Bohdan promised", "Petro refused", "Iryna agreed"],
+    "movement_infinitive": ["to move", "to carry", "to lift", "to drag", "to replace", "to repair", "to pack", "to clean"],
+    "singular_furniture": ["the chair", "the bench", "the cupboard", "the table", "the desk", "the sofa", "the shelf", "the cabinet"],
+    "contrast_clause": ["but it was", "although it was", "because it was", "unless it was", "when it was", "while it was", "since it was", "if it was"],
+    "physical_limit": ["too heavy", "too wide", "too narrow", "very small", "quite light", "much bigger", "too fragile", "badly damaged"],
+    "present_memory": ["Lesia remembers", "Maksym recalls", "Olha regrets", "Yurii remembers", "Nadiia recalls", "Daryna regrets", "Sofia remembers", "Ostap recalls"],
+    "gerund_action": ["hiding", "placing", "packing", "finding", "moving", "dropping", "opening", "carrying"],
+    "definite_object": ["the present", "the parcel", "the necklace", "the password", "the letter", "the envelope", "the picture", "the notebook"],
+    "access_object": ["the password", "the username", "the firewall", "the router", "the certificate", "the settings", "the account", "the network", "the application"],
+    "hidden_location": ["behind the sofa", "under the stairs", "inside the cupboard", "beside the window", "above the fireplace", "behind the curtain", "beneath the table", "near the door"],
+    "attempted_method": ["We tried changing", "They tried replacing", "I tried checking", "She tried updating", "He tried resetting", "You tried entering", "We tried deleting", "They tried restarting"],
+    "restoration_purpose": ["to restore access", "to save time", "to reduce costs", "to avoid delays", "to protect data", "to improve security", "to prevent damage", "to increase capacity"],
+    "regret_subject": ["The editor regrets", "The witness remembers", "The artist regrets", "The reporter remembers", "The author regrets", "The officer recalls", "The director regrets", "The researcher remembers"],
+    "perfect_gerund": ["having revealed", "having concealed", "having overlooked", "having distorted", "having ignored", "having repeated", "having altered", "having omitted"],
+    "identity_object": ["the witness's identity", "the source's location", "the suspect's address", "the donor's name", "the visitor's purpose", "the applicant's details", "the recipient's address", "the speaker's affiliation"],
+    "before_event": ["before the hearing", "after the meeting", "during the interview", "before the inquiry", "after the inspection", "during the briefing", "before the trial", "after the announcement"],
+    "present_deep_regret": ["We deeply regret", "They sincerely regret", "I bitterly regret", "She deeply regrets", "He sincerely regrets", "You bitterly regret", "We now regret", "They still regret"],
+    "negative_perfect_gerund": ["not having challenged", "not having verified", "not having consulted", "not having recorded", "not having examined", "not having disputed", "not having questioned", "not having documented"],
+    "misleading_object": ["the misleading wording", "the ambiguous statement", "the inaccurate description", "the disputed evidence", "the inconsistent account", "the unsupported claim", "the conflicting testimony", "the questionable premise"],
+    "earlier_adverb": ["sooner", "earlier", "immediately", "promptly", "openly", "publicly", "directly", "explicitly"]
+  },
+  "questions": [
+    {
+      "id": "A1-g01", "level": "A1", "kind": "gap",
+      "question": "The girl stopped {a1} and closed the book.",
+      "target": "The girl stopped reading and closed the book.",
+      "uk": "Дівчинка перестала читати й закрила книжку.",
+      "hint_uk": "Перестала читати: назви припинене заняття формою із закінченням -інг, а не мету зупинки.",
+      "groups": ["The girl stopped", "reading", "and closed", "the book."],
+      "answer": "reading", "options": ["reading", "to read", "read"], "answer_synonyms": []
+    },
+    {
+      "id": "A1-g02", "level": "A1", "kind": "gap",
+      "question": "We remembered {a1} the milk.",
+      "target": "We remembered to buy the milk.",
+      "uk": "Ми не забули купити молоко.",
+      "hint_uk": "Не забули купити, придбати: передай виконане доручення, а не спогад про минулу покупку.",
+      "groups": ["We remembered", "to buy", "the milk."],
+      "answer": "to buy", "options": ["to buy", "buying", "buy"], "answer_synonyms": ["to purchase"]
+    },
+    {
+      "id": "A1-c01", "level": "A1", "kind": "compose",
+      "question": "Ми зупинилися, щоб пообідати.",
+      "target": "We stopped to have lunch.",
+      "uk": "Ми зупинилися, щоб пообідати.",
+      "hint_uk": "Перша дія — зупинка, а обід є її метою; почни з мовців і збережи минулий час.",
+      "groups": ["We stopped", "to have lunch."],
+      "compose_slots": ["We stopped", "to have lunch."],
+      "slot_roles": ["past_pause", "infinitive_purpose"],
+      "accepted_targets": ["We stopped to eat lunch.", "We paused to have lunch.", "We paused to eat lunch."],
+      "display_synonyms": {"We stopped": ["We paused"], "to have lunch": ["to eat lunch"]}
+    },
+    {
+      "id": "A2-g01", "level": "A2", "kind": "gap",
+      "question": "The receptionist forgot {a1} the parcel, so it stayed on her desk.",
+      "target": "The receptionist forgot to post the parcel, so it stayed on her desk.",
+      "uk": "Адміністраторка забула надіслати посилку поштою, тому вона залишилася на її столі.",
+      "hint_uk": "Доручення надіслати поштою не виконано; назви забуту дію інфінітивом, не спогад про її виконання.",
+      "groups": ["The receptionist forgot", "to post", "the parcel,", "so it stayed", "on her desk."],
+      "answer": "to post", "options": ["to post", "posting", "post"], "answer_synonyms": ["to mail", "to send"]
+    },
+    {
+      "id": "A2-g02", "level": "A2", "kind": "gap",
+      "question": "I will never forget {a1} a dolphin for the first time.",
+      "target": "I will never forget seeing a dolphin for the first time.",
+      "uk": "Я ніколи не забуду, як уперше побачив дельфіна.",
+      "hint_uk": "Передай незабутній минулий досвід «побачити»; це спогад, а не доручення на майбутнє.",
+      "groups": ["I will never", "forget seeing", "a dolphin", "for the first", "time."],
+      "answer": "seeing", "options": ["seeing", "to see", "see"], "answer_synonyms": []
+    },
+    {
+      "id": "A2-c01", "level": "A2", "kind": "compose",
+      "question": "Тарас намагався пересунути стілець, але той був надто важкий.",
+      "target": "Taras tried to move the chair but it was too heavy.",
+      "uk": "Тарас намагався пересунути стілець, але той був надто важкий.",
+      "hint_uk": "Передай намагання виконати важку дію, не випробування способу; збережи перешкоду — надмірну вагу стільця.",
+      "groups": ["Taras tried", "to move", "the chair", "but it was", "too heavy."],
+      "compose_slots": ["Taras tried", "to move", "the chair", "but it was", "too heavy."],
+      "slot_roles": ["proper_attempt", "movement_infinitive", "singular_furniture", "contrast_clause", "physical_limit"],
+      "accepted_targets": ["Taras tried to shift the chair but it was too heavy."],
+      "display_synonyms": {"to move": ["to shift"]}
+    },
+    {
+      "id": "B1-g01", "level": "B1", "kind": "gap",
+      "question": "The cyclist stopped {a1} his water bottle before the next hill.",
+      "target": "The cyclist stopped to refill his water bottle before the next hill.",
+      "uk": "Велосипедист зупинився, щоб знову наповнити пляшку водою перед наступним пагорбом.",
+      "hint_uk": "Повторне наповнення пляшки є метою зупинки; назви цю дію інфінітивом, не припинення наповнення.",
+      "groups": ["The cyclist stopped", "to refill", "his water bottle", "before the next", "hill."],
+      "answer": "to refill", "options": ["to refill", "refilling", "refill"], "answer_synonyms": ["to fill up"]
+    },
+    {
+      "id": "B1-g02", "level": "B1", "kind": "gap",
+      "question": "The screen froze, so Mira tried {a1} the program.",
+      "target": "The screen froze, so Mira tried restarting the program.",
+      "uk": "Екран завис, тому Міра випробувала перезапуск програми як можливе рішення.",
+      "hint_uk": "Назви перезапуск як випробуваний спосіб усунути проблему; не описуй лише намагання перезапустити програму.",
+      "groups": ["The screen froze,", "so Mira tried", "restarting", "the program."],
+      "answer": "restarting", "options": ["restarting", "to restart", "restart"], "answer_synonyms": ["relaunching"]
+    },
+    {
+      "id": "B1-c01", "level": "B1", "kind": "compose",
+      "question": "Леся пам’ятає, як сховала подарунок за диваном.",
+      "target": "Lesia remembers hiding the present behind the sofa.",
+      "uk": "Леся пам’ятає, як сховала подарунок за диваном.",
+      "hint_uk": "Це теперішній спогад про виконану дію, а не нагадування на майбутнє; збережи подарунок і місце схованки.",
+      "groups": ["Lesia remembers", "hiding", "the present", "behind the sofa."],
+      "compose_slots": ["Lesia remembers", "hiding", "the present", "behind the sofa."],
+      "slot_roles": ["present_memory", "gerund_action", "definite_object", "hidden_location"],
+      "accepted_targets": ["Lesia remembers hiding the gift behind the sofa.", "Lesia remembers hiding the present behind the couch.", "Lesia remembers hiding the gift behind the couch."],
+      "display_synonyms": {"the present": ["the gift"], "behind the sofa": ["behind the couch"]}
+    },
+    {
+      "id": "B2-g01", "level": "B2", "kind": "gap",
+      "question": "The curator regrets {a1} the disputed sketch without checking its history.",
+      "target": "The curator regrets buying the disputed sketch without checking its history.",
+      "uk": "Куратор шкодує, що придбав спірний ескіз, не перевіривши його історії.",
+      "hint_uk": "Передай жаль про вже здійснене придбання; прийнятна проста форма герундія або форма, що явно позначає попередню дію.",
+      "groups": ["The curator regrets", "buying", "the disputed sketch", "without checking", "its history."],
+      "answer": "buying", "options": ["buying", "to buy", "buy"], "answer_synonyms": ["purchasing", "having bought", "having purchased"]
+    },
+    {
+      "id": "B2-g02", "level": "B2", "kind": "gap",
+      "question": "The agency regrets {a1} applicants that no grants remain available this quarter.",
+      "target": "The agency regrets to inform applicants that no grants remain available this quarter.",
+      "uk": "Агенція з прикрістю повідомляє заявникам, що цього кварталу грантів більше немає.",
+      "hint_uk": "Передай ввічливе офіційне повідомлення зараз, не жаль про минуле повідомлення; назви дію «повідомити» інфінітивом.",
+      "groups": ["The agency regrets", "to inform applicants", "that no grants", "remain available", "this quarter."],
+      "answer": "to inform", "options": ["to inform", "informing", "inform"], "answer_synonyms": ["to notify", "to tell"]
+    },
+    {
+      "id": "B2-c01", "level": "B2", "kind": "compose",
+      "question": "Ми випробували зміну пароля як спосіб відновити доступ.",
+      "target": "We tried changing the password to restore access.",
+      "uk": "Ми випробували зміну пароля як спосіб відновити доступ.",
+      "hint_uk": "Після дієслова спроби назви випробуваний спосіб герундієм; інфінітив наприкінці пояснює мету, не підтверджує успіху.",
+      "groups": ["We tried changing", "the password", "to restore access."],
+      "compose_slots": ["We tried changing", "the password", "to restore access."],
+      "slot_roles": ["attempted_method", "access_object", "restoration_purpose"],
+      "accepted_targets": ["We tried changing the password to regain access."],
+      "display_synonyms": {"to restore access": ["to regain access"]}
+    },
+    {
+      "id": "C1-g01", "level": "C1", "kind": "gap",
+      "question": "The witness remembers {a1} a warning before the bridge was closed.",
+      "target": "The witness remembers having been given a warning before the bridge was closed.",
+      "uk": "Свідок пам’ятає, що його попередили до закриття мосту.",
+      "hint_uk": "Це спогад про отримане попередження; заповни лише пасивну дієслівну частину. Прийнятна проста або перфектна форма герундія.",
+      "groups": ["The witness remembers", "having been given", "a warning", "before the bridge", "was closed."],
+      "answer": "having been given", "options": ["having been given", "to have given", "having given"], "answer_synonyms": ["being given"]
+    },
+    {
+      "id": "C1-g02", "level": "C1", "kind": "gap",
+      "question": "Rather than replace the faulty sensor at once, the engineer tried {a1} it first.",
+      "target": "Rather than replace the faulty sensor at once, the engineer tried recalibrating it first.",
+      "uk": "Замість одразу замінювати несправний датчик інженер спершу випробував його повторне калібрування.",
+      "hint_uk": "Назви повторне калібрування як випробуваний спосіб; заміну лише відклали, результат випробування не повідомлено.",
+      "groups": ["Rather than replace", "the faulty sensor", "at once,", "the engineer tried", "recalibrating it first."],
+      "answer": "recalibrating", "options": ["recalibrating", "to recalibrate", "recalibrate"], "answer_synonyms": []
+    },
+    {
+      "id": "C1-c01", "level": "C1", "kind": "compose",
+      "question": "Редактор шкодує, що розкрив особу свідка до слухання.",
+      "target": "The editor regrets having revealed the witness's identity before the hearing.",
+      "uk": "Редактор шкодує, що розкрив особу свідка до слухання.",
+      "hint_uk": "Жаль стосується вже здійсненого розкриття особи; явно познач попередню дію, не перетворюй речення на оголошення зараз.",
+      "groups": ["The editor regrets", "having revealed", "the witness's identity", "before the hearing."],
+      "compose_slots": ["The editor regrets", "having revealed", "the witness's identity", "before the hearing."],
+      "slot_roles": ["regret_subject", "perfect_gerund", "identity_object", "before_event"],
+      "accepted_targets": ["The editor regrets having disclosed the witness's identity before the hearing."],
+      "display_synonyms": {"having revealed": ["having disclosed"]}
+    },
+    {
+      "id": "C2-g01", "level": "C2", "kind": "gap",
+      "question": "The investigator will never forget {a1} as the source of the fabricated quotation.",
+      "target": "The investigator will never forget being misidentified as the source of the fabricated quotation.",
+      "uk": "Слідчий ніколи не забуде, як його помилково назвали джерелом сфабрикованої цитати.",
+      "hint_uk": "Передай спогад про те, як людину помилково визначили як джерело цитати; потрібна пасивна форма герундія, проста або перфектна.",
+      "groups": ["The investigator will", "never forget", "being misidentified", "as the source", "of the fabricated", "quotation."],
+      "answer": "being misidentified", "options": ["being misidentified", "to be misidentified", "misidentifying"], "answer_synonyms": ["having been misidentified"]
+    },
+    {
+      "id": "C2-g02", "level": "C2", "kind": "gap",
+      "question": "By dawn, the exhausted mediator had stopped {a1} the irreconcilable positions.",
+      "target": "By dawn, the exhausted mediator had stopped trying to reconcile the irreconcilable positions.",
+      "uk": "До світанку виснажений посередник припинив намагатися узгодити непримиренні позиції.",
+      "hint_uk": "Припинилися саме намагання узгодити позиції; введи всю трислівну групу, не лише дієслово спроби. Самої зупинки заради спроби тут немає.",
+      "groups": ["By dawn,", "the exhausted mediator", "had stopped trying", "to reconcile", "the irreconcilable positions."],
+      "answer": "trying to reconcile", "options": ["trying to reconcile", "to try reconciling", "try to reconcile"], "answer_synonyms": ["attempting to reconcile"]
+    },
+    {
+      "id": "C2-c01", "level": "C2", "kind": "compose",
+      "question": "Ми глибоко шкодуємо, що не оскаржили оманливе формулювання раніше.",
+      "target": "We deeply regret not having challenged the misleading wording sooner.",
+      "uk": "Ми глибоко шкодуємо, що не оскаржили оманливе формулювання раніше.",
+      "hint_uk": "Заперечення стосується невиконаної минулої дії, а не самого жалю; збережи перфектну форму, оманливе формулювання та значення «раніше».",
+      "groups": ["We deeply regret", "not having challenged", "the misleading wording", "sooner."],
+      "compose_slots": ["We deeply regret", "not having challenged", "the misleading wording", "sooner."],
+      "slot_roles": ["present_deep_regret", "negative_perfect_gerund", "misleading_object", "earlier_adverb"],
+      "accepted_targets": ["We deeply regret not having contested the misleading wording sooner.", "We deeply regret not having challenged the misleading phrasing sooner.", "We deeply regret not having contested the misleading phrasing sooner.", "We deeply regret not having challenged the misleading wording earlier.", "We deeply regret not having contested the misleading wording earlier.", "We deeply regret not having challenged the misleading phrasing earlier.", "We deeply regret not having contested the misleading phrasing earlier."],
+      "display_synonyms": {"not having challenged": ["not having contested"], "the misleading wording": ["the misleading phrasing"], "sooner": ["earlier"]}
+    }
+  ]
+}

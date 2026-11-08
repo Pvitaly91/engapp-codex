@@ -4,6 +4,7 @@
     'title' => null,
     'intro' => null,
     'footer' => null,
+    'canonicalTheoryCaller' => false,
 ])
 
 @php
@@ -59,7 +60,7 @@
     };
     
     // Prepare questions data for JavaScript
-    $questionsData = $questions->map(function($q) use ($isAdmin, $normalizeTags, $normalizeMarkerTags) {
+    $questionsData = $questions->map(function($q) use ($isAdmin, $normalizeTags, $normalizeMarkerTags, $locale, $blockUuid, $canonicalTheoryCaller) {
         $matchedTagIds = collect($q->getAttribute('matched_tag_ids') ?? []);
         $tags = $normalizeTags($q->tags, $matchedTagIds);
 
@@ -70,17 +71,18 @@
             : collect();
 
         // Get verb hints by marker
-        $verbHints = $q->verbHints->mapWithKeys(function($vh) {
+        $localized = \App\Support\LocalizedComposeText::optedIn($q);
+        $verbHints = $q->verbHints->filter(fn ($vh) => !$localized || \App\Support\LocalizedComposeText::locale((string) $vh->locale) === \App\Support\LocalizedComposeText::locale($locale))->mapWithKeys(function($vh) {
             return [$vh->marker => $vh->option->option ?? ''];
         })->toArray();
         
         // Get hints/explanations
-        $hints = $q->hints->map(function($h) {
+        $hints = $q->hints->filter(fn ($h) => $h->provider !== \App\Support\LocalizedComposeText::PROVIDER && (!$localized || \App\Support\LocalizedComposeText::locale((string) $h->locale) === \App\Support\LocalizedComposeText::locale($locale)))->map(function($h) {
             return [
                 'provider' => $h->provider,
                 'hint' => $h->hint,
             ];
-        })->toArray();
+        })->values()->toArray();
 
         $answers = $q->answers
             ->sortBy(function ($answer) {
@@ -101,26 +103,90 @@
             ->values();
         
         $correctTokens = $answers->pluck('correct')->filter()->values()->toArray();
-        $options = $q->options->pluck('option')->toArray();
+        $pspSource = \App\Support\PresentSimplePassivePracticeQuality::questions()[$q->uuid]
+            ?? \App\Support\PastSimplePassivePracticeQuality::questions()[$q->uuid]
+            ?? \App\Support\FutureSimplePassivePracticeQuality::questions()[$q->uuid]
+            ?? \App\Support\FutureSimplePassivePracticeQuality::widgetSource($q);
+        $pspSource = $pspSource && $pspSource['question'] === $q->question ? $pspSource : null;
+        if ($pspSource) { $correctTokens = array_column($pspSource['markers'], 'answer'); }
+        $options = array_merge($q->options->pluck('option')->toArray(), $pspSource['additional_options'] ?? []);
+        $derivedComposeOptions = [];
+        if ($canonicalTheoryCaller === true && $pspSource
+            && (string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS) {
+            // Reuse the exact question/answer-bound vocabulary already accepted
+            // by saved tests. Never split arbitrary sentences or invent aliases.
+            $bound = \App\Support\PassivePracticeQuality::decorate([
+                'uuid' => $q->uuid, 'type' => (string) $q->type, 'question' => $q->question,
+                'answer_map' => $answers->pluck('correct', 'marker')->all(),
+            ], $pspSource);
+            if (!empty($bound['psp_content_revision'])) {
+                $known = array_fill_keys(array_map('mb_strtolower', array_merge($options, $correctTokens)), true);
+                foreach ($bound['accepted_answers_by_marker'] ?? [] as $values) {
+                    $options = array_merge($options, $values);
+                    foreach ($values as $value) {
+                        $key = mb_strtolower($value);
+                        if (!isset($known[$key])) { $derivedComposeOptions[] = $value; $known[$key] = true; }
+                    }
+                }
+            }
+        }
 
         if ((string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS) {
-            $correctTokens = \App\Support\ComposeTokenCase::normalize($correctTokens);
+            $correctTokens = \App\Support\LocalizedComposeText::normalizeTokens($q, $correctTokens);
             $options = \App\Support\ComposeTokenCase::mergeOptions($options, $correctTokens);
         }
 
-        return [
+        $payload = array_merge([
             'id' => $q->id,
             'type' => (string) $q->type,
-            'question' => $q->question,
+            // Presentation policy, not a rewrite of the authored token/answer source.
+            'sentence_punctuation_optional' => $canonicalTheoryCaller === true
+                && (string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS,
+            'authored_compose' => $localized,
+            'source_bound_compose_hint' => $pspSource !== null && (string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS,
+            'compose_punctuation' => $localized ? (str_ends_with(trim((string) $q->question), '?') ? '?' : (str_ends_with(trim((string) $q->question), '!') ? '!' : '.')) : null,
+            'question' => (string) $q->type === \App\Models\Question::TYPE_COMPOSE_TOKENS ? \App\Support\LocalizedComposeText::source($q, $locale) : $q->question,
             'level' => $q->level,
             'options' => $options,
+            'derived_compose_options' => $derivedComposeOptions,
             'answers' => $answers->toArray(),
             'correct_tokens' => $correctTokens,
+            'accepted_sentences' => $pspSource['accepted_target_texts'] ?? [],
+            'token_labels' => $pspSource['token_labels'] ?? [],
+            'content_revision' => $pspSource ? hash('sha256', json_encode($pspSource)) : null,
+            'compose_preanswer_hint' => $pspSource['verb_hint'] ?? null,
             'verb_hints' => $verbHints,
             'hints' => $hints,
             'tags' => $tags->toArray(),
             'marker_tags' => $markerTags->toArray(),
-        ];
+        ], \App\Support\LocalizedComposeText::revisionEligible($q)
+            && (string) $q->type === (string) \App\Models\Question::TYPE_COMPOSE_TOKENS
+                ? ['compose_preanswer_hint' => \App\Support\LocalizedComposeText::hint($q)]
+                : []);
+        $payload = \App\Support\WordOrderPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\NounsArticlesQuantityPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\PronounsDemonstrativesPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\FutureContinuousVsFuturePerfectContinuousPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\QuestionsNegationsPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\AdjectivesAdverbsPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\SomeAnyPracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\PassiveVoicePracticeSupplement::projectWidget($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\ModalVerbsWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\ConditionalsWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\TheorySentenceBuilderPresentation::project($payload, $canonicalTheoryCaller === true, $locale);
+        $payload = \App\Support\ReportedSpeechWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\ClausesLinkingWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\PrepositionsPhrasalWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\CommonMistakesWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\SentenceTransformationsWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\VerbPatternsWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\MixedRevisionWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\AcademicEnglishWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\ArticlesQuantifiersWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\FormalEnglishWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\RelativeClausesWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        $payload = \App\Support\SentenceStructureWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
+        return \App\Support\VocabCollocationsWidgetHints::project($q, $blockUuid, $payload, $canonicalTheoryCaller === true);
     })->values()->toArray();
 
     $practiceI18n = [
@@ -129,6 +195,8 @@
         'matched_tags' => __('theory_blocks.practice_questions.matched_tags'),
         'marker_tags' => __('theory_blocks.practice_questions.marker_tags'),
         'hint' => __('theory_blocks.practice_questions.hint'),
+        'show_help' => __('frontend.tests.question.show_help'),
+        'hide_help' => __('frontend.tests.question.hide_help'),
         'check_answer' => __('theory_blocks.practice_questions.check_answer'),
         'correct' => __('theory_blocks.practice_questions.correct'),
         'incorrect' => __('theory_blocks.practice_questions.incorrect', ['answer' => ':answer']),
@@ -143,6 +211,7 @@
 @endphp
 
 @if($questions->isNotEmpty())
+    @include('components.english-answer-variants')
     <div class="mt-4 pt-4 border-t border-border/40">
         <div 
             x-data="practiceQuestion_{{ str_replace('-', '_', $uniqueId) }}()"
@@ -160,7 +229,7 @@
                         {{ $title ?: __('theory_blocks.practice_questions.title') }}
                     </h4>
                     @if(filled($intro))
-                        <p class="mt-1 text-xs text-muted-foreground">{{ $intro }}</p>
+                        <p class="mt-1 text-base text-muted-foreground leading-relaxed" data-practice-instruction>{{ $intro }}</p>
                     @endif
                 </div>
                 <div class="flex items-center gap-2 text-xs text-muted-foreground">
@@ -183,7 +252,22 @@
                         </div>
 
                         {{-- Question text --}}
-                        <p class="text-sm text-foreground font-medium leading-relaxed" x-html="getDisplayText()"></p>
+                        @if($canonicalTheoryCaller === true)
+                            <template x-if="composeUsesCompactPresentation() && currentQuestion.compose_prompt_parts?.length">
+                                <p class="leading-relaxed" data-compose-prompt>
+                                    <template x-for="(part, index) in currentQuestion.compose_prompt_parts" :key="index"><span
+                                        :class="part.kind === 'sentence' ? 'text-base font-semibold text-foreground' : 'text-sm font-normal text-muted-foreground'"
+                                        :data-compose-sentence="part.kind === 'sentence' ? '' : null"
+                                        x-text="part.text"
+                                    ></span></template>
+                                </p>
+                            </template>
+                            <template x-if="!composeUsesCompactPresentation() || !currentQuestion.compose_prompt_parts?.length">
+                                <p class="text-sm text-foreground font-medium leading-relaxed" x-html="getDisplayText()"></p>
+                            </template>
+                        @else
+                            <p class="text-sm text-foreground font-medium leading-relaxed" x-html="getDisplayText()"></p>
+                        @endif
 
                         {{-- Question tags (matched tags highlighted) --}}
                         @if($isAdmin)
@@ -235,6 +319,14 @@
                                 💡 {{ __('theory_blocks.practice_questions.hint') }}: <span x-text="currentVerbHint"></span>
                             </span>
                         </div>
+                        @if(collect($questionsData)->contains(fn (array $question) => array_key_exists('compose_preanswer_hint', $question)))
+                            <details x-show="!answered && currentComposeHint" :open="composeHintOpen" @toggle="composeHintOpen = $el.open" class="mt-2" data-authored-compose-hint>
+                                <summary class="cursor-pointer text-xs font-semibold text-indigo-600" :aria-expanded="composeHintOpen" x-text="composeHintOpen ? practiceI18n.hide_help : practiceI18n.show_help"></summary>
+                                <div class="mt-2 text-xs text-rose-600 font-semibold whitespace-pre-line">
+                                    <span x-text="currentComposeHint"></span>
+                                </div>
+                            </details>
+                        @endif
                     </div>
                 </template>
             </div>
@@ -267,7 +359,7 @@
                             type="button"
                             @click="selectToken(token)"
                             class="rounded-md border border-border/70 bg-background px-3 py-1.5 text-sm text-foreground/85 transition hover:border-primary/40 hover:bg-primary/5"
-                            x-text="token.value"
+                            x-text="Object.prototype.hasOwnProperty.call(currentQuestion?.token_labels ?? {}, token.value) && typeof currentQuestion.token_labels[token.value] === 'string' ? currentQuestion.token_labels[token.value] : token.value"
                         ></button>
                     </template>
                 </div>
@@ -394,11 +486,13 @@
                 window.location.pathname,
                 @js($uniqueId),
                 @js($locale),
+                @js(collect($questionsData)->pluck('content_revision')->filter()->implode('-')),
             ].join(':');
 
             return {
                 practiceI18n,
                 storageKey,
+                sessionFallbackActive: false,
                 questions: @json($questionsData),
                 currentIndex: 0,
                 currentQuestion: null,
@@ -409,8 +503,19 @@
                 correctAnswer: '',
                 correctCount: 0,
                 answeredIndices: [],
+                composeHintOpen: false,
                 currentVerbHint: '',
                 currentExplanation: '',
+                get currentComposeHint() {
+                    const question = this.currentQuestion;
+                    if ((question?.authored_compose !== true && question?.source_bound_compose_hint !== true)
+                        || String(question?.type ?? '') !== '4') {
+                        return '';
+                    }
+                    return typeof question?.compose_preanswer_hint === 'string'
+                        ? question.compose_preanswer_hint.trim()
+                        : '';
+                },
                 selectedTokens: [],
                 tokenBank: [],
                 
@@ -432,11 +537,35 @@
                     return questions.map(question => this.questionId(question)).filter(Boolean).sort().join('|');
                 },
 
+                usesAcademicEnglishStorageFallback() {
+                    // This field is supplied only by the exact, caller-owned
+                    // Academic English, Articles/Quantifiers or Formal English projection.
+                    // Every question must belong to one exact family; mixed
+                    // or unverified widgets keep their existing storage path.
+                    return this.questions.length === 5 && [
+                        'academic_english_widget_hint_revision',
+                        'articles_quantifiers_widget_hint_revision',
+                        'formal_english_widget_hint_revision',
+                        'relative_clauses_widget_hint_revision',
+                        'sentence_structure_widget_hint_revision',
+                        'vocabulary_collocations_widget_hint_revision',
+                    ].some(field => this.questions.every(question =>
+                        typeof question[field] === 'string'
+                        && /^[a-f0-9]{64}$/.test(question[field])));
+                },
+
                 restoreState() {
                     let saved = null;
 
                     try {
-                        const raw = window.localStorage?.getItem(this.storageKey);
+                        let raw = null;
+                        if (this.usesAcademicEnglishStorageFallback()) {
+                            try {
+                                raw = window.sessionStorage?.getItem(this.storageKey);
+                                this.sessionFallbackActive = Boolean(raw);
+                            } catch (_) { /* Persistent progress remains available below. */ }
+                        }
+                        raw = raw || window.localStorage?.getItem(this.storageKey);
                         saved = raw ? JSON.parse(raw) : null;
                     } catch (error) {
                         console.error(error);
@@ -473,16 +602,20 @@
                         ? current.currentOptions
                         : this.currentOptions;
                     this.selectedTokens = Array.isArray(current.selectedTokens) ? current.selectedTokens : [];
-                    this.tokenBank = Array.isArray(current.tokenBank) && current.tokenBank.length
+                    this.tokenBank = Array.isArray(current.tokenBank)
                         ? current.tokenBank
                         : this.tokenBank;
+
+                    const punctuationChanged = this.restoreComposePunctuationState();
+                    const bankChanged = this.restoreComposeBankBudget();
+                    if (punctuationChanged || bankChanged) this.persistState();
 
                     return true;
                 },
 
                 persistState() {
                     try {
-                        window.localStorage?.setItem(this.storageKey, JSON.stringify({
+                        const serialized = JSON.stringify({
                             signature: this.questionSignature(),
                             questionIds: this.questions.map(question => this.questionId(question)),
                             currentIndex: this.currentIndex,
@@ -497,7 +630,18 @@
                                 tokenBank: this.tokenBank,
                             },
                             savedAt: new Date().toISOString(),
-                        }));
+                        });
+                        if (this.usesAcademicEnglishStorageFallback() && this.sessionFallbackActive) {
+                            window.sessionStorage.setItem(this.storageKey, serialized);
+                            return;
+                        }
+                        try {
+                            window.localStorage?.setItem(this.storageKey, serialized);
+                        } catch (error) {
+                            if (!this.usesAcademicEnglishStorageFallback()) throw error;
+                            window.sessionStorage.setItem(this.storageKey, serialized);
+                            this.sessionFallbackActive = true;
+                        }
                     } catch (error) {
                         console.error(error);
                     }
@@ -506,6 +650,7 @@
                 clearStoredState() {
                     try {
                         window.localStorage?.removeItem(this.storageKey);
+                        if (this.usesAcademicEnglishStorageFallback()) window.sessionStorage?.removeItem(this.storageKey);
                     } catch (error) {
                         console.error(error);
                     }
@@ -525,6 +670,7 @@
                     this.selectedOption = null;
                     this.answered = false;
                     this.isCorrect = false;
+                    this.composeHintOpen = false;
                     this.currentExplanation = '';
                     this.selectedTokens = [];
                     this.tokenBank = [];
@@ -592,15 +738,76 @@
                     return String(this.currentQuestion?.type || '') === '4';
                 },
 
+                composeUsesOptionalPunctuation() {
+                    return this.isComposeQuestion() && this.currentQuestion?.sentence_punctuation_optional === true;
+                },
+
+                composeUsesCompactPresentation() {
+                    return this.isComposeQuestion() && this.currentQuestion?.compact_theory_compose === true;
+                },
+
+                composeBankBudget() {
+                    const words = (this.currentQuestion?.correct_tokens || [])
+                        .map(value => this.composeTokenValue(value))
+                        .filter(Boolean)
+                        .reduce((total, value) => total + value.split(/\s+/u).length, 0);
+                    return Math.ceil(words * 1.2);
+                },
+
+                composeTokenValue(value) {
+                    const text = String(value ?? '').trim();
+                    return this.composeUsesOptionalPunctuation() && window.EnglishAnswerVariants?.withoutSentencePunctuation
+                        ? window.EnglishAnswerVariants.withoutSentencePunctuation(text)
+                        : text;
+                },
+
+                restoreComposePunctuationState() {
+                    if (!this.composeUsesOptionalPunctuation()) return false;
+                    let changed = false;
+                    for (const field of ['selectedTokens', 'tokenBank']) {
+                        const tokens = Array.isArray(this[field]) ? this[field] : [];
+                        this[field] = tokens.flatMap(token => {
+                            const value = this.composeTokenValue(token.value);
+                            if (value !== token.value) changed = true;
+                            return value ? [{...token, value}] : [];
+                        });
+                    }
+                    // Add only newly exposed, exact-bound aliases. Do not
+                    // regenerate a legitimate empty bank or re-offer words
+                    // already selected by the learner.
+                    const key = value => window.EnglishAnswerVariants.normalize(value);
+                    const existing = [...this.selectedTokens, ...this.tokenBank];
+                    const available = new Set(existing.map(token => key(token.value)));
+                    const ids = new Set(existing.map(token => token.id));
+                    for (const raw of this.currentQuestion.derived_compose_options || []) {
+                        const value = this.composeTokenValue(raw);
+                        if (!value || available.has(key(value))) continue;
+                        let id = `alias-${this.questionId(this.currentQuestion)}-${value}`;
+                        while (ids.has(id)) id += '-new';
+                        this.tokenBank.push({id, value});
+                        available.add(key(value)); ids.add(id); changed = true;
+                    }
+                    // Repair a punctuation-only old failure without deleting
+                    // choices, moving to another question or recounting old work.
+                    if (this.answered && !this.isCorrect && this.composeAnswerIsCorrect()) {
+                        this.isCorrect = true;
+                        this.correctCount = Math.min(this.questions.length, this.correctCount + 1);
+                        changed = true;
+                    }
+                    return changed;
+                },
+
                 composeTokenValues() {
                     const correct = (this.currentQuestion?.correct_tokens || [])
-                        .map(value => String(value || '').trim())
+                        .map(value => this.composeTokenValue(value))
                         .filter(Boolean);
-                    const distractors = this.currentQuestion?.options || [];
+                    const distractors = this.composeUsesCompactPresentation()
+                        ? [...(this.currentQuestion?.derived_compose_options || []), ...(this.currentQuestion?.options || [])]
+                        : (this.currentQuestion?.options || []);
                     const seen = new Set(correct.map(value => value.toLowerCase()));
 
                     const uniqueDistractors = distractors
-                        .map(value => String(value || '').trim())
+                        .map(value => this.composeTokenValue(value))
                         .filter(value => {
                             const normalized = value.toLowerCase();
                             if (!value || seen.has(normalized)) return false;
@@ -608,7 +815,89 @@
                             return true;
                         });
 
-                    return [...correct, ...uniqueDistractors];
+                    if (!this.composeUsesCompactPresentation()) return [...correct, ...uniqueDistractors];
+
+                    const count = Math.max(0, this.composeBankBudget() - correct.length);
+                    const aliases = new Set((this.currentQuestion?.derived_compose_options || [])
+                        .map(value => this.composeTokenValue(value).toLowerCase()));
+                    const preferred = uniqueDistractors.filter(value => aliases.has(value.toLowerCase()));
+                    const remaining = uniqueDistractors.filter(value => !aliases.has(value.toLowerCase()));
+                    const sampled = this.shuffledTokens(remaining).map(token => token.value);
+                    const extras = [...preferred, ...sampled].slice(0, count);
+                    const available = new Set([...correct, ...extras].map(value => value.toLowerCase()));
+                    // Sparse historic banks reuse only the existing finite
+                    // grammar distractors, never invented answer vocabulary.
+                    const fillers = FILLER_OPTIONS.filter(value => !available.has(value.toLowerCase()));
+                    for (const token of this.shuffledTokens(fillers)) {
+                        if (extras.length >= count) break;
+                        extras.push(token.value);
+                    }
+                    return [...correct, ...extras];
+                },
+
+                restoreComposeBankBudget() {
+                    if (!this.composeUsesCompactPresentation() || this.answered) return false;
+                    // A finished draft can legitimately have no unused words.
+                    // Reducing choices must not repopulate or submit that draft.
+                    if (this.tokenBank.length === 0 && this.composeAnswerIsCorrect()) return false;
+                    const before = JSON.stringify(this.tokenBank);
+                    const key = value => this.composeTokenValue(value).toLowerCase();
+                    const required = (this.currentQuestion?.correct_tokens || [])
+                        .map(value => this.composeTokenValue(value)).filter(Boolean);
+                    const remaining = new Map();
+                    for (const value of required) remaining.set(key(value), (remaining.get(key(value)) || 0) + 1);
+                    for (const token of this.selectedTokens) {
+                        const value = key(token.value);
+                        if (remaining.get(value) > 0) remaining.set(value, remaining.get(value) - 1);
+                    }
+                    const canonicalKeys = new Set(required.map(key));
+                    const ids = new Set([...this.selectedTokens, ...this.tokenBank].map(token => token.id));
+                    let nextId = 0;
+                    const create = value => {
+                        let id;
+                        do { id = `budget-${this.questionId(this.currentQuestion)}-${nextId++}`; } while (ids.has(id));
+                        ids.add(id);
+                        return {id, value};
+                    };
+                    const kept = new Set();
+                    const mandatory = [];
+                    for (const token of this.tokenBank) {
+                        const value = key(token.value);
+                        if (remaining.get(value) > 0) {
+                            mandatory.push(token); kept.add(token.id);
+                            remaining.set(value, remaining.get(value) - 1);
+                        }
+                    }
+                    const additions = [];
+                    for (const value of required) {
+                        if (remaining.get(key(value)) > 0) {
+                            additions.push(create(value));
+                            remaining.set(key(value), remaining.get(key(value)) - 1);
+                        }
+                    }
+                    // Old wrong selections are learner-owned. If they alone
+                    // overflow the new budget, retain them and every required
+                    // answer instance rather than silently deleting an answer.
+                    const limit = Math.max(0, this.composeBankBudget() - this.selectedTokens.length - mandatory.length - additions.length);
+                    const occupied = new Set(this.selectedTokens.map(token => key(token.value)));
+                    const candidates = this.tokenBank.filter(token => !canonicalKeys.has(key(token.value)) && !occupied.has(key(token.value)));
+                    const aliases = new Set((this.currentQuestion?.derived_compose_options || []).map(key));
+                    const ordered = [...candidates.filter(token => aliases.has(key(token.value))),
+                        ...candidates.filter(token => !aliases.has(key(token.value)))];
+                    let extras = 0;
+                    for (const token of ordered) {
+                        const value = key(token.value);
+                        if (extras >= limit || !value || occupied.has(value)) continue;
+                        occupied.add(value); kept.add(token.id); extras++;
+                    }
+                    for (const value of this.composeTokenValues()) {
+                        const normalized = key(value);
+                        if (extras >= limit) break;
+                        if (canonicalKeys.has(normalized) || occupied.has(normalized)) continue;
+                        additions.push(create(value)); occupied.add(normalized); extras++;
+                    }
+                    this.tokenBank = [...this.tokenBank.filter(token => kept.has(token.id)), ...additions];
+                    return JSON.stringify(this.tokenBank) !== before;
                 },
 
                 shuffledTokens(tokens) {
@@ -660,6 +949,29 @@
                 composeTextFromTokens(tokens) {
                     if (!Array.isArray(tokens) || tokens.length === 0) return '';
 
+                    if (this.composeUsesOptionalPunctuation()) {
+                        const text = tokens.map(value => this.composeTokenValue(value)).filter(Boolean).join(' ');
+                        if (!text) return '';
+                        const canonical = (this.currentQuestion.correct_tokens || []).join(' ')
+                            .replace(/\s+([?.!,;:])/g, '$1');
+                        const candidates = [...(this.currentQuestion.accepted_sentences || []), canonical].filter(Boolean);
+                        // Show authored punctuation only for a completed lexical
+                        // match; never guess that an opening When is a question.
+                        const strictSurfaces = this.currentQuestion.qnq_strict_surface_answers;
+                        if (Array.isArray(strictSurfaces) && strictSurfaces.length > 0 && window.EnglishAnswerVariants) {
+                            return strictSurfaces.find(answer => window.EnglishAnswerVariants.normalize(answer) === window.EnglishAnswerVariants.normalize(text)) || text;
+                        }
+                        return window.EnglishAnswerVariants
+                            ? candidates.find(answer => window.EnglishAnswerVariants.matches(answer, text)) || text
+                            : text;
+                    }
+
+                    if (this.currentQuestion?.authored_compose && /^(?:yes|no)$/i.test(tokens[0])) {
+                        const lead = String(tokens[0]);
+                        return `${lead.charAt(0).toUpperCase()}${lead.slice(1).toLowerCase()}, ${tokens.slice(1).join(' ')}.`
+                            .replace(/\s+([?.!,;:])/g, '$1');
+                    }
+
                     const shortAnswerIndex = tokens.findIndex((token, index) => (
                         index > 0 && /^(?:yes|no)$/i.test(token)
                     ));
@@ -686,6 +998,9 @@
                     const normalized = String(text || '').trim();
 
                     if (/[?.!]$/.test(normalized)) return '';
+                    if (this.currentQuestion?.authored_compose && /^[?.!]$/.test(this.currentQuestion.compose_punctuation || '')) {
+                        return this.currentQuestion.compose_punctuation;
+                    }
                     if (source.endsWith('?')) return '?';
 
                     return /^(?:(?:by\s+(?:when|what\s+time))|will|what|when|where|why|who|which|how)\b/i.test(normalized)
@@ -736,6 +1051,19 @@
                     this.selectedOption = option;
                     this.persistState();
                 },
+
+                composeAnswerIsCorrect() {
+                    const value = this.composeSelectedText();
+                    const strictSurfaces = this.currentQuestion.qnq_strict_surface_answers;
+                    if (Array.isArray(strictSurfaces) && strictSurfaces.length > 0 && window.EnglishAnswerVariants) {
+                        return strictSurfaces.some(answer => window.EnglishAnswerVariants.normalize(answer) === window.EnglishAnswerVariants.normalize(value));
+                    }
+                    return this.currentQuestion.accepted_sentences?.length && window.EnglishAnswerVariants
+                        ? this.currentQuestion.accepted_sentences.some(answer => window.EnglishAnswerVariants.matches(answer, value))
+                        : (this.currentQuestion.authored_compose || this.composeUsesOptionalPunctuation()) && window.EnglishAnswerVariants
+                        ? window.EnglishAnswerVariants.matches(this.correctAnswer, value)
+                        : this.normalizeAnswer(value) === this.normalizeAnswer(this.correctAnswer);
+                },
                 
                 checkAnswer() {
                     if (this.answered) return;
@@ -744,7 +1072,7 @@
                         if (this.selectedTokens.length === 0) return;
 
                         this.answered = true;
-                        this.isCorrect = this.normalizeAnswer(this.composeSelectedText()) === this.normalizeAnswer(this.correctAnswer);
+                        this.isCorrect = this.composeAnswerIsCorrect();
 
                         if (this.isCorrect) {
                             this.correctCount++;

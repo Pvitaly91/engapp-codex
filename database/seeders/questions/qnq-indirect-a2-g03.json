@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62686,
+        "uuid": "qnq-indirect-a2-g03",
+        "question": "Could you tell me whether {a1}?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 465,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedIndirectQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "breakfast is included",
+                "is breakfast included",
+                "does breakfast include"
+            ]
+        },
+        "theory_text_block_uuid": "fda25adf-3196-5e76-8fac-7bb0822abbce",
+        "created_at": "2026-10-30T13:53:30.000000Z",
+        "updated_at": "2026-10-30T13:53:30.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 465,
+        "name": "Questions and Negations Quality: Indirect Questions: ввічливі непрямі питання",
+        "created_at": "2026-10-30T13:53:29.000000Z",
+        "updated_at": "2026-10-30T13:53:29.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 678,
+                "name": "Indirect Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:37:11.000000Z",
+                "updated_at": "2026-04-23T14:37:11.000000Z"
+            },
+            "pivot": {
+                "question_id": 62686,
+                "tag_id": 678,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 57622,
+                "option": "breakfast is included",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62686,
+                "option_id": 57622,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57624,
+                "option": "is breakfast included",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62686,
+                "option_id": 57624,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 57625,
+                "option": "does breakfast include",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 62686,
+                "option_id": 57625,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 332453,
+                "question_id": 62686,
+                "marker": "a1",
+                "option_id": 57622,
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "option": {
+                "id": 57622,
+                "option": "breakfast is included",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 49787,
+                "question_id": 62686,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 57623,
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            },
+            "option": {
+                "id": 57623,
+                "option": "Збережи пасивну форму та прямий порядок після сполучника.",
+                "created_at": "2026-10-30T13:53:30.000000Z",
+                "updated_at": "2026-10-30T13:53:30.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54701,
+            "question_id": 62686,
+            "text": "Could you tell me whether {a1}?",
+            "created_at": "2026-10-30T13:53:30.000000Z",
+            "updated_at": "2026-10-30T13:53:30.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

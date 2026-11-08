@@ -1,0 +1,3679 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/agent.v1.json",
+        "sha256": "554c53198dfc4e1c0e0f80b5b723821db6eecc1238f96e3c92391aab2adab231"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceByPhraseQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-agent-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_agent": {
+            "name": "Passive Voice Quality: Виконавець, причина та інструмент у пасиві"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_by_phrase": {
+            "name": "Passive Voice By Phrase",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "include_by_phrase": {
+            "name": "Include By Phrase",
+            "category": "topic"
+        },
+        "omit_by_phrase": {
+            "name": "Omit By Phrase",
+            "category": "topic"
+        },
+        "agent_relevance": {
+            "name": "Agent Relevance",
+            "category": "topic"
+        },
+        "agent_types": {
+            "name": "Agent Types",
+            "category": "topic"
+        },
+        "instrument_vs_agent": {
+            "name": "Instrument Vs Agent",
+            "category": "topic"
+        },
+        "by_overuse": {
+            "name": "By Overuse",
+            "category": "topic"
+        },
+        "active_passive_agent": {
+            "name": "Active Passive Agent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-agent-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Ворота відчинив власник.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Ворота відчинив власник.",
+            "target_text": "The gate was opened by the owner.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "gate",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "gate",
+                        "mirror",
+                        "notice",
+                        "contract"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "was",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "opened",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "opened",
+                        "documented",
+                        "written",
+                        "folded"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "by",
+                        "on",
+                        "at",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a7": {
+                    "answer": "owner.",
+                    "verb_hint": "Ворота відчинив власник.",
+                    "options": [
+                        "owner",
+                        "archivist",
+                        "teacher",
+                        "judge"
+                    ]
+                }
+            },
+            "verb_hint": "Ворота відчинив власник.",
+            "accepted_target_texts": [
+                "The gate was opened by the owner."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The gate",
+                "was",
+                "opened",
+                "by the owner."
+            ],
+            "token_groups": [
+                "The gate",
+                "was",
+                "opened",
+                "by the owner."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "gate",
+                "was",
+                "opened",
+                "by",
+                "the",
+                "owner."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "gate",
+                "mirror",
+                "notice",
+                "contract",
+                "was",
+                "weren't",
+                "am",
+                "is",
+                "opened",
+                "documented",
+                "written",
+                "folded",
+                "by",
+                "on",
+                "at",
+                "with",
+                "the",
+                "a",
+                "an",
+                "some",
+                "owner",
+                "archivist",
+                "teacher",
+                "judge"
+            ],
+            "source_text_uk": "Ворота відчинив власник.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "gate",
+                    "mirror",
+                    "notice",
+                    "contract"
+                ],
+                "a3": [
+                    "was",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "opened",
+                    "documented",
+                    "written",
+                    "folded"
+                ],
+                "a5": [
+                    "by",
+                    "on",
+                    "at",
+                    "with"
+                ],
+                "a6": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a7": [
+                    "owner",
+                    "archivist",
+                    "teacher",
+                    "judge"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-agent-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Підлогу помили ганчіркою.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Підлогу помили ганчіркою.",
+            "target_text": "The floor was washed with a cloth.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "floor",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "floor",
+                        "parcel",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "washed",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "washed",
+                        "preserved",
+                        "revised",
+                        "published"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "with",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "a",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a7": {
+                    "answer": "cloth.",
+                    "verb_hint": "Підлогу помили ганчіркою.",
+                    "options": [
+                        "cloth",
+                        "shovel",
+                        "sponge",
+                        "axe"
+                    ]
+                }
+            },
+            "verb_hint": "Підлогу помили ганчіркою.",
+            "accepted_target_texts": [
+                "The floor was washed with a cloth.",
+                "The floor was cleaned with a cloth."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "cleaned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "cleaned"
+                ]
+            },
+            "reorder_groups": [
+                "The floor",
+                "was",
+                "washed",
+                "with a cloth."
+            ],
+            "token_groups": [
+                "The floor",
+                "was",
+                "washed",
+                "with a cloth."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "floor",
+                "was",
+                "washed",
+                "with",
+                "a",
+                "cloth."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "floor",
+                "parcel",
+                "portrait",
+                "cabinet",
+                "was",
+                "be",
+                "been",
+                "being",
+                "washed",
+                "preserved",
+                "revised",
+                "published",
+                "with",
+                "in",
+                "on",
+                "at",
+                "a",
+                "neither",
+                "all",
+                "both",
+                "cloth",
+                "shovel",
+                "sponge",
+                "axe"
+            ],
+            "source_text_uk": "Підлогу помили ганчіркою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "floor",
+                    "parcel",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "washed",
+                    "preserved",
+                    "revised",
+                    "published"
+                ],
+                "a5": [
+                    "with",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "a",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a7": [
+                    "cloth",
+                    "shovel",
+                    "sponge",
+                    "axe"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-agent-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Оповідання прочитав наш учитель.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Оповідання прочитав наш учитель.",
+            "target_text": "The story was read by our teacher.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "story",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "story",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "was",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "read",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "read",
+                        "dismissed",
+                        "preserved",
+                        "revised"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "by",
+                        "on",
+                        "at",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "our",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "our",
+                        "hers",
+                        "ours",
+                        "theirs"
+                    ]
+                },
+                "a7": {
+                    "answer": "teacher.",
+                    "verb_hint": "Оповідання прочитав наш учитель.",
+                    "options": [
+                        "teacher",
+                        "doctor",
+                        "artist",
+                        "baker"
+                    ]
+                }
+            },
+            "verb_hint": "Оповідання прочитав наш учитель.",
+            "accepted_target_texts": [
+                "The story was read by our teacher.",
+                "The tale was read by our teacher."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "tale"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "tale"
+                ]
+            },
+            "reorder_groups": [
+                "The story",
+                "was",
+                "read",
+                "by our teacher."
+            ],
+            "token_groups": [
+                "The story",
+                "was",
+                "read",
+                "by our teacher."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "story",
+                "was",
+                "read",
+                "by",
+                "our",
+                "teacher."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "story",
+                "large",
+                "new",
+                "old",
+                "was",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "read",
+                "dismissed",
+                "preserved",
+                "revised",
+                "by",
+                "on",
+                "at",
+                "with",
+                "our",
+                "hers",
+                "ours",
+                "theirs",
+                "teacher",
+                "doctor",
+                "artist",
+                "baker"
+            ],
+            "source_text_uk": "Оповідання прочитав наш учитель.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "story",
+                    "large",
+                    "new",
+                    "old"
+                ],
+                "a3": [
+                    "was",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "read",
+                    "dismissed",
+                    "preserved",
+                    "revised"
+                ],
+                "a5": [
+                    "by",
+                    "on",
+                    "at",
+                    "with"
+                ],
+                "a6": [
+                    "our",
+                    "hers",
+                    "ours",
+                    "theirs"
+                ],
+                "a7": [
+                    "teacher",
+                    "doctor",
+                    "artist",
+                    "baker"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-agent-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Стежку розчистили місцеві жителі.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Стежку розчистили місцеві жителі.",
+            "target_text": "The path was cleared by local residents.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "path",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "path",
+                        "wound",
+                        "mirror",
+                        "parcel"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "cleared",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "cleared",
+                        "signed",
+                        "examined",
+                        "replaced"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "by",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "local",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "local",
+                        "our",
+                        "an",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "residents.",
+                    "verb_hint": "Стежку розчистили місцеві жителі.",
+                    "options": [
+                        "residents",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                }
+            },
+            "verb_hint": "Стежку розчистили місцеві жителі.",
+            "accepted_target_texts": [
+                "The path was cleared by local residents."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The path",
+                "was",
+                "cleared",
+                "by local residents."
+            ],
+            "token_groups": [
+                "The path",
+                "was",
+                "cleared",
+                "by local residents."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "path",
+                "was",
+                "cleared",
+                "by",
+                "local",
+                "residents."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "path",
+                "wound",
+                "mirror",
+                "parcel",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "cleared",
+                "signed",
+                "examined",
+                "replaced",
+                "by",
+                "under",
+                "through",
+                "across",
+                "local",
+                "our",
+                "an",
+                "a",
+                "residents",
+                "cats",
+                "people",
+                "men"
+            ],
+            "source_text_uk": "Стежку розчистили місцеві жителі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "path",
+                    "wound",
+                    "mirror",
+                    "parcel"
+                ],
+                "a3": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "cleared",
+                    "signed",
+                    "examined",
+                    "replaced"
+                ],
+                "a5": [
+                    "by",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "local",
+                    "our",
+                    "an",
+                    "a"
+                ],
+                "a7": [
+                    "residents",
+                    "cats",
+                    "people",
+                    "men"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-agent-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ескіз розфарбували маркером.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Ескіз розфарбували маркером.",
+            "target_text": "The sketch was coloured with a marker.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "sketch",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "sketch",
+                        "path",
+                        "wound",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "coloured",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "coloured",
+                        "written",
+                        "folded",
+                        "reviewed"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "with",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "a",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "marker.",
+                    "verb_hint": "Ескіз розфарбували маркером.",
+                    "options": [
+                        "marker",
+                        "shovel",
+                        "sponge",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Ескіз розфарбували маркером.",
+            "accepted_target_texts": [
+                "The sketch was coloured with a marker."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The sketch",
+                "was",
+                "coloured",
+                "with a marker."
+            ],
+            "token_groups": [
+                "The sketch",
+                "was",
+                "coloured",
+                "with a marker."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "sketch",
+                "was",
+                "coloured",
+                "with",
+                "a",
+                "marker."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "sketch",
+                "path",
+                "wound",
+                "cabinet",
+                "was",
+                "be",
+                "been",
+                "being",
+                "coloured",
+                "written",
+                "folded",
+                "reviewed",
+                "with",
+                "from",
+                "for",
+                "of",
+                "a",
+                "this",
+                "that",
+                "these",
+                "marker",
+                "shovel",
+                "sponge",
+                "key"
+            ],
+            "source_text_uk": "Ескіз розфарбували маркером.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "sketch",
+                    "path",
+                    "wound",
+                    "cabinet"
+                ],
+                "a3": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "coloured",
+                    "written",
+                    "folded",
+                    "reviewed"
+                ],
+                "a5": [
+                    "with",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "a",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "marker",
+                    "shovel",
+                    "sponge",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-agent-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Рану очистила медсестра.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Рану очистила медсестра.",
+            "target_text": "The wound was cleaned by a nurse.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "wound",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "wound",
+                        "bicycle",
+                        "notice",
+                        "contract"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "cleaned",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "cleaned",
+                        "delivered",
+                        "signed",
+                        "examined"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "by",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "nurse.",
+                    "verb_hint": "Рану очистила медсестра.",
+                    "options": [
+                        "nurse",
+                        "baker",
+                        "driver",
+                        "neighbour"
+                    ]
+                }
+            },
+            "verb_hint": "Рану очистила медсестра.",
+            "accepted_target_texts": [
+                "The wound was cleaned by a nurse."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wound",
+                "was",
+                "cleaned",
+                "by a nurse."
+            ],
+            "token_groups": [
+                "The wound",
+                "was",
+                "cleaned",
+                "by a nurse."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "wound",
+                "was",
+                "cleaned",
+                "by",
+                "a",
+                "nurse."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "An",
+                "Some",
+                "wound",
+                "bicycle",
+                "notice",
+                "contract",
+                "was",
+                "be",
+                "been",
+                "being",
+                "cleaned",
+                "delivered",
+                "signed",
+                "examined",
+                "by",
+                "of",
+                "in",
+                "on",
+                "a",
+                "that",
+                "these",
+                "those",
+                "nurse",
+                "baker",
+                "driver",
+                "neighbour"
+            ],
+            "source_text_uk": "Рану очистила медсестра.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "wound",
+                    "bicycle",
+                    "notice",
+                    "contract"
+                ],
+                "a3": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "cleaned",
+                    "delivered",
+                    "signed",
+                    "examined"
+                ],
+                "a5": [
+                    "by",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a6": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "nurse",
+                    "baker",
+                    "driver",
+                    "neighbour"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-agent-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Пропозицію оцінив фахівець.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Пропозицію оцінив фахівець.",
+            "target_text": "The proposal was evaluated by an expert.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "proposal",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "proposal",
+                        "notice",
+                        "contract",
+                        "verdict"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "evaluated",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "evaluated",
+                        "dismissed",
+                        "documented",
+                        "preserved"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "by",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a6": {
+                    "answer": "an",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "an",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "expert.",
+                    "verb_hint": "Пропозицію оцінив фахівець.",
+                    "options": [
+                        "expert",
+                        "judge",
+                        "panel",
+                        "owner"
+                    ]
+                }
+            },
+            "verb_hint": "Пропозицію оцінив фахівець.",
+            "accepted_target_texts": [
+                "The proposal was evaluated by an expert.",
+                "The proposal was assessed by an expert."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "assessed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "assessed"
+                ]
+            },
+            "reorder_groups": [
+                "The proposal",
+                "was",
+                "evaluated",
+                "by an expert."
+            ],
+            "token_groups": [
+                "The proposal",
+                "was",
+                "evaluated",
+                "by an expert."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "proposal",
+                "was",
+                "evaluated",
+                "by",
+                "an",
+                "expert."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "proposal",
+                "notice",
+                "contract",
+                "verdict",
+                "was",
+                "is",
+                "are",
+                "were",
+                "evaluated",
+                "dismissed",
+                "documented",
+                "preserved",
+                "by",
+                "about",
+                "during",
+                "to",
+                "an",
+                "another",
+                "either",
+                "neither",
+                "expert",
+                "judge",
+                "panel",
+                "owner"
+            ],
+            "source_text_uk": "Пропозицію оцінив фахівець.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "proposal",
+                    "notice",
+                    "contract",
+                    "verdict"
+                ],
+                "a3": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a4": [
+                    "evaluated",
+                    "dismissed",
+                    "documented",
+                    "preserved"
+                ],
+                "a5": [
+                    "by",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a6": [
+                    "an",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "expert",
+                    "judge",
+                    "panel",
+                    "owner"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-agent-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Стовбур розкололи сокирою.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Стовбур розкололи сокирою.",
+            "target_text": "The trunk was split with an axe.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "trunk",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "trunk",
+                        "contract",
+                        "manuscript",
+                        "verdict"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "split",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "split",
+                        "examined",
+                        "replaced",
+                        "approved"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "with",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a6": {
+                    "answer": "an",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "an",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "axe.",
+                    "verb_hint": "Стовбур розкололи сокирою.",
+                    "options": [
+                        "axe",
+                        "marker",
+                        "shovel",
+                        "sponge"
+                    ]
+                }
+            },
+            "verb_hint": "Стовбур розкололи сокирою.",
+            "accepted_target_texts": [
+                "The trunk was split with an axe."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trunk",
+                "was",
+                "split",
+                "with an axe."
+            ],
+            "token_groups": [
+                "The trunk",
+                "was",
+                "split",
+                "with an axe."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "trunk",
+                "was",
+                "split",
+                "with",
+                "an",
+                "axe."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "trunk",
+                "contract",
+                "manuscript",
+                "verdict",
+                "was",
+                "were",
+                "be",
+                "been",
+                "split",
+                "examined",
+                "replaced",
+                "approved",
+                "with",
+                "during",
+                "to",
+                "from",
+                "an",
+                "any",
+                "this",
+                "that",
+                "axe",
+                "marker",
+                "shovel",
+                "sponge"
+            ],
+            "source_text_uk": "Стовбур розкололи сокирою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "trunk",
+                    "contract",
+                    "manuscript",
+                    "verdict"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "split",
+                    "examined",
+                    "replaced",
+                    "approved"
+                ],
+                "a5": [
+                    "with",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a6": [
+                    "an",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "axe",
+                    "marker",
+                    "shovel",
+                    "sponge"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-agent-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Заяву відхилила комісія.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Заяву відхилила комісія.",
+            "target_text": "The application was rejected by the panel.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "application",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "application",
+                        "proposal",
+                        "trunk",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "rejected",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "rejected",
+                        "examined",
+                        "written",
+                        "folded"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "by",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "panel.",
+                    "verb_hint": "Заяву відхилила комісія.",
+                    "options": [
+                        "panel",
+                        "owner",
+                        "archivist",
+                        "expert"
+                    ]
+                }
+            },
+            "verb_hint": "Заяву відхилила комісія.",
+            "accepted_target_texts": [
+                "The application was rejected by the panel."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The application",
+                "was",
+                "rejected",
+                "by the panel."
+            ],
+            "token_groups": [
+                "The application",
+                "was",
+                "rejected",
+                "by the panel."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "application",
+                "was",
+                "rejected",
+                "by",
+                "the",
+                "panel."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "application",
+                "proposal",
+                "trunk",
+                "kettle",
+                "was",
+                "were",
+                "be",
+                "been",
+                "rejected",
+                "examined",
+                "written",
+                "folded",
+                "by",
+                "among",
+                "about",
+                "during",
+                "the",
+                "some",
+                "any",
+                "this",
+                "panel",
+                "owner",
+                "archivist",
+                "expert"
+            ],
+            "source_text_uk": "Заяву відхилила комісія.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "application",
+                    "proposal",
+                    "trunk",
+                    "kettle"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "rejected",
+                    "examined",
+                    "written",
+                    "folded"
+                ],
+                "a5": [
+                    "by",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "panel",
+                    "owner",
+                    "archivist",
+                    "expert"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-agent-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Справжність артефакту підтвердив архівіст.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Справжність артефакту підтвердив архівіст.",
+            "target_text": "The artefact was authenticated by an archivist.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "artefact",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "artefact",
+                        "parcel",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "authenticated",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "authenticated",
+                        "signed",
+                        "examined",
+                        "replaced"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "by",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "an",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "an",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a7": {
+                    "answer": "archivist.",
+                    "verb_hint": "Справжність артефакту підтвердив архівіст.",
+                    "options": [
+                        "archivist",
+                        "judge",
+                        "panel",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Справжність артефакту підтвердив архівіст.",
+            "accepted_target_texts": [
+                "The artefact was authenticated by an archivist.",
+                "The artifact was authenticated by an archivist."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "artifact"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "artifact"
+                ]
+            },
+            "reorder_groups": [
+                "The artefact",
+                "was",
+                "authenticated",
+                "by an archivist."
+            ],
+            "token_groups": [
+                "The artefact",
+                "was",
+                "authenticated",
+                "by an archivist."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "artefact",
+                "was",
+                "authenticated",
+                "by",
+                "an",
+                "archivist."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "artefact",
+                "parcel",
+                "portrait",
+                "cabinet",
+                "was",
+                "were",
+                "be",
+                "been",
+                "authenticated",
+                "signed",
+                "examined",
+                "replaced",
+                "by",
+                "between",
+                "among",
+                "about",
+                "an",
+                "some",
+                "any",
+                "this",
+                "archivist",
+                "judge",
+                "panel",
+                "teacher"
+            ],
+            "source_text_uk": "Справжність артефакту підтвердив архівіст.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "artefact",
+                    "parcel",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "authenticated",
+                    "signed",
+                    "examined",
+                    "replaced"
+                ],
+                "a5": [
+                    "by",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "an",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a7": [
+                    "archivist",
+                    "judge",
+                    "panel",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-agent-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Шов зміцнили голкою.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Шов зміцнили голкою.",
+            "target_text": "The seam was reinforced with a needle.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "seam",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "seam",
+                        "manuscript",
+                        "verdict",
+                        "artefact"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "reinforced",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "reinforced",
+                        "published",
+                        "issued",
+                        "authenticated"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "with",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "needle.",
+                    "verb_hint": "Шов зміцнили голкою.",
+                    "options": [
+                        "needle",
+                        "marker",
+                        "shovel",
+                        "sponge"
+                    ]
+                }
+            },
+            "verb_hint": "Шов зміцнили голкою.",
+            "accepted_target_texts": [
+                "The seam was reinforced with a needle.",
+                "The seam was strengthened with a needle."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "strengthened"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "strengthened"
+                ]
+            },
+            "reorder_groups": [
+                "The seam",
+                "was",
+                "reinforced",
+                "with a needle."
+            ],
+            "token_groups": [
+                "The seam",
+                "was",
+                "reinforced",
+                "with a needle."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "seam",
+                "was",
+                "reinforced",
+                "with",
+                "a",
+                "needle."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "seam",
+                "manuscript",
+                "verdict",
+                "artefact",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "reinforced",
+                "published",
+                "issued",
+                "authenticated",
+                "with",
+                "on",
+                "at",
+                "by",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "needle",
+                "marker",
+                "shovel",
+                "sponge"
+            ],
+            "source_text_uk": "Шов зміцнили голкою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "seam",
+                    "manuscript",
+                    "verdict",
+                    "artefact"
+                ],
+                "a3": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "reinforced",
+                    "published",
+                    "issued",
+                    "authenticated"
+                ],
+                "a5": [
+                    "with",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "needle",
+                    "marker",
+                    "shovel",
+                    "sponge"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-agent-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Судову заборону видав суддя.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Судову заборону видав суддя.",
+            "target_text": "The injunction was issued by the judge.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "injunction",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "injunction",
+                        "portrait",
+                        "cabinet",
+                        "kettle"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "was",
+                        "are",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "issued",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "issued",
+                        "approved",
+                        "recorded",
+                        "withheld"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "by",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a7": {
+                    "answer": "judge.",
+                    "verb_hint": "Судову заборону видав суддя.",
+                    "options": [
+                        "judge",
+                        "owner",
+                        "panel",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Судову заборону видав суддя.",
+            "accepted_target_texts": [
+                "The injunction was issued by the judge."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The injunction",
+                "was",
+                "issued",
+                "by the judge."
+            ],
+            "token_groups": [
+                "The injunction",
+                "was",
+                "issued",
+                "by the judge."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "injunction",
+                "was",
+                "issued",
+                "by",
+                "the",
+                "judge."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "injunction",
+                "portrait",
+                "cabinet",
+                "kettle",
+                "was",
+                "are",
+                "were",
+                "be",
+                "issued",
+                "approved",
+                "recorded",
+                "withheld",
+                "by",
+                "through",
+                "across",
+                "between",
+                "the",
+                "every",
+                "no",
+                "another",
+                "judge",
+                "owner",
+                "panel",
+                "teacher"
+            ],
+            "source_text_uk": "Судову заборону видав суддя.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "injunction",
+                    "portrait",
+                    "cabinet",
+                    "kettle"
+                ],
+                "a3": [
+                    "was",
+                    "are",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "issued",
+                    "approved",
+                    "recorded",
+                    "withheld"
+                ],
+                "a5": [
+                    "by",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a7": [
+                    "judge",
+                    "owner",
+                    "panel",
+                    "teacher"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-agent-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Статут уклав комітет.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Статут уклав комітет.",
+            "target_text": "The charter was drafted by the committee.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "charter",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "charter",
+                        "parcel",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "drafted",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "drafted",
+                        "approved",
+                        "recorded",
+                        "withheld"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "by",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a7": {
+                    "answer": "committee.",
+                    "verb_hint": "Статут уклав комітет.",
+                    "options": [
+                        "committee",
+                        "archivist",
+                        "teacher",
+                        "nurse"
+                    ]
+                }
+            },
+            "verb_hint": "Статут уклав комітет.",
+            "accepted_target_texts": [
+                "The charter was drafted by the committee."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The charter",
+                "was",
+                "drafted",
+                "by the committee."
+            ],
+            "token_groups": [
+                "The charter",
+                "was",
+                "drafted",
+                "by the committee."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "charter",
+                "was",
+                "drafted",
+                "by",
+                "the",
+                "committee."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "charter",
+                "parcel",
+                "portrait",
+                "cabinet",
+                "was",
+                "were",
+                "be",
+                "been",
+                "drafted",
+                "approved",
+                "recorded",
+                "withheld",
+                "by",
+                "with",
+                "without",
+                "into",
+                "the",
+                "each",
+                "every",
+                "no",
+                "committee",
+                "archivist",
+                "teacher",
+                "nurse"
+            ],
+            "source_text_uk": "Статут уклав комітет.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "charter",
+                    "parcel",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "drafted",
+                    "approved",
+                    "recorded",
+                    "withheld"
+                ],
+                "a5": [
+                    "by",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a7": [
+                    "committee",
+                    "archivist",
+                    "teacher",
+                    "nurse"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-agent-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Зразок розрізали скальпелем.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Зразок розрізали скальпелем.",
+            "target_text": "The specimen was sectioned with a scalpel.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "specimen",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "specimen",
+                        "gave",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "sectioned",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "sectioned",
+                        "preserved",
+                        "revised",
+                        "published"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "with",
+                        "at",
+                        "by",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "scalpel.",
+                    "verb_hint": "Зразок розрізали скальпелем.",
+                    "options": [
+                        "scalpel",
+                        "cloth",
+                        "key",
+                        "marker"
+                    ]
+                }
+            },
+            "verb_hint": "Зразок розрізали скальпелем.",
+            "accepted_target_texts": [
+                "The specimen was sectioned with a scalpel."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The specimen",
+                "was",
+                "sectioned",
+                "with a scalpel."
+            ],
+            "token_groups": [
+                "The specimen",
+                "was",
+                "sectioned",
+                "with a scalpel."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "specimen",
+                "was",
+                "sectioned",
+                "with",
+                "a",
+                "scalpel."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "specimen",
+                "gave",
+                "made",
+                "left",
+                "was",
+                "were",
+                "be",
+                "been",
+                "sectioned",
+                "preserved",
+                "revised",
+                "published",
+                "with",
+                "at",
+                "by",
+                "without",
+                "a",
+                "all",
+                "both",
+                "an",
+                "scalpel",
+                "cloth",
+                "key",
+                "marker"
+            ],
+            "source_text_uk": "Зразок розрізали скальпелем.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "specimen",
+                    "gave",
+                    "made",
+                    "left"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "sectioned",
+                    "preserved",
+                    "revised",
+                    "published"
+                ],
+                "a5": [
+                    "with",
+                    "at",
+                    "by",
+                    "without"
+                ],
+                "a6": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a7": [
+                    "scalpel",
+                    "cloth",
+                    "key",
+                    "marker"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-agent-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Відмову від права дозволив реєстратор.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Відмову від права дозволив реєстратор.",
+            "target_text": "The waiver was authorised by the registrar.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "waiver",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "waiver",
+                        "mirror",
+                        "contract",
+                        "manuscript"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "authorised",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "authorised",
+                        "documented",
+                        "preserved",
+                        "published"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "by",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "registrar.",
+                    "verb_hint": "Відмову від права дозволив реєстратор.",
+                    "options": [
+                        "registrar",
+                        "teacher",
+                        "nurse",
+                        "expert"
+                    ]
+                }
+            },
+            "verb_hint": "Відмову від права дозволив реєстратор.",
+            "accepted_target_texts": [
+                "The waiver was authorised by the registrar."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The waiver",
+                "was",
+                "authorised",
+                "by the registrar."
+            ],
+            "token_groups": [
+                "The waiver",
+                "was",
+                "authorised",
+                "by the registrar."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "waiver",
+                "was",
+                "authorised",
+                "by",
+                "the",
+                "registrar."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "waiver",
+                "mirror",
+                "contract",
+                "manuscript",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "authorised",
+                "documented",
+                "preserved",
+                "published",
+                "by",
+                "over",
+                "under",
+                "through",
+                "the",
+                "those",
+                "each",
+                "every",
+                "registrar",
+                "teacher",
+                "nurse",
+                "expert"
+            ],
+            "source_text_uk": "Відмову від права дозволив реєстратор.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "waiver",
+                    "mirror",
+                    "contract",
+                    "manuscript"
+                ],
+                "a3": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "authorised",
+                    "documented",
+                    "preserved",
+                    "published"
+                ],
+                "a5": [
+                    "by",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "registrar",
+                    "teacher",
+                    "nurse",
+                    "expert"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-agent-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Документ оформив довірчий власник.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Документ оформив довірчий власник.",
+            "target_text": "The instrument was executed by the trustee.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "instrument",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "instrument",
+                        "parcel",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "was",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "executed",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "executed",
+                        "signed",
+                        "examined",
+                        "replaced"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "by",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "trustee.",
+                    "verb_hint": "Документ оформив довірчий власник.",
+                    "options": [
+                        "trustee",
+                        "judge",
+                        "teacher",
+                        "nurse"
+                    ]
+                }
+            },
+            "verb_hint": "Документ оформив довірчий власник.",
+            "accepted_target_texts": [
+                "The instrument was executed by the trustee."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The instrument",
+                "was",
+                "executed",
+                "by the trustee."
+            ],
+            "token_groups": [
+                "The instrument",
+                "was",
+                "executed",
+                "by the trustee."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "instrument",
+                "was",
+                "executed",
+                "by",
+                "the",
+                "trustee."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "instrument",
+                "parcel",
+                "portrait",
+                "cabinet",
+                "was",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "executed",
+                "signed",
+                "examined",
+                "replaced",
+                "by",
+                "of",
+                "in",
+                "on",
+                "the",
+                "those",
+                "each",
+                "every",
+                "trustee",
+                "judge",
+                "teacher",
+                "nurse"
+            ],
+            "source_text_uk": "Документ оформив довірчий власник.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "instrument",
+                    "parcel",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "was",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "executed",
+                    "signed",
+                    "examined",
+                    "replaced"
+                ],
+                "a5": [
+                    "by",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "trustee",
+                    "judge",
+                    "teacher",
+                    "nurse"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-agent-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Залишок видалили розчинником.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Залишок видалили розчинником.",
+            "target_text": "The residue was removed with a solvent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "residue",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "residue",
+                        "mirror",
+                        "notice",
+                        "contract"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "removed",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "removed",
+                        "revised",
+                        "published",
+                        "negotiated"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "with",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "a",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "solvent.",
+                    "verb_hint": "Залишок видалили розчинником.",
+                    "options": [
+                        "solvent",
+                        "key",
+                        "needle",
+                        "marker"
+                    ]
+                }
+            },
+            "verb_hint": "Залишок видалили розчинником.",
+            "accepted_target_texts": [
+                "The residue was removed with a solvent."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The residue",
+                "was",
+                "removed",
+                "with a solvent."
+            ],
+            "token_groups": [
+                "The residue",
+                "was",
+                "removed",
+                "with a solvent."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "residue",
+                "was",
+                "removed",
+                "with",
+                "a",
+                "solvent."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "residue",
+                "mirror",
+                "notice",
+                "contract",
+                "was",
+                "were",
+                "be",
+                "been",
+                "removed",
+                "revised",
+                "published",
+                "negotiated",
+                "with",
+                "in",
+                "on",
+                "at",
+                "a",
+                "an",
+                "that",
+                "these",
+                "solvent",
+                "key",
+                "needle",
+                "marker"
+            ],
+            "source_text_uk": "Залишок видалили розчинником.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "residue",
+                    "mirror",
+                    "notice",
+                    "contract"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "removed",
+                    "revised",
+                    "published",
+                    "negotiated"
+                ],
+                "a5": [
+                    "with",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "a",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "solvent",
+                    "key",
+                    "needle",
+                    "marker"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "instrument",
+                "a6": "instrument",
+                "a7": "instrument"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-agent-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Поступки домігся посланець шляхом переговорів.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Поступки домігся посланець шляхом переговорів.",
+            "target_text": "The concession was negotiated by the envoy.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "concession",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "concession",
+                        "verdict",
+                        "residue",
+                        "instrument"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "negotiated",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "negotiated",
+                        "replaced",
+                        "written",
+                        "folded"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "by",
+                        "on",
+                        "at",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "the",
+                        "each",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "envoy.",
+                    "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+                    "options": [
+                        "envoy",
+                        "teacher",
+                        "nurse",
+                        "owner"
+                    ]
+                }
+            },
+            "verb_hint": "Поступки домігся посланець шляхом переговорів.",
+            "accepted_target_texts": [
+                "The concession was negotiated by the envoy."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "was",
+                "negotiated",
+                "by the envoy."
+            ],
+            "token_groups": [
+                "The concession",
+                "was",
+                "negotiated",
+                "by the envoy."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "concession",
+                "was",
+                "negotiated",
+                "by",
+                "the",
+                "envoy."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "concession",
+                "verdict",
+                "residue",
+                "instrument",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "negotiated",
+                "replaced",
+                "written",
+                "folded",
+                "by",
+                "on",
+                "at",
+                "with",
+                "the",
+                "each",
+                "either",
+                "neither",
+                "envoy",
+                "teacher",
+                "nurse",
+                "owner"
+            ],
+            "source_text_uk": "Поступки домігся посланець шляхом переговорів.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "concession",
+                    "verdict",
+                    "residue",
+                    "instrument"
+                ],
+                "a3": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "negotiated",
+                    "replaced",
+                    "written",
+                    "folded"
+                ],
+                "a5": [
+                    "by",
+                    "on",
+                    "at",
+                    "with"
+                ],
+                "a6": [
+                    "the",
+                    "each",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "envoy",
+                    "teacher",
+                    "nurse",
+                    "owner"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "be_sg",
+                "a4": "participle",
+                "a5": "byagent",
+                "a6": "byagent",
+                "a7": "byagent"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

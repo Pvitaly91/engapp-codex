@@ -115,7 +115,42 @@ final class AcceptedAnswerVariants
 
     public static function matches(string $expected, string $submitted, string $after = '', string $before = ''): bool
     {
-        $normalize = static fn (string $value): string => mb_strtolower(trim(preg_replace('/[.!?…]+$/u', '', self::normalizeTypography($value))));
+        $normalize = static function (string $value): string {
+            $text = self::normalizeTypography($value);
+            // Explicit authored zero-article answer, not an empty punctuation
+            // response. Other punctuation-only submissions remain empty.
+            if ($text === '-') return '-';
+            // Match the client: optional sentence punctuation must not remove
+            // lexical apostrophes/hyphens or change decimal/numeric separators.
+            $characters = preg_split('//u', $text, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+            $word = static fn (string $character): bool => preg_match('/[\p{L}\p{N}]/u', $character) === 1;
+            $quotes = []; $openings = []; $paired = [];
+            foreach ($characters as $index => $character) {
+                if ($character !== "'") continue;
+                $quotes[] = $index;
+                if (!$word($characters[$index - 1] ?? '') && $word($characters[$index + 1] ?? '')) $openings[] = $index;
+            }
+            foreach ($openings as $index => $opening) {
+                $limit = $openings[$index + 1] ?? count($characters); $closing = null;
+                foreach ($quotes as $offset) {
+                    if ($offset > $opening && $offset < $limit && isset($characters[$offset - 1])
+                        && preg_match('/\s/u', $characters[$offset - 1]) !== 1 && !$word($characters[$offset + 1] ?? '')) $closing = $offset;
+                }
+                if ($closing !== null) { $paired[$opening] = true; $paired[$closing] = true; }
+            }
+            $original = $characters;
+            foreach ($characters as $index => $mark) {
+                if (preg_match('/\p{P}/u', $mark) !== 1) continue;
+                $left = $original[$index - 1] ?? '';
+                $right = $original[$index + 1] ?? '';
+                if (in_array($mark, ["'", '-'], true) && preg_match('/[\p{L}\p{N}]/u', $left) === 1 && preg_match('/[\p{L}\p{N}]/u', $right) === 1) continue;
+                if ($mark === "'" && !isset($paired[$index]) && ($word($left) || $word($right))) continue;
+                if (in_array($mark, ['.', ','], true) && ctype_digit($left) && ctype_digit($right)) continue;
+                $characters[$index] = ' ';
+            }
+
+            return mb_strtolower(self::normalizeTypography(implode('', $characters)));
+        };
         $submitted = $normalize($submitted);
         if ($submitted === '') {
             return false;
@@ -167,7 +202,9 @@ final class AcceptedAnswerVariants
             }
         }
 
-        if (trim($after) === '' && preg_match('/\b(?:yes|no)[,\s]/i', $before.$expected)) {
+        // A sentence-ending mark is not a continuation that licenses a
+        // positive auxiliary contraction in a standalone short answer.
+        if (preg_match('/^[\s\p{P}]*$/u', $after) === 1 && preg_match('/\b(?:yes|no)[,\s]/i', $before.$expected)) {
             $variants = array_filter($variants, static fn (string $value): bool => !preg_match("/'(?:m|re|ve|ll|s|d)[.!?…]*$/u", $value));
         }
 

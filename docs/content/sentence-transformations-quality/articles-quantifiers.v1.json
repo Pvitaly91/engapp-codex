@@ -1,0 +1,633 @@
+{
+    "schema_version": 1,
+    "topic_key": "articles-quantifiers",
+    "title": "Sentence Transformations: Articles and Quantifiers",
+    "choice_pools": {
+        "possession_clause": [
+            "I own",
+            "I need",
+            "You have",
+            "We want",
+            "They carry",
+            "She owns",
+            "He needs",
+            "I found"
+        ],
+        "singular_object": [
+            "a blue suitcase",
+            "an old basket",
+            "a warm blanket",
+            "the little bottle",
+            "a green notebook",
+            "an empty bag",
+            "a silver watch",
+            "an orange coat"
+        ],
+        "existence_clause": [
+            "There is",
+            "There was",
+            "There were",
+            "It is",
+            "It was",
+            "They are",
+            "Here is",
+            "Here are"
+        ],
+        "plural_quantity": [
+            "several apples",
+            "a few carrots",
+            "many postcards",
+            "some cherries",
+            "three bottles",
+            "enough pencils",
+            "no biscuits",
+            "both gloves"
+        ],
+        "place_phrase": [
+            "in the garden",
+            "on the shelf",
+            "near the station",
+            "beside the gate",
+            "under this table",
+            "inside the cupboard",
+            "outside the house",
+            "behind the school"
+        ],
+        "whole_plural_subject": [
+            "Both the drivers",
+            "All those trees",
+            "Most small shops",
+            "Several large windows",
+            "Every tall building",
+            "Few older maps",
+            "Many new roads",
+            "Some young actors"
+        ],
+        "plural_state": [
+            "are available",
+            "were broken",
+            "have vanished",
+            "remain empty",
+            "look dirty",
+            "seem expensive",
+            "are missing",
+            "were repaired"
+        ],
+        "limited_singular_subject": [
+            "Not every passenger",
+            "No young artist",
+            "Not each visitor",
+            "Only one neighbour",
+            "Every other employee",
+            "A single applicant",
+            "Neither local candidate",
+            "Any experienced climber"
+        ],
+        "passive_past": [
+            "was chosen",
+            "was refused",
+            "was accepted",
+            "was welcomed",
+            "was selected",
+            "was questioned",
+            "was contacted",
+            "was dismissed"
+        ],
+        "purpose_phrase": [
+            "for an audition",
+            "to a meeting",
+            "for further training",
+            "to another session",
+            "for a consultation",
+            "to the conference",
+            "for an examination",
+            "to the ceremony"
+        ],
+        "exclusive_subject": [
+            "No other speaker",
+            "No previous visitor",
+            "No younger painter",
+            "No fellow passenger",
+            "No earlier reviewer",
+            "No remaining candidate",
+            "No local journalist",
+            "No independent observer"
+        ],
+        "past_reporting_verb": [
+            "withheld",
+            "disputed",
+            "rejected",
+            "ignored",
+            "lost",
+            "revised",
+            "shortened",
+            "translated"
+        ],
+        "degree_modifier": [
+            "a very brief",
+            "an unusually short",
+            "a rather vague",
+            "this unusually brief",
+            "another rather short",
+            "an equally detailed",
+            "a much shorter",
+            "one more precise"
+        ],
+        "report_noun": [
+            "summary",
+            "statement",
+            "response",
+            "explanation",
+            "report",
+            "comment",
+            "outline",
+            "narrative"
+        ],
+        "exhaustive_subject": [
+            "Every remaining fragment",
+            "Every single mark",
+            "Each visible stain",
+            "Every final detail",
+            "Each remaining particle",
+            "Every last drop",
+            "Every small residue",
+            "Every trace left"
+        ],
+        "material_phrase": [
+            "of dust",
+            "of ink",
+            "of rust",
+            "of paint",
+            "of charcoal",
+            "of varnish",
+            "of clay",
+            "of oil"
+        ],
+        "past_perfect_passive": [
+            "had been cleaned",
+            "had been checked",
+            "had been inspected",
+            "had been covered",
+            "had been recorded",
+            "had been recovered",
+            "had been dissolved",
+            "had been washed"
+        ],
+        "time_phrase": [
+            "before the visit",
+            "before the opening",
+            "before their arrival",
+            "after the meeting",
+            "during the closure",
+            "by that morning",
+            "before final approval",
+            "before restoration"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "I have {a1} orange scarf.",
+            "target": "I have an orange scarf.",
+            "uk": "У мене є один помаранчевий шарф.",
+            "hint_uk": "Передай значення «один помаранчевий шарф» неозначеним артиклем; наступне слово починається з голосного звука.",
+            "groups": [
+                "I have",
+                "an orange scarf."
+            ],
+            "answer": "an",
+            "options": [
+                "an",
+                "a",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "There is {a1} butter on the plate.",
+            "target": "There is some butter on the plate.",
+            "uk": "На тарілці є трохи масла.",
+            "hint_uk": "Передай невизначену кількість масла у ствердженні; масло тут не рахуємо окремими предметами.",
+            "groups": [
+                "There is",
+                "some butter",
+                "on the plate."
+            ],
+            "answer": "some",
+            "options": [
+                "some",
+                "a",
+                "many"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "У мене є жовта парасоля.",
+            "target": "I have a yellow umbrella.",
+            "uk": "У мене є жовта парасоля.",
+            "hint_uk": "Збережи одну парасолю й жовтий колір; неозначений артикль добери за звуком прикметника.",
+            "groups": [
+                "I have",
+                "a yellow umbrella."
+            ],
+            "compose_slots": [
+                "I have",
+                "a yellow umbrella."
+            ],
+            "slot_roles": [
+                "possession_clause",
+                "singular_object"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "Only {a1} biscuits remain.",
+            "target": "Only a few biscuits remain.",
+            "uk": "Залишилося лише кілька печив.",
+            "hint_uk": "Стисни «кілька печив» у коротку кількісну групу для злічуваної множини; кілька штук усе ж є.",
+            "groups": [
+                "Only a few",
+                "biscuits remain."
+            ],
+            "answer": "a few",
+            "options": [
+                "a few",
+                "a little",
+                "much"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "There is {a1} flour in this jar.",
+            "target": "There is no flour in this jar.",
+            "uk": "У цій банці зовсім немає борошна.",
+            "hint_uk": "Перебудуй повідомлення про повну відсутність борошна; заперечення має міститися у пропуску.",
+            "groups": [
+                "There is",
+                "no flour",
+                "in this jar."
+            ],
+            "answer": "no",
+            "options": [
+                "no",
+                "any",
+                "many"
+            ],
+            "answer_synonyms": [
+                "not any"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "У мисці є трохи винограду.",
+            "target": "There are some grapes in the bowl.",
+            "uk": "У мисці є трохи винограду.",
+            "hint_uk": "Виноградини подай злічуваною множиною; кількість невизначена, місце — миска.",
+            "groups": [
+                "There are",
+                "some grapes",
+                "in the bowl."
+            ],
+            "compose_slots": [
+                "There are",
+                "some grapes",
+                "in the bowl."
+            ],
+            "slot_roles": [
+                "existence_clause",
+                "plural_quantity",
+                "place_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "{a1} of the twins likes porridge.",
+            "target": "Neither of the twins likes porridge.",
+            "uk": "Жоден із двох близнюків не любить кашу.",
+            "hint_uk": "Об’єднай два заперечення в одну кількісну форму «жоден із двох»; решту речення вже наведено.",
+            "groups": [
+                "Neither of",
+                "the twins",
+                "likes porridge."
+            ],
+            "answer": "Neither",
+            "options": [
+                "Neither",
+                "None",
+                "Every"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "We have {a1} time to catch the ferry.",
+            "target": "We have enough time to catch the ferry.",
+            "uk": "Часу вистачає, щоб ми встигли на пором.",
+            "hint_uk": "Передай достатню, а не надмірну кількість часу; підмет і дієслово вже стоять перед пропуском.",
+            "groups": [
+                "We have",
+                "enough time",
+                "to catch",
+                "the ferry."
+            ],
+            "answer": "enough",
+            "options": [
+                "enough",
+                "too",
+                "many"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Усі місця в цьому автобусі зайняті.",
+            "target": "All the seats on this bus are taken.",
+            "uk": "Усі місця в цьому автобусі зайняті.",
+            "hint_uk": "Почни з усіх місць; збережи саме цей автобус і стан зайнятості.",
+            "groups": [
+                "All the seats",
+                "on this bus",
+                "are taken."
+            ],
+            "compose_slots": [
+                "All the seats",
+                "on this bus",
+                "are taken."
+            ],
+            "slot_roles": [
+                "whole_plural_subject",
+                "place_phrase",
+                "plural_state"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "There are {a1} crumbs on the tray.",
+            "target": "There are hardly any crumbs on the tray.",
+            "uk": "На таці крихт майже немає.",
+            "hint_uk": "Стисни «майже немає» у кількісну групу з майже заперечним значенням; не перетворюй малу кількість на повну відсутність.",
+            "groups": [
+                "There are",
+                "hardly any crumbs",
+                "on the tray."
+            ],
+            "answer": "hardly any",
+            "options": [
+                "hardly any",
+                "quite a few",
+                "a great many"
+            ],
+            "answer_synonyms": [
+                "scarcely any",
+                "almost no"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "She spent {a1} her savings on repairs.",
+            "target": "She spent almost all of her savings on repairs.",
+            "uk": "Вона витратила на ремонт майже всі свої заощадження.",
+            "hint_uk": "Передай майже повний обсяг названих заощаджень; перед присвійною формою збережи потрібний прийменник.",
+            "groups": [
+                "She spent",
+                "almost all of",
+                "her savings",
+                "on repairs."
+            ],
+            "answer": "almost all of",
+            "options": [
+                "almost all of",
+                "almost every",
+                "almost all"
+            ],
+            "answer_synonyms": [
+                "nearly all of"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Не кожного кандидата запросили на співбесіду.",
+            "target": "Not every applicant was invited to an interview.",
+            "uk": "Не кожного кандидата запросили на співбесіду.",
+            "hint_uk": "Заперечення охоплює загальність, а не сам факт запрошень; після однини збережи узгоджену пасивну форму.",
+            "groups": [
+                "Not every applicant",
+                "was invited",
+                "to an interview."
+            ],
+            "compose_slots": [
+                "Not every applicant",
+                "was invited",
+                "to an interview."
+            ],
+            "slot_roles": [
+                "limited_singular_subject",
+                "passive_past",
+                "purpose_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "All {a1} one of the lanterns stayed lit.",
+            "target": "All but one of the lanterns stayed lit.",
+            "uk": "Усі ліхтарі, крім одного, залишилися запаленими.",
+            "hint_uk": "Перебудуй виняток «крім одного» після слова «всі»; жодного другого винятку не додавай.",
+            "groups": [
+                "All but one",
+                "of the lanterns",
+                "stayed lit."
+            ],
+            "answer": "but",
+            "options": [
+                "but",
+                "except of",
+                "without"
+            ],
+            "answer_synonyms": [
+                "except"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The recommendation applies to {a1} member without exception.",
+            "target": "The recommendation applies to each and every member without exception.",
+            "uk": "Рекомендація стосується абсолютно кожного учасника без винятку.",
+            "hint_uk": "Посиль значення «кожного» поєднанням двох означальних слів; наступна назва учасника в однині.",
+            "groups": [
+                "The recommendation",
+                "applies to",
+                "each and every",
+                "member without exception."
+            ],
+            "answer": "each and every",
+            "options": [
+                "each and every",
+                "all and every",
+                "every and all"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Жоден інший свідок не дав такого детального опису.",
+            "target": "No other witness gave such a detailed account.",
+            "uk": "Жоден інший свідок не дав такого детального опису.",
+            "hint_uk": "Збережи обмеження «жоден інший» і ступінь деталізації; не перетворюй опис на оцінку правдивості.",
+            "groups": [
+                "No other witness",
+                "gave",
+                "such a detailed",
+                "account."
+            ],
+            "compose_slots": [
+                "No other witness",
+                "gave",
+                "such a detailed",
+                "account."
+            ],
+            "slot_roles": [
+                "exclusive_subject",
+                "past_reporting_verb",
+                "degree_modifier",
+                "report_noun"
+            ],
+            "accepted_targets": [
+                "No other witness gave such a detailed description.",
+                "No other witness provided such a detailed account.",
+                "No other witness provided such a detailed description.",
+                "No other witness offered such a detailed account.",
+                "No other witness offered such a detailed description.",
+                "No other witness supplied such a detailed account.",
+                "No other witness supplied such a detailed description.",
+                "No other witness presented such a detailed account.",
+                "No other witness presented such a detailed description."
+            ],
+            "display_synonyms": {
+                "gave": [
+                    "provided",
+                    "offered",
+                    "supplied",
+                    "presented"
+                ],
+                "account": [
+                    "description"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "It is not {a1} a question of cost as of trust.",
+            "target": "It is not so much a question of cost as of trust.",
+            "uk": "Це питання не стільки вартості, скільки довіри.",
+            "hint_uk": "Передай перевагу другого пояснення над першим кількісно-порівняльною парою; друга частина порівняння вже наведена.",
+            "groups": [
+                "It is",
+                "not so much",
+                "a question",
+                "of cost",
+                "as of trust."
+            ],
+            "answer": "so much",
+            "options": [
+                "so much",
+                "as much",
+                "too much"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "Each proposal, {a1} merits, must meet the same deadline.",
+            "target": "Each proposal, whatever its merits, must meet the same deadline.",
+            "uk": "Кожна пропозиція, незалежно від її переваг, має бути подана до того самого строку.",
+            "hint_uk": "Перебудуй «незалежно від її переваг» через вільний вибір ознак; збережи присвійну форму однини для кожної пропозиції.",
+            "groups": [
+                "Each proposal,",
+                "whatever its merits,",
+                "must meet",
+                "the same deadline."
+            ],
+            "answer": "whatever its",
+            "options": [
+                "whatever its",
+                "whichever its",
+                "whatever their"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "До огляду вже видалили всі до останнього сліди пігменту.",
+            "target": "Every last trace of pigment had been removed before inspection.",
+            "uk": "До огляду вже видалили всі до останнього сліди пігменту.",
+            "hint_uk": "Однина підкреслює повне вичерпання множини слідів; видалення завершилося раніше за минулий огляд.",
+            "groups": [
+                "Every last trace",
+                "of pigment",
+                "had been removed",
+                "before inspection."
+            ],
+            "compose_slots": [
+                "Every last trace",
+                "of pigment",
+                "had been removed",
+                "before inspection."
+            ],
+            "slot_roles": [
+                "exhaustive_subject",
+                "material_phrase",
+                "past_perfect_passive",
+                "time_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        }
+    ]
+}

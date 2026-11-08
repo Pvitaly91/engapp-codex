@@ -1,0 +1,1619 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/omitting-relative-pronouns.v1.json",
+        "sha256": "1f48cabbd6d6e4330384826ae90844cd8f3152e818eda636b52e9952ac598173"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedOmittingRelativePronounsQualityBuilderSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-omitting-relative-pronouns-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "clauses_linking_words_quality_omitting_relative_pronouns": {
+            "name": "Clauses and Linking Words Quality: Omitting Relative Pronouns"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_omitting_relative_pronouns": {
+            "name": "Omitting Relative Pronouns",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "object_omission": {
+            "name": "Object pronoun omission",
+            "category": "topic"
+        },
+        "subject_not_omitted": {
+            "name": "Subject pronoun not omitted",
+            "category": "topic"
+        },
+        "defining_only": {
+            "name": "Defining clauses only",
+            "category": "topic"
+        },
+        "not_non_defining": {
+            "name": "Not in non-defining clauses",
+            "category": "topic"
+        },
+        "object_who_which_that": {
+            "name": "Who, which, that as object",
+            "category": "topic"
+        },
+        "contact_clauses": {
+            "name": "Contact clauses",
+            "category": "topic"
+        },
+        "object_vs_subject": {
+            "name": "Object vs subject distinction",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-omitting-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Книга, яку я читаю, весела.",
+            "level": "A1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Книга, яку я читаю, весела.",
+            "target_text": "The book I read is funny.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "book",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "book",
+                        "document",
+                        "map",
+                        "notebook"
+                    ]
+                },
+                "a3": {
+                    "answer": "I",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "I",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a4": {
+                    "answer": "read",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "read",
+                        "leave",
+                        "meet",
+                        "use"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a6": {
+                    "answer": "funny.",
+                    "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+                    "options": [
+                        "funny",
+                        "nearby",
+                        "attention",
+                        "unclear"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з книги; пропусти відносне слово перед підметом я.",
+            "accepted_target_texts": [
+                "The book I read is funny.",
+                "The book I read is amusing."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "amusing."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "amusing."
+                ]
+            },
+            "reorder_groups": [
+                "The book",
+                "I read",
+                "is funny."
+            ],
+            "token_groups": [
+                "The book",
+                "I read",
+                "is funny."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "book",
+                "I",
+                "read",
+                "is",
+                "funny."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "book",
+                "document",
+                "map",
+                "notebook",
+                "I",
+                "Me",
+                "Him",
+                "Us",
+                "read",
+                "leave",
+                "meet",
+                "use",
+                "is",
+                "are",
+                "was",
+                "were",
+                "funny",
+                "nearby",
+                "attention",
+                "unclear"
+            ],
+            "source_text_uk": "Книга, яку я читаю, весела.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "book",
+                    "document",
+                    "map",
+                    "notebook"
+                ],
+                "a3": [
+                    "I",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a4": [
+                    "read",
+                    "leave",
+                    "meet",
+                    "use"
+                ],
+                "a5": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a6": [
+                    "funny",
+                    "nearby",
+                    "attention",
+                    "unclear"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "clq-omitting-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Сукня, яку вона вибрала, жовта.",
+            "level": "A2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Сукня, яку вона вибрала, жовта.",
+            "target_text": "The dress she chose is yellow.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "dress",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "dress",
+                        "team",
+                        "witness",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "she",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "she",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "chose",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "chose",
+                        "postponed",
+                        "changed",
+                        "open"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a6": {
+                    "answer": "yellow.",
+                    "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+                    "options": [
+                        "yellow",
+                        "gray",
+                        "purple",
+                        "orange"
+                    ]
+                }
+            },
+            "verb_hint": "Пропусти відносне слово, але не виконавицю вибору; збережи минулу дію.",
+            "accepted_target_texts": [
+                "The dress she chose is yellow.",
+                "The dress she selected is yellow."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "selected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "selected"
+                ]
+            },
+            "reorder_groups": [
+                "The dress",
+                "she chose",
+                "is yellow."
+            ],
+            "token_groups": [
+                "The dress",
+                "she chose",
+                "is yellow."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "dress",
+                "she",
+                "chose",
+                "is",
+                "yellow."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "dress",
+                "team",
+                "witness",
+                "visitor",
+                "she",
+                "yourself",
+                "herself",
+                "ourselves",
+                "chose",
+                "postponed",
+                "changed",
+                "open",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "yellow",
+                "gray",
+                "purple",
+                "orange"
+            ],
+            "source_text_uk": "Сукня, яку вона вибрала, жовта.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "dress",
+                    "team",
+                    "witness",
+                    "visitor"
+                ],
+                "a3": [
+                    "she",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a4": [
+                    "chose",
+                    "postponed",
+                    "changed",
+                    "open"
+                ],
+                "a5": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a6": [
+                    "yellow",
+                    "gray",
+                    "purple",
+                    "orange"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "clq-omitting-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Готель, у якому ми зупинялися, виходить на гавань.",
+            "level": "B1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Готель, у якому ми зупинялися, виходить на гавань.",
+            "target_text": "The hotel we stayed at overlooks the harbour.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "hotel",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "hotel",
+                        "visitor",
+                        "neighbour",
+                        "gardener"
+                    ]
+                },
+                "a3": {
+                    "answer": "we",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "we",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "stayed",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "stayed",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "at",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "overlooks",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "overlooks",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "harbour.",
+                    "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+                    "options": [
+                        "harbour",
+                        "bus",
+                        "desk",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Не вводь відносного слова; збережи прийменник після дієслова проживання.",
+            "accepted_target_texts": [
+                "The hotel we stayed at overlooks the harbour.",
+                "The hotel we stayed at overlooks the harbor."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "harbor."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "harbor."
+                ]
+            },
+            "reorder_groups": [
+                "The hotel",
+                "we stayed at",
+                "overlooks",
+                "the harbour."
+            ],
+            "token_groups": [
+                "The hotel",
+                "we stayed at",
+                "overlooks",
+                "the harbour."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "hotel",
+                "we",
+                "stayed",
+                "at",
+                "overlooks",
+                "the",
+                "harbour."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "hotel",
+                "visitor",
+                "neighbour",
+                "gardener",
+                "we",
+                "herself",
+                "ourselves",
+                "themselves",
+                "stayed",
+                "wanted",
+                "worked",
+                "played",
+                "at",
+                "to",
+                "from",
+                "for",
+                "overlooks",
+                "cats",
+                "people",
+                "men",
+                "the",
+                "those",
+                "each",
+                "every",
+                "harbour",
+                "bus",
+                "desk",
+                "picture"
+            ],
+            "source_text_uk": "Готель, у якому ми зупинялися, виходить на гавань.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "hotel",
+                    "visitor",
+                    "neighbour",
+                    "gardener"
+                ],
+                "a3": [
+                    "we",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a4": [
+                    "stayed",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a5": [
+                    "at",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "overlooks",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "harbour",
+                    "bus",
+                    "desk",
+                    "picture"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "verb_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "clq-omitting-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Заява, яку представник відмовився підтвердити, зникла із сайту.",
+            "level": "B2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Заява, яку представник відмовився підтвердити, зникла із сайту.",
+            "target_text": "The statement the spokesperson refused to confirm disappeared from the website.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "statement",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "statement",
+                        "cousin",
+                        "team",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "spokesperson",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "spokesperson",
+                        "reader",
+                        "witness",
+                        "neighbour"
+                    ]
+                },
+                "a5": {
+                    "answer": "refused",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "refused",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "confirm",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "confirm",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                },
+                "a8": {
+                    "answer": "disappeared",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "disappeared",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "from",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a11": {
+                    "answer": "website.",
+                    "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+                    "options": [
+                        "website",
+                        "workshop",
+                        "river",
+                        "owner"
+                    ]
+                }
+            },
+            "verb_hint": "Пропусти об’єктне відносне слово; збережи відмову, а не саме підтвердження.",
+            "accepted_target_texts": [
+                "The statement the spokesperson refused to confirm disappeared from the website."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The statement",
+                "the spokesperson",
+                "refused to confirm",
+                "disappeared",
+                "from the website."
+            ],
+            "token_groups": [
+                "The statement",
+                "the spokesperson",
+                "refused to confirm",
+                "disappeared",
+                "from the website."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "statement",
+                "the",
+                "spokesperson",
+                "refused",
+                "to",
+                "confirm",
+                "disappeared",
+                "from",
+                "the",
+                "website."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "statement",
+                "cousin",
+                "team",
+                "visitor",
+                "the",
+                "each",
+                "every",
+                "no",
+                "spokesperson",
+                "reader",
+                "witness",
+                "neighbour",
+                "refused",
+                "closed",
+                "helped",
+                "waited",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "confirm",
+                "chair",
+                "table",
+                "ticket",
+                "disappeared",
+                "needed",
+                "liked",
+                "wanted",
+                "from",
+                "in",
+                "on",
+                "at",
+                "another",
+                "either",
+                "neither",
+                "website",
+                "workshop",
+                "river",
+                "owner"
+            ],
+            "source_text_uk": "Заява, яку представник відмовився підтвердити, зникла із сайту.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "statement",
+                    "cousin",
+                    "team",
+                    "visitor"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "spokesperson",
+                    "reader",
+                    "witness",
+                    "neighbour"
+                ],
+                "a5": [
+                    "refused",
+                    "closed",
+                    "helped",
+                    "waited"
+                ],
+                "a6": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "confirm",
+                    "chair",
+                    "table",
+                    "ticket"
+                ],
+                "a8": [
+                    "disappeared",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a9": [
+                    "from",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a10": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a11": [
+                    "website",
+                    "workshop",
+                    "river",
+                    "owner"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "subject_phrase",
+                "a4": "subject_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "preposition_phrase",
+                "a10": "preposition_phrase",
+                "a11": "preposition_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "clq-omitting-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Заперечення, яке свідок, за його словами, не почув, зафіксували в протоколі.",
+            "level": "C1",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Заперечення, яке свідок, за його словами, не почув, зафіксували в протоколі.",
+            "target_text": "The objection the witness claimed not to have heard was recorded in the minutes.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "objection",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "objection",
+                        "neighbour",
+                        "gardener",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a4": {
+                    "answer": "witness",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "witness",
+                        "cousin",
+                        "team",
+                        "artist"
+                    ]
+                },
+                "a5": {
+                    "answer": "claimed",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "claimed",
+                        "helped",
+                        "waited",
+                        "watched"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a8": {
+                    "answer": "have",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "have",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a9": {
+                    "answer": "heard",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "heard",
+                        "done",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a10": {
+                    "answer": "was",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "was",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a11": {
+                    "answer": "recorded",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "recorded",
+                        "open",
+                        "postponed",
+                        "changed"
+                    ]
+                },
+                "a12": {
+                    "answer": "in",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "in",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a14": {
+                    "answer": "minutes.",
+                    "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+                    "options": [
+                        "minutes",
+                        "guests",
+                        "keys",
+                        "rooms"
+                    ]
+                }
+            },
+            "verb_hint": "Пропусти відносне слово; передай твердження свідка про неотриману інформацію, а не доведений факт.",
+            "accepted_target_texts": [
+                "The objection the witness claimed not to have heard was recorded in the minutes."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The objection",
+                "the witness",
+                "claimed",
+                "not to have",
+                "heard",
+                "was recorded",
+                "in the minutes."
+            ],
+            "token_groups": [
+                "The objection",
+                "the witness",
+                "claimed",
+                "not to have",
+                "heard",
+                "was recorded",
+                "in the minutes."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "objection",
+                "the",
+                "witness",
+                "claimed",
+                "not",
+                "to",
+                "have",
+                "heard",
+                "was",
+                "recorded",
+                "in",
+                "the",
+                "minutes."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "objection",
+                "neighbour",
+                "gardener",
+                "visitor",
+                "the",
+                "a",
+                "an",
+                "some",
+                "witness",
+                "cousin",
+                "team",
+                "artist",
+                "claimed",
+                "helped",
+                "waited",
+                "watched",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "to",
+                "over",
+                "under",
+                "through",
+                "have",
+                "hasn't",
+                "hadn't",
+                "do",
+                "heard",
+                "done",
+                "needed",
+                "liked",
+                "was",
+                "wasn't",
+                "weren't",
+                "am",
+                "recorded",
+                "open",
+                "postponed",
+                "changed",
+                "in",
+                "on",
+                "at",
+                "by",
+                "that",
+                "these",
+                "those",
+                "minutes",
+                "guests",
+                "keys",
+                "rooms"
+            ],
+            "source_text_uk": "Заперечення, яке свідок, за його словами, не почув, зафіксували в протоколі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "objection",
+                    "neighbour",
+                    "gardener",
+                    "visitor"
+                ],
+                "a3": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a4": [
+                    "witness",
+                    "cousin",
+                    "team",
+                    "artist"
+                ],
+                "a5": [
+                    "claimed",
+                    "helped",
+                    "waited",
+                    "watched"
+                ],
+                "a6": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a7": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a8": [
+                    "have",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a9": [
+                    "heard",
+                    "done",
+                    "needed",
+                    "liked"
+                ],
+                "a10": [
+                    "was",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a11": [
+                    "recorded",
+                    "open",
+                    "postponed",
+                    "changed"
+                ],
+                "a12": [
+                    "in",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a13": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a14": [
+                    "minutes",
+                    "guests",
+                    "keys",
+                    "rooms"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "subject_phrase",
+                "a4": "subject_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "verb_phrase",
+                "a12": "preposition_phrase",
+                "a13": "preposition_phrase",
+                "a14": "preposition_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "clq-omitting-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Розрізнення, яке обидві сторони вважали самоочевидним, не витримало перевірки.",
+            "level": "C2",
+            "type": 4,
+            "source": "clauses_linking_words_quality_omitting_relative_pronouns",
+            "translation_uk": "Розрізнення, яке обидві сторони вважали самоочевидним, не витримало перевірки.",
+            "target_text": "The distinction both parties took for granted did not withstand scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "distinction",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "distinction",
+                        "artist",
+                        "team",
+                        "witness"
+                    ]
+                },
+                "a3": {
+                    "answer": "both",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "both",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "parties",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "parties",
+                        "travellers",
+                        "phones",
+                        "children"
+                    ]
+                },
+                "a5": {
+                    "answer": "took",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "took",
+                        "called",
+                        "walked",
+                        "opened"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "for",
+                        "from",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "granted",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "granted",
+                        "verified",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a8": {
+                    "answer": "did",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "did",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a10": {
+                    "answer": "withstand",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "withstand",
+                        "book",
+                        "box",
+                        "chair"
+                    ]
+                },
+                "a11": {
+                    "answer": "scrutiny.",
+                    "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+                    "options": [
+                        "scrutiny",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                }
+            },
+            "verb_hint": "Пропусти відносне слово; збережи спільне припущення сторін і негативний підсумок перевірки.",
+            "accepted_target_texts": [
+                "The distinction both parties took for granted did not withstand scrutiny."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "both parties",
+                "took for granted",
+                "did not withstand",
+                "scrutiny."
+            ],
+            "token_groups": [
+                "The distinction",
+                "both parties",
+                "took for granted",
+                "did not withstand",
+                "scrutiny."
+            ],
+            "quality_revision": "clq-v1",
+            "tokens_correct": [
+                "The",
+                "distinction",
+                "both",
+                "parties",
+                "took",
+                "for",
+                "granted",
+                "did",
+                "not",
+                "withstand",
+                "scrutiny."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "distinction",
+                "artist",
+                "team",
+                "witness",
+                "both",
+                "this",
+                "that",
+                "these",
+                "parties",
+                "travellers",
+                "phones",
+                "children",
+                "took",
+                "called",
+                "walked",
+                "opened",
+                "for",
+                "from",
+                "of",
+                "in",
+                "granted",
+                "verified",
+                "wrote",
+                "rode",
+                "did",
+                "hasn't",
+                "hadn't",
+                "do",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "withstand",
+                "book",
+                "box",
+                "chair",
+                "scrutiny",
+                "bread",
+                "milk",
+                "music"
+            ],
+            "source_text_uk": "Розрізнення, яке обидві сторони вважали самоочевидним, не витримало перевірки.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "distinction",
+                    "artist",
+                    "team",
+                    "witness"
+                ],
+                "a3": [
+                    "both",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a4": [
+                    "parties",
+                    "travellers",
+                    "phones",
+                    "children"
+                ],
+                "a5": [
+                    "took",
+                    "called",
+                    "walked",
+                    "opened"
+                ],
+                "a6": [
+                    "for",
+                    "from",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "granted",
+                    "verified",
+                    "wrote",
+                    "rode"
+                ],
+                "a8": [
+                    "did",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a9": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a10": [
+                    "withstand",
+                    "book",
+                    "box",
+                    "chair"
+                ],
+                "a11": [
+                    "scrutiny",
+                    "bread",
+                    "milk",
+                    "music"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "subject_phrase",
+                "a4": "subject_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

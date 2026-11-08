@@ -11,7 +11,9 @@ class SavedTestClientAnswerLogicTest extends TestCase
         $helper = file_get_contents($this->resourcePath('views/components/saved-test-js-helpers.blade.php'));
 
         $this->assertStringContainsString('function canonicalTestAnswer(value)', $helper);
-        $this->assertStringContainsString('.replace(/[‘’ʼ`]/g, "\'")', $helper);
+        $this->assertStringContainsString('return EnglishAnswerVariants.normalize(value)', $helper);
+        $variants = file_get_contents(dirname(__DIR__, 2).'/public/js/english-answer-variants.js');
+        $this->assertStringContainsString('.replace(/[‘’ʼ`]/g, "\'")', $variants);
         $this->assertStringContainsString('.replace(/\\bwill\\s+not\\b/g, "won\'t")', $helper);
         $this->assertStringContainsString('.replace(/\\bhave\\s+not\\b/g, "haven\'t")', $helper);
         $this->assertStringContainsString('.replace(/\\bhas\\s+not\\b/g, "hasn\'t")', $helper);
@@ -206,7 +208,8 @@ class SavedTestClientAnswerLogicTest extends TestCase
             $this->assertStringContainsString("'correct', currentWord, currentWord, wordIndex", $commitWord, $view);
             $this->assertStringContainsString('const expectedWord = manualAnswerWords(item, slotIndex)[wordIndex]', $commitWord, $view);
             $this->assertStringContainsString("'incorrect', currentWord, expectedWord, wordIndex", $commitWord, $view);
-            $this->assertStringContainsString('item.manualWordIndexBySlot[slotIndex] = wordIndex + 1;', $commitWord, $view);
+            $this->assertStringContainsString('item.manualWordIndexBySlot[slotIndex] = isPassivePhraseGapQuestion(item) && !isPassivePhraseGapQuestion(item, true) ? 0 : wordIndex + 1;', $commitWord, $view);
+            $this->assertStringContainsString("item.feedback = isPassivePhraseGapQuestion(item) ? '' : 'correct';", $commitWord, $view);
             $this->assertStringContainsString('submitManualAnswer(', $commitWord, $view);
             $this->assertStringContainsString('const hasRawPrefix = accepted.some(', $answerProgress, $view);
             $this->assertStringContainsString('const hasCanonicalPrefix = accepted.some(', $answerProgress, $view);
@@ -326,7 +329,7 @@ class SavedTestClientAnswerLogicTest extends TestCase
             $this->assertStringContainsString('slotIndex !== item.activeSlot', $submit, $view);
             $this->assertStringNotContainsString('item.activeSlot = slotIndex', $submit, $view);
             $this->assertStringNotContainsString('activeSlot = gapIndex', $source, $view);
-            $this->assertStringContainsString('manualWordIndexBySlot[slotIndex] = wordIndex + 1;', $source, $view);
+            $this->assertStringContainsString('manualWordIndexBySlot[slotIndex] = isPassivePhraseGapQuestion(item) && !isPassivePhraseGapQuestion(item, true) ? 0 : wordIndex + 1;', $source, $view);
         }
     }
 

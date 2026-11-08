@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60656,
+        "uuid": "bgq-parts-of-speech-c2-g01",
+        "question": "The account rests on an implausible {a1} of identity.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "reification",
+                "reify",
+                "reificatory"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:49.000000Z",
+        "updated_at": "2026-10-27T15:50:49.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60656,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53160,
+                "option": "reification",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 60656,
+                "option_id": 53160,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53162,
+                "option": "reify",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 60656,
+                "option_id": 53162,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53163,
+                "option": "reificatory",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 60656,
+                "option_id": 53163,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325711,
+                "question_id": 60656,
+                "marker": "a1",
+                "option_id": 53160,
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "option": {
+                "id": 53160,
+                "option": "reification",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43045,
+                "question_id": 60656,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53161,
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            },
+            "option": {
+                "id": 53161,
+                "option": "Потрібний зміст: «Опредметнення абстракції». Після артикля й прикметника потрібен іменник, що називає перетворення абстракції на річ.",
+                "created_at": "2026-10-27T15:50:49.000000Z",
+                "updated_at": "2026-10-27T15:50:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52671,
+            "question_id": 60656,
+            "text": "The account rests on an implausible {a1} of identity.",
+            "created_at": "2026-10-27T15:50:49.000000Z",
+            "updated_at": "2026-10-27T15:50:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

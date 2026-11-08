@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 61131,
+        "uuid": "naqq-zero-article-b2-g02",
+        "question": "Several witnesses gave {a1} evidence during the hearing.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 58,
+        "source_id": 436,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedZeroArticleQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "-",
+                "the",
+                "a"
+            ]
+        },
+        "theory_text_block_uuid": "d550dfd5-2abb-5d6d-9ccc-5f2d104ac9bc",
+        "created_at": "2026-10-28T17:00:56.000000Z",
+        "updated_at": "2026-10-28T17:00:56.000000Z"
+    },
+    "category": {
+        "id": 58,
+        "name": "Nouns / Articles / Quantity",
+        "created_at": "2026-05-20T15:23:45.000000Z",
+        "updated_at": "2026-05-20T15:23:45.000000Z"
+    },
+    "source": {
+        "id": 436,
+        "name": "Nouns Articles Quantity Quality: Нульовий артикль: загальні поняття, сталі сполуки й контекстні контрасти",
+        "created_at": "2026-10-28T17:00:55.000000Z",
+        "updated_at": "2026-10-28T17:00:55.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 269,
+                "name": "Zero Article",
+                "category": null,
+                "created_at": "2026-04-23T14:32:47.000000Z",
+                "updated_at": "2026-04-23T14:32:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 61131,
+                "tag_id": 269,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 8,
+                "option": "the",
+                "created_at": "2026-04-23T11:39:51.000000Z",
+                "updated_at": "2026-04-23T11:39:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 61131,
+                "option_id": 8,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 11,
+                "option": "a",
+                "created_at": "2026-04-23T11:39:52.000000Z",
+                "updated_at": "2026-04-23T11:39:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 61131,
+                "option_id": 11,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 24920,
+                "option": "-",
+                "created_at": "2026-05-23T11:49:36.000000Z",
+                "updated_at": "2026-05-23T11:49:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 61131,
+                "option_id": 24920,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 327437,
+                "question_id": 61131,
+                "marker": "a1",
+                "option_id": 24920,
+                "created_at": "2026-10-28T17:00:56.000000Z",
+                "updated_at": "2026-10-28T17:00:56.000000Z"
+            },
+            "option": {
+                "id": 24920,
+                "option": "-",
+                "created_at": "2026-05-23T11:49:36.000000Z",
+                "updated_at": "2026-05-23T11:49:36.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 44771,
+                "question_id": 61131,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 54242,
+                "created_at": "2026-10-28T17:00:56.000000Z",
+                "updated_at": "2026-10-28T17:00:56.000000Z"
+            },
+            "option": {
+                "id": 54242,
+                "option": "Свідчення тут незлічувані й не мають конкретизувального означення; введи дефіс замість артикля.",
+                "created_at": "2026-10-28T17:00:56.000000Z",
+                "updated_at": "2026-10-28T17:00:56.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 53146,
+            "question_id": 61131,
+            "text": "Several witnesses gave {a1} evidence during the hearing.",
+            "created_at": "2026-10-28T17:00:56.000000Z",
+            "updated_at": "2026-10-28T17:00:56.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

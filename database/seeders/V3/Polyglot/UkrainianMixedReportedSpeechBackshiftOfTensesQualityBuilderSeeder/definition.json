@@ -1,0 +1,5099 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/backshift-of-tenses.v1.json",
+        "sha256": "3b01c617e745947f2052b8357d3c5199bb2f46f3030504c14f91d79e1a8de3aa"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReportedSpeechBackshiftOfTensesQualityBuilderSeeder",
+        "uuid_namespace": "reported-speech-quality-backshift-of-tenses-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "reported_speech_quality_backshift_of_tenses": {
+            "name": "Reported Speech Quality: Backshift of Tenses"
+        }
+    },
+    "tags": {
+        "reported_speech_backshift_all_levels": {
+            "name": "reported speech backshift all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "present_simple_to_past_simple": {
+            "name": "Present Simple To Past Simple",
+            "category": "topic"
+        },
+        "present_continuous_to_past_continuous": {
+            "name": "Present Continuous To Past Continuous",
+            "category": "topic"
+        },
+        "past_simple_to_past_perfect": {
+            "name": "Past Simple To Past Perfect",
+            "category": "topic"
+        },
+        "present_perfect_to_past_perfect": {
+            "name": "Present Perfect To Past Perfect",
+            "category": "topic"
+        },
+        "will_to_would": {
+            "name": "Will To Would",
+            "category": "topic"
+        },
+        "can_to_could": {
+            "name": "Can To Could",
+            "category": "topic"
+        },
+        "must_shift": {
+            "name": "Must Shift",
+            "category": "topic"
+        },
+        "no_backshift_present_report": {
+            "name": "No Backshift Present Report",
+            "category": "topic"
+        },
+        "general_truths": {
+            "name": "General Truths",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reported_speech_backshift_all_levels": {
+            "name": "Backshift of Tenses",
+            "category": "reported_speech"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-backshift-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Борис сказав, що він біля фонтана.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Борис сказав, що він біля фонтана.",
+            "target_text": "Borys said that he was near the fountain.",
+            "markers": {
+                "a1": {
+                    "answer": "Borys",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "Borys",
+                        "Rooms",
+                        "Maps",
+                        "Letters"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "he",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "was",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "near",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "near",
+                        "across",
+                        "in",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "fountain.",
+                    "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+                    "options": [
+                        "fountain",
+                        "lesson",
+                        "storm",
+                        "moment"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Бориса; у переказі використай минулу форму стану.",
+            "accepted_target_texts": [
+                "Borys said that he was near the fountain.",
+                "Borys said he was near the fountain."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Borys said that",
+                "he was",
+                "near the fountain."
+            ],
+            "token_groups": [
+                "Borys said that",
+                "he was",
+                "near the fountain."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Borys",
+                "said",
+                "that",
+                "he",
+                "was",
+                "near",
+                "the",
+                "fountain."
+            ],
+            "options": [
+                "Borys",
+                "Rooms",
+                "Maps",
+                "Letters",
+                "said",
+                "had",
+                "need",
+                "liked",
+                "that",
+                "each",
+                "every",
+                "no",
+                "he",
+                "they",
+                "me",
+                "him",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "near",
+                "across",
+                "in",
+                "without",
+                "the",
+                "a",
+                "an",
+                "some",
+                "fountain",
+                "lesson",
+                "storm",
+                "moment"
+            ],
+            "source_text_uk": "Борис сказав, що він біля фонтана.",
+            "options_by_marker": {
+                "a1": [
+                    "Borys",
+                    "Rooms",
+                    "Maps",
+                    "Letters"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "liked"
+                ],
+                "a3": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "he",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "near",
+                    "across",
+                    "in",
+                    "without"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "fountain",
+                    "lesson",
+                    "storm",
+                    "moment"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "modifier_phrase",
+                "a7": "modifier_phrase",
+                "a8": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-backshift-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Єва сказала, що має жовтий фартух.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Єва сказала, що має жовтий фартух.",
+            "target_text": "Eva said that she had a yellow apron.",
+            "markers": {
+                "a1": {
+                    "answer": "Eva",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "Eva",
+                        "Omar",
+                        "We",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "said",
+                        "need",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "she",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "had",
+                        "hasn't",
+                        "hadn't",
+                        "do"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "a",
+                        "both",
+                        "an",
+                        "the"
+                    ]
+                },
+                "a7": {
+                    "answer": "yellow",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "yellow",
+                        "pink",
+                        "grey",
+                        "gray"
+                    ]
+                },
+                "a8": {
+                    "answer": "apron.",
+                    "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+                    "options": [
+                        "apron",
+                        "route",
+                        "train",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Єви й виконай звичайний зсув дієслова мати.",
+            "accepted_target_texts": [
+                "Eva said that she had a yellow apron.",
+                "Eva said she had a yellow apron."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Eva said that",
+                "she had",
+                "a yellow apron."
+            ],
+            "token_groups": [
+                "Eva said that",
+                "she had",
+                "a yellow apron."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Eva",
+                "said",
+                "that",
+                "she",
+                "had",
+                "a",
+                "yellow",
+                "apron."
+            ],
+            "options": [
+                "Eva",
+                "Omar",
+                "We",
+                "I",
+                "said",
+                "need",
+                "met",
+                "went",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "she",
+                "us",
+                "them",
+                "myself",
+                "had",
+                "hasn't",
+                "hadn't",
+                "do",
+                "a",
+                "both",
+                "an",
+                "the",
+                "yellow",
+                "pink",
+                "grey",
+                "gray",
+                "apron",
+                "route",
+                "train",
+                "key"
+            ],
+            "source_text_uk": "Єва сказала, що має жовтий фартух.",
+            "options_by_marker": {
+                "a1": [
+                    "Eva",
+                    "Omar",
+                    "We",
+                    "I"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "met",
+                    "went"
+                ],
+                "a3": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "she",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a5": [
+                    "had",
+                    "hasn't",
+                    "hadn't",
+                    "do"
+                ],
+                "a6": [
+                    "a",
+                    "both",
+                    "an",
+                    "the"
+                ],
+                "a7": [
+                    "yellow",
+                    "pink",
+                    "grey",
+                    "gray"
+                ],
+                "a8": [
+                    "apron",
+                    "route",
+                    "train",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-backshift-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Омар сказав, що може переплисти басейн.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Омар сказав, що може переплисти басейн.",
+            "target_text": "Omar said that he could swim across the pool.",
+            "markers": {
+                "a1": {
+                    "answer": "Omar",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "Omar",
+                        "Eva",
+                        "You",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "he",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a5": {
+                    "answer": "could",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "could",
+                        "should",
+                        "may",
+                        "might"
+                    ]
+                },
+                "a6": {
+                    "answer": "swim",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "swim",
+                        "fountain",
+                        "apron",
+                        "near"
+                    ]
+                },
+                "a7": {
+                    "answer": "across",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "across",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a9": {
+                    "answer": "pool.",
+                    "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+                    "options": [
+                        "pool",
+                        "storm",
+                        "moment",
+                        "lesson"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Омара; передай здатність із минулої точки повідомлення.",
+            "accepted_target_texts": [
+                "Omar said that he could swim across the pool.",
+                "Omar said he could swim across the pool."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Omar said that",
+                "he could swim",
+                "across the pool."
+            ],
+            "token_groups": [
+                "Omar said that",
+                "he could swim",
+                "across the pool."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Omar",
+                "said",
+                "that",
+                "he",
+                "could",
+                "swim",
+                "across",
+                "the",
+                "pool."
+            ],
+            "options": [
+                "Omar",
+                "Eva",
+                "You",
+                "We",
+                "said",
+                "had",
+                "need",
+                "liked",
+                "that",
+                "each",
+                "every",
+                "no",
+                "he",
+                "myself",
+                "yourself",
+                "herself",
+                "could",
+                "should",
+                "may",
+                "might",
+                "swim",
+                "fountain",
+                "apron",
+                "near",
+                "across",
+                "for",
+                "of",
+                "in",
+                "the",
+                "a",
+                "an",
+                "some",
+                "pool",
+                "storm",
+                "moment",
+                "lesson"
+            ],
+            "source_text_uk": "Омар сказав, що може переплисти басейн.",
+            "options_by_marker": {
+                "a1": [
+                    "Omar",
+                    "Eva",
+                    "You",
+                    "We"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "liked"
+                ],
+                "a3": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "he",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a5": [
+                    "could",
+                    "should",
+                    "may",
+                    "might"
+                ],
+                "a6": [
+                    "swim",
+                    "fountain",
+                    "apron",
+                    "near"
+                ],
+                "a7": [
+                    "across",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a9": [
+                    "pool",
+                    "storm",
+                    "moment",
+                    "lesson"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "modifier_phrase",
+                "a8": "modifier_phrase",
+                "a9": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-backshift-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Дора сказала, що малює дерев’яний міст.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Дора сказала, що малює дерев’яний міст.",
+            "target_text": "Dora said that she was drawing a wooden bridge.",
+            "markers": {
+                "a1": {
+                    "answer": "Dora",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "Dora",
+                        "They",
+                        "You",
+                        "Leon"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "kitchen"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "she",
+                        "we",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "was",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a6": {
+                    "answer": "drawing",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "drawing",
+                        "going",
+                        "taking",
+                        "working"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "wooden",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "wooden",
+                        "feed",
+                        "opened",
+                        "closed"
+                    ]
+                },
+                "a9": {
+                    "answer": "bridge.",
+                    "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+                    "options": [
+                        "bridge",
+                        "clock",
+                        "train",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Передай процес через минулий тривалий час; почни з Дори.",
+            "accepted_target_texts": [
+                "Dora said that she was drawing a wooden bridge.",
+                "Dora said she was drawing a wooden bridge."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dora said that",
+                "she was drawing",
+                "a wooden bridge."
+            ],
+            "token_groups": [
+                "Dora said that",
+                "she was drawing",
+                "a wooden bridge."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Dora",
+                "said",
+                "that",
+                "she",
+                "was",
+                "drawing",
+                "a",
+                "wooden",
+                "bridge."
+            ],
+            "options": [
+                "Dora",
+                "They",
+                "You",
+                "Leon",
+                "said",
+                "had",
+                "need",
+                "kitchen",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "she",
+                "we",
+                "me",
+                "him",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "drawing",
+                "going",
+                "taking",
+                "working",
+                "a",
+                "an",
+                "the",
+                "some",
+                "wooden",
+                "feed",
+                "opened",
+                "closed",
+                "bridge",
+                "clock",
+                "train",
+                "key"
+            ],
+            "source_text_uk": "Дора сказала, що малює дерев’яний міст.",
+            "options_by_marker": {
+                "a1": [
+                    "Dora",
+                    "They",
+                    "You",
+                    "Leon"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "kitchen"
+                ],
+                "a3": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "she",
+                    "we",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a6": [
+                    "drawing",
+                    "going",
+                    "taking",
+                    "working"
+                ],
+                "a7": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a8": [
+                    "wooden",
+                    "feed",
+                    "opened",
+                    "closed"
+                ],
+                "a9": [
+                    "bridge",
+                    "clock",
+                    "train",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-backshift-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Леон сказав, що розбив кухонний годинник.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Леон сказав, що розбив кухонний годинник.",
+            "target_text": "Leon said that he had broken the kitchen clock.",
+            "markers": {
+                "a1": {
+                    "answer": "Leon",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "Leon",
+                        "They",
+                        "She",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "said",
+                        "need",
+                        "feed",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "he",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "broken",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "broken",
+                        "stayed",
+                        "written",
+                        "ridden"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "kitchen",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "kitchen",
+                        "saw",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a9": {
+                    "answer": "clock.",
+                    "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+                    "options": [
+                        "clock",
+                        "bridge",
+                        "key",
+                        "coat"
+                    ]
+                }
+            },
+            "verb_hint": "Подія передувала його словам; почни з Леона й збережи передування.",
+            "accepted_target_texts": [
+                "Leon said that he had broken the kitchen clock.",
+                "Leon said he had broken the kitchen clock."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leon said that",
+                "he had broken",
+                "the kitchen clock."
+            ],
+            "token_groups": [
+                "Leon said that",
+                "he had broken",
+                "the kitchen clock."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Leon",
+                "said",
+                "that",
+                "he",
+                "had",
+                "broken",
+                "the",
+                "kitchen",
+                "clock."
+            ],
+            "options": [
+                "Leon",
+                "They",
+                "She",
+                "You",
+                "said",
+                "need",
+                "feed",
+                "wooden",
+                "that",
+                "each",
+                "every",
+                "no",
+                "he",
+                "herself",
+                "ourselves",
+                "themselves",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "broken",
+                "stayed",
+                "written",
+                "ridden",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "kitchen",
+                "saw",
+                "needed",
+                "liked",
+                "clock",
+                "bridge",
+                "key",
+                "coat"
+            ],
+            "source_text_uk": "Леон сказав, що розбив кухонний годинник.",
+            "options_by_marker": {
+                "a1": [
+                    "Leon",
+                    "They",
+                    "She",
+                    "You"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "feed",
+                    "wooden"
+                ],
+                "a3": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "he",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a5": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a6": [
+                    "broken",
+                    "stayed",
+                    "written",
+                    "ridden"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "kitchen",
+                    "saw",
+                    "needed",
+                    "liked"
+                ],
+                "a9": [
+                    "clock",
+                    "bridge",
+                    "key",
+                    "coat"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-backshift-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Міра сказала, що погодує качок після сніданку.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Міра сказала, що погодує качок після сніданку.",
+            "target_text": "Mira said that she would feed the ducks after breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "Mira",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "Mira",
+                        "We",
+                        "I",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "wooden"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "that",
+                        "this",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "she",
+                        "you",
+                        "he",
+                        "they"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a6": {
+                    "answer": "feed",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "feed",
+                        "kitchen",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "ducks",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "ducks",
+                        "women",
+                        "bikes",
+                        "cars"
+                    ]
+                },
+                "a9": {
+                    "answer": "after",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "after",
+                        "very",
+                        "bridge",
+                        "Leon"
+                    ]
+                },
+                "a10": {
+                    "answer": "breakfast.",
+                    "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+                    "options": [
+                        "breakfast",
+                        "Dora",
+                        "clock",
+                        "car"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Міри; майбутня дія відраховується від її минулих слів.",
+            "accepted_target_texts": [
+                "Mira said that she would feed the ducks after breakfast.",
+                "Mira said she would feed the ducks after breakfast."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mira said that",
+                "she would",
+                "feed the ducks",
+                "after breakfast."
+            ],
+            "token_groups": [
+                "Mira said that",
+                "she would",
+                "feed the ducks",
+                "after breakfast."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Mira",
+                "said",
+                "that",
+                "she",
+                "would",
+                "feed",
+                "the",
+                "ducks",
+                "after",
+                "breakfast."
+            ],
+            "options": [
+                "Mira",
+                "We",
+                "I",
+                "It",
+                "said",
+                "had",
+                "need",
+                "wooden",
+                "that",
+                "this",
+                "these",
+                "those",
+                "she",
+                "you",
+                "he",
+                "they",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "feed",
+                "kitchen",
+                "closed",
+                "helped",
+                "the",
+                "all",
+                "both",
+                "a",
+                "ducks",
+                "women",
+                "bikes",
+                "cars",
+                "after",
+                "very",
+                "bridge",
+                "Leon",
+                "breakfast",
+                "Dora",
+                "clock",
+                "car"
+            ],
+            "source_text_uk": "Міра сказала, що погодує качок після сніданку.",
+            "options_by_marker": {
+                "a1": [
+                    "Mira",
+                    "We",
+                    "I",
+                    "It"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "wooden"
+                ],
+                "a3": [
+                    "that",
+                    "this",
+                    "these",
+                    "those"
+                ],
+                "a4": [
+                    "she",
+                    "you",
+                    "he",
+                    "they"
+                ],
+                "a5": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a6": [
+                    "feed",
+                    "kitchen",
+                    "closed",
+                    "helped"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "ducks",
+                    "women",
+                    "bikes",
+                    "cars"
+                ],
+                "a9": [
+                    "after",
+                    "very",
+                    "bridge",
+                    "Leon"
+                ],
+                "a10": [
+                    "breakfast",
+                    "Dora",
+                    "clock",
+                    "car"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "modifier_phrase",
+                "a10": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-backshift-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Гелена сказала, що вже годину поливає розсаду.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Гелена сказала, що вже годину поливає розсаду.",
+            "target_text": "Helena said that she had been watering the seedlings for an hour.",
+            "markers": {
+                "a1": {
+                    "answer": "Helena",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "Helena",
+                        "We",
+                        "I",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "said",
+                        "explained",
+                        "need",
+                        "sled"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "she",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "been",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "been",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a7": {
+                    "answer": "watering",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "watering",
+                        "making",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "all"
+                    ]
+                },
+                "a9": {
+                    "answer": "seedlings",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "seedlings",
+                        "doors",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a10": {
+                    "answer": "for",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "for",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a11": {
+                    "answer": "an",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "an",
+                        "a",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a12": {
+                    "answer": "hour.",
+                    "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+                    "options": [
+                        "hour",
+                        "year",
+                        "minute",
+                        "second"
+                    ]
+                }
+            },
+            "verb_hint": "Передай тривалий процес до минулого повідомлення; почни з Гелени.",
+            "accepted_target_texts": [
+                "Helena said that she had been watering the seedlings for an hour.",
+                "Helena said she had been watering the seedlings for an hour."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Helena said that",
+                "she had been",
+                "watering the seedlings",
+                "for an hour."
+            ],
+            "token_groups": [
+                "Helena said that",
+                "she had been",
+                "watering the seedlings",
+                "for an hour."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Helena",
+                "said",
+                "that",
+                "she",
+                "had",
+                "been",
+                "watering",
+                "the",
+                "seedlings",
+                "for",
+                "an",
+                "hour."
+            ],
+            "options": [
+                "Helena",
+                "We",
+                "I",
+                "It",
+                "said",
+                "explained",
+                "need",
+                "sled",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "she",
+                "they",
+                "me",
+                "him",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "is",
+                "are",
+                "was",
+                "watering",
+                "making",
+                "going",
+                "taking",
+                "the",
+                "every",
+                "no",
+                "all",
+                "seedlings",
+                "doors",
+                "keys",
+                "rooms",
+                "for",
+                "of",
+                "in",
+                "on",
+                "an",
+                "a",
+                "some",
+                "any",
+                "hour",
+                "year",
+                "minute",
+                "second"
+            ],
+            "source_text_uk": "Гелена сказала, що вже годину поливає розсаду.",
+            "options_by_marker": {
+                "a1": [
+                    "Helena",
+                    "We",
+                    "I",
+                    "It"
+                ],
+                "a2": [
+                    "said",
+                    "explained",
+                    "need",
+                    "sled"
+                ],
+                "a3": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "she",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a5": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a6": [
+                    "been",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a7": [
+                    "watering",
+                    "making",
+                    "going",
+                    "taking"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "all"
+                ],
+                "a9": [
+                    "seedlings",
+                    "doors",
+                    "keys",
+                    "rooms"
+                ],
+                "a10": [
+                    "for",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a11": [
+                    "an",
+                    "a",
+                    "some",
+                    "any"
+                ],
+                "a12": [
+                    "hour",
+                    "year",
+                    "minute",
+                    "second"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase",
+                "a12": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-backshift-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Іво сказав, що полагодить сани до зими.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Іво сказав, що полагодить сани до зими.",
+            "target_text": "Ivo said that he would repair the sled before winter.",
+            "markers": {
+                "a1": {
+                    "answer": "Ivo",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "Ivo",
+                        "It",
+                        "They",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "said",
+                        "explained",
+                        "had",
+                        "need"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "he",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a6": {
+                    "answer": "repair",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "repair",
+                        "our",
+                        "a",
+                        "latch"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "sled",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "sled",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "before",
+                        "inspection",
+                        "Helena",
+                        "teacher"
+                    ]
+                },
+                "a10": {
+                    "answer": "winter.",
+                    "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+                    "options": [
+                        "winter",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Іво; майбутню дію подай відносно його минулих слів.",
+            "accepted_target_texts": [
+                "Ivo said that he would repair the sled before winter.",
+                "Ivo said he would repair the sled before winter.",
+                "Ivo said that he would fix the sled before winter.",
+                "Ivo said he would fix the sled before winter."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "fix"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "fix"
+                ]
+            },
+            "reorder_groups": [
+                "Ivo said that",
+                "he would",
+                "repair the sled",
+                "before winter."
+            ],
+            "token_groups": [
+                "Ivo said that",
+                "he would",
+                "repair the sled",
+                "before winter."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Ivo",
+                "said",
+                "that",
+                "he",
+                "would",
+                "repair",
+                "the",
+                "sled",
+                "before",
+                "winter."
+            ],
+            "options": [
+                "Ivo",
+                "It",
+                "They",
+                "She",
+                "said",
+                "explained",
+                "had",
+                "need",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "he",
+                "herself",
+                "ourselves",
+                "themselves",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "repair",
+                "our",
+                "a",
+                "latch",
+                "the",
+                "some",
+                "any",
+                "this",
+                "sled",
+                "worked",
+                "played",
+                "called",
+                "before",
+                "inspection",
+                "Helena",
+                "teacher",
+                "winter",
+                "chair",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Іво сказав, що полагодить сани до зими.",
+            "options_by_marker": {
+                "a1": [
+                    "Ivo",
+                    "It",
+                    "They",
+                    "She"
+                ],
+                "a2": [
+                    "said",
+                    "explained",
+                    "had",
+                    "need"
+                ],
+                "a3": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "he",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a5": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a6": [
+                    "repair",
+                    "our",
+                    "a",
+                    "latch"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "sled",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a9": [
+                    "before",
+                    "inspection",
+                    "Helena",
+                    "teacher"
+                ],
+                "a10": [
+                    "winter",
+                    "chair",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "noun_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-backshift-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Ми пояснили, що засувку замінили до огляду.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Ми пояснили, що засувку замінили до огляду.",
+            "target_text": "We explained that the latch had been replaced before the inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "explained",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "explained",
+                        "said",
+                        "need",
+                        "sled"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "latch",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "latch",
+                        "manager",
+                        "device",
+                        "winter"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "replaced",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "replaced",
+                        "stayed",
+                        "broken",
+                        "built"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "before",
+                        "in",
+                        "without",
+                        "after"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a11": {
+                    "answer": "inspection.",
+                    "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+                    "options": [
+                        "inspection",
+                        "storm",
+                        "station",
+                        "caretaker"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого пояснення; збережи пасив і передування минулому огляду.",
+            "accepted_target_texts": [
+                "We explained that the latch had been replaced before the inspection.",
+                "We explained the latch had been replaced before the inspection."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We explained that",
+                "the latch",
+                "had been replaced",
+                "before the inspection."
+            ],
+            "token_groups": [
+                "We explained that",
+                "the latch",
+                "had been replaced",
+                "before the inspection."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "explained",
+                "that",
+                "the",
+                "latch",
+                "had",
+                "been",
+                "replaced",
+                "before",
+                "the",
+                "inspection."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "explained",
+                "said",
+                "need",
+                "sled",
+                "that",
+                "these",
+                "those",
+                "each",
+                "the",
+                "all",
+                "both",
+                "a",
+                "latch",
+                "manager",
+                "device",
+                "winter",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "been",
+                "were",
+                "be",
+                "being",
+                "replaced",
+                "stayed",
+                "broken",
+                "built",
+                "before",
+                "in",
+                "without",
+                "after",
+                "another",
+                "either",
+                "neither",
+                "inspection",
+                "storm",
+                "station",
+                "caretaker"
+            ],
+            "source_text_uk": "Ми пояснили, що засувку замінили до огляду.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "explained",
+                    "said",
+                    "need",
+                    "sled"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "latch",
+                    "manager",
+                    "device",
+                    "winter"
+                ],
+                "a6": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a7": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a8": [
+                    "replaced",
+                    "stayed",
+                    "broken",
+                    "built"
+                ],
+                "a9": [
+                    "before",
+                    "in",
+                    "without",
+                    "after"
+                ],
+                "a10": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a11": [
+                    "inspection",
+                    "storm",
+                    "station",
+                    "caretaker"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "modifier_phrase",
+                "a10": "modifier_phrase",
+                "a11": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-backshift-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Веста пояснила, що мозаїку виявили під штукатуркою.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Веста пояснила, що мозаїку виявили під штукатуркою.",
+            "target_text": "Vesta explained that the mosaic had been uncovered beneath the plaster.",
+            "markers": {
+                "a1": {
+                    "answer": "Vesta",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "Vesta",
+                        "They",
+                        "She",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "explained",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "explained",
+                        "reported",
+                        "need",
+                        "said"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a5": {
+                    "answer": "mosaic",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "mosaic",
+                        "quiet",
+                        "hungry",
+                        "thirsty"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "had",
+                        "has",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "been",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a8": {
+                    "answer": "uncovered",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "uncovered",
+                        "stayed",
+                        "met",
+                        "seen"
+                    ]
+                },
+                "a9": {
+                    "answer": "beneath",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "beneath",
+                        "after",
+                        "before",
+                        "at"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a11": {
+                    "answer": "plaster.",
+                    "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+                    "options": [
+                        "plaster",
+                        "moment",
+                        "cupboard",
+                        "receipt"
+                    ]
+                }
+            },
+            "verb_hint": "Передай пасивне відкриття, яке передувало минулому поясненню.",
+            "accepted_target_texts": [
+                "Vesta explained that the mosaic had been uncovered beneath the plaster.",
+                "Vesta explained the mosaic had been uncovered beneath the plaster.",
+                "Vesta explained that the mosaic had been discovered beneath the plaster.",
+                "Vesta explained that the mosaic had been found beneath the plaster.",
+                "Vesta explained the mosaic had been discovered beneath the plaster.",
+                "Vesta explained the mosaic had been found beneath the plaster."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "discovered",
+                    "found"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "discovered",
+                    "found"
+                ]
+            },
+            "reorder_groups": [
+                "Vesta explained that",
+                "the mosaic",
+                "had been uncovered",
+                "beneath the plaster."
+            ],
+            "token_groups": [
+                "Vesta explained that",
+                "the mosaic",
+                "had been uncovered",
+                "beneath the plaster."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Vesta",
+                "explained",
+                "that",
+                "the",
+                "mosaic",
+                "had",
+                "been",
+                "uncovered",
+                "beneath",
+                "the",
+                "plaster."
+            ],
+            "options": [
+                "Vesta",
+                "They",
+                "She",
+                "You",
+                "explained",
+                "reported",
+                "need",
+                "said",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "the",
+                "any",
+                "this",
+                "these",
+                "mosaic",
+                "quiet",
+                "hungry",
+                "thirsty",
+                "had",
+                "has",
+                "haven't",
+                "hasn't",
+                "been",
+                "weren't",
+                "am",
+                "is",
+                "uncovered",
+                "stayed",
+                "met",
+                "seen",
+                "beneath",
+                "after",
+                "before",
+                "at",
+                "all",
+                "both",
+                "a",
+                "plaster",
+                "moment",
+                "cupboard",
+                "receipt"
+            ],
+            "source_text_uk": "Веста пояснила, що мозаїку виявили під штукатуркою.",
+            "options_by_marker": {
+                "a1": [
+                    "Vesta",
+                    "They",
+                    "She",
+                    "You"
+                ],
+                "a2": [
+                    "explained",
+                    "reported",
+                    "need",
+                    "said"
+                ],
+                "a3": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a5": [
+                    "mosaic",
+                    "quiet",
+                    "hungry",
+                    "thirsty"
+                ],
+                "a6": [
+                    "had",
+                    "has",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a7": [
+                    "been",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a8": [
+                    "uncovered",
+                    "stayed",
+                    "met",
+                    "seen"
+                ],
+                "a9": [
+                    "beneath",
+                    "after",
+                    "before",
+                    "at"
+                ],
+                "a10": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a11": [
+                    "plaster",
+                    "moment",
+                    "cupboard",
+                    "receipt"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "modifier_phrase",
+                "a10": "modifier_phrase",
+                "a11": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-backshift-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ботанік сказала, що вже деякий час спостерігає за рідкісною орхідеєю.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Ботанік сказала, що вже деякий час спостерігає за рідкісною орхідеєю.",
+            "target_text": "The botanist said that she had been monitoring the rare orchid.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "botanist",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "botanist",
+                        "ferry",
+                        "manager",
+                        "device"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "said",
+                        "reported",
+                        "explained",
+                        "rode"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "that",
+                        "this",
+                        "these",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "she",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "she",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a8": {
+                    "answer": "monitoring",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "monitoring",
+                        "studying",
+                        "living",
+                        "buying"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "rare",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "rare",
+                        "next",
+                        "paper",
+                        "main"
+                    ]
+                },
+                "a11": {
+                    "answer": "orchid.",
+                    "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+                    "options": [
+                        "orchid",
+                        "route",
+                        "train",
+                        "service"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з назви фахівчині; збережи тривалість до її минулого повідомлення.",
+            "accepted_target_texts": [
+                "The botanist said that she had been monitoring the rare orchid.",
+                "The botanist said she had been monitoring the rare orchid."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The botanist",
+                "said that she",
+                "had been monitoring",
+                "the rare orchid."
+            ],
+            "token_groups": [
+                "The botanist",
+                "said that she",
+                "had been monitoring",
+                "the rare orchid."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "botanist",
+                "said",
+                "that",
+                "she",
+                "had",
+                "been",
+                "monitoring",
+                "the",
+                "rare",
+                "orchid."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "botanist",
+                "ferry",
+                "manager",
+                "device",
+                "said",
+                "reported",
+                "explained",
+                "rode",
+                "that",
+                "this",
+                "these",
+                "no",
+                "she",
+                "ourselves",
+                "themselves",
+                "I",
+                "had",
+                "do",
+                "does",
+                "did",
+                "been",
+                "are",
+                "was",
+                "were",
+                "monitoring",
+                "studying",
+                "living",
+                "buying",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "rare",
+                "next",
+                "paper",
+                "main",
+                "orchid",
+                "route",
+                "train",
+                "service"
+            ],
+            "source_text_uk": "Ботанік сказала, що вже деякий час спостерігає за рідкісною орхідеєю.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "botanist",
+                    "ferry",
+                    "manager",
+                    "device"
+                ],
+                "a3": [
+                    "said",
+                    "reported",
+                    "explained",
+                    "rode"
+                ],
+                "a4": [
+                    "that",
+                    "this",
+                    "these",
+                    "no"
+                ],
+                "a5": [
+                    "she",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a6": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a8": [
+                    "monitoring",
+                    "studying",
+                    "living",
+                    "buying"
+                ],
+                "a9": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "rare",
+                    "next",
+                    "paper",
+                    "main"
+                ],
+                "a11": [
+                    "orchid",
+                    "route",
+                    "train",
+                    "service"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "clause_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-backshift-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ми повідомили, що пором відновить регулярні рейси.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Ми повідомили, що пором відновить регулярні рейси.",
+            "target_text": "We reported that the ferry would resume its regular service.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "We",
+                        "Yourself",
+                        "Herself",
+                        "Ourselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "reported",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "reported",
+                        "explained",
+                        "had",
+                        "need"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "ferry",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "ferry",
+                        "device",
+                        "botanist",
+                        "manager"
+                    ]
+                },
+                "a6": {
+                    "answer": "would",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "would",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "resume",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "resume",
+                        "agree",
+                        "orchid",
+                        "Vesta"
+                    ]
+                },
+                "a8": {
+                    "answer": "its",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "its",
+                        "your",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a9": {
+                    "answer": "regular",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "regular",
+                        "main",
+                        "last",
+                        "rare"
+                    ]
+                },
+                "a10": {
+                    "answer": "service.",
+                    "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+                    "options": [
+                        "service",
+                        "gate",
+                        "key",
+                        "coat"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого повідомлення; майбутню подію відраховуй від тих минулих слів.",
+            "accepted_target_texts": [
+                "We reported that the ferry would resume its regular service.",
+                "We reported the ferry would resume its regular service."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We reported that",
+                "the ferry",
+                "would resume",
+                "its regular service."
+            ],
+            "token_groups": [
+                "We reported that",
+                "the ferry",
+                "would resume",
+                "its regular service."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "reported",
+                "that",
+                "the",
+                "ferry",
+                "would",
+                "resume",
+                "its",
+                "regular",
+                "service."
+            ],
+            "options": [
+                "We",
+                "Yourself",
+                "Herself",
+                "Ourselves",
+                "reported",
+                "explained",
+                "had",
+                "need",
+                "that",
+                "no",
+                "another",
+                "either",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "ferry",
+                "device",
+                "botanist",
+                "manager",
+                "would",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "resume",
+                "agree",
+                "orchid",
+                "Vesta",
+                "its",
+                "your",
+                "his",
+                "her",
+                "regular",
+                "main",
+                "last",
+                "rare",
+                "service",
+                "gate",
+                "key",
+                "coat"
+            ],
+            "source_text_uk": "Ми повідомили, що пором відновить регулярні рейси.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Yourself",
+                    "Herself",
+                    "Ourselves"
+                ],
+                "a2": [
+                    "reported",
+                    "explained",
+                    "had",
+                    "need"
+                ],
+                "a3": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "ferry",
+                    "device",
+                    "botanist",
+                    "manager"
+                ],
+                "a6": [
+                    "would",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a7": [
+                    "resume",
+                    "agree",
+                    "orchid",
+                    "Vesta"
+                ],
+                "a8": [
+                    "its",
+                    "your",
+                    "his",
+                    "her"
+                ],
+                "a9": [
+                    "regular",
+                    "main",
+                    "last",
+                    "rare"
+                ],
+                "a10": [
+                    "service",
+                    "gate",
+                    "key",
+                    "coat"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-backshift-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Дослідниця написів пояснила, що вже деякий час порівнює фрагментарні написи.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Дослідниця написів пояснила, що вже деякий час порівнює фрагментарні написи.",
+            "target_text": "The epigrapher explained that she had been comparing the fragmentary inscriptions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "epigrapher",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "epigrapher",
+                        "conservator",
+                        "membrane",
+                        "manager"
+                    ]
+                },
+                "a3": {
+                    "answer": "explained",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "explained",
+                        "acknowledged",
+                        "burden",
+                        "predicted"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "that",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "she",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "she",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "comparing",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "comparing",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "fragmentary",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "fragmentary",
+                        "safe",
+                        "new",
+                        "small"
+                    ]
+                },
+                "a11": {
+                    "answer": "inscriptions.",
+                    "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+                    "options": [
+                        "inscriptions",
+                        "conditions",
+                        "maps",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з назви дослідниці; передай процес до минулого пояснення.",
+            "accepted_target_texts": [
+                "The epigrapher explained that she had been comparing the fragmentary inscriptions.",
+                "The epigrapher explained she had been comparing the fragmentary inscriptions.",
+                "The epigraphist explained that she had been comparing the fragmentary inscriptions.",
+                "The epigraphist explained she had been comparing the fragmentary inscriptions."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "epigraphist"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "epigraphist"
+                ]
+            },
+            "reorder_groups": [
+                "The epigrapher",
+                "explained that she",
+                "had been comparing",
+                "the fragmentary inscriptions."
+            ],
+            "token_groups": [
+                "The epigrapher",
+                "explained that she",
+                "had been comparing",
+                "the fragmentary inscriptions."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "epigrapher",
+                "explained",
+                "that",
+                "she",
+                "had",
+                "been",
+                "comparing",
+                "the",
+                "fragmentary",
+                "inscriptions."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "epigrapher",
+                "conservator",
+                "membrane",
+                "manager",
+                "explained",
+                "acknowledged",
+                "burden",
+                "predicted",
+                "that",
+                "both",
+                "a",
+                "an",
+                "she",
+                "herself",
+                "ourselves",
+                "themselves",
+                "had",
+                "do",
+                "does",
+                "did",
+                "been",
+                "were",
+                "be",
+                "being",
+                "comparing",
+                "cooking",
+                "riding",
+                "driving",
+                "the",
+                "any",
+                "this",
+                "these",
+                "fragmentary",
+                "safe",
+                "new",
+                "small",
+                "inscriptions",
+                "conditions",
+                "maps",
+                "letters"
+            ],
+            "source_text_uk": "Дослідниця написів пояснила, що вже деякий час порівнює фрагментарні написи.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "epigrapher",
+                    "conservator",
+                    "membrane",
+                    "manager"
+                ],
+                "a3": [
+                    "explained",
+                    "acknowledged",
+                    "burden",
+                    "predicted"
+                ],
+                "a4": [
+                    "that",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "she",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a6": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a8": [
+                    "comparing",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ],
+                "a9": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a10": [
+                    "fragmentary",
+                    "safe",
+                    "new",
+                    "small"
+                ],
+                "a11": [
+                    "inscriptions",
+                    "conditions",
+                    "maps",
+                    "letters"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "clause_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-backshift-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Ми визнали, що початкова оцінка занизила обсяг обслуговування.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Ми визнали, що початкова оцінка занизила обсяг обслуговування.",
+            "target_text": "We acknowledged that the original estimate had understated the maintenance burden.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "We",
+                        "Myself",
+                        "Yourself",
+                        "Herself"
+                    ]
+                },
+                "a2": {
+                    "answer": "acknowledged",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "acknowledged",
+                        "need",
+                        "predicted",
+                        "explained"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "original",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "original",
+                        "normal",
+                        "epigrapher",
+                        "conservator"
+                    ]
+                },
+                "a6": {
+                    "answer": "estimate",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "estimate",
+                        "membrane",
+                        "remain",
+                        "food"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "understated",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "understated",
+                        "waited",
+                        "arrived",
+                        "open"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "every"
+                    ]
+                },
+                "a10": {
+                    "answer": "maintenance",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "maintenance",
+                        "spare",
+                        "next",
+                        "paper"
+                    ]
+                },
+                "a11": {
+                    "answer": "burden.",
+                    "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+                    "options": [
+                        "burden",
+                        "closed",
+                        "helped",
+                        "watched"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого визнання; оцінка передувала йому.",
+            "accepted_target_texts": [
+                "We acknowledged that the original estimate had understated the maintenance burden.",
+                "We acknowledged the original estimate had understated the maintenance burden.",
+                "We recognised that the original estimate had understated the maintenance burden.",
+                "We recognised the original estimate had understated the maintenance burden.",
+                "We recognized that the original estimate had understated the maintenance burden.",
+                "We recognized the original estimate had understated the maintenance burden."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "recognised",
+                    "recognized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "recognised",
+                    "recognized"
+                ]
+            },
+            "reorder_groups": [
+                "We acknowledged that",
+                "the original estimate",
+                "had understated",
+                "the maintenance burden."
+            ],
+            "token_groups": [
+                "We acknowledged that",
+                "the original estimate",
+                "had understated",
+                "the maintenance burden."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "acknowledged",
+                "that",
+                "the",
+                "original",
+                "estimate",
+                "had",
+                "understated",
+                "the",
+                "maintenance",
+                "burden."
+            ],
+            "options": [
+                "We",
+                "Myself",
+                "Yourself",
+                "Herself",
+                "acknowledged",
+                "need",
+                "predicted",
+                "explained",
+                "that",
+                "these",
+                "those",
+                "each",
+                "the",
+                "a",
+                "an",
+                "some",
+                "original",
+                "normal",
+                "epigrapher",
+                "conservator",
+                "estimate",
+                "membrane",
+                "remain",
+                "food",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "understated",
+                "waited",
+                "arrived",
+                "open",
+                "any",
+                "this",
+                "every",
+                "maintenance",
+                "spare",
+                "next",
+                "paper",
+                "burden",
+                "closed",
+                "helped",
+                "watched"
+            ],
+            "source_text_uk": "Ми визнали, що початкова оцінка занизила обсяг обслуговування.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Myself",
+                    "Yourself",
+                    "Herself"
+                ],
+                "a2": [
+                    "acknowledged",
+                    "need",
+                    "predicted",
+                    "explained"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "original",
+                    "normal",
+                    "epigrapher",
+                    "conservator"
+                ],
+                "a6": [
+                    "estimate",
+                    "membrane",
+                    "remain",
+                    "food"
+                ],
+                "a7": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a8": [
+                    "understated",
+                    "waited",
+                    "arrived",
+                    "open"
+                ],
+                "a9": [
+                    "the",
+                    "any",
+                    "this",
+                    "every"
+                ],
+                "a10": [
+                    "maintenance",
+                    "spare",
+                    "next",
+                    "paper"
+                ],
+                "a11": [
+                    "burden",
+                    "closed",
+                    "helped",
+                    "watched"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-backshift-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Фахівець із консервації передбачив, що мембрана залишатиметься проникною за звичайних умов.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Фахівець із консервації передбачив, що мембрана залишатиметься проникною за звичайних умов.",
+            "target_text": "The conservator predicted that the membrane would remain permeable under normal conditions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "conservator",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "conservator",
+                        "manager",
+                        "device",
+                        "epigrapher"
+                    ]
+                },
+                "a3": {
+                    "answer": "predicted",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "predicted",
+                        "explained",
+                        "acknowledged",
+                        "burden"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "the",
+                        "a",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a6": {
+                    "answer": "membrane",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "membrane",
+                        "original",
+                        "estimate",
+                        "maintenance"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a8": {
+                    "answer": "remain",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "remain",
+                        "not",
+                        "have",
+                        "bike"
+                    ]
+                },
+                "a9": {
+                    "answer": "permeable",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "permeable",
+                        "fragmentary",
+                        "old",
+                        "young"
+                    ]
+                },
+                "a10": {
+                    "answer": "under",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "under",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a11": {
+                    "answer": "normal",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "normal",
+                        "water",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a12": {
+                    "answer": "conditions.",
+                    "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+                    "options": [
+                        "conditions",
+                        "inscriptions",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з фахівця; подай майбутній стан відносно минулого передбачення.",
+            "accepted_target_texts": [
+                "The conservator predicted that the membrane would remain permeable under normal conditions.",
+                "The conservator predicted the membrane would remain permeable under normal conditions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conservator",
+                "predicted that",
+                "the membrane",
+                "would remain permeable",
+                "under normal conditions."
+            ],
+            "token_groups": [
+                "The conservator",
+                "predicted that",
+                "the membrane",
+                "would remain permeable",
+                "under normal conditions."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "conservator",
+                "predicted",
+                "that",
+                "the",
+                "membrane",
+                "would",
+                "remain",
+                "permeable",
+                "under",
+                "normal",
+                "conditions."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "conservator",
+                "manager",
+                "device",
+                "epigrapher",
+                "predicted",
+                "explained",
+                "acknowledged",
+                "burden",
+                "that",
+                "each",
+                "every",
+                "no",
+                "the",
+                "a",
+                "this",
+                "these",
+                "membrane",
+                "original",
+                "estimate",
+                "maintenance",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "remain",
+                "not",
+                "have",
+                "bike",
+                "permeable",
+                "fragmentary",
+                "old",
+                "young",
+                "under",
+                "during",
+                "to",
+                "from",
+                "normal",
+                "water",
+                "bread",
+                "milk",
+                "conditions",
+                "inscriptions",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Фахівець із консервації передбачив, що мембрана залишатиметься проникною за звичайних умов.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "conservator",
+                    "manager",
+                    "device",
+                    "epigrapher"
+                ],
+                "a3": [
+                    "predicted",
+                    "explained",
+                    "acknowledged",
+                    "burden"
+                ],
+                "a4": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "this",
+                    "these"
+                ],
+                "a6": [
+                    "membrane",
+                    "original",
+                    "estimate",
+                    "maintenance"
+                ],
+                "a7": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a8": [
+                    "remain",
+                    "not",
+                    "have",
+                    "bike"
+                ],
+                "a9": [
+                    "permeable",
+                    "fragmentary",
+                    "old",
+                    "young"
+                ],
+                "a10": [
+                    "under",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a11": [
+                    "normal",
+                    "water",
+                    "bread",
+                    "milk"
+                ],
+                "a12": [
+                    "conditions",
+                    "inscriptions",
+                    "phones",
+                    "children"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "modifier_phrase",
+                "a11": "modifier_phrase",
+                "a12": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-backshift-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Дослідник рукописів дійшов висновку, що примітку на полі раніше вставила інша рука.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Дослідник рукописів дійшов висновку, що примітку на полі раніше вставила інша рука.",
+            "target_text": "The palaeographer concluded that the marginal note had been interpolated by another hand.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "palaeographer",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "palaeographer",
+                        "exception",
+                        "manager",
+                        "device"
+                    ]
+                },
+                "a3": {
+                    "answer": "concluded",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "concluded",
+                        "anticipated",
+                        "recognised",
+                        "called"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a6": {
+                    "answer": "marginal",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "marginal",
+                        "apparent",
+                        "inconsistency",
+                        "arbitrator"
+                    ]
+                },
+                "a7": {
+                    "answer": "note",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "note",
+                        "more",
+                        "thereafter",
+                        "map"
+                    ]
+                },
+                "a8": {
+                    "answer": "had",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a10": {
+                    "answer": "interpolated",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "interpolated",
+                        "stayed",
+                        "construed",
+                        "arisen"
+                    ]
+                },
+                "a11": {
+                    "answer": "by",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "by",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a12": {
+                    "answer": "another",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "another",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a13": {
+                    "answer": "hand.",
+                    "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+                    "options": [
+                        "hand",
+                        "cupboard",
+                        "lesson",
+                        "storm"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з дослідника; збережи пасивне передування висновку.",
+            "accepted_target_texts": [
+                "The palaeographer concluded that the marginal note had been interpolated by another hand.",
+                "The palaeographer concluded the marginal note had been interpolated by another hand.",
+                "The paleographer concluded that the marginal note had been interpolated by another hand.",
+                "The paleographer concluded the marginal note had been interpolated by another hand."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "paleographer"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "paleographer"
+                ]
+            },
+            "reorder_groups": [
+                "The palaeographer",
+                "concluded that",
+                "the marginal note",
+                "had been interpolated",
+                "by another hand."
+            ],
+            "token_groups": [
+                "The palaeographer",
+                "concluded that",
+                "the marginal note",
+                "had been interpolated",
+                "by another hand."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "palaeographer",
+                "concluded",
+                "that",
+                "the",
+                "marginal",
+                "note",
+                "had",
+                "been",
+                "interpolated",
+                "by",
+                "another",
+                "hand."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "palaeographer",
+                "exception",
+                "manager",
+                "device",
+                "concluded",
+                "anticipated",
+                "recognised",
+                "called",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "the",
+                "both",
+                "a",
+                "an",
+                "marginal",
+                "apparent",
+                "inconsistency",
+                "arbitrator",
+                "note",
+                "more",
+                "thereafter",
+                "map",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "been",
+                "are",
+                "was",
+                "were",
+                "interpolated",
+                "stayed",
+                "construed",
+                "arisen",
+                "by",
+                "for",
+                "of",
+                "in",
+                "another",
+                "these",
+                "those",
+                "each",
+                "hand",
+                "cupboard",
+                "lesson",
+                "storm"
+            ],
+            "source_text_uk": "Дослідник рукописів дійшов висновку, що примітку на полі раніше вставила інша рука.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "palaeographer",
+                    "exception",
+                    "manager",
+                    "device"
+                ],
+                "a3": [
+                    "concluded",
+                    "anticipated",
+                    "recognised",
+                    "called"
+                ],
+                "a4": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a6": [
+                    "marginal",
+                    "apparent",
+                    "inconsistency",
+                    "arbitrator"
+                ],
+                "a7": [
+                    "note",
+                    "more",
+                    "thereafter",
+                    "map"
+                ],
+                "a8": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a9": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a10": [
+                    "interpolated",
+                    "stayed",
+                    "construed",
+                    "arisen"
+                ],
+                "a11": [
+                    "by",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a12": [
+                    "another",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a13": [
+                    "hand",
+                    "cupboard",
+                    "lesson",
+                    "storm"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "subject_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "verb_phrase",
+                "a11": "modifier_phrase",
+                "a12": "modifier_phrase",
+                "a13": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-backshift-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ми визнали, що позірна непослідовність виникла через несумісні умовності.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Ми визнали, що позірна непослідовність виникла через несумісні умовності.",
+            "target_text": "We recognised that the apparent inconsistency had arisen from incompatible conventions.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "recognised",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "recognised",
+                        "need",
+                        "concluded",
+                        "anticipated"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "apparent",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "apparent",
+                        "marginal",
+                        "hand",
+                        "arbitrator"
+                    ]
+                },
+                "a6": {
+                    "answer": "inconsistency",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "inconsistency",
+                        "note",
+                        "thereafter",
+                        "palaeographer"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a8": {
+                    "answer": "arisen",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "arisen",
+                        "arrived",
+                        "open",
+                        "finished"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "from",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a10": {
+                    "answer": "incompatible",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "incompatible",
+                        "clear",
+                        "safe",
+                        "useful"
+                    ]
+                },
+                "a11": {
+                    "answer": "conventions.",
+                    "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+                    "options": [
+                        "conventions",
+                        "windows",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нашого визнання; джерело непослідовності передувало йому.",
+            "accepted_target_texts": [
+                "We recognised that the apparent inconsistency had arisen from incompatible conventions.",
+                "We recognised the apparent inconsistency had arisen from incompatible conventions.",
+                "We recognized that the apparent inconsistency had arisen from incompatible conventions.",
+                "We recognized the apparent inconsistency had arisen from incompatible conventions.",
+                "We acknowledged that the apparent inconsistency had arisen from incompatible conventions.",
+                "We acknowledged the apparent inconsistency had arisen from incompatible conventions."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "recognized",
+                    "acknowledged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "recognized",
+                    "acknowledged"
+                ]
+            },
+            "reorder_groups": [
+                "We recognised that",
+                "the apparent inconsistency",
+                "had arisen",
+                "from incompatible conventions."
+            ],
+            "token_groups": [
+                "We recognised that",
+                "the apparent inconsistency",
+                "had arisen",
+                "from incompatible conventions."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "recognised",
+                "that",
+                "the",
+                "apparent",
+                "inconsistency",
+                "had",
+                "arisen",
+                "from",
+                "incompatible",
+                "conventions."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "recognised",
+                "need",
+                "concluded",
+                "anticipated",
+                "that",
+                "some",
+                "any",
+                "this",
+                "the",
+                "both",
+                "a",
+                "an",
+                "apparent",
+                "marginal",
+                "hand",
+                "arbitrator",
+                "inconsistency",
+                "note",
+                "thereafter",
+                "palaeographer",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "arisen",
+                "arrived",
+                "open",
+                "finished",
+                "from",
+                "for",
+                "of",
+                "in",
+                "incompatible",
+                "clear",
+                "safe",
+                "useful",
+                "conventions",
+                "windows",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Ми визнали, що позірна непослідовність виникла через несумісні умовності.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "recognised",
+                    "need",
+                    "concluded",
+                    "anticipated"
+                ],
+                "a3": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "apparent",
+                    "marginal",
+                    "hand",
+                    "arbitrator"
+                ],
+                "a6": [
+                    "inconsistency",
+                    "note",
+                    "thereafter",
+                    "palaeographer"
+                ],
+                "a7": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a8": [
+                    "arisen",
+                    "arrived",
+                    "open",
+                    "finished"
+                ],
+                "a9": [
+                    "from",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a10": [
+                    "incompatible",
+                    "clear",
+                    "safe",
+                    "useful"
+                ],
+                "a11": [
+                    "conventions",
+                    "windows",
+                    "phones",
+                    "children"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "modifier_phrase",
+                "a10": "modifier_phrase",
+                "a11": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-backshift-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Арбітр очікував, що надалі виняток тлумачитимуть вужче.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_backshift_of_tenses",
+            "translation_uk": "Арбітр очікував, що надалі виняток тлумачитимуть вужче.",
+            "target_text": "The arbitrator anticipated that the exception would be construed more narrowly thereafter.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "arbitrator",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "arbitrator",
+                        "manager",
+                        "device",
+                        "palaeographer"
+                    ]
+                },
+                "a3": {
+                    "answer": "anticipated",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "anticipated",
+                        "concluded",
+                        "recognised",
+                        "needed"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a6": {
+                    "answer": "exception",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "exception",
+                        "note",
+                        "hand",
+                        "apparent"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "would",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a8": {
+                    "answer": "be",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a9": {
+                    "answer": "construed",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "construed",
+                        "interpolated",
+                        "stayed",
+                        "arisen"
+                    ]
+                },
+                "a10": {
+                    "answer": "more",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "more",
+                        "by",
+                        "from",
+                        "after"
+                    ]
+                },
+                "a11": {
+                    "answer": "narrowly",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "narrowly",
+                        "carefully",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a12": {
+                    "answer": "thereafter.",
+                    "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+                    "options": [
+                        "thereafter",
+                        "lesson",
+                        "storm",
+                        "moment"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з арбітра; передай майбутнє пасивне тлумачення з минулої точки.",
+            "accepted_target_texts": [
+                "The arbitrator anticipated that the exception would be construed more narrowly thereafter.",
+                "The arbitrator anticipated the exception would be construed more narrowly thereafter.",
+                "The arbitrator anticipated that the exception would be interpreted more narrowly thereafter.",
+                "The arbitrator anticipated the exception would be interpreted more narrowly thereafter."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "interpreted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "interpreted"
+                ]
+            },
+            "reorder_groups": [
+                "The arbitrator",
+                "anticipated that",
+                "the exception",
+                "would be construed",
+                "more narrowly thereafter."
+            ],
+            "token_groups": [
+                "The arbitrator",
+                "anticipated that",
+                "the exception",
+                "would be construed",
+                "more narrowly thereafter."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "arbitrator",
+                "anticipated",
+                "that",
+                "the",
+                "exception",
+                "would",
+                "be",
+                "construed",
+                "more",
+                "narrowly",
+                "thereafter."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "arbitrator",
+                "manager",
+                "device",
+                "palaeographer",
+                "anticipated",
+                "concluded",
+                "recognised",
+                "needed",
+                "that",
+                "no",
+                "another",
+                "either",
+                "the",
+                "every",
+                "neither",
+                "all",
+                "exception",
+                "note",
+                "hand",
+                "apparent",
+                "would",
+                "can",
+                "could",
+                "will",
+                "be",
+                "weren't",
+                "am",
+                "is",
+                "construed",
+                "interpolated",
+                "stayed",
+                "arisen",
+                "more",
+                "by",
+                "from",
+                "after",
+                "narrowly",
+                "carefully",
+                "well",
+                "badly",
+                "thereafter",
+                "lesson",
+                "storm",
+                "moment"
+            ],
+            "source_text_uk": "Арбітр очікував, що надалі виняток тлумачитимуть вужче.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "arbitrator",
+                    "manager",
+                    "device",
+                    "palaeographer"
+                ],
+                "a3": [
+                    "anticipated",
+                    "concluded",
+                    "recognised",
+                    "needed"
+                ],
+                "a4": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "neither",
+                    "all"
+                ],
+                "a6": [
+                    "exception",
+                    "note",
+                    "hand",
+                    "apparent"
+                ],
+                "a7": [
+                    "would",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a8": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a9": [
+                    "construed",
+                    "interpolated",
+                    "stayed",
+                    "arisen"
+                ],
+                "a10": [
+                    "more",
+                    "by",
+                    "from",
+                    "after"
+                ],
+                "a11": [
+                    "narrowly",
+                    "carefully",
+                    "well",
+                    "badly"
+                ],
+                "a12": [
+                    "thereafter",
+                    "lesson",
+                    "storm",
+                    "moment"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "modifier_phrase",
+                "a11": "modifier_phrase",
+                "a12": "modifier_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

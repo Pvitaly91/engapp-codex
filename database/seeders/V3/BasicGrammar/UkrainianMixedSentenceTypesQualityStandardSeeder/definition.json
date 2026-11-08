@@ -1,0 +1,1616 @@
+{
+    "schema_version": 1,
+    "quality_revision": "basic-grammar-v1",
+    "compiled_from": {
+        "path": "docs/content/basic-grammar-quality/sentence-types.v1.json",
+        "sha256": "4702d67b33ba9d0800b4c8a287b6a2d46e2156f1ff1c09b0554a0efc6d57b511"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceTypesQualityStandardSeeder",
+        "uuid_namespace": "basic-grammar-quality-sentence-types-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Базова граматика"
+    },
+    "sources": {
+        "basic_grammar_quality_sentence_types": {
+            "name": "Basic Grammar Quality: Типи речень"
+        }
+    },
+    "tags": {
+        "sentence_types": {
+            "name": "Sentence types",
+            "category": "topic"
+        },
+        "affirmative_sentence": {
+            "name": "Affirmative sentence structure",
+            "category": "pattern"
+        },
+        "negative_sentence": {
+            "name": "Negative sentence formation",
+            "category": "pattern"
+        },
+        "yes_no_question": {
+            "name": "Yes/No question formation",
+            "category": "pattern"
+        },
+        "wh_question": {
+            "name": "Wh-question formation",
+            "category": "pattern"
+        },
+        "imperative_sentence": {
+            "name": "Imperative sentence structure",
+            "category": "pattern"
+        },
+        "negative_imperative": {
+            "name": "Negative imperative (prohibition)",
+            "category": "pattern"
+        },
+        "auxiliary_do_does": {
+            "name": "Auxiliary do/does usage",
+            "category": "mechanism"
+        },
+        "auxiliary_inversion": {
+            "name": "Subject-auxiliary inversion",
+            "category": "mechanism"
+        },
+        "sentence_type_identification": {
+            "name": "Sentence type identification",
+            "category": "usage"
+        },
+        "word_order": {
+            "name": "Word order in sentence types",
+            "category": "mechanism"
+        },
+        "tag_question": {
+            "name": "Tag question formation",
+            "category": "pattern"
+        },
+        "indirect_question": {
+            "name": "Indirect question word order",
+            "category": "pattern"
+        },
+        "rhetorical_question": {
+            "name": "Rhetorical question usage",
+            "category": "register"
+        },
+        "exclamatory_sentence": {
+            "name": "Exclamatory sentence structure",
+            "category": "pattern"
+        },
+        "negative_contraction": {
+            "name": "Negative contraction forms",
+            "category": "mechanism"
+        }
+    },
+    "default_tag_keys": [
+        "sentence_types"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "bgq-sentence-types-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The bus {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Автобус прибуває о четвертій.",
+            "target_text": "The bus arrives at four.",
+            "markers": {
+                "a1": {
+                    "answer": "arrives at four",
+                    "options": [
+                        "arrives at four",
+                        "does arrives at four",
+                        "at four arrives it"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Прибуває о четвертій». Побудуй нейтральне розповідне повідомлення після вже наведеного підмета, без питальної перестановки."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Прибуває о четвертій». Побудуй нейтральне розповідне повідомлення після вже наведеного підмета, без питальної перестановки.",
+            "accepted_target_texts": [
+                "The bus arrives at four.",
+                "The bus comes at four."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "comes at four"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "comes at four"
+                ]
+            },
+            "reorder_groups": [
+                "The bus",
+                "arrives at four."
+            ],
+            "token_groups": [
+                "The bus",
+                "arrives at four."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "bgq-sentence-types-a1-g02",
+            "author_id": "A1-g02",
+            "question": "{a1} you like cheese?",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Тобі подобається сир?",
+            "target_text": "Do you like cheese?",
+            "markers": {
+                "a1": {
+                    "answer": "Do",
+                    "options": [
+                        "Do",
+                        "Are",
+                        "Is"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок простого теперішнього питання». Почни загальне питання про вподобання з допоміжного дієслова, а не зі зв'язки стану."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок простого теперішнього питання». Почни загальне питання про вподобання з допоміжного дієслова, а не зі зв'язки стану.",
+            "accepted_target_texts": [
+                "Do you like cheese?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do",
+                "you like cheese?"
+            ],
+            "token_groups": [
+                "Do",
+                "you like cheese?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "bgq-sentence-types-a1-g03",
+            "author_id": "A1-g03",
+            "question": "{a1} beside me.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Сядь поруч зі мною.",
+            "target_text": "Sit beside me.",
+            "markers": {
+                "a1": {
+                    "answer": "Sit",
+                    "options": [
+                        "Sit",
+                        "Sits",
+                        "To sit"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Сядь». Почни пряме спонукання з основної форми дієслова без доданого підмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Сядь». Почни пряме спонукання з основної форми дієслова без доданого підмета.",
+            "accepted_target_texts": [
+                "Sit beside me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Sit",
+                "beside me."
+            ],
+            "token_groups": [
+                "Sit",
+                "beside me."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "bgq-sentence-types-a1-g04",
+            "author_id": "A1-g04",
+            "question": "How {a1} this picture is!",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Яка гарна ця картина!",
+            "target_text": "How nice this picture is!",
+            "markers": {
+                "a1": {
+                    "answer": "nice",
+                    "options": [
+                        "nice",
+                        "a nice",
+                        "nicely"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Гарна». Після вже наведеного окличного слова потрібен прикметник без артикля."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Гарна». Після вже наведеного окличного слова потрібен прикметник без артикля.",
+            "accepted_target_texts": [
+                "How nice this picture is!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How nice",
+                "this picture is!"
+            ],
+            "token_groups": [
+                "How nice",
+                "this picture is!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "bgq-sentence-types-a1-g05",
+            "author_id": "A1-g05",
+            "question": "We do not {a1} meat.",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ми не їмо м'яса.",
+            "target_text": "We do not eat meat.",
+            "markers": {
+                "a1": {
+                    "answer": "eat",
+                    "options": [
+                        "eat",
+                        "eats",
+                        "eating"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Їмо, основна форма після вже наведеного заперечення». Доповни заперечне розповідне речення основною формою дії після допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Їмо, основна форма після вже наведеного заперечення». Доповни заперечне розповідне речення основною формою дії після допоміжного дієслова.",
+            "accepted_target_texts": [
+                "We do not eat meat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We do not",
+                "eat meat."
+            ],
+            "token_groups": [
+                "We do not",
+                "eat meat."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "bgq-sentence-types-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Where does your sister {a1}?",
+            "level": "A1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Де працює твоя сестра?",
+            "target_text": "Where does your sister work?",
+            "markers": {
+                "a1": {
+                    "answer": "work",
+                    "options": [
+                        "work",
+                        "works",
+                        "working"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Працює, основна форма після вже наведеного питального допоміжного слова». Питальне слово та допоміжне дієслово вже наведені; потрібна основна форма дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Працює, основна форма після вже наведеного питального допоміжного слова». Питальне слово та допоміжне дієслово вже наведені; потрібна основна форма дії.",
+            "accepted_target_texts": [
+                "Where does your sister work?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where does",
+                "your sister",
+                "work?"
+            ],
+            "token_groups": [
+                "Where does",
+                "your sister",
+                "work?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "bgq-sentence-types-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} the lesson start on time?",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Урок почався вчасно?",
+            "target_text": "Did the lesson start on time?",
+            "markers": {
+                "a1": {
+                    "answer": "Did",
+                    "options": [
+                        "Did",
+                        "Was",
+                        "Is"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок простого минулого питання». Почни загальне питання про минулу дію; основна форма цієї дії вже наведена."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок простого минулого питання». Почни загальне питання про минулу дію; основна форма цієї дії вже наведена.",
+            "accepted_target_texts": [
+                "Did the lesson start on time?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did",
+                "the lesson",
+                "start on time?"
+            ],
+            "token_groups": [
+                "Did",
+                "the lesson",
+                "start on time?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "bgq-sentence-types-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Please do not {a1} the paint.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Будь ласка, не торкайся фарби.",
+            "target_text": "Please do not touch the paint.",
+            "markers": {
+                "a1": {
+                    "answer": "touch",
+                    "options": [
+                        "touch",
+                        "touches",
+                        "touching"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Торкайся, після вже наведеного заперечного початку». Доповни заперечне спонукання основною формою дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Торкайся, після вже наведеного заперечного початку». Доповни заперечне спонукання основною формою дії.",
+            "accepted_target_texts": [
+                "Please do not touch the paint."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please do not",
+                "touch the paint."
+            ],
+            "token_groups": [
+                "Please do not",
+                "touch the paint."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "bgq-sentence-types-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The parcel {a1} yet.",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Посилка ще не прибула.",
+            "target_text": "The parcel has not arrived yet.",
+            "markers": {
+                "a1": {
+                    "answer": "has not arrived",
+                    "options": [
+                        "has not arrived",
+                        "has arrived not",
+                        "has not arrive"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Не прибула, незавершений донині результат». Після підмета потрібне заперечне повідомлення про незавершений донині результат."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Не прибула, незавершений донині результат». Після підмета потрібне заперечне повідомлення про незавершений донині результат.",
+            "accepted_target_texts": [
+                "The parcel has not arrived yet.",
+                "The parcel hasn't arrived yet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "hasn't arrived"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "hasn't arrived"
+                ]
+            },
+            "reorder_groups": [
+                "The parcel",
+                "has not arrived",
+                "yet."
+            ],
+            "token_groups": [
+                "The parcel",
+                "has not arrived",
+                "yet."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "bgq-sentence-types-a2-g04",
+            "author_id": "A2-g04",
+            "question": "How {a1} she folds the paper!",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Як уважно вона складає папір!",
+            "target_text": "How carefully she folds the paper!",
+            "markers": {
+                "a1": {
+                    "answer": "carefully",
+                    "options": [
+                        "carefully",
+                        "careful",
+                        "a careful"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Уважно». Після окличного слова передай спосіб дії прислівником, не назвою предмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Уважно». Після окличного слова передай спосіб дії прислівником, не назвою предмета.",
+            "accepted_target_texts": [
+                "How carefully she folds the paper!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How carefully",
+                "she folds",
+                "the paper!"
+            ],
+            "token_groups": [
+                "How carefully",
+                "she folds",
+                "the paper!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "bgq-sentence-types-a2-g05",
+            "author_id": "A2-g05",
+            "question": "What a {a1} that is!",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Який дивний це звук!",
+            "target_text": "What a strange sound that is!",
+            "markers": {
+                "a1": {
+                    "answer": "strange sound",
+                    "options": [
+                        "strange sound",
+                        "strangely sound",
+                        "strange sounds"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Дивний звук». Після вже наведеного артикля потрібна іменна група однини з прикметником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Дивний звук». Після вже наведеного артикля потрібна іменна група однини з прикметником.",
+            "accepted_target_texts": [
+                "What a strange sound that is!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What a",
+                "strange sound",
+                "that is!"
+            ],
+            "token_groups": [
+                "What a",
+                "strange sound",
+                "that is!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "bgq-sentence-types-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Why are the neighbours {a1}?",
+            "level": "A2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Чому сусіди сміються?",
+            "target_text": "Why are the neighbours laughing?",
+            "markers": {
+                "a1": {
+                    "answer": "laughing",
+                    "options": [
+                        "laughing",
+                        "laugh",
+                        "laughed"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Сміються, дія триває». Слово причини й допоміжна форма вже наведені; доповни пряме питання дією, що триває."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Сміються, дія триває». Слово причини й допоміжна форма вже наведені; доповни пряме питання дією, що триває.",
+            "accepted_target_texts": [
+                "Why are the neighbours laughing?",
+                "Why are the neighbors laughing?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why are",
+                "the neighbours",
+                "laughing?"
+            ],
+            "token_groups": [
+                "Why are",
+                "the neighbours",
+                "laughing?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "bgq-sentence-types-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ти знаєш, де вокзал?",
+            "target_text": "Do you know where the station is?",
+            "markers": {
+                "a1": {
+                    "answer": "where the station is",
+                    "options": [
+                        "where the station is",
+                        "where is the station",
+                        "where the station does"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Де розташований вокзал». Усередині загального питання введи місце непрямим питанням із розповідним порядком слів."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Де розташований вокзал». Усередині загального питання введи місце непрямим питанням із розповідним порядком слів.",
+            "accepted_target_texts": [
+                "Do you know where the station is?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "where the station",
+                "is?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "where the station",
+                "is?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "bgq-sentence-types-b1-g02",
+            "author_id": "B1-g02",
+            "question": "What an {a1} that was!",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Яка несподівана це була кінцівка!",
+            "target_text": "What an unexpected ending that was!",
+            "markers": {
+                "a1": {
+                    "answer": "unexpected ending",
+                    "options": [
+                        "unexpected ending",
+                        "unexpectedly ending",
+                        "unexpected endings"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Несподівана кінцівка». Після вже наведеного артикля побудуй окличну іменну групу однини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Несподівана кінцівка». Після вже наведеного артикля побудуй окличну іменну групу однини.",
+            "accepted_target_texts": [
+                "What an unexpected ending that was!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What an",
+                "unexpected ending",
+                "that was!"
+            ],
+            "token_groups": [
+                "What an",
+                "unexpected ending",
+                "that was!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "bgq-sentence-types-b1-g03",
+            "author_id": "B1-g03",
+            "question": "You have finished the form, {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ти заповнив бланк, чи не так?",
+            "target_text": "You have finished the form, haven't you?",
+            "markers": {
+                "a1": {
+                    "answer": "haven't you",
+                    "options": [
+                        "haven't you",
+                        "have you not they",
+                        "you haven't do"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи не так, запит про співрозмовника після ствердного повідомлення». Після ствердного повідомлення додай коротке заперечне підтверджувальне питання з тим самим допоміжним дієсловом."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи не так, запит про співрозмовника після ствердного повідомлення». Після ствердного повідомлення додай коротке заперечне підтверджувальне питання з тим самим допоміжним дієсловом.",
+            "accepted_target_texts": [
+                "You have finished the form, haven't you?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You have",
+                "finished the form,",
+                "haven't you?"
+            ],
+            "token_groups": [
+                "You have",
+                "finished the form,",
+                "haven't you?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "bgq-sentence-types-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Do not {a1} the stove unattended.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Не залишай плиту без нагляду.",
+            "target_text": "Do not leave the stove unattended.",
+            "markers": {
+                "a1": {
+                    "answer": "leave",
+                    "options": [
+                        "leave",
+                        "leaves",
+                        "leaving"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Залишай, після вже наведеного заперечного початку». Доповни заперечне спонукання основною формою дієслова без підмета."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Залишай, після вже наведеного заперечного початку». Доповни заперечне спонукання основною формою дієслова без підмета.",
+            "accepted_target_texts": [
+                "Do not leave the stove unattended."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do not",
+                "leave the stove",
+                "unattended."
+            ],
+            "token_groups": [
+                "Do not",
+                "leave the stove",
+                "unattended."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "bgq-sentence-types-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The guide explained why {a1} closed.",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Екскурсовод пояснив, чому стежка була закрита.",
+            "target_text": "The guide explained why the path was closed.",
+            "markers": {
+                "a1": {
+                    "answer": "the path was",
+                    "options": [
+                        "the path was",
+                        "was the path",
+                        "the path did"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Ця стежка була». У розповідному реченні непряме питання має порядок підмета перед зв'язкою."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Ця стежка була». У розповідному реченні непряме питання має порядок підмета перед зв'язкою.",
+            "accepted_target_texts": [
+                "The guide explained why the path was closed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "explained why",
+                "the path was",
+                "closed."
+            ],
+            "token_groups": [
+                "The guide",
+                "explained why",
+                "the path was",
+                "closed."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "bgq-sentence-types-b1-g06",
+            "author_id": "B1-g06",
+            "question": "{a1} you prefer a window seat?",
+            "level": "B1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Ти віддав би перевагу місцю біля вікна?",
+            "target_text": "Would you prefer a window seat?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Are",
+                        "Does"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок ввічливого питання про бажаний вибір». Почни ввічливе пряме питання про бажаний вибір із модального допоміжного слова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок ввічливого питання про бажаний вибір». Почни ввічливе пряме питання про бажаний вибір із модального допоміжного слова.",
+            "accepted_target_texts": [
+                "Would you prefer a window seat?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would",
+                "you prefer",
+                "a window seat?"
+            ],
+            "token_groups": [
+                "Would",
+                "you prefer",
+                "a window seat?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "bgq-sentence-types-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The question is {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Питання в тому, чи надійні ці показники.",
+            "target_text": "The question is whether the figures are reliable.",
+            "markers": {
+                "a1": {
+                    "answer": "whether the figures are reliable",
+                    "options": [
+                        "whether the figures are reliable",
+                        "whether are the figures reliable",
+                        "whether the figures reliable are"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи надійні ці показники». Після вже наведеної головної частини додай непряме загальне питання без питальної інверсії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи надійні ці показники». Після вже наведеної головної частини додай непряме загальне питання без питальної інверсії.",
+            "accepted_target_texts": [
+                "The question is whether the figures are reliable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The question is",
+                "whether the figures",
+                "are reliable."
+            ],
+            "token_groups": [
+                "The question is",
+                "whether the figures",
+                "are reliable."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "bgq-sentence-types-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} the panel considered every alternative before deciding?",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Комісія розглянула всі альтернативи, перш ніж вирішити?",
+            "target_text": "Had the panel considered every alternative before deciding?",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Was",
+                        "Does"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок питання про дію раніше за іншу минулу дію». Почни пряме питання про дію, що передувала іншій минулій дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок питання про дію раніше за іншу минулу дію». Почни пряме питання про дію, що передувала іншій минулій дії.",
+            "accepted_target_texts": [
+                "Had the panel considered every alternative before deciding?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had",
+                "the panel",
+                "considered every alternative",
+                "before deciding?"
+            ],
+            "token_groups": [
+                "Had",
+                "the panel",
+                "considered every alternative",
+                "before deciding?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "bgq-sentence-types-b2-g03",
+            "author_id": "B2-g03",
+            "question": "What a {a1} the two accounts present!",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Який разючий контраст являють ці два виклади!",
+            "target_text": "What a remarkable contrast the two accounts present!",
+            "markers": {
+                "a1": {
+                    "answer": "remarkable contrast",
+                    "options": [
+                        "remarkable contrast",
+                        "remarkably contrast",
+                        "remarkable contrasts"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Разючий контраст». Після артикля потрібна оклична іменна група однини перед підметом і дієсловом."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Разючий контраст». Після артикля потрібна оклична іменна група однини перед підметом і дієсловом.",
+            "accepted_target_texts": [
+                "What a remarkable contrast the two accounts present!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What a",
+                "remarkable contrast",
+                "the two accounts",
+                "present!"
+            ],
+            "token_groups": [
+                "What a",
+                "remarkable contrast",
+                "the two accounts",
+                "present!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "bgq-sentence-types-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Let us {a1} the evidence from the inference.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Відрізнімо докази від висновку.",
+            "target_text": "Let us distinguish the evidence from the inference.",
+            "markers": {
+                "a1": {
+                    "answer": "distinguish",
+                    "options": [
+                        "distinguish",
+                        "distinguishes",
+                        "distinguishing"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Відрізнімо, після вже наведеного початку спільної пропозиції». Після вже наведеного спонукання до спільної дії постав основну форму дієслова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Відрізнімо, після вже наведеного початку спільної пропозиції». Після вже наведеного спонукання до спільної дії постав основну форму дієслова.",
+            "accepted_target_texts": [
+                "Let us distinguish the evidence from the inference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Let us distinguish",
+                "the evidence",
+                "from the inference."
+            ],
+            "token_groups": [
+                "Let us distinguish",
+                "the evidence",
+                "from the inference."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "bgq-sentence-types-b2-g05",
+            "author_id": "B2-g05",
+            "question": "I wonder {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Мене цікавить, чому пропозицію відхилили.",
+            "target_text": "I wonder why the proposal was rejected.",
+            "markers": {
+                "a1": {
+                    "answer": "why the proposal was rejected",
+                    "options": [
+                        "why the proposal was rejected",
+                        "why was the proposal rejected",
+                        "why the proposal rejected was"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чому цю пропозицію відхилили». Доповни розповідне повідомлення непрямим питанням про причину з розповідним порядком слів."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чому цю пропозицію відхилили». Доповни розповідне повідомлення непрямим питанням про причину з розповідним порядком слів.",
+            "accepted_target_texts": [
+                "I wonder why the proposal was rejected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wonder",
+                "why the proposal",
+                "was rejected."
+            ],
+            "token_groups": [
+                "I wonder",
+                "why the proposal",
+                "was rejected."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "bgq-sentence-types-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The terms were made clear, {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Умови пояснили чітко, чи не так?",
+            "target_text": "The terms were made clear, weren't they?",
+            "markers": {
+                "a1": {
+                    "answer": "weren't they",
+                    "options": [
+                        "weren't they",
+                        "were they not them",
+                        "they weren't did"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи не так, запит про вже названі умови». Додай підтверджувальне питання з правильним допоміжним словом і займенником множини."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи не так, запит про вже названі умови». Додай підтверджувальне питання з правильним допоміжним словом і займенником множини.",
+            "accepted_target_texts": [
+                "The terms were made clear, weren't they?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The terms",
+                "were made clear,",
+                "weren't they?"
+            ],
+            "token_groups": [
+                "The terms",
+                "were made clear,",
+                "weren't they?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "bgq-sentence-types-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The issue is not who objected, but {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Питання не в тому, хто заперечив, а в тому, чому вони це зробили.",
+            "target_text": "The issue is not who objected, but why they did so.",
+            "markers": {
+                "a1": {
+                    "answer": "why they did so",
+                    "options": [
+                        "why they did so",
+                        "why did they do so",
+                        "why they do did so"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чому вони це зробили». Збережи протиставлення двох непрямих питань із розповідним порядком слів."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чому вони це зробили». Збережи протиставлення двох непрямих питань із розповідним порядком слів.",
+            "accepted_target_texts": [
+                "The issue is not who objected, but why they did so."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The issue is",
+                "not who objected,",
+                "but why",
+                "they did so."
+            ],
+            "token_groups": [
+                "The issue is",
+                "not who objected,",
+                "but why",
+                "they did so."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "bgq-sentence-types-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} it be accurate to say that the safeguards failed?",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Було б правильно сказати, що гарантії не спрацювали?",
+            "target_text": "Would it be accurate to say that the safeguards failed?",
+            "markers": {
+                "a1": {
+                    "answer": "Would",
+                    "options": [
+                        "Would",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок обережного прямого питання-оцінки». Почни обережне пряме питання-оцінку з модальної форми."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок обережного прямого питання-оцінки». Почни обережне пряме питання-оцінку з модальної форми.",
+            "accepted_target_texts": [
+                "Would it be accurate to say that the safeguards failed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Would it be",
+                "accurate to say",
+                "that the safeguards",
+                "failed?"
+            ],
+            "token_groups": [
+                "Would it be",
+                "accurate to say",
+                "that the safeguards",
+                "failed?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "bgq-sentence-types-c1-g03",
+            "author_id": "C1-g03",
+            "question": "How {a1} the distinction collapses under closer scrutiny!",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Як легко це розрізнення руйнується при пильнішому розгляді!",
+            "target_text": "How readily the distinction collapses under closer scrutiny!",
+            "markers": {
+                "a1": {
+                    "answer": "readily",
+                    "options": [
+                        "readily",
+                        "ready",
+                        "a readiness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Легко». Після окличного слова потрібен прислівник, який оцінює легкість дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Легко». Після окличного слова потрібен прислівник, який оцінює легкість дії.",
+            "accepted_target_texts": [
+                "How readily the distinction collapses under closer scrutiny!"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How readily",
+                "the distinction",
+                "collapses under",
+                "closer scrutiny!"
+            ],
+            "token_groups": [
+                "How readily",
+                "the distinction",
+                "collapses under",
+                "closer scrutiny!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "bgq-sentence-types-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Let there {a1} no misunderstanding about the limits of this concession.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Нехай не буде непорозумінь щодо меж цієї поступки.",
+            "target_text": "Let there be no misunderstanding about the limits of this concession.",
+            "markers": {
+                "a1": {
+                    "answer": "be",
+                    "options": [
+                        "be",
+                        "is",
+                        "being"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Основна форма зв’язки в спонуканні до наявності». У формальному спонуканні після вже наведених слів потрібна основна форма зв'язки."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Основна форма зв’язки в спонуканні до наявності». У формальному спонуканні після вже наведених слів потрібна основна форма зв'язки.",
+            "accepted_target_texts": [
+                "Let there be no misunderstanding about the limits of this concession."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Let there be",
+                "no misunderstanding",
+                "about the limits",
+                "of this concession."
+            ],
+            "token_groups": [
+                "Let there be",
+                "no misunderstanding",
+                "about the limits",
+                "of this concession."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "bgq-sentence-types-c1-g05",
+            "author_id": "C1-g05",
+            "question": "She asked {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Вона запитала, якою мірою діяв цей виняток.",
+            "target_text": "She asked to what extent the exemption applied.",
+            "markers": {
+                "a1": {
+                    "answer": "to what extent the exemption applied",
+                    "options": [
+                        "to what extent the exemption applied",
+                        "to what extent did the exemption apply",
+                        "to what extent the exemption did applied"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Якою мірою діяв цей виняток». Після дієслова повідомлення введи непряме питання про ступінь без прямої інверсії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Якою мірою діяв цей виняток». Після дієслова повідомлення введи непряме питання про ступінь без прямої інверсії.",
+            "accepted_target_texts": [
+                "She asked to what extent the exemption applied."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She asked",
+                "to what extent",
+                "the exemption applied."
+            ],
+            "token_groups": [
+                "She asked",
+                "to what extent",
+                "the exemption applied."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "bgq-sentence-types-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The conclusion is provisional, {a1}?",
+            "level": "C1",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Висновок попередній, чи не так?",
+            "target_text": "The conclusion is provisional, isn't it?",
+            "markers": {
+                "a1": {
+                    "answer": "isn't it",
+                    "options": [
+                        "isn't it",
+                        "is it not they",
+                        "it isn't does"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи не так, запит про вже названий висновок». Додай узгоджене заперечне підтверджувальне питання про один висновок."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи не так, запит про вже названий висновок». Додай узгоджене заперечне підтверджувальне питання про один висновок.",
+            "accepted_target_texts": [
+                "The conclusion is provisional, isn't it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conclusion",
+                "is provisional,",
+                "isn't it?"
+            ],
+            "token_groups": [
+                "The conclusion",
+                "is provisional,",
+                "isn't it?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "bgq-sentence-types-c2-g01",
+            "author_id": "C2-g01",
+            "question": "What remains unclear is {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Незрозуміло, на чиєму авторитеті ґрунтується цей виняток.",
+            "target_text": "What remains unclear is on whose authority the exception rests.",
+            "markers": {
+                "a1": {
+                    "answer": "on whose authority the exception rests",
+                    "options": [
+                        "on whose authority the exception rests",
+                        "on whose authority does the exception rest",
+                        "on whose authority the exception rest does"
+                    ],
+                    "verb_hint": "Потрібний зміст: «На чиєму авторитеті ґрунтується цей виняток». Після головної зв'язки додай непряме питання з початковим прийменниковим зворотом і розповідним порядком."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «На чиєму авторитеті ґрунтується цей виняток». Після головної зв'язки додай непряме питання з початковим прийменниковим зворотом і розповідним порядком.",
+            "accepted_target_texts": [
+                "What remains unclear is on whose authority the exception rests."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains unclear",
+                "is on",
+                "whose authority",
+                "the exception rests."
+            ],
+            "token_groups": [
+                "What remains unclear",
+                "is on",
+                "whose authority",
+                "the exception rests."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "bgq-sentence-types-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the apparent consensus be nothing more than a failure to articulate dissent?",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Позірний консенсус може бути лише нездатністю висловити незгоду?",
+            "target_text": "Could the apparent consensus be nothing more than a failure to articulate dissent?",
+            "markers": {
+                "a1": {
+                    "answer": "Could",
+                    "options": [
+                        "Could",
+                        "Does",
+                        "Has"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Допоміжний початок питання про можливе тлумачення». Почни пряме питання про можливе тлумачення з модального допоміжного слова."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Допоміжний початок питання про можливе тлумачення». Почни пряме питання про можливе тлумачення з модального допоміжного слова.",
+            "accepted_target_texts": [
+                "Could the apparent consensus be nothing more than a failure to articulate dissent?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could the apparent",
+                "consensus be",
+                "nothing more than",
+                "a failure",
+                "to articulate dissent?"
+            ],
+            "token_groups": [
+                "Could the apparent",
+                "consensus be",
+                "nothing more than",
+                "a failure",
+                "to articulate dissent?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "bgq-sentence-types-c2-g03",
+            "author_id": "C2-g03",
+            "question": "How {a1} the presumption shapes what counts as admissible evidence!",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Як докорінно це припущення формує уявлення про допустимі докази!",
+            "target_text": "How thoroughly the presumption shapes what counts as admissible evidence!",
+            "markers": {
+                "a1": {
+                    "answer": "thoroughly",
+                    "options": [
+                        "thoroughly",
+                        "thorough",
+                        "a thoroughness"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Глибоко, у всіх аспектах». Після окличного слова потрібен прислівник ступеня впливу, не прикметник чи іменник."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Глибоко, у всіх аспектах». Після окличного слова потрібен прислівник ступеня впливу, не прикметник чи іменник.",
+            "accepted_target_texts": [
+                "How thoroughly the presumption shapes what counts as admissible evidence!",
+                "How fundamentally the presumption shapes what counts as admissible evidence!"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "fundamentally"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "fundamentally"
+                ]
+            },
+            "reorder_groups": [
+                "How thoroughly",
+                "the presumption",
+                "shapes what counts",
+                "as admissible evidence!"
+            ],
+            "token_groups": [
+                "How thoroughly",
+                "the presumption",
+                "shapes what counts",
+                "as admissible evidence!"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "bgq-sentence-types-c2-g04",
+            "author_id": "C2-g04",
+            "question": "Let no one {a1} consent from mere silence.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Нехай ніхто не робить висновку про згоду з самого лише мовчання.",
+            "target_text": "Let no one infer consent from mere silence.",
+            "markers": {
+                "a1": {
+                    "answer": "infer",
+                    "options": [
+                        "infer",
+                        "infers",
+                        "inferring"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Роби висновок». Після спонукального початку з від'ємним займенником потрібна основна форма дії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Роби висновок». Після спонукального початку з від'ємним займенником потрібна основна форма дії.",
+            "accepted_target_texts": [
+                "Let no one infer consent from mere silence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Let no one",
+                "infer consent",
+                "from mere silence."
+            ],
+            "token_groups": [
+                "Let no one",
+                "infer consent",
+                "from mere silence."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "bgq-sentence-types-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The difficulty lies in determining {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Складність полягає у визначенні того, чи можна обґрунтувати це розрізнення.",
+            "target_text": "The difficulty lies in determining whether the distinction is defensible.",
+            "markers": {
+                "a1": {
+                    "answer": "whether the distinction is defensible",
+                    "options": [
+                        "whether the distinction is defensible",
+                        "whether is the distinction defensible",
+                        "whether the distinction defensible is"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи можна обґрунтувати це розрізнення». Доповни іменну за функцією залежну частину непрямим загальним питанням без інверсії."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи можна обґрунтувати це розрізнення». Доповни іменну за функцією залежну частину непрямим загальним питанням без інверсії.",
+            "accepted_target_texts": [
+                "The difficulty lies in determining whether the distinction is defensible."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The difficulty lies",
+                "in determining",
+                "whether the distinction",
+                "is defensible."
+            ],
+            "token_groups": [
+                "The difficulty lies",
+                "in determining",
+                "whether the distinction",
+                "is defensible."
+            ],
+            "quality_revision": "basic-grammar-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "bgq-sentence-types-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The caveat is not merely decorative, {a1}?",
+            "level": "C2",
+            "type": 0,
+            "source": "basic_grammar_quality_sentence_types",
+            "translation_uk": "Це застереження не просто декоративне, чи не так?",
+            "target_text": "The caveat is not merely decorative, is it?",
+            "markers": {
+                "a1": {
+                    "answer": "is it",
+                    "options": [
+                        "is it",
+                        "it is not does",
+                        "are it"
+                    ],
+                    "verb_hint": "Потрібний зміст: «Чи не так, ствердний запит після заперечного повідомлення». Після заперечного повідомлення додай коротке ствердне питання з узгодженим займенником."
+                }
+            },
+            "verb_hint": "Потрібний зміст: «Чи не так, ствердний запит після заперечного повідомлення». Після заперечного повідомлення додай коротке ствердне питання з узгодженим займенником.",
+            "accepted_target_texts": [
+                "The caveat is not merely decorative, is it?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The caveat",
+                "is not merely",
+                "decorative,",
+                "is it?"
+            ],
+            "token_groups": [
+                "The caveat",
+                "is not merely",
+                "decorative,",
+                "is it?"
+            ],
+            "quality_revision": "basic-grammar-v1"
+        }
+    ]
+}

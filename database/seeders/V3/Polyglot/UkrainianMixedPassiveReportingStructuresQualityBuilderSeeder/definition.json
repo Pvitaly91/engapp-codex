@@ -1,0 +1,3949 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/reporting.v1.json",
+        "sha256": "16380c5d5985260b4fde543f5fc3e995bbcb0f563046cd05fac9c934fd5bc669"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveReportingStructuresQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-reporting-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_reporting": {
+            "name": "Passive Voice Quality: Пасивні конструкції повідомлення"
+        }
+    },
+    "tags": {
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "passive_reporting_structures": {
+            "name": "Passive Reporting Structures",
+            "category": "topic"
+        },
+        "impersonal_passive": {
+            "name": "Impersonal Passive",
+            "category": "topic"
+        },
+        "personal_passive": {
+            "name": "Personal Passive",
+            "category": "topic"
+        },
+        "reporting_verbs": {
+            "name": "Reporting Verbs",
+            "category": "topic"
+        },
+        "present_infinitive": {
+            "name": "Present Infinitive",
+            "category": "topic"
+        },
+        "perfect_infinitive": {
+            "name": "Perfect Infinitive",
+            "category": "topic"
+        },
+        "passive_infinitive": {
+            "name": "Passive Infinitive",
+            "category": "topic"
+        },
+        "active_reporting": {
+            "name": "Active Reporting",
+            "category": "topic"
+        },
+        "formal_register": {
+            "name": "Formal Register",
+            "category": "topic"
+        },
+        "tense_match": {
+            "name": "Tense Match",
+            "category": "topic"
+        },
+        "expected_known": {
+            "name": "Expected Known",
+            "category": "topic"
+        },
+        "avoid_mismatch": {
+            "name": "Avoid Mismatch",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "passive_reporting_structures"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-reporting-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Кажуть, що Марта добра.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що Марта добра.",
+            "target_text": "Marta is said to be kind.",
+            "markers": {
+                "a1": {
+                    "answer": "Marta",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "Marta",
+                        "Oleh",
+                        "Danylo",
+                        "Sofia"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "is",
+                        "were",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "said",
+                        "thought",
+                        "expected",
+                        "reported"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "be",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a6": {
+                    "answer": "kind.",
+                    "verb_hint": "Кажуть, що Марта добра.",
+                    "options": [
+                        "kind",
+                        "valid",
+                        "correct",
+                        "essential"
+                    ]
+                }
+            },
+            "verb_hint": "Кажуть, що Марта добра.",
+            "accepted_target_texts": [
+                "Marta is said to be kind."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta",
+                "is said",
+                "to be",
+                "kind."
+            ],
+            "token_groups": [
+                "Marta",
+                "is said",
+                "to be",
+                "kind."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Marta",
+                "is",
+                "said",
+                "to",
+                "be",
+                "kind."
+            ],
+            "options": [
+                "Marta",
+                "Oleh",
+                "Danylo",
+                "Sofia",
+                "is",
+                "were",
+                "been",
+                "being",
+                "said",
+                "thought",
+                "expected",
+                "reported",
+                "to",
+                "from",
+                "for",
+                "of",
+                "be",
+                "weren't",
+                "am",
+                "are",
+                "kind",
+                "valid",
+                "correct",
+                "essential"
+            ],
+            "source_text_uk": "Кажуть, що Марта добра.",
+            "options_by_marker": {
+                "a1": [
+                    "Marta",
+                    "Oleh",
+                    "Danylo",
+                    "Sofia"
+                ],
+                "a2": [
+                    "is",
+                    "were",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "said",
+                    "thought",
+                    "expected",
+                    "reported"
+                ],
+                "a4": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "be",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a6": [
+                    "kind",
+                    "valid",
+                    "correct",
+                    "essential"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "reporting",
+                "a3": "reporting",
+                "a4": "verbphrase",
+                "a5": "verbphrase",
+                "a6": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-reporting-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Відомо, що кафе відчинене.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що кафе відчинене.",
+            "target_text": "The cafe is known to be open.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "cafe",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "cafe",
+                        "parcel",
+                        "portrait",
+                        "cabinet"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "known",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "known",
+                        "said",
+                        "alleged",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "be",
+                        "being",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a7": {
+                    "answer": "open.",
+                    "verb_hint": "Відомо, що кафе відчинене.",
+                    "options": [
+                        "open",
+                        "feasible",
+                        "available",
+                        "safe"
+                    ]
+                }
+            },
+            "verb_hint": "Відомо, що кафе відчинене.",
+            "accepted_target_texts": [
+                "The cafe is known to be open."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cafe",
+                "is known",
+                "to be",
+                "open."
+            ],
+            "token_groups": [
+                "The cafe",
+                "is known",
+                "to be",
+                "open."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "cafe",
+                "is",
+                "known",
+                "to",
+                "be",
+                "open."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "cafe",
+                "parcel",
+                "portrait",
+                "cabinet",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "known",
+                "said",
+                "alleged",
+                "believed",
+                "to",
+                "during",
+                "from",
+                "for",
+                "be",
+                "being",
+                "weren't",
+                "am",
+                "open",
+                "feasible",
+                "available",
+                "safe"
+            ],
+            "source_text_uk": "Відомо, що кафе відчинене.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "cafe",
+                    "parcel",
+                    "portrait",
+                    "cabinet"
+                ],
+                "a3": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "known",
+                    "said",
+                    "alleged",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "be",
+                    "being",
+                    "weren't",
+                    "am"
+                ],
+                "a7": [
+                    "open",
+                    "feasible",
+                    "available",
+                    "safe"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-reporting-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Вважають, що хлопці готові.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що хлопці готові.",
+            "target_text": "The boys are believed to be ready.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "boys",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "boys",
+                        "delegates",
+                        "workers",
+                        "neighbours"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "are",
+                        "is",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "believed",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "believed",
+                        "alleged",
+                        "known",
+                        "expected"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "be",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "ready.",
+                    "verb_hint": "Вважають, що хлопці готові.",
+                    "options": [
+                        "ready",
+                        "available",
+                        "safe",
+                        "valid"
+                    ]
+                }
+            },
+            "verb_hint": "Вважають, що хлопці готові.",
+            "accepted_target_texts": [
+                "The boys are believed to be ready.",
+                "The boys are thought to be ready."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "reorder_groups": [
+                "The boys",
+                "are believed",
+                "to be",
+                "ready."
+            ],
+            "token_groups": [
+                "The boys",
+                "are believed",
+                "to be",
+                "ready."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "boys",
+                "are",
+                "believed",
+                "to",
+                "be",
+                "ready."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "boys",
+                "delegates",
+                "workers",
+                "neighbours",
+                "are",
+                "is",
+                "was",
+                "were",
+                "believed",
+                "alleged",
+                "known",
+                "expected",
+                "to",
+                "across",
+                "between",
+                "among",
+                "be",
+                "been",
+                "being",
+                "isn't",
+                "ready",
+                "available",
+                "safe",
+                "valid"
+            ],
+            "source_text_uk": "Вважають, що хлопці готові.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "boys",
+                    "delegates",
+                    "workers",
+                    "neighbours"
+                ],
+                "a3": [
+                    "are",
+                    "is",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "believed",
+                    "alleged",
+                    "known",
+                    "expected"
+                ],
+                "a5": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "be",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a7": [
+                    "ready",
+                    "available",
+                    "safe",
+                    "valid"
+                ]
+            },
+            "slot_roles": {
+                "a1": "people",
+                "a2": "people",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-reporting-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Кажуть, що гід привітний.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що гід привітний.",
+            "target_text": "The guide is said to be friendly.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "guide",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "guide",
+                        "applicant",
+                        "curator",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "said",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "said",
+                        "understood",
+                        "alleged",
+                        "known"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "friendly.",
+                    "verb_hint": "Кажуть, що гід привітний.",
+                    "options": [
+                        "friendly",
+                        "available",
+                        "safe",
+                        "valid"
+                    ]
+                }
+            },
+            "verb_hint": "Кажуть, що гід привітний.",
+            "accepted_target_texts": [
+                "The guide is said to be friendly."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "is said",
+                "to be",
+                "friendly."
+            ],
+            "token_groups": [
+                "The guide",
+                "is said",
+                "to be",
+                "friendly."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "guide",
+                "is",
+                "said",
+                "to",
+                "be",
+                "friendly."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "guide",
+                "applicant",
+                "curator",
+                "visitor",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "said",
+                "understood",
+                "alleged",
+                "known",
+                "to",
+                "on",
+                "at",
+                "by",
+                "be",
+                "are",
+                "was",
+                "were",
+                "friendly",
+                "available",
+                "safe",
+                "valid"
+            ],
+            "source_text_uk": "Кажуть, що гід привітний.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "guide",
+                    "applicant",
+                    "curator",
+                    "visitor"
+                ],
+                "a3": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "said",
+                    "understood",
+                    "alleged",
+                    "known"
+                ],
+                "a5": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "friendly",
+                    "available",
+                    "safe",
+                    "valid"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-reporting-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Відомо, що котедж порожній.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що котедж порожній.",
+            "target_text": "The cottage is known to be empty.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "cottage",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "cottage",
+                        "kettle",
+                        "bicycle",
+                        "mirror"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "known",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "known",
+                        "understood",
+                        "alleged",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "be",
+                        "are",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "empty.",
+                    "verb_hint": "Відомо, що котедж порожній.",
+                    "options": [
+                        "empty",
+                        "necessary",
+                        "feasible",
+                        "friendly"
+                    ]
+                }
+            },
+            "verb_hint": "Відомо, що котедж порожній.",
+            "accepted_target_texts": [
+                "The cottage is known to be empty."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cottage",
+                "is known",
+                "to be",
+                "empty."
+            ],
+            "token_groups": [
+                "The cottage",
+                "is known",
+                "to be",
+                "empty."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "cottage",
+                "is",
+                "known",
+                "to",
+                "be",
+                "empty."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "cottage",
+                "kettle",
+                "bicycle",
+                "mirror",
+                "is",
+                "was",
+                "were",
+                "been",
+                "known",
+                "understood",
+                "alleged",
+                "said",
+                "to",
+                "during",
+                "from",
+                "for",
+                "be",
+                "are",
+                "being",
+                "isn't",
+                "empty",
+                "necessary",
+                "feasible",
+                "friendly"
+            ],
+            "source_text_uk": "Відомо, що котедж порожній.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "cottage",
+                    "kettle",
+                    "bicycle",
+                    "mirror"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a4": [
+                    "known",
+                    "understood",
+                    "alleged",
+                    "said"
+                ],
+                "a5": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "be",
+                    "are",
+                    "being",
+                    "isn't"
+                ],
+                "a7": [
+                    "empty",
+                    "necessary",
+                    "feasible",
+                    "friendly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-reporting-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Очікують, що гості прибудуть рано.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що гості прибудуть рано.",
+            "target_text": "The guests are expected to be early.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "guests",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "guests",
+                        "delegates",
+                        "researchers",
+                        "workers"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "are",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "expected",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "expected",
+                        "understood",
+                        "alleged",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "is"
+                    ]
+                },
+                "a7": {
+                    "answer": "early.",
+                    "verb_hint": "Очікують, що гості прибудуть рано.",
+                    "options": [
+                        "early",
+                        "safe",
+                        "valid",
+                        "correct"
+                    ]
+                }
+            },
+            "verb_hint": "Очікують, що гості прибудуть рано.",
+            "accepted_target_texts": [
+                "The guests are expected to be early."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guests",
+                "are expected",
+                "to be",
+                "early."
+            ],
+            "token_groups": [
+                "The guests",
+                "are expected",
+                "to be",
+                "early."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "guests",
+                "are",
+                "expected",
+                "to",
+                "be",
+                "early."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "guests",
+                "delegates",
+                "researchers",
+                "workers",
+                "are",
+                "wasn't",
+                "weren't",
+                "am",
+                "expected",
+                "understood",
+                "alleged",
+                "said",
+                "to",
+                "during",
+                "from",
+                "for",
+                "be",
+                "isn't",
+                "aren't",
+                "is",
+                "early",
+                "safe",
+                "valid",
+                "correct"
+            ],
+            "source_text_uk": "Очікують, що гості прибудуть рано.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "guests",
+                    "delegates",
+                    "researchers",
+                    "workers"
+                ],
+                "a3": [
+                    "are",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "expected",
+                    "understood",
+                    "alleged",
+                    "said"
+                ],
+                "a5": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "is"
+                ],
+                "a7": [
+                    "early",
+                    "safe",
+                    "valid",
+                    "correct"
+                ]
+            },
+            "slot_roles": {
+                "a1": "people",
+                "a2": "people",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-reporting-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Кажуть, що актор зараз працює над фільмом.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що актор зараз працює над фільмом.",
+            "target_text": "The actor is said to be working on a film.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "actor",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "actor",
+                        "visitor",
+                        "applicant",
+                        "curator"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "said",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "said",
+                        "alleged",
+                        "expected",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "be",
+                        "weren't",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a7": {
+                    "answer": "working",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "working",
+                        "waiting",
+                        "living",
+                        "travelling"
+                    ]
+                },
+                "a8": {
+                    "answer": "on",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "on",
+                        "under",
+                        "through",
+                        "about"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "a",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "film.",
+                    "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+                    "options": [
+                        "film",
+                        "gallery",
+                        "mayor",
+                        "outside"
+                    ]
+                }
+            },
+            "verb_hint": "Кажуть, що актор зараз працює над фільмом.",
+            "accepted_target_texts": [
+                "The actor is said to be working on a film."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The actor",
+                "is said",
+                "to be working",
+                "on a film."
+            ],
+            "token_groups": [
+                "The actor",
+                "is said",
+                "to be working",
+                "on a film."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "actor",
+                "is",
+                "said",
+                "to",
+                "be",
+                "working",
+                "on",
+                "a",
+                "film."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "actor",
+                "visitor",
+                "applicant",
+                "curator",
+                "is",
+                "am",
+                "are",
+                "was",
+                "said",
+                "alleged",
+                "expected",
+                "believed",
+                "to",
+                "across",
+                "between",
+                "among",
+                "be",
+                "weren't",
+                "were",
+                "been",
+                "working",
+                "waiting",
+                "living",
+                "travelling",
+                "on",
+                "under",
+                "through",
+                "about",
+                "a",
+                "an",
+                "that",
+                "these",
+                "film",
+                "gallery",
+                "mayor",
+                "outside"
+            ],
+            "source_text_uk": "Кажуть, що актор зараз працює над фільмом.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "actor",
+                    "visitor",
+                    "applicant",
+                    "curator"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "said",
+                    "alleged",
+                    "expected",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "be",
+                    "weren't",
+                    "were",
+                    "been"
+                ],
+                "a7": [
+                    "working",
+                    "waiting",
+                    "living",
+                    "travelling"
+                ],
+                "a8": [
+                    "on",
+                    "under",
+                    "through",
+                    "about"
+                ],
+                "a9": [
+                    "a",
+                    "an",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "film",
+                    "gallery",
+                    "mayor",
+                    "outside"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "progressive",
+                "a6": "progressive",
+                "a7": "progressive",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-reporting-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Вважають, що відвідувачі зараз чекають біля галереї.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що відвідувачі зараз чекають біля галереї.",
+            "target_text": "The visitors are believed to be waiting outside the gallery.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "visitors",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "visitors",
+                        "delegates",
+                        "researchers",
+                        "workers"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "believed",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "believed",
+                        "understood",
+                        "alleged",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "be",
+                        "was",
+                        "were",
+                        "been"
+                    ]
+                },
+                "a7": {
+                    "answer": "waiting",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "waiting",
+                        "living",
+                        "travelling",
+                        "working"
+                    ]
+                },
+                "a8": {
+                    "answer": "outside",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "outside",
+                        "at",
+                        "on",
+                        "film"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "gallery.",
+                    "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+                    "options": [
+                        "gallery",
+                        "mayor",
+                        "actor",
+                        "train"
+                    ]
+                }
+            },
+            "verb_hint": "Вважають, що відвідувачі зараз чекають біля галереї.",
+            "accepted_target_texts": [
+                "The visitors are believed to be waiting outside the gallery.",
+                "The visitors are thought to be waiting outside the gallery."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "reorder_groups": [
+                "The visitors",
+                "are believed",
+                "to be waiting",
+                "outside the gallery."
+            ],
+            "token_groups": [
+                "The visitors",
+                "are believed",
+                "to be waiting",
+                "outside the gallery."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "visitors",
+                "are",
+                "believed",
+                "to",
+                "be",
+                "waiting",
+                "outside",
+                "the",
+                "gallery."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "visitors",
+                "delegates",
+                "researchers",
+                "workers",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "believed",
+                "understood",
+                "alleged",
+                "said",
+                "to",
+                "under",
+                "through",
+                "across",
+                "be",
+                "was",
+                "were",
+                "been",
+                "waiting",
+                "living",
+                "travelling",
+                "working",
+                "outside",
+                "at",
+                "on",
+                "film",
+                "the",
+                "this",
+                "that",
+                "these",
+                "gallery",
+                "mayor",
+                "actor",
+                "train"
+            ],
+            "source_text_uk": "Вважають, що відвідувачі зараз чекають біля галереї.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "visitors",
+                    "delegates",
+                    "researchers",
+                    "workers"
+                ],
+                "a3": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "believed",
+                    "understood",
+                    "alleged",
+                    "said"
+                ],
+                "a5": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "be",
+                    "was",
+                    "were",
+                    "been"
+                ],
+                "a7": [
+                    "waiting",
+                    "living",
+                    "travelling",
+                    "working"
+                ],
+                "a8": [
+                    "outside",
+                    "at",
+                    "on",
+                    "film"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "gallery",
+                    "mayor",
+                    "actor",
+                    "train"
+                ]
+            },
+            "slot_roles": {
+                "a1": "people",
+                "a2": "people",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "progressive",
+                "a6": "progressive",
+                "a7": "progressive",
+                "a8": "adjunct",
+                "a9": "adjunct",
+                "a10": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-reporting-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Очікують, що мер буде присутній.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Очікують, що мер буде присутній.",
+            "target_text": "The mayor is expected to be present.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "mayor",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "mayor",
+                        "actor",
+                        "applicant",
+                        "curator"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "is",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a4": {
+                    "answer": "expected",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "expected",
+                        "said",
+                        "known",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "be",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a7": {
+                    "answer": "present.",
+                    "verb_hint": "Очікують, що мер буде присутній.",
+                    "options": [
+                        "present",
+                        "valid",
+                        "correct",
+                        "essential"
+                    ]
+                }
+            },
+            "verb_hint": "Очікують, що мер буде присутній.",
+            "accepted_target_texts": [
+                "The mayor is expected to be present."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mayor",
+                "is expected",
+                "to be",
+                "present."
+            ],
+            "token_groups": [
+                "The mayor",
+                "is expected",
+                "to be",
+                "present."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "mayor",
+                "is",
+                "expected",
+                "to",
+                "be",
+                "present."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "mayor",
+                "actor",
+                "applicant",
+                "curator",
+                "is",
+                "wasn't",
+                "weren't",
+                "am",
+                "expected",
+                "said",
+                "known",
+                "believed",
+                "to",
+                "with",
+                "without",
+                "into",
+                "be",
+                "are",
+                "was",
+                "were",
+                "present",
+                "valid",
+                "correct",
+                "essential"
+            ],
+            "source_text_uk": "Очікують, що мер буде присутній.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "mayor",
+                    "actor",
+                    "applicant",
+                    "curator"
+                ],
+                "a3": [
+                    "is",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a4": [
+                    "expected",
+                    "said",
+                    "known",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "be",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a7": [
+                    "present",
+                    "valid",
+                    "correct",
+                    "essential"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-reporting-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Вважають, що куратор раніше помилявся.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що куратор раніше помилявся.",
+            "target_text": "The curator is believed to have been mistaken.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "curator",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "curator",
+                        "applicant",
+                        "visitor",
+                        "transaction"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "believed",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "believed",
+                        "reported",
+                        "known",
+                        "understood"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "mistaken.",
+                    "verb_hint": "Вважають, що куратор раніше помилявся.",
+                    "options": [
+                        "mistaken",
+                        "safe",
+                        "available",
+                        "valid"
+                    ]
+                }
+            },
+            "verb_hint": "Вважають, що куратор раніше помилявся.",
+            "accepted_target_texts": [
+                "The curator is believed to have been mistaken.",
+                "The curator is thought to have been mistaken."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "reorder_groups": [
+                "The curator",
+                "is believed",
+                "to have been",
+                "mistaken."
+            ],
+            "token_groups": [
+                "The curator",
+                "is believed",
+                "to have been",
+                "mistaken."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "curator",
+                "is",
+                "believed",
+                "to",
+                "have",
+                "been",
+                "mistaken."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "curator",
+                "applicant",
+                "visitor",
+                "transaction",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "believed",
+                "reported",
+                "known",
+                "understood",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "mistaken",
+                "safe",
+                "available",
+                "valid"
+            ],
+            "source_text_uk": "Вважають, що куратор раніше помилявся.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "curator",
+                    "applicant",
+                    "visitor",
+                    "transaction"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "believed",
+                    "reported",
+                    "known",
+                    "understood"
+                ],
+                "a5": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a6": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "mistaken",
+                    "safe",
+                    "available",
+                    "valid"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-reporting-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Повідомляють, що мандрівники тоді були в безпеці.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Повідомляють, що мандрівники тоді були в безпеці.",
+            "target_text": "The hikers are reported to have been safe.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "hikers",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "hikers",
+                        "neighbours",
+                        "guests",
+                        "students"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "are",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "reported",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "reported",
+                        "said",
+                        "known",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "been",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a8": {
+                    "answer": "safe.",
+                    "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+                    "options": [
+                        "safe",
+                        "correct",
+                        "essential",
+                        "necessary"
+                    ]
+                }
+            },
+            "verb_hint": "Повідомляють, що мандрівники тоді були в безпеці.",
+            "accepted_target_texts": [
+                "The hikers are reported to have been safe."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hikers",
+                "are reported",
+                "to have been",
+                "safe."
+            ],
+            "token_groups": [
+                "The hikers",
+                "are reported",
+                "to have been",
+                "safe."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "hikers",
+                "are",
+                "reported",
+                "to",
+                "have",
+                "been",
+                "safe."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "hikers",
+                "neighbours",
+                "guests",
+                "students",
+                "are",
+                "being",
+                "isn't",
+                "aren't",
+                "reported",
+                "said",
+                "known",
+                "believed",
+                "to",
+                "from",
+                "for",
+                "of",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "was",
+                "were",
+                "be",
+                "safe",
+                "correct",
+                "essential",
+                "necessary"
+            ],
+            "source_text_uk": "Повідомляють, що мандрівники тоді були в безпеці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "hikers",
+                    "neighbours",
+                    "guests",
+                    "students"
+                ],
+                "a3": [
+                    "are",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "reported",
+                    "said",
+                    "known",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "been",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a8": [
+                    "safe",
+                    "correct",
+                    "essential",
+                    "necessary"
+                ]
+            },
+            "slot_roles": {
+                "a1": "people",
+                "a2": "people",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-reporting-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Кажуть, що операцію вже зафіксували.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що операцію вже зафіксували.",
+            "target_text": "The transaction is said to have been recorded.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "transaction",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "transaction",
+                        "mirror",
+                        "notice",
+                        "contract"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "said",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "said",
+                        "expected",
+                        "reported",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "have",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "been",
+                        "were",
+                        "be",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "recorded.",
+                    "verb_hint": "Кажуть, що операцію вже зафіксували.",
+                    "options": [
+                        "recorded",
+                        "withheld",
+                        "dismissed",
+                        "written"
+                    ]
+                }
+            },
+            "verb_hint": "Кажуть, що операцію вже зафіксували.",
+            "accepted_target_texts": [
+                "The transaction is said to have been recorded."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The transaction",
+                "is said",
+                "to have been",
+                "recorded."
+            ],
+            "token_groups": [
+                "The transaction",
+                "is said",
+                "to have been",
+                "recorded."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "transaction",
+                "is",
+                "said",
+                "to",
+                "have",
+                "been",
+                "recorded."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "transaction",
+                "mirror",
+                "notice",
+                "contract",
+                "is",
+                "am",
+                "are",
+                "was",
+                "said",
+                "expected",
+                "reported",
+                "believed",
+                "to",
+                "under",
+                "through",
+                "across",
+                "have",
+                "had",
+                "haven't",
+                "hasn't",
+                "been",
+                "were",
+                "be",
+                "being",
+                "recorded",
+                "withheld",
+                "dismissed",
+                "written"
+            ],
+            "source_text_uk": "Кажуть, що операцію вже зафіксували.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "transaction",
+                    "mirror",
+                    "notice",
+                    "contract"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "said",
+                    "expected",
+                    "reported",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a6": [
+                    "have",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a7": [
+                    "been",
+                    "were",
+                    "be",
+                    "being"
+                ],
+                "a8": [
+                    "recorded",
+                    "withheld",
+                    "dismissed",
+                    "written"
+                ]
+            },
+            "slot_roles": {
+                "a1": "sg",
+                "a2": "sg",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-reporting-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Кажуть, що посередника раніше ввели в оману.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Кажуть, що посередника раніше ввели в оману.",
+            "target_text": "The intermediary is said to have been misled.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "intermediary",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "intermediary",
+                        "sceptical",
+                        "dark",
+                        "heavy"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "said",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "said",
+                        "known",
+                        "believed",
+                        "thought"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "have",
+                        "didn't",
+                        "has",
+                        "had"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "been",
+                        "am",
+                        "are",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "misled.",
+                    "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+                    "options": [
+                        "misled",
+                        "published",
+                        "withdrawn",
+                        "folded"
+                    ]
+                }
+            },
+            "verb_hint": "Кажуть, що посередника раніше ввели в оману.",
+            "accepted_target_texts": [
+                "The intermediary is said to have been misled."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The intermediary",
+                "is said",
+                "to have been",
+                "misled."
+            ],
+            "token_groups": [
+                "The intermediary",
+                "is said",
+                "to have been",
+                "misled."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "intermediary",
+                "is",
+                "said",
+                "to",
+                "have",
+                "been",
+                "misled."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "intermediary",
+                "sceptical",
+                "dark",
+                "heavy",
+                "is",
+                "was",
+                "were",
+                "be",
+                "said",
+                "known",
+                "believed",
+                "thought",
+                "to",
+                "in",
+                "on",
+                "at",
+                "have",
+                "didn't",
+                "has",
+                "had",
+                "been",
+                "am",
+                "are",
+                "being",
+                "misled",
+                "published",
+                "withdrawn",
+                "folded"
+            ],
+            "source_text_uk": "Кажуть, що посередника раніше ввели в оману.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "intermediary",
+                    "sceptical",
+                    "dark",
+                    "heavy"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "said",
+                    "known",
+                    "believed",
+                    "thought"
+                ],
+                "a5": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "have",
+                    "didn't",
+                    "has",
+                    "had"
+                ],
+                "a7": [
+                    "been",
+                    "am",
+                    "are",
+                    "being"
+                ],
+                "a8": [
+                    "misled",
+                    "published",
+                    "withdrawn",
+                    "folded"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-reporting-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Вважають, що поступки вже відкликали.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважають, що поступки вже відкликали.",
+            "target_text": "The concessions are believed to have been withdrawn.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "concessions",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "concessions",
+                        "towels",
+                        "invoices",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "believed",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "believed",
+                        "alleged",
+                        "expected",
+                        "reported"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "been",
+                        "is",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "withdrawn.",
+                    "verb_hint": "Вважають, що поступки вже відкликали.",
+                    "options": [
+                        "withdrawn",
+                        "replaced",
+                        "written",
+                        "folded"
+                    ]
+                }
+            },
+            "verb_hint": "Вважають, що поступки вже відкликали.",
+            "accepted_target_texts": [
+                "The concessions are believed to have been withdrawn.",
+                "The concessions are thought to have been withdrawn."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "thought"
+                ]
+            },
+            "reorder_groups": [
+                "The concessions",
+                "are believed",
+                "to have been",
+                "withdrawn."
+            ],
+            "token_groups": [
+                "The concessions",
+                "are believed",
+                "to have been",
+                "withdrawn."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "concessions",
+                "are",
+                "believed",
+                "to",
+                "have",
+                "been",
+                "withdrawn."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "concessions",
+                "towels",
+                "invoices",
+                "windows",
+                "are",
+                "was",
+                "were",
+                "be",
+                "believed",
+                "alleged",
+                "expected",
+                "reported",
+                "to",
+                "between",
+                "among",
+                "about",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "been",
+                "is",
+                "being",
+                "isn't",
+                "withdrawn",
+                "replaced",
+                "written",
+                "folded"
+            ],
+            "source_text_uk": "Вважають, що поступки вже відкликали.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "concessions",
+                    "towels",
+                    "invoices",
+                    "windows"
+                ],
+                "a3": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "believed",
+                    "alleged",
+                    "expected",
+                    "reported"
+                ],
+                "a5": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a7": [
+                    "been",
+                    "is",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "withdrawn",
+                    "replaced",
+                    "written",
+                    "folded"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-reporting-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Відомо, що економіст налаштований скептично.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що економіст налаштований скептично.",
+            "target_text": "The economist is known to be sceptical.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "economist",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "economist",
+                        "curator",
+                        "visitor",
+                        "applicant"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "known",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "known",
+                        "understood",
+                        "alleged",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "be",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "be",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "sceptical.",
+                    "verb_hint": "Відомо, що економіст налаштований скептично.",
+                    "options": [
+                        "sceptical",
+                        "valid",
+                        "feasible",
+                        "correct"
+                    ]
+                }
+            },
+            "verb_hint": "Відомо, що економіст налаштований скептично.",
+            "accepted_target_texts": [
+                "The economist is known to be sceptical."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The economist",
+                "is known",
+                "to be",
+                "sceptical."
+            ],
+            "token_groups": [
+                "The economist",
+                "is known",
+                "to be",
+                "sceptical."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "economist",
+                "is",
+                "known",
+                "to",
+                "be",
+                "sceptical."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "economist",
+                "curator",
+                "visitor",
+                "applicant",
+                "is",
+                "are",
+                "was",
+                "were",
+                "known",
+                "understood",
+                "alleged",
+                "said",
+                "to",
+                "across",
+                "between",
+                "among",
+                "be",
+                "been",
+                "being",
+                "isn't",
+                "sceptical",
+                "valid",
+                "feasible",
+                "correct"
+            ],
+            "source_text_uk": "Відомо, що економіст налаштований скептично.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "economist",
+                    "curator",
+                    "visitor",
+                    "applicant"
+                ],
+                "a3": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "known",
+                    "understood",
+                    "alleged",
+                    "said"
+                ],
+                "a5": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "be",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a7": [
+                    "sceptical",
+                    "valid",
+                    "feasible",
+                    "correct"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-reporting-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Вважається, що з відповідача раніше зняли обвинувачення.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Вважається, що з відповідача раніше зняли обвинувачення.",
+            "target_text": "The respondent is understood to have been exonerated.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "respondent",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "respondent",
+                        "curator",
+                        "arbitrator",
+                        "visitor"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "understood",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "understood",
+                        "expected",
+                        "reported",
+                        "known"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "have",
+                        "doesn't",
+                        "didn't",
+                        "has"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "been",
+                        "are",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "exonerated.",
+                    "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+                    "options": [
+                        "exonerated",
+                        "published",
+                        "misconstrued",
+                        "preserved"
+                    ]
+                }
+            },
+            "verb_hint": "Вважається, що з відповідача раніше зняли обвинувачення.",
+            "accepted_target_texts": [
+                "The respondent is understood to have been exonerated."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The respondent",
+                "is understood",
+                "to have been",
+                "exonerated."
+            ],
+            "token_groups": [
+                "The respondent",
+                "is understood",
+                "to have been",
+                "exonerated."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "respondent",
+                "is",
+                "understood",
+                "to",
+                "have",
+                "been",
+                "exonerated."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "respondent",
+                "curator",
+                "arbitrator",
+                "visitor",
+                "is",
+                "was",
+                "were",
+                "be",
+                "understood",
+                "expected",
+                "reported",
+                "known",
+                "to",
+                "on",
+                "at",
+                "by",
+                "have",
+                "doesn't",
+                "didn't",
+                "has",
+                "been",
+                "are",
+                "being",
+                "isn't",
+                "exonerated",
+                "published",
+                "misconstrued",
+                "preserved"
+            ],
+            "source_text_uk": "Вважається, що з відповідача раніше зняли обвинувачення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "respondent",
+                    "curator",
+                    "arbitrator",
+                    "visitor"
+                ],
+                "a3": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "understood",
+                    "expected",
+                    "reported",
+                    "known"
+                ],
+                "a5": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "have",
+                    "doesn't",
+                    "didn't",
+                    "has"
+                ],
+                "a7": [
+                    "been",
+                    "are",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "exonerated",
+                    "published",
+                    "misconstrued",
+                    "preserved"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-reporting-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Стверджують, що запевнення раніше хибно витлумачили.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Стверджують, що запевнення раніше хибно витлумачили.",
+            "target_text": "The assurances are alleged to have been misconstrued.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "assurances",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "assurances",
+                        "estimates",
+                        "windows",
+                        "records"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a4": {
+                    "answer": "alleged",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "alleged",
+                        "thought",
+                        "expected",
+                        "reported"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "have",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "have",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "been",
+                        "be",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "misconstrued.",
+                    "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+                    "options": [
+                        "misconstrued",
+                        "recorded",
+                        "withheld",
+                        "dismissed"
+                    ]
+                }
+            },
+            "verb_hint": "Стверджують, що запевнення раніше хибно витлумачили.",
+            "accepted_target_texts": [
+                "The assurances are alleged to have been misconstrued."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The assurances",
+                "are alleged",
+                "to have been",
+                "misconstrued."
+            ],
+            "token_groups": [
+                "The assurances",
+                "are alleged",
+                "to have been",
+                "misconstrued."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "assurances",
+                "are",
+                "alleged",
+                "to",
+                "have",
+                "been",
+                "misconstrued."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "assurances",
+                "estimates",
+                "windows",
+                "records",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "alleged",
+                "thought",
+                "expected",
+                "reported",
+                "to",
+                "in",
+                "on",
+                "at",
+                "have",
+                "did",
+                "don't",
+                "doesn't",
+                "been",
+                "be",
+                "being",
+                "isn't",
+                "misconstrued",
+                "recorded",
+                "withheld",
+                "dismissed"
+            ],
+            "source_text_uk": "Стверджують, що запевнення раніше хибно витлумачили.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "assurances",
+                    "estimates",
+                    "windows",
+                    "records"
+                ],
+                "a3": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a4": [
+                    "alleged",
+                    "thought",
+                    "expected",
+                    "reported"
+                ],
+                "a5": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "have",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a7": [
+                    "been",
+                    "be",
+                    "being",
+                    "isn't"
+                ],
+                "a8": [
+                    "misconstrued",
+                    "recorded",
+                    "withheld",
+                    "dismissed"
+                ]
+            },
+            "slot_roles": {
+                "a1": "pl",
+                "a2": "pl",
+                "a3": "reportingpl",
+                "a4": "reportingpl",
+                "a5": "infperfect",
+                "a6": "infperfect",
+                "a7": "infperfect",
+                "a8": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-reporting-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Відомо, що арбітр залишається неупередженим.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_reporting",
+            "translation_uk": "Відомо, що арбітр залишається неупередженим.",
+            "target_text": "The arbitrator is known to remain impartial.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "arbitrator",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "arbitrator",
+                        "visitor",
+                        "applicant",
+                        "respondent"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "is",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "known",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "known",
+                        "reported",
+                        "said",
+                        "believed"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "remain",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "remain",
+                        "be",
+                        "seem",
+                        "look"
+                    ]
+                },
+                "a7": {
+                    "answer": "impartial.",
+                    "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+                    "options": [
+                        "impartial",
+                        "feasible",
+                        "correct",
+                        "essential"
+                    ]
+                }
+            },
+            "verb_hint": "Відомо, що арбітр залишається неупередженим.",
+            "accepted_target_texts": [
+                "The arbitrator is known to remain impartial."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The arbitrator",
+                "is known",
+                "to remain",
+                "impartial."
+            ],
+            "token_groups": [
+                "The arbitrator",
+                "is known",
+                "to remain",
+                "impartial."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "arbitrator",
+                "is",
+                "known",
+                "to",
+                "remain",
+                "impartial."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "arbitrator",
+                "visitor",
+                "applicant",
+                "respondent",
+                "is",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "known",
+                "reported",
+                "said",
+                "believed",
+                "to",
+                "between",
+                "among",
+                "about",
+                "remain",
+                "be",
+                "seem",
+                "look",
+                "impartial",
+                "feasible",
+                "correct",
+                "essential"
+            ],
+            "source_text_uk": "Відомо, що арбітр залишається неупередженим.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "arbitrator",
+                    "visitor",
+                    "applicant",
+                    "respondent"
+                ],
+                "a3": [
+                    "is",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a4": [
+                    "known",
+                    "reported",
+                    "said",
+                    "believed"
+                ],
+                "a5": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "remain",
+                    "be",
+                    "seem",
+                    "look"
+                ],
+                "a7": [
+                    "impartial",
+                    "feasible",
+                    "correct",
+                    "essential"
+                ]
+            },
+            "slot_roles": {
+                "a1": "person",
+                "a2": "person",
+                "a3": "reporting",
+                "a4": "reporting",
+                "a5": "verbphrase",
+                "a6": "verbphrase",
+                "a7": "adj"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

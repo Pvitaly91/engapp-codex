@@ -1,0 +1,5032 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/time-and-place-changes.v1.json",
+        "sha256": "13fb215356439f6664e16e7dac20db4c6fcee4c654ed6294161827355d63a280"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReportedSpeechTimePlaceChangesQualityBuilderSeeder",
+        "uuid_namespace": "reported-speech-quality-time-and-place-changes-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "reported_speech_quality_time_and_place_changes": {
+            "name": "Reported Speech Quality: Time and Place Changes"
+        }
+    },
+    "tags": {
+        "reported_speech_time_place_changes_all_levels": {
+            "name": "reported speech time place changes all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "now_then": {
+            "name": "Now Then",
+            "category": "topic"
+        },
+        "today_that_day": {
+            "name": "Today That Day",
+            "category": "topic"
+        },
+        "yesterday_previous_day": {
+            "name": "Yesterday Previous Day",
+            "category": "topic"
+        },
+        "tomorrow_next_day": {
+            "name": "Tomorrow Next Day",
+            "category": "topic"
+        },
+        "this_that": {
+            "name": "This That",
+            "category": "topic"
+        },
+        "these_those": {
+            "name": "These Those",
+            "category": "topic"
+        },
+        "here_there": {
+            "name": "Here There",
+            "category": "topic"
+        },
+        "ago_before": {
+            "name": "Ago Before",
+            "category": "topic"
+        },
+        "last_week_before": {
+            "name": "Last Week Before",
+            "category": "topic"
+        },
+        "next_week_following": {
+            "name": "Next Week Following",
+            "category": "topic"
+        },
+        "context_dependent": {
+            "name": "Context Dependent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reported_speech_time_place_changes_all_levels": {
+            "name": "Time and Place Changes",
+            "category": "reported_speech"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-timeplace-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Альма сказала, що її червоний шарф там.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Альма сказала, що її червоний шарф там.",
+            "target_text": "Alma said that her red scarf was there.",
+            "markers": {
+                "a1": {
+                    "answer": "Alma",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "Alma",
+                        "She",
+                        "You",
+                        "Emil"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "said",
+                        "need",
+                        "had",
+                        "saw"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "that",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a4": {
+                    "answer": "her",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "her",
+                        "its",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a5": {
+                    "answer": "red",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "red",
+                        "orange",
+                        "blue",
+                        "green"
+                    ]
+                },
+                "a6": {
+                    "answer": "scarf",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "scarf",
+                        "next",
+                        "Dina",
+                        "map"
+                    ]
+                },
+                "a7": {
+                    "answer": "was",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a8": {
+                    "answer": "there.",
+                    "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+                    "options": [
+                        "there",
+                        "agree",
+                        "bike",
+                        "car"
+                    ]
+                }
+            },
+            "verb_hint": "Переказуємо пізніше й в іншому місці; почни з Альми.",
+            "accepted_target_texts": [
+                "Alma said that her red scarf was there.",
+                "Alma said her red scarf was there."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Alma said that",
+                "her red scarf",
+                "was there."
+            ],
+            "token_groups": [
+                "Alma said that",
+                "her red scarf",
+                "was there."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Alma",
+                "said",
+                "that",
+                "her",
+                "red",
+                "scarf",
+                "was",
+                "there."
+            ],
+            "options": [
+                "Alma",
+                "She",
+                "You",
+                "Emil",
+                "said",
+                "need",
+                "had",
+                "saw",
+                "that",
+                "either",
+                "neither",
+                "all",
+                "her",
+                "its",
+                "our",
+                "their",
+                "red",
+                "orange",
+                "blue",
+                "green",
+                "scarf",
+                "next",
+                "Dina",
+                "map",
+                "was",
+                "be",
+                "been",
+                "being",
+                "there",
+                "agree",
+                "bike",
+                "car"
+            ],
+            "source_text_uk": "Альма сказала, що її червоний шарф там.",
+            "options_by_marker": {
+                "a1": [
+                    "Alma",
+                    "She",
+                    "You",
+                    "Emil"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "had",
+                    "saw"
+                ],
+                "a3": [
+                    "that",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a4": [
+                    "her",
+                    "its",
+                    "our",
+                    "their"
+                ],
+                "a5": [
+                    "red",
+                    "orange",
+                    "blue",
+                    "green"
+                ],
+                "a6": [
+                    "scarf",
+                    "next",
+                    "Dina",
+                    "map"
+                ],
+                "a7": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a8": [
+                    "there",
+                    "agree",
+                    "bike",
+                    "car"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-timeplace-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Еміль сказав, що співатиме наступного ранку.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Еміль сказав, що співатиме наступного ранку.",
+            "target_text": "Emil said that he would sing the next morning.",
+            "markers": {
+                "a1": {
+                    "answer": "Emil",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "Emil",
+                        "They",
+                        "She",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "walked"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "he",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "he",
+                        "myself",
+                        "yourself",
+                        "herself"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "would",
+                        "won't",
+                        "wouldn't",
+                        "shouldn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "sing",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "sing",
+                        "waiting",
+                        "watching",
+                        "visiting"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "next",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "next",
+                        "month",
+                        "Dina",
+                        "Alma"
+                    ]
+                },
+                "a9": {
+                    "answer": "morning.",
+                    "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+                    "options": [
+                        "morning",
+                        "evening",
+                        "night",
+                        "day"
+                    ]
+                }
+            },
+            "verb_hint": "Ранок відраховуємо від його минулої репліки; почни з Еміля.",
+            "accepted_target_texts": [
+                "Emil said that he would sing the next morning.",
+                "Emil said he would sing the next morning.",
+                "Emil said that he would sing the following morning.",
+                "Emil said he would sing the following morning."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "following"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "following"
+                ]
+            },
+            "reorder_groups": [
+                "Emil said that",
+                "he would sing",
+                "the next morning."
+            ],
+            "token_groups": [
+                "Emil said that",
+                "he would sing",
+                "the next morning."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Emil",
+                "said",
+                "that",
+                "he",
+                "would",
+                "sing",
+                "the",
+                "next",
+                "morning."
+            ],
+            "options": [
+                "Emil",
+                "They",
+                "She",
+                "You",
+                "said",
+                "had",
+                "need",
+                "walked",
+                "that",
+                "these",
+                "those",
+                "each",
+                "he",
+                "myself",
+                "yourself",
+                "herself",
+                "would",
+                "won't",
+                "wouldn't",
+                "shouldn't",
+                "sing",
+                "waiting",
+                "watching",
+                "visiting",
+                "the",
+                "every",
+                "no",
+                "another",
+                "next",
+                "month",
+                "Dina",
+                "Alma",
+                "morning",
+                "evening",
+                "night",
+                "day"
+            ],
+            "source_text_uk": "Еміль сказав, що співатиме наступного ранку.",
+            "options_by_marker": {
+                "a1": [
+                    "Emil",
+                    "They",
+                    "She",
+                    "You"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "walked"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "he",
+                    "myself",
+                    "yourself",
+                    "herself"
+                ],
+                "a5": [
+                    "would",
+                    "won't",
+                    "wouldn't",
+                    "shouldn't"
+                ],
+                "a6": [
+                    "sing",
+                    "waiting",
+                    "watching",
+                    "visiting"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "next",
+                    "month",
+                    "Dina",
+                    "Alma"
+                ],
+                "a9": [
+                    "morning",
+                    "evening",
+                    "night",
+                    "day"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "time_phrase",
+                "a8": "time_phrase",
+                "a9": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-timeplace-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Діна сказала, що ті чашки чисті.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Діна сказала, що ті чашки чисті.",
+            "target_text": "Dina said that those cups were clean.",
+            "markers": {
+                "a1": {
+                    "answer": "Dina",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "Dina",
+                        "You",
+                        "Alma",
+                        "Emil"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "helped"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "that",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "those",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "those",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "cups",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "cups",
+                        "visitors",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a6": {
+                    "answer": "were",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "were",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a7": {
+                    "answer": "clean.",
+                    "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+                    "options": [
+                        "clean",
+                        "available",
+                        "arrive",
+                        "hungry"
+                    ]
+                }
+            },
+            "verb_hint": "Чашки віддалені від нинішнього мовця; почни з Діни.",
+            "accepted_target_texts": [
+                "Dina said that those cups were clean.",
+                "Dina said those cups were clean."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dina said that",
+                "those cups",
+                "were clean."
+            ],
+            "token_groups": [
+                "Dina said that",
+                "those cups",
+                "were clean."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Dina",
+                "said",
+                "that",
+                "those",
+                "cups",
+                "were",
+                "clean."
+            ],
+            "options": [
+                "Dina",
+                "You",
+                "Alma",
+                "Emil",
+                "said",
+                "had",
+                "need",
+                "helped",
+                "that",
+                "any",
+                "this",
+                "these",
+                "those",
+                "each",
+                "every",
+                "no",
+                "cups",
+                "visitors",
+                "schools",
+                "friends",
+                "were",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "clean",
+                "available",
+                "arrive",
+                "hungry"
+            ],
+            "source_text_uk": "Діна сказала, що ті чашки чисті.",
+            "options_by_marker": {
+                "a1": [
+                    "Dina",
+                    "You",
+                    "Alma",
+                    "Emil"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "helped"
+                ],
+                "a3": [
+                    "that",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a4": [
+                    "those",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "cups",
+                    "visitors",
+                    "schools",
+                    "friends"
+                ],
+                "a6": [
+                    "were",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a7": [
+                    "clean",
+                    "available",
+                    "arrive",
+                    "hungry"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-timeplace-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Лора сказала, що приїхала напередодні після обіду.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Лора сказала, що приїхала напередодні після обіду.",
+            "target_text": "Lora said that she had arrived the previous afternoon.",
+            "markers": {
+                "a1": {
+                    "answer": "Lora",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "Lora",
+                        "It",
+                        "They",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "said",
+                        "need",
+                        "belonged",
+                        "met"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "that",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "she",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "arrived",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "arrived",
+                        "stayed",
+                        "seen",
+                        "known"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a8": {
+                    "answer": "previous",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "previous",
+                        "quiet",
+                        "hungry",
+                        "thirsty"
+                    ]
+                },
+                "a9": {
+                    "answer": "afternoon.",
+                    "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+                    "options": [
+                        "afternoon",
+                        "morning",
+                        "evening",
+                        "night"
+                    ]
+                }
+            },
+            "verb_hint": "Переказ відбувається пізніше; почни з Лори й відлічи час від її слів.",
+            "accepted_target_texts": [
+                "Lora said that she had arrived the previous afternoon.",
+                "Lora said she had arrived the previous afternoon."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lora said that",
+                "she had arrived",
+                "the previous afternoon."
+            ],
+            "token_groups": [
+                "Lora said that",
+                "she had arrived",
+                "the previous afternoon."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Lora",
+                "said",
+                "that",
+                "she",
+                "had",
+                "arrived",
+                "the",
+                "previous",
+                "afternoon."
+            ],
+            "options": [
+                "Lora",
+                "It",
+                "They",
+                "You",
+                "said",
+                "need",
+                "belonged",
+                "met",
+                "that",
+                "an",
+                "some",
+                "any",
+                "she",
+                "ourselves",
+                "themselves",
+                "I",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "arrived",
+                "stayed",
+                "seen",
+                "known",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "previous",
+                "quiet",
+                "hungry",
+                "thirsty",
+                "afternoon",
+                "morning",
+                "evening",
+                "night"
+            ],
+            "source_text_uk": "Лора сказала, що приїхала напередодні після обіду.",
+            "options_by_marker": {
+                "a1": [
+                    "Lora",
+                    "It",
+                    "They",
+                    "You"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "belonged",
+                    "met"
+                ],
+                "a3": [
+                    "that",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "she",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a5": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a6": [
+                    "arrived",
+                    "stayed",
+                    "seen",
+                    "known"
+                ],
+                "a7": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a8": [
+                    "previous",
+                    "quiet",
+                    "hungry",
+                    "thirsty"
+                ],
+                "a9": [
+                    "afternoon",
+                    "morning",
+                    "evening",
+                    "night"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "time_phrase",
+                "a8": "time_phrase",
+                "a9": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-timeplace-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Анрі сказав, що ті рукавички належать йому.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Анрі сказав, що ті рукавички належать йому.",
+            "target_text": "Henri said that those gloves belonged to him.",
+            "markers": {
+                "a1": {
+                    "answer": "Henri",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "Henri",
+                        "She",
+                        "You",
+                        "Lora"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "said",
+                        "need",
+                        "had",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "that",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "those",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "those",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "gloves",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "gloves",
+                        "visitors",
+                        "weeks",
+                        "friends"
+                    ]
+                },
+                "a6": {
+                    "answer": "belonged",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "belonged",
+                        "did",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a8": {
+                    "answer": "him.",
+                    "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+                    "options": [
+                        "him",
+                        "themselves",
+                        "I",
+                        "he"
+                    ]
+                }
+            },
+            "verb_hint": "Рукавички віддалені від нинішнього мовця; почни з Анрі.",
+            "accepted_target_texts": [
+                "Henri said that those gloves belonged to him.",
+                "Henri said those gloves belonged to him."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Henri said that",
+                "those gloves",
+                "belonged to him."
+            ],
+            "token_groups": [
+                "Henri said that",
+                "those gloves",
+                "belonged to him."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Henri",
+                "said",
+                "that",
+                "those",
+                "gloves",
+                "belonged",
+                "to",
+                "him."
+            ],
+            "options": [
+                "Henri",
+                "She",
+                "You",
+                "Lora",
+                "said",
+                "need",
+                "had",
+                "brought",
+                "that",
+                "each",
+                "every",
+                "no",
+                "those",
+                "the",
+                "some",
+                "any",
+                "gloves",
+                "visitors",
+                "weeks",
+                "friends",
+                "belonged",
+                "did",
+                "helped",
+                "waited",
+                "to",
+                "through",
+                "across",
+                "between",
+                "him",
+                "themselves",
+                "I",
+                "he"
+            ],
+            "source_text_uk": "Анрі сказав, що ті рукавички належать йому.",
+            "options_by_marker": {
+                "a1": [
+                    "Henri",
+                    "She",
+                    "You",
+                    "Lora"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "had",
+                    "brought"
+                ],
+                "a3": [
+                    "that",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "those",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "gloves",
+                    "visitors",
+                    "weeks",
+                    "friends"
+                ],
+                "a6": [
+                    "belonged",
+                    "did",
+                    "helped",
+                    "waited"
+                ],
+                "a7": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a8": [
+                    "him",
+                    "themselves",
+                    "I",
+                    "he"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-timeplace-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Тільда сказала, що поїде через два тижні після того.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Тільда сказала, що поїде через два тижні після того.",
+            "target_text": "Tilda said that she would leave two weeks later.",
+            "markers": {
+                "a1": {
+                    "answer": "Tilda",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "Tilda",
+                        "Henri",
+                        "I",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "said",
+                        "had",
+                        "need",
+                        "belonged"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "that",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "she",
+                        "herself",
+                        "ourselves",
+                        "themselves"
+                    ]
+                },
+                "a5": {
+                    "answer": "would",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a6": {
+                    "answer": "leave",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "leave",
+                        "know",
+                        "work",
+                        "study"
+                    ]
+                },
+                "a7": {
+                    "answer": "two",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "two",
+                        "at",
+                        "the",
+                        "three"
+                    ]
+                },
+                "a8": {
+                    "answer": "weeks",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "weeks",
+                        "days",
+                        "gloves",
+                        "people"
+                    ]
+                },
+                "a9": {
+                    "answer": "later.",
+                    "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+                    "options": [
+                        "later",
+                        "earlier",
+                        "year",
+                        "before"
+                    ]
+                }
+            },
+            "verb_hint": "Відлік починається з її минулої репліки, не з нинішнього дня.",
+            "accepted_target_texts": [
+                "Tilda said that she would leave two weeks later.",
+                "Tilda said she would leave two weeks later."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tilda said that",
+                "she would leave",
+                "two weeks later."
+            ],
+            "token_groups": [
+                "Tilda said that",
+                "she would leave",
+                "two weeks later."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Tilda",
+                "said",
+                "that",
+                "she",
+                "would",
+                "leave",
+                "two",
+                "weeks",
+                "later."
+            ],
+            "options": [
+                "Tilda",
+                "Henri",
+                "I",
+                "We",
+                "said",
+                "had",
+                "need",
+                "belonged",
+                "that",
+                "neither",
+                "all",
+                "both",
+                "she",
+                "herself",
+                "ourselves",
+                "themselves",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "leave",
+                "know",
+                "work",
+                "study",
+                "two",
+                "at",
+                "the",
+                "three",
+                "weeks",
+                "days",
+                "gloves",
+                "people",
+                "later",
+                "earlier",
+                "year",
+                "before"
+            ],
+            "source_text_uk": "Тільда сказала, що поїде через два тижні після того.",
+            "options_by_marker": {
+                "a1": [
+                    "Tilda",
+                    "Henri",
+                    "I",
+                    "We"
+                ],
+                "a2": [
+                    "said",
+                    "had",
+                    "need",
+                    "belonged"
+                ],
+                "a3": [
+                    "that",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a4": [
+                    "she",
+                    "herself",
+                    "ourselves",
+                    "themselves"
+                ],
+                "a5": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a6": [
+                    "leave",
+                    "know",
+                    "work",
+                    "study"
+                ],
+                "a7": [
+                    "two",
+                    "at",
+                    "the",
+                    "three"
+                ],
+                "a8": [
+                    "weeks",
+                    "days",
+                    "gloves",
+                    "people"
+                ],
+                "a9": [
+                    "later",
+                    "earlier",
+                    "year",
+                    "before"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "time_phrase",
+                "a8": "time_phrase",
+                "a9": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-timeplace-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Нора сказала, що чекала там попередньої ночі.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Нора сказала, що чекала там попередньої ночі.",
+            "target_text": "Nora said that she had waited there the previous night.",
+            "markers": {
+                "a1": {
+                    "answer": "Nora",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "Nora",
+                        "Emma",
+                        "Max",
+                        "Mia"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "said",
+                        "need",
+                        "found",
+                        "brought"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "that",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "she",
+                        "ourselves",
+                        "themselves",
+                        "I"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a6": {
+                    "answer": "waited",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "waited",
+                        "moved",
+                        "stayed",
+                        "given"
+                    ]
+                },
+                "a7": {
+                    "answer": "there",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "there",
+                        "return",
+                        "summer",
+                        "ferryman"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a9": {
+                    "answer": "previous",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "previous",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a10": {
+                    "answer": "night.",
+                    "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+                    "options": [
+                        "night",
+                        "year",
+                        "hour",
+                        "minute"
+                    ]
+                }
+            },
+            "verb_hint": "Переказуємо пізніше з іншого місця; почни з Нори.",
+            "accepted_target_texts": [
+                "Nora said that she had waited there the previous night.",
+                "Nora said she had waited there the previous night.",
+                "Nora said that she had waited there the night before.",
+                "Nora said she had waited there the night before."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "night"
+                ],
+                "a10": [
+                    "before."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "night"
+                ],
+                "a10": [
+                    "before."
+                ]
+            },
+            "reorder_groups": [
+                "Nora said that",
+                "she had waited",
+                "there",
+                "the previous night."
+            ],
+            "token_groups": [
+                "Nora said that",
+                "she had waited",
+                "there",
+                "the previous night."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Nora",
+                "said",
+                "that",
+                "she",
+                "had",
+                "waited",
+                "there",
+                "the",
+                "previous",
+                "night."
+            ],
+            "options": [
+                "Nora",
+                "Emma",
+                "Max",
+                "Mia",
+                "said",
+                "need",
+                "found",
+                "brought",
+                "that",
+                "another",
+                "either",
+                "neither",
+                "she",
+                "ourselves",
+                "themselves",
+                "I",
+                "had",
+                "do",
+                "does",
+                "did",
+                "waited",
+                "moved",
+                "stayed",
+                "given",
+                "there",
+                "return",
+                "summer",
+                "ferryman",
+                "the",
+                "these",
+                "those",
+                "each",
+                "previous",
+                "friendly",
+                "lovely",
+                "final",
+                "night",
+                "year",
+                "hour",
+                "minute"
+            ],
+            "source_text_uk": "Нора сказала, що чекала там попередньої ночі.",
+            "options_by_marker": {
+                "a1": [
+                    "Nora",
+                    "Emma",
+                    "Max",
+                    "Mia"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "found",
+                    "brought"
+                ],
+                "a3": [
+                    "that",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "she",
+                    "ourselves",
+                    "themselves",
+                    "I"
+                ],
+                "a5": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a6": [
+                    "waited",
+                    "moved",
+                    "stayed",
+                    "given"
+                ],
+                "a7": [
+                    "there",
+                    "return",
+                    "summer",
+                    "ferryman"
+                ],
+                "a8": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a9": [
+                    "previous",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ],
+                "a10": [
+                    "night",
+                    "year",
+                    "hour",
+                    "minute"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "modifier_phrase",
+                "a8": "time_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-timeplace-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Поромник сказав, що ті пасажири повернуться наступного літа.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Поромник сказав, що ті пасажири повернуться наступного літа.",
+            "target_text": "The ferryman said that those passengers would return the following summer.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "ferryman",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "ferryman",
+                        "manager",
+                        "device",
+                        "before"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "said",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "those",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "those",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a6": {
+                    "answer": "passengers",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "passengers",
+                        "visitors",
+                        "Ines",
+                        "cars"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "would",
+                        "shall",
+                        "should",
+                        "may"
+                    ]
+                },
+                "a8": {
+                    "answer": "return",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "return",
+                        "agree",
+                        "there",
+                        "person"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a10": {
+                    "answer": "following",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "following",
+                        "visiting",
+                        "cooking",
+                        "riding"
+                    ]
+                },
+                "a11": {
+                    "answer": "summer.",
+                    "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+                    "options": [
+                        "summer",
+                        "night",
+                        "later",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Пасажири віддалені, а літо відраховується від минулих слів.",
+            "accepted_target_texts": [
+                "The ferryman said that those passengers would return the following summer.",
+                "The ferryman said those passengers would return the following summer.",
+                "The ferryman said that those passengers would return the next summer.",
+                "The ferryman said those passengers would return the next summer."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "next"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "next"
+                ]
+            },
+            "reorder_groups": [
+                "The ferryman",
+                "said that",
+                "those passengers",
+                "would return",
+                "the following summer."
+            ],
+            "token_groups": [
+                "The ferryman",
+                "said that",
+                "those passengers",
+                "would return",
+                "the following summer."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "ferryman",
+                "said",
+                "that",
+                "those",
+                "passengers",
+                "would",
+                "return",
+                "the",
+                "following",
+                "summer."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "ferryman",
+                "manager",
+                "device",
+                "before",
+                "said",
+                "worked",
+                "played",
+                "called",
+                "that",
+                "some",
+                "any",
+                "this",
+                "those",
+                "these",
+                "each",
+                "every",
+                "passengers",
+                "visitors",
+                "Ines",
+                "cars",
+                "would",
+                "shall",
+                "should",
+                "may",
+                "return",
+                "agree",
+                "there",
+                "person",
+                "the",
+                "all",
+                "both",
+                "a",
+                "following",
+                "visiting",
+                "cooking",
+                "riding",
+                "summer",
+                "night",
+                "later",
+                "week"
+            ],
+            "source_text_uk": "Поромник сказав, що ті пасажири повернуться наступного літа.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "ferryman",
+                    "manager",
+                    "device",
+                    "before"
+                ],
+                "a3": [
+                    "said",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a4": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "those",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a6": [
+                    "passengers",
+                    "visitors",
+                    "Ines",
+                    "cars"
+                ],
+                "a7": [
+                    "would",
+                    "shall",
+                    "should",
+                    "may"
+                ],
+                "a8": [
+                    "return",
+                    "agree",
+                    "there",
+                    "person"
+                ],
+                "a9": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a10": [
+                    "following",
+                    "visiting",
+                    "cooking",
+                    "riding"
+                ],
+                "a11": [
+                    "summer",
+                    "night",
+                    "later",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-timeplace-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Інес сказала, що переїхала попереднього місяця.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Інес сказала, що переїхала попереднього місяця.",
+            "target_text": "Ines said that she had moved the month before.",
+            "markers": {
+                "a1": {
+                    "answer": "Ines",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "Ines",
+                        "Passengers",
+                        "Doors",
+                        "Keys"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "said",
+                        "need",
+                        "made",
+                        "left"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "she",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "she",
+                        "us",
+                        "them",
+                        "myself"
+                    ]
+                },
+                "a5": {
+                    "answer": "had",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "had",
+                        "don't",
+                        "doesn't",
+                        "didn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "moved",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "moved",
+                        "stayed",
+                        "waited",
+                        "brought"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "month",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "month",
+                        "afternoon",
+                        "evening",
+                        "night"
+                    ]
+                },
+                "a9": {
+                    "answer": "before.",
+                    "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+                    "options": [
+                        "before",
+                        "time",
+                        "summer",
+                        "earlier"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Інес; відлічи місяць назад від її минулого повідомлення.",
+            "accepted_target_texts": [
+                "Ines said that she had moved the month before.",
+                "Ines said she had moved the month before.",
+                "Ines said that she had moved the previous month.",
+                "Ines said she had moved the previous month."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "previous"
+                ],
+                "a9": [
+                    "month."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "previous"
+                ],
+                "a9": [
+                    "month."
+                ]
+            },
+            "reorder_groups": [
+                "Ines said that",
+                "she had moved",
+                "the month before."
+            ],
+            "token_groups": [
+                "Ines said that",
+                "she had moved",
+                "the month before."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Ines",
+                "said",
+                "that",
+                "she",
+                "had",
+                "moved",
+                "the",
+                "month",
+                "before."
+            ],
+            "options": [
+                "Ines",
+                "Passengers",
+                "Doors",
+                "Keys",
+                "said",
+                "need",
+                "made",
+                "left",
+                "that",
+                "these",
+                "those",
+                "each",
+                "she",
+                "us",
+                "them",
+                "myself",
+                "had",
+                "don't",
+                "doesn't",
+                "didn't",
+                "moved",
+                "stayed",
+                "waited",
+                "brought",
+                "the",
+                "every",
+                "no",
+                "another",
+                "month",
+                "afternoon",
+                "evening",
+                "night",
+                "before",
+                "time",
+                "summer",
+                "earlier"
+            ],
+            "source_text_uk": "Інес сказала, що переїхала попереднього місяця.",
+            "options_by_marker": {
+                "a1": [
+                    "Ines",
+                    "Passengers",
+                    "Doors",
+                    "Keys"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "made",
+                    "left"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "she",
+                    "us",
+                    "them",
+                    "myself"
+                ],
+                "a5": [
+                    "had",
+                    "don't",
+                    "doesn't",
+                    "didn't"
+                ],
+                "a6": [
+                    "moved",
+                    "stayed",
+                    "waited",
+                    "brought"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "month",
+                    "afternoon",
+                    "evening",
+                    "night"
+                ],
+                "a9": [
+                    "before",
+                    "time",
+                    "summer",
+                    "earlier"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "verb_phrase",
+                "a5": "verb_phrase",
+                "a6": "verb_phrase",
+                "a7": "time_phrase",
+                "a8": "time_phrase",
+                "a9": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-timeplace-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Штурман сказав, що судно стане на якір там наступного вечора.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Штурман сказав, що судно стане на якір там наступного вечора.",
+            "target_text": "The navigator said that the vessel would anchor there the following evening.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "navigator",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "navigator",
+                        "device",
+                        "auction",
+                        "manager"
+                    ]
+                },
+                "a3": {
+                    "answer": "said",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "said",
+                        "reported",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a6": {
+                    "answer": "vessel",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "vessel",
+                        "before",
+                        "Ylva",
+                        "place"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a8": {
+                    "answer": "anchor",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "anchor",
+                        "agree",
+                        "three",
+                        "later"
+                    ]
+                },
+                "a9": {
+                    "answer": "there",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "there",
+                        "teacher",
+                        "school",
+                        "sister"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "any"
+                    ]
+                },
+                "a11": {
+                    "answer": "following",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "following",
+                        "closing",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a12": {
+                    "answer": "evening.",
+                    "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+                    "options": [
+                        "evening",
+                        "night",
+                        "day",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Переказуємо з іншого місця й пізніше; вечір відраховується від минулих слів.",
+            "accepted_target_texts": [
+                "The navigator said that the vessel would anchor there the following evening.",
+                "The navigator said the vessel would anchor there the following evening.",
+                "The navigator said that the vessel would anchor there the next evening.",
+                "The navigator said the vessel would anchor there the next evening."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "next"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "next"
+                ]
+            },
+            "reorder_groups": [
+                "The navigator",
+                "said that",
+                "the vessel",
+                "would anchor",
+                "there",
+                "the following evening."
+            ],
+            "token_groups": [
+                "The navigator",
+                "said that",
+                "the vessel",
+                "would anchor",
+                "there",
+                "the following evening."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "navigator",
+                "said",
+                "that",
+                "the",
+                "vessel",
+                "would",
+                "anchor",
+                "there",
+                "the",
+                "following",
+                "evening."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "navigator",
+                "device",
+                "auction",
+                "manager",
+                "said",
+                "reported",
+                "wanted",
+                "worked",
+                "that",
+                "these",
+                "those",
+                "each",
+                "the",
+                "every",
+                "no",
+                "another",
+                "vessel",
+                "before",
+                "Ylva",
+                "place",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "anchor",
+                "agree",
+                "three",
+                "later",
+                "there",
+                "teacher",
+                "school",
+                "sister",
+                "all",
+                "both",
+                "any",
+                "following",
+                "closing",
+                "helping",
+                "waiting",
+                "evening",
+                "night",
+                "day",
+                "week"
+            ],
+            "source_text_uk": "Штурман сказав, що судно стане на якір там наступного вечора.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "navigator",
+                    "device",
+                    "auction",
+                    "manager"
+                ],
+                "a3": [
+                    "said",
+                    "reported",
+                    "wanted",
+                    "worked"
+                ],
+                "a4": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a6": [
+                    "vessel",
+                    "before",
+                    "Ylva",
+                    "place"
+                ],
+                "a7": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a8": [
+                    "anchor",
+                    "agree",
+                    "three",
+                    "later"
+                ],
+                "a9": [
+                    "there",
+                    "teacher",
+                    "school",
+                    "sister"
+                ],
+                "a10": [
+                    "the",
+                    "all",
+                    "both",
+                    "any"
+                ],
+                "a11": [
+                    "following",
+                    "closing",
+                    "helping",
+                    "waiting"
+                ],
+                "a12": [
+                    "evening",
+                    "night",
+                    "day",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "modifier_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase",
+                "a12": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-timeplace-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Ми повідомили, що ті зразки зібрали попереднього тижня.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ми повідомили, що ті зразки зібрали попереднього тижня.",
+            "target_text": "We reported that those samples had been collected the week before.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "We",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "reported",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "reported",
+                        "need",
+                        "said",
+                        "played"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "those",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "those",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "samples",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "samples",
+                        "visitors",
+                        "months",
+                        "people"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a8": {
+                    "answer": "collected",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "collected",
+                        "stayed",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a10": {
+                    "answer": "week",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "week",
+                        "night",
+                        "day",
+                        "month"
+                    ]
+                },
+                "a11": {
+                    "answer": "before.",
+                    "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+                    "options": [
+                        "before",
+                        "earlier",
+                        "year",
+                        "time"
+                    ]
+                }
+            },
+            "verb_hint": "Зразки віддалені, а тиждень передував нашому минулому повідомленню.",
+            "accepted_target_texts": [
+                "We reported that those samples had been collected the week before.",
+                "We reported those samples had been collected the week before.",
+                "We reported that those samples had been collected the previous week.",
+                "We reported those samples had been collected the previous week."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "previous"
+                ],
+                "a11": [
+                    "week."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "previous"
+                ],
+                "a11": [
+                    "week."
+                ]
+            },
+            "reorder_groups": [
+                "We reported that",
+                "those samples",
+                "had been collected",
+                "the week before."
+            ],
+            "token_groups": [
+                "We reported that",
+                "those samples",
+                "had been collected",
+                "the week before."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "reported",
+                "that",
+                "those",
+                "samples",
+                "had",
+                "been",
+                "collected",
+                "the",
+                "week",
+                "before."
+            ],
+            "options": [
+                "We",
+                "Me",
+                "Him",
+                "Us",
+                "reported",
+                "need",
+                "said",
+                "played",
+                "that",
+                "some",
+                "any",
+                "this",
+                "those",
+                "these",
+                "each",
+                "every",
+                "samples",
+                "visitors",
+                "months",
+                "people",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "been",
+                "are",
+                "was",
+                "were",
+                "collected",
+                "stayed",
+                "closed",
+                "helped",
+                "the",
+                "no",
+                "another",
+                "either",
+                "week",
+                "night",
+                "day",
+                "month",
+                "before",
+                "earlier",
+                "year",
+                "time"
+            ],
+            "source_text_uk": "Ми повідомили, що ті зразки зібрали попереднього тижня.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "reported",
+                    "need",
+                    "said",
+                    "played"
+                ],
+                "a3": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "those",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "samples",
+                    "visitors",
+                    "months",
+                    "people"
+                ],
+                "a6": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a7": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a8": [
+                    "collected",
+                    "stayed",
+                    "closed",
+                    "helped"
+                ],
+                "a9": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a10": [
+                    "week",
+                    "night",
+                    "day",
+                    "month"
+                ],
+                "a11": [
+                    "before",
+                    "earlier",
+                    "year",
+                    "time"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-timeplace-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Ільва сказала, що аукціон відбудеться через три місяці після того.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ільва сказала, що аукціон відбудеться через три місяці після того.",
+            "target_text": "Ylva said that the auction would take place three months later.",
+            "markers": {
+                "a1": {
+                    "answer": "Ylva",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "Ylva",
+                        "I",
+                        "It",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "said",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "said",
+                        "need",
+                        "had",
+                        "reported"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "that",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a5": {
+                    "answer": "auction",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "auction",
+                        "navigator",
+                        "vessel",
+                        "manager"
+                    ]
+                },
+                "a6": {
+                    "answer": "would",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "would",
+                        "cannot",
+                        "can",
+                        "could"
+                    ]
+                },
+                "a7": {
+                    "answer": "take",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "take",
+                        "wait",
+                        "watch",
+                        "visit"
+                    ]
+                },
+                "a8": {
+                    "answer": "place",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "place",
+                        "anchor",
+                        "there",
+                        "before"
+                    ]
+                },
+                "a9": {
+                    "answer": "three",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "three",
+                        "two",
+                        "at",
+                        "child"
+                    ]
+                },
+                "a10": {
+                    "answer": "months",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "months",
+                        "weeks",
+                        "days",
+                        "samples"
+                    ]
+                },
+                "a11": {
+                    "answer": "later.",
+                    "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+                    "options": [
+                        "later",
+                        "week",
+                        "earlier",
+                        "year"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з Ільви; місяці відраховуються від її минулої репліки.",
+            "accepted_target_texts": [
+                "Ylva said that the auction would take place three months later.",
+                "Ylva said the auction would take place three months later."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ylva said that",
+                "the auction",
+                "would take place",
+                "three months later."
+            ],
+            "token_groups": [
+                "Ylva said that",
+                "the auction",
+                "would take place",
+                "three months later."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Ylva",
+                "said",
+                "that",
+                "the",
+                "auction",
+                "would",
+                "take",
+                "place",
+                "three",
+                "months",
+                "later."
+            ],
+            "options": [
+                "Ylva",
+                "I",
+                "It",
+                "They",
+                "said",
+                "need",
+                "had",
+                "reported",
+                "that",
+                "any",
+                "this",
+                "these",
+                "the",
+                "those",
+                "each",
+                "every",
+                "auction",
+                "navigator",
+                "vessel",
+                "manager",
+                "would",
+                "cannot",
+                "can",
+                "could",
+                "take",
+                "wait",
+                "watch",
+                "visit",
+                "place",
+                "anchor",
+                "there",
+                "before",
+                "three",
+                "two",
+                "at",
+                "child",
+                "months",
+                "weeks",
+                "days",
+                "samples",
+                "later",
+                "week",
+                "earlier",
+                "year"
+            ],
+            "source_text_uk": "Ільва сказала, що аукціон відбудеться через три місяці після того.",
+            "options_by_marker": {
+                "a1": [
+                    "Ylva",
+                    "I",
+                    "It",
+                    "They"
+                ],
+                "a2": [
+                    "said",
+                    "need",
+                    "had",
+                    "reported"
+                ],
+                "a3": [
+                    "that",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a4": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a5": [
+                    "auction",
+                    "navigator",
+                    "vessel",
+                    "manager"
+                ],
+                "a6": [
+                    "would",
+                    "cannot",
+                    "can",
+                    "could"
+                ],
+                "a7": [
+                    "take",
+                    "wait",
+                    "watch",
+                    "visit"
+                ],
+                "a8": [
+                    "place",
+                    "anchor",
+                    "there",
+                    "before"
+                ],
+                "a9": [
+                    "three",
+                    "two",
+                    "at",
+                    "child"
+                ],
+                "a10": [
+                    "months",
+                    "weeks",
+                    "days",
+                    "samples"
+                ],
+                "a11": [
+                    "later",
+                    "week",
+                    "earlier",
+                    "year"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-timeplace-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Аташе пояснив, що ті депеші прибули попереднього вересня.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Аташе пояснив, що ті депеші прибули попереднього вересня.",
+            "target_text": "The attaché explained that those dispatches had arrived the previous September.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "attaché",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "attaché",
+                        "delegation",
+                        "chronicler",
+                        "decree"
+                    ]
+                },
+                "a3": {
+                    "answer": "explained",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "explained",
+                        "wrote",
+                        "noted",
+                        "gave"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "that",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a5": {
+                    "answer": "those",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "those",
+                        "no",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "dispatches",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "dispatches",
+                        "visitors",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "had",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "arrived",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "arrived",
+                        "waited",
+                        "open",
+                        "finished"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "previous",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "previous",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a11": {
+                    "answer": "September.",
+                    "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+                    "options": [
+                        "September",
+                        "Before",
+                        "Year",
+                        "Later"
+                    ]
+                }
+            },
+            "verb_hint": "Депеші віддалені; вересень відраховуємо від його минулих слів.",
+            "accepted_target_texts": [
+                "The attaché explained that those dispatches had arrived the previous September.",
+                "The attaché explained those dispatches had arrived the previous September."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The attaché",
+                "explained that",
+                "those dispatches",
+                "had arrived",
+                "the previous September."
+            ],
+            "token_groups": [
+                "The attaché",
+                "explained that",
+                "those dispatches",
+                "had arrived",
+                "the previous September."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "attaché",
+                "explained",
+                "that",
+                "those",
+                "dispatches",
+                "had",
+                "arrived",
+                "the",
+                "previous",
+                "September."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "attaché",
+                "delegation",
+                "chronicler",
+                "decree",
+                "explained",
+                "wrote",
+                "noted",
+                "gave",
+                "that",
+                "a",
+                "an",
+                "some",
+                "those",
+                "no",
+                "all",
+                "both",
+                "dispatches",
+                "visitors",
+                "people",
+                "men",
+                "had",
+                "did",
+                "don't",
+                "doesn't",
+                "arrived",
+                "waited",
+                "open",
+                "finished",
+                "the",
+                "any",
+                "this",
+                "these",
+                "previous",
+                "small",
+                "large",
+                "new",
+                "September",
+                "Before",
+                "Year",
+                "Later"
+            ],
+            "source_text_uk": "Аташе пояснив, що ті депеші прибули попереднього вересня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "attaché",
+                    "delegation",
+                    "chronicler",
+                    "decree"
+                ],
+                "a3": [
+                    "explained",
+                    "wrote",
+                    "noted",
+                    "gave"
+                ],
+                "a4": [
+                    "that",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a5": [
+                    "those",
+                    "no",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "dispatches",
+                    "visitors",
+                    "people",
+                    "men"
+                ],
+                "a7": [
+                    "had",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a8": [
+                    "arrived",
+                    "waited",
+                    "open",
+                    "finished"
+                ],
+                "a9": [
+                    "the",
+                    "any",
+                    "this",
+                    "these"
+                ],
+                "a10": [
+                    "previous",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a11": [
+                    "September",
+                    "Before",
+                    "Year",
+                    "Later"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-timeplace-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Ми зазначили, що делегація збереться там наступного року.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ми зазначили, що делегація збереться там наступного року.",
+            "target_text": "We noted that the delegation would reconvene there the following year.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "We",
+                        "He",
+                        "She",
+                        "It"
+                    ]
+                },
+                "a2": {
+                    "answer": "noted",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "noted",
+                        "had",
+                        "need",
+                        "explained"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "delegation",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "delegation",
+                        "manager",
+                        "device",
+                        "chronicler"
+                    ]
+                },
+                "a6": {
+                    "answer": "would",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "would",
+                        "will",
+                        "shall",
+                        "should"
+                    ]
+                },
+                "a7": {
+                    "answer": "reconvene",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "reconvene",
+                        "agree",
+                        "decree",
+                        "before"
+                    ]
+                },
+                "a8": {
+                    "answer": "there",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "there",
+                        "attaché",
+                        "September",
+                        "school"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a10": {
+                    "answer": "following",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "following",
+                        "calling",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a11": {
+                    "answer": "year.",
+                    "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+                    "options": [
+                        "year",
+                        "second",
+                        "morning",
+                        "afternoon"
+                    ]
+                }
+            },
+            "verb_hint": "Переказ відбувається пізніше в іншому місці; рік іде після року наших слів.",
+            "accepted_target_texts": [
+                "We noted that the delegation would reconvene there the following year.",
+                "We noted the delegation would reconvene there the following year.",
+                "We noted that the delegation would reconvene there the next year.",
+                "We noted the delegation would reconvene there the next year."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "next"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "next"
+                ]
+            },
+            "reorder_groups": [
+                "We noted that",
+                "the delegation",
+                "would reconvene",
+                "there",
+                "the following year."
+            ],
+            "token_groups": [
+                "We noted that",
+                "the delegation",
+                "would reconvene",
+                "there",
+                "the following year."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "noted",
+                "that",
+                "the",
+                "delegation",
+                "would",
+                "reconvene",
+                "there",
+                "the",
+                "following",
+                "year."
+            ],
+            "options": [
+                "We",
+                "He",
+                "She",
+                "It",
+                "noted",
+                "had",
+                "need",
+                "explained",
+                "that",
+                "these",
+                "those",
+                "each",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "delegation",
+                "manager",
+                "device",
+                "chronicler",
+                "would",
+                "will",
+                "shall",
+                "should",
+                "reconvene",
+                "agree",
+                "decree",
+                "before",
+                "there",
+                "attaché",
+                "September",
+                "school",
+                "no",
+                "another",
+                "either",
+                "following",
+                "calling",
+                "walking",
+                "opening",
+                "year",
+                "second",
+                "morning",
+                "afternoon"
+            ],
+            "source_text_uk": "Ми зазначили, що делегація збереться там наступного року.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "He",
+                    "She",
+                    "It"
+                ],
+                "a2": [
+                    "noted",
+                    "had",
+                    "need",
+                    "explained"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "delegation",
+                    "manager",
+                    "device",
+                    "chronicler"
+                ],
+                "a6": [
+                    "would",
+                    "will",
+                    "shall",
+                    "should"
+                ],
+                "a7": [
+                    "reconvene",
+                    "agree",
+                    "decree",
+                    "before"
+                ],
+                "a8": [
+                    "there",
+                    "attaché",
+                    "September",
+                    "school"
+                ],
+                "a9": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a10": [
+                    "following",
+                    "calling",
+                    "walking",
+                    "opening"
+                ],
+                "a11": [
+                    "year",
+                    "second",
+                    "morning",
+                    "afternoon"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "modifier_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-timeplace-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Літописець написав, що указ проголосили попереднього місяця.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Літописець написав, що указ проголосили попереднього місяця.",
+            "target_text": "The chronicler wrote that the decree had been proclaimed the month before.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "chronicler",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "chronicler",
+                        "device",
+                        "attaché",
+                        "delegation"
+                    ]
+                },
+                "a3": {
+                    "answer": "wrote",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "wrote",
+                        "explained",
+                        "noted",
+                        "visited"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "that",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "decree",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "decree",
+                        "manager",
+                        "September",
+                        "reconvene"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "had",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a8": {
+                    "answer": "been",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "been",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a9": {
+                    "answer": "proclaimed",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "proclaimed",
+                        "stayed",
+                        "arrived",
+                        "called"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a11": {
+                    "answer": "month",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "month",
+                        "morning",
+                        "afternoon",
+                        "evening"
+                    ]
+                },
+                "a12": {
+                    "answer": "before.",
+                    "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+                    "options": [
+                        "before",
+                        "year",
+                        "week",
+                        "earlier"
+                    ]
+                }
+            },
+            "verb_hint": "Місяць відраховуємо назад від минулого запису літописця.",
+            "accepted_target_texts": [
+                "The chronicler wrote that the decree had been proclaimed the month before.",
+                "The chronicler wrote the decree had been proclaimed the month before.",
+                "The chronicler wrote that the decree had been proclaimed the previous month.",
+                "The chronicler wrote the decree had been proclaimed the previous month."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "previous"
+                ],
+                "a12": [
+                    "month."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "previous"
+                ],
+                "a12": [
+                    "month."
+                ]
+            },
+            "reorder_groups": [
+                "The chronicler",
+                "wrote that",
+                "the decree",
+                "had been proclaimed",
+                "the month before."
+            ],
+            "token_groups": [
+                "The chronicler",
+                "wrote that",
+                "the decree",
+                "had been proclaimed",
+                "the month before."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "chronicler",
+                "wrote",
+                "that",
+                "the",
+                "decree",
+                "had",
+                "been",
+                "proclaimed",
+                "the",
+                "month",
+                "before."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "chronicler",
+                "device",
+                "attaché",
+                "delegation",
+                "wrote",
+                "explained",
+                "noted",
+                "visited",
+                "that",
+                "both",
+                "a",
+                "an",
+                "the",
+                "neither",
+                "all",
+                "some",
+                "decree",
+                "manager",
+                "September",
+                "reconvene",
+                "had",
+                "doesn't",
+                "didn't",
+                "have",
+                "been",
+                "are",
+                "was",
+                "were",
+                "proclaimed",
+                "stayed",
+                "arrived",
+                "called",
+                "these",
+                "those",
+                "each",
+                "month",
+                "morning",
+                "afternoon",
+                "evening",
+                "before",
+                "year",
+                "week",
+                "earlier"
+            ],
+            "source_text_uk": "Літописець написав, що указ проголосили попереднього місяця.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "chronicler",
+                    "device",
+                    "attaché",
+                    "delegation"
+                ],
+                "a3": [
+                    "wrote",
+                    "explained",
+                    "noted",
+                    "visited"
+                ],
+                "a4": [
+                    "that",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "some"
+                ],
+                "a6": [
+                    "decree",
+                    "manager",
+                    "September",
+                    "reconvene"
+                ],
+                "a7": [
+                    "had",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a8": [
+                    "been",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a9": [
+                    "proclaimed",
+                    "stayed",
+                    "arrived",
+                    "called"
+                ],
+                "a10": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a11": [
+                    "month",
+                    "morning",
+                    "afternoon",
+                    "evening"
+                ],
+                "a12": [
+                    "before",
+                    "year",
+                    "week",
+                    "earlier"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase",
+                "a12": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-timeplace-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Легат наполягав, що угоду ратифікують наступного березня.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Легат наполягав, що угоду ратифікують наступного березня.",
+            "target_text": "The legate maintained that the settlement would be ratified the following March.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "legate",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "legate",
+                        "annalist",
+                        "envoy",
+                        "manager"
+                    ]
+                },
+                "a3": {
+                    "answer": "maintained",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "maintained",
+                        "reported",
+                        "recorded",
+                        "liked"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "that",
+                        "this",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "settlement",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "settlement",
+                        "device",
+                        "century",
+                        "three"
+                    ]
+                },
+                "a7": {
+                    "answer": "would",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "would",
+                        "must",
+                        "can't",
+                        "couldn't"
+                    ]
+                },
+                "a8": {
+                    "answer": "be",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "be",
+                        "were",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a9": {
+                    "answer": "ratified",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "ratified",
+                        "assembled",
+                        "stayed",
+                        "departed"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "the",
+                        "any",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a11": {
+                    "answer": "following",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "following",
+                        "preceding",
+                        "writing",
+                        "calling"
+                    ]
+                },
+                "a12": {
+                    "answer": "March.",
+                    "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+                    "options": [
+                        "March",
+                        "Year",
+                        "Later",
+                        "Time"
+                    ]
+                }
+            },
+            "verb_hint": "Березень відраховується від його минулої репліки, а не від нинішнього року.",
+            "accepted_target_texts": [
+                "The legate maintained that the settlement would be ratified the following March.",
+                "The legate maintained the settlement would be ratified the following March.",
+                "The legate maintained that the settlement would be ratified the next March.",
+                "The legate maintained the settlement would be ratified the next March."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "next"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "next"
+                ]
+            },
+            "reorder_groups": [
+                "The legate",
+                "maintained that",
+                "the settlement",
+                "would be ratified",
+                "the following March."
+            ],
+            "token_groups": [
+                "The legate",
+                "maintained that",
+                "the settlement",
+                "would be ratified",
+                "the following March."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "legate",
+                "maintained",
+                "that",
+                "the",
+                "settlement",
+                "would",
+                "be",
+                "ratified",
+                "the",
+                "following",
+                "March."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "legate",
+                "annalist",
+                "envoy",
+                "manager",
+                "maintained",
+                "reported",
+                "recorded",
+                "liked",
+                "that",
+                "this",
+                "every",
+                "no",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "settlement",
+                "device",
+                "century",
+                "three",
+                "would",
+                "must",
+                "can't",
+                "couldn't",
+                "be",
+                "were",
+                "been",
+                "being",
+                "ratified",
+                "assembled",
+                "stayed",
+                "departed",
+                "any",
+                "another",
+                "either",
+                "following",
+                "preceding",
+                "writing",
+                "calling",
+                "March",
+                "Year",
+                "Later",
+                "Time"
+            ],
+            "source_text_uk": "Легат наполягав, що угоду ратифікують наступного березня.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "legate",
+                    "annalist",
+                    "envoy",
+                    "manager"
+                ],
+                "a3": [
+                    "maintained",
+                    "reported",
+                    "recorded",
+                    "liked"
+                ],
+                "a4": [
+                    "that",
+                    "this",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "settlement",
+                    "device",
+                    "century",
+                    "three"
+                ],
+                "a7": [
+                    "would",
+                    "must",
+                    "can't",
+                    "couldn't"
+                ],
+                "a8": [
+                    "be",
+                    "were",
+                    "been",
+                    "being"
+                ],
+                "a9": [
+                    "ratified",
+                    "assembled",
+                    "stayed",
+                    "departed"
+                ],
+                "a10": [
+                    "the",
+                    "any",
+                    "another",
+                    "either"
+                ],
+                "a11": [
+                    "following",
+                    "preceding",
+                    "writing",
+                    "calling"
+                ],
+                "a12": [
+                    "March",
+                    "Year",
+                    "Later",
+                    "Time"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "verb_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase",
+                "a12": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-timeplace-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ми зафіксували, що ті свідчення зібрали попереднього століття.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Ми зафіксували, що ті свідчення зібрали попереднього століття.",
+            "target_text": "We recorded that those attestations had been assembled the preceding century.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "We",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "recorded",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "recorded",
+                        "need",
+                        "reported",
+                        "maintained"
+                    ]
+                },
+                "a3": {
+                    "answer": "that",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "that",
+                        "these",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a4": {
+                    "answer": "those",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "those",
+                        "any",
+                        "this",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "attestations",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "attestations",
+                        "visitors",
+                        "days",
+                        "women"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "assembled",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "assembled",
+                        "stayed",
+                        "ratified",
+                        "departed"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a10": {
+                    "answer": "preceding",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "preceding",
+                        "following",
+                        "working",
+                        "playing"
+                    ]
+                },
+                "a11": {
+                    "answer": "century.",
+                    "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+                    "options": [
+                        "century",
+                        "march",
+                        "before",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Свідчення віддалені, а століття передувало часовій точці нашого минулого запису.",
+            "accepted_target_texts": [
+                "We recorded that those attestations had been assembled the preceding century.",
+                "We recorded those attestations had been assembled the preceding century.",
+                "We recorded that those attestations had been assembled the previous century.",
+                "We recorded those attestations had been assembled the previous century."
+            ],
+            "answer_synonyms": {
+                "a10": [
+                    "previous"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a10": [
+                    "previous"
+                ]
+            },
+            "reorder_groups": [
+                "We recorded that",
+                "those attestations",
+                "had been assembled",
+                "the preceding century."
+            ],
+            "token_groups": [
+                "We recorded that",
+                "those attestations",
+                "had been assembled",
+                "the preceding century."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "We",
+                "recorded",
+                "that",
+                "those",
+                "attestations",
+                "had",
+                "been",
+                "assembled",
+                "the",
+                "preceding",
+                "century."
+            ],
+            "options": [
+                "We",
+                "They",
+                "Me",
+                "Him",
+                "recorded",
+                "need",
+                "reported",
+                "maintained",
+                "that",
+                "these",
+                "each",
+                "every",
+                "those",
+                "any",
+                "this",
+                "no",
+                "attestations",
+                "visitors",
+                "days",
+                "women",
+                "had",
+                "do",
+                "does",
+                "did",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "assembled",
+                "stayed",
+                "ratified",
+                "departed",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "preceding",
+                "following",
+                "working",
+                "playing",
+                "century",
+                "march",
+                "before",
+                "week"
+            ],
+            "source_text_uk": "Ми зафіксували, що ті свідчення зібрали попереднього століття.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "recorded",
+                    "need",
+                    "reported",
+                    "maintained"
+                ],
+                "a3": [
+                    "that",
+                    "these",
+                    "each",
+                    "every"
+                ],
+                "a4": [
+                    "those",
+                    "any",
+                    "this",
+                    "no"
+                ],
+                "a5": [
+                    "attestations",
+                    "visitors",
+                    "days",
+                    "women"
+                ],
+                "a6": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a8": [
+                    "assembled",
+                    "stayed",
+                    "ratified",
+                    "departed"
+                ],
+                "a9": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a10": [
+                    "preceding",
+                    "following",
+                    "working",
+                    "playing"
+                ],
+                "a11": [
+                    "century",
+                    "march",
+                    "before",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "clause_phrase",
+                "a2": "clause_phrase",
+                "a3": "clause_phrase",
+                "a4": "subject_phrase",
+                "a5": "subject_phrase",
+                "a6": "verb_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-timeplace-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Літописець повідомив, що посланець вирушив за три дні до того.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_time_and_place_changes",
+            "translation_uk": "Літописець повідомив, що посланець вирушив за три дні до того.",
+            "target_text": "The annalist reported that the envoy had departed three days earlier.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "annalist",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "annalist",
+                        "device",
+                        "settlement",
+                        "legate"
+                    ]
+                },
+                "a3": {
+                    "answer": "reported",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "reported",
+                        "maintained",
+                        "recorded",
+                        "made"
+                    ]
+                },
+                "a4": {
+                    "answer": "that",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "that",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "envoy",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "envoy",
+                        "manager",
+                        "March",
+                        "century"
+                    ]
+                },
+                "a7": {
+                    "answer": "had",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "had",
+                        "didn't",
+                        "have",
+                        "has"
+                    ]
+                },
+                "a8": {
+                    "answer": "departed",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "departed",
+                        "waited",
+                        "arrived",
+                        "open"
+                    ]
+                },
+                "a9": {
+                    "answer": "three",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "three",
+                        "two",
+                        "at",
+                        "bus"
+                    ]
+                },
+                "a10": {
+                    "answer": "days",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "days",
+                        "weeks",
+                        "attestations",
+                        "bikes"
+                    ]
+                },
+                "a11": {
+                    "answer": "earlier.",
+                    "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+                    "options": [
+                        "earlier",
+                        "week",
+                        "year",
+                        "time"
+                    ]
+                }
+            },
+            "verb_hint": "Дні відраховуємо назад від того минулого повідомлення.",
+            "accepted_target_texts": [
+                "The annalist reported that the envoy had departed three days earlier.",
+                "The annalist reported the envoy had departed three days earlier.",
+                "The annalist reported that the envoy had departed three days before.",
+                "The annalist reported the envoy had departed three days before."
+            ],
+            "answer_synonyms": {
+                "a11": [
+                    "before."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a11": [
+                    "before."
+                ]
+            },
+            "reorder_groups": [
+                "The annalist",
+                "reported that",
+                "the envoy",
+                "had departed",
+                "three days earlier."
+            ],
+            "token_groups": [
+                "The annalist",
+                "reported that",
+                "the envoy",
+                "had departed",
+                "three days earlier."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "annalist",
+                "reported",
+                "that",
+                "the",
+                "envoy",
+                "had",
+                "departed",
+                "three",
+                "days",
+                "earlier."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "annalist",
+                "device",
+                "settlement",
+                "legate",
+                "reported",
+                "maintained",
+                "recorded",
+                "made",
+                "that",
+                "no",
+                "another",
+                "either",
+                "the",
+                "a",
+                "an",
+                "some",
+                "envoy",
+                "manager",
+                "March",
+                "century",
+                "had",
+                "didn't",
+                "have",
+                "has",
+                "departed",
+                "waited",
+                "arrived",
+                "open",
+                "three",
+                "two",
+                "at",
+                "bus",
+                "days",
+                "weeks",
+                "attestations",
+                "bikes",
+                "earlier",
+                "week",
+                "year",
+                "time"
+            ],
+            "source_text_uk": "Літописець повідомив, що посланець вирушив за три дні до того.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "annalist",
+                    "device",
+                    "settlement",
+                    "legate"
+                ],
+                "a3": [
+                    "reported",
+                    "maintained",
+                    "recorded",
+                    "made"
+                ],
+                "a4": [
+                    "that",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a6": [
+                    "envoy",
+                    "manager",
+                    "March",
+                    "century"
+                ],
+                "a7": [
+                    "had",
+                    "didn't",
+                    "have",
+                    "has"
+                ],
+                "a8": [
+                    "departed",
+                    "waited",
+                    "arrived",
+                    "open"
+                ],
+                "a9": [
+                    "three",
+                    "two",
+                    "at",
+                    "bus"
+                ],
+                "a10": [
+                    "days",
+                    "weeks",
+                    "attestations",
+                    "bikes"
+                ],
+                "a11": [
+                    "earlier",
+                    "week",
+                    "year",
+                    "time"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "clause_phrase",
+                "a4": "clause_phrase",
+                "a5": "subject_phrase",
+                "a6": "subject_phrase",
+                "a7": "verb_phrase",
+                "a8": "verb_phrase",
+                "a9": "time_phrase",
+                "a10": "time_phrase",
+                "a11": "time_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

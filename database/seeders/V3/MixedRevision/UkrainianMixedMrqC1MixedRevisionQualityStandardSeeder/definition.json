@@ -1,0 +1,613 @@
+{
+    "schema_version": 1,
+    "quality_revision": "mrq-v1",
+    "compiled_from": {
+        "path": "docs/content/mixed-revision-quality/c1-mixed-revision.v1.json",
+        "sha256": "2cd86f2de6bc3b8c0ae75d2adbe30bda637515c03c6a376671524a9ceb2a2832"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\MixedRevision\\UkrainianMixedMrqC1MixedRevisionQualityStandardSeeder",
+        "uuid_namespace": "mixed-revision-quality-c1-mixed-revision-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Mixed Revision"
+    },
+    "sources": {
+        "mixed_revision_quality_c1_mixed_revision": {
+            "name": "Mixed Revision Quality: C1 Mixed Revision"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "mrq-c1-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My uncle {a1} a small radio.",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "У мого дядька є невелике радіо.",
+            "target_text": "My uncle has a small radio.",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "having"
+                    ],
+                    "verb_hint": "Передай «має» у теперішньому часі; вже наведений підмет називає одну людину."
+                }
+            },
+            "verb_hint": "Передай «має» у теперішньому часі; вже наведений підмет називає одну людину.",
+            "accepted_target_texts": [
+                "My uncle has a small radio.",
+                "My uncle has got a small radio."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "has got"
+                ]
+            },
+            "reorder_groups": [
+                "My uncle has",
+                "a small radio."
+            ],
+            "token_groups": [
+                "My uncle has",
+                "a small radio."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "mrq-c1-a1-g02",
+            "author_id": "A1-g02",
+            "question": "What {a1} is the bus?",
+            "level": "A1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Якого кольору автобус?",
+            "target_text": "What colour is the bus?",
+            "markers": {
+                "a1": {
+                    "answer": "colour",
+                    "options": [
+                        "colour",
+                        "size",
+                        "type"
+                    ],
+                    "verb_hint": "Питальне слово вже наведено. Назви ознаку, про яку запитують: колір автобуса; обидва поширені написання прийнятні."
+                }
+            },
+            "verb_hint": "Питальне слово вже наведено. Назви ознаку, про яку запитують: колір автобуса; обидва поширені написання прийнятні.",
+            "accepted_target_texts": [
+                "What colour is the bus?",
+                "What color is the bus?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "color"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "color"
+                ]
+            },
+            "reorder_groups": [
+                "What colour",
+                "is the bus?"
+            ],
+            "token_groups": [
+                "What colour",
+                "is the bus?"
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "mrq-c1-a2-g01",
+            "author_id": "A2-g01",
+            "question": "How {a1} honey do these hives produce?",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Скільки меду дають ці вулики?",
+            "target_text": "How much honey do these hives produce?",
+            "markers": {
+                "a1": {
+                    "answer": "much",
+                    "options": [
+                        "much",
+                        "many",
+                        "few"
+                    ],
+                    "verb_hint": "Питальне слово вже наведено. Доповни питання про кількість незлічуваної речовини."
+                }
+            },
+            "verb_hint": "Питальне слово вже наведено. Доповни питання про кількість незлічуваної речовини.",
+            "accepted_target_texts": [
+                "How much honey do these hives produce?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How much honey",
+                "do these hives",
+                "produce?"
+            ],
+            "token_groups": [
+                "How much honey",
+                "do these hives",
+                "produce?"
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "mrq-c1-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The technicians {a1} the antenna last week.",
+            "level": "A2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Техніки відремонтували антену минулого тижня.",
+            "target_text": "The technicians repaired the antenna last week.",
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "have repaired",
+                        "repair"
+                    ],
+                    "verb_hint": "Передай «відремонтували» простим минулим часом: конкретний завершений час уже наведено."
+                }
+            },
+            "verb_hint": "Передай «відремонтували» простим минулим часом: конкретний завершений час уже наведено.",
+            "accepted_target_texts": [
+                "The technicians repaired the antenna last week.",
+                "The technicians fixed the antenna last week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "fixed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "fixed"
+                ]
+            },
+            "reorder_groups": [
+                "The technicians",
+                "repaired the antenna",
+                "last week."
+            ],
+            "token_groups": [
+                "The technicians",
+                "repaired the antenna",
+                "last week."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "mrq-c1-b1-g01",
+            "author_id": "B1-g01",
+            "question": "If the signal {a1} stronger, we could hear the broadcast.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Якби сигнал був сильнішим, ми могли б чути передачу.",
+            "target_text": "If the signal were stronger, we could hear the broadcast.",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "is",
+                        "would be"
+                    ],
+                    "verb_hint": "Передай нереальну теперішню умову; після підмета в однині допустимі традиційна умовна та звичайна минула форми дієслова-зв’язки."
+                }
+            },
+            "verb_hint": "Передай нереальну теперішню умову; після підмета в однині допустимі традиційна умовна та звичайна минула форми дієслова-зв’язки.",
+            "accepted_target_texts": [
+                "If the signal were stronger, we could hear the broadcast.",
+                "If the signal was stronger, we could hear the broadcast."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "If the signal",
+                "were stronger,",
+                "we could hear",
+                "the broadcast."
+            ],
+            "token_groups": [
+                "If the signal",
+                "were stronger,",
+                "we could hear",
+                "the broadcast."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "mrq-c1-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The new microphone, {a1} we bought on Monday, is faulty.",
+            "level": "B1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Новий мікрофон, який ми купили в понеділок, несправний.",
+            "target_text": "The new microphone, which we bought on Monday, is faulty.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "У відокремленій додатковій частині потрібен відносний займенник для предмета; коми вже наведено."
+                }
+            },
+            "verb_hint": "У відокремленій додатковій частині потрібен відносний займенник для предмета; коми вже наведено.",
+            "accepted_target_texts": [
+                "The new microphone, which we bought on Monday, is faulty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new microphone,",
+                "which we bought",
+                "on Monday,",
+                "is faulty."
+            ],
+            "token_groups": [
+                "The new microphone,",
+                "which we bought",
+                "on Monday,",
+                "is faulty."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "mrq-c1-b2-g01",
+            "author_id": "B2-g01",
+            "question": "By this time tomorrow, the observers {a1} the comet for six hours.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Завтра до цього часу спостерігачі відстежуватимуть комету вже шість годин.",
+            "target_text": "By this time tomorrow, the observers will have been tracking the comet for six hours.",
+            "markers": {
+                "a1": {
+                    "answer": "will have been tracking",
+                    "options": [
+                        "will have been tracking",
+                        "will be tracked",
+                        "have been tracking"
+                    ],
+                    "verb_hint": "Передай тривалість відстеження до названого майбутнього моменту майбутнім перфектним тривалим часом."
+                }
+            },
+            "verb_hint": "Передай тривалість відстеження до названого майбутнього моменту майбутнім перфектним тривалим часом.",
+            "accepted_target_texts": [
+                "By this time tomorrow, the observers will have been tracking the comet for six hours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "By this time",
+                "tomorrow,",
+                "the observers",
+                "will have been",
+                "tracking the comet",
+                "for six hours."
+            ],
+            "token_groups": [
+                "By this time",
+                "tomorrow,",
+                "the observers",
+                "will have been",
+                "tracking the comet",
+                "for six hours."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "mrq-c1-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The gallery manager had the damaged frame {a1} before the opening.",
+            "level": "B2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Керівниця галереї замовила ремонт пошкодженої рами перед відкриттям.",
+            "target_text": "The gallery manager had the damaged frame repaired before the opening.",
+            "markers": {
+                "a1": {
+                    "answer": "repaired",
+                    "options": [
+                        "repaired",
+                        "repairing",
+                        "to repair"
+                    ],
+                    "verb_hint": "У вже наведеній каузативній моделі назви дію, виконану над рамою: потрібен дієприкметник, не інфінітив."
+                }
+            },
+            "verb_hint": "У вже наведеній каузативній моделі назви дію, виконану над рамою: потрібен дієприкметник, не інфінітив.",
+            "accepted_target_texts": [
+                "The gallery manager had the damaged frame repaired before the opening.",
+                "The gallery manager had the damaged frame fixed before the opening.",
+                "The gallery manager had the damaged frame restored before the opening."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "fixed",
+                    "restored"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "fixed",
+                    "restored"
+                ]
+            },
+            "reorder_groups": [
+                "The gallery manager",
+                "had",
+                "the damaged frame",
+                "repaired",
+                "before the opening."
+            ],
+            "token_groups": [
+                "The gallery manager",
+                "had",
+                "the damaged frame",
+                "repaired",
+                "before the opening."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "mrq-c1-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The curator denies {a1} the recording before its release.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Куратор заперечує, що несанкціоновано розголосив запис до його офіційного випуску.",
+            "target_text": "The curator denies having leaked the recording before its release.",
+            "markers": {
+                "a1": {
+                    "answer": "having leaked",
+                    "options": [
+                        "having leaked",
+                        "to have leaked",
+                        "have leaked"
+                    ],
+                    "verb_hint": "Після дієслова заперечення назви попередню дію «оприлюднити без дозволу» герундієм; допустима перфектна або проста форма."
+                }
+            },
+            "verb_hint": "Після дієслова заперечення назви попередню дію «оприлюднити без дозволу» герундієм; допустима перфектна або проста форма.",
+            "accepted_target_texts": [
+                "The curator denies having leaked the recording before its release.",
+                "The curator denies leaking the recording before its release."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "leaking"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "leaking"
+                ]
+            },
+            "reorder_groups": [
+                "The curator denies",
+                "having leaked",
+                "the recording",
+                "before its release."
+            ],
+            "token_groups": [
+                "The curator denies",
+                "having leaked",
+                "the recording",
+                "before its release."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "mrq-c1-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Had it not {a1} the backup generator, the observation would have ended early.",
+            "level": "C1",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Якби не резервний генератор, спостереження закінчилося б завчасно.",
+            "target_text": "Had it not been for the backup generator, the observation would have ended early.",
+            "markers": {
+                "a1": {
+                    "answer": "been for",
+                    "options": [
+                        "been for",
+                        "were for",
+                        "be for"
+                    ],
+                    "verb_hint": "Доповни інверсійну минулу умовну модель зі значенням «якби не»; назва причини вже стоїть після пропуску."
+                }
+            },
+            "verb_hint": "Доповни інверсійну минулу умовну модель зі значенням «якби не»; назва причини вже стоїть після пропуску.",
+            "accepted_target_texts": [
+                "Had it not been for the backup generator, the observation would have ended early."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had it not",
+                "been for",
+                "the backup generator,",
+                "the observation",
+                "would have ended",
+                "early."
+            ],
+            "token_groups": [
+                "Had it not",
+                "been for",
+                "the backup generator,",
+                "the observation",
+                "would have ended",
+                "early."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "mrq-c1-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The reviewers deemed it imperative that no identifying detail {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Рецензенти визнали вкрай необхідним, щоб жодної ідентифікаційної подробиці не розголошували.",
+            "target_text": "The reviewers deemed it imperative that no identifying detail be disclosed.",
+            "markers": {
+                "a1": {
+                    "answer": "be disclosed",
+                    "options": [
+                        "be disclosed",
+                        "is disclosing",
+                        "was disclose"
+                    ],
+                    "verb_hint": "Передай пасивну вимогу в підрядному реченні: початкова форма дієслова-зв’язки та дієприкметник; нормативна модальна модель також прийнятна."
+                }
+            },
+            "verb_hint": "Передай пасивну вимогу в підрядному реченні: початкова форма дієслова-зв’язки та дієприкметник; нормативна модальна модель також прийнятна.",
+            "accepted_target_texts": [
+                "The reviewers deemed it imperative that no identifying detail be disclosed.",
+                "The reviewers deemed it imperative that no identifying detail should be disclosed.",
+                "The reviewers deemed it imperative that no identifying detail be revealed.",
+                "The reviewers deemed it imperative that no identifying detail should be revealed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "should be disclosed",
+                    "be revealed",
+                    "should be revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "should be disclosed",
+                    "be revealed",
+                    "should be revealed"
+                ]
+            },
+            "reorder_groups": [
+                "The reviewers",
+                "deemed it imperative",
+                "that",
+                "no identifying detail",
+                "be disclosed."
+            ],
+            "token_groups": [
+                "The reviewers",
+                "deemed it imperative",
+                "that",
+                "no identifying detail",
+                "be disclosed."
+            ],
+            "quality_revision": "mrq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "mrq-c1-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Such {a1} the trust's concern that an independent panel was appointed.",
+            "level": "C2",
+            "type": 0,
+            "source": "mixed_revision_quality_c1_mixed_revision",
+            "translation_uk": "Занепокоєння фонду було таким сильним, що призначили незалежну комісію.",
+            "target_text": "Such was the trust's concern that an independent panel was appointed.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "Доповни формальну ступеневу інверсію минулою формою дієслова-зв’язки перед уже наведеним підметом."
+                }
+            },
+            "verb_hint": "Доповни формальну ступеневу інверсію минулою формою дієслова-зв’язки перед уже наведеним підметом.",
+            "accepted_target_texts": [
+                "Such was the trust's concern that an independent panel was appointed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Such was",
+                "the trust's concern",
+                "that",
+                "an independent panel",
+                "was appointed."
+            ],
+            "token_groups": [
+                "Such was",
+                "the trust's concern",
+                "that",
+                "an independent panel",
+                "was appointed."
+            ],
+            "quality_revision": "mrq-v1"
+        }
+    ]
+}

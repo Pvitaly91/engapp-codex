@@ -1,0 +1,1691 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/relative-pronouns.v1.json",
+        "sha256": "60abfaccfaa55fcb95f4bd6007e6dde12b9060be7724d99dfbd0cfa87100a211"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\UkrainianMixedRelativePronounsQualityStandardSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-relative-pronouns-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_relative_pronouns": {
+            "name": "Pronouns and Demonstratives Quality: Відносні займенники: особа, предмет, належність і зв’язок"
+        }
+    },
+    "tags": {
+        "relative_pronouns_page": {
+            "name": "Relative Pronouns",
+            "category": "pronouns_demonstratives"
+        },
+        "who_people": {
+            "name": "Who People",
+            "category": "topic"
+        },
+        "which_things": {
+            "name": "Which Things",
+            "category": "topic"
+        },
+        "that_defining": {
+            "name": "That Defining",
+            "category": "topic"
+        },
+        "whose_possession": {
+            "name": "Whose Possession",
+            "category": "topic"
+        },
+        "whom_formal_object": {
+            "name": "Whom Formal Object",
+            "category": "topic"
+        },
+        "subject_relative": {
+            "name": "Subject Relative",
+            "category": "topic"
+        },
+        "object_relative": {
+            "name": "Object Relative",
+            "category": "topic"
+        },
+        "pronoun_choice_contrast": {
+            "name": "Pronoun Choice Contrast",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "relative_pronouns_page"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-relative-pronouns-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The boy {a1} feeds the ducks is my cousin.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Хлопчик, який годує качок, — мій двоюрідний брат.",
+            "target_text": "The boy who feeds the ducks is my cousin.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "whose",
+                        "which"
+                    ],
+                    "verb_hint": "Людина сама виконує годування; можливий також універсальний відносний займенник."
+                }
+            },
+            "verb_hint": "Людина сама виконує годування; можливий також універсальний відносний займенник.",
+            "accepted_target_texts": [
+                "The boy who feeds the ducks is my cousin.",
+                "The boy that feeds the ducks is my cousin."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The boy",
+                "who feeds",
+                "the ducks",
+                "is my cousin."
+            ],
+            "token_groups": [
+                "The boy",
+                "who feeds",
+                "the ducks",
+                "is my cousin."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-relative-pronouns-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The cup {a1} has a blue handle is mine.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Чашка, у якої синя ручка, — моя.",
+            "target_text": "The cup which has a blue handle is mine.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Предмет є підметом означення; можлива також універсальна відносна форма."
+                }
+            },
+            "verb_hint": "Предмет є підметом означення; можлива також універсальна відносна форма.",
+            "accepted_target_texts": [
+                "The cup which has a blue handle is mine.",
+                "The cup that has a blue handle is mine."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The cup",
+                "which has",
+                "a blue handle",
+                "is mine."
+            ],
+            "token_groups": [
+                "The cup",
+                "which has",
+                "a blue handle",
+                "is mine."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-relative-pronouns-a1-g03",
+            "author_id": "A1-g03",
+            "question": "I know a girl {a1} dog can swim.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Я знаю дівчинку, чий собака вміє плавати.",
+            "target_text": "I know a girl whose dog can swim.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "which"
+                    ],
+                    "verb_hint": "Перед назвою собаки потрібна форма належності зі значенням «чий»."
+                }
+            },
+            "verb_hint": "Перед назвою собаки потрібна форма належності зі значенням «чий».",
+            "accepted_target_texts": [
+                "I know a girl whose dog can swim."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I know",
+                "a girl",
+                "whose dog",
+                "can swim."
+            ],
+            "token_groups": [
+                "I know",
+                "a girl",
+                "whose dog",
+                "can swim."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-relative-pronouns-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The woman {a1} works in the bakery is kind.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Жінка, яка працює в пекарні, добра.",
+            "target_text": "The woman who works in the bakery is kind.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Потрібен підмет означення для людини; універсальний займенник також доречний."
+                }
+            },
+            "verb_hint": "Потрібен підмет означення для людини; універсальний займенник також доречний.",
+            "accepted_target_texts": [
+                "The woman who works in the bakery is kind.",
+                "The woman that works in the bakery is kind."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The woman",
+                "who works",
+                "in the bakery",
+                "is kind."
+            ],
+            "token_groups": [
+                "The woman",
+                "who works",
+                "in the bakery",
+                "is kind."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-relative-pronouns-a1-g05",
+            "author_id": "A1-g05",
+            "question": "This is the toy {a1} makes a funny noise.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Це іграшка, яка видає кумедний звук.",
+            "target_text": "This is the toy that makes a funny noise.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Предмет сам виконує дію; можливий також відносний займенник для предметів."
+                }
+            },
+            "verb_hint": "Предмет сам виконує дію; можливий також відносний займенник для предметів.",
+            "accepted_target_texts": [
+                "This is the toy that makes a funny noise.",
+                "This is the toy which makes a funny noise."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "This is",
+                "the toy",
+                "that makes",
+                "a funny noise."
+            ],
+            "token_groups": [
+                "This is",
+                "the toy",
+                "that makes",
+                "a funny noise."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-relative-pronouns-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The man {a1} bike is red lives here.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Чоловік, чий велосипед червоний, живе тут.",
+            "target_text": "The man whose bike is red lives here.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "Укажи власника велосипеда, а не просто людину як виконавця."
+                }
+            },
+            "verb_hint": "Укажи власника велосипеда, а не просто людину як виконавця.",
+            "accepted_target_texts": [
+                "The man whose bike is red lives here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The man",
+                "whose bike",
+                "is red",
+                "lives here."
+            ],
+            "token_groups": [
+                "The man",
+                "whose bike",
+                "is red",
+                "lives here."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-relative-pronouns-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The musician {a1} we invited plays the cello.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Музикант, якого ми запросили, грає на віолончелі.",
+            "target_text": "The musician whom we invited plays the cello.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "whose",
+                        "which"
+                    ],
+                    "verb_hint": "Збережи повний займенник для людини на місці додатка; також можливі звичайна особова й універсальна форми."
+                }
+            },
+            "verb_hint": "Збережи повний займенник для людини на місці додатка; також можливі звичайна особова й універсальна форми.",
+            "accepted_target_texts": [
+                "The musician whom we invited plays the cello.",
+                "The musician who we invited plays the cello.",
+                "The musician that we invited plays the cello."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "who",
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "who",
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "The musician",
+                "whom we invited",
+                "plays the cello."
+            ],
+            "token_groups": [
+                "The musician",
+                "whom we invited",
+                "plays the cello."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-relative-pronouns-a2-g02",
+            "author_id": "A2-g02",
+            "question": "This is the lamp {a1} I bought yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Це лампа, яку я купив учора.",
+            "target_text": "This is the lamp which I bought yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Збережи повне відносне слово для предмета на місці додатка; універсальна форма також можлива."
+                }
+            },
+            "verb_hint": "Збережи повне відносне слово для предмета на місці додатка; універсальна форма також можлива.",
+            "accepted_target_texts": [
+                "This is the lamp which I bought yesterday.",
+                "This is the lamp that I bought yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that"
+                ]
+            },
+            "reorder_groups": [
+                "This is",
+                "the lamp",
+                "which I bought",
+                "yesterday."
+            ],
+            "token_groups": [
+                "This is",
+                "the lamp",
+                "which I bought",
+                "yesterday."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-relative-pronouns-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Our guide, {a1} speaks Spanish, is from Odesa.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Наш гід, який розмовляє іспанською, з Одеси.",
+            "target_text": "Our guide, who speaks Spanish, is from Odesa.",
+            "markers": {
+                "a1": {
+                    "answer": "who",
+                    "options": [
+                        "who",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Між комами додаткове повідомлення про визначену людину; універсальна форма не підходить."
+                }
+            },
+            "verb_hint": "Між комами додаткове повідомлення про визначену людину; універсальна форма не підходить.",
+            "accepted_target_texts": [
+                "Our guide, who speaks Spanish, is from Odesa."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our guide,",
+                "who speaks Spanish,",
+                "is from Odesa."
+            ],
+            "token_groups": [
+                "Our guide,",
+                "who speaks Spanish,",
+                "is from Odesa."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-relative-pronouns-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The house {a1} windows face the park is for sale.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Будинок, вікна якого виходять у парк, продається.",
+            "target_text": "The house whose windows face the park is for sale.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "who",
+                        "whom"
+                    ],
+                    "verb_hint": "Перед назвою вікон потрібна належність; ця форма може стосуватися й будинку."
+                }
+            },
+            "verb_hint": "Перед назвою вікон потрібна належність; ця форма може стосуватися й будинку.",
+            "accepted_target_texts": [
+                "The house whose windows face the park is for sale."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The house",
+                "whose windows face",
+                "the park",
+                "is for sale."
+            ],
+            "token_groups": [
+                "The house",
+                "whose windows face",
+                "the park",
+                "is for sale."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-relative-pronouns-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Marta showed me her watch, {a1} was a birthday present.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Марта показала мені свій годинник, який був подарунком на день народження.",
+            "target_text": "Marta showed me her watch, which was a birthday present.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "who"
+                    ],
+                    "verb_hint": "Після коми додатково описуємо предмет; універсальна відносна форма тут не вживається."
+                }
+            },
+            "verb_hint": "Після коми додатково описуємо предмет; універсальна відносна форма тут не вживається.",
+            "accepted_target_texts": [
+                "Marta showed me her watch, which was a birthday present."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta showed me",
+                "her watch,",
+                "which was",
+                "a birthday present."
+            ],
+            "token_groups": [
+                "Marta showed me",
+                "her watch,",
+                "which was",
+                "a birthday present."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-relative-pronouns-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I liked {a1} you cooked for lunch.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Мені сподобалося те, що ти приготував на обід.",
+            "target_text": "I liked what you cooked for lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "what",
+                    "options": [
+                        "what",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Назви страви перед пропуском немає; одним словом передай «те, що»."
+                }
+            },
+            "verb_hint": "Назви страви перед пропуском немає; одним словом передай «те, що».",
+            "accepted_target_texts": [
+                "I liked what you cooked for lunch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I liked",
+                "what you cooked",
+                "for lunch."
+            ],
+            "token_groups": [
+                "I liked",
+                "what you cooked",
+                "for lunch."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-relative-pronouns-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The volunteers, most of {a1} are students, meet on Sundays.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Волонтери, більшість із яких студенти, зустрічаються щонеділі.",
+            "target_text": "The volunteers, most of whom are students, meet on Sundays.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "that"
+                    ],
+                    "verb_hint": "Після вже наведеного прийменника потрібна об’єктна відносна форма для людей."
+                }
+            },
+            "verb_hint": "Після вже наведеного прийменника потрібна об’єктна відносна форма для людей.",
+            "accepted_target_texts": [
+                "The volunteers, most of whom are students, meet on Sundays."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The volunteers,",
+                "most of whom",
+                "are students,",
+                "meet on Sundays."
+            ],
+            "token_groups": [
+                "The volunteers,",
+                "most of whom",
+                "are students,",
+                "meet on Sundays."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-relative-pronouns-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I met a researcher {a1} findings changed our plan.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Я зустрів дослідника, чиї висновки змінили наш план.",
+            "target_text": "I met a researcher whose findings changed our plan.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "whom",
+                        "which"
+                    ],
+                    "verb_hint": "Пов’яжи людину з її висновками; наступний іменник уже наведено."
+                }
+            },
+            "verb_hint": "Пов’яжи людину з її висновками; наступний іменник уже наведено.",
+            "accepted_target_texts": [
+                "I met a researcher whose findings changed our plan."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I met",
+                "a researcher",
+                "whose findings",
+                "changed our plan."
+            ],
+            "token_groups": [
+                "I met",
+                "a researcher",
+                "whose findings",
+                "changed our plan."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-relative-pronouns-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The footbridge, {a1} was closed last winter, is open again.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Пішохідний міст, який був закритий минулої зими, знову відкритий.",
+            "target_text": "The footbridge, which was closed last winter, is open again.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Коми позначають додаткове повідомлення про предмет; універсальний займенник не підходить."
+                }
+            },
+            "verb_hint": "Коми позначають додаткове повідомлення про предмет; універсальний займенник не підходить.",
+            "accepted_target_texts": [
+                "The footbridge, which was closed last winter, is open again."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The footbridge,",
+                "which was closed",
+                "last winter,",
+                "is open again."
+            ],
+            "token_groups": [
+                "The footbridge,",
+                "which was closed",
+                "last winter,",
+                "is open again."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-relative-pronouns-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The consultant to {a1} you wrote has replied.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Консультант, якому ти писав, відповів.",
+            "target_text": "The consultant to whom you wrote has replied.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "that"
+                    ],
+                    "verb_hint": "Після винесеного прийменника потрібна формальна об’єктна форма для людини."
+                }
+            },
+            "verb_hint": "Після винесеного прийменника потрібна формальна об’єктна форма для людини.",
+            "accepted_target_texts": [
+                "The consultant to whom you wrote has replied."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consultant",
+                "to whom",
+                "you wrote",
+                "has replied."
+            ],
+            "token_groups": [
+                "The consultant",
+                "to whom",
+                "you wrote",
+                "has replied."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-relative-pronouns-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The parcels {a1} arrived this morning are in the office.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Посилки, які прибули сьогодні вранці, в офісі.",
+            "target_text": "The parcels that arrived this morning are in the office.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "whose",
+                        "whom"
+                    ],
+                    "verb_hint": "Відносне слово саме є підметом прибуття предметів; предметний займенник також можливий."
+                }
+            },
+            "verb_hint": "Відносне слово саме є підметом прибуття предметів; предметний займенник також можливий.",
+            "accepted_target_texts": [
+                "The parcels that arrived this morning are in the office.",
+                "The parcels which arrived this morning are in the office."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "The parcels",
+                "that arrived",
+                "this morning",
+                "are",
+                "in the office."
+            ],
+            "token_groups": [
+                "The parcels",
+                "that arrived",
+                "this morning",
+                "are",
+                "in the office."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-relative-pronouns-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You should keep {a1} belongs to you.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Тобі слід залишити собі те, що тобі належить.",
+            "target_text": "You should keep what belongs to you.",
+            "markers": {
+                "a1": {
+                    "answer": "what",
+                    "options": [
+                        "what",
+                        "that",
+                        "whose"
+                    ],
+                    "verb_hint": "Передай «те, що» одним словом без попереднього іменника."
+                }
+            },
+            "verb_hint": "Передай «те, що» одним словом без попереднього іменника.",
+            "accepted_target_texts": [
+                "You should keep what belongs to you."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You should keep",
+                "what belongs",
+                "to you."
+            ],
+            "token_groups": [
+                "You should keep",
+                "what belongs",
+                "to you."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pdqq-relative-pronouns-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The policy under {a1} these grants are awarded is being revised.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Правила, за якими надають ці гранти, переглядають.",
+            "target_text": "The policy under which these grants are awarded is being revised.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Прийменник уже перед пропуском; для неособового попередника потрібен предметний відносний займенник."
+                }
+            },
+            "verb_hint": "Прийменник уже перед пропуском; для неособового попередника потрібен предметний відносний займенник.",
+            "accepted_target_texts": [
+                "The policy under which these grants are awarded is being revised."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The policy",
+                "under which",
+                "these grants",
+                "are awarded",
+                "is being revised."
+            ],
+            "token_groups": [
+                "The policy",
+                "under which",
+                "these grants",
+                "are awarded",
+                "is being revised."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pdqq-relative-pronouns-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The director resigned unexpectedly, {a1} surprised the entire board.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Директор несподівано пішов у відставку, що здивувало всю раду.",
+            "target_text": "The director resigned unexpectedly, which surprised the entire board.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Займенник після коми коментує цілу подію відставки, а не лише директора."
+                }
+            },
+            "verb_hint": "Займенник після коми коментує цілу подію відставки, а не лише директора.",
+            "accepted_target_texts": [
+                "The director resigned unexpectedly, which surprised the entire board."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The director",
+                "resigned unexpectedly,",
+                "which surprised",
+                "the entire board."
+            ],
+            "token_groups": [
+                "The director",
+                "resigned unexpectedly,",
+                "which surprised",
+                "the entire board."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pdqq-relative-pronouns-b2-g03",
+            "author_id": "B2-g03",
+            "question": "We interviewed six candidates, two of {a1} had worked abroad.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Ми провели співбесіди із шістьма кандидатами, двоє з яких працювали за кордоном.",
+            "target_text": "We interviewed six candidates, two of whom had worked abroad.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "that"
+                    ],
+                    "verb_hint": "Після вже наведеного прийменника потрібна об’єктна форма для людей у кількісному звороті."
+                }
+            },
+            "verb_hint": "Після вже наведеного прийменника потрібна об’єктна форма для людей у кількісному звороті.",
+            "accepted_target_texts": [
+                "We interviewed six candidates, two of whom had worked abroad."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We interviewed",
+                "six candidates,",
+                "two of whom",
+                "had worked abroad."
+            ],
+            "token_groups": [
+                "We interviewed",
+                "six candidates,",
+                "two of whom",
+                "had worked abroad."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pdqq-relative-pronouns-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The archive {a1} records were damaged has reopened.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Архів, чиї документи були пошкоджені, знову відкрився.",
+            "target_text": "The archive whose records were damaged has reopened.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "whom",
+                        "what"
+                    ],
+                    "verb_hint": "Передай належність документів архіву перед уже наведеним іменником."
+                }
+            },
+            "verb_hint": "Передай належність документів архіву перед уже наведеним іменником.",
+            "accepted_target_texts": [
+                "The archive whose records were damaged has reopened."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "whose records",
+                "were damaged",
+                "has reopened."
+            ],
+            "token_groups": [
+                "The archive",
+                "whose records",
+                "were damaged",
+                "has reopened."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pdqq-relative-pronouns-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The witness about {a1} the lawyer spoke has left.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Свідок, про якого говорив адвокат, пішов.",
+            "target_text": "The witness about whom the lawyer spoke has left.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "whose"
+                    ],
+                    "verb_hint": "Збережи прийменник перед пропуском і використай об’єктну форму для людини."
+                }
+            },
+            "verb_hint": "Збережи прийменник перед пропуском і використай об’єктну форму для людини.",
+            "accepted_target_texts": [
+                "The witness about whom the lawyer spoke has left."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "about whom",
+                "the lawyer spoke",
+                "has left."
+            ],
+            "token_groups": [
+                "The witness",
+                "about whom",
+                "the lawyer spoke",
+                "has left."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pdqq-relative-pronouns-b2-g06",
+            "author_id": "B2-g06",
+            "question": "{a1} the committee decides will affect every department.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Що б не вирішив комітет, це вплине на кожен відділ.",
+            "target_text": "Whatever the committee decides will affect every department.",
+            "markers": {
+                "a1": {
+                    "answer": "Whatever",
+                    "options": [
+                        "Whatever",
+                        "Which",
+                        "Whose"
+                    ],
+                    "verb_hint": "Одним словом передай необмежене «хай що вирішить» без попереднього іменника."
+                }
+            },
+            "verb_hint": "Одним словом передай необмежене «хай що вирішить» без попереднього іменника.",
+            "accepted_target_texts": [
+                "Whatever the committee decides will affect every department."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whatever",
+                "the committee decides",
+                "will affect",
+                "every department."
+            ],
+            "token_groups": [
+                "Whatever",
+                "the committee decides",
+                "will affect",
+                "every department."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pdqq-relative-pronouns-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The firm, several of {a1} subsidiaries operate overseas, rejected the allegation.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Компанія, кілька дочірніх підприємств якої працюють за кордоном, відкинула звинувачення.",
+            "target_text": "The firm, several of whose subsidiaries operate overseas, rejected the allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "whom"
+                    ],
+                    "verb_hint": "Після кількісного звороту вкажи належність підприємств компанії."
+                }
+            },
+            "verb_hint": "Після кількісного звороту вкажи належність підприємств компанії.",
+            "accepted_target_texts": [
+                "The firm, several of whose subsidiaries operate overseas, rejected the allegation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The firm,",
+                "several of whose",
+                "subsidiaries operate overseas,",
+                "rejected the allegation."
+            ],
+            "token_groups": [
+                "The firm,",
+                "several of whose",
+                "subsidiaries operate overseas,",
+                "rejected the allegation."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pdqq-relative-pronouns-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The statute pursuant to {a1} the licence was issued remains in force.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Закон, згідно з яким видано ліцензію, залишається чинним.",
+            "target_text": "The statute pursuant to which the licence was issued remains in force.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Після наведеного формального прийменникового звороту потрібен предметний відносний займенник."
+                }
+            },
+            "verb_hint": "Після наведеного формального прийменникового звороту потрібен предметний відносний займенник.",
+            "accepted_target_texts": [
+                "The statute pursuant to which the licence was issued remains in force.",
+                "The statute pursuant to which the license was issued remains in force."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The statute",
+                "pursuant to which",
+                "the licence",
+                "was issued",
+                "remains in force."
+            ],
+            "token_groups": [
+                "The statute",
+                "pursuant to which",
+                "the licence",
+                "was issued",
+                "remains in force."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pdqq-relative-pronouns-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The analyst with {a1} we disagreed later endorsed the revision.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Аналітик, з яким ми не погоджувалися, згодом підтримав перегляд.",
+            "target_text": "The analyst with whom we disagreed later endorsed the revision.",
+            "markers": {
+                "a1": {
+                    "answer": "whom",
+                    "options": [
+                        "whom",
+                        "who",
+                        "that"
+                    ],
+                    "verb_hint": "Після винесеного прийменника потрібна об’єктна форма для людини; наступний підмет не повторюй."
+                }
+            },
+            "verb_hint": "Після винесеного прийменника потрібна об’єктна форма для людини; наступний підмет не повторюй.",
+            "accepted_target_texts": [
+                "The analyst with whom we disagreed later endorsed the revision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analyst",
+                "with whom",
+                "we disagreed",
+                "later endorsed",
+                "the revision."
+            ],
+            "token_groups": [
+                "The analyst",
+                "with whom",
+                "we disagreed",
+                "later endorsed",
+                "the revision."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pdqq-relative-pronouns-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} first raised the concern deserves to be heard.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Той, хто першим висловив занепокоєння, заслуговує бути почутим.",
+            "target_text": "Whoever first raised the concern deserves to be heard.",
+            "markers": {
+                "a1": {
+                    "answer": "Whoever",
+                    "options": [
+                        "Whoever",
+                        "Whomever",
+                        "Whose"
+                    ],
+                    "verb_hint": "Пропуск сам виконує дію висловлення у власній частині; потрібна підметова форма."
+                }
+            },
+            "verb_hint": "Пропуск сам виконує дію висловлення у власній частині; потрібна підметова форма.",
+            "accepted_target_texts": [
+                "Whoever first raised the concern deserves to be heard."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whoever",
+                "first raised",
+                "the concern",
+                "deserves",
+                "to be heard."
+            ],
+            "token_groups": [
+                "Whoever",
+                "first raised",
+                "the concern",
+                "deserves",
+                "to be heard."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pdqq-relative-pronouns-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The mediator rejected {a1} she regarded as an artificial distinction.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Посередниця відкинула те, що вважала штучним розрізненням.",
+            "target_text": "The mediator rejected what she regarded as an artificial distinction.",
+            "markers": {
+                "a1": {
+                    "answer": "what",
+                    "options": [
+                        "what",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Перед пропуском немає іменника; одним словом передай «те, що»."
+                }
+            },
+            "verb_hint": "Перед пропуском немає іменника; одним словом передай «те, що».",
+            "accepted_target_texts": [
+                "The mediator rejected what she regarded as an artificial distinction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mediator rejected",
+                "what she regarded",
+                "as an",
+                "artificial distinction."
+            ],
+            "token_groups": [
+                "The mediator rejected",
+                "what she regarded",
+                "as an",
+                "artificial distinction."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pdqq-relative-pronouns-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The briefing was postponed again, {a1} left the negotiators uncertain.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Брифінг знову відклали, що залишило переговорників у невизначеності.",
+            "target_text": "The briefing was postponed again, which left the negotiators uncertain.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Після коми назви наслідок усього попереднього повідомлення, не лише одного предмета."
+                }
+            },
+            "verb_hint": "Після коми назви наслідок усього попереднього повідомлення, не лише одного предмета.",
+            "accepted_target_texts": [
+                "The briefing was postponed again, which left the negotiators uncertain."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The briefing",
+                "was postponed again,",
+                "which left",
+                "the negotiators uncertain."
+            ],
+            "token_groups": [
+                "The briefing",
+                "was postponed again,",
+                "which left",
+                "the negotiators uncertain."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pdqq-relative-pronouns-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The constraints within {a1} the panel operated were never disclosed.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Обмеження, у межах яких працювала комісія, так і не розкрили.",
+            "target_text": "The constraints within which the panel operated were never disclosed.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Після винесеного прийменника для неособового попередника потрібна предметна відносна форма."
+                }
+            },
+            "verb_hint": "Після винесеного прийменника для неособового попередника потрібна предметна відносна форма.",
+            "accepted_target_texts": [
+                "The constraints within which the panel operated were never disclosed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The constraints",
+                "within which",
+                "the panel operated",
+                "were never disclosed."
+            ],
+            "token_groups": [
+                "The constraints",
+                "within which",
+                "the panel operated",
+                "were never disclosed."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pdqq-relative-pronouns-c2-g02",
+            "author_id": "C2-g02",
+            "question": "{a1} the eventual author proves to be, the argument must be assessed independently.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Хто б зрештою не виявився автором, аргумент слід оцінювати незалежно.",
+            "target_text": "Whoever the eventual author proves to be, the argument must be assessed independently.",
+            "markers": {
+                "a1": {
+                    "answer": "Whoever",
+                    "options": [
+                        "Whoever",
+                        "Whomever",
+                        "Whose"
+                    ],
+                    "verb_hint": "Пропуск є іменною частиною у власному звороті; не обирай об’єктну форму через головне речення."
+                }
+            },
+            "verb_hint": "Пропуск є іменною частиною у власному звороті; не обирай об’єктну форму через головне речення.",
+            "accepted_target_texts": [
+                "Whoever the eventual author proves to be, the argument must be assessed independently."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whoever",
+                "the eventual author",
+                "proves to be,",
+                "the argument",
+                "must be",
+                "assessed independently."
+            ],
+            "token_groups": [
+                "Whoever",
+                "the eventual author",
+                "proves to be,",
+                "the argument",
+                "must be",
+                "assessed independently."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pdqq-relative-pronouns-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The chair accepted the reservation, {a1} was more than the dissenters had expected.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Голова прийняв застереження, що було більшим, ніж очікували незгодні.",
+            "target_text": "The chair accepted the reservation, which was more than the dissenters had expected.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Займенник після коми оцінює сам факт прийняття застереження."
+                }
+            },
+            "verb_hint": "Займенник після коми оцінює сам факт прийняття застереження.",
+            "accepted_target_texts": [
+                "The chair accepted the reservation, which was more than the dissenters had expected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair accepted",
+                "the reservation,",
+                "which was more",
+                "than the dissenters",
+                "had expected."
+            ],
+            "token_groups": [
+                "The chair accepted",
+                "the reservation,",
+                "which was more",
+                "than the dissenters",
+                "had expected."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pdqq-relative-pronouns-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The precedent on {a1} counsel relied was subsequently overturned.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Прецедент, на який спирався адвокат, згодом скасували.",
+            "target_text": "The precedent on which counsel relied was subsequently overturned.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Після вже наведеного прийменника для прецеденту потрібна предметна відносна форма."
+                }
+            },
+            "verb_hint": "Після вже наведеного прийменника для прецеденту потрібна предметна відносна форма.",
+            "accepted_target_texts": [
+                "The precedent on which counsel relied was subsequently overturned."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The precedent",
+                "on which",
+                "counsel relied",
+                "was subsequently overturned."
+            ],
+            "token_groups": [
+                "The precedent",
+                "on which",
+                "counsel relied",
+                "was subsequently overturned."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pdqq-relative-pronouns-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The consortium, the viability of {a1} proposal had been doubted, secured funding.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Консорціум, у життєздатності пропозиції якого сумнівалися, отримав фінансування.",
+            "target_text": "The consortium, the viability of whose proposal had been doubted, secured funding.",
+            "markers": {
+                "a1": {
+                    "answer": "whose",
+                    "options": [
+                        "whose",
+                        "which",
+                        "whom"
+                    ],
+                    "verb_hint": "Відносна форма пов’язує консорціум із його пропозицією; назва пропозиції вже наведена."
+                }
+            },
+            "verb_hint": "Відносна форма пов’язує консорціум із його пропозицією; назва пропозиції вже наведена.",
+            "accepted_target_texts": [
+                "The consortium, the viability of whose proposal had been doubted, secured funding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consortium,",
+                "the viability",
+                "of whose proposal",
+                "had been doubted,",
+                "secured funding."
+            ],
+            "token_groups": [
+                "The consortium,",
+                "the viability",
+                "of whose proposal",
+                "had been doubted,",
+                "secured funding."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pdqq-relative-pronouns-c2-g06",
+            "author_id": "C2-g06",
+            "question": "She preserved {a1} little evidence remained after the fire.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_relative_pronouns",
+            "translation_uk": "Вона зберегла ті нечисленні докази, що лишилися після пожежі.",
+            "target_text": "She preserved what little evidence remained after the fire.",
+            "markers": {
+                "a1": {
+                    "answer": "what",
+                    "options": [
+                        "what",
+                        "which",
+                        "whose"
+                    ],
+                    "verb_hint": "Потрібен вільний відносний зворот «усе те небагато, що» без попереднього іменника."
+                }
+            },
+            "verb_hint": "Потрібен вільний відносний зворот «усе те небагато, що» без попереднього іменника.",
+            "accepted_target_texts": [
+                "She preserved what little evidence remained after the fire."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She preserved",
+                "what little evidence",
+                "remained",
+                "after the fire."
+            ],
+            "token_groups": [
+                "She preserved",
+                "what little evidence",
+                "remained",
+                "after the fire."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 59821,
+        "uuid": "woq-questions-negatives-a2-g06",
+        "question": "Which bus {a1} to the airport?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 4,
+        "source_id": 412,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderQuestionsNegativesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "goes",
+                "does go",
+                "go"
+            ]
+        },
+        "theory_text_block_uuid": "ec899a08-4708-53db-8d13-2225853d7b72",
+        "created_at": "2026-10-27T01:00:54.000000Z",
+        "updated_at": "2026-10-27T01:00:54.000000Z"
+    },
+    "category": {
+        "id": 4,
+        "name": "Базова граматика / Word Order",
+        "created_at": "2026-04-23T14:15:58.000000Z",
+        "updated_at": "2026-04-23T14:15:58.000000Z"
+    },
+    "source": {
+        "id": 412,
+        "name": "Word Order Quality: Порядок слів у питаннях і запереченнях",
+        "created_at": "2026-10-27T01:00:53.000000Z",
+        "updated_at": "2026-10-27T01:00:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 131,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-04-23T14:15:17.000000Z",
+                "updated_at": "2026-04-23T14:15:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 59821,
+                "tag_id": 131,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 85,
+                "option": "go",
+                "created_at": "2026-04-23T11:39:58.000000Z",
+                "updated_at": "2026-04-23T11:39:58.000000Z"
+            },
+            "pivot": {
+                "question_id": 59821,
+                "option_id": 85,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 445,
+                "option": "goes",
+                "created_at": "2026-04-23T11:41:14.000000Z",
+                "updated_at": "2026-04-23T11:41:14.000000Z"
+            },
+            "pivot": {
+                "question_id": 59821,
+                "option_id": 445,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 51017,
+                "option": "does go",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 59821,
+                "option_id": 51017,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 322665,
+                "question_id": 59821,
+                "marker": "a1",
+                "option_id": 445,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 445,
+                "option": "goes",
+                "created_at": "2026-04-23T11:41:14.000000Z",
+                "updated_at": "2026-04-23T11:41:14.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39999,
+                "question_id": 59821,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 51016,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 51016,
+                "option": "Питальна група сама називає підмет; у нейтральному питанні дієслово стоїть одразу після неї.",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51836,
+            "question_id": 59821,
+            "text": "Which bus {a1} to the airport?",
+            "created_at": "2026-10-27T01:00:54.000000Z",
+            "updated_at": "2026-10-27T01:00:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

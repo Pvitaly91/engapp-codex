@@ -1,0 +1,96 @@
+{
+    "schema_version": 1,
+    "package": "m76-token-label-display-fix",
+    "version": "1.0.0",
+    "status": "frozen",
+    "authorization": "One user-approved display-binding correction only; no redesign, author-data, token-value, option, answer, formatter, grading, SQL or progress change.",
+    "component": "resources/views/components/text-block-practice-questions.blade.php",
+    "allowed_change": {
+        "attribute": "x-text",
+        "location": "available compose-token button",
+        "occurrences_per_profile": 1,
+        "after_binding": "x-text=\"Object.prototype.hasOwnProperty.call(currentQuestion?.token_labels ?? {}, token.value) && typeof currentQuestion.token_labels[token.value] === 'string' ? currentQuestion.token_labels[token.value] : token.value\"",
+        "rule": "Use a token label only when it is an own property and a string; otherwise display the unchanged token.value."
+    },
+    "profiles": [
+        {
+            "profile": "served-root",
+            "before_raw_sha256": "8f0e1e76cc346d9d7dda626b9b1a1fc7c14cf964c13521e620b43645b93bb3d4",
+            "after_raw_sha256": "088fb035c1421c43a9e06ac96e4f0c1328aa6acc499e1dfbdbb0ecf39d3cf92d",
+            "after_lf_sha256": "98e73a147d724069935b7063abfa740fa0289aad8057b62d4b8bca12aaeab68c",
+            "before_binding": "x-text=\"currentQuestion?.token_labels?.[token.value] ?? token.value\"",
+            "embedded_script_count": 1,
+            "unchanged_embedded_script_sha256": "af30b3892f3494c446a19d48e1aff5104cd1d39a96e5d02d60a8a7734fafaaff"
+        },
+        {
+            "profile": "accepted-worktree",
+            "before_raw_sha256": "94fc2ecd7525cacfac652cc39aebf3ac057d8f845daf1425fe8cd845c9c0dd80",
+            "after_raw_sha256": "773c82eed2e099e7a512a5760a4cb425cc83a72a33e40ea9420db19e663862fe",
+            "after_lf_sha256": "7f033f08479c88732d31fff7bff655da028d2fb75ca06fe11f3319d68eb54255",
+            "before_binding": "x-text=\"token.value\"",
+            "embedded_script_count": 1,
+            "unchanged_embedded_script_sha256": "f02204b7442f648ba6bb90bbbc81ba1c07ae0e0f8a9975919133e60e8cb63bd4"
+        }
+    ],
+    "unchanged_formatter": {
+        "path": "app/Support/ComposeTokenCase.php",
+        "served_root_raw_sha256": "2a496b6142a664eaf01a2086f63452f485bb51147ada20e03d410441b329588d",
+        "accepted_worktree_raw_sha256": "f1ba518446fe46e1927142cfc94454ec2b65dc389c4e3271c526c0ab4957d6d8",
+        "accepted_worktree_lf_sha256": "851c87ba65ad47763e91b6c43434323d9d3a11aa4fa826a5f116b13650a14852",
+        "worktree_accepted_base": "e0720938bad114c7e43e8e6efafa8355c1993fc1",
+        "proof": "ROOT raw hash is the immutable M76 bank audit formatter pin; WT LF bytes equal the formatter Git blob at the accepted M75 base. Existing ROOT/WT differences are retained."
+    },
+    "finite_probe": {
+        "kind": "actual-new-expression-evaluation",
+        "cases": 20,
+        "failed": 0,
+        "coverage": [
+            "missing/null labels",
+            "Object.prototype names",
+            "inherited string rejected",
+            "own string accepted",
+            "null-prototype own names",
+            "own non-string rejected",
+            "unknown token fallback",
+            "explicit own empty string retained"
+        ],
+        "db_connections": 0,
+        "http_requests": 0,
+        "file_writes": 0
+    },
+    "preservation": {
+        "visual_inventory": 326,
+        "unchanged_visual_files": 325,
+        "approved_visual_files": 1,
+        "historical_frozen_files": 2642,
+        "sql_tables": 46,
+        "sql_writes": 0,
+        "source_sync": "source-sync-v2.json",
+        "source_sync_sha256": "b70e89462582e1a1938b317672aacd5df5da23d1a7abdb9c0f553d98619e568a",
+        "source_sync_scope": "The existing exact26 source paths exclude this Blade file and remain unchanged."
+    },
+    "predecessor_gate": {
+        "path": "tools/diagnostics/m76-anchor-postconditions-v2.php",
+        "sha256": "08fb1f397ef56a2595fca2573a5a171ae61f39fbb7ee602d2730e4b47bd7d2d2"
+    },
+    "preserved_private_receipt_pins": [
+        {
+            "file": "anchor-final-readonly-v1.json",
+            "sha256": "5f6c6f732b87d551e5107d9ab8934e4116d2d4c5e05eaff387aac341e18a162b"
+        },
+        {
+            "file": "registry-sentence-builders-v1.json",
+            "sha256": "aa63da001d96ed2e2a40999adbc2dd43bd9f251bce56345e4eb27ad24589a071"
+        },
+        {
+            "file": "after-old-consumers-v1.json",
+            "sha256": "0fe4d10992627885e80a1e8496cb9959bbfbcc6067071b2f0f640535580407a3"
+        }
+    ],
+    "boundaries": [
+        "No new author master/source/contract/audit revision.",
+        "No broad visual allowlist or arbitrary before/after hash combination.",
+        "No old script, source-sync record or private receipt is rewritten.",
+        "Browser visibility and interaction require separate actual-page evidence."
+    ]
+}

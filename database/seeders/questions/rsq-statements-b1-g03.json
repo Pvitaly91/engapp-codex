@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66094,
+        "uuid": "rsq-statements-b1-g03",
+        "question": "Felix said that he {a1} when the lights failed.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 62,
+        "source_id": 528,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechStatementsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "was cooking",
+                "were cooking",
+                "was cook"
+            ]
+        },
+        "theory_text_block_uuid": "3efac2f3-ac65-567e-8dfe-d6d1e701dd97",
+        "created_at": "2026-11-01T20:04:33.000000Z",
+        "updated_at": "2026-11-01T20:04:33.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 528,
+        "name": "Reported Speech Quality: Reported Statements",
+        "created_at": "2026-11-01T20:04:32.000000Z",
+        "updated_at": "2026-11-01T20:04:32.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 20499,
+                "option": "was cooking",
+                "created_at": "2026-05-17T17:31:54.000000Z",
+                "updated_at": "2026-05-17T17:31:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 66094,
+                "option_id": 20499,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67945,
+                "option": "were cooking",
+                "created_at": "2026-11-01T20:04:33.000000Z",
+                "updated_at": "2026-11-01T20:04:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 66094,
+                "option_id": 67945,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67946,
+                "option": "was cook",
+                "created_at": "2026-11-01T20:04:33.000000Z",
+                "updated_at": "2026-11-01T20:04:33.000000Z"
+            },
+            "pivot": {
+                "question_id": 66094,
+                "option_id": 67946,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340700,
+                "question_id": 66094,
+                "marker": "a1",
+                "option_id": 20499,
+                "created_at": "2026-11-01T20:04:33.000000Z",
+                "updated_at": "2026-11-01T20:04:33.000000Z"
+            },
+            "option": {
+                "id": 20499,
+                "option": "was cooking",
+                "created_at": "2026-05-17T17:31:54.000000Z",
+                "updated_at": "2026-05-17T17:31:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58034,
+                "question_id": 66094,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 67944,
+                "created_at": "2026-11-01T20:04:33.000000Z",
+                "updated_at": "2026-11-01T20:04:33.000000Z"
+            },
+            "option": {
+                "id": 67944,
+                "option": "Готував у той момент; передай процес під час іншої минулої події.",
+                "created_at": "2026-11-01T20:04:33.000000Z",
+                "updated_at": "2026-11-01T20:04:33.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58109,
+            "question_id": 66094,
+            "text": "Felix said that he {a1} when the lights failed.",
+            "created_at": "2026-11-01T20:04:33.000000Z",
+            "updated_at": "2026-11-01T20:04:33.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -74,22 +74,212 @@ function pct(a, b) {
 }
 
 function canonicalTestAnswer(value) {
-    return String(value ?? '')
-        .replace(/[‘’ʼ`]/g, "'")
-        .trim()
-        .replace(/\s+/g, ' ')
-        // Sentence-ending punctuation is optional when entering a word/answer.
-        // Keep internal punctuation, apostrophes and decimal separators intact.
-        .replace(/[.!?…]+$/u, '')
-        .trim()
-        .toLowerCase()
+    return EnglishAnswerVariants.normalize(value)
         .replace(/\bwill\s+not\b/g, "won't")
         .replace(/\bhave\s+not\b/g, "haven't")
         .replace(/\bhas\s+not\b/g, "hasn't")
         .replace(/\bhad\s+not\b/g, "hadn't");
 }
 
+// Registered finite builders use word slots even when an authored synonym or
+// a genuine contraction changes sentence length. Unknown banks, gap questions
+// and word-order groups retain their own policy. The historic function names
+// also support previously saved Present Perfect Passive payloads.
+function presentPerfectPassiveWordPolicy(question) {
+    const finite = question?.finite_word_slots;
+    const policy = finite || question?.pvq_word_slots;
+    if ((finite ? finite.schema !== 1 || finite.uuid !== question.uuid
+            : !/^pvq-present-perfect-(?:a1|a2|b1|b2|c1|c2)-c0[1-3]$/.test(String(question?.uuid || '')))
+        || String(question?.type) !== '4' || question?.presentation === 'sentence_reorder'
+        || !/^[a-f0-9]{64}$/.test(String(question?.psp_content_revision || ''))
+        || policy?.revision !== question.psp_content_revision
+        || policy.question !== question.question
+        || !Array.isArray(policy.answers) || !policy.answers.length
+        || policy.answers.some(word => typeof word !== 'string' || !word.trim() || /\s/.test(word))
+        || !Array.isArray(policy.sentences) || !policy.sentences.length
+        || JSON.stringify(policy.sentences) !== JSON.stringify(question.compose_accepted_sentences)
+        || EnglishAnswerVariants.normalize(policy.answers.join(' ')) !== EnglishAnswerVariants.normalize(policy.sentences[0])) return null;
+    return policy;
+}
+
+function presentPerfectPassiveWordPaths(question) {
+    const policy = presentPerfectPassiveWordPolicy(question);
+    if (!policy) return null;
+    const cache = presentPerfectPassiveWordPaths.cache ||= new WeakMap();
+    const signature = JSON.stringify(policy.sentences);
+    const cached = cache.get(policy);
+    if (cached?.signature === signature) return cached.paths;
+    const seen = new Set(), paths = [];
+    policy.sentences.forEach(sentence => EnglishAnswerVariants.variants(sentence).forEach(variant => {
+        const words = EnglishAnswerVariants.withoutSentencePunctuation(variant).split(/\s+/).filter(Boolean);
+        const key = EnglishAnswerVariants.normalize(words.join(' '));
+        if (words.length && !seen.has(key)) { seen.add(key); paths.push(words); }
+    }));
+    cache.set(policy, {signature, paths});
+    return paths;
+}
+
+function presentPerfectPassiveNextWords(question, slotIndex) {
+    const paths = presentPerfectPassiveWordPaths(question);
+    if (paths === null) return null;
+    if (!Number.isInteger(slotIndex) || slotIndex < 0) return [];
+    const before = Array.from({length: slotIndex}, (_, index) => question?.chosen?.[index]);
+    if (before.some(word => typeof word !== 'string' || !word.trim() || /\s/.test(word.trim()))) return [];
+    const normalize = EnglishAnswerVariants.normalize;
+    return [...new Set(paths.filter(words => words.length > slotIndex
+        && before.every((word, index) => normalize(word) === normalize(words[index])))
+        .map(words => words[slotIndex]))];
+}
+
+function syncPresentPerfectPassiveWordPath(question) {
+    const policy = presentPerfectPassiveWordPolicy(question), paths = presentPerfectPassiveWordPaths(question);
+    if (!policy || !paths) return false;
+    const chosen = [];
+    for (const word of question.chosen || []) {
+        if (word == null) break;
+        if (typeof word !== 'string' || !word.trim() || /\s/.test(word.trim())) return false;
+        chosen.push(word);
+    }
+    const normalize = EnglishAnswerVariants.normalize;
+    const candidates = paths.filter(words => chosen.length <= words.length
+        && chosen.every((word, index) => normalize(word) === normalize(words[index])));
+    const path = candidates.find(words => words.length === chosen.length) || candidates[0];
+    if (!path) return false;
+    // Keep authored punctuation/case for the canonical spelling; alternate
+    // paths still contain one real word per input and never an empty marker.
+    const answers = normalize(path.join(' ')) === normalize(policy.answers.join(' ')) ? [...policy.answers] : [...path];
+    const count = answers.length;
+    question.answers = answers;
+    question.answer = answers[0];
+    question.markers = answers.map((_, index) => `a${index + 1}`);
+    question.markers_count = count;
+    question.answer_map = Object.fromEntries(question.markers.map((marker, index) => [marker, answers[index]]));
+    question.chosen = answers.map((_, index) => chosen[index] ?? null);
+    for (const [key, fallback] of [['manualInputsBySlot', ''], ['manualWordIndexBySlot', 0], ['attemptsBySlot', 0],
+        ['lastWrongBySlot', null], ['wordSearchRequestBySlot', 0]]) {
+        const old = question[key] || [];
+        question[key] = answers.map((_, index) => old[index] ?? fallback);
+    }
+    question.wordSuggestionsBySlot = answers.map((_, index) => question.wordSuggestionsBySlot?.[index] || []);
+    question.activeSlot = Math.min(chosen.length, count - 1);
+    question.slot = question.activeSlot;
+    return true;
+}
+
+function presentPerfectPassiveWordChoices(question, slotIndex, existing) {
+    const allowed = presentPerfectPassiveNextWords(question, slotIndex);
+    if (allowed === null) return null;
+    const normalize = EnglishAnswerVariants.normalize, choices = [], seen = new Set();
+    const count = Math.max(4, new Set(allowed.map(normalize)).size);
+    for (const word of [...allowed, ...(existing || [])]) {
+        const clean = EnglishAnswerVariants.withoutSentencePunctuation(word);
+        if (!clean || /\s/.test(clean) || seen.has(normalize(clean))) continue;
+        seen.add(normalize(clean)); choices.push(clean);
+        if (choices.length === count) break;
+    }
+    // Stable within this prefix: numbered keyboard choices must keep the same
+    // order as the buttons, even when getActiveOptions is called again.
+    const key = `${question.uuid}|${slotIndex}|${(question.chosen || []).slice(0, slotIndex).join(' ')}`;
+    const rank = word => Array.from(`${key}|${word}`).reduce((hash, character) => Math.imul(hash ^ character.charCodeAt(0), 16777619) >>> 0, 2166136261);
+    return choices.sort((left, right) => rank(left) - rank(right) || left.localeCompare(right));
+}
+
+function restorePresentPerfectPassiveWordProgress(saved, fresh) {
+    const policy = presentPerfectPassiveWordPolicy(fresh);
+    if (!policy || saved?.uuid !== fresh.uuid || String(saved.type) !== '4' || saved.presentation === 'sentence_reorder') return null;
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    const previous = policy.previous_versions || (policy.previous ? [policy.previous] : []);
+    const old = previous.find(version => saved.question === version.question
+        && (!saved.psp_content_revision || saved.psp_content_revision === version.revision)
+        && same(saved.answers, version.answers) && same(saved.markers, version.markers));
+    const grouped = Boolean(old);
+    const current = saved.question === fresh.question && saved.psp_content_revision === fresh.psp_content_revision
+        && same(saved.finite_word_slots || saved.pvq_word_slots, policy);
+    if (!grouped && !current) return null;
+    // Already-current canonical snapshots need a content refresh, not a
+    // progress migration: preserve sparse arrays, retries and unfinished text.
+    if (current && same(saved.answers, fresh.answers) && same(saved.markers, fresh.markers)) return {};
+    const next = {...fresh, chosen: [], manualInputsBySlot: [], manualWordIndexBySlot: [], attemptsBySlot: [],
+        lastWrongBySlot: [], wordSuggestionsBySlot: [], wordSearchRequestBySlot: []};
+    let offset = 0, open = false;
+    for (let index = 0; index < saved.answers.length; index++) {
+        const value = saved.chosen?.[index];
+        const canonicalWords = String(saved.answers[index]).trim().split(/\s+/);
+        const words = value == null ? canonicalWords : EnglishAnswerVariants.withoutSentencePunctuation(value).split(/\s+/).filter(Boolean);
+        if (value != null && (open || !words.length)) return null;
+        if (value != null) next.chosen.push(...words);
+        else open = true;
+        const draft = value == null ? String(saved.manualInputsBySlot?.[index] || '').trim() : words.join(' ');
+        const drafts = draft ? draft.split(/\s+/) : [];
+        if (drafts.length > words.length) return null;
+        if (grouped && value == null && next.chosen.length === offset) {
+            const confirmed = Number(saved.manualWordIndexBySlot?.[index] || 0);
+            if (!Number.isInteger(confirmed) || confirmed < 0 || confirmed > drafts.length) return null;
+            next.chosen.push(...drafts.slice(0, confirmed));
+        }
+        drafts.forEach((word, part) => { next.manualInputsBySlot[offset + part] = word; });
+        next.attemptsBySlot[offset] = saved.attemptsBySlot?.[index] || 0;
+        next.lastWrongBySlot[offset] = saved.lastWrongBySlot?.[index] ?? null;
+        offset += words.length;
+    }
+    if (!syncPresentPerfectPassiveWordPath(next)) return null;
+    if (saved.done && next.chosen.some(word => word == null)) return null;
+    const fields = ['answers', 'answer', 'markers', 'markers_count', 'answer_map', 'chosen', 'manualInputsBySlot',
+        'manualWordIndexBySlot', 'attemptsBySlot', 'lastWrongBySlot', 'wordSuggestionsBySlot', 'wordSearchRequestBySlot', 'activeSlot', 'slot'];
+    const patch = Object.fromEntries(fields.map(key => [key, next[key]]));
+    if (saved.feedbackMeta && Number.isInteger(saved.feedbackMeta.slotIndex)) {
+        const before = saved.answers.slice(0, saved.feedbackMeta.slotIndex);
+        patch.feedbackMeta = {...saved.feedbackMeta, slotIndex: before.reduce((sum, answer) => sum + String(answer).trim().split(/\s+/).length, 0)};
+    }
+    return patch;
+}
+
+function composeSentenceChoiceMatches(question, slotIndex, value) {
+    const words = typeof presentPerfectPassiveNextWords === 'function' ? presentPerfectPassiveNextWords(question, slotIndex) : null;
+    if (words !== null) return !/\s/.test(String(value).trim()) && words.some(word => EnglishAnswerVariants.normalize(word) === EnglishAnswerVariants.normalize(value));
+    const sentences = question?.compose_accepted_sentences;
+    if (!['4', 'compose_tokens'].includes(String(question?.type)) || !Array.isArray(sentences) || !sentences.length) return true;
+    const before = Array.from({length: slotIndex}, (_, index) => question?.chosen?.[index]);
+    if (before.some(part => part == null || String(part).trim() === '')) return false;
+    const candidate = EnglishAnswerVariants.normalize([...before, value].join(' '));
+    if (!candidate) return false;
+    const last = slotIndex === (question?.answers?.length || 0) - 1;
+    return sentences.some(sentence => EnglishAnswerVariants.variants(sentence).some(variant => {
+        const expected = EnglishAnswerVariants.normalize(variant);
+        return last ? expected === candidate : (expected === candidate || expected.startsWith(`${candidate} `));
+    }));
+}
+
+// Exact finite opt-in for inverted question surfaces. Expanding an isolated
+// "isn't" before a visible subject would otherwise manufacture "is not she".
+// The server supplies reviewed complete marker spellings, not a grammar guess.
+function reviewedQuestionSurfaceAnswers(question, slotIndex) {
+    const policy = question?.qnq_strict_slot_surfaces;
+    if (!['0', '4'].includes(String(question?.type))
+        || !/^[a-f0-9]{64}$/.test(String(question?.psp_content_revision ?? ''))
+        || policy?.revision !== question.psp_content_revision
+        || !policy.answers_by_marker || typeof policy.answers_by_marker !== 'object'
+        || Array.isArray(policy.answers_by_marker)) return null;
+
+    const markers = Array.isArray(question.markers) ? question.markers : Object.keys(question.answer_map || {});
+    const marker = markers[slotIndex] || `a${slotIndex + 1}`;
+    const reviewed = policy.answers_by_marker[marker];
+    const expected = String(question.answers?.[slotIndex] ?? '').trim();
+    if (!Array.isArray(reviewed) || !reviewed.length || !expected
+        || reviewed.some(value => typeof value !== 'string' || !value.trim())
+        || !reviewed.some(value => EnglishAnswerVariants.normalize(value) === EnglishAnswerVariants.normalize(expected))) return null;
+
+    return [...new Set(reviewed.map(value => value.trim()))];
+}
+
 function acceptedTestAnswers(question, slotIndex) {
+    const words = typeof presentPerfectPassiveNextWords === 'function' ? presentPerfectPassiveNextWords(question, slotIndex) : null;
+    if (words !== null) return words;
+    const reviewed = typeof reviewedQuestionSurfaceAnswers === 'function'
+        ? reviewedQuestionSurfaceAnswers(question, slotIndex) : null;
+    if (reviewed !== null) {
+        return reviewed.filter(value => composeSentenceChoiceMatches(question, slotIndex, value));
+    }
     const markers = Array.isArray(question?.markers)
         ? question.markers
         : Object.keys(question?.answer_map || {});
@@ -111,7 +301,8 @@ function acceptedTestAnswers(question, slotIndex) {
 
     return variants
         .map((variant) => String(variant ?? '').trim())
-        .filter((variant, index, all) => variant !== '' && all.indexOf(variant) === index);
+        .filter((variant, index, all) => variant !== '' && all.indexOf(variant) === index
+            && composeSentenceChoiceMatches(question, slotIndex, variant));
 }
 
 function testAnswerMatches(question, slotIndex, value) {
@@ -121,18 +312,41 @@ function testAnswerMatches(question, slotIndex, value) {
         .some((accepted) => EnglishAnswerVariants.normalize(accepted) === EnglishAnswerVariants.normalize(value));
 }
 
+function isPassivePhraseGapQuestion(question, requireWordInputs = false) {
+    return question?.passive_gap_phrase_input === true
+        && /^[a-f0-9]{64}$/.test(String(question.psp_content_revision || ''))
+        && String(question.type) === '0'
+        && question.presentation !== 'sentence_reorder'
+        && (!requireWordInputs || question.passive_phrase_word_inputs === true);
+}
+
+function isReviewedComposePhraseSlot(question, slotIndex = Number(question?.activeSlot ?? 0)) {
+    if (String(question?.type) !== '4'
+        || !/^[a-f0-9]{64}$/.test(String(question?.psp_content_revision ?? ''))
+        || !/^[a-f0-9]{64}$/.test(String(question?.compose_content_revision ?? ''))
+        || !Array.isArray(question?.compose_accepted_sentences) || !question.compose_accepted_sentences.length
+        || !Array.isArray(question?.answers) || !Number.isInteger(slotIndex)
+        || slotIndex < 0 || slotIndex >= question.answers.length) return false;
+
+    return /\s/.test(String(question.answers[slotIndex]).trim())
+        || acceptedTestAnswers(question, slotIndex).some(answer => /\s/.test(String(answer).trim()));
+}
+
+function normalizeManualGapInput(question, value, slotIndex = Number(question?.activeSlot ?? 0)) {
+    const text = String(value ?? '');
+    return isPassivePhraseGapQuestion(question) || isReviewedComposePhraseSlot(question, slotIndex)
+        ? text.replace(/\s+/g, ' ') : text.replace(/\s+/g, '');
+}
+
 function composeManualAnswerWords(question, slotIndex) {
     const expected = String(question?.answers?.[slotIndex] ?? '').trim();
+    const phraseWords = isPassivePhraseGapQuestion(question, true);
     const wordIndex = Number(question?.manualWordIndexBySlot?.[slotIndex] || 0);
     if (!Number.isInteger(wordIndex) || wordIndex <= 0) {
-        return [expected];
+        return phraseWords ? expected.split(/\s+/).filter(Boolean) : [expected];
     }
 
-    const normalize = (value) => String(value ?? '')
-        .replace(/[‘’ʼ`]/g, "'")
-        .trim()
-        .replace(/\s+/g, ' ')
-        .toLowerCase();
+    const normalize = EnglishAnswerVariants.normalize;
     const confirmedWords = normalize(question?.manualInputsBySlot?.[slotIndex])
         .split(' ')
         .slice(0, wordIndex)
@@ -146,10 +360,64 @@ function composeManualAnswerWords(question, slotIndex) {
     const words = String(matching ?? expected).split(/\s+/).filter(Boolean);
 
     // Keep markers/options unchanged: extra inputs belong to the same answer.
-    return words.length ? words.slice(0, wordIndex + 1) : [''];
+    return words.length ? (phraseWords ? words : words.slice(0, wordIndex + 1)) : [''];
+}
+
+// Only exact server-decorated finite rows hide sentence punctuation in button captions.
+// Raw options remain untouched for click handling, aliases, grading and saved progress.
+function finitePracticeOptionCaption(question, value) {
+    const raw = String(value ?? '');
+    const revision = String(question?.psp_content_revision ?? '');
+    const uuid = String(question?.uuid ?? '');
+    const ownsAdjectives = /^aaq-(?:adverbs|degrees|comparative|equality|order|eding|intensifiers)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.aaq_option_caption_revision === revision;
+    const ownsSomeAny = /^saq-(?:people|places|things)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.saq_option_caption_revision === revision;
+    const ownsPassiveVoice = /^pvq-(?:formation|causative|mistakes|style|get|impersonal|modals|negatives|phrasal|restrictions|two-object|gerund|infinitive|agent|future-continuous|future-perfect|future-simple|past-continuous|past-perfect|past-simple|present-continuous|present-perfect|present-simple|advanced|reporting|complex-causative|complex-impersonal)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.pvq_option_caption_revision === revision;
+    const ownsModalVerbs = /^mvq-(?:cc|mm|mht|sot|need|ded|past|requests|perfect|subtle)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.mvq_option_caption_revision === revision;
+    const ownsConditionals = /^cqq-(?:zero|first|second|third|mixed|unless|case|wish|rather|better|conditions|advanced|alternatives)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.cqq_option_caption_revision === revision;
+    const ownsReportedSpeech = /^rsq-(?:statements|questions|commands|backshift|timeplace|saytell|advanced)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.rsq_option_caption_revision === revision;
+    const ownsClausesLinking = /^clq-(?:relative|defining|nondefining|omitting|whosewhich|reason|result|contrast|purpose|linking|reasonresult|advanced|concessive|partbasics|participle|absolute|discourse)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.clq_option_caption_revision === revision;
+    const ownsPrepositionsPhrasal = /^ppq-(?:time|place|movement|dependent|basics|separable|common)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.ppq_option_caption_revision === revision;
+    const ownsCommonMistakes = /^cmq-(?:articles|perfect|countable|prepositions|traps)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.cmq_option_caption_revision === revision;
+    const ownsSentenceTransformations = /^stq-(?:tenses|modals|passive|reported|conditionals|clauses|articles)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.stq_option_caption_revision === revision;
+    const ownsVerbPatterns = /^vpq-(?:gerund|to|bare|contrast|verbs-gerund|verbs-infinitive|meaning|used|advanced)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.vpq_option_caption_revision === revision;
+    const ownsMixedRevision = /^mrq-(?:a1|a2|b1|b2|c1|c2)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.mrq_option_caption_revision === revision;
+    const ownsAcademicEnglish = /^aeq-(?:hcb|hed|sta|arg)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.aeq_option_caption_revision === revision;
+    const ownsArticlesQuantifiers = /^aqv-(?:aqn|pad)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.aqv_option_caption_revision === revision;
+    const ownsFormalEnglish = /^feq-(?:bas|nom|ton|par|sub|sty)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.feq_option_caption_revision === revision;
+    const ownsRelativeClauses = /^rcq-(?:crc)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.rcq_option_caption_revision === revision;
+    const ownsSentenceStructure = /^ssq-(?:csb|cse|esr|cnp)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.ssq_option_caption_revision === revision;
+    const ownsVocabCollocations = /^vcq-(?:aclc)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+        && question?.vcq_option_caption_revision === revision;
+    const supported = (String(question?.type) === '0' && question?.presentation === 'sentence_reorder')
+        || (String(question?.type) === '4' && question?.compose_content_revision === revision);
+    if (!(ownsAdjectives || ownsSomeAny || ownsPassiveVoice || ownsModalVerbs || ownsConditionals || ownsReportedSpeech || ownsClausesLinking || ownsPrepositionsPhrasal || ownsCommonMistakes || ownsSentenceTransformations || ownsVerbPatterns || ownsMixedRevision || ownsAcademicEnglish || ownsArticlesQuantifiers || ownsFormalEnglish || ownsRelativeClauses || ownsSentenceStructure || ownsVocabCollocations) || !supported || !/^[a-f0-9]{64}$/.test(revision) || !raw.trim()
+        || typeof EnglishAnswerVariants?.withoutSentencePunctuation !== 'function') return raw;
+    return EnglishAnswerVariants.withoutSentencePunctuation(raw);
 }
 
 function formatAnswerOptionLabel(question, slotIndex, option) {
+    if (typeof presentPerfectPassiveWordPolicy === 'function' && presentPerfectPassiveWordPolicy(question)) {
+        return EnglishAnswerVariants.withoutSentencePunctuation(option);
+    }
+    const caption = value => typeof finitePracticeOptionCaption === 'function'
+        ? finitePracticeOptionCaption(question, value) : String(value ?? '');
     const markers = Array.isArray(question?.markers)
         ? question.markers
         : Object.keys(question?.answer_map || {});
@@ -157,7 +425,7 @@ function formatAnswerOptionLabel(question, slotIndex, option) {
     const expected = String(question?.answers?.[slotIndex] ?? '').trim();
 
     if (canonicalTestAnswer(option) !== canonicalTestAnswer(expected)) {
-        return String(option ?? '');
+        return caption(option);
     }
 
     const configuredTokens = question?.answer_synonym_tokens_by_marker?.[marker];
@@ -170,7 +438,7 @@ function formatAnswerOptionLabel(question, slotIndex, option) {
                     .find(([canonical]) => canonicalTestAnswer(canonical) === canonicalTestAnswer(token));
 
                 if (!entry || !Array.isArray(entry[1])) {
-                    return token;
+                    return caption(token);
                 }
 
                 const aliases = entry[1]
@@ -179,14 +447,14 @@ function formatAnswerOptionLabel(question, slotIndex, option) {
                         && canonicalTestAnswer(synonym) !== canonicalTestAnswer(token)
                         && all.findIndex((candidate) => canonicalTestAnswer(candidate) === canonicalTestAnswer(synonym)) === index);
 
-                return aliases.length > 0 ? `${token} (${aliases.join(', ')})` : token;
+                return aliases.length > 0 ? `${caption(token)} (${aliases.map(caption).join(', ')})` : caption(token);
             })
             .join('');
     }
 
     const configured = question?.answer_synonyms_by_marker?.[marker];
     if (!Array.isArray(configured)) {
-        return String(option ?? '');
+        return caption(option);
     }
 
     const synonyms = configured
@@ -196,8 +464,8 @@ function formatAnswerOptionLabel(question, slotIndex, option) {
             && all.findIndex((candidate) => canonicalTestAnswer(candidate) === canonicalTestAnswer(synonym)) === index);
 
     return synonyms.length > 0
-        ? `${option} (${synonyms.join(', ')})`
-        : String(option ?? '');
+        ? `${caption(option)} (${synonyms.map(caption).join(', ')})`
+        : caption(option);
 }
 
 function html(str) {
@@ -207,6 +475,95 @@ function html(str) {
         .replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#039;');
+}
+
+// Use the exact category or finite builder authorship, never the URL or lesson text.
+function isPastPerfectContinuousQuestion(q) {
+    if (typeof q?.is_past_perfect_continuous === 'boolean') return q.is_past_perfect_continuous;
+    if (String(q?.tense ?? '').split('/').pop().trim().toLowerCase() === 'past perfect continuous') return true;
+    const seeder = String(q?.tech_info?.seeder?.class ?? q?.seeder ?? '');
+    return [
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousFormsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousNegativesAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousQuestionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousTimeExpressionsAllLevelsLessonSeeder',
+        'Database\\Seeders\\V3\\Polyglot\\PolyglotPastPerfectContinuousBasicsB2LessonSeeder',
+    ].includes(seeder);
+}
+
+function clearManualAnswerFeedbackOnEdit(q, slotIndex, wordIndex) {
+    const meta = q?.feedbackMeta;
+    if ((!isPastPerfectContinuousQuestion(q) && !isPassivePhraseGapQuestion(q)) || q.done || meta?.result !== 'incorrect'
+        || meta.slotIndex !== slotIndex
+        || (Number.isInteger(meta.wordIndex) && meta.wordIndex !== wordIndex)) return false;
+
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    if (Array.isArray(q.lastWrongBySlot)) q.lastWrongBySlot[slotIndex] = null;
+    // Keep attempts and wrongAttempt: editing is not a new first attempt.
+    return true;
+}
+
+// Older snapshots can contain a canonical answer silently revealed after two
+// mistakes. Reopen only a slot for which the recorded submission proves this.
+function restoreSavedPpcRetryState(q) {
+    const meta = q?.feedbackMeta;
+    const slot = meta?.slotIndex;
+    if (!isPastPerfectContinuousQuestion(q) || meta?.result !== 'incorrect'
+        || !Array.isArray(q.answers) || !Array.isArray(q.chosen)
+        || !Number.isInteger(slot) || slot < 0 || slot >= (q.answers?.length ?? 0)
+        || meta.wordIndex !== null || typeof q.done !== 'boolean' || !q.wrongAttempt || !q.chosen?.[slot]
+        || !testAnswerMatches(q, slot, q.chosen[slot])
+        || !String(meta.submittedAnswer ?? '').trim()
+        || testAnswerMatches(q, slot, meta.submittedAnswer)) return false;
+
+    q.chosen[slot] = null;
+    q.activeSlot = slot;
+    q.done = false;
+    q.wrongAttempt = true;
+    q.manualInputsBySlot[slot] = '';
+    q.manualWordIndexBySlot[slot] = 0;
+    q.attemptsBySlot[slot] = Math.max(2, Number(q.attemptsBySlot[slot]) || 0);
+    q.lastWrongBySlot[slot] = meta.submittedAnswer;
+    q.feedback = '';
+    q.feedbackMeta = null;
+    q.explanation = '';
+    q.pendingExplanationKey = null;
+    return true;
+}
+
+// Authored PPC help is a disclosure, never part of the translation heading.
+function getAuthoredComposeHelpText(q) {
+    return String(q?.type ?? '') === '4'
+        && /^[a-f0-9]{64}$/.test(String(q?.compose_content_revision ?? ''))
+        && typeof q?.hint === 'string'
+        ? q.hint.trim()
+        : '';
+}
+
+function renderAuthoredComposeHelp(q) {
+    const hint = getAuthoredComposeHelpText(q);
+    return hint
+        ? `<p data-authored-compose-hint class="text-sm text-gray-600 whitespace-pre-line leading-normal font-normal">${html(hint)}</p>`
+        : '';
+}
+
+function toggleAuthoredComposeHelp(q, panelId, button) {
+    if (!getAuthoredComposeHelpText(q)) return false;
+    const panel = document.getElementById(panelId);
+    if (!panel) return true;
+    const opened = !panel.hasAttribute('data-authored-compose-help-open');
+    panel.innerHTML = opened ? renderAuthoredComposeHelp(q) : '';
+    panel.toggleAttribute('data-authored-compose-help-open', opened);
+    if (button) {
+        button.setAttribute('aria-expanded', String(opened));
+        button.setAttribute('aria-controls', panelId);
+        const label = button.querySelector('[data-authored-compose-help-label]');
+        if (label) label.textContent = testUi(opened ? 'question.hide_help' : 'question.show_help');
+    }
+    return true;
 }
 
 function techInfoUi(key, fallback = '') {
@@ -1170,6 +1527,36 @@ let JS_TEST_SAVE_TIMER = null;
 let JS_TEST_SAVE_QUEUE = Promise.resolve();
 let JS_TEST_LAST_SNAPSHOT = null;
 let JS_TEST_RESTARTING = false;
+let JS_TEST_CONFIRMED_MODAL_SNAPSHOT = null;
+let JS_TEST_MODAL_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_CONDITIONALS_SNAPSHOT = null;
+let JS_TEST_CONDITIONALS_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_REPORTED_SPEECH_SNAPSHOT = null;
+let JS_TEST_REPORTED_SPEECH_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_CLAUSES_LINKING_SNAPSHOT = null;
+let JS_TEST_CLAUSES_LINKING_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_PREPOSITIONS_PHRASAL_SNAPSHOT = null;
+let JS_TEST_PREPOSITIONS_PHRASAL_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_COMMON_MISTAKES_SNAPSHOT = null;
+let JS_TEST_COMMON_MISTAKES_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_SENTENCE_TRANSFORMATIONS_SNAPSHOT = null;
+let JS_TEST_SENTENCE_TRANSFORMATIONS_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_VERB_PATTERNS_SNAPSHOT = null;
+let JS_TEST_VERB_PATTERNS_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_MIXED_REVISION_SNAPSHOT = null;
+let JS_TEST_MIXED_REVISION_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_ACADEMIC_ENGLISH_SNAPSHOT = null;
+let JS_TEST_ACADEMIC_ENGLISH_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_ARTICLES_QUANTIFIERS_SNAPSHOT = null;
+let JS_TEST_ARTICLES_QUANTIFIERS_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_FORMAL_ENGLISH_SNAPSHOT = null;
+let JS_TEST_FORMAL_ENGLISH_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_RELATIVE_CLAUSES_SNAPSHOT = null;
+let JS_TEST_RELATIVE_CLAUSES_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_SENTENCE_STRUCTURE_SNAPSHOT = null;
+let JS_TEST_SENTENCE_STRUCTURE_RECOVERY_WARNED = false;
+let JS_TEST_CONFIRMED_VOCAB_COLLOCATIONS_SNAPSHOT = null;
+let JS_TEST_VOCAB_COLLOCATIONS_RECOVERY_WARNED = false;
 
 if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
     JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
@@ -1226,7 +1613,760 @@ function readLocalJsTestState() {
     return selected ? cloneState(selected) : null;
 }
 
-function writeLocalJsTestState(state) {
+function isModalLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:mvq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnModalLocalRecovery(destination) {
+    if (JS_TEST_MODAL_RECOVERY_WARNED) return;
+    JS_TEST_MODAL_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Modal Verbs progress was confirmed in ${destination}.`);
+}
+
+function isConditionalsLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:cqq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnConditionalsLocalRecovery(destination) {
+    if (JS_TEST_CONDITIONALS_RECOVERY_WARNED) return;
+    JS_TEST_CONDITIONALS_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Conditionals progress was confirmed in ${destination}.`);
+}
+
+// Canonical content is restored by mergeFreshQuestionContentIntoSavedState().
+// Only exact current MVQ rows may omit it locally; every learner/unknown field stays intact.
+function compactModalLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isModalLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^mvq-(?:cc|mm|mht|sot|need|ded|past|requests|perfect|subtle)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.mvq_option_caption_revision !== revision || item.mvq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+// Separate finite Conditionals binding; the accepted MVQ compactor stays unchanged.
+function compactConditionalsLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isConditionalsLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^cqq-(?:zero|first|second|third|mixed|unless|case|wish|rather|better|conditions|advanced|alternatives)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.cqq_option_caption_revision !== revision || item.cqq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function compactReportedSpeechLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isReportedSpeechLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^rsq-(?:statements|questions|commands|backshift|timeplace|saytell|advanced)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.rsq_option_caption_revision !== revision || item.rsq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isReportedSpeechLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:rsq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnReportedSpeechLocalRecovery(destination) {
+    if (JS_TEST_REPORTED_SPEECH_RECOVERY_WARNED) return;
+    JS_TEST_REPORTED_SPEECH_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Reported Speech progress was confirmed in ${destination}.`);
+}
+
+function compactClausesLinkingLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isClausesLinkingLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^clq-(?:relative|defining|nondefining|omitting|whosewhich|reason|result|contrast|purpose|linking|reasonresult|advanced|concessive|partbasics|participle|absolute|discourse)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.clq_option_caption_revision !== revision || item.clq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isClausesLinkingLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:clq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnClausesLinkingLocalRecovery(destination) {
+    if (JS_TEST_CLAUSES_LINKING_RECOVERY_WARNED) return;
+    JS_TEST_CLAUSES_LINKING_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Clauses and Linking Words progress was confirmed in ${destination}.`);
+}
+
+function compactPrepositionsPhrasalLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isPrepositionsPhrasalLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^ppq-(?:time|place|movement|dependent|basics|separable|common)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.ppq_option_caption_revision !== revision || item.ppq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isPrepositionsPhrasalLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:ppq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnPrepositionsPhrasalLocalRecovery(destination) {
+    if (JS_TEST_PREPOSITIONS_PHRASAL_RECOVERY_WARNED) return;
+    JS_TEST_PREPOSITIONS_PHRASAL_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Prepositions and Phrasal Verbs progress was confirmed in ${destination}.`);
+}
+
+function compactAcademicEnglishLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isAcademicEnglishLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aeq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^aeq-(?:hcb|hed|sta|arg)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.aeq_option_caption_revision !== revision || item.aeq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isAcademicEnglishLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:aeq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnAcademicEnglishLocalRecovery(destination) {
+    if (JS_TEST_ACADEMIC_ENGLISH_RECOVERY_WARNED) return;
+    JS_TEST_ACADEMIC_ENGLISH_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Academic English progress was confirmed in ${destination}.`);
+}
+
+function compactArticlesQuantifiersLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isArticlesQuantifiersLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aqv_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^aqv-(?:aqn|pad)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.aqv_option_caption_revision !== revision || item.aqv_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isArticlesQuantifiersLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:aqv-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnArticlesQuantifiersLocalRecovery(destination) {
+    if (JS_TEST_ARTICLES_QUANTIFIERS_RECOVERY_WARNED) return;
+    JS_TEST_ARTICLES_QUANTIFIERS_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Articles and Quantifiers progress was confirmed in ${destination}.`);
+}
+
+function compactFormalEnglishLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isFormalEnglishLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'feq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^feq-(?:bas|nom|ton|par|sub|sty)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.feq_option_caption_revision !== revision || item.feq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isFormalEnglishLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:feq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnFormalEnglishLocalRecovery(destination) {
+    if (JS_TEST_FORMAL_ENGLISH_RECOVERY_WARNED) return;
+    JS_TEST_FORMAL_ENGLISH_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Formal English progress was confirmed in ${destination}.`);
+}
+
+function compactRelativeClausesLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isRelativeClausesLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'rcq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^rcq-(?:crc)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.rcq_option_caption_revision !== revision || item.rcq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isRelativeClausesLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:rcq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnRelativeClausesLocalRecovery(destination) {
+    if (JS_TEST_RELATIVE_CLAUSES_RECOVERY_WARNED) return;
+    JS_TEST_RELATIVE_CLAUSES_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Relative Clauses progress was confirmed in ${destination}.`);
+}
+
+function compactSentenceStructureLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isSentenceStructureLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'ssq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^ssq-(?:csb|cse|esr|cnp)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.ssq_option_caption_revision !== revision || item.ssq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isSentenceStructureLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:ssq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnSentenceStructureLocalRecovery(destination) {
+    if (JS_TEST_SENTENCE_STRUCTURE_RECOVERY_WARNED) return;
+    JS_TEST_SENTENCE_STRUCTURE_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Sentence Structure progress was confirmed in ${destination}.`);
+}
+
+function compactVocabCollocationsLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isVocabCollocationsLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'vcq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^vcq-(?:aclc)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.vcq_option_caption_revision !== revision || item.vcq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isVocabCollocationsLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:vcq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnVocabCollocationsLocalRecovery(destination) {
+    if (JS_TEST_VOCAB_COLLOCATIONS_RECOVERY_WARNED) return;
+    JS_TEST_VOCAB_COLLOCATIONS_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Vocabulary and Collocations progress was confirmed in ${destination}.`);
+}
+
+function compactMixedRevisionLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isMixedRevisionLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^mrq-(?:a1|a2|b1|b2|c1|c2)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.mrq_option_caption_revision !== revision || item.mrq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isMixedRevisionLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:mrq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnMixedRevisionLocalRecovery(destination) {
+    if (JS_TEST_MIXED_REVISION_RECOVERY_WARNED) return;
+    JS_TEST_MIXED_REVISION_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Mixed Revision progress was confirmed in ${destination}.`);
+}
+
+function compactVerbPatternsLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isVerbPatternsLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^vpq-(?:gerund|to|bare|contrast|verbs-gerund|verbs-infinitive|meaning|used|advanced)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.vpq_option_caption_revision !== revision || item.vpq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isVerbPatternsLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:vpq-[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnVerbPatternsLocalRecovery(destination) {
+    if (JS_TEST_VERB_PATTERNS_RECOVERY_WARNED) return;
+    JS_TEST_VERB_PATTERNS_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Verb Patterns progress was confirmed in ${destination}.`);
+}
+
+function compactCommonMistakesLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isCommonMistakesLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^cmq-(?:articles|perfect|countable|prepositions|traps)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.cmq_option_caption_revision !== revision || item.cmq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isCommonMistakesLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:cmq-(?:parent-)?[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnCommonMistakesLocalRecovery(destination) {
+    if (JS_TEST_COMMON_MISTAKES_RECOVERY_WARNED) return;
+    JS_TEST_COMMON_MISTAKES_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Common Mistakes progress was confirmed in ${destination}.`);
+}
+
+function compactSentenceTransformationsLocalJsState(state, storageKey, mode) {
+    const snapshot = cloneState(state);
+    if (!isSentenceTransformationsLocalJsStorageScope(storageKey, mode) || !snapshot || !Array.isArray(snapshot.items)) return snapshot;
+    const fresh = new Map(), duplicate = new Set();
+    getTechnicalQuestions().forEach(question => {
+        const uuid = String(question?.uuid || '');
+        if (fresh.has(uuid)) duplicate.add(uuid);
+        fresh.set(uuid, question);
+    });
+    const fields = [
+        'type', 'question', 'answer', 'answers', 'answer_map', 'accepted_answers', 'accepted_answers_by_marker',
+        'answer_synonyms_by_marker', 'answer_synonym_tokens_by_marker', 'compose_accepted_sentences',
+        'markers', 'markers_count', 'contraction_slots_version', 'options_by_marker', 'verb_hint', 'verb_hints',
+        'options', 'tense', 'is_past_perfect_continuous', 'level', 'theory_block', 'theory_blocks', 'marker_tags', 'tech_info',
+        'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+        'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question',
+        'reorder_template_constraint', 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
+        'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question',
+        'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces',
+        'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision',
+    ];
+    const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+    snapshot.items = snapshot.items.map(item => {
+        const uuid = String(item?.uuid || ''), current = fresh.get(uuid), revision = String(item?.psp_content_revision || '');
+        if (!item || typeof item !== 'object' || duplicate.has(uuid)
+            || !/^stq-(?:tenses|modals|passive|reported|conditionals|clauses|articles)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
+            || !current || !/^[a-f0-9]{64}$/.test(revision) || current.psp_content_revision !== revision
+            || current.stq_option_caption_revision !== revision || item.stq_option_caption_revision !== revision
+            || item.type !== current.type || item.question !== current.question || !same(item.answer_map, current.answer_map)
+            || (item.contraction_slots_version === 1 && current.contraction_slots_version !== 1)) return item;
+        fields.forEach(field => {
+            if (Object.prototype.hasOwnProperty.call(current, field) && Object.prototype.hasOwnProperty.call(item, field)
+                && same(item[field], current[field])) delete item[field];
+        });
+        return item;
+    });
+    return snapshot;
+}
+
+function isSentenceTransformationsLocalJsStorageScope(storageKey, mode) {
+    return ['saved-test-js-v2', 'saved-test-js-step-v2'].includes(String(mode || ''))
+        && /^gramlyze:js-test-state:v2:[a-f0-9]{64}:stq-(?:parent-)?[a-f0-9]{20}$/.test(String(storageKey || ''));
+}
+
+function warnSentenceTransformationsLocalRecovery(destination) {
+    if (JS_TEST_SENTENCE_TRANSFORMATIONS_RECOVERY_WARNED) return;
+    JS_TEST_SENTENCE_TRANSFORMATIONS_RECOVERY_WARNED = true;
+    console.warn(`Browser test storage is unavailable; current Sentence Transformations progress was confirmed in ${destination}.`);
+}
+
+function writeLocalJsTestState(state, deferModalErrors = false) {
     if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.storageKey || !isStartedState(state)) {
         return;
     }
@@ -1236,7 +2376,50 @@ function writeLocalJsTestState(state) {
         ? JS_TEST_PERSISTENCE.storageKeys
         : [primaryKey];
     const legacyKeys = storageKeys.filter((key) => key !== primaryKey);
-    const localState = cloneState(state);
+    const modalScope = isModalLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const conditionalsScope = typeof isConditionalsLocalJsStorageScope === 'function'
+        && isConditionalsLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const reportedSpeechScope = typeof isReportedSpeechLocalJsStorageScope === 'function'
+        && isReportedSpeechLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const clausesLinkingScope = typeof isClausesLinkingLocalJsStorageScope === 'function'
+        && isClausesLinkingLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const prepositionsPhrasalScope = typeof isPrepositionsPhrasalLocalJsStorageScope === 'function'
+        && isPrepositionsPhrasalLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const commonMistakesScope = typeof isCommonMistakesLocalJsStorageScope === 'function'
+        && isCommonMistakesLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const sentenceTransformationsScope = typeof isSentenceTransformationsLocalJsStorageScope === 'function'
+        && isSentenceTransformationsLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const verbPatternsScope = typeof isVerbPatternsLocalJsStorageScope === 'function'
+        && isVerbPatternsLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const mixedRevisionScope = typeof isMixedRevisionLocalJsStorageScope === 'function'
+        && isMixedRevisionLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const academicEnglishScope = typeof isAcademicEnglishLocalJsStorageScope === 'function'
+        && isAcademicEnglishLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const articlesQuantifiersScope = typeof isArticlesQuantifiersLocalJsStorageScope === 'function'
+        && isArticlesQuantifiersLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const formalEnglishScope = typeof isFormalEnglishLocalJsStorageScope === 'function'
+        && isFormalEnglishLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const relativeClausesScope = typeof isRelativeClausesLocalJsStorageScope === 'function'
+        && isRelativeClausesLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const sentenceStructureScope = typeof isSentenceStructureLocalJsStorageScope === 'function'
+        && isSentenceStructureLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const vocabCollocationsScope = typeof isVocabCollocationsLocalJsStorageScope === 'function'
+        && isVocabCollocationsLocalJsStorageScope(primaryKey, JS_TEST_PERSISTENCE.mode);
+    const localState = vocabCollocationsScope ? compactVocabCollocationsLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : sentenceStructureScope ? compactSentenceStructureLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : relativeClausesScope ? compactRelativeClausesLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : formalEnglishScope ? compactFormalEnglishLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : articlesQuantifiersScope ? compactArticlesQuantifiersLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : academicEnglishScope ? compactAcademicEnglishLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : mixedRevisionScope ? compactMixedRevisionLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : verbPatternsScope ? compactVerbPatternsLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : modalScope ? compactModalLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (conditionalsScope ? compactConditionalsLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (reportedSpeechScope ? compactReportedSpeechLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (clausesLinkingScope ? compactClausesLinkingLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (prepositionsPhrasalScope ? compactPrepositionsPhrasalLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (commonMistakesScope ? compactCommonMistakesLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode)
+        : (sentenceTransformationsScope ? compactSentenceTransformationsLocalJsState(state, primaryKey, JS_TEST_PERSISTENCE.mode) : cloneState(state)))))));
 
     if (localState?.__meta && typeof localState.__meta === 'object') {
         delete localState.__meta.question_data;
@@ -1246,6 +2429,71 @@ function writeLocalJsTestState(state) {
         saved_at: new Date().toISOString(),
         state: localState,
     });
+    if (modalScope || conditionalsScope || reportedSpeechScope || clausesLinkingScope || prepositionsPhrasalScope || commonMistakesScope || sentenceTransformationsScope || verbPatternsScope || mixedRevisionScope || academicEnglishScope || articlesQuantifiersScope || formalEnglishScope || relativeClausesScope || sentenceStructureScope || vocabCollocationsScope) {
+        const failures = [];
+        try {
+            window.localStorage.setItem(primaryKey, payload);
+            if (window.localStorage.getItem(primaryKey) !== payload) throw new Error('Modal local progress write was not confirmed');
+            return { modalStored: 'local' };
+        } catch (error) { failures.push(error); }
+        try {
+            window.sessionStorage.setItem(primaryKey, payload);
+            if (window.sessionStorage.getItem(primaryKey) !== payload) throw new Error('Modal session progress write was not confirmed');
+            if (conditionalsScope) warnConditionalsLocalRecovery('session storage');
+            else if (reportedSpeechScope) warnReportedSpeechLocalRecovery('session storage');
+            else if (clausesLinkingScope) warnClausesLinkingLocalRecovery('session storage');
+            else if (prepositionsPhrasalScope) warnPrepositionsPhrasalLocalRecovery('session storage');
+            else if (commonMistakesScope) warnCommonMistakesLocalRecovery('session storage');
+            else if (sentenceTransformationsScope) warnSentenceTransformationsLocalRecovery('session storage');
+            else if (verbPatternsScope) warnVerbPatternsLocalRecovery('session storage');
+            else if (mixedRevisionScope) warnMixedRevisionLocalRecovery('session storage');
+            else if (academicEnglishScope) warnAcademicEnglishLocalRecovery('session storage');
+            else if (articlesQuantifiersScope) warnArticlesQuantifiersLocalRecovery('session storage');
+            else if (formalEnglishScope) warnFormalEnglishLocalRecovery('session storage');
+            else if (relativeClausesScope) warnRelativeClausesLocalRecovery('session storage');
+            else if (sentenceStructureScope) warnSentenceStructureLocalRecovery('session storage');
+            else if (vocabCollocationsScope) warnVocabCollocationsLocalRecovery('session storage');
+            else warnModalLocalRecovery('session storage');
+            return { modalStored: 'session' };
+        } catch (error) { failures.push(error); }
+        // Do not remove any current, legacy, course, preference or other-topic keys.
+        // A server recovery may downgrade the warning only after a successful response.
+        const confirmedSnapshot = vocabCollocationsScope ? JS_TEST_CONFIRMED_VOCAB_COLLOCATIONS_SNAPSHOT
+            : sentenceStructureScope ? JS_TEST_CONFIRMED_SENTENCE_STRUCTURE_SNAPSHOT
+            : relativeClausesScope ? JS_TEST_CONFIRMED_RELATIVE_CLAUSES_SNAPSHOT
+            : formalEnglishScope ? JS_TEST_CONFIRMED_FORMAL_ENGLISH_SNAPSHOT
+            : articlesQuantifiersScope ? JS_TEST_CONFIRMED_ARTICLES_QUANTIFIERS_SNAPSHOT
+            : academicEnglishScope ? JS_TEST_CONFIRMED_ACADEMIC_ENGLISH_SNAPSHOT
+            : mixedRevisionScope ? JS_TEST_CONFIRMED_MIXED_REVISION_SNAPSHOT
+            : verbPatternsScope ? JS_TEST_CONFIRMED_VERB_PATTERNS_SNAPSHOT
+            : conditionalsScope ? JS_TEST_CONFIRMED_CONDITIONALS_SNAPSHOT
+            : (reportedSpeechScope ? JS_TEST_CONFIRMED_REPORTED_SPEECH_SNAPSHOT
+            : (clausesLinkingScope ? JS_TEST_CONFIRMED_CLAUSES_LINKING_SNAPSHOT
+            : (prepositionsPhrasalScope ? JS_TEST_CONFIRMED_PREPOSITIONS_PHRASAL_SNAPSHOT
+            : (commonMistakesScope ? JS_TEST_CONFIRMED_COMMON_MISTAKES_SNAPSHOT
+            : (sentenceTransformationsScope ? JS_TEST_CONFIRMED_SENTENCE_TRANSFORMATIONS_SNAPSHOT : JS_TEST_CONFIRMED_MODAL_SNAPSHOT)))));
+        if (confirmedSnapshot !== null && JSON.stringify(state) === confirmedSnapshot) {
+            if (conditionalsScope) warnConditionalsLocalRecovery('server storage');
+            else if (reportedSpeechScope) warnReportedSpeechLocalRecovery('server storage');
+            else if (clausesLinkingScope) warnClausesLinkingLocalRecovery('server storage');
+            else if (prepositionsPhrasalScope) warnPrepositionsPhrasalLocalRecovery('server storage');
+            else if (commonMistakesScope) warnCommonMistakesLocalRecovery('server storage');
+            else if (sentenceTransformationsScope) warnSentenceTransformationsLocalRecovery('server storage');
+            else if (verbPatternsScope) warnVerbPatternsLocalRecovery('server storage');
+            else if (mixedRevisionScope) warnMixedRevisionLocalRecovery('server storage');
+            else if (academicEnglishScope) warnAcademicEnglishLocalRecovery('server storage');
+            else if (articlesQuantifiersScope) warnArticlesQuantifiersLocalRecovery('server storage');
+            else if (formalEnglishScope) warnFormalEnglishLocalRecovery('server storage');
+            else if (relativeClausesScope) warnRelativeClausesLocalRecovery('server storage');
+            else if (sentenceStructureScope) warnSentenceStructureLocalRecovery('server storage');
+            else if (vocabCollocationsScope) warnVocabCollocationsLocalRecovery('server storage');
+            else warnModalLocalRecovery('server storage');
+            return { modalStored: 'server' };
+        }
+        if (deferModalErrors && JS_TEST_PERSISTENCE.endpoint) return { modalRecoveryPending: true, failures };
+        failures.forEach(error => console.error(error));
+        return { modalStored: false };
+    }
     const removeLegacyKeys = (storage) => {
         legacyKeys.forEach((key) => storage.removeItem(key));
     };
@@ -1302,6 +2550,55 @@ function clearLocalJsTestState() {
     });
 }
 
+// Undo only a provable legacy contraction grouping of this same PSP source.
+// Unknown/changed source progress is not reinterpreted or silently discarded.
+function restorePspCanonicalSlotProgress(saved, fresh) {
+    if (!Array.isArray(saved.answers) || !Array.isArray(saved.markers) || !Array.isArray(fresh.answers)
+        || !Array.isArray(fresh.markers) || fresh.answers.some(answer => String(answer).trim().split(/\s+/).length !== 1)) return null;
+    const normalize = EnglishAnswerVariants.normalize;
+    const starts = saved.markers.map(marker => fresh.markers.indexOf(marker));
+    if (starts[0] !== 0 || starts.some((start, index) => start < 0 || (index && start <= starts[index - 1]))) return null;
+    const ends = starts.slice(1).concat(fresh.answers.length);
+    if (saved.answers.length !== starts.length || saved.answers.some((answer, index) =>
+        normalize(answer) !== normalize(fresh.answers.slice(starts[index], ends[index]).join(' ')))) return null;
+    const count = fresh.answers.length;
+    const patch = {chosen: Array(count).fill(null), manualInputsBySlot: Array(count).fill(''),
+        manualWordIndexBySlot: Array(count).fill(0), attemptsBySlot: Array(count).fill(0),
+        lastWrongBySlot: Array(count).fill(null), wordSuggestionsBySlot: Array.from({length: count}, () => []),
+        wordSearchRequestBySlot: Array(count).fill(0)};
+    for (let index = 0; index < starts.length; index++) {
+        const start = starts[index], size = ends[index] - start;
+        const confirmed = saved.chosen?.[index];
+        if (confirmed != null) {
+            const words = EnglishAnswerVariants.variants(confirmed).map(value => String(value).trim().split(/\s+/))
+                .find(parts => parts.length === size && parts.every((word, offset) => {
+                    const marker = fresh.markers[start + offset];
+                    const candidates = [fresh.answers[start + offset], ...(fresh.accepted_answers_by_marker?.[marker] || [])];
+                    return candidates.some(value => normalize(value) === normalize(word));
+                }));
+            if (!words) return null;
+            words.forEach((word, offset) => { patch.chosen[start + offset] = word; patch.manualInputsBySlot[start + offset] = word; });
+        } else {
+            const words = String(saved.manualInputsBySlot?.[index] || '').trim().split(/\s+/).filter(Boolean);
+            if (words.length > size) return null;
+            const confirmedCount = Math.max(0, Math.min(size, Number(saved.manualWordIndexBySlot?.[index] || 0)));
+            words.forEach((word, offset) => {
+                patch.manualInputsBySlot[start + offset] = word;
+                if (offset < confirmedCount) patch.chosen[start + offset] = word;
+            });
+        }
+        patch.attemptsBySlot[start] = saved.attemptsBySlot?.[index] || 0;
+        patch.lastWrongBySlot[start] = saved.lastWrongBySlot?.[index] ?? null;
+    }
+    const active = Number(saved.activeSlot || 0);
+    patch.activeSlot = Math.min(count - 1, (starts[active] || 0) + Number(saved.manualWordIndexBySlot?.[active] || 0));
+    patch.slot = patch.activeSlot;
+    if (saved.feedbackMeta && Number.isInteger(saved.feedbackMeta.slotIndex)) {
+        patch.feedbackMeta = {...saved.feedbackMeta, slotIndex: starts[saved.feedbackMeta.slotIndex] ?? saved.feedbackMeta.slotIndex};
+    }
+    return patch;
+}
+
 function mergeFreshQuestionContentIntoSavedState(state) {
     const restored = cloneState(state);
     const freshQuestions = cloneState(getTechnicalQuestions());
@@ -1317,6 +2614,8 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'accepted_answers_by_marker',
         'answer_synonyms_by_marker',
         'answer_synonym_tokens_by_marker',
+        'compose_accepted_sentences',
+        'psp_content_revision',
         'markers',
         'markers_count',
         'contraction_slots_version',
@@ -1325,6 +2624,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
         'verb_hints',
         'options',
         'tense',
+        'is_past_perfect_continuous',
         'level',
         'theory_block',
         'theory_blocks',
@@ -1368,14 +2668,102 @@ function mergeFreshQuestionContentIntoSavedState(state) {
             return savedItem;
         }
 
+        let pspProgress = null;
+        let wordProgress = null;
+        if (typeof presentPerfectPassiveWordPolicy === 'function' && presentPerfectPassiveWordPolicy(freshQuestion)) {
+            wordProgress = restorePresentPerfectPassiveWordProgress(savedItem, freshQuestion);
+            if (wordProgress === null) return savedItem;
+        }
+        if (freshQuestion.psp_content_revision && String(freshQuestion.type) === '4'
+            && savedItem.contraction_slots_version === 1) {
+            pspProgress = restorePspCanonicalSlotProgress(savedItem, freshQuestion);
+            if (pspProgress === null) return savedItem;
+        }
+
+        // A finite, source-bound Future Passive correction moves the already
+        // visible auxiliary/subject out of 11 long gaps. Translate only proven
+        // old answers; keep totals, retries and all unrelated saved progress.
+        let gapProgress = null;
+        if (freshQuestion.passive_phrase_word_inputs === true
+            && freshQuestion.passive_gap_phrase_input === true
+            && /^[a-f0-9]{64}$/.test(String(freshQuestion.psp_content_revision || ''))
+            && String(freshQuestion.type) === '0'
+            && savedItem.answers?.length === 1
+            && ((savedItem.question === freshQuestion.gap_previous_question
+                    && savedItem.answers[0] === freshQuestion.gap_previous_answer)
+                || (savedItem.question === freshQuestion.question
+                    && savedItem.answers[0] === freshQuestion.answers?.[0]))
+            && freshQuestion.gap_previous_accepted_answers && typeof freshQuestion.gap_previous_accepted_answers === 'object'
+            && !Array.isArray(freshQuestion.gap_previous_accepted_answers)) {
+            const normalize = EnglishAnswerVariants.normalize;
+            const mappings = Object.entries(freshQuestion.gap_previous_accepted_answers)
+                .filter(([previous, current]) => typeof previous === 'string' && typeof current === 'string');
+            const project = value => mappings.find(([previous]) => EnglishAnswerVariants.variants(previous)
+                .some(variant => normalize(variant) === normalize(value)))?.[1] ?? null;
+            const chosen = savedItem.chosen?.[0];
+            const mappedChosen = chosen == null ? null : project(chosen);
+            if (chosen == null || mappedChosen !== null) {
+                const draft = String(savedItem.manualInputsBySlot?.[0] || '').trim();
+                let mappedDraft = mappedChosen ?? project(draft);
+                // A prior server refresh may already have copied the current
+                // stem/answer while leaving a proven old full chosen phrase.
+                // Recover that exact mapping only; do not reinterpret current
+                // compact drafts or arbitrary incomplete text in this shape.
+                if (mappedDraft === null && savedItem.question === freshQuestion.gap_previous_question
+                    && savedItem.answers[0] === freshQuestion.gap_previous_answer) {
+                    for (const [previous, current] of mappings) {
+                        const oldText = normalize(previous), newText = normalize(current);
+                        if (!oldText.endsWith(` ${newText}`)) continue;
+                        const visible = oldText.slice(0, -newText.length).trim();
+                        const typed = normalize(draft);
+                        if (typed === '' || visible === typed || visible.startsWith(`${typed} `)) { mappedDraft = ''; break; }
+                        if (typed.startsWith(`${visible} `) && oldText.startsWith(`${typed} `)) {
+                            mappedDraft = typed.slice(visible.length).trim(); break;
+                        }
+                    }
+                }
+                if (mappedDraft !== null) {
+                    gapProgress = {chosen: [mappedChosen], manualInputsBySlot: [mappedDraft],
+                        manualWordIndexBySlot: [Math.max(0, mappedDraft.split(/\s+/).filter(Boolean).length - 1)]};
+                    if (savedItem.feedbackMeta && mappedChosen !== null) {
+                        gapProgress.feedbackMeta = {...savedItem.feedbackMeta,
+                            submittedAnswer: mappedChosen, displayedAnswer: mappedChosen};
+                    }
+                }
+            }
+        }
+
         // Keep answer/progress-only fields from the snapshot, but always use
         // the current question, options, theory and verb hints from the page.
         const merged = { ...savedItem };
-        canonicalQuestionFields.forEach((field) => {
+        const fields = freshQuestion.compose_content_revision || freshQuestion.psp_content_revision
+            ? [...canonicalQuestionFields, 'compose_source_text', 'compose_source_text_uk', 'compose_hint', 'hint', 'compose_content_revision',
+                'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint',
+                'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers', 'passive_gap_phrase_input',
+                'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question', 'gap_previous_answer', 'gap_previous_accepted_answers',
+                'fsp_compose_options_revision', 'qnq_strict_slot_surfaces', 'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision', 'pvq_word_slots', 'finite_word_slots', 'mvq_option_caption_revision', 'cqq_option_caption_revision', 'rsq_option_caption_revision', 'clq_option_caption_revision', 'ppq_option_caption_revision', 'cmq_option_caption_revision', 'stq_option_caption_revision', 'stq_reused_hint_revision', 'vpq_option_caption_revision', 'mrq_option_caption_revision', 'aeq_option_caption_revision', 'aqv_option_caption_revision', 'feq_option_caption_revision', 'rcq_option_caption_revision', 'ssq_option_caption_revision', 'vcq_option_caption_revision']
+            : canonicalQuestionFields;
+        fields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {
                 merged[field] = cloneState(freshQuestion[field]);
+            } else if (freshQuestion.psp_content_revision && !canonicalQuestionFields.includes(field)) {
+                delete merged[field];
             }
         });
+        if (pspProgress !== null) {
+            Object.assign(merged, pspProgress);
+            delete merged.contraction_slots_version;
+        }
+        if (gapProgress !== null) Object.assign(merged, gapProgress);
+        if (wordProgress !== null) Object.assign(merged, wordProgress);
+        // Old snapshots may contain green prefix feedback despite having no
+        // chosen answer. Refresh that presentation without erasing the draft.
+        if (merged.passive_gap_phrase_input === true && String(merged.type) === '0'
+            && /^[a-f0-9]{64}$/.test(String(merged.psp_content_revision || ''))
+            && merged.feedback === 'correct' && !merged.done
+            && Array.isArray(merged.chosen) && merged.chosen.some(value => value == null)) {
+            merged.feedback = '';
+        }
 
         return merged;
     });
@@ -1424,7 +2812,7 @@ function persistState(state, immediate = false) {
     const started = Boolean(snapshot?.__meta?.started);
     JS_TEST_PERSISTENCE.saved = snapshot;
     JS_TEST_LAST_SNAPSHOT = snapshot;
-    writeLocalJsTestState(snapshot);
+    const localPersistence = writeLocalJsTestState(snapshot, Boolean(JS_TEST_PERSISTENCE.endpoint));
 
     if (!JS_TEST_PERSISTENCE.endpoint) {
         return;
@@ -1435,10 +2823,43 @@ function persistState(state, immediate = false) {
         state: snapshot,
     };
 
+    const modalScope = isModalLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const conditionalsScope = typeof isConditionalsLocalJsStorageScope === 'function'
+        && isConditionalsLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const reportedSpeechScope = typeof isReportedSpeechLocalJsStorageScope === 'function'
+        && isReportedSpeechLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const clausesLinkingScope = typeof isClausesLinkingLocalJsStorageScope === 'function'
+        && isClausesLinkingLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const prepositionsPhrasalScope = typeof isPrepositionsPhrasalLocalJsStorageScope === 'function'
+        && isPrepositionsPhrasalLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const commonMistakesScope = typeof isCommonMistakesLocalJsStorageScope === 'function'
+        && isCommonMistakesLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const sentenceTransformationsScope = typeof isSentenceTransformationsLocalJsStorageScope === 'function'
+        && isSentenceTransformationsLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const verbPatternsScope = typeof isVerbPatternsLocalJsStorageScope === 'function'
+        && isVerbPatternsLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const mixedRevisionScope = typeof isMixedRevisionLocalJsStorageScope === 'function'
+        && isMixedRevisionLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const academicEnglishScope = typeof isAcademicEnglishLocalJsStorageScope === 'function'
+        && isAcademicEnglishLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const articlesQuantifiersScope = typeof isArticlesQuantifiersLocalJsStorageScope === 'function'
+        && isArticlesQuantifiersLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const formalEnglishScope = typeof isFormalEnglishLocalJsStorageScope === 'function'
+        && isFormalEnglishLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const relativeClausesScope = typeof isRelativeClausesLocalJsStorageScope === 'function'
+        && isRelativeClausesLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const sentenceStructureScope = typeof isSentenceStructureLocalJsStorageScope === 'function'
+        && isSentenceStructureLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
+    const vocabCollocationsScope = typeof isVocabCollocationsLocalJsStorageScope === 'function'
+        && isVocabCollocationsLocalJsStorageScope(JS_TEST_PERSISTENCE.storageKey, JS_TEST_PERSISTENCE.mode);
     const send = () => {
+        let sentModalSnapshot = null;
         JS_TEST_SAVE_QUEUE = JS_TEST_SAVE_QUEUE
             .catch(() => {})
-            .then(() => fetch(JS_TEST_PERSISTENCE.endpoint, {
+            .then(() => {
+                const body = JSON.stringify(payload);
+                if (modalScope || conditionalsScope || reportedSpeechScope || clausesLinkingScope || prepositionsPhrasalScope || commonMistakesScope || sentenceTransformationsScope || verbPatternsScope || mixedRevisionScope || academicEnglishScope || articlesQuantifiersScope || formalEnglishScope || relativeClausesScope || sentenceStructureScope || vocabCollocationsScope) sentModalSnapshot = JSON.stringify(snapshot);
+                return fetch(JS_TEST_PERSISTENCE.endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1446,9 +2867,55 @@ function persistState(state, immediate = false) {
                     'X-CSRF-TOKEN': JS_TEST_PERSISTENCE.token,
                 },
                 credentials: 'same-origin',
-                body: JSON.stringify(payload),
-            }))
-            .catch(() => {});
+                body,
+                });
+            })
+            .then(response => {
+                if (modalScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_MODAL_SNAPSHOT = sentModalSnapshot;
+                if (conditionalsScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_CONDITIONALS_SNAPSHOT = sentModalSnapshot;
+                if (reportedSpeechScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_REPORTED_SPEECH_SNAPSHOT = sentModalSnapshot;
+                if (clausesLinkingScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_CLAUSES_LINKING_SNAPSHOT = sentModalSnapshot;
+                if (prepositionsPhrasalScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_PREPOSITIONS_PHRASAL_SNAPSHOT = sentModalSnapshot;
+                if (commonMistakesScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_COMMON_MISTAKES_SNAPSHOT = sentModalSnapshot;
+                if (sentenceTransformationsScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_SENTENCE_TRANSFORMATIONS_SNAPSHOT = sentModalSnapshot;
+                if (verbPatternsScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_VERB_PATTERNS_SNAPSHOT = sentModalSnapshot;
+                if (mixedRevisionScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_MIXED_REVISION_SNAPSHOT = sentModalSnapshot;
+                if (academicEnglishScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_ACADEMIC_ENGLISH_SNAPSHOT = sentModalSnapshot;
+                if (articlesQuantifiersScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_ARTICLES_QUANTIFIERS_SNAPSHOT = sentModalSnapshot;
+                if (formalEnglishScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_FORMAL_ENGLISH_SNAPSHOT = sentModalSnapshot;
+                if (relativeClausesScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_RELATIVE_CLAUSES_SNAPSHOT = sentModalSnapshot;
+                if (sentenceStructureScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_SENTENCE_STRUCTURE_SNAPSHOT = sentModalSnapshot;
+                if (vocabCollocationsScope && response?.ok && !response.redirected) JS_TEST_CONFIRMED_VOCAB_COLLOCATIONS_SNAPSHOT = sentModalSnapshot;
+                if (localPersistence?.modalRecoveryPending) {
+                    if (response?.ok && !response.redirected) {
+                        if (conditionalsScope) warnConditionalsLocalRecovery('server storage');
+                        else if (reportedSpeechScope) warnReportedSpeechLocalRecovery('server storage');
+                        else if (clausesLinkingScope) warnClausesLinkingLocalRecovery('server storage');
+                        else if (prepositionsPhrasalScope) warnPrepositionsPhrasalLocalRecovery('server storage');
+                        else if (commonMistakesScope) warnCommonMistakesLocalRecovery('server storage');
+                        else if (sentenceTransformationsScope) warnSentenceTransformationsLocalRecovery('server storage');
+                        else if (verbPatternsScope) warnVerbPatternsLocalRecovery('server storage');
+                        else if (mixedRevisionScope) warnMixedRevisionLocalRecovery('server storage');
+                        else if (academicEnglishScope) warnAcademicEnglishLocalRecovery('server storage');
+                        else if (articlesQuantifiersScope) warnArticlesQuantifiersLocalRecovery('server storage');
+                        else if (formalEnglishScope) warnFormalEnglishLocalRecovery('server storage');
+            else if (relativeClausesScope) warnRelativeClausesLocalRecovery('server storage');
+            else if (sentenceStructureScope) warnSentenceStructureLocalRecovery('server storage');
+            else if (vocabCollocationsScope) warnVocabCollocationsLocalRecovery('server storage');
+                        else warnModalLocalRecovery('server storage');
+                    } else {
+                        localPersistence.failures.forEach(error => console.error(error));
+                        console.error(new Error('Modal progress server recovery was not confirmed'));
+                    }
+                }
+                return response;
+            })
+            .catch(error => {
+                if (localPersistence?.modalRecoveryPending) {
+                    localPersistence.failures.forEach(failure => console.error(failure));
+                    console.error(error);
+                }
+            });
 
         return JS_TEST_SAVE_QUEUE;
     };

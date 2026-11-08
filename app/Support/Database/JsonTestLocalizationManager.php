@@ -126,6 +126,10 @@ class JsonTestLocalizationManager
                     $existingLocalePayload['hints'] = $payload['hints'];
                 }
 
+                if (filled($payload['source_text'] ?? null)) {
+                    $existingLocalePayload['source_text'] = $payload['source_text'];
+                }
+
                 if (array_key_exists('verb_hints', $payload)) {
                     $existingLocalePayload['verb_hints'] = array_replace(
                         is_array($existingLocalePayload['verb_hints'] ?? null) ? $existingLocalePayload['verb_hints'] : [],
@@ -179,6 +183,15 @@ class JsonTestLocalizationManager
             $locale = $payload['locale'];
             $provider = $payload['hint_provider'];
             $hintText = $this->formatHints($payload['hints']);
+
+            if (filled($payload['source_text'] ?? null)) {
+                QuestionHint::updateOrCreate([
+                    'question_id' => $question->id,
+                    'provider' => \App\Support\LocalizedComposeText::PROVIDER,
+                    'locale' => $locale,
+                ], ['hint' => trim((string) $payload['source_text'])]);
+                $hintUpserts++;
+            }
 
             if ($hintText !== null) {
                 QuestionHint::updateOrCreate(
@@ -307,6 +320,11 @@ class JsonTestLocalizationManager
                 ->where('provider', $provider)
                 ->where('locale', $locale)
                 ->delete();
+
+            if (filled($payload['source_text'] ?? null)) {
+                $deletedHints += QuestionHint::query()->where('question_id', $question->id)
+                    ->where('provider', \App\Support\LocalizedComposeText::PROVIDER)->where('locale', $locale)->delete();
+            }
 
             if (Schema::hasColumn('verb_hints', 'locale')) {
                 $deletedVerbHints += VerbHint::query()
@@ -693,6 +711,7 @@ class JsonTestLocalizationManager
             $payload = [
                 'locale' => $locale,
                 'hint_provider' => $this->resolveHintProvider($localizationDefinition, $questionDefinition),
+                'source_text' => trim((string) ($questionDefinition['source_text'] ?? '')),
                 'hints' => $this->normalizeHints($questionDefinition['hints'] ?? []),
                 'verb_hints' => $this->normalizeVerbHints($questionDefinition['verb_hints'] ?? [], $indexedQuestion),
                 'explanations' => $this->normalizeExplanations(
@@ -701,7 +720,7 @@ class JsonTestLocalizationManager
                 ),
             ];
 
-            if ($payload['hints'] === [] && $payload['verb_hints'] === [] && $payload['explanations'] === []) {
+            if ($payload['hints'] === [] && $payload['verb_hints'] === [] && $payload['explanations'] === [] && $payload['source_text'] === '') {
                 continue;
             }
 

@@ -1,0 +1,341 @@
+{
+    "schema_version": 1,
+    "package": "articles-quantifiers-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/articles-quantifiers-practice-source.v1.json",
+        "sha256": "2ab558258de14592c1e89c7b0a382bec89c796e0149e96dd3ecdd1acad0dbf65"
+    },
+    "targets": [
+        {
+            "topic": "advanced-article-and-quantifier-nuance",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\AdvancedArticleAndQuantifierNuanceTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/articles-and-quantifiers/advanced-article-and-quantifier-nuance",
+            "definition": "database/seeders/Page_V3/ArticlesAndQuantifiers/AdvancedArticleAndQuantifierNuanceTheorySeeder/definition.json",
+            "definition_sha256": "a378827362b017f81ef14345f303843b9939f9dd83fd70610d78f3a769591845",
+            "release": "database/content-patches/m38-m22-articles-collocations.v1.json",
+            "release_sha256": "2ed4141f775de86e6554409cfcc48feef08f84252cbf5fe3f92cb6ae3da572a3",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\AdvancedArticleAndQuantifierNuanceTheorySeeder",
+                "locale": "uk",
+                "uuid": "799e23ee-b79b-5341-82a8-cd8a3b393846",
+                "sort_order": 8,
+                "page_id": 306,
+                "page_category_id": 57,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "00ea38d1f13d04b68cd0bbb16b23518ac063b67e96e2a37b88483eccc7969f69"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "799e23ee-b79b-5341-82a8-cd8a3b393846",
+                "sort_order": 8,
+                "body_sha256": "00ea38d1f13d04b68cd0bbb16b23518ac063b67e96e2a37b88483eccc7969f69",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "00ea38d1f13d04b68cd0bbb16b23518ac063b67e96e2a37b88483eccc7969f69",
+            "after_data_sha256": "98e4e5491d120c67b2c35132002acd071186ddfa440886914c31647ddd6d34f6",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "There is",
+                        "not much evidence",
+                        "for this explanation."
+                    ],
+                    "condition_uk": "На користь цього пояснення мало свідчень. Передай це через заперечення великої кількості.",
+                    "hint_uk": "Збережи обмежену підтримку пояснення; не перетворюй малу кількість на повну відсутність."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "We have",
+                        "a little",
+                        "useful information.",
+                        "It is",
+                        "not enough for",
+                        "a complete catalogue."
+                    ],
+                    "condition_uk": "Є трохи корисної інформації, але її недостатньо для повного каталогу. Склади два речення.",
+                    "hint_uk": "Збережи наявність невеликої кількості та прямо названу недостатність для повного каталогу."
+                }
+            ],
+            "added": [
+                {
+                    "id": "aqv-native-advanced-article-and-quantifier-nuance-gap-1",
+                    "kind": "gap",
+                    "condition": "A small {a1} of salt improves the flavour without making the soup salty.",
+                    "answer": "amount",
+                    "accepted": [
+                        "amount",
+                        "quantity"
+                    ],
+                    "hint_uk": "Кількість (обсяг): доповни сполуку перед незлічуваною назвою солі; приймаються два природні іменники кількості.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "aqv-native-advanced-article-and-quantifier-nuance-gap-2",
+                    "kind": "gap",
+                    "condition": "The number of requests {a1} steadily each month.",
+                    "answer": "increases",
+                    "accepted": [
+                        "increases",
+                        "rises",
+                        "grows"
+                    ],
+                    "hint_uk": "Зростає: узгодь теперішню форму з кількістю як єдиним показником, а не з окремими запитами.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "aqv-native-advanced-article-and-quantifier-nuance-translate-1",
+                    "kind": "translation",
+                    "condition": "Нам бракує часу, щоб перевірити кожну деталь.",
+                    "answer": "We do not have enough time to check every detail.",
+                    "accepted": [
+                        "We do not have enough time to check every detail.",
+                        "We do not have enough time to examine every detail.",
+                        "We do not have sufficient time to check every detail.",
+                        "We do not have sufficient time to examine every detail."
+                    ],
+                    "hint_uk": "Почни з «ми»; запереч достатність часу для перевірки всіх деталей окремо.",
+                    "ordered_groups": [
+                        "We do not",
+                        "have enough time",
+                        "to check",
+                        "every detail."
+                    ],
+                    "shuffled_groups": [
+                        "to check",
+                        "every detail.",
+                        "have enough time",
+                        "We do not"
+                    ],
+                    "token_labels": {
+                        "to check": "to check (to examine)",
+                        "have enough time": "have enough time (have sufficient time)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "aqv-native-advanced-article-and-quantifier-nuance-translate-2",
+                    "kind": "translation",
+                    "condition": "Лише кілька учасників поставили запитання після доповіді.",
+                    "answer": "Only a few participants asked questions after the talk.",
+                    "accepted": [
+                        "Only a few participants asked questions after the talk.",
+                        "Only a few participants asked questions after the presentation."
+                    ],
+                    "hint_uk": "Збережи невелику ненульову кількість учасників і час після доповіді; не називай точного числа.",
+                    "ordered_groups": [
+                        "Only a few",
+                        "participants asked questions",
+                        "after the talk."
+                    ],
+                    "shuffled_groups": [
+                        "participants asked questions",
+                        "Only a few",
+                        "after the talk."
+                    ],
+                    "token_labels": {
+                        "after the talk.": "after the talk. (after the presentation.)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "to check": "to check (to examine)",
+                    "have enough time": "have enough time (have sufficient time)"
+                },
+                "5": {
+                    "after the talk.": "after the talk. (after the presentation.)"
+                }
+            }
+        },
+        {
+            "topic": "precision-with-articles-and-determiners",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\PrecisionWithArticlesAndDeterminersTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/articles-and-quantifiers/precision-with-articles-and-determiners",
+            "definition": "database/seeders/Page_V3/ArticlesAndQuantifiers/PrecisionWithArticlesAndDeterminersTheorySeeder/definition.json",
+            "definition_sha256": "916cb3fe25e3f3037d9affe6d3ef5ef8e42537d97ef9228317e63415cba57a36",
+            "release": "database/content-patches/m38-m22-articles-collocations.v1.json",
+            "release_sha256": "2ed4141f775de86e6554409cfcc48feef08f84252cbf5fe3f92cb6ae3da572a3",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\ArticlesAndQuantifiers\\PrecisionWithArticlesAndDeterminersTheorySeeder",
+                "locale": "uk",
+                "uuid": "51972fd2-7003-5626-b7c9-819de664d4f5",
+                "sort_order": 8,
+                "page_id": 317,
+                "page_category_id": 57,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "37738183f53b14c19a31f8b1226de8278fc7e853979a84411f1161a543421937"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "51972fd2-7003-5626-b7c9-819de664d4f5",
+                "sort_order": 8,
+                "body_sha256": "37738183f53b14c19a31f8b1226de8278fc7e853979a84411f1161a543421937",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "37738183f53b14c19a31f8b1226de8278fc7e853979a84411f1161a543421937",
+            "after_data_sha256": "b4588caa922696b8a4ba86a702b104e9629c05b31f87a4b0253a389dff1b874f",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Not both lamps",
+                        "work."
+                    ],
+                    "condition_uk": "Перша з двох ламп не працює; другу не перевіряли. Склади підтверджений висновок і вибери два уточнення.",
+                    "hint_uk": "Запереч, що працюють обидві; не стверджуй, що не працює жодна або що працює рівно одна."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Six folders",
+                        "were placed in",
+                        "the cabinet.",
+                        "Two of",
+                        "the six folders",
+                        "were checked.",
+                        "Both of",
+                        "the checked folders",
+                        "were dry."
+                    ],
+                    "condition_uk": "До шафи поклали шість папок; дві перевірили, обидві перевірені сухі. Про решту нічого не відомо.",
+                    "hint_uk": "Назви всі шість папок, підгрупу двох і результат лише для перевірених папок; не додавай безпеку чи причинність."
+                }
+            ],
+            "added": [
+                {
+                    "id": "aqv-native-precision-with-articles-and-determiners-gap-1",
+                    "kind": "gap",
+                    "condition": "Both of the replacement screens {a1} the same amount of power.",
+                    "answer": "consume",
+                    "accepted": [
+                        "consume",
+                        "use"
+                    ],
+                    "hint_uk": "Споживають: узгодь теперішню форму з двома названими екранами; передай використання електроенергії.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "aqv-native-precision-with-articles-and-determiners-gap-2",
+                    "kind": "gap",
+                    "condition": "Each of the three packages {a1} a separate tracking number.",
+                    "answer": "has",
+                    "accepted": [
+                        "has"
+                    ],
+                    "hint_uk": "Має: у формальній нотатці узгодь теперішню форму з кожною посилкою окремо; підмет не повторюй.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "aqv-native-precision-with-articles-and-determiners-translate-1",
+                    "kind": "translation",
+                    "condition": "Жодна з цих двох відповідей не пояснює затримку.",
+                    "answer": "Neither of these two answers explains the delay.",
+                    "accepted": [
+                        "Neither of these two answers explains the delay.",
+                        "Neither of these two responses explains the delay."
+                    ],
+                    "hint_uk": "Збережи визначену пару відповідей і заперечення для кожної; використай формальну однину.",
+                    "ordered_groups": [
+                        "Neither of",
+                        "these two answers",
+                        "explains the delay."
+                    ],
+                    "shuffled_groups": [
+                        "these two answers",
+                        "Neither of",
+                        "explains the delay."
+                    ],
+                    "token_labels": {
+                        "these two answers": "these two answers (these two responses)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "aqv-native-precision-with-articles-and-determiners-translate-2",
+                    "kind": "translation",
+                    "condition": "Усі відвідувачі, які зареєструвалися вчора, отримали перепустку.",
+                    "answer": "All the visitors who registered yesterday received a pass.",
+                    "accepted": [
+                        "All the visitors who registered yesterday received a pass.",
+                        "All the visitors that registered yesterday received a pass.",
+                        "All of the visitors who registered yesterday received a pass.",
+                        "All of the visitors that registered yesterday received a pass.",
+                        "All the visitors who registered yesterday got a pass.",
+                        "All the visitors that registered yesterday got a pass.",
+                        "All of the visitors who registered yesterday got a pass.",
+                        "All of the visitors that registered yesterday got a pass."
+                    ],
+                    "hint_uk": "Охопи всю визначену групу вчорашньої реєстрації, а не всіх відвідувачів узагалі.",
+                    "ordered_groups": [
+                        "All the visitors",
+                        "who registered yesterday",
+                        "received a pass."
+                    ],
+                    "shuffled_groups": [
+                        "All the visitors",
+                        "received a pass.",
+                        "who registered yesterday"
+                    ],
+                    "token_labels": {
+                        "who registered yesterday": "who registered yesterday (that registered yesterday)",
+                        "received a pass.": "received a pass. (got a pass.)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "these two answers": "these two answers (these two responses)"
+                },
+                "5": {
+                    "who registered yesterday": "who registered yesterday (that registered yesterday)",
+                    "received a pass.": "received a pass. (got a pass.)"
+                }
+            }
+        }
+    ]
+}

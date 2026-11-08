@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62203,
+        "uuid": "qnq-question-forms-a2-g06",
+        "question": "When {a1} you last see a rainbow?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 60,
+        "source_id": 456,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedQuestionFormsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "did",
+                "were",
+                "have"
+            ]
+        },
+        "theory_text_block_uuid": "791ef826-2ea0-5076-a8f2-6432f8ff715d",
+        "created_at": "2026-10-30T13:51:59.000000Z",
+        "updated_at": "2026-10-30T13:51:59.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 456,
+        "name": "Questions and Negations Quality: Question Forms",
+        "created_at": "2026-10-30T13:51:58.000000Z",
+        "updated_at": "2026-10-30T13:51:58.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 284,
+                "name": "Question Forms",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62203,
+                "tag_id": 284,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2,
+                "option": "have",
+                "created_at": "2026-04-23T11:39:51.000000Z",
+                "updated_at": "2026-04-23T11:39:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 62203,
+                "option_id": 2,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 49,
+                "option": "did",
+                "created_at": "2026-04-23T11:39:54.000000Z",
+                "updated_at": "2026-04-23T11:39:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62203,
+                "option_id": 49,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71,
+                "option": "were",
+                "created_at": "2026-04-23T11:39:57.000000Z",
+                "updated_at": "2026-04-23T11:39:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 62203,
+                "option_id": 71,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 331479,
+                "question_id": 62203,
+                "marker": "a1",
+                "option_id": 49,
+                "created_at": "2026-10-30T13:51:59.000000Z",
+                "updated_at": "2026-10-30T13:51:59.000000Z"
+            },
+            "option": {
+                "id": 49,
+                "option": "did",
+                "created_at": "2026-04-23T11:39:54.000000Z",
+                "updated_at": "2026-04-23T11:39:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 48813,
+                "question_id": 62203,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56260,
+                "created_at": "2026-10-30T13:51:59.000000Z",
+                "updated_at": "2026-10-30T13:51:59.000000Z"
+            },
+            "option": {
+                "id": 56260,
+                "option": "Запитай про конкретний минулий випадок; початкову форму основного дієслова не змінюй.",
+                "created_at": "2026-10-30T13:51:59.000000Z",
+                "updated_at": "2026-10-30T13:51:59.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54218,
+            "question_id": 62203,
+            "text": "When {a1} you last see a rainbow?",
+            "created_at": "2026-10-30T13:51:59.000000Z",
+            "updated_at": "2026-10-30T13:51:59.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

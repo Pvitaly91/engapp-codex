@@ -1,0 +1,4656 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/negative-adverbial-inversion.v1.json",
+        "sha256": "c975d0d7a877d2e7219d9fd2724a7e71e3e8fd62dfcc1bd128ef6322a54f2486"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedInversionAfterNegativeAdverbialsQualityBuilderSeeder",
+        "uuid_namespace": "word-order-quality-negative-adverbial-inversion-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "word_order_quality_negative_adverbial_inversion": {
+            "name": "Word Order Quality: Inversion After Negative Adverbials"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "fronted_negative_adverbials": {
+            "name": "fronted negative adverbials",
+            "category": "topic"
+        },
+        "never_before": {
+            "name": "never before",
+            "category": "topic"
+        },
+        "rarely_seldom": {
+            "name": "rarely seldom",
+            "category": "topic"
+        },
+        "strong_negative_adverbials": {
+            "name": "strong negative adverbials",
+            "category": "topic"
+        },
+        "at_no_time": {
+            "name": "at no time",
+            "category": "topic"
+        },
+        "not_until": {
+            "name": "not until",
+            "category": "topic"
+        },
+        "only_when_after_by": {
+            "name": "only when after by",
+            "category": "topic"
+        },
+        "no_sooner_than": {
+            "name": "no sooner than",
+            "category": "topic"
+        },
+        "hardly_scarcely_when": {
+            "name": "hardly scarcely when",
+            "category": "topic"
+        },
+        "little_did": {
+            "name": "little did",
+            "category": "topic"
+        },
+        "auxiliary_choice": {
+            "name": "auxiliary choice",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "theory_page_inversion_after_negative_adverbials"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-negative-adverbial-inve-43be190b",
+            "author_id": "A1-c01",
+            "question": "Цей кіт ніколи не спить надворі.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Цей кіт ніколи не спить надворі.",
+            "target_text": "This cat never sleeps outside.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+                    "options": [
+                        "This",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "cat",
+                    "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+                    "options": [
+                        "cat",
+                        "bear",
+                        "monkey",
+                        "duck"
+                    ]
+                },
+                "a3": {
+                    "answer": "never",
+                    "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+                    "options": [
+                        "never",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "sleeps",
+                    "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+                    "options": [
+                        "sleeps",
+                        "cups",
+                        "doors",
+                        "keys"
+                    ]
+                },
+                "a5": {
+                    "answer": "outside.",
+                    "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+                    "options": [
+                        "outside",
+                        "here",
+                        "today",
+                        "Nobody"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи звичайне твердження: прислівник частотності перед дієсловом.",
+            "accepted_target_texts": [
+                "This cat never sleeps outside."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This cat",
+                "never sleeps",
+                "outside."
+            ],
+            "token_groups": [
+                "This cat",
+                "never sleeps",
+                "outside."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "This",
+                "cat",
+                "never",
+                "sleeps",
+                "outside."
+            ],
+            "options": [
+                "This",
+                "Neither",
+                "All",
+                "Both",
+                "cat",
+                "bear",
+                "monkey",
+                "duck",
+                "never",
+                "usually",
+                "rarely",
+                "only",
+                "sleeps",
+                "cups",
+                "doors",
+                "keys",
+                "outside",
+                "here",
+                "today",
+                "Nobody"
+            ],
+            "source_text_uk": "Цей кіт ніколи не спить надворі.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "cat",
+                    "bear",
+                    "monkey",
+                    "duck"
+                ],
+                "a3": [
+                    "never",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "sleeps",
+                    "cups",
+                    "doors",
+                    "keys"
+                ],
+                "a5": [
+                    "outside",
+                    "here",
+                    "today",
+                    "Nobody"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "woq-negative-adverbial-inve-d77b2e43",
+            "author_id": "A1-c02",
+            "question": "Нашого вчителя сьогодні тут немає.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Нашого вчителя сьогодні тут немає.",
+            "target_text": "Our teacher is not here today.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "Our",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "teacher",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "teacher",
+                        "baker",
+                        "driver",
+                        "neighbour"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a5": {
+                    "answer": "here",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "here",
+                        "Nobody",
+                        "soup",
+                        "outside"
+                    ]
+                },
+                "a6": {
+                    "answer": "today.",
+                    "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+                    "options": [
+                        "today",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                }
+            },
+            "verb_hint": "Постав заперечення після зв’язки, а час залиш наприкінці.",
+            "accepted_target_texts": [
+                "Our teacher is not here today."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our teacher",
+                "is not",
+                "here today."
+            ],
+            "token_groups": [
+                "Our teacher",
+                "is not",
+                "here today."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Our",
+                "teacher",
+                "is",
+                "not",
+                "here",
+                "today."
+            ],
+            "options": [
+                "Our",
+                "Yours",
+                "Hers",
+                "Ours",
+                "teacher",
+                "baker",
+                "driver",
+                "neighbour",
+                "is",
+                "be",
+                "been",
+                "being",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "here",
+                "Nobody",
+                "soup",
+                "outside",
+                "today",
+                "bread",
+                "milk",
+                "music"
+            ],
+            "source_text_uk": "Нашого вчителя сьогодні тут немає.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "teacher",
+                    "baker",
+                    "driver",
+                    "neighbour"
+                ],
+                "a3": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a5": [
+                    "here",
+                    "Nobody",
+                    "soup",
+                    "outside"
+                ],
+                "a6": [
+                    "today",
+                    "bread",
+                    "milk",
+                    "music"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "woq-negative-adverbial-inve-dd97e63b",
+            "author_id": "A1-c03",
+            "question": "Ніхто не хоче холодного супу.",
+            "level": "A1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Ніхто не хоче холодного супу.",
+            "target_text": "Nobody wants cold soup.",
+            "markers": {
+                "a1": {
+                    "answer": "Nobody",
+                    "verb_hint": "Використай один заперечний підмет і ствердну особову форму дієслова.",
+                    "options": [
+                        "Nobody",
+                        "Here",
+                        "Today",
+                        "Outside"
+                    ]
+                },
+                "a2": {
+                    "answer": "wants",
+                    "verb_hint": "Використай один заперечний підмет і ствердну особову форму дієслова.",
+                    "options": [
+                        "wants",
+                        "sees",
+                        "finds",
+                        "brings"
+                    ]
+                },
+                "a3": {
+                    "answer": "cold",
+                    "verb_hint": "Використай один заперечний підмет і ствердну особову форму дієслова.",
+                    "options": [
+                        "cold",
+                        "friendly",
+                        "lovely",
+                        "final"
+                    ]
+                },
+                "a4": {
+                    "answer": "soup.",
+                    "verb_hint": "Використай один заперечний підмет і ствердну особову форму дієслова.",
+                    "options": [
+                        "soup",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Використай один заперечний підмет і ствердну особову форму дієслова.",
+            "accepted_target_texts": [
+                "Nobody wants cold soup."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody",
+                "wants",
+                "cold soup."
+            ],
+            "token_groups": [
+                "Nobody",
+                "wants",
+                "cold soup."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Nobody",
+                "wants",
+                "cold",
+                "soup."
+            ],
+            "options": [
+                "Nobody",
+                "Here",
+                "Today",
+                "Outside",
+                "wants",
+                "sees",
+                "finds",
+                "brings",
+                "cold",
+                "friendly",
+                "lovely",
+                "final",
+                "soup",
+                "bag",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Ніхто не хоче холодного супу.",
+            "options_by_marker": {
+                "a1": [
+                    "Nobody",
+                    "Here",
+                    "Today",
+                    "Outside"
+                ],
+                "a2": [
+                    "wants",
+                    "sees",
+                    "finds",
+                    "brings"
+                ],
+                "a3": [
+                    "cold",
+                    "friendly",
+                    "lovely",
+                    "final"
+                ],
+                "a4": [
+                    "soup",
+                    "bag",
+                    "book",
+                    "box"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "woq-negative-adverbial-inve-ae969580",
+            "author_id": "A2-c01",
+            "question": "Мої дідусь і бабуся майже ніколи не користуються ліфтом.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Мої дідусь і бабуся майже ніколи не користуються ліфтом.",
+            "target_text": "My grandparents hardly ever use the lift.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "My",
+                        "Her",
+                        "Its",
+                        "Our"
+                    ]
+                },
+                "a2": {
+                    "answer": "grandparents",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "grandparents",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                },
+                "a3": {
+                    "answer": "hardly",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "hardly",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a4": {
+                    "answer": "ever",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "ever",
+                        "today",
+                        "box",
+                        "expect"
+                    ]
+                },
+                "a5": {
+                    "answer": "use",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "use",
+                        "watch",
+                        "visit",
+                        "cook"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a7": {
+                    "answer": "lift.",
+                    "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+                    "options": [
+                        "lift",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                }
+            },
+            "verb_hint": "Постав сталу групу малої частотності перед основним дієсловом; не додавай ще одного заперечення.",
+            "accepted_target_texts": [
+                "My grandparents hardly ever use the lift.",
+                "My grandparents hardly ever use the elevator.",
+                "My grandparents almost never use the lift.",
+                "My grandparents almost never use the elevator."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "elevator."
+                ],
+                "a3": [
+                    "almost"
+                ],
+                "a4": [
+                    "never"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "elevator."
+                ],
+                "a3": [
+                    "almost"
+                ],
+                "a4": [
+                    "never"
+                ]
+            },
+            "reorder_groups": [
+                "My grandparents",
+                "hardly ever",
+                "use the lift."
+            ],
+            "token_groups": [
+                "My grandparents",
+                "hardly ever",
+                "use the lift."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "My",
+                "grandparents",
+                "hardly",
+                "ever",
+                "use",
+                "the",
+                "lift."
+            ],
+            "options": [
+                "My",
+                "Her",
+                "Its",
+                "Our",
+                "grandparents",
+                "bikes",
+                "cars",
+                "bags",
+                "hardly",
+                "loudly",
+                "quietly",
+                "slowly",
+                "ever",
+                "today",
+                "box",
+                "expect",
+                "use",
+                "watch",
+                "visit",
+                "cook",
+                "the",
+                "all",
+                "both",
+                "a",
+                "lift",
+                "train",
+                "bus",
+                "desk"
+            ],
+            "source_text_uk": "Мої дідусь і бабуся майже ніколи не користуються ліфтом.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Her",
+                    "Its",
+                    "Our"
+                ],
+                "a2": [
+                    "grandparents",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ],
+                "a3": [
+                    "hardly",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a4": [
+                    "ever",
+                    "today",
+                    "box",
+                    "expect"
+                ],
+                "a5": [
+                    "use",
+                    "watch",
+                    "visit",
+                    "cook"
+                ],
+                "a6": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a7": [
+                    "lift",
+                    "train",
+                    "bus",
+                    "desk"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "woq-negative-adverbial-inve-6cf430b1",
+            "author_id": "A2-c02",
+            "question": "Я не очікував сьогодні листа.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Я не очікував сьогодні листа.",
+            "target_text": "I did not expect a letter today.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "I",
+                        "You",
+                        "He",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "did",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "did",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "expect",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "expect",
+                        "box",
+                        "ever",
+                        "lift"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "a",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a6": {
+                    "answer": "letter",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "letter",
+                        "document",
+                        "map",
+                        "notebook"
+                    ]
+                },
+                "a7": {
+                    "answer": "today.",
+                    "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+                    "options": [
+                        "today",
+                        "book",
+                        "chair",
+                        "table"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч минулу подію за допомогою допоміжного дієслова; основне залишається початковим.",
+            "accepted_target_texts": [
+                "I did not expect a letter today.",
+                "I did not anticipate a letter today."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "anticipate"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "anticipate"
+                ]
+            },
+            "reorder_groups": [
+                "I did not",
+                "expect",
+                "a letter today."
+            ],
+            "token_groups": [
+                "I did not",
+                "expect",
+                "a letter today."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "I",
+                "did",
+                "not",
+                "expect",
+                "a",
+                "letter",
+                "today."
+            ],
+            "options": [
+                "I",
+                "You",
+                "He",
+                "She",
+                "did",
+                "doesn't",
+                "didn't",
+                "have",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "expect",
+                "box",
+                "ever",
+                "lift",
+                "a",
+                "any",
+                "this",
+                "that",
+                "letter",
+                "document",
+                "map",
+                "notebook",
+                "today",
+                "book",
+                "chair",
+                "table"
+            ],
+            "source_text_uk": "Я не очікував сьогодні листа.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "You",
+                    "He",
+                    "She"
+                ],
+                "a2": [
+                    "did",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "expect",
+                    "box",
+                    "ever",
+                    "lift"
+                ],
+                "a5": [
+                    "a",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a6": [
+                    "letter",
+                    "document",
+                    "map",
+                    "notebook"
+                ],
+                "a7": [
+                    "today",
+                    "book",
+                    "chair",
+                    "table"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "woq-negative-adverbial-inve-5088a0da",
+            "author_id": "A2-c03",
+            "question": "У коробці нічого не бракувало.",
+            "level": "A2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "У коробці нічого не бракувало.",
+            "target_text": "Nothing was missing from the box.",
+            "markers": {
+                "a1": {
+                    "answer": "Nothing",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "Nothing",
+                        "Playing",
+                        "Reading",
+                        "Writing"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "missing",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "missing",
+                        "giving",
+                        "making",
+                        "going"
+                    ]
+                },
+                "a4": {
+                    "answer": "from",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "from",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a6": {
+                    "answer": "box.",
+                    "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+                    "options": [
+                        "box",
+                        "ever",
+                        "lift",
+                        "expect"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з одного заперечного підмета та не додавай другого заперечення.",
+            "accepted_target_texts": [
+                "Nothing was missing from the box."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nothing",
+                "was missing",
+                "from the box."
+            ],
+            "token_groups": [
+                "Nothing",
+                "was missing",
+                "from the box."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Nothing",
+                "was",
+                "missing",
+                "from",
+                "the",
+                "box."
+            ],
+            "options": [
+                "Nothing",
+                "Playing",
+                "Reading",
+                "Writing",
+                "was",
+                "is",
+                "are",
+                "were",
+                "missing",
+                "giving",
+                "making",
+                "going",
+                "from",
+                "over",
+                "under",
+                "through",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "box",
+                "ever",
+                "lift",
+                "expect"
+            ],
+            "source_text_uk": "У коробці нічого не бракувало.",
+            "options_by_marker": {
+                "a1": [
+                    "Nothing",
+                    "Playing",
+                    "Reading",
+                    "Writing"
+                ],
+                "a2": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a3": [
+                    "missing",
+                    "giving",
+                    "making",
+                    "going"
+                ],
+                "a4": [
+                    "from",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a5": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a6": [
+                    "box",
+                    "ever",
+                    "lift",
+                    "expect"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "woq-negative-adverbial-inve-963f2925",
+            "author_id": "B1-c01",
+            "question": "Ми рідко отримуємо рукописні запрошення.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Ми рідко отримуємо рукописні запрошення.",
+            "target_text": "We seldom receive handwritten invitations.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+                    "options": [
+                        "We",
+                        "Themselves",
+                        "I",
+                        "You"
+                    ]
+                },
+                "a2": {
+                    "answer": "seldom",
+                    "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+                    "options": [
+                        "seldom",
+                        "since",
+                        "dawn",
+                        "school"
+                    ]
+                },
+                "a3": {
+                    "answer": "receive",
+                    "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+                    "options": [
+                        "receive",
+                        "bad",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a4": {
+                    "answer": "handwritten",
+                    "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+                    "options": [
+                        "handwritten",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a5": {
+                    "answer": "invitations.",
+                    "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+                    "options": [
+                        "invitations",
+                        "seats",
+                        "hikers",
+                        "women"
+                    ]
+                }
+            },
+            "verb_hint": "Залиши прислівник малої частотності після підмета, без формальної інверсії.",
+            "accepted_target_texts": [
+                "We seldom receive handwritten invitations.",
+                "We rarely receive handwritten invitations."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "rarely"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "rarely"
+                ]
+            },
+            "reorder_groups": [
+                "We seldom",
+                "receive",
+                "handwritten invitations."
+            ],
+            "token_groups": [
+                "We seldom",
+                "receive",
+                "handwritten invitations."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "We",
+                "seldom",
+                "receive",
+                "handwritten",
+                "invitations."
+            ],
+            "options": [
+                "We",
+                "Themselves",
+                "I",
+                "You",
+                "seldom",
+                "since",
+                "dawn",
+                "school",
+                "receive",
+                "bad",
+                "friendly",
+                "lovely",
+                "handwritten",
+                "took",
+                "wrote",
+                "rode",
+                "invitations",
+                "seats",
+                "hikers",
+                "women"
+            ],
+            "source_text_uk": "Ми рідко отримуємо рукописні запрошення.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Themselves",
+                    "I",
+                    "You"
+                ],
+                "a2": [
+                    "seldom",
+                    "since",
+                    "dawn",
+                    "school"
+                ],
+                "a3": [
+                    "receive",
+                    "bad",
+                    "friendly",
+                    "lovely"
+                ],
+                "a4": [
+                    "handwritten",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a5": [
+                    "invitations",
+                    "seats",
+                    "hikers",
+                    "women"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "woq-negative-adverbial-inve-7c95e81a",
+            "author_id": "B1-c02",
+            "question": "Туристи нічого не їли від світанку.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Туристи нічого не їли від світанку.",
+            "target_text": "The hikers had not eaten since dawn.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "hikers",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "hikers",
+                        "seats",
+                        "invitations",
+                        "men"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "eaten",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "eaten",
+                        "occupied",
+                        "left",
+                        "said"
+                    ]
+                },
+                "a6": {
+                    "answer": "since",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "since",
+                        "seldom",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a7": {
+                    "answer": "dawn.",
+                    "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+                    "options": [
+                        "dawn",
+                        "letter",
+                        "window",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "У звичайній минулій доконаній формі заперечення став після першого допоміжного дієслова.",
+            "accepted_target_texts": [
+                "The hikers had not eaten since dawn."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hikers",
+                "had not eaten",
+                "since dawn."
+            ],
+            "token_groups": [
+                "The hikers",
+                "had not eaten",
+                "since dawn."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "The",
+                "hikers",
+                "had",
+                "not",
+                "eaten",
+                "since",
+                "dawn."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "hikers",
+                "seats",
+                "invitations",
+                "men",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "eaten",
+                "occupied",
+                "left",
+                "said",
+                "since",
+                "seldom",
+                "phone",
+                "train",
+                "dawn",
+                "letter",
+                "window",
+                "bus"
+            ],
+            "source_text_uk": "Туристи нічого не їли від світанку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "hikers",
+                    "seats",
+                    "invitations",
+                    "men"
+                ],
+                "a3": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "eaten",
+                    "occupied",
+                    "left",
+                    "said"
+                ],
+                "a6": [
+                    "since",
+                    "seldom",
+                    "phone",
+                    "train"
+                ],
+                "a7": [
+                    "dawn",
+                    "letter",
+                    "window",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "woq-negative-adverbial-inve-4c7bb5f3",
+            "author_id": "B1-c03",
+            "question": "Не всі місця були зайняті.",
+            "level": "B1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Не всі місця були зайняті.",
+            "target_text": "Not all the seats were occupied.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "Not",
+                        "Never",
+                        "Always",
+                        "Often"
+                    ]
+                },
+                "a2": {
+                    "answer": "all",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "all",
+                        "neither",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a4": {
+                    "answer": "seats",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "seats",
+                        "invitations",
+                        "hikers",
+                        "bags"
+                    ]
+                },
+                "a5": {
+                    "answer": "were",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "were",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "occupied.",
+                    "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+                    "options": [
+                        "occupied",
+                        "eaten",
+                        "liked",
+                        "wanted"
+                    ]
+                }
+            },
+            "verb_hint": "Передай часткове заперечення кількості, не повну відсутність зайнятих місць.",
+            "accepted_target_texts": [
+                "Not all the seats were occupied."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not all",
+                "the seats",
+                "were occupied."
+            ],
+            "token_groups": [
+                "Not all",
+                "the seats",
+                "were occupied."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Not",
+                "all",
+                "the",
+                "seats",
+                "were",
+                "occupied."
+            ],
+            "options": [
+                "Not",
+                "Never",
+                "Always",
+                "Often",
+                "all",
+                "neither",
+                "both",
+                "a",
+                "the",
+                "some",
+                "any",
+                "this",
+                "seats",
+                "invitations",
+                "hikers",
+                "bags",
+                "were",
+                "been",
+                "being",
+                "isn't",
+                "occupied",
+                "eaten",
+                "liked",
+                "wanted"
+            ],
+            "source_text_uk": "Не всі місця були зайняті.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Never",
+                    "Always",
+                    "Often"
+                ],
+                "a2": [
+                    "all",
+                    "neither",
+                    "both",
+                    "a"
+                ],
+                "a3": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a4": [
+                    "seats",
+                    "invitations",
+                    "hikers",
+                    "bags"
+                ],
+                "a5": [
+                    "were",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "occupied",
+                    "eaten",
+                    "liked",
+                    "wanted"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "woq-negative-adverbial-inve-012487fb",
+            "author_id": "B2-c01",
+            "question": "Ніколи раніше фермер не бачив, щоб річка настільки обміліла.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Ніколи раніше фермер не бачив, щоб річка настільки обміліла.",
+            "target_text": "Never before had the farmer seen the river so low.",
+            "markers": {
+                "a1": {
+                    "answer": "Never",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "Never",
+                        "Almost",
+                        "Not",
+                        "Always"
+                    ]
+                },
+                "a2": {
+                    "answer": "before",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "before",
+                        "market",
+                        "sunrise",
+                        "roof"
+                    ]
+                },
+                "a3": {
+                    "answer": "had",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "had",
+                        "haven't",
+                        "hasn't",
+                        "hadn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "farmer",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "farmer",
+                        "damp",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a6": {
+                    "answer": "seen",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "seen",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "the",
+                        "another",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "river",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "river",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a9": {
+                    "answer": "so",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "so",
+                        "whether",
+                        "and",
+                        "but"
+                    ]
+                },
+                "a10": {
+                    "answer": "low.",
+                    "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+                    "options": [
+                        "low",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з негативної обставини попереднього досвіду й використай минулу доконану інверсію.",
+            "accepted_target_texts": [
+                "Never before had the farmer seen the river so low."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Never before",
+                "had the farmer",
+                "seen the river",
+                "so low."
+            ],
+            "token_groups": [
+                "Never before",
+                "had the farmer",
+                "seen the river",
+                "so low."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Never",
+                "before",
+                "had",
+                "the",
+                "farmer",
+                "seen",
+                "the",
+                "river",
+                "so",
+                "low."
+            ],
+            "options": [
+                "Never",
+                "Almost",
+                "Not",
+                "Always",
+                "before",
+                "market",
+                "sunrise",
+                "roof",
+                "had",
+                "haven't",
+                "hasn't",
+                "hadn't",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "farmer",
+                "damp",
+                "window",
+                "phone",
+                "seen",
+                "wanted",
+                "worked",
+                "played",
+                "another",
+                "both",
+                "a",
+                "river",
+                "train",
+                "bus",
+                "desk",
+                "so",
+                "whether",
+                "and",
+                "but",
+                "low",
+                "picture",
+                "child",
+                "teacher"
+            ],
+            "source_text_uk": "Ніколи раніше фермер не бачив, щоб річка настільки обміліла.",
+            "options_by_marker": {
+                "a1": [
+                    "Never",
+                    "Almost",
+                    "Not",
+                    "Always"
+                ],
+                "a2": [
+                    "before",
+                    "market",
+                    "sunrise",
+                    "roof"
+                ],
+                "a3": [
+                    "had",
+                    "haven't",
+                    "hasn't",
+                    "hadn't"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "farmer",
+                    "damp",
+                    "window",
+                    "phone"
+                ],
+                "a6": [
+                    "seen",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a7": [
+                    "the",
+                    "another",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "river",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a9": [
+                    "so",
+                    "whether",
+                    "and",
+                    "but"
+                ],
+                "a10": [
+                    "low",
+                    "picture",
+                    "child",
+                    "teacher"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "woq-negative-adverbial-inve-1ff1f9c5",
+            "author_id": "B2-c02",
+            "question": "Ринок відкривається до сходу сонця лише по неділях.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Ринок відкривається до сходу сонця лише по неділях.",
+            "target_text": "Only on Sundays does the market open before sunrise.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "Only",
+                        "Also",
+                        "Usually",
+                        "Rarely"
+                    ]
+                },
+                "a2": {
+                    "answer": "on",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "on",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a3": {
+                    "answer": "Sundays",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "Sundays",
+                        "Walls",
+                        "Doors",
+                        "Keys"
+                    ]
+                },
+                "a4": {
+                    "answer": "does",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "does",
+                        "did",
+                        "don't",
+                        "doesn't"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "market",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "market",
+                        "roof",
+                        "damp",
+                        "farmer"
+                    ]
+                },
+                "a7": {
+                    "answer": "open",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "open",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a8": {
+                    "answer": "before",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "before",
+                        "river",
+                        "low",
+                        "bread"
+                    ]
+                },
+                "a9": {
+                    "answer": "sunrise.",
+                    "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+                    "options": [
+                        "sunrise",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                }
+            },
+            "verb_hint": "Винеси обмеження днів на початок та інвертуй допоміжне дієслово.",
+            "accepted_target_texts": [
+                "Only on Sundays does the market open before sunrise."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only on Sundays",
+                "does the market",
+                "open before sunrise."
+            ],
+            "token_groups": [
+                "Only on Sundays",
+                "does the market",
+                "open before sunrise."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Only",
+                "on",
+                "Sundays",
+                "does",
+                "the",
+                "market",
+                "open",
+                "before",
+                "sunrise."
+            ],
+            "options": [
+                "Only",
+                "Also",
+                "Usually",
+                "Rarely",
+                "on",
+                "across",
+                "between",
+                "among",
+                "Sundays",
+                "Walls",
+                "Doors",
+                "Keys",
+                "does",
+                "did",
+                "don't",
+                "doesn't",
+                "the",
+                "some",
+                "any",
+                "this",
+                "market",
+                "roof",
+                "damp",
+                "farmer",
+                "open",
+                "drove",
+                "gave",
+                "made",
+                "before",
+                "river",
+                "low",
+                "bread",
+                "sunrise",
+                "milk",
+                "music",
+                "food"
+            ],
+            "source_text_uk": "Ринок відкривається до сходу сонця лише по неділях.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Also",
+                    "Usually",
+                    "Rarely"
+                ],
+                "a2": [
+                    "on",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a3": [
+                    "Sundays",
+                    "Walls",
+                    "Doors",
+                    "Keys"
+                ],
+                "a4": [
+                    "does",
+                    "did",
+                    "don't",
+                    "doesn't"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "market",
+                    "roof",
+                    "damp",
+                    "farmer"
+                ],
+                "a7": [
+                    "open",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a8": [
+                    "before",
+                    "river",
+                    "low",
+                    "bread"
+                ],
+                "a9": [
+                    "sunrise",
+                    "milk",
+                    "music",
+                    "food"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "woq-negative-adverbial-inve-e560e2a3",
+            "author_id": "B2-c03",
+            "question": "Не лише дах протікає, а й стіни вологі.",
+            "level": "B2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Не лише дах протікає, а й стіни вологі.",
+            "target_text": "Not only is the roof leaking, but the walls are also damp.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "Not",
+                        "Already",
+                        "Still",
+                        "Just"
+                    ]
+                },
+                "a2": {
+                    "answer": "only",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "only",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "roof",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "roof",
+                        "before",
+                        "farmer",
+                        "river"
+                    ]
+                },
+                "a6": {
+                    "answer": "leaking,",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "leaking",
+                        "watching",
+                        "visiting",
+                        "cooking"
+                    ]
+                },
+                "a7": {
+                    "answer": "but",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "but",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a9": {
+                    "answer": "walls",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "walls",
+                        "Sundays",
+                        "chairs",
+                        "tables"
+                    ]
+                },
+                "a10": {
+                    "answer": "are",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "are",
+                        "am",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a11": {
+                    "answer": "also",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "also",
+                        "even",
+                        "almost",
+                        "sometimes"
+                    ]
+                },
+                "a12": {
+                    "answer": "damp.",
+                    "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+                    "options": [
+                        "damp",
+                        "low",
+                        "market",
+                        "sunrise"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з парного негативного підсилення; інверсія потрібна в першій частині.",
+            "accepted_target_texts": [
+                "Not only is the roof leaking, but the walls are also damp."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not only",
+                "is the roof",
+                "leaking, but",
+                "the walls are",
+                "also damp."
+            ],
+            "token_groups": [
+                "Not only",
+                "is the roof",
+                "leaking, but",
+                "the walls are",
+                "also damp."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Not",
+                "only",
+                "is",
+                "the",
+                "roof",
+                "leaking,",
+                "but",
+                "the",
+                "walls",
+                "are",
+                "also",
+                "damp."
+            ],
+            "options": [
+                "Not",
+                "Already",
+                "Still",
+                "Just",
+                "only",
+                "never",
+                "always",
+                "often",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "the",
+                "some",
+                "any",
+                "this",
+                "roof",
+                "before",
+                "farmer",
+                "river",
+                "leaking",
+                "watching",
+                "visiting",
+                "cooking",
+                "but",
+                "so",
+                "yet",
+                "because",
+                "another",
+                "either",
+                "neither",
+                "walls",
+                "Sundays",
+                "chairs",
+                "tables",
+                "are",
+                "am",
+                "was",
+                "were",
+                "also",
+                "even",
+                "almost",
+                "sometimes",
+                "damp",
+                "low",
+                "market",
+                "sunrise"
+            ],
+            "source_text_uk": "Не лише дах протікає, а й стіни вологі.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Already",
+                    "Still",
+                    "Just"
+                ],
+                "a2": [
+                    "only",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a3": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "roof",
+                    "before",
+                    "farmer",
+                    "river"
+                ],
+                "a6": [
+                    "leaking",
+                    "watching",
+                    "visiting",
+                    "cooking"
+                ],
+                "a7": [
+                    "but",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a8": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a9": [
+                    "walls",
+                    "Sundays",
+                    "chairs",
+                    "tables"
+                ],
+                "a10": [
+                    "are",
+                    "am",
+                    "was",
+                    "were"
+                ],
+                "a11": [
+                    "also",
+                    "even",
+                    "almost",
+                    "sometimes"
+                ],
+                "a12": [
+                    "damp",
+                    "low",
+                    "market",
+                    "sunrise"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "woq-negative-adverbial-inve-965963a2",
+            "author_id": "C1-c01",
+            "question": "Щойно закінчилася репетиція, як зі стелі почало капати.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Щойно закінчилася репетиція, як зі стелі почало капати.",
+            "target_text": "Scarcely had the rehearsal ended when the ceiling began to leak.",
+            "markers": {
+                "a1": {
+                    "answer": "Scarcely",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "Scarcely",
+                        "Well",
+                        "Badly",
+                        "Clearly"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "had",
+                        "does",
+                        "did",
+                        "don't"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a4": {
+                    "answer": "rehearsal",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "rehearsal",
+                        "time",
+                        "assistance",
+                        "price"
+                    ]
+                },
+                "a5": {
+                    "answer": "ended",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "ended",
+                        "isolated",
+                        "left",
+                        "collapsed"
+                    ]
+                },
+                "a6": {
+                    "answer": "when",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "when",
+                        "whoever",
+                        "whatever",
+                        "wherever"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "ceiling",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "ceiling",
+                        "lowering",
+                        "helping",
+                        "waiting"
+                    ]
+                },
+                "a9": {
+                    "answer": "began",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "began",
+                        "said",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a10": {
+                    "answer": "to",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a11": {
+                    "answer": "leak.",
+                    "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+                    "options": [
+                        "leak",
+                        "one",
+                        "vendor",
+                        "attract"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конструкції негайної наступності та збережи обидві минулі події.",
+            "accepted_target_texts": [
+                "Scarcely had the rehearsal ended when the ceiling began to leak."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Scarcely had",
+                "the rehearsal ended",
+                "when the ceiling",
+                "began to leak."
+            ],
+            "token_groups": [
+                "Scarcely had",
+                "the rehearsal ended",
+                "when the ceiling",
+                "began to leak."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Scarcely",
+                "had",
+                "the",
+                "rehearsal",
+                "ended",
+                "when",
+                "the",
+                "ceiling",
+                "began",
+                "to",
+                "leak."
+            ],
+            "options": [
+                "Scarcely",
+                "Well",
+                "Badly",
+                "Clearly",
+                "had",
+                "does",
+                "did",
+                "don't",
+                "the",
+                "an",
+                "some",
+                "any",
+                "rehearsal",
+                "time",
+                "assistance",
+                "price",
+                "ended",
+                "isolated",
+                "left",
+                "collapsed",
+                "when",
+                "whoever",
+                "whatever",
+                "wherever",
+                "those",
+                "each",
+                "every",
+                "ceiling",
+                "lowering",
+                "helping",
+                "waiting",
+                "began",
+                "said",
+                "met",
+                "went",
+                "to",
+                "with",
+                "without",
+                "into",
+                "leak",
+                "one",
+                "vendor",
+                "attract"
+            ],
+            "source_text_uk": "Щойно закінчилася репетиція, як зі стелі почало капати.",
+            "options_by_marker": {
+                "a1": [
+                    "Scarcely",
+                    "Well",
+                    "Badly",
+                    "Clearly"
+                ],
+                "a2": [
+                    "had",
+                    "does",
+                    "did",
+                    "don't"
+                ],
+                "a3": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a4": [
+                    "rehearsal",
+                    "time",
+                    "assistance",
+                    "price"
+                ],
+                "a5": [
+                    "ended",
+                    "isolated",
+                    "left",
+                    "collapsed"
+                ],
+                "a6": [
+                    "when",
+                    "whoever",
+                    "whatever",
+                    "wherever"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "ceiling",
+                    "lowering",
+                    "helping",
+                    "waiting"
+                ],
+                "a9": [
+                    "began",
+                    "said",
+                    "met",
+                    "went"
+                ],
+                "a10": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a11": [
+                    "leak",
+                    "one",
+                    "vendor",
+                    "attract"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "woq-negative-adverbial-inve-957739f7",
+            "author_id": "C1-c02",
+            "question": "Пасажирів ані на мить не залишали без допомоги.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Пасажирів ані на мить не залишали без допомоги.",
+            "target_text": "At no time were the passengers left without assistance.",
+            "markers": {
+                "a1": {
+                    "answer": "At",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "At",
+                        "By",
+                        "With",
+                        "Into"
+                    ]
+                },
+                "a2": {
+                    "answer": "no",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "no",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a3": {
+                    "answer": "time",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "time",
+                        "discuss",
+                        "evidence",
+                        "one"
+                    ]
+                },
+                "a4": {
+                    "answer": "were",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "were",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a6": {
+                    "answer": "passengers",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "passengers",
+                        "witnesses",
+                        "buyers",
+                        "circumstances"
+                    ]
+                },
+                "a7": {
+                    "answer": "left",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "left",
+                        "isolated",
+                        "ended",
+                        "began"
+                    ]
+                },
+                "a8": {
+                    "answer": "without",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "without",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a9": {
+                    "answer": "assistance.",
+                    "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+                    "options": [
+                        "assistance",
+                        "price",
+                        "vendor",
+                        "attract"
+                    ]
+                }
+            },
+            "verb_hint": "Винеси негативне обмеження часу вперед; у пасиві інвертуй перше допоміжне дієслово.",
+            "accepted_target_texts": [
+                "At no time were the passengers left without assistance."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "At no time",
+                "were the passengers",
+                "left without assistance."
+            ],
+            "token_groups": [
+                "At no time",
+                "were the passengers",
+                "left without assistance."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "At",
+                "no",
+                "time",
+                "were",
+                "the",
+                "passengers",
+                "left",
+                "without",
+                "assistance."
+            ],
+            "options": [
+                "At",
+                "By",
+                "With",
+                "Into",
+                "no",
+                "those",
+                "each",
+                "every",
+                "time",
+                "discuss",
+                "evidence",
+                "one",
+                "were",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "the",
+                "all",
+                "both",
+                "a",
+                "passengers",
+                "witnesses",
+                "buyers",
+                "circumstances",
+                "left",
+                "isolated",
+                "ended",
+                "began",
+                "without",
+                "across",
+                "between",
+                "among",
+                "assistance",
+                "price",
+                "vendor",
+                "attract"
+            ],
+            "source_text_uk": "Пасажирів ані на мить не залишали без допомоги.",
+            "options_by_marker": {
+                "a1": [
+                    "At",
+                    "By",
+                    "With",
+                    "Into"
+                ],
+                "a2": [
+                    "no",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a3": [
+                    "time",
+                    "discuss",
+                    "evidence",
+                    "one"
+                ],
+                "a4": [
+                    "were",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a5": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a6": [
+                    "passengers",
+                    "witnesses",
+                    "buyers",
+                    "circumstances"
+                ],
+                "a7": [
+                    "left",
+                    "isolated",
+                    "ended",
+                    "began"
+                ],
+                "a8": [
+                    "without",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a9": [
+                    "assistance",
+                    "price",
+                    "vendor",
+                    "attract"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "woq-negative-adverbial-inve-b0c6d062",
+            "author_id": "C1-c03",
+            "question": "Продавець зміг привабити більше покупців лише знизивши ціну.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Продавець зміг привабити більше покупців лише знизивши ціну.",
+            "target_text": "Only by lowering the price could the vendor attract more buyers.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "Only",
+                        "Just",
+                        "Also",
+                        "Usually"
+                    ]
+                },
+                "a2": {
+                    "answer": "by",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "by",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a3": {
+                    "answer": "lowering",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "lowering",
+                        "ceiling",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "price",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "price",
+                        "time",
+                        "assistance",
+                        "since"
+                    ]
+                },
+                "a6": {
+                    "answer": "could",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "could",
+                        "will",
+                        "would",
+                        "shall"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "vendor",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "vendor",
+                        "leak",
+                        "bridge",
+                        "village"
+                    ]
+                },
+                "a9": {
+                    "answer": "attract",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "attract",
+                        "rehearsal",
+                        "discuss",
+                        "evidence"
+                    ]
+                },
+                "a10": {
+                    "answer": "more",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "more",
+                        "one",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a11": {
+                    "answer": "buyers.",
+                    "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+                    "options": [
+                        "buyers",
+                        "passengers",
+                        "circumstances",
+                        "witnesses"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з єдиного дієвого способу; далі потрібна інверсія модального дієслова.",
+            "accepted_target_texts": [
+                "Only by lowering the price could the vendor attract more buyers."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only by",
+                "lowering the price",
+                "could the vendor",
+                "attract more buyers."
+            ],
+            "token_groups": [
+                "Only by",
+                "lowering the price",
+                "could the vendor",
+                "attract more buyers."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Only",
+                "by",
+                "lowering",
+                "the",
+                "price",
+                "could",
+                "the",
+                "vendor",
+                "attract",
+                "more",
+                "buyers."
+            ],
+            "options": [
+                "Only",
+                "Just",
+                "Also",
+                "Usually",
+                "by",
+                "with",
+                "without",
+                "into",
+                "lowering",
+                "ceiling",
+                "riding",
+                "driving",
+                "the",
+                "every",
+                "no",
+                "another",
+                "price",
+                "time",
+                "assistance",
+                "since",
+                "could",
+                "will",
+                "would",
+                "shall",
+                "those",
+                "each",
+                "either",
+                "vendor",
+                "leak",
+                "bridge",
+                "village",
+                "attract",
+                "rehearsal",
+                "discuss",
+                "evidence",
+                "more",
+                "one",
+                "water",
+                "bread",
+                "buyers",
+                "passengers",
+                "circumstances",
+                "witnesses"
+            ],
+            "source_text_uk": "Продавець зміг привабити більше покупців лише знизивши ціну.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Just",
+                    "Also",
+                    "Usually"
+                ],
+                "a2": [
+                    "by",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a3": [
+                    "lowering",
+                    "ceiling",
+                    "riding",
+                    "driving"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "price",
+                    "time",
+                    "assistance",
+                    "since"
+                ],
+                "a6": [
+                    "could",
+                    "will",
+                    "would",
+                    "shall"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "either"
+                ],
+                "a8": [
+                    "vendor",
+                    "leak",
+                    "bridge",
+                    "village"
+                ],
+                "a9": [
+                    "attract",
+                    "rehearsal",
+                    "discuss",
+                    "evidence"
+                ],
+                "a10": [
+                    "more",
+                    "one",
+                    "water",
+                    "bread"
+                ],
+                "a11": [
+                    "buyers",
+                    "passengers",
+                    "circumstances",
+                    "witnesses"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "woq-negative-adverbial-inve-21f27fee",
+            "author_id": "C1-c04",
+            "question": "Від обвалу мосту село ще не було настільки ізольованим.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Від обвалу мосту село ще не було настільки ізольованим.",
+            "target_text": "Not since the bridge collapsed has the village been so isolated.",
+            "markers": {
+                "a1": {
+                    "answer": "Not",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "Not",
+                        "Never",
+                        "Always",
+                        "Often"
+                    ]
+                },
+                "a2": {
+                    "answer": "since",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "since",
+                        "more",
+                        "discuss",
+                        "evidence"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a4": {
+                    "answer": "bridge",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "bridge",
+                        "one",
+                        "rehearsal",
+                        "leak"
+                    ]
+                },
+                "a5": {
+                    "answer": "collapsed",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "collapsed",
+                        "ended",
+                        "began",
+                        "left"
+                    ]
+                },
+                "a6": {
+                    "answer": "has",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "has",
+                        "hadn't",
+                        "do",
+                        "does"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a8": {
+                    "answer": "village",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "village",
+                        "time",
+                        "assistance",
+                        "price"
+                    ]
+                },
+                "a9": {
+                    "answer": "been",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "been",
+                        "aren't",
+                        "wasn't",
+                        "weren't"
+                    ]
+                },
+                "a10": {
+                    "answer": "so",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "so",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a11": {
+                    "answer": "isolated.",
+                    "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+                    "options": [
+                        "isolated",
+                        "walked",
+                        "opened",
+                        "closed"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з негативної часової межі та використай теперішню доконану інверсію в головній частині.",
+            "accepted_target_texts": [
+                "Not since the bridge collapsed has the village been so isolated."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not since",
+                "the bridge collapsed",
+                "has the village",
+                "been so isolated."
+            ],
+            "token_groups": [
+                "Not since",
+                "the bridge collapsed",
+                "has the village",
+                "been so isolated."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Not",
+                "since",
+                "the",
+                "bridge",
+                "collapsed",
+                "has",
+                "the",
+                "village",
+                "been",
+                "so",
+                "isolated."
+            ],
+            "options": [
+                "Not",
+                "Never",
+                "Always",
+                "Often",
+                "since",
+                "more",
+                "discuss",
+                "evidence",
+                "the",
+                "those",
+                "each",
+                "every",
+                "bridge",
+                "one",
+                "rehearsal",
+                "leak",
+                "collapsed",
+                "ended",
+                "began",
+                "left",
+                "has",
+                "hadn't",
+                "do",
+                "does",
+                "all",
+                "both",
+                "a",
+                "village",
+                "time",
+                "assistance",
+                "price",
+                "been",
+                "aren't",
+                "wasn't",
+                "weren't",
+                "so",
+                "whereas",
+                "while",
+                "if",
+                "isolated",
+                "walked",
+                "opened",
+                "closed"
+            ],
+            "source_text_uk": "Від обвалу мосту село ще не було настільки ізольованим.",
+            "options_by_marker": {
+                "a1": [
+                    "Not",
+                    "Never",
+                    "Always",
+                    "Often"
+                ],
+                "a2": [
+                    "since",
+                    "more",
+                    "discuss",
+                    "evidence"
+                ],
+                "a3": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a4": [
+                    "bridge",
+                    "one",
+                    "rehearsal",
+                    "leak"
+                ],
+                "a5": [
+                    "collapsed",
+                    "ended",
+                    "began",
+                    "left"
+                ],
+                "a6": [
+                    "has",
+                    "hadn't",
+                    "do",
+                    "does"
+                ],
+                "a7": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a8": [
+                    "village",
+                    "time",
+                    "assistance",
+                    "price"
+                ],
+                "a9": [
+                    "been",
+                    "aren't",
+                    "wasn't",
+                    "weren't"
+                ],
+                "a10": [
+                    "so",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a11": [
+                    "isolated",
+                    "walked",
+                    "opened",
+                    "closed"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "woq-negative-adverbial-inve-9271a794",
+            "author_id": "C1-c05",
+            "question": "За жодних обставин свідкам не слід обговорювати між собою свої свідчення.",
+            "level": "C1",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "За жодних обставин свідкам не слід обговорювати між собою свої свідчення.",
+            "target_text": "Under no circumstances should the witnesses discuss their evidence with one another.",
+            "markers": {
+                "a1": {
+                    "answer": "Under",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "Under",
+                        "From",
+                        "For",
+                        "Of"
+                    ]
+                },
+                "a2": {
+                    "answer": "no",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "no",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a3": {
+                    "answer": "circumstances",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "circumstances",
+                        "buyers",
+                        "passengers",
+                        "tables"
+                    ]
+                },
+                "a4": {
+                    "answer": "should",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "should",
+                        "might",
+                        "must",
+                        "can't"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "witnesses",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "witnesses",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                },
+                "a7": {
+                    "answer": "discuss",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "discuss",
+                        "rehearsal",
+                        "leak",
+                        "time"
+                    ]
+                },
+                "a8": {
+                    "answer": "their",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "their",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a9": {
+                    "answer": "evidence",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "evidence",
+                        "assistance",
+                        "price",
+                        "vendor"
+                    ]
+                },
+                "a10": {
+                    "answer": "with",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "with",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a11": {
+                    "answer": "one",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "one",
+                        "village",
+                        "attract",
+                        "more"
+                    ]
+                },
+                "a12": {
+                    "answer": "another.",
+                    "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+                    "options": [
+                        "another",
+                        "an",
+                        "that",
+                        "these"
+                    ]
+                }
+            },
+            "verb_hint": "Винеси категоричне обмеження на початок і постав модальне дієслово перед підметом.",
+            "accepted_target_texts": [
+                "Under no circumstances should the witnesses discuss their evidence with one another.",
+                "Under no circumstances should the witnesses talk about their evidence with one another."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Under no circumstances",
+                "should the witnesses",
+                "discuss their evidence",
+                "with one another."
+            ],
+            "token_groups": [
+                "Under no circumstances",
+                "should the witnesses",
+                "discuss their evidence",
+                "with one another."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Under",
+                "no",
+                "circumstances",
+                "should",
+                "the",
+                "witnesses",
+                "discuss",
+                "their",
+                "evidence",
+                "with",
+                "one",
+                "another."
+            ],
+            "options": [
+                "Under",
+                "From",
+                "For",
+                "Of",
+                "no",
+                "either",
+                "neither",
+                "all",
+                "circumstances",
+                "buyers",
+                "passengers",
+                "tables",
+                "should",
+                "might",
+                "must",
+                "can't",
+                "the",
+                "some",
+                "any",
+                "this",
+                "witnesses",
+                "bikes",
+                "cars",
+                "bags",
+                "discuss",
+                "rehearsal",
+                "leak",
+                "time",
+                "their",
+                "mine",
+                "yours",
+                "hers",
+                "evidence",
+                "assistance",
+                "price",
+                "vendor",
+                "with",
+                "through",
+                "across",
+                "between",
+                "one",
+                "village",
+                "attract",
+                "more",
+                "another",
+                "an",
+                "that",
+                "these"
+            ],
+            "source_text_uk": "За жодних обставин свідкам не слід обговорювати між собою свої свідчення.",
+            "options_by_marker": {
+                "a1": [
+                    "Under",
+                    "From",
+                    "For",
+                    "Of"
+                ],
+                "a2": [
+                    "no",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a3": [
+                    "circumstances",
+                    "buyers",
+                    "passengers",
+                    "tables"
+                ],
+                "a4": [
+                    "should",
+                    "might",
+                    "must",
+                    "can't"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "witnesses",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ],
+                "a7": [
+                    "discuss",
+                    "rehearsal",
+                    "leak",
+                    "time"
+                ],
+                "a8": [
+                    "their",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a9": [
+                    "evidence",
+                    "assistance",
+                    "price",
+                    "vendor"
+                ],
+                "a10": [
+                    "with",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a11": [
+                    "one",
+                    "village",
+                    "attract",
+                    "more"
+                ],
+                "a12": [
+                    "another",
+                    "an",
+                    "that",
+                    "these"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "woq-negative-adverbial-inve-3c067eb8",
+            "author_id": "C2-c01",
+            "question": "Гіпотезу можна було вважати встановленою лише після відкидання всіх конкуруючих пояснень.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Гіпотезу можна було вважати встановленою лише після відкидання всіх конкуруючих пояснень.",
+            "target_text": "Only when all competing explanations had been excluded could the hypothesis be treated as established.",
+            "markers": {
+                "a1": {
+                    "answer": "Only",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "Only",
+                        "Often",
+                        "Sometimes",
+                        "Already"
+                    ]
+                },
+                "a2": {
+                    "answer": "when",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "when",
+                        "why",
+                        "how",
+                        "whoever"
+                    ]
+                },
+                "a3": {
+                    "answer": "all",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "all",
+                        "either",
+                        "neither",
+                        "both"
+                    ]
+                },
+                "a4": {
+                    "answer": "competing",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "competing",
+                        "reading",
+                        "walking",
+                        "opening"
+                    ]
+                },
+                "a5": {
+                    "answer": "explanations",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "explanations",
+                        "penalties",
+                        "women",
+                        "bikes"
+                    ]
+                },
+                "a6": {
+                    "answer": "had",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a7": {
+                    "answer": "been",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "been",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "excluded",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "excluded",
+                        "challenged",
+                        "checked",
+                        "sent"
+                    ]
+                },
+                "a9": {
+                    "answer": "could",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "could",
+                        "shouldn't",
+                        "cannot",
+                        "can"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a11": {
+                    "answer": "hypothesis",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "hypothesis",
+                        "people",
+                        "men",
+                        "cars"
+                    ]
+                },
+                "a12": {
+                    "answer": "be",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "be",
+                        "wasn't",
+                        "weren't",
+                        "am"
+                    ]
+                },
+                "a13": {
+                    "answer": "treated",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "treated",
+                        "known",
+                        "broken",
+                        "built"
+                    ]
+                },
+                "a14": {
+                    "answer": "as",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "as",
+                        "phones",
+                        "children",
+                        "teachers"
+                    ]
+                },
+                "a15": {
+                    "answer": "established.",
+                    "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+                    "options": [
+                        "established",
+                        "dried",
+                        "called",
+                        "walked"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з обмежувальної умови; розрізни звичайний підрядний порядок і модальну інверсію головної.",
+            "accepted_target_texts": [
+                "Only when all competing explanations had been excluded could the hypothesis be treated as established."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only when",
+                "all competing explanations",
+                "had been excluded",
+                "could the hypothesis",
+                "be treated as",
+                "established."
+            ],
+            "token_groups": [
+                "Only when",
+                "all competing explanations",
+                "had been excluded",
+                "could the hypothesis",
+                "be treated as",
+                "established."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Only",
+                "when",
+                "all",
+                "competing",
+                "explanations",
+                "had",
+                "been",
+                "excluded",
+                "could",
+                "the",
+                "hypothesis",
+                "be",
+                "treated",
+                "as",
+                "established."
+            ],
+            "options": [
+                "Only",
+                "Often",
+                "Sometimes",
+                "Already",
+                "when",
+                "why",
+                "how",
+                "whoever",
+                "all",
+                "either",
+                "neither",
+                "both",
+                "competing",
+                "reading",
+                "walking",
+                "opening",
+                "explanations",
+                "penalties",
+                "women",
+                "bikes",
+                "had",
+                "do",
+                "does",
+                "did",
+                "been",
+                "being",
+                "isn't",
+                "aren't",
+                "excluded",
+                "challenged",
+                "checked",
+                "sent",
+                "could",
+                "shouldn't",
+                "cannot",
+                "can",
+                "the",
+                "a",
+                "an",
+                "some",
+                "hypothesis",
+                "people",
+                "men",
+                "cars",
+                "be",
+                "wasn't",
+                "weren't",
+                "am",
+                "treated",
+                "known",
+                "broken",
+                "built",
+                "as",
+                "phones",
+                "children",
+                "teachers",
+                "established",
+                "dried",
+                "called",
+                "walked"
+            ],
+            "source_text_uk": "Гіпотезу можна було вважати встановленою лише після відкидання всіх конкуруючих пояснень.",
+            "options_by_marker": {
+                "a1": [
+                    "Only",
+                    "Often",
+                    "Sometimes",
+                    "Already"
+                ],
+                "a2": [
+                    "when",
+                    "why",
+                    "how",
+                    "whoever"
+                ],
+                "a3": [
+                    "all",
+                    "either",
+                    "neither",
+                    "both"
+                ],
+                "a4": [
+                    "competing",
+                    "reading",
+                    "walking",
+                    "opening"
+                ],
+                "a5": [
+                    "explanations",
+                    "penalties",
+                    "women",
+                    "bikes"
+                ],
+                "a6": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a7": [
+                    "been",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "excluded",
+                    "challenged",
+                    "checked",
+                    "sent"
+                ],
+                "a9": [
+                    "could",
+                    "shouldn't",
+                    "cannot",
+                    "can"
+                ],
+                "a10": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a11": [
+                    "hypothesis",
+                    "people",
+                    "men",
+                    "cars"
+                ],
+                "a12": [
+                    "be",
+                    "wasn't",
+                    "weren't",
+                    "am"
+                ],
+                "a13": [
+                    "treated",
+                    "known",
+                    "broken",
+                    "built"
+                ],
+                "a14": [
+                    "as",
+                    "phones",
+                    "children",
+                    "teachers"
+                ],
+                "a15": [
+                    "established",
+                    "dried",
+                    "called",
+                    "walked"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 19,
+            "uuid": "woq-negative-adverbial-inve-20917e63",
+            "author_id": "C2-c02",
+            "question": "Щойно висохло чорнило на угоді, як її основне положення оскаржили.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "Щойно висохло чорнило на угоді, як її основне положення оскаржили.",
+            "target_text": "Hardly had the ink dried on the accord when its central provision was challenged.",
+            "markers": {
+                "a1": {
+                    "answer": "Hardly",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "Hardly",
+                        "Quietly",
+                        "Slowly",
+                        "Quickly"
+                    ]
+                },
+                "a2": {
+                    "answer": "had",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "had",
+                        "do",
+                        "does",
+                        "did"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a4": {
+                    "answer": "ink",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "ink",
+                        "authorise",
+                        "statute",
+                        "box"
+                    ]
+                },
+                "a5": {
+                    "answer": "dried",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "dried",
+                        "established",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "on",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "accord",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "accord",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a9": {
+                    "answer": "when",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "when",
+                        "which",
+                        "where",
+                        "why"
+                    ]
+                },
+                "a10": {
+                    "answer": "its",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "its",
+                        "theirs",
+                        "whose",
+                        "my"
+                    ]
+                },
+                "a11": {
+                    "answer": "central",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "central",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a12": {
+                    "answer": "provision",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "provision",
+                        "water",
+                        "food",
+                        "bike"
+                    ]
+                },
+                "a13": {
+                    "answer": "was",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a14": {
+                    "answer": "challenged.",
+                    "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+                    "options": [
+                        "challenged",
+                        "excluded",
+                        "treated",
+                        "wanted"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи образ негайної наступності двох минулих подій, почавши з негативного прислівника.",
+            "accepted_target_texts": [
+                "Hardly had the ink dried on the accord when its central provision was challenged."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hardly had",
+                "the ink dried",
+                "on the accord",
+                "when its central",
+                "provision was challenged."
+            ],
+            "token_groups": [
+                "Hardly had",
+                "the ink dried",
+                "on the accord",
+                "when its central",
+                "provision was challenged."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "Hardly",
+                "had",
+                "the",
+                "ink",
+                "dried",
+                "on",
+                "the",
+                "accord",
+                "when",
+                "its",
+                "central",
+                "provision",
+                "was",
+                "challenged."
+            ],
+            "options": [
+                "Hardly",
+                "Quietly",
+                "Slowly",
+                "Quickly",
+                "had",
+                "do",
+                "does",
+                "did",
+                "the",
+                "each",
+                "every",
+                "no",
+                "ink",
+                "authorise",
+                "statute",
+                "box",
+                "dried",
+                "established",
+                "worked",
+                "played",
+                "on",
+                "about",
+                "during",
+                "to",
+                "another",
+                "either",
+                "neither",
+                "accord",
+                "train",
+                "bus",
+                "desk",
+                "when",
+                "which",
+                "where",
+                "why",
+                "its",
+                "theirs",
+                "whose",
+                "my",
+                "central",
+                "bread",
+                "milk",
+                "music",
+                "provision",
+                "water",
+                "food",
+                "bike",
+                "was",
+                "were",
+                "be",
+                "been",
+                "challenged",
+                "excluded",
+                "treated",
+                "wanted"
+            ],
+            "source_text_uk": "Щойно висохло чорнило на угоді, як її основне положення оскаржили.",
+            "options_by_marker": {
+                "a1": [
+                    "Hardly",
+                    "Quietly",
+                    "Slowly",
+                    "Quickly"
+                ],
+                "a2": [
+                    "had",
+                    "do",
+                    "does",
+                    "did"
+                ],
+                "a3": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a4": [
+                    "ink",
+                    "authorise",
+                    "statute",
+                    "box"
+                ],
+                "a5": [
+                    "dried",
+                    "established",
+                    "worked",
+                    "played"
+                ],
+                "a6": [
+                    "on",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a7": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "accord",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a9": [
+                    "when",
+                    "which",
+                    "where",
+                    "why"
+                ],
+                "a10": [
+                    "its",
+                    "theirs",
+                    "whose",
+                    "my"
+                ],
+                "a11": [
+                    "central",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a12": [
+                    "provision",
+                    "water",
+                    "food",
+                    "bike"
+                ],
+                "a13": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a14": [
+                    "challenged",
+                    "excluded",
+                    "treated",
+                    "wanted"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 20,
+            "uuid": "woq-negative-adverbial-inve-14d9f515",
+            "author_id": "C2-c03",
+            "question": "За жодного мислимого тлумачення закон не дозволяє покарань зі зворотною дією.",
+            "level": "C2",
+            "type": 4,
+            "source": "word_order_quality_negative_adverbial_inversion",
+            "translation_uk": "За жодного мислимого тлумачення закон не дозволяє покарань зі зворотною дією.",
+            "target_text": "On no conceivable reading does the statute authorise retrospective penalties.",
+            "markers": {
+                "a1": {
+                    "answer": "On",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "On",
+                        "At",
+                        "By",
+                        "With"
+                    ]
+                },
+                "a2": {
+                    "answer": "no",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "no",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a3": {
+                    "answer": "conceivable",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "conceivable",
+                        "cold",
+                        "warm",
+                        "quiet"
+                    ]
+                },
+                "a4": {
+                    "answer": "reading",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "reading",
+                        "competing",
+                        "studying",
+                        "living"
+                    ]
+                },
+                "a5": {
+                    "answer": "does",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "does",
+                        "doesn't",
+                        "didn't",
+                        "have"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a7": {
+                    "answer": "statute",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "statute",
+                        "central",
+                        "provision",
+                        "ink"
+                    ]
+                },
+                "a8": {
+                    "answer": "authorise",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "authorise",
+                        "accord",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a9": {
+                    "answer": "retrospective",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "retrospective",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                },
+                "a10": {
+                    "answer": "penalties.",
+                    "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+                    "options": [
+                        "penalties",
+                        "explanations",
+                        "hypothesis",
+                        "as"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з розгорнутого негативного обмеження тлумачення й використай допоміжну інверсію.",
+            "accepted_target_texts": [
+                "On no conceivable reading does the statute authorise retrospective penalties."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "On no",
+                "conceivable reading",
+                "does the statute",
+                "authorise retrospective penalties."
+            ],
+            "token_groups": [
+                "On no",
+                "conceivable reading",
+                "does the statute",
+                "authorise retrospective penalties."
+            ],
+            "quality_revision": "word-order-v1",
+            "tokens_correct": [
+                "On",
+                "no",
+                "conceivable",
+                "reading",
+                "does",
+                "the",
+                "statute",
+                "authorise",
+                "retrospective",
+                "penalties."
+            ],
+            "options": [
+                "On",
+                "At",
+                "By",
+                "With",
+                "no",
+                "an",
+                "some",
+                "any",
+                "conceivable",
+                "cold",
+                "warm",
+                "quiet",
+                "reading",
+                "competing",
+                "studying",
+                "living",
+                "does",
+                "doesn't",
+                "didn't",
+                "have",
+                "the",
+                "those",
+                "each",
+                "every",
+                "statute",
+                "central",
+                "provision",
+                "ink",
+                "authorise",
+                "accord",
+                "sister",
+                "brother",
+                "retrospective",
+                "large",
+                "new",
+                "old",
+                "penalties",
+                "explanations",
+                "hypothesis",
+                "as"
+            ],
+            "source_text_uk": "За жодного мислимого тлумачення закон не дозволяє покарань зі зворотною дією.",
+            "options_by_marker": {
+                "a1": [
+                    "On",
+                    "At",
+                    "By",
+                    "With"
+                ],
+                "a2": [
+                    "no",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a3": [
+                    "conceivable",
+                    "cold",
+                    "warm",
+                    "quiet"
+                ],
+                "a4": [
+                    "reading",
+                    "competing",
+                    "studying",
+                    "living"
+                ],
+                "a5": [
+                    "does",
+                    "doesn't",
+                    "didn't",
+                    "have"
+                ],
+                "a6": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a7": [
+                    "statute",
+                    "central",
+                    "provision",
+                    "ink"
+                ],
+                "a8": [
+                    "authorise",
+                    "accord",
+                    "sister",
+                    "brother"
+                ],
+                "a9": [
+                    "retrospective",
+                    "large",
+                    "new",
+                    "old"
+                ],
+                "a10": [
+                    "penalties",
+                    "explanations",
+                    "hypothesis",
+                    "as"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

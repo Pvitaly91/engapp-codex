@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60681,
+        "uuid": "bgq-sentence-structure-a1-g02",
+        "question": "The rabbit {a1}.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "eats carrots",
+                "carrots eats",
+                "eats it carrots"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60681,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53224,
+                "option": "eats carrots",
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 60681,
+                "option_id": 53224,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53226,
+                "option": "carrots eats",
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 60681,
+                "option_id": 53226,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53227,
+                "option": "eats it carrots",
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 60681,
+                "option_id": 53227,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325842,
+                "question_id": 60681,
+                "marker": "a1",
+                "option_id": 53224,
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            },
+            "option": {
+                "id": 53224,
+                "option": "eats carrots",
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43176,
+                "question_id": 60681,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53225,
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            },
+            "option": {
+                "id": 53225,
+                "option": "Потрібний зміст: «Їсть моркву». Після вже названої тварини постав дієслово, а за ним їжу як додаток.",
+                "created_at": "2026-10-27T15:50:53.000000Z",
+                "updated_at": "2026-10-27T15:50:53.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52696,
+            "question_id": 60681,
+            "text": "The rabbit {a1}.",
+            "created_at": "2026-10-27T15:50:53.000000Z",
+            "updated_at": "2026-10-27T15:50:53.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

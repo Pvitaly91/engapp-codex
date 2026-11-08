@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 62281,
+        "uuid": "qnq-yes-no-c2-g06",
+        "question": "{a1} the parties have reconciled their positions but for the last-minute intervention?",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 60,
+        "source_id": 457,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedYesNoQuestionsGeneralQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "Could",
+                "Did",
+                "Were"
+            ]
+        },
+        "theory_text_block_uuid": "2d551f25-f8e4-55b8-ba83-fc4a7c9e04f2",
+        "created_at": "2026-10-30T13:52:08.000000Z",
+        "updated_at": "2026-10-30T13:52:08.000000Z"
+    },
+    "category": {
+        "id": 60,
+        "name": "Questions / Negations",
+        "created_at": "2026-05-21T13:50:33.000000Z",
+        "updated_at": "2026-05-21T13:50:33.000000Z"
+    },
+    "source": {
+        "id": 457,
+        "name": "Questions and Negations Quality: Yes / No Questions",
+        "created_at": "2026-10-30T13:52:06.000000Z",
+        "updated_at": "2026-10-30T13:52:06.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 285,
+                "name": "Yes / No Questions",
+                "category": null,
+                "created_at": "2026-04-23T14:33:01.000000Z",
+                "updated_at": "2026-04-23T14:33:01.000000Z"
+            },
+            "pivot": {
+                "question_id": 62281,
+                "tag_id": 285,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 49,
+                "option": "did",
+                "created_at": "2026-04-23T11:39:54.000000Z",
+                "updated_at": "2026-04-23T11:39:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 62281,
+                "option_id": 49,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71,
+                "option": "were",
+                "created_at": "2026-04-23T11:39:57.000000Z",
+                "updated_at": "2026-04-23T11:39:57.000000Z"
+            },
+            "pivot": {
+                "question_id": 62281,
+                "option_id": 71,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 529,
+                "option": "could",
+                "created_at": "2026-04-23T13:36:16.000000Z",
+                "updated_at": "2026-04-23T13:36:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 62281,
+                "option_id": 529,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 331607,
+                "question_id": 62281,
+                "marker": "a1",
+                "option_id": 529,
+                "created_at": "2026-10-30T13:52:08.000000Z",
+                "updated_at": "2026-10-30T13:52:08.000000Z"
+            },
+            "option": {
+                "id": 529,
+                "option": "could",
+                "created_at": "2026-04-23T13:36:16.000000Z",
+                "updated_at": "2026-04-23T13:36:16.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 48941,
+                "question_id": 62281,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 56387,
+                "created_at": "2026-10-30T13:52:08.000000Z",
+                "updated_at": "2026-10-30T13:52:08.000000Z"
+            },
+            "option": {
+                "id": 56387,
+                "option": "Запитай про нереалізовану минулу можливість; умова вже стоїть після присудка.",
+                "created_at": "2026-10-30T13:52:08.000000Z",
+                "updated_at": "2026-10-30T13:52:08.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 54296,
+            "question_id": 62281,
+            "text": "{a1} the parties have reconciled their positions but for the last-minute intervention?",
+            "created_at": "2026-10-30T13:52:08.000000Z",
+            "updated_at": "2026-10-30T13:52:08.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

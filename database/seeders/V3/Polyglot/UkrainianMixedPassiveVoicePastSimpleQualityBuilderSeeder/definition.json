@@ -1,0 +1,4640 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/past-simple.v1.json",
+        "sha256": "93c4b223494495c0071e19b1c8c12bd8b9f123d7e1d8c4f8b638f8c8600627ec"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoicePastSimpleQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-past-simple-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_past_simple": {
+            "name": "Passive Voice Quality: Passive Voice Past Simple"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_past_simple": {
+            "name": "Passive Voice Past Simple",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "was_were_v3": {
+            "name": "Was Were V3",
+            "category": "topic"
+        },
+        "completed_past_passive": {
+            "name": "Completed Past Passive",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-past-simple-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Учора моє ім’я написали на дошці.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Учора моє ім’я написали на дошці.",
+            "target_text": "My name was written on the board yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "My",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "name",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "name",
+                        "key",
+                        "bridge",
+                        "forest"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "written",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "written",
+                        "filled",
+                        "washed",
+                        "painted"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "on",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "board",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "board",
+                        "deadline",
+                        "vehicle",
+                        "device"
+                    ]
+                },
+                "a8": {
+                    "answer": "yesterday.",
+                    "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+                    "options": [
+                        "yesterday",
+                        "loosely",
+                        "fully",
+                        "partly"
+                    ]
+                }
+            },
+            "verb_hint": "Написати ім’я на дошці. Подія відбулася вчора; почни з того, що написали. Почни з того, що написали; обставину часу постав наприкінці.",
+            "accepted_target_texts": [
+                "My name was written on the board yesterday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My name",
+                "was written",
+                "on the board",
+                "yesterday."
+            ],
+            "token_groups": [
+                "My name",
+                "was written",
+                "on the board",
+                "yesterday."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "My",
+                "name",
+                "was",
+                "written",
+                "on",
+                "the",
+                "board",
+                "yesterday."
+            ],
+            "options": [
+                "My",
+                "Yours",
+                "Hers",
+                "Ours",
+                "name",
+                "key",
+                "bridge",
+                "forest",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "written",
+                "filled",
+                "washed",
+                "painted",
+                "on",
+                "from",
+                "for",
+                "of",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "board",
+                "deadline",
+                "vehicle",
+                "device",
+                "yesterday",
+                "loosely",
+                "fully",
+                "partly"
+            ],
+            "source_text_uk": "Учора моє ім’я написали на дошці.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "name",
+                    "key",
+                    "bridge",
+                    "forest"
+                ],
+                "a3": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "written",
+                    "filled",
+                    "washed",
+                    "painted"
+                ],
+                "a5": [
+                    "on",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "board",
+                    "deadline",
+                    "vehicle",
+                    "device"
+                ],
+                "a8": [
+                    "yesterday",
+                    "loosely",
+                    "fully",
+                    "partly"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "adverb"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-past-simple-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Під час обіду чашки наповнили соком.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Під час обіду чашки наповнили соком.",
+            "target_text": "The cups were filled with juice at lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "cups",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "cups",
+                        "statements",
+                        "documents",
+                        "receipts"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "were",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "filled",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "filled",
+                        "replaced",
+                        "drawn",
+                        "written"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "juice",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "juice",
+                        "honey",
+                        "milk",
+                        "bread"
+                    ]
+                },
+                "a7": {
+                    "answer": "at",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "at",
+                        "on",
+                        "by",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "lunch.",
+                    "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+                    "options": [
+                        "lunch",
+                        "article",
+                        "chapter",
+                        "receipt"
+                    ]
+                }
+            },
+            "verb_hint": "Наповнити чашки соком. Назви завершену дію з кількома предметами та час обіду. Почни з назви предметів; обставину часу постав наприкінці.",
+            "accepted_target_texts": [
+                "The cups were filled with juice at lunch."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cups",
+                "were filled",
+                "with juice",
+                "at lunch."
+            ],
+            "token_groups": [
+                "The cups",
+                "were filled",
+                "with juice",
+                "at lunch."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "cups",
+                "were",
+                "filled",
+                "with",
+                "juice",
+                "at",
+                "lunch."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "cups",
+                "statements",
+                "documents",
+                "receipts",
+                "were",
+                "be",
+                "been",
+                "being",
+                "filled",
+                "replaced",
+                "drawn",
+                "written",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "juice",
+                "honey",
+                "milk",
+                "bread",
+                "at",
+                "on",
+                "by",
+                "over",
+                "lunch",
+                "article",
+                "chapter",
+                "receipt"
+            ],
+            "source_text_uk": "Під час обіду чашки наповнили соком.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "cups",
+                    "statements",
+                    "documents",
+                    "receipts"
+                ],
+                "a3": [
+                    "were",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "filled",
+                    "replaced",
+                    "drawn",
+                    "written"
+                ],
+                "a5": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "juice",
+                    "honey",
+                    "milk",
+                    "bread"
+                ],
+                "a7": [
+                    "at",
+                    "on",
+                    "by",
+                    "over"
+                ],
+                "a8": [
+                    "lunch",
+                    "article",
+                    "chapter",
+                    "receipt"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun_plural",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "noun",
+                "a7": "preposition",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-past-simple-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Цей малюнок намалювала моя сестра.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Цей малюнок намалювала моя сестра.",
+            "target_text": "This picture was drawn by my sister.",
+            "markers": {
+                "a1": {
+                    "answer": "This",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "This",
+                        "The",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "picture",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "picture",
+                        "document",
+                        "contract",
+                        "portrait"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "drawn",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "drawn",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "by",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a6": {
+                    "answer": "my",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "my",
+                        "their",
+                        "mine",
+                        "yours"
+                    ]
+                },
+                "a7": {
+                    "answer": "sister.",
+                    "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+                    "options": [
+                        "sister",
+                        "obligation",
+                        "procedure",
+                        "complaint"
+                    ]
+                }
+            },
+            "verb_hint": "Намалювати малюнок. У пасивному реченні назви виконавицю після назви дії; потрібна неправильна третя форма.",
+            "accepted_target_texts": [
+                "This picture was drawn by my sister.",
+                "This drawing was drawn by my sister."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "drawing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "drawing"
+                ]
+            },
+            "reorder_groups": [
+                "This picture",
+                "was drawn",
+                "by my sister."
+            ],
+            "token_groups": [
+                "This picture",
+                "was drawn",
+                "by my sister."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "This",
+                "picture",
+                "was",
+                "drawn",
+                "by",
+                "my",
+                "sister."
+            ],
+            "options": [
+                "This",
+                "The",
+                "Some",
+                "Any",
+                "picture",
+                "document",
+                "contract",
+                "portrait",
+                "was",
+                "is",
+                "are",
+                "were",
+                "drawn",
+                "selected",
+                "removed",
+                "replaced",
+                "by",
+                "about",
+                "during",
+                "to",
+                "my",
+                "their",
+                "mine",
+                "yours",
+                "sister",
+                "obligation",
+                "procedure",
+                "complaint"
+            ],
+            "source_text_uk": "Цей малюнок намалювала моя сестра.",
+            "options_by_marker": {
+                "a1": [
+                    "This",
+                    "The",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "picture",
+                    "document",
+                    "contract",
+                    "portrait"
+                ],
+                "a3": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a4": [
+                    "drawn",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a5": [
+                    "by",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a6": [
+                    "my",
+                    "their",
+                    "mine",
+                    "yours"
+                ],
+                "a7": [
+                    "sister",
+                    "obligation",
+                    "procedure",
+                    "complaint"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-past-simple-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Старі однострої передали в дар театру?",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Старі однострої передали в дар театру?",
+            "target_text": "Were the old uniforms donated to the theatre?",
+            "markers": {
+                "a1": {
+                    "answer": "Were",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "Were",
+                        "Is",
+                        "Are",
+                        "Was"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a3": {
+                    "answer": "old",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "old",
+                        "external",
+                        "internal",
+                        "practical"
+                    ]
+                },
+                "a4": {
+                    "answer": "uniforms",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "uniforms",
+                        "samples",
+                        "letters",
+                        "packages"
+                    ]
+                },
+                "a5": {
+                    "answer": "donated",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "donated",
+                        "closed",
+                        "selected",
+                        "removed"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "to",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "theatre?",
+                    "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+                    "options": [
+                        "theatre",
+                        "hall",
+                        "office",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Передати старі однострої в дар театру. Це питання про завершену благодійну передачу; можливі британське й американське написання назви театру.",
+            "accepted_target_texts": [
+                "Were the old uniforms donated to the theatre?",
+                "Were the old uniforms donated to the theater?"
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "theater?"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "theater?"
+                ]
+            },
+            "reorder_groups": [
+                "Were the",
+                "old uniforms",
+                "donated to",
+                "the theatre?"
+            ],
+            "token_groups": [
+                "Were the",
+                "old uniforms",
+                "donated to",
+                "the theatre?"
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Were",
+                "the",
+                "old",
+                "uniforms",
+                "donated",
+                "to",
+                "the",
+                "theatre?"
+            ],
+            "options": [
+                "Were",
+                "Is",
+                "Are",
+                "Was",
+                "the",
+                "some",
+                "any",
+                "this",
+                "old",
+                "external",
+                "internal",
+                "practical",
+                "uniforms",
+                "samples",
+                "letters",
+                "packages",
+                "donated",
+                "closed",
+                "selected",
+                "removed",
+                "to",
+                "over",
+                "under",
+                "through",
+                "those",
+                "each",
+                "every",
+                "theatre",
+                "hall",
+                "office",
+                "station"
+            ],
+            "source_text_uk": "Старі однострої передали в дар театру?",
+            "options_by_marker": {
+                "a1": [
+                    "Were",
+                    "Is",
+                    "Are",
+                    "Was"
+                ],
+                "a2": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a3": [
+                    "old",
+                    "external",
+                    "internal",
+                    "practical"
+                ],
+                "a4": [
+                    "uniforms",
+                    "samples",
+                    "letters",
+                    "packages"
+                ],
+                "a5": [
+                    "donated",
+                    "closed",
+                    "selected",
+                    "removed"
+                ],
+                "a6": [
+                    "to",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "theatre",
+                    "hall",
+                    "office",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "be",
+                "a2": "determiner",
+                "a3": "adjective",
+                "a4": "noun_plural",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-past-simple-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Коли в кафе випробували новий рецепт?",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Коли в кафе випробували новий рецепт?",
+            "target_text": "When was the new recipe tried at the café?",
+            "markers": {
+                "a1": {
+                    "answer": "When",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "When",
+                        "Whenever",
+                        "Who",
+                        "Whom"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a4": {
+                    "answer": "new",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "new",
+                        "reliable",
+                        "uncertain",
+                        "relevant"
+                    ]
+                },
+                "a5": {
+                    "answer": "recipe",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "recipe",
+                        "storm",
+                        "key",
+                        "bridge"
+                    ]
+                },
+                "a6": {
+                    "answer": "tried",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "tried",
+                        "sent",
+                        "donated",
+                        "painted"
+                    ]
+                },
+                "a7": {
+                    "answer": "at",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "at",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a9": {
+                    "answer": "café?",
+                    "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+                    "options": [
+                        "café",
+                        "school",
+                        "gallery",
+                        "theatre"
+                    ]
+                }
+            },
+            "verb_hint": "Випробувати новий рецепт у кафе (також можна: перевірити його на практиці). Запитай про час події.",
+            "accepted_target_texts": [
+                "When was the new recipe tried at the café?",
+                "When was the new recipe tried at the cafe?",
+                "When was the new recipe tested at the café?",
+                "When was the new recipe tested at the cafe?"
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "cafe?"
+                ],
+                "a6": [
+                    "tested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "cafe?"
+                ],
+                "a6": [
+                    "tested"
+                ]
+            },
+            "reorder_groups": [
+                "When was",
+                "the new recipe",
+                "tried at",
+                "the café?"
+            ],
+            "token_groups": [
+                "When was",
+                "the new recipe",
+                "tried at",
+                "the café?"
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "When",
+                "was",
+                "the",
+                "new",
+                "recipe",
+                "tried",
+                "at",
+                "the",
+                "café?"
+            ],
+            "options": [
+                "When",
+                "Whenever",
+                "Who",
+                "Whom",
+                "was",
+                "were",
+                "be",
+                "been",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "new",
+                "reliable",
+                "uncertain",
+                "relevant",
+                "recipe",
+                "storm",
+                "key",
+                "bridge",
+                "tried",
+                "sent",
+                "donated",
+                "painted",
+                "at",
+                "onto",
+                "over",
+                "under",
+                "those",
+                "each",
+                "every",
+                "café",
+                "school",
+                "gallery",
+                "theatre"
+            ],
+            "source_text_uk": "Коли в кафе випробували новий рецепт?",
+            "options_by_marker": {
+                "a1": [
+                    "When",
+                    "Whenever",
+                    "Who",
+                    "Whom"
+                ],
+                "a2": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a3": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a4": [
+                    "new",
+                    "reliable",
+                    "uncertain",
+                    "relevant"
+                ],
+                "a5": [
+                    "recipe",
+                    "storm",
+                    "key",
+                    "bridge"
+                ],
+                "a6": [
+                    "tried",
+                    "sent",
+                    "donated",
+                    "painted"
+                ],
+                "a7": [
+                    "at",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a9": [
+                    "café",
+                    "school",
+                    "gallery",
+                    "theatre"
+                ]
+            },
+            "slot_roles": {
+                "a1": "question",
+                "a2": "be",
+                "a3": "determiner",
+                "a4": "adjective",
+                "a5": "noun",
+                "a6": "participle",
+                "a7": "preposition",
+                "a8": "determiner",
+                "a9": "place"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-past-simple-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Запрошення надіслали не тій людині.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Запрошення надіслали не тій людині.",
+            "target_text": "The invitation was sent to the wrong person.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "invitation",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "invitation",
+                        "key",
+                        "bridge",
+                        "forest"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "sent",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "sent",
+                        "folded",
+                        "collected",
+                        "prepared"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a7": {
+                    "answer": "wrong",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "wrong",
+                        "late",
+                        "large",
+                        "tiny"
+                    ]
+                },
+                "a8": {
+                    "answer": "person.",
+                    "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+                    "options": [
+                        "person",
+                        "visitor",
+                        "teacher",
+                        "curator"
+                    ]
+                }
+            },
+            "verb_hint": "Надіслати запрошення. Використай неправильну третю форму та збережи факт помилки з отримувачем.",
+            "accepted_target_texts": [
+                "The invitation was sent to the wrong person."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The invitation",
+                "was sent",
+                "to the",
+                "wrong person."
+            ],
+            "token_groups": [
+                "The invitation",
+                "was sent",
+                "to the",
+                "wrong person."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "invitation",
+                "was",
+                "sent",
+                "to",
+                "the",
+                "wrong",
+                "person."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "invitation",
+                "key",
+                "bridge",
+                "forest",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "sent",
+                "folded",
+                "collected",
+                "prepared",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "wrong",
+                "late",
+                "large",
+                "tiny",
+                "person",
+                "visitor",
+                "teacher",
+                "curator"
+            ],
+            "source_text_uk": "Запрошення надіслали не тій людині.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "invitation",
+                    "key",
+                    "bridge",
+                    "forest"
+                ],
+                "a3": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "sent",
+                    "folded",
+                    "collected",
+                    "prepared"
+                ],
+                "a5": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a7": [
+                    "wrong",
+                    "late",
+                    "large",
+                    "tiny"
+                ],
+                "a8": [
+                    "person",
+                    "visitor",
+                    "teacher",
+                    "curator"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "human_singular"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-past-simple-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Скульптуру перенесли до більшої галереї в червні.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Скульптуру перенесли до більшої галереї в червні.",
+            "target_text": "The sculpture was moved to a larger gallery in June.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "sculpture",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "sculpture",
+                        "chapter",
+                        "receipt",
+                        "certificate"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "was",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "moved",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "moved",
+                        "filmed",
+                        "answered",
+                        "replaced"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "to",
+                        "of",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "larger",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "larger",
+                        "uncertain",
+                        "relevant",
+                        "irrelevant"
+                    ]
+                },
+                "a8": {
+                    "answer": "gallery",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "gallery",
+                        "square",
+                        "museum",
+                        "school"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "in",
+                        "from",
+                        "for",
+                        "by"
+                    ]
+                },
+                "a10": {
+                    "answer": "June.",
+                    "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+                    "options": [
+                        "June",
+                        "Week",
+                        "Month",
+                        "Year"
+                    ]
+                }
+            },
+            "verb_hint": "Перенести скульптуру (також можна: перемістити її). Збережи напрямок до більшої галереї та місяць події.",
+            "accepted_target_texts": [
+                "The sculpture was moved to a larger gallery in June.",
+                "The sculpture was relocated to a larger gallery in June."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "relocated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "relocated"
+                ]
+            },
+            "reorder_groups": [
+                "The sculpture",
+                "was moved",
+                "to a",
+                "larger gallery",
+                "in June."
+            ],
+            "token_groups": [
+                "The sculpture",
+                "was moved",
+                "to a",
+                "larger gallery",
+                "in June."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "sculpture",
+                "was",
+                "moved",
+                "to",
+                "a",
+                "larger",
+                "gallery",
+                "in",
+                "June."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "sculpture",
+                "chapter",
+                "receipt",
+                "certificate",
+                "was",
+                "been",
+                "being",
+                "isn't",
+                "moved",
+                "filmed",
+                "answered",
+                "replaced",
+                "to",
+                "of",
+                "on",
+                "at",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "larger",
+                "uncertain",
+                "relevant",
+                "irrelevant",
+                "gallery",
+                "square",
+                "museum",
+                "school",
+                "in",
+                "from",
+                "for",
+                "by",
+                "June",
+                "Week",
+                "Month",
+                "Year"
+            ],
+            "source_text_uk": "Скульптуру перенесли до більшої галереї в червні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "sculpture",
+                    "chapter",
+                    "receipt",
+                    "certificate"
+                ],
+                "a3": [
+                    "was",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "moved",
+                    "filmed",
+                    "answered",
+                    "replaced"
+                ],
+                "a5": [
+                    "to",
+                    "of",
+                    "on",
+                    "at"
+                ],
+                "a6": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "larger",
+                    "uncertain",
+                    "relevant",
+                    "irrelevant"
+                ],
+                "a8": [
+                    "gallery",
+                    "square",
+                    "museum",
+                    "school"
+                ],
+                "a9": [
+                    "in",
+                    "from",
+                    "for",
+                    "by"
+                ],
+                "a10": [
+                    "June",
+                    "Week",
+                    "Month",
+                    "Year"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "place",
+                "a9": "preposition",
+                "a10": "time_noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-past-simple-b1-c02",
+            "author_id": "B1-c02",
+            "question": "На запитання відвідувача відповів куратор.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "На запитання відвідувача відповів куратор.",
+            "target_text": "The visitor's question was answered by the curator.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "visitor's",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "visitor's",
+                        "sponsor's",
+                        "author's",
+                        "teacher's"
+                    ]
+                },
+                "a3": {
+                    "answer": "question",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "question",
+                        "equipment",
+                        "storage",
+                        "transport"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "was",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "answered",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "answered",
+                        "repaired",
+                        "selected",
+                        "removed"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "by",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "curator.",
+                    "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+                    "options": [
+                        "curator",
+                        "application",
+                        "interview",
+                        "proposal"
+                    ]
+                }
+            },
+            "verb_hint": "Відповісти на запитання відвідувача. У пасивному реченні почни із запитання, а куратора назви як виконавця.",
+            "accepted_target_texts": [
+                "The visitor's question was answered by the curator."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The visitor's question",
+                "was answered",
+                "by the curator."
+            ],
+            "token_groups": [
+                "The visitor's question",
+                "was answered",
+                "by the curator."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "visitor's",
+                "question",
+                "was",
+                "answered",
+                "by",
+                "the",
+                "curator."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "visitor's",
+                "sponsor's",
+                "author's",
+                "teacher's",
+                "question",
+                "equipment",
+                "storage",
+                "transport",
+                "was",
+                "weren't",
+                "am",
+                "is",
+                "answered",
+                "repaired",
+                "selected",
+                "removed",
+                "by",
+                "with",
+                "without",
+                "into",
+                "the",
+                "a",
+                "an",
+                "some",
+                "curator",
+                "application",
+                "interview",
+                "proposal"
+            ],
+            "source_text_uk": "На запитання відвідувача відповів куратор.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "visitor's",
+                    "sponsor's",
+                    "author's",
+                    "teacher's"
+                ],
+                "a3": [
+                    "question",
+                    "equipment",
+                    "storage",
+                    "transport"
+                ],
+                "a4": [
+                    "was",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "answered",
+                    "repaired",
+                    "selected",
+                    "removed"
+                ],
+                "a6": [
+                    "by",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "curator",
+                    "application",
+                    "interview",
+                    "proposal"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "possessive",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-past-simple-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Кілька сцен зняли в старому театрі.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Кілька сцен зняли в старому театрі.",
+            "target_text": "Several scenes were filmed inside the old theatre.",
+            "markers": {
+                "a1": {
+                    "answer": "Several",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "Several",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "scenes",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "scenes",
+                        "documents",
+                        "receipts",
+                        "samples"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "were",
+                        "are",
+                        "was",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "filmed",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "filmed",
+                        "painted",
+                        "folded",
+                        "collected"
+                    ]
+                },
+                "a5": {
+                    "answer": "inside",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "inside",
+                        "until",
+                        "since",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a7": {
+                    "answer": "old",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "old",
+                        "external",
+                        "internal",
+                        "practical"
+                    ]
+                },
+                "a8": {
+                    "answer": "theatre.",
+                    "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+                    "options": [
+                        "theatre",
+                        "arrival",
+                        "destination",
+                        "schedule"
+                    ]
+                }
+            },
+            "verb_hint": "Зняти кілька сцен (також можна: відзняти їх). Назви внутрішнє приміщення старого театру; можливі британське й американське написання.",
+            "accepted_target_texts": [
+                "Several scenes were filmed inside the old theatre.",
+                "Several scenes were filmed inside the old theater.",
+                "Several scenes were shot inside the old theatre.",
+                "Several scenes were shot inside the old theater."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "theater."
+                ],
+                "a4": [
+                    "shot"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "theater."
+                ],
+                "a4": [
+                    "shot"
+                ]
+            },
+            "reorder_groups": [
+                "Several scenes",
+                "were filmed",
+                "inside the",
+                "old theatre."
+            ],
+            "token_groups": [
+                "Several scenes",
+                "were filmed",
+                "inside the",
+                "old theatre."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Several",
+                "scenes",
+                "were",
+                "filmed",
+                "inside",
+                "the",
+                "old",
+                "theatre."
+            ],
+            "options": [
+                "Several",
+                "A",
+                "An",
+                "Some",
+                "scenes",
+                "documents",
+                "receipts",
+                "samples",
+                "were",
+                "are",
+                "was",
+                "be",
+                "filmed",
+                "painted",
+                "folded",
+                "collected",
+                "inside",
+                "until",
+                "since",
+                "among",
+                "the",
+                "any",
+                "this",
+                "that",
+                "old",
+                "external",
+                "internal",
+                "practical",
+                "theatre",
+                "arrival",
+                "destination",
+                "schedule"
+            ],
+            "source_text_uk": "Кілька сцен зняли в старому театрі.",
+            "options_by_marker": {
+                "a1": [
+                    "Several",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "scenes",
+                    "documents",
+                    "receipts",
+                    "samples"
+                ],
+                "a3": [
+                    "were",
+                    "are",
+                    "was",
+                    "be"
+                ],
+                "a4": [
+                    "filmed",
+                    "painted",
+                    "folded",
+                    "collected"
+                ],
+                "a5": [
+                    "inside",
+                    "until",
+                    "since",
+                    "among"
+                ],
+                "a6": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a7": [
+                    "old",
+                    "external",
+                    "internal",
+                    "practical"
+                ],
+                "a8": [
+                    "theatre",
+                    "arrival",
+                    "destination",
+                    "schedule"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun_plural",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-past-simple-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Права на публікацію передали незалежному видавцеві у 2020 році.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Права на публікацію передали незалежному видавцеві у 2020 році.",
+            "target_text": "Publication rights were transferred to an independent publisher in 2020.",
+            "markers": {
+                "a1": {
+                    "answer": "Publication",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "Publication",
+                        "Communication",
+                        "Transaction",
+                        "Registration"
+                    ]
+                },
+                "a2": {
+                    "answer": "rights",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "rights",
+                        "records",
+                        "requests",
+                        "statements"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "were",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "transferred",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "transferred",
+                        "collected",
+                        "prepared",
+                        "delivered"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "an",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "an",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a7": {
+                    "answer": "independent",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "independent",
+                        "international",
+                        "familiar",
+                        "unfamiliar"
+                    ]
+                },
+                "a8": {
+                    "answer": "publisher",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "publisher",
+                        "notice",
+                        "letter",
+                        "article"
+                    ]
+                },
+                "a9": {
+                    "answer": "in",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a10": {
+                    "answer": "2020.",
+                    "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+                    "options": [
+                        "2020",
+                        "eight",
+                        "three",
+                        "four"
+                    ]
+                }
+            },
+            "verb_hint": "Передати права на публікацію (також можна: відступити ці права). Назви незалежного видавця як отримувача та рік передачі.",
+            "accepted_target_texts": [
+                "Publication rights were transferred to an independent publisher in 2020.",
+                "Publication rights were assigned to an independent publisher in 2020."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "assigned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "assigned"
+                ]
+            },
+            "reorder_groups": [
+                "Publication rights",
+                "were transferred",
+                "to an",
+                "independent publisher",
+                "in 2020."
+            ],
+            "token_groups": [
+                "Publication rights",
+                "were transferred",
+                "to an",
+                "independent publisher",
+                "in 2020."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Publication",
+                "rights",
+                "were",
+                "transferred",
+                "to",
+                "an",
+                "independent",
+                "publisher",
+                "in",
+                "2020."
+            ],
+            "options": [
+                "Publication",
+                "Communication",
+                "Transaction",
+                "Registration",
+                "rights",
+                "records",
+                "requests",
+                "statements",
+                "were",
+                "is",
+                "are",
+                "was",
+                "transferred",
+                "collected",
+                "prepared",
+                "delivered",
+                "to",
+                "through",
+                "across",
+                "between",
+                "an",
+                "no",
+                "another",
+                "either",
+                "independent",
+                "international",
+                "familiar",
+                "unfamiliar",
+                "publisher",
+                "notice",
+                "letter",
+                "article",
+                "in",
+                "with",
+                "without",
+                "into",
+                "2020",
+                "eight",
+                "three",
+                "four"
+            ],
+            "source_text_uk": "Права на публікацію передали незалежному видавцеві у 2020 році.",
+            "options_by_marker": {
+                "a1": [
+                    "Publication",
+                    "Communication",
+                    "Transaction",
+                    "Registration"
+                ],
+                "a2": [
+                    "rights",
+                    "records",
+                    "requests",
+                    "statements"
+                ],
+                "a3": [
+                    "were",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "transferred",
+                    "collected",
+                    "prepared",
+                    "delivered"
+                ],
+                "a5": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "an",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a7": [
+                    "independent",
+                    "international",
+                    "familiar",
+                    "unfamiliar"
+                ],
+                "a8": [
+                    "publisher",
+                    "notice",
+                    "letter",
+                    "article"
+                ],
+                "a9": [
+                    "in",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a10": [
+                    "2020",
+                    "eight",
+                    "three",
+                    "four"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun",
+                "a2": "noun_plural",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "adjective",
+                "a8": "noun",
+                "a9": "preposition",
+                "a10": "number"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-past-simple-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Одержувачів стипендії повідомили до оприлюднення результатів.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Одержувачів стипендії повідомили до оприлюднення результатів.",
+            "target_text": "Scholarship recipients were notified before the results were published.",
+            "markers": {
+                "a1": {
+                    "answer": "Scholarship",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "Scholarship",
+                        "Notice",
+                        "Letter",
+                        "Article"
+                    ]
+                },
+                "a2": {
+                    "answer": "recipients",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "recipients",
+                        "measurements",
+                        "proposals",
+                        "records"
+                    ]
+                },
+                "a3": {
+                    "answer": "were",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "were",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "notified",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "notified",
+                        "opened",
+                        "closed",
+                        "repaired"
+                    ]
+                },
+                "a5": {
+                    "answer": "before",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "before",
+                        "among",
+                        "beyond",
+                        "despite"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a7": {
+                    "answer": "results",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "results",
+                        "documents",
+                        "receipts",
+                        "samples"
+                    ]
+                },
+                "a8": {
+                    "answer": "were",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "were",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a9": {
+                    "answer": "published.",
+                    "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+                    "options": [
+                        "published",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                }
+            },
+            "verb_hint": "Повідомити одержувачів стипендії (також можна: поінформувати їх); оприлюднити результати. Обидві частини описують завершені минулі дії.",
+            "accepted_target_texts": [
+                "Scholarship recipients were notified before the results were published.",
+                "Scholarship recipients were informed before the results were published."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "informed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "informed"
+                ]
+            },
+            "reorder_groups": [
+                "Scholarship recipients",
+                "were notified",
+                "before the results",
+                "were published."
+            ],
+            "token_groups": [
+                "Scholarship recipients",
+                "were notified",
+                "before the results",
+                "were published."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Scholarship",
+                "recipients",
+                "were",
+                "notified",
+                "before",
+                "the",
+                "results",
+                "were",
+                "published."
+            ],
+            "options": [
+                "Scholarship",
+                "Notice",
+                "Letter",
+                "Article",
+                "recipients",
+                "measurements",
+                "proposals",
+                "records",
+                "were",
+                "being",
+                "isn't",
+                "aren't",
+                "notified",
+                "opened",
+                "closed",
+                "repaired",
+                "before",
+                "among",
+                "beyond",
+                "despite",
+                "the",
+                "this",
+                "that",
+                "these",
+                "results",
+                "documents",
+                "receipts",
+                "samples",
+                "is",
+                "are",
+                "was",
+                "published",
+                "washed",
+                "painted",
+                "folded"
+            ],
+            "source_text_uk": "Одержувачів стипендії повідомили до оприлюднення результатів.",
+            "options_by_marker": {
+                "a1": [
+                    "Scholarship",
+                    "Notice",
+                    "Letter",
+                    "Article"
+                ],
+                "a2": [
+                    "recipients",
+                    "measurements",
+                    "proposals",
+                    "records"
+                ],
+                "a3": [
+                    "were",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "notified",
+                    "opened",
+                    "closed",
+                    "repaired"
+                ],
+                "a5": [
+                    "before",
+                    "among",
+                    "beyond",
+                    "despite"
+                ],
+                "a6": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a7": [
+                    "results",
+                    "documents",
+                    "receipts",
+                    "samples"
+                ],
+                "a8": [
+                    "were",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a9": [
+                    "published",
+                    "washed",
+                    "painted",
+                    "folded"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun",
+                "a2": "noun_plural",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun_plural",
+                "a8": "be",
+                "a9": "participle"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-past-simple-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Благодійний внесок відзначили в річному звіті.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Благодійний внесок відзначили в річному звіті.",
+            "target_text": "The charitable donation was acknowledged in the annual report.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "charitable",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "charitable",
+                        "theoretical",
+                        "local",
+                        "international"
+                    ]
+                },
+                "a3": {
+                    "answer": "donation",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "donation",
+                        "negotiation",
+                        "opportunity",
+                        "committee"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "was",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "acknowledged",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "acknowledged",
+                        "closed",
+                        "repaired",
+                        "selected"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a8": {
+                    "answer": "annual",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "annual",
+                        "joint",
+                        "separate",
+                        "public"
+                    ]
+                },
+                "a9": {
+                    "answer": "report.",
+                    "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+                    "options": [
+                        "report",
+                        "document",
+                        "map",
+                        "notebook"
+                    ]
+                }
+            },
+            "verb_hint": "Відзначити благодійний внесок у звіті (також можна: визнати його значення). Це повідомлення про завершене документування внеску.",
+            "accepted_target_texts": [
+                "The charitable donation was acknowledged in the annual report.",
+                "The charitable donation was recognised in the annual report.",
+                "The charitable donation was recognized in the annual report."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "recognised",
+                    "recognized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "recognised",
+                    "recognized"
+                ]
+            },
+            "reorder_groups": [
+                "The charitable donation",
+                "was acknowledged",
+                "in the",
+                "annual report."
+            ],
+            "token_groups": [
+                "The charitable donation",
+                "was acknowledged",
+                "in the",
+                "annual report."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "charitable",
+                "donation",
+                "was",
+                "acknowledged",
+                "in",
+                "the",
+                "annual",
+                "report."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "charitable",
+                "theoretical",
+                "local",
+                "international",
+                "donation",
+                "negotiation",
+                "opportunity",
+                "committee",
+                "was",
+                "being",
+                "isn't",
+                "aren't",
+                "acknowledged",
+                "closed",
+                "repaired",
+                "selected",
+                "in",
+                "over",
+                "under",
+                "through",
+                "the",
+                "a",
+                "an",
+                "some",
+                "annual",
+                "joint",
+                "separate",
+                "public",
+                "report",
+                "document",
+                "map",
+                "notebook"
+            ],
+            "source_text_uk": "Благодійний внесок відзначили в річному звіті.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "charitable",
+                    "theoretical",
+                    "local",
+                    "international"
+                ],
+                "a3": [
+                    "donation",
+                    "negotiation",
+                    "opportunity",
+                    "committee"
+                ],
+                "a4": [
+                    "was",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "acknowledged",
+                    "closed",
+                    "repaired",
+                    "selected"
+                ],
+                "a6": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a8": [
+                    "annual",
+                    "joint",
+                    "separate",
+                    "public"
+                ],
+                "a9": [
+                    "report",
+                    "document",
+                    "map",
+                    "notebook"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "adjective",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-past-simple-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Пропущеного співавтора зазначили в подальшому виправленні.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Пропущеного співавтора зазначили в подальшому виправленні.",
+            "target_text": "The omitted co-author was credited in a subsequent correction.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "omitted",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "omitted",
+                        "collected",
+                        "delivered",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "co-author",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "co-author",
+                        "registration",
+                        "negotiation",
+                        "opportunity"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "credited",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "credited",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "in",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "subsequent",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "subsequent",
+                        "heritage",
+                        "previous",
+                        "recent"
+                    ]
+                },
+                "a9": {
+                    "answer": "correction.",
+                    "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+                    "options": [
+                        "correction",
+                        "collection",
+                        "communication",
+                        "transaction"
+                    ]
+                }
+            },
+            "verb_hint": "Зазначити пропущеного співавтора (також можна: назвати його). Збережи те, що визнання авторства з’явилося в подальшому виправленні.",
+            "accepted_target_texts": [
+                "The omitted co-author was credited in a subsequent correction.",
+                "The omitted co-author was named in a subsequent correction."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "named"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "named"
+                ]
+            },
+            "reorder_groups": [
+                "The omitted co-author",
+                "was credited",
+                "in a",
+                "subsequent correction."
+            ],
+            "token_groups": [
+                "The omitted co-author",
+                "was credited",
+                "in a",
+                "subsequent correction."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "omitted",
+                "co-author",
+                "was",
+                "credited",
+                "in",
+                "a",
+                "subsequent",
+                "correction."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "omitted",
+                "collected",
+                "delivered",
+                "opened",
+                "co-author",
+                "registration",
+                "negotiation",
+                "opportunity",
+                "was",
+                "be",
+                "been",
+                "being",
+                "credited",
+                "selected",
+                "removed",
+                "replaced",
+                "in",
+                "among",
+                "about",
+                "during",
+                "a",
+                "another",
+                "either",
+                "an",
+                "subsequent",
+                "heritage",
+                "previous",
+                "recent",
+                "correction",
+                "collection",
+                "communication",
+                "transaction"
+            ],
+            "source_text_uk": "Пропущеного співавтора зазначили в подальшому виправленні.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "omitted",
+                    "collected",
+                    "delivered",
+                    "opened"
+                ],
+                "a3": [
+                    "co-author",
+                    "registration",
+                    "negotiation",
+                    "opportunity"
+                ],
+                "a4": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "credited",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a6": [
+                    "in",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "a",
+                    "another",
+                    "either",
+                    "an"
+                ],
+                "a8": [
+                    "subsequent",
+                    "heritage",
+                    "previous",
+                    "recent"
+                ],
+                "a9": [
+                    "correction",
+                    "collection",
+                    "communication",
+                    "transaction"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "participle",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-past-simple-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Рукопис повернули авторові для суттєвого доопрацювання.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Рукопис повернули авторові для суттєвого доопрацювання.",
+            "target_text": "The manuscript was returned to its author for substantial revision.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "manuscript",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "manuscript",
+                        "document",
+                        "contract",
+                        "portrait"
+                    ]
+                },
+                "a3": {
+                    "answer": "was",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a4": {
+                    "answer": "returned",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "returned",
+                        "painted",
+                        "folded",
+                        "collected"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a6": {
+                    "answer": "its",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "its",
+                        "her",
+                        "our",
+                        "their"
+                    ]
+                },
+                "a7": {
+                    "answer": "author",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "author",
+                        "appointment",
+                        "survey",
+                        "experiment"
+                    ]
+                },
+                "a8": {
+                    "answer": "for",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "for",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a9": {
+                    "answer": "substantial",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "substantial",
+                        "separate",
+                        "heritage",
+                        "local"
+                    ]
+                },
+                "a10": {
+                    "answer": "revision.",
+                    "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+                    "options": [
+                        "revision",
+                        "sculpture",
+                        "notice",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Повернути рукопис авторові для суттєвого доопрацювання. Це рішення за вже поданим текстом, а не запит на перший варіант.",
+            "accepted_target_texts": [
+                "The manuscript was returned to its author for substantial revision."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manuscript",
+                "was returned",
+                "to its author",
+                "for substantial revision."
+            ],
+            "token_groups": [
+                "The manuscript",
+                "was returned",
+                "to its author",
+                "for substantial revision."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "manuscript",
+                "was",
+                "returned",
+                "to",
+                "its",
+                "author",
+                "for",
+                "substantial",
+                "revision."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "manuscript",
+                "document",
+                "contract",
+                "portrait",
+                "was",
+                "were",
+                "be",
+                "been",
+                "returned",
+                "painted",
+                "folded",
+                "collected",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "its",
+                "her",
+                "our",
+                "their",
+                "author",
+                "appointment",
+                "survey",
+                "experiment",
+                "for",
+                "through",
+                "across",
+                "between",
+                "substantial",
+                "separate",
+                "heritage",
+                "local",
+                "revision",
+                "sculpture",
+                "notice",
+                "letter"
+            ],
+            "source_text_uk": "Рукопис повернули авторові для суттєвого доопрацювання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "manuscript",
+                    "document",
+                    "contract",
+                    "portrait"
+                ],
+                "a3": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a4": [
+                    "returned",
+                    "painted",
+                    "folded",
+                    "collected"
+                ],
+                "a5": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a6": [
+                    "its",
+                    "her",
+                    "our",
+                    "their"
+                ],
+                "a7": [
+                    "author",
+                    "appointment",
+                    "survey",
+                    "experiment"
+                ],
+                "a8": [
+                    "for",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a9": [
+                    "substantial",
+                    "separate",
+                    "heritage",
+                    "local"
+                ],
+                "a10": [
+                    "revision",
+                    "sculpture",
+                    "notice",
+                    "letter"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "noun",
+                "a3": "be",
+                "a4": "participle",
+                "a5": "preposition",
+                "a6": "determiner",
+                "a7": "noun",
+                "a8": "preposition",
+                "a9": "adjective",
+                "a10": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-past-simple-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Рішення про надання статусу пам’ятки оспорили кілька місцевих істориків.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Рішення про надання статусу пам’ятки оспорили кілька місцевих істориків.",
+            "target_text": "The heritage designation was challenged by several local historians.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "heritage",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "heritage",
+                        "relevant",
+                        "irrelevant",
+                        "physical"
+                    ]
+                },
+                "a3": {
+                    "answer": "designation",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "designation",
+                        "destination",
+                        "schedule",
+                        "journey"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a5": {
+                    "answer": "challenged",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "challenged",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "by",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "several",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "several",
+                        "much",
+                        "another",
+                        "enough"
+                    ]
+                },
+                "a8": {
+                    "answer": "local",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "local",
+                        "theoretical",
+                        "international",
+                        "familiar"
+                    ]
+                },
+                "a9": {
+                    "answer": "historians.",
+                    "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+                    "options": [
+                        "historians",
+                        "reports",
+                        "measurements",
+                        "proposals"
+                    ]
+                }
+            },
+            "verb_hint": "Оспорити рішення про статус пам’ятки (також можна: заперечити його). Почни з цього рішення, а істориків назви як виконавців.",
+            "accepted_target_texts": [
+                "The heritage designation was challenged by several local historians.",
+                "The heritage designation was contested by several local historians."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "contested"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "contested"
+                ]
+            },
+            "reorder_groups": [
+                "The heritage designation",
+                "was challenged",
+                "by several",
+                "local historians."
+            ],
+            "token_groups": [
+                "The heritage designation",
+                "was challenged",
+                "by several",
+                "local historians."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "heritage",
+                "designation",
+                "was",
+                "challenged",
+                "by",
+                "several",
+                "local",
+                "historians."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "heritage",
+                "relevant",
+                "irrelevant",
+                "physical",
+                "designation",
+                "destination",
+                "schedule",
+                "journey",
+                "was",
+                "were",
+                "be",
+                "been",
+                "challenged",
+                "selected",
+                "removed",
+                "replaced",
+                "by",
+                "of",
+                "in",
+                "on",
+                "several",
+                "much",
+                "another",
+                "enough",
+                "local",
+                "theoretical",
+                "international",
+                "familiar",
+                "historians",
+                "reports",
+                "measurements",
+                "proposals"
+            ],
+            "source_text_uk": "Рішення про надання статусу пам’ятки оспорили кілька місцевих істориків.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "heritage",
+                    "relevant",
+                    "irrelevant",
+                    "physical"
+                ],
+                "a3": [
+                    "designation",
+                    "destination",
+                    "schedule",
+                    "journey"
+                ],
+                "a4": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a5": [
+                    "challenged",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a6": [
+                    "by",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "several",
+                    "much",
+                    "another",
+                    "enough"
+                ],
+                "a8": [
+                    "local",
+                    "theoretical",
+                    "international",
+                    "familiar"
+                ],
+                "a9": [
+                    "historians",
+                    "reports",
+                    "measurements",
+                    "proposals"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "adjective",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "adjective",
+                "a9": "noun_plural"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-past-simple-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Заперечення щодо юрисдикції відхилили, не зачіпаючи позову по суті.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Заперечення щодо юрисдикції відхилили, не зачіпаючи позову по суті.",
+            "target_text": "The jurisdictional objection was dismissed without prejudice to the substantive claim.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "jurisdictional",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "jurisdictional",
+                        "unfamiliar",
+                        "visible",
+                        "hidden"
+                    ]
+                },
+                "a3": {
+                    "answer": "objection",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "objection",
+                        "chapter",
+                        "receipt",
+                        "certificate"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "was",
+                        "were",
+                        "be",
+                        "been"
+                    ]
+                },
+                "a5": {
+                    "answer": "dismissed",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "dismissed",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "without",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "prejudice",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "prejudice",
+                        "obligation",
+                        "arrival",
+                        "destination"
+                    ]
+                },
+                "a8": {
+                    "answer": "to",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "substantive",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "substantive",
+                        "light",
+                        "private",
+                        "public"
+                    ]
+                },
+                "a11": {
+                    "answer": "claim.",
+                    "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+                    "options": [
+                        "claim",
+                        "quantity",
+                        "permission",
+                        "procedure"
+                    ]
+                }
+            },
+            "verb_hint": "Відхилити заперечення щодо юрисдикції. Збережи формальне застереження про те, що позов по суті цим не зачепили.",
+            "accepted_target_texts": [
+                "The jurisdictional objection was dismissed without prejudice to the substantive claim."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jurisdictional objection",
+                "was dismissed",
+                "without prejudice",
+                "to the",
+                "substantive claim."
+            ],
+            "token_groups": [
+                "The jurisdictional objection",
+                "was dismissed",
+                "without prejudice",
+                "to the",
+                "substantive claim."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "jurisdictional",
+                "objection",
+                "was",
+                "dismissed",
+                "without",
+                "prejudice",
+                "to",
+                "the",
+                "substantive",
+                "claim."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "jurisdictional",
+                "unfamiliar",
+                "visible",
+                "hidden",
+                "objection",
+                "chapter",
+                "receipt",
+                "certificate",
+                "was",
+                "were",
+                "be",
+                "been",
+                "dismissed",
+                "washed",
+                "painted",
+                "folded",
+                "without",
+                "onto",
+                "over",
+                "under",
+                "prejudice",
+                "obligation",
+                "arrival",
+                "destination",
+                "to",
+                "for",
+                "of",
+                "in",
+                "the",
+                "some",
+                "any",
+                "those",
+                "substantive",
+                "light",
+                "private",
+                "public",
+                "claim",
+                "quantity",
+                "permission",
+                "procedure"
+            ],
+            "source_text_uk": "Заперечення щодо юрисдикції відхилили, не зачіпаючи позову по суті.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "jurisdictional",
+                    "unfamiliar",
+                    "visible",
+                    "hidden"
+                ],
+                "a3": [
+                    "objection",
+                    "chapter",
+                    "receipt",
+                    "certificate"
+                ],
+                "a4": [
+                    "was",
+                    "were",
+                    "be",
+                    "been"
+                ],
+                "a5": [
+                    "dismissed",
+                    "washed",
+                    "painted",
+                    "folded"
+                ],
+                "a6": [
+                    "without",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "prejudice",
+                    "obligation",
+                    "arrival",
+                    "destination"
+                ],
+                "a8": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a9": [
+                    "the",
+                    "some",
+                    "any",
+                    "those"
+                ],
+                "a10": [
+                    "substantive",
+                    "light",
+                    "private",
+                    "public"
+                ],
+                "a11": [
+                    "claim",
+                    "quantity",
+                    "permission",
+                    "procedure"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "adjective",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "noun",
+                "a8": "preposition",
+                "a9": "determiner",
+                "a10": "adjective",
+                "a11": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-past-simple-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Спірне положення витлумачили у світлі заявленої мети міжнародного договору.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Спірне положення витлумачили у світлі заявленої мети міжнародного договору.",
+            "target_text": "The disputed clause was construed in the light of the treaty's stated purpose.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "disputed",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "disputed",
+                        "local",
+                        "international",
+                        "familiar"
+                    ]
+                },
+                "a3": {
+                    "answer": "clause",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "clause",
+                        "relationship",
+                        "construction",
+                        "collection"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "was",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a5": {
+                    "answer": "construed",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "construed",
+                        "folded",
+                        "collected",
+                        "prepared"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "in",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "light",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "light",
+                        "boundary",
+                        "traffic",
+                        "substantive"
+                    ]
+                },
+                "a9": {
+                    "answer": "of",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "of",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "these"
+                    ]
+                },
+                "a11": {
+                    "answer": "treaty's",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "treaty's",
+                        "council's",
+                        "client's",
+                        "editor's"
+                    ]
+                },
+                "a12": {
+                    "answer": "stated",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "stated",
+                        "delivered",
+                        "repaired",
+                        "selected"
+                    ]
+                },
+                "a13": {
+                    "answer": "purpose.",
+                    "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+                    "options": [
+                        "purpose",
+                        "storage",
+                        "transport",
+                        "distance"
+                    ]
+                }
+            },
+            "verb_hint": "Витлумачити спірне положення (також можна: інтерпретувати його). Підставою тлумачення була заявлена мета міжнародного договору.",
+            "accepted_target_texts": [
+                "The disputed clause was construed in the light of the treaty's stated purpose.",
+                "The disputed clause was interpreted in the light of the treaty's stated purpose."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "interpreted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "interpreted"
+                ]
+            },
+            "reorder_groups": [
+                "The disputed clause",
+                "was construed",
+                "in the light",
+                "of the treaty's",
+                "stated purpose."
+            ],
+            "token_groups": [
+                "The disputed clause",
+                "was construed",
+                "in the light",
+                "of the treaty's",
+                "stated purpose."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "disputed",
+                "clause",
+                "was",
+                "construed",
+                "in",
+                "the",
+                "light",
+                "of",
+                "the",
+                "treaty's",
+                "stated",
+                "purpose."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "disputed",
+                "local",
+                "international",
+                "familiar",
+                "clause",
+                "relationship",
+                "construction",
+                "collection",
+                "was",
+                "weren't",
+                "am",
+                "is",
+                "construed",
+                "folded",
+                "collected",
+                "prepared",
+                "in",
+                "on",
+                "at",
+                "by",
+                "the",
+                "every",
+                "no",
+                "another",
+                "light",
+                "boundary",
+                "traffic",
+                "substantive",
+                "of",
+                "with",
+                "without",
+                "into",
+                "an",
+                "some",
+                "these",
+                "treaty's",
+                "council's",
+                "client's",
+                "editor's",
+                "stated",
+                "delivered",
+                "repaired",
+                "selected",
+                "purpose",
+                "storage",
+                "transport",
+                "distance"
+            ],
+            "source_text_uk": "Спірне положення витлумачили у світлі заявленої мети міжнародного договору.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "disputed",
+                    "local",
+                    "international",
+                    "familiar"
+                ],
+                "a3": [
+                    "clause",
+                    "relationship",
+                    "construction",
+                    "collection"
+                ],
+                "a4": [
+                    "was",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a5": [
+                    "construed",
+                    "folded",
+                    "collected",
+                    "prepared"
+                ],
+                "a6": [
+                    "in",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "light",
+                    "boundary",
+                    "traffic",
+                    "substantive"
+                ],
+                "a9": [
+                    "of",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a10": [
+                    "the",
+                    "an",
+                    "some",
+                    "these"
+                ],
+                "a11": [
+                    "treaty's",
+                    "council's",
+                    "client's",
+                    "editor's"
+                ],
+                "a12": [
+                    "stated",
+                    "delivered",
+                    "repaired",
+                    "selected"
+                ],
+                "a13": [
+                    "purpose",
+                    "storage",
+                    "transport",
+                    "distance"
+                ]
+            },
+            "slot_roles": {
+                "a1": "determiner",
+                "a2": "adjective",
+                "a3": "noun",
+                "a4": "be",
+                "a5": "participle",
+                "a6": "preposition",
+                "a7": "determiner",
+                "a8": "noun",
+                "a9": "preposition",
+                "a10": "determiner",
+                "a11": "possessive",
+                "a12": "participle",
+                "a13": "noun"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-past-simple-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Згоду визнали відкликаною лише після отримання недвозначного повідомлення.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Згоду визнали відкликаною лише після отримання недвозначного повідомлення.",
+            "target_text": "Consent was treated as withdrawn only after the unequivocal notice was received.",
+            "markers": {
+                "a1": {
+                    "answer": "Consent",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "Consent",
+                        "Application",
+                        "Interview",
+                        "Proposal"
+                    ]
+                },
+                "a2": {
+                    "answer": "was",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "was",
+                        "is",
+                        "are",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "treated",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "treated",
+                        "dismissed",
+                        "construed",
+                        "stated"
+                    ]
+                },
+                "a4": {
+                    "answer": "as",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "as",
+                        "towards",
+                        "treaty's",
+                        "teachers"
+                    ]
+                },
+                "a5": {
+                    "answer": "withdrawn",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "withdrawn",
+                        "selected",
+                        "removed",
+                        "replaced"
+                    ]
+                },
+                "a6": {
+                    "answer": "only",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "only",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a7": {
+                    "answer": "after",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "after",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "the",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a9": {
+                    "answer": "unequivocal",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "unequivocal",
+                        "recent",
+                        "early",
+                        "late"
+                    ]
+                },
+                "a10": {
+                    "answer": "notice",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "notice",
+                        "chapter",
+                        "receipt",
+                        "certificate"
+                    ]
+                },
+                "a11": {
+                    "answer": "was",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a12": {
+                    "answer": "received.",
+                    "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+                    "options": [
+                        "received",
+                        "washed",
+                        "painted",
+                        "folded"
+                    ]
+                }
+            },
+            "verb_hint": "Визнати згоду відкликаною. Збережи обмеження «лише після» та факт отримання недвозначного повідомлення; обидві дії минулі.",
+            "accepted_target_texts": [
+                "Consent was treated as withdrawn only after the unequivocal notice was received.",
+                "Consent was regarded as withdrawn only after the unequivocal notice was received."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "regarded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "regarded"
+                ]
+            },
+            "reorder_groups": [
+                "Consent was treated",
+                "as withdrawn",
+                "only after",
+                "the unequivocal notice",
+                "was received."
+            ],
+            "token_groups": [
+                "Consent was treated",
+                "as withdrawn",
+                "only after",
+                "the unequivocal notice",
+                "was received."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Consent",
+                "was",
+                "treated",
+                "as",
+                "withdrawn",
+                "only",
+                "after",
+                "the",
+                "unequivocal",
+                "notice",
+                "was",
+                "received."
+            ],
+            "options": [
+                "Consent",
+                "Application",
+                "Interview",
+                "Proposal",
+                "was",
+                "is",
+                "are",
+                "were",
+                "treated",
+                "dismissed",
+                "construed",
+                "stated",
+                "as",
+                "towards",
+                "treaty's",
+                "teachers",
+                "withdrawn",
+                "selected",
+                "removed",
+                "replaced",
+                "only",
+                "always",
+                "often",
+                "sometimes",
+                "after",
+                "on",
+                "at",
+                "by",
+                "the",
+                "each",
+                "every",
+                "no",
+                "unequivocal",
+                "recent",
+                "early",
+                "late",
+                "notice",
+                "chapter",
+                "receipt",
+                "certificate",
+                "be",
+                "been",
+                "being",
+                "received",
+                "washed",
+                "painted",
+                "folded"
+            ],
+            "source_text_uk": "Згоду визнали відкликаною лише після отримання недвозначного повідомлення.",
+            "options_by_marker": {
+                "a1": [
+                    "Consent",
+                    "Application",
+                    "Interview",
+                    "Proposal"
+                ],
+                "a2": [
+                    "was",
+                    "is",
+                    "are",
+                    "were"
+                ],
+                "a3": [
+                    "treated",
+                    "dismissed",
+                    "construed",
+                    "stated"
+                ],
+                "a4": [
+                    "as",
+                    "towards",
+                    "treaty's",
+                    "teachers"
+                ],
+                "a5": [
+                    "withdrawn",
+                    "selected",
+                    "removed",
+                    "replaced"
+                ],
+                "a6": [
+                    "only",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a7": [
+                    "after",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a8": [
+                    "the",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a9": [
+                    "unequivocal",
+                    "recent",
+                    "early",
+                    "late"
+                ],
+                "a10": [
+                    "notice",
+                    "chapter",
+                    "receipt",
+                    "certificate"
+                ],
+                "a11": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a12": [
+                    "received",
+                    "washed",
+                    "painted",
+                    "folded"
+                ]
+            },
+            "slot_roles": {
+                "a1": "noun",
+                "a2": "be",
+                "a3": "participle",
+                "a4": "preposition",
+                "a5": "participle",
+                "a6": "adverb",
+                "a7": "preposition",
+                "a8": "determiner",
+                "a9": "adjective",
+                "a10": "noun",
+                "a11": "be",
+                "a12": "participle"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60694,
+        "uuid": "bgq-sentence-structure-b1-g03",
+        "question": "A sudden gust of wind {a1}.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "scattered the papers",
+                "the papers scattered",
+                "scattered papers the"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:54.000000Z",
+        "updated_at": "2026-10-27T15:50:54.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60694,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53276,
+                "option": "scattered the papers",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60694,
+                "option_id": 53276,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53278,
+                "option": "the papers scattered",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60694,
+                "option_id": 53278,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53279,
+                "option": "scattered papers the",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60694,
+                "option_id": 53279,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325855,
+                "question_id": 60694,
+                "marker": "a1",
+                "option_id": 53276,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53276,
+                "option": "scattered the papers",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43189,
+                "question_id": 60694,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53277,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53277,
+                "option": "Потрібний зміст: «Розкидав папери». Збережи порив виконавцем дії й назви папери додатком після дієслова.",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52709,
+            "question_id": 60694,
+            "text": "A sudden gust of wind {a1}.",
+            "created_at": "2026-10-27T15:50:54.000000Z",
+            "updated_at": "2026-10-27T15:50:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

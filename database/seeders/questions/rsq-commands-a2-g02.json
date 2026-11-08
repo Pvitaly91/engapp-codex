@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66195,
+        "uuid": "rsq-commands-a2-g02",
+        "question": "The librarian asked the boys {a1} quietly.",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to speak",
+                "speaking",
+                "to spoke"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 256,
+                "option": "speaking",
+                "created_at": "2026-04-23T11:40:20.000000Z",
+                "updated_at": "2026-04-23T11:40:20.000000Z"
+            },
+            "pivot": {
+                "question_id": 66195,
+                "option_id": 256,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 24122,
+                "option": "to speak",
+                "created_at": "2026-05-22T16:20:53.000000Z",
+                "updated_at": "2026-05-22T16:20:53.000000Z"
+            },
+            "pivot": {
+                "question_id": 66195,
+                "option_id": 24122,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68328,
+                "option": "to spoke",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 66195,
+                "option_id": 68328,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340972,
+                "question_id": 66195,
+                "marker": "a1",
+                "option_id": 24122,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 24122,
+                "option": "to speak",
+                "created_at": "2026-05-22T16:20:53.000000Z",
+                "updated_at": "2026-05-22T16:20:53.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58306,
+                "question_id": 66195,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68327,
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            },
+            "option": {
+                "id": 68327,
+                "option": "Говорити; виконавці дії вже названі як адресати прохання.",
+                "created_at": "2026-11-01T20:04:47.000000Z",
+                "updated_at": "2026-11-01T20:04:47.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58210,
+            "question_id": 66195,
+            "text": "The librarian asked the boys {a1} quietly.",
+            "created_at": "2026-11-01T20:04:47.000000Z",
+            "updated_at": "2026-11-01T20:04:47.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 65733,
+        "uuid": "cqq-case-c2-g02",
+        "question": "The archive {a1} off-site in case the principal repository was compromised.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 24,
+        "source_id": 521,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Conditionals\\UkrainianMixedInCaseQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had been duplicated",
+                "has been duplicate",
+                "had being duplicated"
+            ]
+        },
+        "theory_text_block_uuid": "0c21167d-21f5-5b01-8f23-6a9657c05687",
+        "created_at": "2026-11-01T17:04:40.000000Z",
+        "updated_at": "2026-11-01T17:04:40.000000Z"
+    },
+    "category": {
+        "id": 24,
+        "name": "Conditionals",
+        "created_at": "2026-04-23T14:48:07.000000Z",
+        "updated_at": "2026-04-23T14:48:07.000000Z"
+    },
+    "source": {
+        "id": 521,
+        "name": "Conditionals Quality: In Case: Precautions and Possible Events",
+        "created_at": "2026-11-01T17:04:38.000000Z",
+        "updated_at": "2026-11-01T17:04:38.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 382,
+                "name": "In Case",
+                "category": null,
+                "created_at": "2026-04-23T14:34:16.000000Z",
+                "updated_at": "2026-04-23T14:34:16.000000Z"
+            },
+            "pivot": {
+                "question_id": 65733,
+                "tag_id": 382,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 67112,
+                "option": "had been duplicated",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65733,
+                "option_id": 67112,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67114,
+                "option": "has been duplicate",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65733,
+                "option_id": 67114,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 67115,
+                "option": "had being duplicated",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "pivot": {
+                "question_id": 65733,
+                "option_id": 67115,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 339355,
+                "question_id": 65733,
+                "marker": "a1",
+                "option_id": 67112,
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "option": {
+                "id": 67112,
+                "option": "had been duplicated",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 56689,
+                "question_id": 65733,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 67113,
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            },
+            "option": {
+                "id": 67113,
+                "option": "Попереднє дублювання в минулому передай пасивною формою завершеної дії.",
+                "created_at": "2026-11-01T17:04:40.000000Z",
+                "updated_at": "2026-11-01T17:04:40.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 57748,
+            "question_id": 65733,
+            "text": "The archive {a1} off-site in case the principal repository was compromised.",
+            "created_at": "2026-11-01T17:04:40.000000Z",
+            "updated_at": "2026-11-01T17:04:40.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

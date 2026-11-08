@@ -1,0 +1,4736 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/reported-commands-and-requests.v1.json",
+        "sha256": "5dba880c830368cf8a430afd0a67526c61baba0acfba7916b516cb04303f6347"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedReportedSpeechCommandsRequestsQualityBuilderSeeder",
+        "uuid_namespace": "reported-speech-quality-reported-commands-and-requests-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "reported_speech_quality_reported_commands_and_requests": {
+            "name": "Reported Speech Quality: Reported Commands and Requests"
+        }
+    },
+    "tags": {
+        "reported_speech_commands_requests_all_levels": {
+            "name": "reported speech commands requests all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "object_to_infinitive": {
+            "name": "Object To Infinitive",
+            "category": "topic"
+        },
+        "not_to_do": {
+            "name": "Not To Do",
+            "category": "topic"
+        },
+        "asked_someone_to": {
+            "name": "Asked Someone To",
+            "category": "topic"
+        },
+        "told_ordered_someone_to": {
+            "name": "Told Ordered Someone To",
+            "category": "topic"
+        },
+        "advised_someone_to": {
+            "name": "Advised Someone To",
+            "category": "topic"
+        },
+        "object_infinitive_pattern": {
+            "name": "Object Infinitive Pattern",
+            "category": "topic"
+        },
+        "no_quotation_marks": {
+            "name": "No Quotation Marks",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_reported_speech_commands_requests_all_levels": {
+            "name": "Reported Commands and Requests",
+            "category": "reported_speech"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-commands-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Учитель просить дитину усміхнутися.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Учитель просить дитину усміхнутися.",
+            "target_text": "The teacher asks the child to smile.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "teacher",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "teacher",
+                        "student",
+                        "doctor",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "asks",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "asks",
+                        "children",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "child",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "child",
+                        "driver",
+                        "clerk",
+                        "nurse"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "smile.",
+                    "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+                    "options": [
+                        "smile",
+                        "aunt",
+                        "Luka",
+                        "Grandma"
+                    ]
+                }
+            },
+            "verb_hint": "Назви адресата перед дією, яку він має виконати.",
+            "accepted_target_texts": [
+                "The teacher asks the child to smile."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The teacher",
+                "asks",
+                "the child",
+                "to smile."
+            ],
+            "token_groups": [
+                "The teacher",
+                "asks",
+                "the child",
+                "to smile."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "teacher",
+                "asks",
+                "the",
+                "child",
+                "to",
+                "smile."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "teacher",
+                "student",
+                "doctor",
+                "artist",
+                "asks",
+                "children",
+                "teachers",
+                "schools",
+                "the",
+                "both",
+                "a",
+                "this",
+                "child",
+                "driver",
+                "clerk",
+                "nurse",
+                "to",
+                "among",
+                "about",
+                "during",
+                "smile",
+                "aunt",
+                "Luka",
+                "Grandma"
+            ],
+            "source_text_uk": "Учитель просить дитину усміхнутися.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "teacher",
+                    "student",
+                    "doctor",
+                    "artist"
+                ],
+                "a3": [
+                    "asks",
+                    "children",
+                    "teachers",
+                    "schools"
+                ],
+                "a4": [
+                    "the",
+                    "both",
+                    "a",
+                    "this"
+                ],
+                "a5": [
+                    "child",
+                    "driver",
+                    "clerk",
+                    "nurse"
+                ],
+                "a6": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "smile",
+                    "aunt",
+                    "Luka",
+                    "Grandma"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-commands-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Тітка каже Луці допомогти їй.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Тітка каже Луці допомогти їй.",
+            "target_text": "The aunt tells Luka to help her.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "aunt",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "aunt",
+                        "teacher",
+                        "artist",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "tells",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "tells",
+                        "reads",
+                        "writes",
+                        "works"
+                    ]
+                },
+                "a4": {
+                    "answer": "Luka",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "Luka",
+                        "Them",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a6": {
+                    "answer": "help",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "help",
+                        "run",
+                        "meet",
+                        "use"
+                    ]
+                },
+                "a7": {
+                    "answer": "her.",
+                    "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+                    "options": [
+                        "her",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                }
+            },
+            "verb_hint": "Лука має допомогти; одержувач допомоги — тітка.",
+            "accepted_target_texts": [
+                "The aunt tells Luka to help her."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The aunt",
+                "tells",
+                "Luka",
+                "to help her."
+            ],
+            "token_groups": [
+                "The aunt",
+                "tells",
+                "Luka",
+                "to help her."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "aunt",
+                "tells",
+                "Luka",
+                "to",
+                "help",
+                "her."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "aunt",
+                "teacher",
+                "artist",
+                "assistant",
+                "tells",
+                "reads",
+                "writes",
+                "works",
+                "Luka",
+                "Them",
+                "Me",
+                "Him",
+                "to",
+                "from",
+                "for",
+                "of",
+                "help",
+                "run",
+                "meet",
+                "use",
+                "her",
+                "whose",
+                "my",
+                "your"
+            ],
+            "source_text_uk": "Тітка каже Луці допомогти їй.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "aunt",
+                    "teacher",
+                    "artist",
+                    "assistant"
+                ],
+                "a3": [
+                    "tells",
+                    "reads",
+                    "writes",
+                    "works"
+                ],
+                "a4": [
+                    "Luka",
+                    "Them",
+                    "Me",
+                    "Him"
+                ],
+                "a5": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a6": [
+                    "help",
+                    "run",
+                    "meet",
+                    "use"
+                ],
+                "a7": [
+                    "her",
+                    "whose",
+                    "my",
+                    "your"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "infinitive_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-commands-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Бабуся просить нас не бігати.",
+            "level": "A1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Бабуся просить нас не бігати.",
+            "target_text": "Grandma asks us not to run.",
+            "markers": {
+                "a1": {
+                    "answer": "Grandma",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "Grandma",
+                        "We",
+                        "They",
+                        "She"
+                    ]
+                },
+                "a2": {
+                    "answer": "asks",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "asks",
+                        "maps",
+                        "letters",
+                        "windows"
+                    ]
+                },
+                "a3": {
+                    "answer": "us",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "us",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a6": {
+                    "answer": "run.",
+                    "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+                    "options": [
+                        "run",
+                        "help",
+                        "like",
+                        "know"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прохання й постав заперечення перед інфінітивом.",
+            "accepted_target_texts": [
+                "Grandma asks us not to run.",
+                "Grandmother asks us not to run."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Grandmother"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Grandmother"
+                ]
+            },
+            "reorder_groups": [
+                "Grandma",
+                "asks",
+                "us",
+                "not to run."
+            ],
+            "token_groups": [
+                "Grandma",
+                "asks",
+                "us",
+                "not to run."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Grandma",
+                "asks",
+                "us",
+                "not",
+                "to",
+                "run."
+            ],
+            "options": [
+                "Grandma",
+                "We",
+                "They",
+                "She",
+                "asks",
+                "maps",
+                "letters",
+                "windows",
+                "us",
+                "yourself",
+                "herself",
+                "ourselves",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "to",
+                "through",
+                "across",
+                "between",
+                "run",
+                "help",
+                "like",
+                "know"
+            ],
+            "source_text_uk": "Бабуся просить нас не бігати.",
+            "options_by_marker": {
+                "a1": [
+                    "Grandma",
+                    "We",
+                    "They",
+                    "She"
+                ],
+                "a2": [
+                    "asks",
+                    "maps",
+                    "letters",
+                    "windows"
+                ],
+                "a3": [
+                    "us",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a6": [
+                    "run",
+                    "help",
+                    "like",
+                    "know"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "reporting_phrase",
+                "a3": "object_phrase",
+                "a4": "infinitive_phrase",
+                "a5": "infinitive_phrase",
+                "a6": "infinitive_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-commands-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Медсестра попросила мене зачекати в коридорі.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Медсестра попросила мене зачекати в коридорі.",
+            "target_text": "The nurse asked me to wait in the corridor.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "nurse",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "nurse",
+                        "manager",
+                        "student",
+                        "doctor"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "asked",
+                        "told",
+                        "wondered",
+                        "waited"
+                    ]
+                },
+                "a4": {
+                    "answer": "me",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "me",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "to",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "wait",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "wait",
+                        "find",
+                        "leave",
+                        "call"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "in",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a9": {
+                    "answer": "corridor.",
+                    "verb_hint": "Збережи адресата прохання й місце очікування.",
+                    "options": [
+                        "corridor",
+                        "courtyard",
+                        "interview",
+                        "station"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи адресата прохання й місце очікування.",
+            "accepted_target_texts": [
+                "The nurse asked me to wait in the corridor."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nurse",
+                "asked",
+                "me",
+                "to wait",
+                "in the corridor."
+            ],
+            "token_groups": [
+                "The nurse",
+                "asked",
+                "me",
+                "to wait",
+                "in the corridor."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "nurse",
+                "asked",
+                "me",
+                "to",
+                "wait",
+                "in",
+                "the",
+                "corridor."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "nurse",
+                "manager",
+                "student",
+                "doctor",
+                "asked",
+                "told",
+                "wondered",
+                "waited",
+                "me",
+                "you",
+                "he",
+                "she",
+                "to",
+                "during",
+                "from",
+                "for",
+                "wait",
+                "find",
+                "leave",
+                "call",
+                "in",
+                "through",
+                "across",
+                "between",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "corridor",
+                "courtyard",
+                "interview",
+                "station"
+            ],
+            "source_text_uk": "Медсестра попросила мене зачекати в коридорі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "nurse",
+                    "manager",
+                    "student",
+                    "doctor"
+                ],
+                "a3": [
+                    "asked",
+                    "told",
+                    "wondered",
+                    "waited"
+                ],
+                "a4": [
+                    "me",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a5": [
+                    "to",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "wait",
+                    "find",
+                    "leave",
+                    "call"
+                ],
+                "a7": [
+                    "in",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a8": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a9": [
+                    "corridor",
+                    "courtyard",
+                    "interview",
+                    "station"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "infinitive_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "adverbial_phrase",
+                "a8": "adverbial_phrase",
+                "a9": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-commands-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Тренер сказав гравцям не запізнюватися.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Тренер сказав гравцям не запізнюватися.",
+            "target_text": "The coach told the players not to be late.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "coach",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "coach",
+                        "nurse",
+                        "artist",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "told",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "told",
+                        "asked",
+                        "wondered",
+                        "drove"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "players",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "players",
+                        "visitors",
+                        "neighbours",
+                        "glasses"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "to",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a8": {
+                    "answer": "be",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "be",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "late.",
+                    "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+                    "options": [
+                        "late",
+                        "sister",
+                        "corridor",
+                        "picture"
+                    ]
+                }
+            },
+            "verb_hint": "Наказ забороняв запізнення; не заперечуй сам факт наказу.",
+            "accepted_target_texts": [
+                "The coach told the players not to be late."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coach",
+                "told",
+                "the players",
+                "not to be",
+                "late."
+            ],
+            "token_groups": [
+                "The coach",
+                "told",
+                "the players",
+                "not to be",
+                "late."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "coach",
+                "told",
+                "the",
+                "players",
+                "not",
+                "to",
+                "be",
+                "late."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "coach",
+                "nurse",
+                "artist",
+                "assistant",
+                "told",
+                "asked",
+                "wondered",
+                "drove",
+                "the",
+                "some",
+                "any",
+                "this",
+                "players",
+                "visitors",
+                "neighbours",
+                "glasses",
+                "not",
+                "never",
+                "always",
+                "often",
+                "to",
+                "into",
+                "onto",
+                "over",
+                "be",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "late",
+                "sister",
+                "corridor",
+                "picture"
+            ],
+            "source_text_uk": "Тренер сказав гравцям не запізнюватися.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "coach",
+                    "nurse",
+                    "artist",
+                    "assistant"
+                ],
+                "a3": [
+                    "told",
+                    "asked",
+                    "wondered",
+                    "drove"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "players",
+                    "visitors",
+                    "neighbours",
+                    "glasses"
+                ],
+                "a6": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a7": [
+                    "to",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a8": [
+                    "be",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a9": [
+                    "late",
+                    "sister",
+                    "corridor",
+                    "picture"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "infinitive_phrase",
+                "a9": "adjective_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-commands-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Іван попросив сестру знайти його окуляри.",
+            "level": "A2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Іван попросив сестру знайти його окуляри.",
+            "target_text": "Ivan asked his sister to find his glasses.",
+            "markers": {
+                "a1": {
+                    "answer": "Ivan",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "Ivan",
+                        "Jane",
+                        "Paul",
+                        "Kate"
+                    ]
+                },
+                "a2": {
+                    "answer": "asked",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "asked",
+                        "told",
+                        "wondered",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "his",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "his",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a4": {
+                    "answer": "sister",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "sister",
+                        "nurse",
+                        "driver",
+                        "clerk"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a6": {
+                    "answer": "find",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "find",
+                        "call",
+                        "help",
+                        "wait"
+                    ]
+                },
+                "a7": {
+                    "answer": "his",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "his",
+                        "her",
+                        "its",
+                        "our"
+                    ]
+                },
+                "a8": {
+                    "answer": "glasses.",
+                    "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+                    "options": [
+                        "glasses",
+                        "players",
+                        "teachers",
+                        "schools"
+                    ]
+                }
+            },
+            "verb_hint": "Окуляри належать мовцеві, але шукати має сестра.",
+            "accepted_target_texts": [
+                "Ivan asked his sister to find his glasses."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ivan",
+                "asked",
+                "his sister",
+                "to find",
+                "his glasses."
+            ],
+            "token_groups": [
+                "Ivan",
+                "asked",
+                "his sister",
+                "to find",
+                "his glasses."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "Ivan",
+                "asked",
+                "his",
+                "sister",
+                "to",
+                "find",
+                "his",
+                "glasses."
+            ],
+            "options": [
+                "Ivan",
+                "Jane",
+                "Paul",
+                "Kate",
+                "asked",
+                "told",
+                "wondered",
+                "made",
+                "his",
+                "yours",
+                "hers",
+                "ours",
+                "sister",
+                "nurse",
+                "driver",
+                "clerk",
+                "to",
+                "with",
+                "without",
+                "into",
+                "find",
+                "call",
+                "help",
+                "wait",
+                "her",
+                "its",
+                "our",
+                "glasses",
+                "players",
+                "teachers",
+                "schools"
+            ],
+            "source_text_uk": "Іван попросив сестру знайти його окуляри.",
+            "options_by_marker": {
+                "a1": [
+                    "Ivan",
+                    "Jane",
+                    "Paul",
+                    "Kate"
+                ],
+                "a2": [
+                    "asked",
+                    "told",
+                    "wondered",
+                    "made"
+                ],
+                "a3": [
+                    "his",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a4": [
+                    "sister",
+                    "nurse",
+                    "driver",
+                    "clerk"
+                ],
+                "a5": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a6": [
+                    "find",
+                    "call",
+                    "help",
+                    "wait"
+                ],
+                "a7": [
+                    "his",
+                    "her",
+                    "its",
+                    "our"
+                ],
+                "a8": [
+                    "glasses",
+                    "players",
+                    "teachers",
+                    "schools"
+                ]
+            },
+            "slot_roles": {
+                "a1": "proper_noun",
+                "a2": "reporting_phrase",
+                "a3": "object_phrase",
+                "a4": "object_phrase",
+                "a5": "infinitive_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-commands-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Капітан наказав екіпажу перевірити рятувальні жилети.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Капітан наказав екіпажу перевірити рятувальні жилети.",
+            "target_text": "The captain ordered the crew to check the life jackets.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "captain",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "captain",
+                        "neighbour",
+                        "committee",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "ordered",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "ordered",
+                        "asked",
+                        "wondered",
+                        "reminded"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a5": {
+                    "answer": "crew",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "crew",
+                        "clerk",
+                        "nurse",
+                        "driver"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "check",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "check",
+                        "collect",
+                        "curator",
+                        "photograph"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a9": {
+                    "answer": "life",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "life",
+                        "first",
+                        "last",
+                        "spare"
+                    ]
+                },
+                "a10": {
+                    "answer": "jackets.",
+                    "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+                    "options": [
+                        "jackets",
+                        "visitors",
+                        "boxes",
+                        "chairs"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи наказ, його адресата й предмет перевірки.",
+            "accepted_target_texts": [
+                "The captain ordered the crew to check the life jackets."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The captain",
+                "ordered",
+                "the crew",
+                "to check",
+                "the life jackets."
+            ],
+            "token_groups": [
+                "The captain",
+                "ordered",
+                "the crew",
+                "to check",
+                "the life jackets."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "captain",
+                "ordered",
+                "the",
+                "crew",
+                "to",
+                "check",
+                "the",
+                "life",
+                "jackets."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "captain",
+                "neighbour",
+                "committee",
+                "artist",
+                "ordered",
+                "asked",
+                "wondered",
+                "reminded",
+                "the",
+                "no",
+                "another",
+                "either",
+                "crew",
+                "clerk",
+                "nurse",
+                "driver",
+                "to",
+                "between",
+                "among",
+                "about",
+                "check",
+                "collect",
+                "curator",
+                "photograph",
+                "any",
+                "this",
+                "that",
+                "life",
+                "first",
+                "last",
+                "spare",
+                "jackets",
+                "visitors",
+                "boxes",
+                "chairs"
+            ],
+            "source_text_uk": "Капітан наказав екіпажу перевірити рятувальні жилети.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "captain",
+                    "neighbour",
+                    "committee",
+                    "artist"
+                ],
+                "a3": [
+                    "ordered",
+                    "asked",
+                    "wondered",
+                    "reminded"
+                ],
+                "a4": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a5": [
+                    "crew",
+                    "clerk",
+                    "nurse",
+                    "driver"
+                ],
+                "a6": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "check",
+                    "collect",
+                    "curator",
+                    "photograph"
+                ],
+                "a8": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a9": [
+                    "life",
+                    "first",
+                    "last",
+                    "spare"
+                ],
+                "a10": [
+                    "jackets",
+                    "visitors",
+                    "boxes",
+                    "chairs"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-commands-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Кураторка попросила відвідувачів не фотографувати пошкоджену тканину.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Кураторка попросила відвідувачів не фотографувати пошкоджену тканину.",
+            "target_text": "The curator asked the visitors not to photograph the damaged fabric.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "curator",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "curator",
+                        "committee",
+                        "neighbour",
+                        "captain"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "ordered",
+                        "reminded"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a5": {
+                    "answer": "visitors",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "visitors",
+                        "neighbours",
+                        "jackets",
+                        "rooms"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "not",
+                        "also",
+                        "usually",
+                        "rarely"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "photograph",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "photograph",
+                        "enter",
+                        "again",
+                        "interrupt"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "damaged",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "damaged",
+                        "broken",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a11": {
+                    "answer": "fabric.",
+                    "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+                    "options": [
+                        "fabric",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                }
+            },
+            "verb_hint": "Заборона стосується фотографування; збережи конкретний предмет.",
+            "accepted_target_texts": [
+                "The curator asked the visitors not to photograph the damaged fabric."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curator",
+                "asked",
+                "the visitors",
+                "not to photograph",
+                "the damaged fabric."
+            ],
+            "token_groups": [
+                "The curator",
+                "asked",
+                "the visitors",
+                "not to photograph",
+                "the damaged fabric."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "curator",
+                "asked",
+                "the",
+                "visitors",
+                "not",
+                "to",
+                "photograph",
+                "the",
+                "damaged",
+                "fabric."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "curator",
+                "committee",
+                "neighbour",
+                "captain",
+                "asked",
+                "wondered",
+                "ordered",
+                "reminded",
+                "the",
+                "an",
+                "some",
+                "any",
+                "visitors",
+                "neighbours",
+                "jackets",
+                "rooms",
+                "not",
+                "also",
+                "usually",
+                "rarely",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "photograph",
+                "enter",
+                "again",
+                "interrupt",
+                "this",
+                "that",
+                "these",
+                "damaged",
+                "broken",
+                "liked",
+                "wanted",
+                "fabric",
+                "easy",
+                "difficult",
+                "bright"
+            ],
+            "source_text_uk": "Кураторка попросила відвідувачів не фотографувати пошкоджену тканину.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "curator",
+                    "committee",
+                    "neighbour",
+                    "captain"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "ordered",
+                    "reminded"
+                ],
+                "a4": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a5": [
+                    "visitors",
+                    "neighbours",
+                    "jackets",
+                    "rooms"
+                ],
+                "a6": [
+                    "not",
+                    "also",
+                    "usually",
+                    "rarely"
+                ],
+                "a7": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "photograph",
+                    "enter",
+                    "again",
+                    "interrupt"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "damaged",
+                    "broken",
+                    "liked",
+                    "wanted"
+                ],
+                "a11": [
+                    "fabric",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "infinitive_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-commands-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Сусід нагадав мені забрати мій велосипед до вечора.",
+            "level": "B1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Сусід нагадав мені забрати мій велосипед до вечора.",
+            "target_text": "The neighbour reminded me to collect my bicycle before evening.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "neighbour",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "neighbour",
+                        "artist",
+                        "baker",
+                        "driver"
+                    ]
+                },
+                "a3": {
+                    "answer": "reminded",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "reminded",
+                        "asked",
+                        "ordered",
+                        "wondered"
+                    ]
+                },
+                "a4": {
+                    "answer": "me",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "me",
+                        "we",
+                        "they",
+                        "him"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a6": {
+                    "answer": "collect",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "collect",
+                        "check",
+                        "photograph",
+                        "captain"
+                    ]
+                },
+                "a7": {
+                    "answer": "my",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "my",
+                        "your",
+                        "his",
+                        "her"
+                    ]
+                },
+                "a8": {
+                    "answer": "bicycle",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "bicycle",
+                        "tram",
+                        "taxi",
+                        "van"
+                    ]
+                },
+                "a9": {
+                    "answer": "before",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "before",
+                        "curator",
+                        "crew",
+                        "life"
+                    ]
+                },
+                "a10": {
+                    "answer": "evening.",
+                    "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+                    "options": [
+                        "evening",
+                        "night",
+                        "day",
+                        "week"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи нагадування, власника велосипеда й строк дії.",
+            "accepted_target_texts": [
+                "The neighbour reminded me to collect my bicycle before evening.",
+                "The neighbour reminded me to collect my bike before evening."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "bike"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "bike"
+                ]
+            },
+            "reorder_groups": [
+                "The neighbour",
+                "reminded",
+                "me",
+                "to collect",
+                "my bicycle",
+                "before evening."
+            ],
+            "token_groups": [
+                "The neighbour",
+                "reminded",
+                "me",
+                "to collect",
+                "my bicycle",
+                "before evening."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "neighbour",
+                "reminded",
+                "me",
+                "to",
+                "collect",
+                "my",
+                "bicycle",
+                "before",
+                "evening."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "neighbour",
+                "artist",
+                "baker",
+                "driver",
+                "reminded",
+                "asked",
+                "ordered",
+                "wondered",
+                "me",
+                "we",
+                "they",
+                "him",
+                "to",
+                "by",
+                "with",
+                "without",
+                "collect",
+                "check",
+                "photograph",
+                "captain",
+                "my",
+                "your",
+                "his",
+                "her",
+                "bicycle",
+                "tram",
+                "taxi",
+                "van",
+                "before",
+                "curator",
+                "crew",
+                "life",
+                "evening",
+                "night",
+                "day",
+                "week"
+            ],
+            "source_text_uk": "Сусід нагадав мені забрати мій велосипед до вечора.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "neighbour",
+                    "artist",
+                    "baker",
+                    "driver"
+                ],
+                "a3": [
+                    "reminded",
+                    "asked",
+                    "ordered",
+                    "wondered"
+                ],
+                "a4": [
+                    "me",
+                    "we",
+                    "they",
+                    "him"
+                ],
+                "a5": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a6": [
+                    "collect",
+                    "check",
+                    "photograph",
+                    "captain"
+                ],
+                "a7": [
+                    "my",
+                    "your",
+                    "his",
+                    "her"
+                ],
+                "a8": [
+                    "bicycle",
+                    "tram",
+                    "taxi",
+                    "van"
+                ],
+                "a9": [
+                    "before",
+                    "curator",
+                    "crew",
+                    "life"
+                ],
+                "a10": [
+                    "evening",
+                    "night",
+                    "day",
+                    "week"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "infinitive_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "noun_phrase",
+                "a8": "noun_phrase",
+                "a9": "adverbial_phrase",
+                "a10": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-commands-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Радник порадив комітетові відкласти остаточне рішення.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Радник порадив комітетові відкласти остаточне рішення.",
+            "target_text": "The adviser advised the committee to postpone the final decision.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "adviser",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "adviser",
+                        "artist",
+                        "assistant",
+                        "coordinator"
+                    ]
+                },
+                "a3": {
+                    "answer": "advised",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "advised",
+                        "wondered",
+                        "asked",
+                        "reminded"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "committee",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "committee",
+                        "accountant",
+                        "clerk",
+                        "nurse"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "postpone",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "postpone",
+                        "retain",
+                        "disclose",
+                        "participants'"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a9": {
+                    "answer": "final",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "final",
+                        "old",
+                        "reliable",
+                        "small"
+                    ]
+                },
+                "a10": {
+                    "answer": "decision.",
+                    "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+                    "options": [
+                        "decision",
+                        "witness",
+                        "version",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Передай пораду, не наказ; комітет має ухвалити дію пізніше.",
+            "accepted_target_texts": [
+                "The adviser advised the committee to postpone the final decision.",
+                "The adviser advised the committee to defer the final decision.",
+                "The advisor advised the committee to postpone the final decision.",
+                "The advisor advised the committee to defer the final decision."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "defer"
+                ],
+                "a2": [
+                    "advisor"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "defer"
+                ],
+                "a2": [
+                    "advisor"
+                ]
+            },
+            "reorder_groups": [
+                "The adviser",
+                "advised",
+                "the committee",
+                "to postpone",
+                "the final decision."
+            ],
+            "token_groups": [
+                "The adviser",
+                "advised",
+                "the committee",
+                "to postpone",
+                "the final decision."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "adviser",
+                "advised",
+                "the",
+                "committee",
+                "to",
+                "postpone",
+                "the",
+                "final",
+                "decision."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "adviser",
+                "artist",
+                "assistant",
+                "coordinator",
+                "advised",
+                "wondered",
+                "asked",
+                "reminded",
+                "the",
+                "every",
+                "no",
+                "another",
+                "committee",
+                "accountant",
+                "clerk",
+                "nurse",
+                "to",
+                "by",
+                "with",
+                "without",
+                "postpone",
+                "retain",
+                "disclose",
+                "participants'",
+                "either",
+                "neither",
+                "all",
+                "final",
+                "old",
+                "reliable",
+                "small",
+                "decision",
+                "witness",
+                "version",
+                "key"
+            ],
+            "source_text_uk": "Радник порадив комітетові відкласти остаточне рішення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "adviser",
+                    "artist",
+                    "assistant",
+                    "coordinator"
+                ],
+                "a3": [
+                    "advised",
+                    "wondered",
+                    "asked",
+                    "reminded"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "committee",
+                    "accountant",
+                    "clerk",
+                    "nurse"
+                ],
+                "a6": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a7": [
+                    "postpone",
+                    "retain",
+                    "disclose",
+                    "participants'"
+                ],
+                "a8": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a9": [
+                    "final",
+                    "old",
+                    "reliable",
+                    "small"
+                ],
+                "a10": [
+                    "decision",
+                    "witness",
+                    "version",
+                    "key"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-commands-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Координаторка попросила дослідників не розкривати особи учасників.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Координаторка попросила дослідників не розкривати особи учасників.",
+            "target_text": "The coordinator asked the researchers not to disclose the participants' identities.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "coordinator",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "coordinator",
+                        "auditor",
+                        "adviser",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "asked",
+                        "reminded",
+                        "wondered",
+                        "advised"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "the",
+                        "each",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a5": {
+                    "answer": "researchers",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "researchers",
+                        "neighbours",
+                        "visitors",
+                        "documents"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "not",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a8": {
+                    "answer": "disclose",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "disclose",
+                        "again",
+                        "interrupt",
+                        "it"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a10": {
+                    "answer": "participants'",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "participants'",
+                        "first",
+                        "spare",
+                        "blue"
+                    ]
+                },
+                "a11": {
+                    "answer": "identities.",
+                    "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+                    "options": [
+                        "identities",
+                        "boxes",
+                        "chairs",
+                        "tables"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи прохання й предмет захисту: особи учасників.",
+            "accepted_target_texts": [
+                "The coordinator asked the researchers not to disclose the participants' identities."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coordinator",
+                "asked",
+                "the researchers",
+                "not to disclose",
+                "the participants' identities."
+            ],
+            "token_groups": [
+                "The coordinator",
+                "asked",
+                "the researchers",
+                "not to disclose",
+                "the participants' identities."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "coordinator",
+                "asked",
+                "the",
+                "researchers",
+                "not",
+                "to",
+                "disclose",
+                "the",
+                "participants'",
+                "identities."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "coordinator",
+                "auditor",
+                "adviser",
+                "artist",
+                "asked",
+                "reminded",
+                "wondered",
+                "advised",
+                "the",
+                "each",
+                "either",
+                "neither",
+                "researchers",
+                "neighbours",
+                "visitors",
+                "documents",
+                "not",
+                "rarely",
+                "only",
+                "even",
+                "to",
+                "across",
+                "between",
+                "among",
+                "disclose",
+                "again",
+                "interrupt",
+                "it",
+                "this",
+                "that",
+                "these",
+                "participants'",
+                "first",
+                "spare",
+                "blue",
+                "identities",
+                "boxes",
+                "chairs",
+                "tables"
+            ],
+            "source_text_uk": "Координаторка попросила дослідників не розкривати особи учасників.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "coordinator",
+                    "auditor",
+                    "adviser",
+                    "artist"
+                ],
+                "a3": [
+                    "asked",
+                    "reminded",
+                    "wondered",
+                    "advised"
+                ],
+                "a4": [
+                    "the",
+                    "each",
+                    "either",
+                    "neither"
+                ],
+                "a5": [
+                    "researchers",
+                    "neighbours",
+                    "visitors",
+                    "documents"
+                ],
+                "a6": [
+                    "not",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a7": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a8": [
+                    "disclose",
+                    "again",
+                    "interrupt",
+                    "it"
+                ],
+                "a9": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a10": [
+                    "participants'",
+                    "first",
+                    "spare",
+                    "blue"
+                ],
+                "a11": [
+                    "identities",
+                    "boxes",
+                    "chairs",
+                    "tables"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "infinitive_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase",
+                "a11": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-commands-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Аудитор нагадав бухгалтерці зберегти підтвердні документи.",
+            "level": "B2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Аудитор нагадав бухгалтерці зберегти підтвердні документи.",
+            "target_text": "The auditor reminded the accountant to retain the supporting documents.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "auditor",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "auditor",
+                        "assistant",
+                        "committee",
+                        "adviser"
+                    ]
+                },
+                "a3": {
+                    "answer": "reminded",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "reminded",
+                        "asked",
+                        "wondered",
+                        "advised"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "accountant",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "accountant",
+                        "clerk",
+                        "nurse",
+                        "driver"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a7": {
+                    "answer": "retain",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "retain",
+                        "postpone",
+                        "decision",
+                        "coordinator"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a9": {
+                    "answer": "supporting",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "supporting",
+                        "cooking",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a10": {
+                    "answer": "documents.",
+                    "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+                    "options": [
+                        "documents",
+                        "identities",
+                        "researchers",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи нагадування та названу виконавицю дії.",
+            "accepted_target_texts": [
+                "The auditor reminded the accountant to retain the supporting documents.",
+                "The auditor reminded the accountant to keep the supporting documents."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "keep"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "keep"
+                ]
+            },
+            "reorder_groups": [
+                "The auditor",
+                "reminded",
+                "the accountant",
+                "to retain",
+                "the supporting documents."
+            ],
+            "token_groups": [
+                "The auditor",
+                "reminded",
+                "the accountant",
+                "to retain",
+                "the supporting documents."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "auditor",
+                "reminded",
+                "the",
+                "accountant",
+                "to",
+                "retain",
+                "the",
+                "supporting",
+                "documents."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "auditor",
+                "assistant",
+                "committee",
+                "adviser",
+                "reminded",
+                "asked",
+                "wondered",
+                "advised",
+                "the",
+                "some",
+                "any",
+                "this",
+                "accountant",
+                "clerk",
+                "nurse",
+                "driver",
+                "to",
+                "from",
+                "for",
+                "of",
+                "retain",
+                "postpone",
+                "decision",
+                "coordinator",
+                "every",
+                "no",
+                "another",
+                "supporting",
+                "cooking",
+                "riding",
+                "driving",
+                "documents",
+                "identities",
+                "researchers",
+                "maps"
+            ],
+            "source_text_uk": "Аудитор нагадав бухгалтерці зберегти підтвердні документи.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "auditor",
+                    "assistant",
+                    "committee",
+                    "adviser"
+                ],
+                "a3": [
+                    "reminded",
+                    "asked",
+                    "wondered",
+                    "advised"
+                ],
+                "a4": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "accountant",
+                    "clerk",
+                    "nurse",
+                    "driver"
+                ],
+                "a6": [
+                    "to",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a7": [
+                    "retain",
+                    "postpone",
+                    "decision",
+                    "coordinator"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a9": [
+                    "supporting",
+                    "cooking",
+                    "riding",
+                    "driving"
+                ],
+                "a10": [
+                    "documents",
+                    "identities",
+                    "researchers",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-commands-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Омбудсменка закликала посадовців не ототожнювати мовчання зі згодою.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Омбудсменка закликала посадовців не ототожнювати мовчання зі згодою.",
+            "target_text": "The ombudswoman urged the officials not to equate silence with consent.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "ombudswoman",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "ombudswoman",
+                        "chair",
+                        "expert",
+                        "artist"
+                    ]
+                },
+                "a3": {
+                    "answer": "urged",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "urged",
+                        "advised",
+                        "asked",
+                        "wondered"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a5": {
+                    "answer": "officials",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "officials",
+                        "neighbours",
+                        "assessors",
+                        "visitors"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "equate",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "equate",
+                        "enter",
+                        "touch",
+                        "interrupt"
+                    ]
+                },
+                "a9": {
+                    "answer": "silence",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "silence",
+                        "verify",
+                        "sources'",
+                        "independence"
+                    ]
+                },
+                "a10": {
+                    "answer": "with",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "with",
+                        "during",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a11": {
+                    "answer": "consent.",
+                    "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+                    "options": [
+                        "consent",
+                        "breakfast",
+                        "permission",
+                        "record"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заклик уникати хибного ототожнення; заперечення належить інфінітиву.",
+            "accepted_target_texts": [
+                "The ombudswoman urged the officials not to equate silence with consent."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The ombudswoman",
+                "urged",
+                "the officials",
+                "not to equate",
+                "silence",
+                "with consent."
+            ],
+            "token_groups": [
+                "The ombudswoman",
+                "urged",
+                "the officials",
+                "not to equate",
+                "silence",
+                "with consent."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "ombudswoman",
+                "urged",
+                "the",
+                "officials",
+                "not",
+                "to",
+                "equate",
+                "silence",
+                "with",
+                "consent."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "ombudswoman",
+                "chair",
+                "expert",
+                "artist",
+                "urged",
+                "advised",
+                "asked",
+                "wondered",
+                "the",
+                "all",
+                "both",
+                "a",
+                "officials",
+                "neighbours",
+                "assessors",
+                "visitors",
+                "not",
+                "never",
+                "always",
+                "often",
+                "to",
+                "between",
+                "among",
+                "about",
+                "equate",
+                "enter",
+                "touch",
+                "interrupt",
+                "silence",
+                "verify",
+                "sources'",
+                "independence",
+                "with",
+                "during",
+                "from",
+                "for",
+                "consent",
+                "breakfast",
+                "permission",
+                "record"
+            ],
+            "source_text_uk": "Омбудсменка закликала посадовців не ототожнювати мовчання зі згодою.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "ombudswoman",
+                    "chair",
+                    "expert",
+                    "artist"
+                ],
+                "a3": [
+                    "urged",
+                    "advised",
+                    "asked",
+                    "wondered"
+                ],
+                "a4": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a5": [
+                    "officials",
+                    "neighbours",
+                    "assessors",
+                    "visitors"
+                ],
+                "a6": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a7": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "equate",
+                    "enter",
+                    "touch",
+                    "interrupt"
+                ],
+                "a9": [
+                    "silence",
+                    "verify",
+                    "sources'",
+                    "independence"
+                ],
+                "a10": [
+                    "with",
+                    "during",
+                    "from",
+                    "for"
+                ],
+                "a11": [
+                    "consent",
+                    "breakfast",
+                    "permission",
+                    "record"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "infinitive_phrase",
+                "a9": "noun_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-commands-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Експерт порадив оцінювачам перевірити незалежність джерел.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Експерт порадив оцінювачам перевірити незалежність джерел.",
+            "target_text": "The expert advised the assessors to verify the sources' independence.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "expert",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "expert",
+                        "assistant",
+                        "committee",
+                        "chair"
+                    ]
+                },
+                "a3": {
+                    "answer": "advised",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "advised",
+                        "asked",
+                        "wondered",
+                        "urged"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a5": {
+                    "answer": "assessors",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "assessors",
+                        "officials",
+                        "visitors",
+                        "neighbours"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "to",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "verify",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "verify",
+                        "record",
+                        "dissent",
+                        "ombudswoman"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a9": {
+                    "answer": "sources'",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "sources'",
+                        "last",
+                        "first",
+                        "spare"
+                    ]
+                },
+                "a10": {
+                    "answer": "independence.",
+                    "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+                    "options": [
+                        "independence",
+                        "witness",
+                        "key",
+                        "scarf"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи дорадчу силу та точний предмет перевірки.",
+            "accepted_target_texts": [
+                "The expert advised the assessors to verify the sources' independence."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The expert",
+                "advised",
+                "the assessors",
+                "to verify",
+                "the sources' independence."
+            ],
+            "token_groups": [
+                "The expert",
+                "advised",
+                "the assessors",
+                "to verify",
+                "the sources' independence."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "expert",
+                "advised",
+                "the",
+                "assessors",
+                "to",
+                "verify",
+                "the",
+                "sources'",
+                "independence."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "expert",
+                "assistant",
+                "committee",
+                "chair",
+                "advised",
+                "asked",
+                "wondered",
+                "urged",
+                "the",
+                "that",
+                "these",
+                "those",
+                "assessors",
+                "officials",
+                "visitors",
+                "neighbours",
+                "to",
+                "without",
+                "into",
+                "onto",
+                "verify",
+                "record",
+                "dissent",
+                "ombudswoman",
+                "every",
+                "no",
+                "another",
+                "sources'",
+                "last",
+                "first",
+                "spare",
+                "independence",
+                "witness",
+                "key",
+                "scarf"
+            ],
+            "source_text_uk": "Експерт порадив оцінювачам перевірити незалежність джерел.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "expert",
+                    "assistant",
+                    "committee",
+                    "chair"
+                ],
+                "a3": [
+                    "advised",
+                    "asked",
+                    "wondered",
+                    "urged"
+                ],
+                "a4": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a5": [
+                    "assessors",
+                    "officials",
+                    "visitors",
+                    "neighbours"
+                ],
+                "a6": [
+                    "to",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "verify",
+                    "record",
+                    "dissent",
+                    "ombudswoman"
+                ],
+                "a8": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a9": [
+                    "sources'",
+                    "last",
+                    "first",
+                    "spare"
+                ],
+                "a10": [
+                    "independence",
+                    "witness",
+                    "key",
+                    "scarf"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-commands-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Голова попросив секретаря точно записати окрему думку.",
+            "level": "C1",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Голова попросив секретаря точно записати окрему думку.",
+            "target_text": "The chair asked the secretary to record the dissent accurately.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "chair",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "chair",
+                        "expert",
+                        "artist",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "asked",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "asked",
+                        "wondered",
+                        "urged",
+                        "advised"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "secretary",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "secretary",
+                        "safe",
+                        "useful",
+                        "helpful"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "to",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "record",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "record",
+                        "verify",
+                        "consent",
+                        "sources'"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "the",
+                        "all",
+                        "both",
+                        "a"
+                    ]
+                },
+                "a9": {
+                    "answer": "dissent",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "dissent",
+                        "message",
+                        "independence",
+                        "ombudswoman"
+                    ]
+                },
+                "a10": {
+                    "answer": "accurately.",
+                    "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+                    "options": [
+                        "accurately",
+                        "quickly",
+                        "carefully",
+                        "well"
+                    ]
+                }
+            },
+            "verb_hint": "Передай прохання про точний запис, не про зміну самої думки.",
+            "accepted_target_texts": [
+                "The chair asked the secretary to record the dissent accurately."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "asked",
+                "the secretary",
+                "to record",
+                "the dissent",
+                "accurately."
+            ],
+            "token_groups": [
+                "The chair",
+                "asked",
+                "the secretary",
+                "to record",
+                "the dissent",
+                "accurately."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "chair",
+                "asked",
+                "the",
+                "secretary",
+                "to",
+                "record",
+                "the",
+                "dissent",
+                "accurately."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "chair",
+                "expert",
+                "artist",
+                "assistant",
+                "asked",
+                "wondered",
+                "urged",
+                "advised",
+                "the",
+                "these",
+                "those",
+                "each",
+                "secretary",
+                "safe",
+                "useful",
+                "helpful",
+                "to",
+                "onto",
+                "over",
+                "under",
+                "record",
+                "verify",
+                "consent",
+                "sources'",
+                "all",
+                "both",
+                "a",
+                "dissent",
+                "message",
+                "independence",
+                "ombudswoman",
+                "accurately",
+                "quickly",
+                "carefully",
+                "well"
+            ],
+            "source_text_uk": "Голова попросив секретаря точно записати окрему думку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "chair",
+                    "expert",
+                    "artist",
+                    "assistant"
+                ],
+                "a3": [
+                    "asked",
+                    "wondered",
+                    "urged",
+                    "advised"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "secretary",
+                    "safe",
+                    "useful",
+                    "helpful"
+                ],
+                "a6": [
+                    "to",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a7": [
+                    "record",
+                    "verify",
+                    "consent",
+                    "sources'"
+                ],
+                "a8": [
+                    "the",
+                    "all",
+                    "both",
+                    "a"
+                ],
+                "a9": [
+                    "dissent",
+                    "message",
+                    "independence",
+                    "ombudswoman"
+                ],
+                "a10": [
+                    "accurately",
+                    "quickly",
+                    "carefully",
+                    "well"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-commands-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Суддя застерегла присяжних не виводити вину із самого мовчання.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Суддя застерегла присяжних не виводити вину із самого мовчання.",
+            "target_text": "The judge cautioned the jurors not to infer guilt from mere silence.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "judge",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "judge",
+                        "committee",
+                        "philologist",
+                        "chair"
+                    ]
+                },
+                "a3": {
+                    "answer": "cautioned",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "cautioned",
+                        "wondered",
+                        "asked",
+                        "urged"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "jurors",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "jurors",
+                        "editors",
+                        "neighbours",
+                        "visitors"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "not",
+                        "just",
+                        "also",
+                        "usually"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "to",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a8": {
+                    "answer": "infer",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "infer",
+                        "it",
+                        "enter",
+                        "touch"
+                    ]
+                },
+                "a9": {
+                    "answer": "guilt",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "guilt",
+                        "consent",
+                        "preserve",
+                        "deliberate"
+                    ]
+                },
+                "a10": {
+                    "answer": "from",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "from",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a11": {
+                    "answer": "mere",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "mere",
+                        "several",
+                        "that",
+                        "those"
+                    ]
+                },
+                "a12": {
+                    "answer": "silence.",
+                    "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+                    "options": [
+                        "silence",
+                        "courtyard",
+                        "stage",
+                        "interview"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи застереження та обмеження самого мовчання, без нового висновку.",
+            "accepted_target_texts": [
+                "The judge cautioned the jurors not to infer guilt from mere silence."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The judge",
+                "cautioned",
+                "the jurors",
+                "not to infer",
+                "guilt",
+                "from mere silence."
+            ],
+            "token_groups": [
+                "The judge",
+                "cautioned",
+                "the jurors",
+                "not to infer",
+                "guilt",
+                "from mere silence."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "judge",
+                "cautioned",
+                "the",
+                "jurors",
+                "not",
+                "to",
+                "infer",
+                "guilt",
+                "from",
+                "mere",
+                "silence."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "judge",
+                "committee",
+                "philologist",
+                "chair",
+                "cautioned",
+                "wondered",
+                "asked",
+                "urged",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "jurors",
+                "editors",
+                "neighbours",
+                "visitors",
+                "not",
+                "just",
+                "also",
+                "usually",
+                "to",
+                "between",
+                "among",
+                "about",
+                "infer",
+                "it",
+                "enter",
+                "touch",
+                "guilt",
+                "consent",
+                "preserve",
+                "deliberate",
+                "from",
+                "onto",
+                "over",
+                "under",
+                "mere",
+                "several",
+                "that",
+                "those",
+                "silence",
+                "courtyard",
+                "stage",
+                "interview"
+            ],
+            "source_text_uk": "Суддя застерегла присяжних не виводити вину із самого мовчання.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "judge",
+                    "committee",
+                    "philologist",
+                    "chair"
+                ],
+                "a3": [
+                    "cautioned",
+                    "wondered",
+                    "asked",
+                    "urged"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "jurors",
+                    "editors",
+                    "neighbours",
+                    "visitors"
+                ],
+                "a6": [
+                    "not",
+                    "just",
+                    "also",
+                    "usually"
+                ],
+                "a7": [
+                    "to",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a8": [
+                    "infer",
+                    "it",
+                    "enter",
+                    "touch"
+                ],
+                "a9": [
+                    "guilt",
+                    "consent",
+                    "preserve",
+                    "deliberate"
+                ],
+                "a10": [
+                    "from",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a11": [
+                    "mere",
+                    "several",
+                    "that",
+                    "those"
+                ],
+                "a12": [
+                    "silence",
+                    "courtyard",
+                    "stage",
+                    "interview"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "infinitive_phrase",
+                "a9": "noun_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase",
+                "a12": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-commands-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Філолог закликав редакторів зберегти навмисну двозначність.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Філолог закликав редакторів зберегти навмисну двозначність.",
+            "target_text": "The philologist urged the editors to preserve the deliberate ambiguity.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "philologist",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "philologist",
+                        "chair",
+                        "judge",
+                        "committee"
+                    ]
+                },
+                "a3": {
+                    "answer": "urged",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "urged",
+                        "instructed",
+                        "cautioned",
+                        "asked"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "editors",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "editors",
+                        "neighbours",
+                        "jurors",
+                        "visitors"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "to",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a7": {
+                    "answer": "preserve",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "preserve",
+                        "distinguish",
+                        "rapporteur",
+                        "consent"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "deliberate",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "deliberate",
+                        "first",
+                        "last",
+                        "spare"
+                    ]
+                },
+                "a10": {
+                    "answer": "ambiguity.",
+                    "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+                    "options": [
+                        "ambiguity",
+                        "request",
+                        "key",
+                        "scarf"
+                    ]
+                }
+            },
+            "verb_hint": "Передай заклик зберегти авторську властивість, не усунути її.",
+            "accepted_target_texts": [
+                "The philologist urged the editors to preserve the deliberate ambiguity.",
+                "The philologist urged the editors to retain the deliberate ambiguity."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "retain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "retain"
+                ]
+            },
+            "reorder_groups": [
+                "The philologist",
+                "urged",
+                "the editors",
+                "to preserve",
+                "the deliberate ambiguity."
+            ],
+            "token_groups": [
+                "The philologist",
+                "urged",
+                "the editors",
+                "to preserve",
+                "the deliberate ambiguity."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "philologist",
+                "urged",
+                "the",
+                "editors",
+                "to",
+                "preserve",
+                "the",
+                "deliberate",
+                "ambiguity."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "philologist",
+                "chair",
+                "judge",
+                "committee",
+                "urged",
+                "instructed",
+                "cautioned",
+                "asked",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "editors",
+                "neighbours",
+                "jurors",
+                "visitors",
+                "to",
+                "on",
+                "at",
+                "by",
+                "preserve",
+                "distinguish",
+                "rapporteur",
+                "consent",
+                "no",
+                "another",
+                "both",
+                "deliberate",
+                "first",
+                "last",
+                "spare",
+                "ambiguity",
+                "request",
+                "key",
+                "scarf"
+            ],
+            "source_text_uk": "Філолог закликав редакторів зберегти навмисну двозначність.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "philologist",
+                    "chair",
+                    "judge",
+                    "committee"
+                ],
+                "a3": [
+                    "urged",
+                    "instructed",
+                    "cautioned",
+                    "asked"
+                ],
+                "a4": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "editors",
+                    "neighbours",
+                    "jurors",
+                    "visitors"
+                ],
+                "a6": [
+                    "to",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a7": [
+                    "preserve",
+                    "distinguish",
+                    "rapporteur",
+                    "consent"
+                ],
+                "a8": [
+                    "the",
+                    "no",
+                    "another",
+                    "both"
+                ],
+                "a9": [
+                    "deliberate",
+                    "first",
+                    "last",
+                    "spare"
+                ],
+                "a10": [
+                    "ambiguity",
+                    "request",
+                    "key",
+                    "scarf"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "noun_phrase",
+                "a10": "noun_phrase"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-commands-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Голова доручила доповідачеві чітко розмежувати згоду та схвалення.",
+            "level": "C2",
+            "type": 4,
+            "source": "reported_speech_quality_reported_commands_and_requests",
+            "translation_uk": "Голова доручила доповідачеві чітко розмежувати згоду та схвалення.",
+            "target_text": "The chair instructed the rapporteur to distinguish consent from approval explicitly.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "The",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "chair",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "chair",
+                        "philologist",
+                        "artist",
+                        "assistant"
+                    ]
+                },
+                "a3": {
+                    "answer": "instructed",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "instructed",
+                        "urged",
+                        "asked",
+                        "wondered"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "the",
+                        "neither",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a5": {
+                    "answer": "rapporteur",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "rapporteur",
+                        "driver",
+                        "clerk",
+                        "nurse"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "to",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a7": {
+                    "answer": "distinguish",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "distinguish",
+                        "preserve",
+                        "silence",
+                        "deliberate"
+                    ]
+                },
+                "a8": {
+                    "answer": "consent",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "consent",
+                        "guilt",
+                        "infer",
+                        "mere"
+                    ]
+                },
+                "a9": {
+                    "answer": "from",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "from",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a10": {
+                    "answer": "approval",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "approval",
+                        "permission",
+                        "breakfast",
+                        "judge"
+                    ]
+                },
+                "a11": {
+                    "answer": "explicitly.",
+                    "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+                    "options": [
+                        "explicitly",
+                        "quickly",
+                        "carefully",
+                        "well"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи офіційну вказівку й обидва поняття, які треба розмежувати.",
+            "accepted_target_texts": [
+                "The chair instructed the rapporteur to distinguish consent from approval explicitly."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "instructed",
+                "the rapporteur",
+                "to distinguish",
+                "consent",
+                "from approval",
+                "explicitly."
+            ],
+            "token_groups": [
+                "The chair",
+                "instructed",
+                "the rapporteur",
+                "to distinguish",
+                "consent",
+                "from approval",
+                "explicitly."
+            ],
+            "quality_revision": "rsq-v1",
+            "tokens_correct": [
+                "The",
+                "chair",
+                "instructed",
+                "the",
+                "rapporteur",
+                "to",
+                "distinguish",
+                "consent",
+                "from",
+                "approval",
+                "explicitly."
+            ],
+            "options": [
+                "The",
+                "No",
+                "Another",
+                "Either",
+                "chair",
+                "philologist",
+                "artist",
+                "assistant",
+                "instructed",
+                "urged",
+                "asked",
+                "wondered",
+                "the",
+                "neither",
+                "all",
+                "both",
+                "rapporteur",
+                "driver",
+                "clerk",
+                "nurse",
+                "to",
+                "among",
+                "about",
+                "during",
+                "distinguish",
+                "preserve",
+                "silence",
+                "deliberate",
+                "consent",
+                "guilt",
+                "infer",
+                "mere",
+                "from",
+                "at",
+                "by",
+                "with",
+                "approval",
+                "permission",
+                "breakfast",
+                "judge",
+                "explicitly",
+                "quickly",
+                "carefully",
+                "well"
+            ],
+            "source_text_uk": "Голова доручила доповідачеві чітко розмежувати згоду та схвалення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "chair",
+                    "philologist",
+                    "artist",
+                    "assistant"
+                ],
+                "a3": [
+                    "instructed",
+                    "urged",
+                    "asked",
+                    "wondered"
+                ],
+                "a4": [
+                    "the",
+                    "neither",
+                    "all",
+                    "both"
+                ],
+                "a5": [
+                    "rapporteur",
+                    "driver",
+                    "clerk",
+                    "nurse"
+                ],
+                "a6": [
+                    "to",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a7": [
+                    "distinguish",
+                    "preserve",
+                    "silence",
+                    "deliberate"
+                ],
+                "a8": [
+                    "consent",
+                    "guilt",
+                    "infer",
+                    "mere"
+                ],
+                "a9": [
+                    "from",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a10": [
+                    "approval",
+                    "permission",
+                    "breakfast",
+                    "judge"
+                ],
+                "a11": [
+                    "explicitly",
+                    "quickly",
+                    "carefully",
+                    "well"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject_phrase",
+                "a2": "subject_phrase",
+                "a3": "reporting_phrase",
+                "a4": "object_phrase",
+                "a5": "object_phrase",
+                "a6": "infinitive_phrase",
+                "a7": "infinitive_phrase",
+                "a8": "noun_phrase",
+                "a9": "adverbial_phrase",
+                "a10": "adverbial_phrase",
+                "a11": "adverbial_phrase"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

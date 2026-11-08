@@ -1,70 +1,81 @@
 {
     "question": {
-        "id": 11,
+        "id": 35713,
         "uuid": "pvps-v3-a1-11",
-        "question": "A singular subject {a1} with is in the present passive.",
+        "question": "This cartoon {a1} on TV every Sunday.",
         "difficulty": 1,
         "level": "A1",
-        "category_id": 1,
-        "source_id": 1,
+        "category_id": 10,
+        "source_id": 342,
         "flag": 2,
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:08:06.000000Z"
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\PassiveVoice\\PassiveVoicePresentSimpleAllLevelsV3Seeder",
+        "options_by_marker": {
+            "a1": [
+                "is shown",
+                "are shown",
+                "was shown",
+                "shows"
+            ]
+        },
+        "theory_text_block_uuid": null,
+        "created_at": "2026-05-21T18:53:53.000000Z",
+        "updated_at": "2026-10-21T20:34:36.000000Z"
     },
     "category": {
-        "id": 1,
+        "id": 10,
         "name": "Passive Voice",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-04-23T14:39:54.000000Z",
+        "updated_at": "2026-04-23T14:39:54.000000Z"
     },
     "source": {
-        "id": 1,
+        "id": 342,
         "name": "Passive Voice Present Simple",
-        "created_at": "2026-05-26T15:07:37.000000Z",
-        "updated_at": "2026-05-26T15:07:37.000000Z"
+        "created_at": "2026-05-21T18:53:51.000000Z",
+        "updated_at": "2026-05-21T18:53:51.000000Z"
     },
     "tags": [
         {
             "tag": {
-                "id": 18,
-                "name": "Passive Voice Present Simple",
-                "category": "passive_voice",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "tag_id": 18,
-                "created_at": null,
-                "updated_at": null
-            }
-        },
-        {
-            "tag": {
-                "id": 19,
+                "id": 44,
                 "name": "A1",
                 "category": "level",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T11:41:02.000000Z",
+                "updated_at": "2026-04-23T11:41:02.000000Z"
             },
             "pivot": {
-                "question_id": 11,
-                "tag_id": 19,
+                "question_id": 35713,
+                "tag_id": 44,
                 "created_at": null,
                 "updated_at": null
             }
         },
         {
             "tag": {
-                "id": 27,
+                "id": 2555,
                 "name": "Agreement",
                 "category": "topic",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-20T21:45:55.000000Z",
+                "updated_at": "2026-05-20T21:45:55.000000Z"
             },
             "pivot": {
-                "question_id": 11,
-                "tag_id": 27,
+                "question_id": 35713,
+                "tag_id": 2555,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 2702,
+                "name": "Passive Voice Present Simple",
+                "category": "passive_voice",
+                "created_at": "2026-05-21T18:53:51.000000Z",
+                "updated_at": "2026-05-21T18:53:51.000000Z"
+            },
+            "pivot": {
+                "question_id": 35713,
+                "tag_id": 2702,
                 "created_at": null,
                 "updated_at": null
             }
@@ -73,53 +84,53 @@
     "options": [
         {
             "option": {
-                "id": 25,
-                "option": "is used",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 25,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 26,
-                "option": "are used",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 26,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 41,
-                "option": "were used",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
-            },
-            "pivot": {
-                "question_id": 11,
-                "option_id": 41,
-                "flag": null
-            }
-        },
-        {
-            "option": {
-                "id": 42,
+                "id": 232,
                 "option": "use",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-04-23T11:40:16.000000Z",
+                "updated_at": "2026-04-23T11:40:16.000000Z"
             },
             "pivot": {
-                "question_id": 11,
-                "option_id": 42,
+                "question_id": 35713,
+                "option_id": 232,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 20663,
+                "option": "were used",
+                "created_at": "2026-05-17T20:43:48.000000Z",
+                "updated_at": "2026-05-17T20:43:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 35713,
+                "option_id": 20663,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23417,
+                "option": "is used",
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35713,
+                "option_id": 23417,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 23418,
+                "option": "are used",
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
+            },
+            "pivot": {
+                "question_id": 35713,
+                "option_id": 23418,
                 "flag": null
             }
         }
@@ -127,29 +138,29 @@
     "answers": [
         {
             "answer": {
-                "id": 11,
-                "question_id": 11,
+                "id": 188053,
+                "question_id": 35713,
                 "marker": "a1",
-                "option_id": 25,
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "option_id": 23417,
+                "created_at": "2026-05-21T18:53:53.000000Z",
+                "updated_at": "2026-05-21T18:53:53.000000Z"
             },
             "option": {
-                "id": 25,
+                "id": 23417,
                 "option": "is used",
-                "created_at": "2026-05-26T15:07:37.000000Z",
-                "updated_at": "2026-05-26T15:07:37.000000Z"
+                "created_at": "2026-05-21T18:53:52.000000Z",
+                "updated_at": "2026-05-21T18:53:52.000000Z"
             }
         }
     ],
     "verb_hints": [],
     "variants": [
         {
-            "id": 11,
-            "question_id": 11,
+            "id": 25352,
+            "question_id": 35713,
             "text": "A singular subject {a1} with is in the present passive.",
-            "created_at": "2026-05-26T15:07:37.000000Z",
-            "updated_at": "2026-05-26T15:07:37.000000Z"
+            "created_at": "2026-05-21T18:53:53.000000Z",
+            "updated_at": "2026-05-21T18:53:53.000000Z"
         }
     ],
     "hints": [],

@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 59879,
+        "uuid": "woq-adverbs-adverbials-b1-g04",
+        "question": "I {a1} agree with that conclusion.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 4,
+        "source_id": 413,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderAdverbsAdverbialsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "do not entirely",
+                "entirely do not I",
+                "do entirely not"
+            ]
+        },
+        "theory_text_block_uuid": "208c084f-3ffc-5b90-b744-ae840306a822",
+        "created_at": "2026-10-27T01:00:59.000000Z",
+        "updated_at": "2026-10-27T01:00:59.000000Z"
+    },
+    "category": {
+        "id": 4,
+        "name": "Базова граматика / Word Order",
+        "created_at": "2026-04-23T14:15:58.000000Z",
+        "updated_at": "2026-04-23T14:15:58.000000Z"
+    },
+    "source": {
+        "id": 413,
+        "name": "Word Order Quality: Порядок прислівників та обставин",
+        "created_at": "2026-10-27T01:00:59.000000Z",
+        "updated_at": "2026-10-27T01:00:59.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 134,
+                "name": "Adverbials",
+                "category": null,
+                "created_at": "2026-04-23T14:15:19.000000Z",
+                "updated_at": "2026-04-23T14:15:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 59879,
+                "tag_id": 134,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 51195,
+                "option": "do not entirely",
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 59879,
+                "option_id": 51195,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 51197,
+                "option": "entirely do not I",
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 59879,
+                "option_id": 51197,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 51198,
+                "option": "do entirely not",
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            },
+            "pivot": {
+                "question_id": 59879,
+                "option_id": 51198,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 322854,
+                "question_id": 59879,
+                "marker": "a1",
+                "option_id": 51195,
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            },
+            "option": {
+                "id": 51195,
+                "option": "do not entirely",
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 40188,
+                "question_id": 59879,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 51196,
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            },
+            "option": {
+                "id": 51196,
+                "option": "Передай часткову, а не повну незгоду: прислівник ступеня стоїть після заперечної частки.",
+                "created_at": "2026-10-27T01:01:00.000000Z",
+                "updated_at": "2026-10-27T01:01:00.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51894,
+            "question_id": 59879,
+            "text": "I {a1} agree with that conclusion.",
+            "created_at": "2026-10-27T01:01:00.000000Z",
+            "updated_at": "2026-10-27T01:01:00.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

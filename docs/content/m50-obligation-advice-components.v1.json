@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "status": "reviewed-content",
+  "source": "docs/content/m50-obligation-advice.v1.0.0.json",
+  "policy": {
+    "source_order_preserved": true,
+    "whole_meaningful_points": true,
+    "global_word_threshold": false,
+    "new_visual_components": false
+  },
+  "targets": [
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsMustHaveToTheorySeeder",
+      "slug": "must-have-to",
+      "local_url": "http://gramlyze.loc/theory/modal-verbs/must-have-to",
+      "display_level": "A2-B1",
+      "technical_block_level": "A2",
+      "blocks": [
+        {
+          "key": "must-have-to-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/0/data",
+          "component": "engram.theory.blocks-v3.hero",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/1/data",
+          "component": "theory.content → theory.components.form",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-uses",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/2/data",
+          "component": "theory.content → theory.components.usage",
+          "basic": [
+            {
+              "pointer": "/sections/0",
+              "label": "ВИМОГА: МОЖЛИВИЙ ПЕРЕТИН",
+              "accent": "emerald",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/1",
+              "label": "ЗАБОРОНА ЧИ НЕОБОВ’ЯЗКОВА ДІЯ",
+              "accent": "amber",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/2",
+              "label": "MUST МОЖЕ СТОСУВАТИСЯ ЗАВТРА",
+              "accent": "blue",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/3",
+              "label": "МИНУЛИЙ ОБОВ’ЯЗОК",
+              "accent": "slate",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            }
+          ],
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/3/data",
+          "component": "theory.content → theory.components.mistake",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/4/data",
+          "component": "theory.content → theory.components.summary",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "source_pointer": "/lessons/0/blocks/5/data",
+          "component": "engram.theory.blocks-v3.navigation-chips",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "must-have-to-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/0/blocks/6/data",
+          "component": "engram.theory.blocks-v3.practice-set",
+          "basic": {
+            "groups": {
+              "selects": 2,
+              "choices": 2,
+              "inputs": 2
+            },
+            "source_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "input_modes": [
+              "manual",
+              "tokens"
+            ],
+            "linked_widget": {
+              "component": "components.text-block-practice-questions",
+              "question_type": "4",
+              "question_count": 5,
+              "level": "A2",
+              "bank_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotMustHaveToLessonSeeder"
+              ],
+              "reviewed_local_question_ids": [
+                121,
+                122,
+                123,
+                124,
+                125
+              ],
+              "questions_created": 0,
+              "links_added": 0,
+              "selection": "Existing exact thematic lesson bank; old question content unchanged."
+            },
+            "feedback_visibility": "after check"
+          },
+          "detail_ownership": "original point index preserved"
+        }
+      ],
+      "details": [],
+      "navigation": {
+        "old_destinations": 8,
+        "preserved_exact": true,
+        "contextual_links": "Existing target lessons, Had better / Past Modals where explicitly used; no neighbour changes"
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsShouldOughtToTheorySeeder",
+      "slug": "should-ought-to",
+      "local_url": "http://gramlyze.loc/theory/modal-verbs/should-ought-to",
+      "display_level": "A2-B1",
+      "technical_block_level": "A2",
+      "blocks": [
+        {
+          "key": "should-ought-to-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/0/data",
+          "component": "engram.theory.blocks-v3.hero",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/1/data",
+          "component": "theory.content → theory.components.form",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-uses",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/2/data",
+          "component": "theory.content → theory.components.usage",
+          "basic": [
+            {
+              "pointer": "/sections/0",
+              "label": "ПОРАДА АБО РЕКОМЕНДАЦІЯ",
+              "accent": "emerald",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/1",
+              "label": "ОЧІКУВАННЯ, А НЕ ГАРАНТІЯ",
+              "accent": "blue",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": "should-ought-to-past-advice-and-expectation"
+            },
+            {
+              "pointer": "/sections/2",
+              "label": "SHOULD ЧИ OUGHT TO",
+              "accent": "amber",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            }
+          ],
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/3/data",
+          "component": "theory.content → theory.components.mistake",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/4/data",
+          "component": "theory.content → theory.components.summary",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "source_pointer": "/lessons/1/blocks/5/data",
+          "component": "engram.theory.blocks-v3.navigation-chips",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "should-ought-to-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/1/blocks/6/data",
+          "component": "engram.theory.blocks-v3.practice-set",
+          "basic": {
+            "groups": {
+              "selects": 2,
+              "choices": 2,
+              "inputs": 2
+            },
+            "source_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "input_modes": [
+              "manual",
+              "tokens"
+            ],
+            "linked_widget": {
+              "component": "components.text-block-practice-questions",
+              "question_type": "4",
+              "question_count": 5,
+              "level": "A2",
+              "bank_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotShouldOughtToLessonSeeder"
+              ],
+              "reviewed_local_question_ids": [
+                97,
+                98,
+                99,
+                100,
+                101
+              ],
+              "questions_created": 0,
+              "links_added": 0,
+              "selection": "Existing exact thematic lesson bank; old question content unchanged."
+            },
+            "feedback_visibility": "after check"
+          },
+          "detail_ownership": "original point index preserved"
+        }
+      ],
+      "details": [
+        {
+          "key": "should-ought-to-past-advice-and-expectation",
+          "title": "Порада про минуле чи очікування до певного часу",
+          "owner_block_key": "should-ought-to-uses",
+          "owner_pointer": "/sections/1",
+          "fragment_type": "usage-panels",
+          "sections": 2,
+          "basic_complete_without_detail": true,
+          "reason": "Два різні минулі прочитання зі своїми явними контекстами: невиконана бажана дія та очікуваний уже завершений результат. Це поглиблення значення очікування, не приховане правило базової будови."
+        }
+      ],
+      "navigation": {
+        "old_destinations": 8,
+        "preserved_exact": true,
+        "contextual_links": "Existing target lessons, Had better / Past Modals where explicitly used; no neighbour changes"
+      }
+    },
+    {
+      "identity": "Database\\Seeders\\Page_V3\\ModalVerbs\\ModalVerbsNeedNeedntDontHaveToTheorySeeder",
+      "slug": "need-neednt-dont-have-to",
+      "local_url": "http://gramlyze.loc/theory/modal-verbs/need-neednt-dont-have-to",
+      "display_level": "A2-B1",
+      "technical_block_level": "A2",
+      "blocks": [
+        {
+          "key": "need-neednt-dont-have-to-hero",
+          "existing_source_index": 0,
+          "type": "hero",
+          "column": "header",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/0/data",
+          "component": "engram.theory.blocks-v3.hero",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-forms",
+          "existing_source_index": 1,
+          "type": "forms-grid",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/1/data",
+          "component": "theory.content → theory.components.form",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-uses",
+          "existing_source_index": 2,
+          "type": "usage-panels",
+          "column": "left",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/2/data",
+          "component": "theory.content → theory.components.usage",
+          "basic": [
+            {
+              "pointer": "/sections/0",
+              "label": "ЩО ПОТРІБНО ЗРОБИТИ",
+              "accent": "emerald",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/1",
+              "label": "ТРИ СПОСОБИ ЗНЯТИ НЕОБХІДНІСТЬ",
+              "accent": "blue",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": "need-past-necessity-and-completed-action"
+            },
+            {
+              "pointer": "/sections/2",
+              "label": "ЗАБОРОНА — ОКРЕМИЙ ЗМІСТ",
+              "accent": "amber",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            },
+            {
+              "pointer": "/sections/3",
+              "label": "ПОТРІБНА РІЧ: NEED + ІМЕННИК",
+              "accent": "slate",
+              "visible_fields": [
+                "description",
+                "examples",
+                "note"
+              ],
+              "detail_key": null
+            }
+          ],
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-mistakes",
+          "existing_source_index": 3,
+          "type": "mistakes-grid",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/3/data",
+          "component": "theory.content → theory.components.mistake",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-summary",
+          "existing_source_index": 4,
+          "type": "summary-list",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/4/data",
+          "component": "theory.content → theory.components.summary",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-navigation",
+          "existing_source_index": 5,
+          "type": "navigation-chips",
+          "column": "footer",
+          "source_pointer": "/lessons/2/blocks/5/data",
+          "component": "engram.theory.blocks-v3.navigation-chips",
+          "basic": {
+            "all_fields_visible": true
+          },
+          "detail_ownership": "original point index preserved"
+        },
+        {
+          "key": "need-neednt-dont-have-to-practice",
+          "existing_source_index": null,
+          "type": "practice-set",
+          "column": "right",
+          "level": "A2",
+          "source_pointer": "/lessons/2/blocks/6/data",
+          "component": "engram.theory.blocks-v3.practice-set",
+          "basic": {
+            "groups": {
+              "selects": 2,
+              "choices": 2,
+              "inputs": 2
+            },
+            "source_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "input_modes": [
+              "manual",
+              "tokens"
+            ],
+            "linked_widget": {
+              "component": "components.text-block-practice-questions",
+              "question_type": "4",
+              "question_count": 5,
+              "level": "A2",
+              "bank_seeders": [
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotGerundVsInfinitiveLessonSeeder",
+                "Database\\Seeders\\V3\\Polyglot\\PolyglotMustHaveToLessonSeeder"
+              ],
+              "reviewed_local_question_ids": [
+                158,
+                164,
+                166,
+                133,
+                135
+              ],
+              "questions_created": 0,
+              "links_added": 5,
+              "selection": "Finite independent review of need-to positive/negative/question and no-obligation questions from two existing corpora; no blanket corpus fallback."
+            },
+            "feedback_visibility": "after check"
+          },
+          "detail_ownership": "original point index preserved"
+        }
+      ],
+      "details": [
+        {
+          "key": "need-past-necessity-and-completed-action",
+          "title": "Не було необхідності: чи відбулася дія",
+          "owner_block_key": "need-neednt-dont-have-to-uses",
+          "owner_pointer": "/sections/1",
+          "fragment_type": "usage-panels",
+          "sections": 1,
+          "basic_complete_without_detail": true,
+          "reason": "Порівняння факту виконання й відсутності необхідності в минулому; три пояснені ситуації, а не коротка примітка."
+        }
+      ],
+      "navigation": {
+        "old_destinations": 8,
+        "preserved_exact": true,
+        "contextual_links": "Existing target lessons, Had better / Past Modals where explicitly used; no neighbour changes"
+      }
+    }
+  ],
+  "acceptance": {
+    "content_review": "approved",
+    "runtime_local_apply": "not_claimed_by_this_document",
+    "browser_visibility": "not_claimed_by_this_document",
+    "question_creation": 0,
+    "links_added": 5,
+    "previous_alllevels_selection": "rejected before final packing; old bank rows unchanged"
+  }
+}

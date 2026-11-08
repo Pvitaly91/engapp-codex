@@ -1,0 +1,1642 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/embedded.v1.json",
+        "sha256": "99a2b7b781c684446d5916d19d8ddbeb06175e24a78f314eeb5e159e4a673102"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedEmbeddedQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-embedded-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_embedded": {
+            "name": "Questions and Negations Quality: Embedded Questions: питання всередині речення"
+        }
+    },
+    "tags": {
+        "embedded_questions": {
+            "name": "Embedded Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "embedded_statement": {
+            "name": "Embedded Statement",
+            "category": "topic"
+        },
+        "embedded_question": {
+            "name": "Embedded Question",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "no_inversion": {
+            "name": "No Inversion",
+            "category": "topic"
+        },
+        "wh_embedded": {
+            "name": "Wh Embedded",
+            "category": "topic"
+        },
+        "if_whether_embedded": {
+            "name": "If Whether Embedded",
+            "category": "topic"
+        },
+        "reporting_frames": {
+            "name": "Reporting Frames",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "embedded_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-embedded-a1-g01",
+            "author_id": "A1-g01",
+            "question": "I know where {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я знаю, де шарф.",
+            "target_text": "I know where the scarf is.",
+            "markers": {
+                "a1": {
+                    "answer": "the scarf is",
+                    "options": [
+                        "the scarf is",
+                        "is the scarf",
+                        "the scarf be"
+                    ],
+                    "verb_hint": "Назви предмет і його розташування у прямому порядку слів усередині речення."
+                }
+            },
+            "verb_hint": "Назви предмет і його розташування у прямому порядку слів усередині речення.",
+            "accepted_target_texts": [
+                "I know where the scarf is."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I know",
+                "where",
+                "the scarf is."
+            ],
+            "token_groups": [
+                "I know",
+                "where",
+                "the scarf is."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-embedded-a1-g02",
+            "author_id": "A1-g02",
+            "question": "She asks what {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вона запитує, чого ми хочемо.",
+            "target_text": "She asks what we want.",
+            "markers": {
+                "a1": {
+                    "answer": "we want",
+                    "options": [
+                        "we want",
+                        "do we want",
+                        "want we"
+                    ],
+                    "verb_hint": "Після питального слова постав займенник і звичайне дієслово без інверсії."
+                }
+            },
+            "verb_hint": "Після питального слова постав займенник і звичайне дієслово без інверсії.",
+            "accepted_target_texts": [
+                "She asks what we want."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She asks",
+                "what",
+                "we want."
+            ],
+            "token_groups": [
+                "She asks",
+                "what",
+                "we want."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-embedded-a1-g03",
+            "author_id": "A1-g03",
+            "question": "We know when {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ми знаємо, коли починається урок.",
+            "target_text": "We know when the lesson starts.",
+            "markers": {
+                "a1": {
+                    "answer": "the lesson starts",
+                    "options": [
+                        "the lesson starts",
+                        "does the lesson",
+                        "starts the lesson"
+                    ],
+                    "verb_hint": "Додай іменну групу та дієслово у прямому порядку для початку уроку."
+                }
+            },
+            "verb_hint": "Додай іменну групу та дієслово у прямому порядку для початку уроку.",
+            "accepted_target_texts": [
+                "We know when the lesson starts."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We know",
+                "when",
+                "the lesson starts."
+            ],
+            "token_groups": [
+                "We know",
+                "when",
+                "the lesson starts."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-embedded-a1-g04",
+            "author_id": "A1-g04",
+            "question": "I wonder why {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Мені цікаво, чому собака гавкає.",
+            "target_text": "I wonder why the dog barks.",
+            "markers": {
+                "a1": {
+                    "answer": "the dog barks",
+                    "options": [
+                        "the dog barks",
+                        "does the dog",
+                        "barks the dog"
+                    ],
+                    "verb_hint": "Побудуй внутрішнє питання про звичну дію без допоміжного питального дієслова."
+                }
+            },
+            "verb_hint": "Побудуй внутрішнє питання про звичну дію без допоміжного питального дієслова.",
+            "accepted_target_texts": [
+                "I wonder why the dog barks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wonder",
+                "why",
+                "the dog barks."
+            ],
+            "token_groups": [
+                "I wonder",
+                "why",
+                "the dog barks."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-embedded-a1-g05",
+            "author_id": "A1-g05",
+            "question": "He knows how {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Він знає, як ти почуваєшся.",
+            "target_text": "He knows how you feel.",
+            "markers": {
+                "a1": {
+                    "answer": "you feel",
+                    "options": [
+                        "you feel",
+                        "do you feel",
+                        "feel you"
+                    ],
+                    "verb_hint": "Після слова способу дії додай займенник і дієслово стану в прямому порядку."
+                }
+            },
+            "verb_hint": "Після слова способу дії додай займенник і дієслово стану в прямому порядку.",
+            "accepted_target_texts": [
+                "He knows how you feel."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He knows",
+                "how",
+                "you feel."
+            ],
+            "token_groups": [
+                "He knows",
+                "how",
+                "you feel."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-embedded-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Tell me which {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Скажи мені, котра сумка твоя.",
+            "target_text": "Tell me which bag is yours.",
+            "markers": {
+                "a1": {
+                    "answer": "bag is yours",
+                    "options": [
+                        "bag is yours",
+                        "is bag yours",
+                        "does bag yours"
+                    ],
+                    "verb_hint": "Після слова вибору назви предмет, зв’язку й самостійну форму власності."
+                }
+            },
+            "verb_hint": "Після слова вибору назви предмет, зв’язку й самостійну форму власності.",
+            "accepted_target_texts": [
+                "Tell me which bag is yours."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tell me",
+                "which",
+                "bag is yours."
+            ],
+            "token_groups": [
+                "Tell me",
+                "which",
+                "bag is yours."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-embedded-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Nobody remembers where {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ніхто не пам’ятає, де зупинилося таксі.",
+            "target_text": "Nobody remembers where the taxi stopped.",
+            "markers": {
+                "a1": {
+                    "answer": "the taxi stopped",
+                    "options": [
+                        "the taxi stopped",
+                        "did the taxi",
+                        "stopped the taxi"
+                    ],
+                    "verb_hint": "Підрядне питання зберігає прямий порядок і минулу форму звичайного дієслова."
+                }
+            },
+            "verb_hint": "Підрядне питання зберігає прямий порядок і минулу форму звичайного дієслова.",
+            "accepted_target_texts": [
+                "Nobody remembers where the taxi stopped."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nobody remembers",
+                "where",
+                "the taxi stopped."
+            ],
+            "token_groups": [
+                "Nobody remembers",
+                "where",
+                "the taxi stopped."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-embedded-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I can see why {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я розумію, чому ти усміхаєшся.",
+            "target_text": "I can see why you are smiling.",
+            "markers": {
+                "a1": {
+                    "answer": "you are smiling",
+                    "options": [
+                        "you are smiling",
+                        "are you smiling",
+                        "do you smiling"
+                    ],
+                    "verb_hint": "У внутрішньому питанні про дію зараз займенник передує допоміжному дієслову."
+                }
+            },
+            "verb_hint": "У внутрішньому питанні про дію зараз займенник передує допоміжному дієслову.",
+            "accepted_target_texts": [
+                "I can see why you are smiling."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I can see",
+                "why",
+                "you are smiling."
+            ],
+            "token_groups": [
+                "I can see",
+                "why",
+                "you are smiling."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-embedded-a2-g03",
+            "author_id": "A2-g03",
+            "question": "She has forgotten what {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вона забула, що означає цей знак.",
+            "target_text": "She has forgotten what the sign means.",
+            "markers": {
+                "a1": {
+                    "answer": "the sign means",
+                    "options": [
+                        "the sign means",
+                        "does the sign",
+                        "means the sign"
+                    ],
+                    "verb_hint": "Назви знак і дієслово значення у прямому порядку; допоміжне питання не потрібне."
+                }
+            },
+            "verb_hint": "Назви знак і дієслово значення у прямому порядку; допоміжне питання не потрібне.",
+            "accepted_target_texts": [
+                "She has forgotten what the sign means."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She has forgotten",
+                "what",
+                "the sign means."
+            ],
+            "token_groups": [
+                "She has forgotten",
+                "what",
+                "the sign means."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-embedded-a2-g04",
+            "author_id": "A2-g04",
+            "question": "We cannot decide whether {a1} our needs.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ми не можемо вирішити, чи кімната відповідає нашим потребам.",
+            "target_text": "We cannot decide whether the room fits our needs.",
+            "markers": {
+                "a1": {
+                    "answer": "the room fits",
+                    "options": [
+                        "the room fits",
+                        "does the room",
+                        "fits the room"
+                    ],
+                    "verb_hint": "Після сполучника невизначеного вибору постав підмет перед звичайним дієсловом."
+                }
+            },
+            "verb_hint": "Після сполучника невизначеного вибору постав підмет перед звичайним дієсловом.",
+            "accepted_target_texts": [
+                "We cannot decide whether the room fits our needs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We cannot decide",
+                "whether",
+                "the room fits",
+                "our needs."
+            ],
+            "token_groups": [
+                "We cannot decide",
+                "whether",
+                "the room fits",
+                "our needs."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-embedded-a2-g05",
+            "author_id": "A2-g05",
+            "question": "He asks when {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Він запитує, коли ми вирушимо.",
+            "target_text": "He asks when we will leave.",
+            "markers": {
+                "a1": {
+                    "answer": "we will leave",
+                    "options": [
+                        "we will leave",
+                        "will we leave",
+                        "do we leave"
+                    ],
+                    "verb_hint": "Збережи майбутнє значення, але не роби інверсії у внутрішньому питанні."
+                }
+            },
+            "verb_hint": "Збережи майбутнє значення, але не роби інверсії у внутрішньому питанні.",
+            "accepted_target_texts": [
+                "He asks when we will leave."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He asks",
+                "when",
+                "we will leave."
+            ],
+            "token_groups": [
+                "He asks",
+                "when",
+                "we will leave."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-embedded-a2-g06",
+            "author_id": "A2-g06",
+            "question": "I wonder whose {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Мені цікаво, чий це велосипед.",
+            "target_text": "I wonder whose bicycle this is.",
+            "markers": {
+                "a1": {
+                    "answer": "bicycle this is",
+                    "options": [
+                        "bicycle this is",
+                        "is this bicycle",
+                        "does bicycle this"
+                    ],
+                    "verb_hint": "Після слова належності назви предмет, вказівний підмет і зв’язку."
+                }
+            },
+            "verb_hint": "Після слова належності назви предмет, вказівний підмет і зв’язку.",
+            "accepted_target_texts": [
+                "I wonder whose bicycle this is."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I wonder",
+                "whose",
+                "bicycle this is."
+            ],
+            "token_groups": [
+                "I wonder",
+                "whose",
+                "bicycle this is."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-embedded-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The receptionist knows where {a1} usually kept.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Адміністратор знає, де зазвичай зберігають ключі.",
+            "target_text": "The receptionist knows where the keys are usually kept.",
+            "markers": {
+                "a1": {
+                    "answer": "the keys are",
+                    "options": [
+                        "the keys are",
+                        "are the keys",
+                        "do the keys"
+                    ],
+                    "verb_hint": "Підмет множини передує допоміжному дієслову внутрішнього пасивного питання."
+                }
+            },
+            "verb_hint": "Підмет множини передує допоміжному дієслову внутрішнього пасивного питання.",
+            "accepted_target_texts": [
+                "The receptionist knows where the keys are usually kept."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The receptionist knows",
+                "where",
+                "the keys are",
+                "usually kept."
+            ],
+            "token_groups": [
+                "The receptionist knows",
+                "where",
+                "the keys are",
+                "usually kept."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-embedded-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I could not understand why {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я не міг зрозуміти, чому вона звільнилася.",
+            "target_text": "I could not understand why she had resigned.",
+            "markers": {
+                "a1": {
+                    "answer": "she had resigned",
+                    "options": [
+                        "she had resigned",
+                        "had she resigned",
+                        "did she resigned"
+                    ],
+                    "verb_hint": "Передай завершення до минулого нерозуміння без питальної інверсії."
+                }
+            },
+            "verb_hint": "Передай завершення до минулого нерозуміння без питальної інверсії.",
+            "accepted_target_texts": [
+                "I could not understand why she had resigned."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I could not",
+                "understand why",
+                "she had resigned."
+            ],
+            "token_groups": [
+                "I could not",
+                "understand why",
+                "she had resigned."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-embedded-b1-g03",
+            "author_id": "B1-g03",
+            "question": "What puzzles me is how {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Мене дивує, як зламався замок.",
+            "target_text": "What puzzles me is how the lock broke.",
+            "markers": {
+                "a1": {
+                    "answer": "the lock broke",
+                    "options": [
+                        "the lock broke",
+                        "did the lock",
+                        "broke the lock"
+                    ],
+                    "verb_hint": "Внутрішнє питання містить прямий порядок підмета й минулого дієслова."
+                }
+            },
+            "verb_hint": "Внутрішнє питання містить прямий порядок підмета й минулого дієслова.",
+            "accepted_target_texts": [
+                "What puzzles me is how the lock broke."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What puzzles me",
+                "is how",
+                "the lock broke."
+            ],
+            "token_groups": [
+                "What puzzles me",
+                "is how",
+                "the lock broke."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-embedded-b1-g04",
+            "author_id": "B1-g04",
+            "question": "They are checking whether {a1} been collected.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вони перевіряють, чи забрали посилку.",
+            "target_text": "They are checking whether the parcel has been collected.",
+            "markers": {
+                "a1": {
+                    "answer": "the parcel has",
+                    "options": [
+                        "the parcel has",
+                        "has the parcel",
+                        "does the parcel"
+                    ],
+                    "verb_hint": "У доконаному пасиві внутрішнього питання підмет стоїть перед першим допоміжним дієсловом."
+                }
+            },
+            "verb_hint": "У доконаному пасиві внутрішнього питання підмет стоїть перед першим допоміжним дієсловом.",
+            "accepted_target_texts": [
+                "They are checking whether the parcel has been collected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They are checking",
+                "whether",
+                "the parcel has",
+                "been collected."
+            ],
+            "token_groups": [
+                "They are checking",
+                "whether",
+                "the parcel has",
+                "been collected."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-embedded-b1-g05",
+            "author_id": "B1-g05",
+            "question": "She explained why {a1} empty.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Вона пояснила, чому місця були порожніми.",
+            "target_text": "She explained why the seats were empty.",
+            "markers": {
+                "a1": {
+                    "answer": "the seats were",
+                    "options": [
+                        "the seats were",
+                        "were the seats",
+                        "did the seats"
+                    ],
+                    "verb_hint": "Не перенось порядок прямого питання в пояснення стану множини."
+                }
+            },
+            "verb_hint": "Не перенось порядок прямого питання в пояснення стану множини.",
+            "accepted_target_texts": [
+                "She explained why the seats were empty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She explained",
+                "why",
+                "the seats were",
+                "empty."
+            ],
+            "token_groups": [
+                "She explained",
+                "why",
+                "the seats were",
+                "empty."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-embedded-b1-g06",
+            "author_id": "B1-g06",
+            "question": "We need to know how {a1} before using it.",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Нам потрібно знати, як працює машина, перш ніж нею користуватися.",
+            "target_text": "We need to know how the machine works before using it.",
+            "markers": {
+                "a1": {
+                    "answer": "the machine works",
+                    "options": [
+                        "the machine works",
+                        "does the machine",
+                        "works the machine"
+                    ],
+                    "verb_hint": "Внутрішня частина про принцип роботи не потребує питального допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Внутрішня частина про принцип роботи не потребує питального допоміжного дієслова.",
+            "accepted_target_texts": [
+                "We need to know how the machine works before using it.",
+                "We need to know how the machine operates before using it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the machine operates"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the machine operates"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "to know",
+                "how",
+                "the machine works",
+                "before using it."
+            ],
+            "token_groups": [
+                "We need",
+                "to know",
+                "how",
+                "the machine works",
+                "before using it."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-embedded-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The editor established which {a1} the paper first.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Редактор установив, який свідок першим зв’язався з газетою.",
+            "target_text": "The editor established which witness had contacted the paper first.",
+            "markers": {
+                "a1": {
+                    "answer": "witness had contacted",
+                    "options": [
+                        "witness had contacted",
+                        "had witness contacted",
+                        "did witness contact"
+                    ],
+                    "verb_hint": "Питальна група є підметом; після неї збережи минулу доконану форму."
+                }
+            },
+            "verb_hint": "Питальна група є підметом; після неї збережи минулу доконану форму.",
+            "accepted_target_texts": [
+                "The editor established which witness had contacted the paper first."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor established",
+                "which",
+                "witness had contacted",
+                "the paper first."
+            ],
+            "token_groups": [
+                "The editor established",
+                "which",
+                "witness had contacted",
+                "the paper first."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-embedded-b2-g02",
+            "author_id": "B2-g02",
+            "question": "I remain uncertain as to whether {a1} to overseas applicants.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Я досі не певен, чи поширюється відмова від вимоги на закордонних заявників.",
+            "target_text": "I remain uncertain as to whether the waiver applies to overseas applicants.",
+            "markers": {
+                "a1": {
+                    "answer": "the waiver applies",
+                    "options": [
+                        "the waiver applies",
+                        "does the waiver",
+                        "applies the waiver"
+                    ],
+                    "verb_hint": "Після сполучника невизначеності використай прямий порядок у теперішньому часі."
+                }
+            },
+            "verb_hint": "Після сполучника невизначеності використай прямий порядок у теперішньому часі.",
+            "accepted_target_texts": [
+                "I remain uncertain as to whether the waiver applies to overseas applicants."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I remain uncertain",
+                "as to whether",
+                "the waiver applies",
+                "to overseas applicants."
+            ],
+            "token_groups": [
+                "I remain uncertain",
+                "as to whether",
+                "the waiver applies",
+                "to overseas applicants."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-embedded-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The inquiry revealed why {a1} been disabled.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Розслідування виявило, чому сигналізацію вимкнули раніше.",
+            "target_text": "The inquiry revealed why the alarm had been disabled.",
+            "markers": {
+                "a1": {
+                    "answer": "the alarm had",
+                    "options": [
+                        "the alarm had",
+                        "had the alarm",
+                        "did the alarm"
+                    ],
+                    "verb_hint": "Підмет стоїть перед допоміжним дієсловом минулого доконаного пасиву."
+                }
+            },
+            "verb_hint": "Підмет стоїть перед допоміжним дієсловом минулого доконаного пасиву.",
+            "accepted_target_texts": [
+                "The inquiry revealed why the alarm had been disabled."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inquiry revealed",
+                "why",
+                "the alarm had",
+                "been disabled."
+            ],
+            "token_groups": [
+                "The inquiry revealed",
+                "why",
+                "the alarm had",
+                "been disabled."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-embedded-b2-g04",
+            "author_id": "B2-g04",
+            "question": "How the samples {a1} remains unclear.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Як забруднили зразки, досі незрозуміло.",
+            "target_text": "How the samples were contaminated remains unclear.",
+            "markers": {
+                "a1": {
+                    "answer": "were contaminated",
+                    "options": [
+                        "were contaminated",
+                        "contaminated were",
+                        "did contaminate"
+                    ],
+                    "verb_hint": "Підрядне питання є підметом усього речення; заверши його минулим пасивом."
+                }
+            },
+            "verb_hint": "Підрядне питання є підметом усього речення; заверши його минулим пасивом.",
+            "accepted_target_texts": [
+                "How the samples were contaminated remains unclear."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "How the samples",
+                "were contaminated",
+                "remains unclear."
+            ],
+            "token_groups": [
+                "How the samples",
+                "were contaminated",
+                "remains unclear."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-embedded-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The debate concerns how much discretion {a1}.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Дискусія стосується того, скільки повноважень слід мати інспекторам.",
+            "target_text": "The debate concerns how much discretion inspectors should exercise.",
+            "markers": {
+                "a1": {
+                    "answer": "inspectors should exercise",
+                    "options": [
+                        "inspectors should exercise",
+                        "should inspectors exercise",
+                        "do inspectors exercise"
+                    ],
+                    "verb_hint": "Після питальної групи постав виконавців перед модальним дієсловом."
+                }
+            },
+            "verb_hint": "Після питальної групи постав виконавців перед модальним дієсловом.",
+            "accepted_target_texts": [
+                "The debate concerns how much discretion inspectors should exercise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The debate concerns",
+                "how much discretion",
+                "inspectors should exercise."
+            ],
+            "token_groups": [
+                "The debate concerns",
+                "how much discretion",
+                "inspectors should exercise."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-embedded-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Nobody has explained where {a1} in the calculation.",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ніхто не пояснив, де в розрахунку виникла невідповідність.",
+            "target_text": "Nobody has explained where the discrepancy arose in the calculation.",
+            "markers": {
+                "a1": {
+                    "answer": "the discrepancy arose",
+                    "options": [
+                        "the discrepancy arose",
+                        "did the discrepancy",
+                        "arose the discrepancy"
+                    ],
+                    "verb_hint": "Збережи прямий порядок внутрішнього питання про минулу появу розбіжності."
+                }
+            },
+            "verb_hint": "Збережи прямий порядок внутрішнього питання про минулу появу розбіжності.",
+            "accepted_target_texts": [
+                "Nobody has explained where the discrepancy arose in the calculation.",
+                "Nobody has explained where the discrepancy emerged in the calculation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "the discrepancy emerged"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "the discrepancy emerged"
+                ]
+            },
+            "reorder_groups": [
+                "Nobody has explained",
+                "where",
+                "the discrepancy arose",
+                "in the calculation."
+            ],
+            "token_groups": [
+                "Nobody has explained",
+                "where",
+                "the discrepancy arose",
+                "in the calculation."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-embedded-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The memorandum clarifies to what extent {a1} regulatory oversight.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Меморандум уточнює, якою мірою виняток обмежує регуляторний нагляд.",
+            "target_text": "The memorandum clarifies to what extent the exemption limits regulatory oversight.",
+            "markers": {
+                "a1": {
+                    "answer": "the exemption limits",
+                    "options": [
+                        "the exemption limits",
+                        "does the exemption",
+                        "limits the exemption"
+                    ],
+                    "verb_hint": "Після складної питальної групи потрібні підмет і теперішнє звичайне дієслово."
+                }
+            },
+            "verb_hint": "Після складної питальної групи потрібні підмет і теперішнє звичайне дієслово.",
+            "accepted_target_texts": [
+                "The memorandum clarifies to what extent the exemption limits regulatory oversight."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The memorandum clarifies",
+                "to what extent",
+                "the exemption limits",
+                "regulatory oversight."
+            ],
+            "token_groups": [
+                "The memorandum clarifies",
+                "to what extent",
+                "the exemption limits",
+                "regulatory oversight."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-embedded-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The tribunal must determine whether {a1} freely.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Трибунал має визначити, чи згоду отримали добровільно.",
+            "target_text": "The tribunal must determine whether consent was obtained freely.",
+            "markers": {
+                "a1": {
+                    "answer": "consent was obtained",
+                    "options": [
+                        "consent was obtained",
+                        "was consent obtained",
+                        "did consent obtain"
+                    ],
+                    "verb_hint": "Внутрішнє пасивне питання не переносить допоміжне дієслово перед підметом."
+                }
+            },
+            "verb_hint": "Внутрішнє пасивне питання не переносить допоміжне дієслово перед підметом.",
+            "accepted_target_texts": [
+                "The tribunal must determine whether consent was obtained freely."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tribunal must",
+                "determine whether",
+                "consent was obtained",
+                "freely."
+            ],
+            "token_groups": [
+                "The tribunal must",
+                "determine whether",
+                "consent was obtained",
+                "freely."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-embedded-c1-g03",
+            "author_id": "C1-g03",
+            "question": "What remains disputed is why {a1} the annex.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Спірним залишається те, чому комітет приховав додаток.",
+            "target_text": "What remains disputed is why the committee withheld the annex.",
+            "markers": {
+                "a1": {
+                    "answer": "the committee withheld",
+                    "options": [
+                        "the committee withheld",
+                        "did the committee",
+                        "withheld the committee"
+                    ],
+                    "verb_hint": "Після питального слова назви орган і минулу дію у прямому порядку."
+                }
+            },
+            "verb_hint": "Після питального слова назви орган і минулу дію у прямому порядку.",
+            "accepted_target_texts": [
+                "What remains disputed is why the committee withheld the annex."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What remains disputed",
+                "is why",
+                "the committee withheld",
+                "the annex."
+            ],
+            "token_groups": [
+                "What remains disputed",
+                "is why",
+                "the committee withheld",
+                "the annex."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-embedded-c1-g04",
+            "author_id": "C1-g04",
+            "question": "We cannot ascertain on whose authority {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Ми не можемо встановити, з чийого дозволу відбулося переведення.",
+            "target_text": "We cannot ascertain on whose authority the transfer proceeded.",
+            "markers": {
+                "a1": {
+                    "answer": "the transfer proceeded",
+                    "options": [
+                        "the transfer proceeded",
+                        "did the transfer",
+                        "proceeded the transfer"
+                    ],
+                    "verb_hint": "Складна питальна група не змінює прямого порядку внутрішньої частини."
+                }
+            },
+            "verb_hint": "Складна питальна група не змінює прямого порядку внутрішньої частини.",
+            "accepted_target_texts": [
+                "We cannot ascertain on whose authority the transfer proceeded."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We cannot ascertain",
+                "on whose authority",
+                "the transfer proceeded."
+            ],
+            "token_groups": [
+                "We cannot ascertain",
+                "on whose authority",
+                "the transfer proceeded."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-embedded-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The analysis distinguishes between what {a1} and what they inferred.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Аналіз розрізняє те, що учасники справді спостерігали, і те, що вони виснували.",
+            "target_text": "The analysis distinguishes between what participants actually observed and what they inferred.",
+            "markers": {
+                "a1": {
+                    "answer": "participants actually observed",
+                    "options": [
+                        "participants actually observed",
+                        "did participants observe",
+                        "observed actually participants"
+                    ],
+                    "verb_hint": "У першій внутрішній частині збережи виконавців, прислівник і минуле дієслово."
+                }
+            },
+            "verb_hint": "У першій внутрішній частині збережи виконавців, прислівник і минуле дієслово.",
+            "accepted_target_texts": [
+                "The analysis distinguishes between what participants actually observed and what they inferred."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analysis distinguishes",
+                "between what",
+                "participants actually observed",
+                "and what",
+                "they inferred."
+            ],
+            "token_groups": [
+                "The analysis distinguishes",
+                "between what",
+                "participants actually observed",
+                "and what",
+                "they inferred."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-embedded-c1-g06",
+            "author_id": "C1-g06",
+            "question": "It is unclear how consistently {a1} been enforced.",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Незрозуміло, наскільки послідовно застосовували цей запобіжний захід.",
+            "target_text": "It is unclear how consistently the safeguard has been enforced.",
+            "markers": {
+                "a1": {
+                    "answer": "the safeguard has",
+                    "options": [
+                        "the safeguard has",
+                        "has the safeguard",
+                        "does the safeguard"
+                    ],
+                    "verb_hint": "Підмет передує першому допоміжному дієслову доконаного пасиву."
+                }
+            },
+            "verb_hint": "Підмет передує першому допоміжному дієслову доконаного пасиву.",
+            "accepted_target_texts": [
+                "It is unclear how consistently the safeguard has been enforced."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is unclear",
+                "how consistently",
+                "the safeguard has",
+                "been enforced."
+            ],
+            "token_groups": [
+                "It is unclear",
+                "how consistently",
+                "the safeguard has",
+                "been enforced."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-embedded-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The dissent turns on whether {a1} by implication.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Окрема думка залежить від того, чи може юрисдикція виникати неявно.",
+            "target_text": "The dissent turns on whether jurisdiction can arise by implication.",
+            "markers": {
+                "a1": {
+                    "answer": "jurisdiction can arise",
+                    "options": [
+                        "jurisdiction can arise",
+                        "can jurisdiction arise",
+                        "does jurisdiction arise"
+                    ],
+                    "verb_hint": "Вбудоване модальне питання потребує прямого порядку підмета й допоміжного дієслова."
+                }
+            },
+            "verb_hint": "Вбудоване модальне питання потребує прямого порядку підмета й допоміжного дієслова.",
+            "accepted_target_texts": [
+                "The dissent turns on whether jurisdiction can arise by implication."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissent turns",
+                "on whether",
+                "jurisdiction can arise",
+                "by implication."
+            ],
+            "token_groups": [
+                "The dissent turns",
+                "on whether",
+                "jurisdiction can arise",
+                "by implication."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-embedded-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Precisely how {a1} construed is critical to the appeal.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Точне тлумачення винятку має вирішальне значення для апеляції.",
+            "target_text": "Precisely how the exemption was construed is critical to the appeal.",
+            "markers": {
+                "a1": {
+                    "answer": "the exemption was",
+                    "options": [
+                        "the exemption was",
+                        "was the exemption",
+                        "did the exemption"
+                    ],
+                    "verb_hint": "У питальній підметовій частині збережи прямий порядок минулого пасиву."
+                }
+            },
+            "verb_hint": "У питальній підметовій частині збережи прямий порядок минулого пасиву.",
+            "accepted_target_texts": [
+                "Precisely how the exemption was construed is critical to the appeal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Precisely how",
+                "the exemption was",
+                "construed is critical",
+                "to the appeal."
+            ],
+            "token_groups": [
+                "Precisely how",
+                "the exemption was",
+                "construed is critical",
+                "to the appeal."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-embedded-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The authors leave open to what degree {a1} systematic bias.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Автори залишають відкритим питання, якою мірою оцінки відображають систематичне упередження.",
+            "target_text": "The authors leave open to what degree the estimates reflect systematic bias.",
+            "markers": {
+                "a1": {
+                    "answer": "the estimates reflect",
+                    "options": [
+                        "the estimates reflect",
+                        "do the estimates",
+                        "reflect the estimates"
+                    ],
+                    "verb_hint": "Після складної питальної групи збережи множину й теперішній простий час."
+                }
+            },
+            "verb_hint": "Після складної питальної групи збережи множину й теперішній простий час.",
+            "accepted_target_texts": [
+                "The authors leave open to what degree the estimates reflect systematic bias."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authors leave",
+                "open",
+                "to what degree",
+                "the estimates reflect",
+                "systematic bias."
+            ],
+            "token_groups": [
+                "The authors leave",
+                "open",
+                "to what degree",
+                "the estimates reflect",
+                "systematic bias."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-embedded-c2-g04",
+            "author_id": "C2-g04",
+            "question": "What the judgment fails to explain is whose interests {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Рішення не пояснює, чиїм інтересам слугує обмеження.",
+            "target_text": "What the judgment fails to explain is whose interests the restriction serves.",
+            "markers": {
+                "a1": {
+                    "answer": "the restriction serves",
+                    "options": [
+                        "the restriction serves",
+                        "does the restriction",
+                        "serves the restriction"
+                    ],
+                    "verb_hint": "Назви підмет і звичайне дієслово після групи про належність інтересів."
+                }
+            },
+            "verb_hint": "Назви підмет і звичайне дієслово після групи про належність інтересів.",
+            "accepted_target_texts": [
+                "What the judgment fails to explain is whose interests the restriction serves."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What the judgment",
+                "fails to explain",
+                "is whose interests",
+                "the restriction serves."
+            ],
+            "token_groups": [
+                "What the judgment",
+                "fails to explain",
+                "is whose interests",
+                "the restriction serves."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-embedded-c2-g05",
+            "author_id": "C2-g05",
+            "question": "There is disagreement as to how far {a1} beyond this sample.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Є розбіжності щодо того, наскільки висновок чинний поза цією вибіркою.",
+            "target_text": "There is disagreement as to how far the inference holds beyond this sample.",
+            "markers": {
+                "a1": {
+                    "answer": "the inference holds",
+                    "options": [
+                        "the inference holds",
+                        "does the inference",
+                        "holds the inference"
+                    ],
+                    "verb_hint": "Не використовуй інверсії після складного вступу до внутрішнього питання."
+                }
+            },
+            "verb_hint": "Не використовуй інверсії після складного вступу до внутрішнього питання.",
+            "accepted_target_texts": [
+                "There is disagreement as to how far the inference holds beyond this sample."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is disagreement",
+                "as to",
+                "how far",
+                "the inference holds",
+                "beyond this sample."
+            ],
+            "token_groups": [
+                "There is disagreement",
+                "as to",
+                "how far",
+                "the inference holds",
+                "beyond this sample."
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-embedded-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The record does not establish where responsibility ultimately {a1}.",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_embedded",
+            "translation_uk": "Матеріали не встановлюють, на кому зрештою лежала відповідальність.",
+            "target_text": "The record does not establish where responsibility ultimately lay.",
+            "markers": {
+                "a1": {
+                    "answer": "lay",
+                    "options": [
+                        "lay",
+                        "did lie",
+                        "laid"
+                    ],
+                    "verb_hint": "Підмет і прислівник уже наведено; додай лише минулу форму неперехідного дієслова розташування."
+                }
+            },
+            "verb_hint": "Підмет і прислівник уже наведено; додай лише минулу форму неперехідного дієслова розташування.",
+            "accepted_target_texts": [
+                "The record does not establish where responsibility ultimately lay."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The record does",
+                "not establish",
+                "where responsibility ultimately",
+                "lay."
+            ],
+            "token_groups": [
+                "The record does",
+                "not establish",
+                "where responsibility ultimately",
+                "lay."
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

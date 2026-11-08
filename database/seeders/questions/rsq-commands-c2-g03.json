@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66220,
+        "uuid": "rsq-commands-c2-g03",
+        "question": "The commissioner directed the investigators {a1} every exculpatory lead.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to pursue",
+                "pursuing",
+                "to pursued"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:49.000000Z",
+        "updated_at": "2026-11-01T20:04:49.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68410,
+                "option": "to pursue",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 66220,
+                "option_id": 68410,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68412,
+                "option": "pursuing",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 66220,
+                "option_id": 68412,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68413,
+                "option": "to pursued",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 66220,
+                "option_id": 68413,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340997,
+                "question_id": 66220,
+                "marker": "a1",
+                "option_id": 68410,
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "option": {
+                "id": 68410,
+                "option": "to pursue",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58331,
+                "question_id": 66220,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68411,
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "option": {
+                "id": 68411,
+                "option": "Перевірити кожну версію; потрібен інфінітив після офіційної вказівки.",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58235,
+            "question_id": 66220,
+            "text": "The commissioner directed the investigators {a1} every exculpatory lead.",
+            "created_at": "2026-11-01T20:04:49.000000Z",
+            "updated_at": "2026-11-01T20:04:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

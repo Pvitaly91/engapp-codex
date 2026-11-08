@@ -1,0 +1,603 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/relative-clauses.v1.json",
+        "sha256": "3cd9d2502ef43f277a8e676051b7a0b4f7d0ef6847aab81b784e686af9ffe23c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedRelativeClausesQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-relative-clauses-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_relative_clauses": {
+            "name": "Clauses and Linking Words Quality: Relative Clauses"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-relative-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The woman {a1} next door is a nurse.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Жінка, яка живе поруч, — медсестра.",
+            "target_text": "The woman who lives next door is a nurse.",
+            "markers": {
+                "a1": {
+                    "answer": "who lives",
+                    "options": [
+                        "who lives",
+                        "which lives",
+                        "who live"
+                    ],
+                    "verb_hint": "Яка живе; зв’яжи назву людини з її місцем проживання."
+                }
+            },
+            "verb_hint": "Яка живе; зв’яжи назву людини з її місцем проживання.",
+            "accepted_target_texts": [
+                "The woman who lives next door is a nurse.",
+                "The woman that lives next door is a nurse."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that lives"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that lives"
+                ]
+            },
+            "reorder_groups": [
+                "The woman",
+                "who lives",
+                "next door",
+                "is a nurse."
+            ],
+            "token_groups": [
+                "The woman",
+                "who lives",
+                "next door",
+                "is a nurse."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-relative-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The cat {a1} on our wall is black.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Кіт, який сидить на нашому мурі, чорний.",
+            "target_text": "The cat that sits on our wall is black.",
+            "markers": {
+                "a1": {
+                    "answer": "that sits",
+                    "options": [
+                        "that sits",
+                        "whose sits",
+                        "that sit"
+                    ],
+                    "verb_hint": "Який сидить; відносне слово називає тварину, а дієслово стосується одного кота."
+                }
+            },
+            "verb_hint": "Який сидить; відносне слово називає тварину, а дієслово стосується одного кота.",
+            "accepted_target_texts": [
+                "The cat that sits on our wall is black.",
+                "The cat which sits on our wall is black."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which sits"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which sits"
+                ]
+            },
+            "reorder_groups": [
+                "The cat",
+                "that sits",
+                "on our wall",
+                "is black."
+            ],
+            "token_groups": [
+                "The cat",
+                "that sits",
+                "on our wall",
+                "is black."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-relative-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The biscuits {a1} yesterday taste of lemon.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Печиво, яке ми спекли вчора, має смак лимона.",
+            "target_text": "The biscuits which we baked yesterday taste of lemon.",
+            "markers": {
+                "a1": {
+                    "answer": "which we baked",
+                    "options": [
+                        "which we baked",
+                        "who we baked",
+                        "which baked we"
+                    ],
+                    "verb_hint": "Яке ми спекли; після відносного слова збережи виконавця перед минулим дієсловом."
+                }
+            },
+            "verb_hint": "Яке ми спекли; після відносного слова збережи виконавця перед минулим дієсловом.",
+            "accepted_target_texts": [
+                "The biscuits which we baked yesterday taste of lemon.",
+                "The biscuits that we baked yesterday taste of lemon.",
+                "The biscuits we baked yesterday taste of lemon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that we baked",
+                    "we baked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that we baked",
+                    "we baked"
+                ]
+            },
+            "reorder_groups": [
+                "The biscuits",
+                "which we baked",
+                "yesterday",
+                "taste of lemon."
+            ],
+            "token_groups": [
+                "The biscuits",
+                "which we baked",
+                "yesterday",
+                "taste of lemon."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-relative-a2-g02",
+            "author_id": "A2-g02",
+            "question": "I know the girl {a1} won the race.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Я знаю дівчинку, чий брат виграв забіг.",
+            "target_text": "I know the girl whose brother won the race.",
+            "markers": {
+                "a1": {
+                    "answer": "whose brother",
+                    "options": [
+                        "whose brother",
+                        "which brother",
+                        "who her brother"
+                    ],
+                    "verb_hint": "Чий брат; потрібна присвійна відносна форма без додаткового займенника."
+                }
+            },
+            "verb_hint": "Чий брат; потрібна присвійна відносна форма без додаткового займенника.",
+            "accepted_target_texts": [
+                "I know the girl whose brother won the race."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I know",
+                "the girl",
+                "whose brother",
+                "won the race."
+            ],
+            "token_groups": [
+                "I know",
+                "the girl",
+                "whose brother",
+                "won the race."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-relative-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The workshop {a1} repaired my cello has moved.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Майстерня, яка відремонтувала мою віолончель, переїхала.",
+            "target_text": "The workshop that repaired my cello has moved.",
+            "markers": {
+                "a1": {
+                    "answer": "that",
+                    "options": [
+                        "that",
+                        "whose",
+                        "what"
+                    ],
+                    "verb_hint": "Яка відремонтувала; відносне слово саме є підметом, тому не пропускай його."
+                }
+            },
+            "verb_hint": "Яка відремонтувала; відносне слово саме є підметом, тому не пропускай його.",
+            "accepted_target_texts": [
+                "The workshop that repaired my cello has moved.",
+                "The workshop which repaired my cello has moved."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "which"
+                ]
+            },
+            "reorder_groups": [
+                "The workshop",
+                "that",
+                "repaired my cello",
+                "has moved."
+            ],
+            "token_groups": [
+                "The workshop",
+                "that",
+                "repaired my cello",
+                "has moved."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-relative-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The path {a1} the lake is closed after sunset.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Стежка, яка веде до озера, зачинена після заходу сонця.",
+            "target_text": "The path which leads to the lake is closed after sunset.",
+            "markers": {
+                "a1": {
+                    "answer": "which leads to",
+                    "options": [
+                        "which leads to",
+                        "which lead to",
+                        "whose leads to"
+                    ],
+                    "verb_hint": "Яка веде до; узгодь дієслово з однією стежкою та збережи напрямок."
+                }
+            },
+            "verb_hint": "Яка веде до; узгодь дієслово з однією стежкою та збережи напрямок.",
+            "accepted_target_texts": [
+                "The path which leads to the lake is closed after sunset.",
+                "The path that leads to the lake is closed after sunset."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "that leads to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "that leads to"
+                ]
+            },
+            "reorder_groups": [
+                "The path",
+                "which leads to",
+                "the lake",
+                "is closed",
+                "after sunset."
+            ],
+            "token_groups": [
+                "The path",
+                "which leads to",
+                "the lake",
+                "is closed",
+                "after sunset."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-relative-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The year {a1} the observatory reopened was unusually cold.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Рік, у який обсерваторія знову відкрилася, був незвично холодним.",
+            "target_text": "The year in which the observatory reopened was unusually cold.",
+            "markers": {
+                "a1": {
+                    "answer": "in which",
+                    "options": [
+                        "in which",
+                        "in whose",
+                        "in what"
+                    ],
+                    "verb_hint": "У який; збережи вже включений до відповіді прийменник перед відносним словом."
+                }
+            },
+            "verb_hint": "У який; збережи вже включений до відповіді прийменник перед відносним словом.",
+            "accepted_target_texts": [
+                "The year in which the observatory reopened was unusually cold."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The year",
+                "in which",
+                "the observatory",
+                "reopened",
+                "was unusually cold."
+            ],
+            "token_groups": [
+                "The year",
+                "in which",
+                "the observatory",
+                "reopened",
+                "was unusually cold."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-relative-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The translator {a1} the publisher relied was unavailable.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Перекладач, на якого покладався видавець, був недоступний.",
+            "target_text": "The translator on whom the publisher relied was unavailable.",
+            "markers": {
+                "a1": {
+                    "answer": "on whom",
+                    "options": [
+                        "on whom",
+                        "on whose",
+                        "on which"
+                    ],
+                    "verb_hint": "На якого; після винесеного прийменника назви людину об’єктною відносною формою."
+                }
+            },
+            "verb_hint": "На якого; після винесеного прийменника назви людину об’єктною відносною формою.",
+            "accepted_target_texts": [
+                "The translator on whom the publisher relied was unavailable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The translator",
+                "on whom",
+                "the publisher",
+                "relied",
+                "was unavailable."
+            ],
+            "token_groups": [
+                "The translator",
+                "on whom",
+                "the publisher",
+                "relied",
+                "was unavailable."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-relative-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The testimony {a1} the prosecution rested was later withdrawn.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Свідчення, на яких ґрунтувалося обвинувачення, пізніше відкликали.",
+            "target_text": "The testimony on which the prosecution rested was later withdrawn.",
+            "markers": {
+                "a1": {
+                    "answer": "on which",
+                    "options": [
+                        "on which",
+                        "on whom",
+                        "on whose"
+                    ],
+                    "verb_hint": "На яких; відносне слово відсилає до свідчень, а не до людини."
+                }
+            },
+            "verb_hint": "На яких; відносне слово відсилає до свідчень, а не до людини.",
+            "accepted_target_texts": [
+                "The testimony on which the prosecution rested was later withdrawn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The testimony",
+                "on which",
+                "the prosecution",
+                "rested",
+                "was later withdrawn."
+            ],
+            "token_groups": [
+                "The testimony",
+                "on which",
+                "the prosecution",
+                "rested",
+                "was later withdrawn."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-relative-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The curator rejected the attribution, {a1} surprised the donor.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Куратор відхилив атрибуцію, що здивувало дарувальника.",
+            "target_text": "The curator rejected the attribution, which surprised the donor.",
+            "markers": {
+                "a1": {
+                    "answer": "which",
+                    "options": [
+                        "which",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Що здивувало; додаткова частина коментує цілу попередню подію."
+                }
+            },
+            "verb_hint": "Що здивувало; додаткова частина коментує цілу попередню подію.",
+            "accepted_target_texts": [
+                "The curator rejected the attribution, which surprised the donor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The curator",
+                "rejected the attribution,",
+                "which",
+                "surprised the donor."
+            ],
+            "token_groups": [
+                "The curator",
+                "rejected the attribution,",
+                "which",
+                "surprised the donor."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-relative-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The distinction {a1} the judgement turns is easily overlooked.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Відмінність, від якої залежить судове рішення, легко не помітити.",
+            "target_text": "The distinction on which the judgement turns is easily overlooked.",
+            "markers": {
+                "a1": {
+                    "answer": "on which",
+                    "options": [
+                        "on which",
+                        "at whom",
+                        "whose"
+                    ],
+                    "verb_hint": "Від якої залежить; збережи сталий зв’язок дієслова залежності з винесеним прийменником."
+                }
+            },
+            "verb_hint": "Від якої залежить; збережи сталий зв’язок дієслова залежності з винесеним прийменником.",
+            "accepted_target_texts": [
+                "The distinction on which the judgement turns is easily overlooked."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "on which",
+                "the judgement",
+                "turns",
+                "is easily overlooked."
+            ],
+            "token_groups": [
+                "The distinction",
+                "on which",
+                "the judgement",
+                "turns",
+                "is easily overlooked."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-relative-c2-g02",
+            "author_id": "C2-g02",
+            "question": "She restored the marginal notes, {a1} had been mistaken for stains.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_relative_clauses",
+            "translation_uk": "Вона відновила примітки на полях, кілька з яких помилково прийняли за плями.",
+            "target_text": "She restored the marginal notes, several of which had been mistaken for stains.",
+            "markers": {
+                "a1": {
+                    "answer": "several of which",
+                    "options": [
+                        "several of which",
+                        "several of that",
+                        "several of whose"
+                    ],
+                    "verb_hint": "Кілька з яких; потрібна часткова група, що відсилає до вже названих приміток."
+                }
+            },
+            "verb_hint": "Кілька з яких; потрібна часткова група, що відсилає до вже названих приміток.",
+            "accepted_target_texts": [
+                "She restored the marginal notes, several of which had been mistaken for stains."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She restored",
+                "the marginal notes,",
+                "several of which",
+                "had been mistaken",
+                "for stains."
+            ],
+            "token_groups": [
+                "She restored",
+                "the marginal notes,",
+                "several of which",
+                "had been mistaken",
+                "for stains."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

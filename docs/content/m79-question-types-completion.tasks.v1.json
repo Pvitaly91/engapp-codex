@@ -1,0 +1,1619 @@
+{
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsAlternativeQuestionsTheorySeeder": [
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) You prefer coffee or tea? / b) Do you prefer coffee or tea? / c) Do you prefer coffee and tea?",
+                "prompt": "Який варіант правильний?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "a) You prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю? (перепитування); b) Do you prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю?; c) Do you prefer coffee and tea? — Ти віддаєш перевагу і каві, і чаю?",
+                "prompt": "Офіціант просить вибрати напій. Яка повна нейтральна модель передає вибір?",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "You prefer coffee or tea? — можливе перепитування. Для потрібної повної нейтральної моделі додаємо Do перед you.",
+                    "b": "Do you prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю? Це повна нейтральна модель з явним вибором.",
+                    "c": "Do you prefer coffee and tea? — Ти віддаєш перевагу і каві, і чаю? Граматичне and перевіряє поєднання вподобань, не потрібний вибір напою."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) Is it hot or cold? / b) It is hot or cold? / c) Does it hot or cold?",
+                "prompt": "Який варіант правильний?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "a) Is it hot or cold? — Там спекотно чи холодно?; b) It is hot or cold? — Там спекотно чи холодно? (перепитування); c) Does it hot or cold? — задум «Там спекотно чи холодно?»",
+                "prompt": "Обери повне нейтральне питання про температуру з be.",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Is it hot or cold? — Там спекотно чи холодно? Is перед it достатньо; іншого дієслова не потрібно.",
+                    "b": "It is hot or cold? — можливе перепитування. Потрібна інверсія Is it…?",
+                    "c": "Does it hot or cold? — неправильно в цій моделі: прикметники потребують be, а не does."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) Can you swim and dive? / b) You can swim or dive? / c) Can you swim or dive?",
+                "prompt": "Який варіант правильний?",
+                "answer": "c"
+            },
+            "after_task": {
+                "label": "a) Can you swim and dive? — Ти вмієш і плавати, і пірнати?; b) You can swim or dive? — Ти вмієш плавати чи пірнати? (перепитування); c) Can you swim or dive? — Ти вмієш плавати чи пірнати?",
+                "prompt": "Для розподілу на заняття тренер просить назвати одну з двох здібностей. Обери повну нейтральну модель із can та явними альтернативами.",
+                "answer": "c",
+                "accepted": [
+                    "c"
+                ],
+                "feedback": {
+                    "a": "Can you swim and dive? — Ти вмієш і плавати, і пірнати? Це питання про поєднання здібностей; заданий запит просить назвати варіант.",
+                    "b": "You can swim or dive? — можливе перепитування; тут потрібне Can перед you.",
+                    "c": "Can you swim or dive? — Ти вмієш плавати чи пірнати? Тут контекст задає вибір; без нього можливе й yes/no-reading."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "She likes (cats / dogs). → ",
+                "after": "",
+                "answer": "Does she like cats or dogs?"
+            },
+            "after_task": {
+                "before": "dogs? / she like / Does / cats or",
+                "after": "Вона любить котів чи собак? Запитай про вподобання однієї жінки, використавши дієслово «подобатися». Збережи порядок: коти, потім собаки.",
+                "answer": "Does she like cats or dogs?",
+                "accepted": [
+                    "Does she like cats or dogs?"
+                ],
+                "feedback": {
+                    "does she like cats or dogs?": "Does she like cats or dogs? — Вона любить котів чи собак? Does позначає третю особу; like без -s."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "You are from (Spain / Italy). → ",
+                "after": "",
+                "answer": "Are you from Spain or Italy?"
+            },
+            "after_task": {
+                "before": "Spain / Are you / Italy? / from / or",
+                "after": "Ти з Іспанії чи Італії? Звертайся до однієї людини; використай походження «бути з». Спочатку Іспанія, потім Італія.",
+                "answer": "Are you from Spain or Italy?",
+                "accepted": [
+                    "Are you from Spain or Italy?"
+                ],
+                "feedback": {
+                    "are you from spain or italy?": "Are you from Spain or Italy? — Ти з Іспанії чи Італії? Збережено повний питальний порядок і обидві альтернативи."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "They will come (today / tomorrow). → ",
+                "after": "",
+                "answer": "Will they come today or tomorrow?"
+            },
+            "after_task": {
+                "before": "tomorrow? / they come / or / Will / today",
+                "after": "Вони прийдуть сьогодні чи завтра? Потрібна майбутня модель з will і дієсловом «прийти». Спочатку сьогодні, потім завтра.",
+                "answer": "Will they come today or tomorrow?",
+                "accepted": [
+                    "Will they come today or tomorrow?"
+                ],
+                "feedback": {
+                    "will they come today or tomorrow?": "Will they come today or tomorrow? — Вони прийдуть сьогодні чи завтра? Збережено повний питальний порядок і обидві альтернативи."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 3,
+            "after_group": "inputs",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "It is (big / small). → ",
+                "after": "",
+                "answer": "Is it big or small?"
+            },
+            "after_task": {
+                "before": "or small? / it / big / Is",
+                "after": "Це велике чи маленьке? Говоримо про один предмет; потрібна форма be. Спочатку велике, потім маленьке.",
+                "answer": "Is it big or small?",
+                "accepted": [
+                    "Is it big or small?"
+                ],
+                "feedback": {
+                    "is it big or small?": "Is it big or small? — Це велике чи маленьке? Збережено повний питальний порядок і обидві альтернативи."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_ungraded_demo",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "You prefer coffee or tea?",
+                "example_target": "Do you prefer coffee or tea?"
+            },
+            "after_task": {
+                "example_label": "Зразок: перепитування → повне нейтральне питання",
+                "example_original": "You prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю?",
+                "example_target": "Do you prefer coffee or tea? — Ти віддаєш перевагу каві чи чаю?"
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Неоцінюваний зразок заданого перетворення.",
+            "change_reason": "Зразок лишився на старій позиції й не отримує балів; уточнено смисловий контекст і переклад."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "1. Does she likes cats or dogs?",
+                "placeholder": "Виправ помилку",
+                "answer": "Does she like cats or dogs?"
+            },
+            "after_task": {
+                "original": "1. Does she likes cats or dogs? — задум «Їй подобаються коти чи собаки?» Виправ форму після does.",
+                "placeholder": "Введи повне питання.",
+                "answer": "Does she like cats or dogs?",
+                "accepted": [
+                    "Does she like cats or dogs?"
+                ],
+                "feedback": {
+                    "does she like cats or dogs?": "Does she like cats or dogs? — Їй подобаються коти чи собаки? Після does потрібне like без -s."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "2. Is it hot cold?",
+                "placeholder": "Виправ помилку",
+                "answer": "Is it hot or cold?"
+            },
+            "after_task": {
+                "original": "2. Is it hot cold? — задум «Там спекотно чи холодно?» Додай явне слово вибору.",
+                "placeholder": "Введи повне питання.",
+                "answer": "Is it hot or cold?",
+                "accepted": [
+                    "Is it hot or cold?"
+                ],
+                "feedback": {
+                    "is it hot or cold?": "Is it hot or cold? — Там спекотно чи холодно? Or позначає дві альтернативи."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 3,
+            "after_group": "rephrase",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "3. You can swim or dive?",
+                "placeholder": "Виправ помилку",
+                "answer": "Can you swim or dive?"
+            },
+            "after_task": {
+                "original": "3. You can swim or dive? — Ти вмієш плавати чи пірнати? Тренер просить назвати одну здібність для вибору заняття. Заміни перепитування повною нейтральною моделлю.",
+                "placeholder": "Введи повне питання.",
+                "answer": "Can you swim or dive?",
+                "accepted": [
+                    "Can you swim or dive?"
+                ],
+                "feedback": {
+                    "can you swim or dive?": "Can you swim or dive? — Ти вмієш плавати чи пірнати? Can ставимо перед you; початкова розмовна репліка не є неможливою англійською."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "id": "m79-alternative-meaning-drink",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-alternative-meaning-drink",
+                "label": "Господар просить вибрати один напій. Гостя хоче чай. Coffee or tea? — Каву чи чай? A) Tea, please. — Чай, будь ласка. B) Yes, please. — Так, будь ласка.",
+                "prompt": "Яка відповідь називає бажаний напій?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "A",
+                "accepted": [
+                    "A"
+                ],
+                "feedback": {
+                    "a": "Tea, please. — Чай, будь ласка. Названо конкретний вибір гості.",
+                    "b": "Yes, please. — Так, будь ласка. Репліка не називає, який саме напій просила гостя, тому не виконує цієї умови."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "id": "m79-alternative-meaning-existence",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-alternative-meaning-existence",
+                "label": "Туристу байдуже, який транспорт; він перевіряє, чи є хоча б один спосіб доїхати. У місті є і автобуси, і потяги. Are there buses or trains to the airport? — До аеропорту є автобуси чи потяги? A) Yes, there are. Both run every hour. — Так, є. Обидва види транспорту ходять щогодини. B) Neither. There is no public transport. — Ні того, ні іншого. Громадського транспорту немає.",
+                "prompt": "Яка відповідь відповідає заданому факту та yes/no-reading?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "A",
+                "accepted": [
+                    "A"
+                ],
+                "feedback": {
+                    "a": "Yes, there are. Both run every hour. — Так, є. Обидва види транспорту ходять щогодини. Тут перевіряють наявність хоча б одного способу, не вимагають вибрати лише один.",
+                    "b": "Neither. There is no public transport. — Ні того, ні іншого. Громадського транспорту немає. Це суперечить факту про два наявні види транспорту."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder": [
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "She is happy, _____? (isn't she / doesn't she / haven't she)",
+                "prompt": "Який tag правильний?",
+                "answer": "isn't she"
+            },
+            "after_task": {
+                "label": "She is happy, _____? — Вона щаслива, правда?",
+                "prompt": "Потрібне підтвердження з be, не позитивна реакція.",
+                "options": [
+                    "isn't she",
+                    "doesn't she",
+                    "haven't she"
+                ],
+                "answer": "isn't she",
+                "accepted": [
+                    "isn't she"
+                ],
+                "feedback": {
+                    "isn't she": "She is happy, isn’t she? — Вона щаслива, правда? Збережено be та she; tag негативний.",
+                    "doesn't she": "Doesn’t she не відповідає is. Потрібне She is happy, isn’t she? — Вона щаслива, правда?",
+                    "haven't she": "Haven’t she не узгоджене з is і she. Потрібне isn’t she."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "You like coffee, _____? (don't you / aren't you / isn't it)",
+                "prompt": "Який tag правильний?",
+                "answer": "don't you"
+            },
+            "after_task": {
+                "label": "You like coffee, _____? — Тобі подобається кава, правда?",
+                "prompt": "Обери tag для звичайного Present Simple.",
+                "options": [
+                    "don't you",
+                    "aren't you",
+                    "isn't it"
+                ],
+                "answer": "don't you",
+                "accepted": [
+                    "don't you"
+                ],
+                "feedback": {
+                    "don't you": "You like coffee, don’t you? — Тобі подобається кава, правда? Для like у цій моделі потрібне do.",
+                    "aren't you": "Aren’t you не відповідає лексичному like; потрібне don’t you.",
+                    "isn't it": "Isn’t it змінює підмет і допоміжне. Потрібне don’t you."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "They can swim, _____? (can they / can't they / don't they)",
+                "prompt": "Який tag правильний?",
+                "answer": "can't they"
+            },
+            "after_task": {
+                "label": "They can swim, _____? — Вони вміють плавати, так?",
+                "prompt": "Потрібне підтвердження з протилежною полярністю.",
+                "options": [
+                    "can they",
+                    "can't they",
+                    "don't they"
+                ],
+                "answer": "can't they",
+                "accepted": [
+                    "can't they"
+                ],
+                "feedback": {
+                    "can they": "Позитивний can they не виконує заданий запит підтвердження. Потрібне They can swim, can’t they? — Вони вміють плавати, так?",
+                    "can't they": "They can swim, can’t they? — Вони вміють плавати, так? Повторюємо can і they з негативною формою tag.",
+                    "don't they": "Don’t they не відповідає can; потрібне can’t they."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "selects",
+            "old_group_index": 3,
+            "after_group": "selects",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "I am right, _____? (am I not / aren't I / isn't I)",
+                "prompt": "Який tag правильний?",
+                "answer": "aren't I"
+            },
+            "after_task": {
+                "label": "I am right, _____? — Я маю рацію, чи не так?",
+                "prompt": "Обери граматично правильне завершення. Можна скорочене або повне формальне; тут є два прийнятні варіанти.",
+                "options": [
+                    "am I not",
+                    "aren't I",
+                    "isn't I"
+                ],
+                "answer": "aren't I",
+                "accepted": [
+                    "aren't I",
+                    "am I not"
+                ],
+                "feedback": {
+                    "am i not": "I am right, am I not? — Я маю рацію, чи не так? Повна формальна форма граматична й у цій умові приймається.",
+                    "aren't i": "I am right, aren’t I? — Я маю рацію, правда? Це звичний скорочений tag; повне формальне am I not теж дозволене.",
+                    "isn't i": "Isn’t I не узгоджує is з I. Прийнятні aren’t I або am I not."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "She is tired, ",
+                "after": "?",
+                "answer": "isn't she"
+            },
+            "after_task": {
+                "before": "She is tired, ",
+                "after": "? — Вона втомлена, правда? Введи тільки заперечний tag із займенником для неї.",
+                "answer": "isn't she",
+                "accepted": [
+                    "isn't she",
+                    "is she not"
+                ],
+                "feedback": {
+                    "isn't she": "She is tired, isn’t she? — Вона втомлена, правда? У поле входить лише isn’t she.",
+                    "is she not": "She is tired, is she not? — Вона втомлена, чи не так? Повна формальна форма; not після підмета."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Доповнити лише tag, не повторюючи видиму головну частину.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "You don't like tea, ",
+                "after": "?",
+                "answer": "do you"
+            },
+            "after_task": {
+                "before": "You don't like tea, ",
+                "after": "? — Тобі не подобається чай, так? Введи тільки позитивний tag; звертаємося до однієї людини.",
+                "answer": "do you",
+                "accepted": [
+                    "do you"
+                ],
+                "feedback": {
+                    "do you": "You don’t like tea, do you? — Тобі не подобається чай, так? Головна частина вже негативна; tag — do you."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Доповнити лише tag, не повторюючи видиму головну частину.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "He can drive, ",
+                "after": "?",
+                "answer": "can't he"
+            },
+            "after_task": {
+                "before": "He can drive, ",
+                "after": "? — Він уміє водити автомобіль, так? Введи лише негативний tag.",
+                "answer": "can't he",
+                "accepted": [
+                    "can't he",
+                    "can he not"
+                ],
+                "feedback": {
+                    "can't he": "He can drive, can’t he? — Він уміє водити автомобіль, так? Can зберігається в tag.",
+                    "can he not": "He can drive, can he not? — Він уміє водити автомобіль, чи не так? Повна форма: can + he + not."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Доповнити лише tag, не повторюючи видиму головну частину.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "inputs",
+            "old_group_index": 3,
+            "after_group": "inputs",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "They won't be late, ",
+                "after": "?",
+                "answer": "will they"
+            },
+            "after_task": {
+                "before": "They won't be late, ",
+                "after": "? — Вони не запізняться, так? Введи лише позитивний tag.",
+                "answer": "will they",
+                "accepted": [
+                    "will they"
+                ],
+                "feedback": {
+                    "will they": "They won’t be late, will they? — Вони не запізняться, так? Після won’t потрібне will they."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Доповнити лише tag, не повторюючи видиму головну частину.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 4,
+            "graded": true,
+            "id": "m79-tags-full-work",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-tags-full-work",
+                "before": "here, / she? / Marta / doesn't / works",
+                "after": "Марта працює тут, правда? Склади повне речення зі стандартним tag підтвердження. Використай ім’я Marta та дієслово «працювати»; можна скорочений або повний негативний tag.",
+                "answer": "Marta works here, doesn't she?",
+                "accepted": [
+                    "Marta works here, doesn't she?",
+                    "Marta works here, does she not?"
+                ],
+                "feedback": {
+                    "marta works here, doesn't she?": "Marta works here, doesn’t she? — Марта працює тут, правда? Головна частина позитивна; does і she утворюють негативний tag.",
+                    "marta works here, does she not?": "Marta works here, does she not? — Марта працює тут, чи не так? Повний формальний tag зберігає протилежну полярність."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Додано два справді повнореченнєві завдання після чотирьох збережених часткових tag gaps."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "inputs",
+            "after_group_index": 5,
+            "graded": true,
+            "id": "m79-tags-full-there",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-tags-full-there",
+                "before": "is there? / a bus, / There isn't",
+                "after": "Автобуса немає, так? Склади повне речення про відсутність автобуса зі стандартним позитивним tag. Не замінюй there займенником it; скорочення в головній частині не обов’язкове.",
+                "answer": "There isn't a bus, is there?",
+                "accepted": [
+                    "There isn't a bus, is there?",
+                    "There is not a bus, is there?"
+                ],
+                "feedback": {
+                    "there isn't a bus, is there?": "There isn’t a bus, is there? — Автобуса немає, так? Заперечна головна частина → is there; обидва there потрібні.",
+                    "there is not a bus, is there?": "There is not a bus, is there? — Автобуса немає, так? Повна негативна головна частина з тим самим позитивним tag."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Додано два справді повнореченнєві завдання після чотирьох збережених часткових tag gaps."
+        },
+        {
+            "classification": "retained_ungraded_demo",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "She is happy, is she?",
+                "example_target": "She is happy, isn't she?"
+            },
+            "after_task": {
+                "example_label": "Зразок: інший намір → стандартне підтвердження",
+                "example_original": "She is happy, is she? — Вона щаслива, так? (реакція або уточнення)",
+                "example_target": "She is happy, isn’t she? — Вона щаслива, правда? (стандартний запит підтвердження)"
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Неоцінюваний зразок заданого перетворення.",
+            "change_reason": "Зразок лишився на старій позиції й не отримує балів; уточнено смисловий контекст і переклад."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "1. You like coffee, aren't you?",
+                "placeholder": "Виправ помилку",
+                "answer": "You like coffee, don't you?"
+            },
+            "after_task": {
+                "original": "1. You like coffee, aren’t you? — задум «Тобі подобається кава, правда?» Виправ допоміжне у tag, зберігши запит підтвердження.",
+                "placeholder": "Введи ціле речення з tag.",
+                "answer": "You like coffee, don't you?",
+                "accepted": [
+                    "You like coffee, don't you?",
+                    "You like coffee, do you not?"
+                ],
+                "feedback": {
+                    "you like coffee, don't you?": "You like coffee, don’t you? — Тобі подобається кава, правда? Для like тут потрібне do, не be.",
+                    "you like coffee, do you not?": "You like coffee, do you not? — Тобі подобається кава, чи не так? Повний формальний негативний tag також правильний."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "2. She can swim, doesn't she?",
+                "placeholder": "Виправ помилку",
+                "answer": "She can swim, can't she?"
+            },
+            "after_task": {
+                "original": "2. She can swim, doesn’t she? — задум «Вона вміє плавати, правда?» Виправ допоміжне у tag.",
+                "placeholder": "Введи ціле речення з tag.",
+                "answer": "She can swim, can't she?",
+                "accepted": [
+                    "She can swim, can't she?",
+                    "She can swim, can she not?"
+                ],
+                "feedback": {
+                    "she can swim, can't she?": "She can swim, can’t she? — Вона вміє плавати, правда? Can головної частини зберігається в tag.",
+                    "she can swim, can she not?": "She can swim, can she not? — Вона вміє плавати, чи не так? Повна форма має not після she."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": "rephrase",
+            "old_group_index": 3,
+            "after_group": "rephrase",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "3. I am right, am I not?",
+                "placeholder": "Виправ помилку",
+                "answer": "I am right, aren't I?"
+            },
+            "after_task": {
+                "original": "3. I am right, am I not? — Я маю рацію, чи не так? Це граматична формальна форма. Відтвори ціле правильне речення: можеш залишити повну форму або використати звичний скорочений tag.",
+                "placeholder": "Введи ціле речення з граматичним tag.",
+                "answer": "I am right, aren't I?",
+                "accepted": [
+                    "I am right, aren't I?",
+                    "I am right, am I not?"
+                ],
+                "feedback": {
+                    "i am right, aren't i?": "I am right, aren’t I? — Я маю рацію, правда? Звична скорочена форма. Початкове am I not не було граматичною помилкою.",
+                    "i am right, am i not?": "I am right, am I not? — Я маю рацію, чи не так? Повна формальна форма правильна й дозволена цією умовою."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "id": "m79-tags-meaning-confirmation",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-tags-meaning-confirmation",
+                "label": "Мовець вважає, що Оля готова, і просить звичного підтвердження з протилежною полярністю. A) Olia is ready, isn’t she? — Оля готова, правда? B) Olia is ready, is she? — Оля готова, так? (реакція або уточнення)",
+                "prompt": "Яка репліка виконує заданий запит підтвердження?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "A",
+                "accepted": [
+                    "A"
+                ],
+                "feedback": {
+                    "a": "Olia is ready, isn’t she? — Оля готова, правда? Саме цю модель просить умова.",
+                    "b": "Olia is ready, is she? — Оля готова, так? Позитивний tag можливий з іншим наміром, але не є потрібним тут підтвердженням."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 12,
+            "after_block_source_index": 12,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "id": "m79-tags-meaning-factual-answer",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-tags-meaning-factual-answer",
+                "label": "Марта запитує Олю про Андрія: Andrii didn’t call, did he? — Андрій не телефонував, так? Факт: Андрій телефонував учора. Оля відповідає про нього. A) Yes, he did. — Ні, телефонував. B) No, he didn’t. — Так, не телефонував.",
+                "prompt": "Яка англійська відповідь передає відомий факт про дзвінок?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "A",
+                "accepted": [
+                    "A"
+                ],
+                "feedback": {
+                    "a": "Yes, he did. — Він телефонував. Англійське Yes стверджує позитивний факт, хоча головна частина Марти заперечна.",
+                    "b": "No, he didn’t. — Він не телефонував. Це суперечить прямо заданому факту; не підлаштовуй відповідь механічно під tag."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsNegativeQuestionsTheorySeeder": [
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 0,
+            "after_group": "selects",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) You don't like coffee? / b) Don't you like coffee? / c) Do you don't like coffee?",
+                "prompt": "Яка форма правильна?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "a) You don’t like coffee? — Тобі не подобається кава? (перепитування); b) Don’t you like coffee? — Хіба тобі не подобається кава?; c) Do you don’t like coffee? — задум «Хіба тобі не подобається кава?»",
+                "prompt": "Потрібне повне самостійне інверсійне заперечне питання, не перепитування з порядком твердження.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "You don’t like coffee? — можливе перепитування з порядком твердження. Умова просить Don’t you like coffee? — Хіба тобі не подобається кава?",
+                    "b": "Don’t you like coffee? — Хіба тобі не подобається кава? Допоміжне з n’t стоїть перед you.",
+                    "c": "Do you don’t like coffee? містить зайве do. Потрібне Don’t you like coffee? — Хіба тобі не подобається кава?"
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 1,
+            "after_group": "selects",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) She isn't happy? / b) Isn't she happy? / c) Is she not happy?",
+                "prompt": "Яка форма розмовна?",
+                "answer": "b"
+            },
+            "after_task": {
+                "label": "a) She isn’t happy? — Вона не щаслива? (перепитування); b) Isn’t she happy? — Хіба вона не щаслива?; c) Is she not happy? — Хіба вона не щаслива? (повна форма)",
+                "prompt": "Обери саме інверсійну модель зі скороченим заперечним be. Повна форма граматична, але тут потрібне скорочення.",
+                "answer": "b",
+                "accepted": [
+                    "b"
+                ],
+                "feedback": {
+                    "a": "She isn’t happy? — можливе перепитування. Тут потрібне Isn’t перед she.",
+                    "b": "Isn’t she happy? — Хіба вона не щаслива? Саме скорочений негативний be стоїть перед підметом.",
+                    "c": "Is she not happy? — Хіба вона не щаслива? Граматична повна форма, але не виконує явну вимогу скороченого be."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "selects",
+            "old_group_index": 2,
+            "after_group": "selects",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "label": "a) Can't you swim? / b) You can't swim? / c) Don't you can swim?",
+                "prompt": "Яка форма правильна?",
+                "answer": "a"
+            },
+            "after_task": {
+                "label": "a) Can’t you swim? — Хіба ти не вмієш плавати?; b) You can’t swim? — Ти не вмієш плавати? (перепитування); c) Don’t you can swim? — задум «Хіба ти не вмієш плавати?»",
+                "prompt": "Обери повне інверсійне питання з can; не додавай do-support.",
+                "answer": "a",
+                "accepted": [
+                    "a"
+                ],
+                "feedback": {
+                    "a": "Can’t you swim? — Хіба ти не вмієш плавати? Can’t стоїть перед you, swim — базове.",
+                    "b": "You can’t swim? — можливе перепитування. Цільова повна модель починається з Can’t you…?",
+                    "c": "Don’t you can swim? неправильно додає do до can. Потрібне Can’t you swim? — Хіба ти не вмієш плавати?"
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Вибрати форму, яка виконує явно названу навчальну вимогу.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 0,
+            "after_group": "inputs",
+            "after_group_index": 0,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "Do you know? → ",
+                "after": "",
+                "answer": "Don't you know?"
+            },
+            "after_task": {
+                "before": "know? / you / Don't",
+                "after": "Хіба ти не знаєш? Звертайся до однієї людини й використай дієслово «знати» у теперішньому часі. Введи все питання; можна скорочену або повну негативну форму.",
+                "answer": "Don't you know?",
+                "accepted": [
+                    "Don't you know?",
+                    "Do you not know?"
+                ],
+                "feedback": {
+                    "don't you know?": "Don't you know? — Хіба ти не знаєш? Don’t перед you; у повній формі not після you.",
+                    "do you not know?": "Do you not know? — Хіба ти не знаєш? Повна форма граматична; Don’t перед you; у повній формі not після you."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 1,
+            "after_group": "inputs",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "Is she coming? → ",
+                "after": "",
+                "answer": "Isn't she coming?"
+            },
+            "after_task": {
+                "before": "coming? / Isn't / she",
+                "after": "Хіба вона не прийде? Запитай про її заплановану участь за допомогою форми «йти/приходити» з -ing. Збережи жіночу особу; повна форма також можлива.",
+                "answer": "Isn't she coming?",
+                "accepted": [
+                    "Isn't she coming?",
+                    "Is she not coming?"
+                ],
+                "feedback": {
+                    "isn't she coming?": "Isn't she coming? — Хіба вона не прийде? У заперечній Continuous-моделі зберігаємо is та coming; full not після she.",
+                    "is she not coming?": "Is she not coming? — Хіба вона не прийде? Повна форма граматична; У заперечній Continuous-моделі зберігаємо is та coming; full not після she."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 2,
+            "after_group": "inputs",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "Can they help? → ",
+                "after": "",
+                "answer": "Can't they help?"
+            },
+            "after_task": {
+                "before": "they / help? / Can't",
+                "after": "Хіба вони не можуть допомогти? Збережи множину й дієслово «допомагати» у моделі здатності. Потрібне ціле заперечне питання; можна повну форму.",
+                "answer": "Can't they help?",
+                "accepted": [
+                    "Can't they help?",
+                    "Can they not help?"
+                ],
+                "feedback": {
+                    "can't they help?": "Can't they help? — Хіба вони не можуть допомогти? Can’t стоїть перед they; повна форма can + they + not.",
+                    "can they not help?": "Can they not help? — Хіба вони не можуть допомогти? Повна форма граматична; Can’t стоїть перед they; повна форма can + they + not."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "inputs",
+            "old_group_index": 3,
+            "after_group": "inputs",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "before": "Did you see it? → ",
+                "after": "",
+                "answer": "Didn't you see it?"
+            },
+            "after_task": {
+                "before": "see it? / Didn't / you",
+                "after": "Хіба ти цього не бачив? Запитай одного співрозмовника про минулу подію, використавши «бачити» й займенник для предмета. Збережи минулий час та заперечення.",
+                "answer": "Didn't you see it?",
+                "accepted": [
+                    "Didn't you see it?",
+                    "Did you not see it?"
+                ],
+                "feedback": {
+                    "didn't you see it?": "Didn't you see it? — Хіба ти цього не бачив? Після didn’t базове see; повна форма did + you + not.",
+                    "did you not see it?": "Did you not see it? — Хіба ти цього не бачив? Повна форма граматична; Після didn’t базове see; повна форма did + you + not."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Побудувати ціле питання або речення за українською умовою вручну чи токенами.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_ungraded_demo",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 0,
+            "after_group": "rephrase",
+            "after_group_index": 0,
+            "graded": false,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "example_label": "Приклад:",
+                "example_original": "You don't like coffee?",
+                "example_target": "Don't you like coffee?"
+            },
+            "after_task": {
+                "example_label": "Зразок: перепитування → повна інверсійна модель",
+                "example_original": "You don’t like coffee? — Тобі не подобається кава? (перепитування)",
+                "example_target": "Don’t you like coffee? — Хіба тобі не подобається кава?"
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Неоцінюваний зразок заданого перетворення.",
+            "change_reason": "Зразок лишився на старій позиції й не отримує балів; уточнено смисловий контекст і переклад."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 1,
+            "after_group": "rephrase",
+            "after_group_index": 1,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "1. Doesn't she likes it?",
+                "placeholder": "Виправ помилку",
+                "answer": "Doesn't she like it?"
+            },
+            "after_task": {
+                "original": "1. Doesn’t she likes it? — задум «Хіба їй це не подобається?» Виправ основне дієслово, зберігши заперечення й теперішній час.",
+                "placeholder": "Введи ціле заперечне питання.",
+                "answer": "Doesn't she like it?",
+                "accepted": [
+                    "Doesn't she like it?",
+                    "Does she not like it?"
+                ],
+                "feedback": {
+                    "doesn't she like it?": "Doesn’t she like it? — Хіба їй це не подобається? Після doesn’t потрібно like без -s.",
+                    "does she not like it?": "Does she not like it? — Хіба їй це не подобається? Повна форма: does + she + not + like."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 2,
+            "after_group": "rephrase",
+            "after_group_index": 2,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "2. You can't swim?",
+                "placeholder": "Виправ помилку",
+                "answer": "Can't you swim?"
+            },
+            "after_task": {
+                "original": "2. You can’t swim? — Ти не вмієш плавати? Перепиши як повне інверсійне заперечне питання про того самого співрозмовника.",
+                "placeholder": "Введи ціле заперечне питання.",
+                "answer": "Can't you swim?",
+                "accepted": [
+                    "Can't you swim?",
+                    "Can you not swim?"
+                ],
+                "feedback": {
+                    "can't you swim?": "Can’t you swim? — Хіба ти не вмієш плавати? Інверсія can’t перед you; заперечення збережено.",
+                    "can you not swim?": "Can you not swim? — Хіба ти не вмієш плавати? Повна негативна модель з not після you."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "retained_corrected",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": "rephrase",
+            "old_group_index": 3,
+            "after_group": "rephrase",
+            "after_group_index": 3,
+            "graded": true,
+            "old_id_present": false,
+            "after_id_present": false,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "old_task": {
+                "original": "3. Do you don't know?",
+                "placeholder": "Виправ помилку",
+                "answer": "Don't you know?"
+            },
+            "after_task": {
+                "original": "3. Do you don’t know? — задум «Хіба ти не знаєш?» Прибери зайве допоміжне; збережи негативне питання, а не позитивне.",
+                "placeholder": "Введи ціле заперечне питання.",
+                "answer": "Don't you know?",
+                "accepted": [
+                    "Don't you know?",
+                    "Do you not know?"
+                ],
+                "feedback": {
+                    "don't you know?": "Don’t you know? — Хіба ти не знаєш? Одного don’t перед підметом достатньо.",
+                    "do you not know?": "Do you not know? — Хіба ти не знаєш? Правильна повна модель: do перед you, not після you."
+                }
+            },
+            "canonical_answer_preserved": true,
+            "learning_function": "Виправити або перебудувати форму зі збереженням часу, особи й задуму.",
+            "change_reason": "Стару навчальну функцію та group/index збережено. Уточнено контекст, переклади, прийнятні відповіді й plain feedback; відсутність old id/source_index не змінено."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 0,
+            "graded": true,
+            "id": "m79-negative-meaning-coming",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-negative-meaning-coming",
+                "label": "Тарас запитує Олю про Марту: Isn’t she coming? — Хіба вона не прийде? Факт: Марта залишиться вдома й не прийде. Оля відповідає про Марту. A) No, she isn’t. — Не прийде. B) Yes, she is. — Прийде.",
+                "prompt": "Яка відповідь передає відомий негативний факт?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "A",
+                "accepted": [
+                    "A"
+                ],
+                "feedback": {
+                    "a": "No, she isn’t. — Вона не прийде. Відповідь називає реальний результат, незалежно від очікування Тараса.",
+                    "b": "Yes, she is. — Вона прийде. Це суперечить прямо заданому факту; питання не доводить позитивної відповіді."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        },
+        {
+            "classification": "new_author",
+            "old_block_source_index": 11,
+            "after_block_source_index": 11,
+            "old_group": null,
+            "old_group_index": null,
+            "after_group": "choices",
+            "after_group_index": 1,
+            "graded": true,
+            "id": "m79-negative-meaning-know",
+            "old_id_present": false,
+            "after_id_present": true,
+            "old_source_index_present": false,
+            "after_source_index_present": false,
+            "after_task": {
+                "id": "m79-negative-meaning-know",
+                "label": "Марта запитує одного Назара: Don’t you know the address? — Хіба ти не знаєш адреси? Факт: Назар знає адресу. Він відповідає про себе. A) No, I don’t. — Не знаю. B) Yes, I do. — Знаю.",
+                "prompt": "Яка відповідь правильно передає знання Назара?",
+                "options": [
+                    "A",
+                    "B"
+                ],
+                "answer": "B",
+                "accepted": [
+                    "B"
+                ],
+                "feedback": {
+                    "a": "No, I don’t. — Не знаю. Це заперечувало б знання, хоча факт каже протилежне.",
+                    "b": "Yes, I do. — Знаю. Англійське Yes стверджує позитивний факт; не є механічною згодою із запереченням у питанні."
+                }
+            },
+            "canonical_answer_preserved": null,
+            "learning_function": "Зміст за явно заданою ситуацією та реальним фактом.",
+            "change_reason": "Додано відсутню meaningful group, не замінивши старі завдання."
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsSubjectQuestionsTheorySeeder": [
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 0,
+            "new_id": "m79-subject-form-neutral-past",
+            "status": "new_authored_addition",
+            "function": "Neutral Simple subject question, not a ban on emphatic did",
+            "level": "A2"
+        },
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 1,
+            "new_id": "m79-subject-form-plural-state",
+            "status": "new_authored_addition",
+            "function": "Plural subject-group agreement in a state question",
+            "level": "A2"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 0,
+            "new_id": "m79-subject-meaning-participants",
+            "status": "new_authored_addition",
+            "function": "Known Anna subject versus unknown object with time/action preserved",
+            "level": "A2"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 1,
+            "new_id": "m79-subject-meaning-passive",
+            "status": "new_authored_addition",
+            "function": "Passive grammatical subject does not identify active doer",
+            "level": "A2"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 0,
+            "new_id": "m79-subject-sentence-many-children",
+            "status": "new_authored_addition",
+            "function": "Full plural how-many subject question, manual/token",
+            "level": "A2"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 1,
+            "new_id": "m79-subject-sentence-continuous",
+            "status": "new_authored_addition",
+            "function": "Full Continuous subject question retaining is, manual/token",
+            "level": "A2"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsEmbeddedQuestionsTheorySeeder": [
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 0,
+            "new_id": "m79-embedded-form-lexical-do",
+            "status": "new_authored_addition",
+            "function": "Retain lexical does while removing question do-support",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 1,
+            "new_id": "m79-embedded-form-negative-past",
+            "status": "new_authored_addition",
+            "function": "Negative embedded past preserves didn't plus base come",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 0,
+            "new_id": "m79-embedded-meaning-main-clause",
+            "status": "new_authored_addition",
+            "function": "Main interrogative versus statement with same inner clause",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 1,
+            "new_id": "m79-embedded-meaning-if-whether",
+            "status": "new_authored_addition",
+            "function": "Ordinary if/whether uncertainty not that assertion",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 0,
+            "new_id": "m79-embedded-sentence-lexical-do",
+            "status": "new_authored_addition",
+            "function": "Full knowledge-negative statement with lexical does and reviewed contraction alias",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 1,
+            "new_id": "m79-embedded-sentence-if-whether",
+            "status": "new_authored_addition",
+            "function": "Full main question preserving locked-door state; if/whether aliases",
+            "level": "B1"
+        }
+    ],
+    "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder": [
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 0,
+            "new_id": "m79-indirect-form-where-manager",
+            "status": "new_authored_addition",
+            "function": "Specified Could request preserving present location",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "selects",
+            "index": 1,
+            "new_id": "m79-indirect-form-speaker-preservation",
+            "status": "new_authored_addition",
+            "function": "Preserve addressee and past arrival in fixed request frame",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 0,
+            "new_id": "m79-indirect-meaning-information-reply",
+            "status": "new_authored_addition",
+            "function": "Practical platform information versus literal ability reply",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "choices",
+            "index": 1,
+            "new_id": "m79-indirect-meaning-current-wondering",
+            "status": "new_authored_addition",
+            "function": "Current polite-past request not automatic historical report",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 0,
+            "new_id": "m79-indirect-sentence-current-work",
+            "status": "new_authored_addition",
+            "function": "Full Could request with repeated you instances and present work",
+            "level": "B1"
+        },
+        {
+            "old_coordinate": null,
+            "group": "inputs",
+            "index": 1,
+            "new_id": "m79-indirect-sentence-current-room",
+            "status": "new_authored_addition",
+            "function": "Full current was-wondering request; reviewed connector and availability synonyms",
+            "level": "B1"
+        }
+    ]
+}

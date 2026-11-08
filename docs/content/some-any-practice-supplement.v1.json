@@ -1,0 +1,1655 @@
+{
+    "schema_version": 1,
+    "package": "some-any-native-practice-supplement",
+    "status": "frozen",
+    "targets": [
+        {
+            "topic": "places",
+            "local_url": "http://gramlyze.loc/theory/some-any/theory-some-any-places",
+            "definition": "database/seeders/Page_V3/Articles/SomeAny/SomeAnyPlacesTheorySeeder/definition.json",
+            "definition_sha256": "aea3e0ff35bb0db841691cf24063f164e29ac5211053fd80746d47df5902e941",
+            "release": "database/content-patches/m93-future-completion-demonstratives-some-any.v1.json",
+            "release_sha256": "58beaf325626784858765db31920c5dd660a49e233f6acb2d4c2d48c72d877a5",
+            "focus_level": "A2",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPlacesTheorySeeder",
+                "page_id": 264,
+                "page_category_id": 50,
+                "uuid": "9fcd6c4f-a0e3-5e1b-95a3-64ce4ede412c",
+                "locale": "uk",
+                "type": "practice-set",
+                "column": "left",
+                "sort_order": 7,
+                "level": null,
+                "heading": null,
+                "css_class": null,
+                "body_sha256": "f320f9eef821e4753e25da9873640a2101876600a54d39b085e2ec8d4b2beac5"
+            },
+            "before_data": {
+                "title": "6. Практика",
+                "select_title": "Вправа 1. Обери правильне слово",
+                "select_intro": "Обери somewhere / anywhere / nowhere / everywhere за видимим задумом. Для одного заперечення використовуй стандартну навчальну модель без подвійного заперечення.",
+                "selects": [
+                    {
+                        "label": "<p>Після пошуку я не можу знайти ключі в жодному з перевірених місць. Доповни стандартне речення з одним запереченням.</p><p lang=\"en\">I can’t find my keys ___.</p>",
+                        "prompt": "I can’t find my keys ______.",
+                        "answer": "anywhere",
+                        "accepted": [
+                            "anywhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t.",
+                            "anywhere": "I can’t find my keys anywhere. — Я ніде не можу знайти ключі. Can’t уже несе заперечення; anywhere охоплює перевірені місця.",
+                            "nowhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t.",
+                            "everywhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t."
+                        }
+                    },
+                    {
+                        "label": "<p>Вона хоче оселитися в якомусь одному, ще не обраному місці біля моря; не має на увазі всі місця. У цій вправі використай стверджувальну модель із some- для невизначеного місця; необмежений вибір будь-якого місця не мається на увазі.</p><p lang=\"en\">She wants to live ___ near the sea.</p>",
+                        "prompt": "She wants to live ______ near the sea.",
+                        "answer": "somewhere",
+                        "accepted": [
+                            "somewhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Somewhere зберігає одне невизначене місце; near the sea залишається в реченні.",
+                            "anywhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого.",
+                            "nowhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого.",
+                            "everywhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого."
+                        }
+                    },
+                    {
+                        "label": "<p>Це запрошення кудись піти сьогодні ввечері; мовець очікує згоди. Вибери для нього модель із some-, не нейтральний запит із any-.</p><p lang=\"en\">Do you want to go ___ this evening?</p>",
+                        "prompt": "Do you want to go ______ this evening?",
+                        "answer": "somewhere",
+                        "accepted": [
+                            "somewhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Виконано явну умову: запрошення в моделі з some-.",
+                            "anywhere": "Do you want to go anywhere this evening? теж може бути граматичним: «Ти хочеш кудись піти сьогодні ввечері?» Але тут прямо задано запрошення у форматі з some-, тому ключ somewhere; це не загальна заборона anywhere у запитанні.",
+                            "nowhere": "Правильно: Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Nowhere заперечує місце, everywhere означає всі місця; це не задане запрошення з some-.",
+                            "everywhere": "Правильно: Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Nowhere заперечує місце, everywhere означає всі місця; це не задане запрошення з some-."
+                        }
+                    }
+                ],
+                "options": [
+                    "somewhere",
+                    "anywhere",
+                    "nowhere",
+                    "everywhere"
+                ],
+                "input_title": "Вправа 3. Доповни й побудуй",
+                "input_intro": "У пунктах a–c введи лише пропущене слово. У пунктах d–e введи повне речення або склади його з груп слів; не повторюй готові частини коротких завдань із пропусками.",
+                "inputs": [
+                    {
+                        "before": "I don’t want to go",
+                        "after": "tonight.",
+                        "answer": "anywhere",
+                        "prompt": "Передай «Сьогодні ввечері я не хочу нікуди йти». Don’t уже є в реченні; введи лише слово місця для стандартної моделі одного заперечення.",
+                        "accepted": [
+                            "anywhere"
+                        ],
+                        "feedback": {
+                            "anywhere": "I don’t want to go anywhere tonight. — Сьогодні ввечері я не хочу нікуди йти. Don’t уже дає заперечення, тому в пропуску anywhere."
+                        }
+                    },
+                    {
+                        "before": "There is",
+                        "after": "to sit in this park. Every seat is occupied.",
+                        "answer": "nowhere",
+                        "prompt": "У парку всі місця для сидіння зайняті й немає іншого місця сісти. Передай «У цьому парку ніде сісти». Введи лише слово місця.",
+                        "accepted": [
+                            "nowhere"
+                        ],
+                        "feedback": {
+                            "nowhere": "There is nowhere to sit in this park. Every seat is occupied. — У цьому парку ніде сісти. Усі місця зайняті. Nowhere передає прямо задану відсутність місця."
+                        }
+                    },
+                    {
+                        "before": "He travels",
+                        "after": "for work.",
+                        "answer": "everywhere",
+                        "prompt": "Він їздить у справах у всі міста з названого в розмові списку, без винятку. Передай це повне охоплення одним словом у реченні; не йдеться про невідоме одне місце.",
+                        "accepted": [
+                            "everywhere"
+                        ],
+                        "feedback": {
+                            "everywhere": "He travels everywhere for work. — Він їздить усюди у справах. Everywhere тут охоплює всі міста з названого списку, не обов’язково всі місця світу."
+                        }
+                    },
+                    {
+                        "id": "m93-places-full-free-choice",
+                        "source_index": 11,
+                        "before": "in this park. / meet / We can / anywhere",
+                        "after": "У цьому парку немає обмежень щодо вибору місця зустрічі. Склади: «Ми можемо зустрітися будь-де в цьому парку». Почни з We; використай can, meet і anywhere, а назву області in this park постав у кінці.",
+                        "answer": "We can meet anywhere in this park.",
+                        "accepted": [
+                            "We can meet anywhere in this park."
+                        ],
+                        "feedback": {
+                            "we can meet anywhere in this park.": "We can meet anywhere in this park. — Ми можемо зустрітися будь-де в цьому парку. Anywhere передає дозволений вільний вибір, не всі місця одночасно."
+                        }
+                    },
+                    {
+                        "id": "m93-places-full-near",
+                        "source_index": 12,
+                        "before": "near the station. / nowhere / There is / to park",
+                        "after": "Біля вокзалу всі місця для паркування зайняті. Склади: «Біля вокзалу ніде припаркуватися». Почни з There, використай nowhere і to park; вокзал — station. Закінчи обмеженням near the station. Вручну можна There is або There's.",
+                        "answer": "There is nowhere to park near the station.",
+                        "accepted": [
+                            "There is nowhere to park near the station.",
+                            "There's nowhere to park near the station."
+                        ],
+                        "feedback": {
+                            "there is nowhere to park near the station.": "There is nowhere to park near the station. — Біля вокзалу ніде припаркуватися. Nowhere дає заперечний зміст, а near the station обмежує його околицями вокзалу.",
+                            "there's nowhere to park near the station.": "There's nowhere to park near the station. — Біля вокзалу ніде припаркуватися. There's — скорочення There is; обмеження near the station збережено."
+                        }
+                    }
+                ],
+                "rephrase_title": "Вправа 4. Перефразуй",
+                "rephrase_intro": "Збережи особу, час і обмеження місця. Для наведеного одного заперечного змісту перейди між not…anywhere та nowhere; ці пункти — ручне перефразування без банку токенів.",
+                "rephrase": [
+                    {
+                        "example_label": "Приклад:",
+                        "example_original": "I don’t go anywhere on Saturdays. — Я нікуди не ходжу по суботах.",
+                        "example_target": "I go nowhere on Saturdays. — Я нікуди не ходжу по суботах."
+                    },
+                    {
+                        "original": "1. I go nowhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Збережи той самий зміст і Friday evenings, але використай don’t…anywhere або повне do not…anywhere.",
+                        "placeholder": "Введи повне речення",
+                        "answer": "I don't go anywhere on Friday evenings.",
+                        "accepted": [
+                            "I don't go anywhere on Friday evenings.",
+                            "I do not go anywhere on Friday evenings."
+                        ],
+                        "feedback": {
+                            "i don't go anywhere on friday evenings.": "I don't go anywhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Збережено I, Friday evenings і заперечення через don't…anywhere.",
+                            "i do not go anywhere on friday evenings.": "I do not go anywhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Повне do not приймається замість don't; частота й особа не змінені."
+                        }
+                    },
+                    {
+                        "original": "2. She doesn’t go anywhere without her phone. — Вона нікуди не ходить без свого телефона. Передай той самий зміст через nowhere; збережи without her phone та особу.",
+                        "placeholder": "Введи повне речення",
+                        "answer": "She goes nowhere without her phone.",
+                        "accepted": [
+                            "She goes nowhere without her phone."
+                        ],
+                        "feedback": {
+                            "she goes nowhere without her phone.": "She goes nowhere without her phone. — Вона нікуди не ходить без свого телефона. Nowhere несе заперечення, goes узгоджено з she; without her phone збережено."
+                        }
+                    }
+                ],
+                "choice_title": "Вправа 2. Зрозумій охоплення місць",
+                "choice_intro": "Вибери висновок, який справді випливає з названої ситуації.",
+                "choices": [
+                    {
+                        "id": "m93-places-meaning-free-choice",
+                        "source_index": 9,
+                        "label": "<p>У читальній залі всі місця вільні й дозволені. Працівниця каже відвідувачу:</p><p lang=\"en\">You can sit anywhere in this room.</p><p>Що це дозволяє?</p>",
+                        "options": [
+                            "Вибрати будь-яке місце в цій кімнаті.",
+                            "Сісти в усіх місцях кімнати по черзі.",
+                            "Не сідати ніде в кімнаті."
+                        ],
+                        "answer": "Вибрати будь-яке місце в цій кімнаті.",
+                        "accepted": [
+                            "Вибрати будь-яке місце в цій кімнаті."
+                        ],
+                        "feedback": {
+                            "вибрати будь-яке місце в цій кімнаті.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Anywhere дає вільний вибір у названій кімнаті, а не вимогу зайняти всі місця.",
+                            "сісти в усіх місцях кімнати по черзі.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Це дозвіл вибрати місце; твердження не забороняє сидіти й не вимагає сісти всюди.",
+                            "не сідати ніде в кімнаті.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Це дозвіл вибрати місце; твердження не забороняє сидіти й не вимагає сісти всюди."
+                        }
+                    },
+                    {
+                        "id": "m93-places-meaning-near",
+                        "source_index": 10,
+                        "label": "<p>Турист шукає відкрите кафе поблизу вокзалу. Працівник говорить лише про найближчі вулиці:</p><p lang=\"en\">There is nowhere to eat near here.</p><p>Який висновок зберігає назване обмеження?</p>",
+                        "options": [
+                            "Ніде у світі неможливо поїсти.",
+                            "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.",
+                            "Можна поїсти в будь-якому місці поблизу."
+                        ],
+                        "answer": "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.",
+                        "accepted": [
+                            "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано."
+                        ],
+                        "feedback": {
+                            "ніде у світі неможливо поїсти.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Збережи near here: поблизу немає місця для їжі, але це не заборона й не висновок про весь світ.",
+                            "тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Near here обмежує висновок околицями; нічого не стверджено про віддалені місця.",
+                            "можна поїсти в будь-якому місці поблизу.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Збережи near here: поблизу немає місця для їжі, але це не заборона й не висновок про весь світ."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 5. Побудуй речення",
+                    "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+                    "footer": "Завдання підібрані лише для цієї теми."
+                },
+                "m93_native_v1": {
+                    "key": "some-any-places-6",
+                    "detail_keys": []
+                }
+            },
+            "before_data_sha256": "f320f9eef821e4753e25da9873640a2101876600a54d39b085e2ec8d4b2beac5",
+            "after_data": {
+                "title": "6. Практика",
+                "select_title": "Вправа 1. Обери правильне слово",
+                "select_intro": "Обери somewhere / anywhere / nowhere / everywhere за видимим задумом. Для одного заперечення використовуй стандартну навчальну модель без подвійного заперечення.",
+                "selects": [
+                    {
+                        "label": "<p>Після пошуку я не можу знайти ключі в жодному з перевірених місць. Доповни стандартне речення з одним запереченням.</p><p lang=\"en\">I can’t find my keys ___.</p>",
+                        "prompt": "I can’t find my keys ______.",
+                        "answer": "anywhere",
+                        "accepted": [
+                            "anywhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t.",
+                            "anywhere": "I can’t find my keys anywhere. — Я ніде не можу знайти ключі. Can’t уже несе заперечення; anywhere охоплює перевірені місця.",
+                            "nowhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t.",
+                            "everywhere": "Правильно: I can’t find my keys anywhere. — Я ніде не можу знайти ключі. За заданого нульового результату й стандартної моделі потрібне anywhere після can’t."
+                        }
+                    },
+                    {
+                        "label": "<p>Вона хоче оселитися в якомусь одному, ще не обраному місці біля моря; не має на увазі всі місця. У цій вправі використай стверджувальну модель із some- для невизначеного місця; необмежений вибір будь-якого місця не мається на увазі.</p><p lang=\"en\">She wants to live ___ near the sea.</p>",
+                        "prompt": "She wants to live ______ near the sea.",
+                        "answer": "somewhere",
+                        "accepted": [
+                            "somewhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Somewhere зберігає одне невизначене місце; near the sea залишається в реченні.",
+                            "anywhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого.",
+                            "nowhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого.",
+                            "everywhere": "Правильно: She wants to live somewhere near the sea. — Вона хоче жити десь біля моря. Не йдеться ні про відсутність місць, ні про всі місця, ні про необмежений вибір будь-якого."
+                        }
+                    },
+                    {
+                        "label": "<p>Це запрошення кудись піти сьогодні ввечері; мовець очікує згоди. Вибери для нього модель із some-, не нейтральний запит із any-.</p><p lang=\"en\">Do you want to go ___ this evening?</p>",
+                        "prompt": "Do you want to go ______ this evening?",
+                        "answer": "somewhere",
+                        "accepted": [
+                            "somewhere"
+                        ],
+                        "feedback": {
+                            "somewhere": "Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Виконано явну умову: запрошення в моделі з some-.",
+                            "anywhere": "Do you want to go anywhere this evening? теж може бути граматичним: «Ти хочеш кудись піти сьогодні ввечері?» Але тут прямо задано запрошення у форматі з some-, тому ключ somewhere; це не загальна заборона anywhere у запитанні.",
+                            "nowhere": "Правильно: Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Nowhere заперечує місце, everywhere означає всі місця; це не задане запрошення з some-.",
+                            "everywhere": "Правильно: Do you want to go somewhere this evening? — Хочеш кудись піти сьогодні ввечері? Nowhere заперечує місце, everywhere означає всі місця; це не задане запрошення з some-."
+                        }
+                    }
+                ],
+                "options": [
+                    "somewhere",
+                    "anywhere",
+                    "nowhere",
+                    "everywhere"
+                ],
+                "input_title": "Заповни пропуски та склади речення",
+                "input_intro": "Виконай короткі завдання за їхніми умовами. Повні речення вводь вручну або складай із перемішаних груп.",
+                "inputs": [
+                    {
+                        "before": "I don’t want to go",
+                        "after": "tonight. Підказка: Заперечення вже наведене; уведи лише слово місця зі значенням «нікуди».",
+                        "answer": "anywhere",
+                        "prompt": "Передай «Сьогодні ввечері я не хочу нікуди йти». Don’t уже є в реченні; введи лише слово місця для стандартної моделі одного заперечення.",
+                        "accepted": [
+                            "anywhere"
+                        ],
+                        "feedback": {
+                            "anywhere": "I don’t want to go anywhere tonight. — Сьогодні ввечері я не хочу нікуди йти. Don’t уже дає заперечення, тому в пропуску anywhere."
+                        },
+                        "verb_hint": "Заперечення вже наведене; уведи лише слово місця зі значенням «нікуди».",
+                        "practice_kind": "gap"
+                    },
+                    {
+                        "before": "There is",
+                        "after": "to sit in this park. Every seat is occupied. Підказка: Усі місця зайняті; потрібне одне слово, яке саме передає відсутність місця.",
+                        "answer": "nowhere",
+                        "prompt": "У парку всі місця для сидіння зайняті й немає іншого місця сісти. Передай «У цьому парку ніде сісти». Введи лише слово місця.",
+                        "accepted": [
+                            "nowhere"
+                        ],
+                        "feedback": {
+                            "nowhere": "There is nowhere to sit in this park. Every seat is occupied. — У цьому парку ніде сісти. Усі місця зайняті. Nowhere передає прямо задану відсутність місця."
+                        },
+                        "verb_hint": "Усі місця зайняті; потрібне одне слово, яке саме передає відсутність місця.",
+                        "practice_kind": "gap"
+                    },
+                    {
+                        "before": "He travels",
+                        "after": "for work. Підказка: Назви повне охоплення всіх згаданих міст одним словом; не додавай назви особи.",
+                        "answer": "everywhere",
+                        "prompt": "Він їздить у справах у всі міста з названого в розмові списку, без винятку. Передай це повне охоплення одним словом у реченні; не йдеться про невідоме одне місце.",
+                        "accepted": [
+                            "everywhere"
+                        ],
+                        "feedback": {
+                            "everywhere": "He travels everywhere for work. — Він їздить усюди у справах. Everywhere тут охоплює всі міста з названого списку, не обов’язково всі місця світу."
+                        },
+                        "verb_hint": "Назви повне охоплення всіх згаданих міст одним словом; не додавай назви особи.",
+                        "practice_kind": "gap"
+                    },
+                    {
+                        "id": "m93-places-full-free-choice",
+                        "source_index": 11,
+                        "before": "anywhere / in this park. / We can / meet",
+                        "after": "У цьому парку немає обмежень щодо вибору місця зустрічі. Склади: «Ми можемо зустрітися будь-де в цьому парку». Почни з We; використай can, meet і anywhere, а назву області in this park постав у кінці. Підказка: Почни з нас і можливості зустрітися; назви вільний вибір місця лише в цьому парку.",
+                        "answer": "We can meet anywhere in this park.",
+                        "accepted": [
+                            "We can meet anywhere in this park."
+                        ],
+                        "feedback": {
+                            "we can meet anywhere in this park.": "We can meet anywhere in this park. — Ми можемо зустрітися будь-де в цьому парку. Anywhere передає дозволений вільний вибір, не всі місця одночасно."
+                        },
+                        "verb_hint": "Почни з нас і можливості зустрітися; назви вільний вибір місця лише в цьому парку.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "m93-places-full-near",
+                        "source_index": 12,
+                        "before": "the station. / to park / There is / nowhere / near",
+                        "after": "Біля вокзалу всі місця для паркування зайняті. Склади: «Біля вокзалу ніде припаркуватися». Почни з There, використай nowhere і to park; вокзал — station. Закінчи обмеженням near the station. Вручну можна There is або There's. Підказка: Почни з конструкції наявності; запереч місце для паркування саме біля вокзалу.",
+                        "answer": "There is nowhere to park near the station.",
+                        "accepted": [
+                            "There is nowhere to park near the station.",
+                            "There's nowhere to park near the station."
+                        ],
+                        "feedback": {
+                            "there is nowhere to park near the station.": "There is nowhere to park near the station. — Біля вокзалу ніде припаркуватися. Nowhere дає заперечний зміст, а near the station обмежує його околицями вокзалу.",
+                            "there's nowhere to park near the station.": "There's nowhere to park near the station. — Біля вокзалу ніде припаркуватися. There's — скорочення There is; обмеження near the station збережено."
+                        },
+                        "verb_hint": "Почни з конструкції наявності; запереч місце для паркування саме біля вокзалу.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "some-any-native-places-translate-1",
+                        "practice_kind": "translation",
+                        "before": "somewhere quiet / There is / near the lake.",
+                        "after": "Біля озера є десь тихе місце. Почни з конструкції наявності; не називай конкретного місця. Підказка: Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                        "verb_hint": "Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                        "answer": "There is somewhere quiet near the lake.",
+                        "accepted": [
+                            "There is somewhere quiet near the lake.",
+                            "There's somewhere quiet near the lake.",
+                            "There is somewhere quiet by the lake.",
+                            "There's somewhere quiet by the lake."
+                        ],
+                        "feedback": {
+                            "there is somewhere quiet near the lake.": "Правильно. Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                            "there's somewhere quiet near the lake.": "Правильно. Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                            "there is somewhere quiet by the lake.": "Правильно. Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                            "there's somewhere quiet by the lake.": "Правильно. Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-places-translate-2",
+                        "practice_kind": "translation",
+                        "before": "You can leave / anywhere / your bag / in this room.",
+                        "after": "Ти можеш залишити свою сумку будь-де в цій кімнаті. Йдеться про вільний вибір місця. Підказка: Почни зі співрозмовника й дозволу залишити сумку; вільний вибір обмежений цією кімнатою.",
+                        "verb_hint": "Почни зі співрозмовника й дозволу залишити сумку; вільний вибір обмежений цією кімнатою.",
+                        "answer": "You can leave your bag anywhere in this room.",
+                        "accepted": [
+                            "You can leave your bag anywhere in this room.",
+                            "You can put your bag anywhere in this room."
+                        ],
+                        "feedback": {
+                            "you can leave your bag anywhere in this room.": "Правильно. Почни зі співрозмовника й дозволу залишити сумку; вільний вибір обмежений цією кімнатою.",
+                            "you can put your bag anywhere in this room.": "Правильно. Почни зі співрозмовника й дозволу залишити сумку; вільний вибір обмежений цією кімнатою."
+                        }
+                    }
+                ],
+                "rephrase_title": "Вправа 4. Перефразуй",
+                "rephrase_intro": "Збережи особу, час і обмеження місця. Для наведеного одного заперечного змісту перейди між not…anywhere та nowhere; ці пункти — ручне перефразування без банку токенів.",
+                "rephrase": [
+                    {
+                        "example_label": "Приклад:",
+                        "example_original": "I don’t go anywhere on Saturdays. — Я нікуди не ходжу по суботах.",
+                        "example_target": "I go nowhere on Saturdays. — Я нікуди не ходжу по суботах."
+                    },
+                    {
+                        "original": "1. I go nowhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Збережи той самий зміст і Friday evenings, але використай don’t…anywhere або повне do not…anywhere. Підказка: Збережи мовця й п’ятничні вечори; використай заперечне допоміжне дієслово та слово місця без другого заперечення.",
+                        "placeholder": "Введи повне речення",
+                        "answer": "I don't go anywhere on Friday evenings.",
+                        "accepted": [
+                            "I don't go anywhere on Friday evenings.",
+                            "I do not go anywhere on Friday evenings."
+                        ],
+                        "feedback": {
+                            "i don't go anywhere on friday evenings.": "I don't go anywhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Збережено I, Friday evenings і заперечення через don't…anywhere.",
+                            "i do not go anywhere on friday evenings.": "I do not go anywhere on Friday evenings. — Я нікуди не ходжу у п’ятницю ввечері. Повне do not приймається замість don't; частота й особа не змінені."
+                        },
+                        "verb_hint": "Збережи мовця й п’ятничні вечори; використай заперечне допоміжне дієслово та слово місця без другого заперечення."
+                    },
+                    {
+                        "original": "2. She doesn’t go anywhere without her phone. — Вона нікуди не ходить без свого телефона. Передай той самий зміст через nowhere; збережи without her phone та особу. Підказка: Збережи жінку та відсутність телефона; заперечний зміст передай одним словом місця й узгодь дієслово однини.",
+                        "placeholder": "Введи повне речення",
+                        "answer": "She goes nowhere without her phone.",
+                        "accepted": [
+                            "She goes nowhere without her phone."
+                        ],
+                        "feedback": {
+                            "she goes nowhere without her phone.": "She goes nowhere without her phone. — Вона нікуди не ходить без свого телефона. Nowhere несе заперечення, goes узгоджено з she; without her phone збережено."
+                        },
+                        "verb_hint": "Збережи жінку та відсутність телефона; заперечний зміст передай одним словом місця й узгодь дієслово однини."
+                    }
+                ],
+                "choice_title": "Вправа 2. Зрозумій охоплення місць",
+                "choice_intro": "Вибери висновок, який справді випливає з названої ситуації.",
+                "choices": [
+                    {
+                        "id": "m93-places-meaning-free-choice",
+                        "source_index": 9,
+                        "label": "<p>У читальній залі всі місця вільні й дозволені. Працівниця каже відвідувачу:</p><p lang=\"en\">You can sit anywhere in this room.</p><p>Що це дозволяє?</p>",
+                        "options": [
+                            "Вибрати будь-яке місце в цій кімнаті.",
+                            "Сісти в усіх місцях кімнати по черзі.",
+                            "Не сідати ніде в кімнаті."
+                        ],
+                        "answer": "Вибрати будь-яке місце в цій кімнаті.",
+                        "accepted": [
+                            "Вибрати будь-яке місце в цій кімнаті."
+                        ],
+                        "feedback": {
+                            "вибрати будь-яке місце в цій кімнаті.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Anywhere дає вільний вибір у названій кімнаті, а не вимогу зайняти всі місця.",
+                            "сісти в усіх місцях кімнати по черзі.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Це дозвіл вибрати місце; твердження не забороняє сидіти й не вимагає сісти всюди.",
+                            "не сідати ніде в кімнаті.": "You can sit anywhere in this room. — Ти можеш сісти будь-де в цій кімнаті. Це дозвіл вибрати місце; твердження не забороняє сидіти й не вимагає сісти всюди."
+                        }
+                    },
+                    {
+                        "id": "m93-places-meaning-near",
+                        "source_index": 10,
+                        "label": "<p>Турист шукає відкрите кафе поблизу вокзалу. Працівник говорить лише про найближчі вулиці:</p><p lang=\"en\">There is nowhere to eat near here.</p><p>Який висновок зберігає назване обмеження?</p>",
+                        "options": [
+                            "Ніде у світі неможливо поїсти.",
+                            "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.",
+                            "Можна поїсти в будь-якому місці поблизу."
+                        ],
+                        "answer": "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.",
+                        "accepted": [
+                            "Тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано."
+                        ],
+                        "feedback": {
+                            "ніде у світі неможливо поїсти.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Збережи near here: поблизу немає місця для їжі, але це не заборона й не висновок про весь світ.",
+                            "тут поблизу немає місця, де можна поїсти; про віддалені місця не сказано.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Near here обмежує висновок околицями; нічого не стверджено про віддалені місця.",
+                            "можна поїсти в будь-якому місці поблизу.": "There is nowhere to eat near here. — Тут поблизу ніде поїсти. Збережи near here: поблизу немає місця для їжі, але це не заборона й не висновок про весь світ."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPlacesAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 5. Побудуй речення",
+                    "intro": "Склади англійське речення за українською умовою, клікаючи на слова.",
+                    "footer": "Завдання підібрані лише для цієї теми."
+                },
+                "m93_native_v1": {
+                    "key": "some-any-places-6",
+                    "detail_keys": []
+                },
+                "some_any_practice_supplement": {
+                    "revision": "v1",
+                    "topic": "places"
+                }
+            },
+            "after_data_sha256": "3c9cfb35e103c029ae037e0d04aae52b1fc8d3d807412664d0386e9771b8cd80",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "kind": "gap",
+                    "hint_uk": "Заперечення вже наведене; уведи лише слово місця зі значенням «нікуди»."
+                },
+                {
+                    "index": 1,
+                    "kind": "gap",
+                    "hint_uk": "Усі місця зайняті; потрібне одне слово, яке саме передає відсутність місця."
+                },
+                {
+                    "index": 2,
+                    "kind": "gap",
+                    "hint_uk": "Назви повне охоплення всіх згаданих міст одним словом; не додавай назви особи."
+                },
+                {
+                    "index": 3,
+                    "kind": "order",
+                    "hint_uk": "Почни з нас і можливості зустрітися; назви вільний вибір місця лише в цьому парку.",
+                    "ordered_groups": [
+                        "We can",
+                        "meet",
+                        "anywhere",
+                        "in this park."
+                    ],
+                    "shuffled_groups": [
+                        "anywhere",
+                        "in this park.",
+                        "We can",
+                        "meet"
+                    ]
+                },
+                {
+                    "index": 4,
+                    "kind": "order",
+                    "hint_uk": "Почни з конструкції наявності; запереч місце для паркування саме біля вокзалу.",
+                    "ordered_groups": [
+                        "There is",
+                        "nowhere",
+                        "to park",
+                        "near",
+                        "the station."
+                    ],
+                    "shuffled_groups": [
+                        "the station.",
+                        "to park",
+                        "There is",
+                        "nowhere",
+                        "near"
+                    ]
+                }
+            ],
+            "editing_hint_indices": [
+                1,
+                2
+            ],
+            "added": [
+                {
+                    "id": "some-any-native-places-translate-1",
+                    "index": 5,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Біля озера є десь тихе місце. Почни з конструкції наявності; не називай конкретного місця.",
+                    "answer": "There is somewhere quiet near the lake.",
+                    "accepted": [
+                        "There is somewhere quiet near the lake.",
+                        "There's somewhere quiet near the lake.",
+                        "There is somewhere quiet by the lake.",
+                        "There's somewhere quiet by the lake."
+                    ],
+                    "hint_uk": "Після слова невизначеного місця постав ознаку тиші; місце біля озера назви наприкінці.",
+                    "ordered_groups": [
+                        "There is",
+                        "somewhere quiet",
+                        "near the lake."
+                    ],
+                    "shuffled_groups": [
+                        "somewhere quiet",
+                        "There is",
+                        "near the lake."
+                    ]
+                },
+                {
+                    "id": "some-any-native-places-translate-2",
+                    "index": 6,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Ти можеш залишити свою сумку будь-де в цій кімнаті. Йдеться про вільний вибір місця.",
+                    "answer": "You can leave your bag anywhere in this room.",
+                    "accepted": [
+                        "You can leave your bag anywhere in this room.",
+                        "You can put your bag anywhere in this room."
+                    ],
+                    "hint_uk": "Почни зі співрозмовника й дозволу залишити сумку; вільний вибір обмежений цією кімнатою.",
+                    "ordered_groups": [
+                        "You can leave",
+                        "your bag",
+                        "anywhere",
+                        "in this room."
+                    ],
+                    "shuffled_groups": [
+                        "You can leave",
+                        "anywhere",
+                        "your bag",
+                        "in this room."
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "5": {
+                    "near the lake.": "near the lake. (by the lake.)"
+                },
+                "6": {
+                    "You can leave": "You can leave (You can put)"
+                }
+            }
+        },
+        {
+            "topic": "people",
+            "local_url": "http://gramlyze.loc/theory/some-any/theory-some-any-people",
+            "definition": "database/seeders/Page_V3/Articles/SomeAny/SomeAnyPeopleTheorySeeder/definition.json",
+            "definition_sha256": "9d9214e9430126b9ba53c6d1d5173722c7b1b9e5e4408d488f219527d97ea001",
+            "release": "database/content-patches/m93-future-completion-demonstratives-some-any.v1.json",
+            "release_sha256": "58beaf325626784858765db31920c5dd660a49e233f6acb2d4c2d48c72d877a5",
+            "focus_level": "A2",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyPeopleTheorySeeder",
+                "page_id": 263,
+                "page_category_id": 50,
+                "uuid": "04a58518-fe28-5699-afdd-1dab992bdee2",
+                "locale": "uk",
+                "type": "practice-set",
+                "column": "left",
+                "sort_order": 7,
+                "level": "A2",
+                "heading": null,
+                "css_class": null,
+                "body_sha256": "05b39909b0150576508666f821cf8d57743a54877911117baccd84c6a3ee6674"
+            },
+            "before_data": {
+                "title": "5. Практика",
+                "select_title": "Обери потрібну форму",
+                "select_intro": "Виконай видиму умову й обери один варіант. Інший задум не оголошується неграматичним, якщо він просто не відповідає цій задачі.",
+                "choice_title": "Перевір розуміння",
+                "choice_intro": "Обери висновок зі змісту й заданої ситуації, не додаючи неназваної кількості або іншої області заперечення.",
+                "choice_options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "input_title": "Побудуй повне речення",
+                "input_intro": "Уведи все речення вручну або склади його з перемішаних груп слів. Дотримайся видимого змісту, лексичних опор і порядку.",
+                "rephrase": [],
+                "selects": [
+                    {
+                        "id": "m93-people-form-neutral",
+                        "source_index": 1,
+                        "label": "Мовець не знає, чи є хтось в офісі, і не очікує наперед ні «так», ні «ні». Обери форму для відкритого нейтрального запитання.<br>Are there ___ people in the office now?<br>У офісі зараз є люди?",
+                        "answer": "any",
+                        "accepted": [
+                            "any"
+                        ],
+                        "options": [
+                            "any",
+                            "some",
+                            "no"
+                        ],
+                        "feedback": {
+                            "any": "Are there any people in the office now? — У офісі зараз є люди? Any виконує заданий нейтральний задум без припущення про наявність людей.",
+                            "some": "Для заданого нейтрального задуму: Are there any people in the office now? — У офісі зараз є люди? Some може бути доречним за очікування «так», але це не задум цієї вправи.",
+                            "no": "Для заданого нейтрального задуму: Are there any people in the office now? — У офісі зараз є люди? Питання з no перевіряло б відсутність людей, а тут цього припущення немає."
+                        }
+                    },
+                    {
+                        "id": "m93-people-form-number",
+                        "source_index": 2,
+                        "label": "Обери пару дієслів для двох незмінених підметів: people — множина; someone — займенникова форма однини.<br>Some people ___ waiting outside. Someone ___ at the door.<br>Деякі люди чекають надворі. Хтось біля дверей.",
+                        "answer": "are / is",
+                        "accepted": [
+                            "are / is"
+                        ],
+                        "options": [
+                            "are / is",
+                            "is / are",
+                            "is / is"
+                        ],
+                        "feedback": {
+                            "are / is": "Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. Потрібні різні форми: people are, someone is.",
+                            "is / are": "Правильно: Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. People не має тут однини, а someone не узгоджується з are.",
+                            "is / is": "Правильно: Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. З people потрібне are; саме someone має is."
+                        }
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "m93-people-meaning-expectation",
+                        "source_index": 3,
+                        "label": "Організатор чув, що співрозмовник уже зустрічав декого з присутніх, і перевіряє це припущення.<br>Do you know some people here?<br>Ти тут знаєш декого?",
+                        "prompt": "Що відповідає цьому задуму?<br>a) Some робить будь-яке питання неграматичним.<br>b) Запитувач очікує знайомих серед присутніх; це ще не підтверджена відповідь.<br>c) Запитання доводить, що співрозмовник знає всіх присутніх.",
+                        "answer": "b",
+                        "accepted": [
+                            "b"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Some people не заборонене самим знаком питання. Тут є явне очікування, що знайомі серед присутніх є.",
+                            "b": "Do you know some people here? — Ти тут знаєш декого? Запитувач очікує позитивну відповідь, але питання саме по собі не доводить, що знайомство справді є.",
+                            "c": "Ні. Ні some people, ні саме питання не стверджують знайомства з усіма присутніми; точної кількості не названо."
+                        }
+                    },
+                    {
+                        "id": "m93-people-meaning-here",
+                        "source_index": 4,
+                        "label": "Людина вперше прийшла на цю зустріч. У неї є друзі в іншому місті, але жоден із присутніх їй не знайомий.<br>I do not know anyone here.<br>Я тут нікого не знаю.",
+                        "prompt": "Який висновок правильний?<br>a) Серед людей тут немає знайомих; знайомства деінде не заперечуються.<br>b) У цієї людини немає жодних знайомих ніде у світі.<br>c) У кімнаті взагалі немає людей.",
+                        "answer": "a",
+                        "accepted": [
+                            "a"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "I do not know anyone here. — Я тут нікого не знаю. Here обмежує заперечення цим місцем; речення не скасовує друзів в іншому місті.",
+                            "b": "Ні. Слово here не дозволяє поширити висновок на весь світ. Умова прямо називає друзів в іншому місті.",
+                            "c": "Ні. Йдеться про незнайомство з присутніми, а не про те, що в кімнаті фізично немає людей."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "id": "m93-people-full-group",
+                        "source_index": 5,
+                        "before": "speak Spanish. / in our group / Some people",
+                        "after": "Деякі люди в нашій групі говорять іспанською. Передай «деякі люди» словосполученням із people; «в нашій групі» — in our group; «говорять іспанською» — speak Spanish. Спочатку назви людей з уточненням групи, потім їхню дію. Не замінюй групу на someone.",
+                        "answer": "Some people in our group speak Spanish.",
+                        "accepted": [
+                            "Some people in our group speak Spanish."
+                        ],
+                        "feedback": {
+                            "some people in our group speak spanish.": "Some people in our group speak Spanish. — Деякі люди в нашій групі говорять іспанською. Множина people, уточнення нашої групи та дія збережені; кількості людей не додано.",
+                            "some people in our group speak spanish": "Some people in our group speak Spanish. — Деякі люди в нашій групі говорять іспанською. Множина people, уточнення нашої групи та дія збережені; кількості людей не додано."
+                        }
+                    },
+                    {
+                        "id": "m93-people-full-negative",
+                        "source_index": 6,
+                        "before": "anyone / here. / I do not / know",
+                        "after": "Я тут нікого не знаю. Йдеться лише про людей у цьому місці. Почни з I та використай заперечну модель з do not або don't; дієслово know, займенник anyone (також допускається anybody), а here — наприкінці. Інші перефразування з nobody тут не є заданою моделлю, хоча можуть бути граматичними.",
+                        "answer": "I do not know anyone here.",
+                        "accepted": [
+                            "I do not know anyone here.",
+                            "I don't know anyone here.",
+                            "I do not know anybody here.",
+                            "I don't know anybody here."
+                        ],
+                        "feedback": {
+                            "i do not know anyone here.": "I do not know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anyone here": "I do not know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anyone here.": "I don't know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anyone here": "I don't know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anybody here.": "I do not know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anybody here": "I do not know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anybody here.": "I don't know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anybody here": "I don't know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPeopleAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 4. Побудуй речення"
+                },
+                "m93_native_v1": {
+                    "key": "theory-some-any-people-practice",
+                    "detail_keys": []
+                }
+            },
+            "before_data_sha256": "05b39909b0150576508666f821cf8d57743a54877911117baccd84c6a3ee6674",
+            "after_data": {
+                "title": "5. Практика",
+                "select_title": "Обери потрібну форму",
+                "select_intro": "Виконай видиму умову й обери один варіант. Інший задум не оголошується неграматичним, якщо він просто не відповідає цій задачі.",
+                "choice_title": "Перевір розуміння",
+                "choice_intro": "Обери висновок зі змісту й заданої ситуації, не додаючи неназваної кількості або іншої області заперечення.",
+                "choice_options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "input_title": "Заповни пропуски та склади речення",
+                "input_intro": "Виконай короткі завдання за їхніми умовами. Повні речення вводь вручну або складай із перемішаних груп.",
+                "rephrase": [],
+                "selects": [
+                    {
+                        "id": "m93-people-form-neutral",
+                        "source_index": 1,
+                        "label": "Мовець не знає, чи є хтось в офісі, і не очікує наперед ні «так», ні «ні». Обери форму для відкритого нейтрального запитання.<br>Are there ___ people in the office now?<br>У офісі зараз є люди?",
+                        "answer": "any",
+                        "accepted": [
+                            "any"
+                        ],
+                        "options": [
+                            "any",
+                            "some",
+                            "no"
+                        ],
+                        "feedback": {
+                            "any": "Are there any people in the office now? — У офісі зараз є люди? Any виконує заданий нейтральний задум без припущення про наявність людей.",
+                            "some": "Для заданого нейтрального задуму: Are there any people in the office now? — У офісі зараз є люди? Some може бути доречним за очікування «так», але це не задум цієї вправи.",
+                            "no": "Для заданого нейтрального задуму: Are there any people in the office now? — У офісі зараз є люди? Питання з no перевіряло б відсутність людей, а тут цього припущення немає."
+                        }
+                    },
+                    {
+                        "id": "m93-people-form-number",
+                        "source_index": 2,
+                        "label": "Обери пару дієслів для двох незмінених підметів: people — множина; someone — займенникова форма однини.<br>Some people ___ waiting outside. Someone ___ at the door.<br>Деякі люди чекають надворі. Хтось біля дверей.",
+                        "answer": "are / is",
+                        "accepted": [
+                            "are / is"
+                        ],
+                        "options": [
+                            "are / is",
+                            "is / are",
+                            "is / is"
+                        ],
+                        "feedback": {
+                            "are / is": "Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. Потрібні різні форми: people are, someone is.",
+                            "is / are": "Правильно: Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. People не має тут однини, а someone не узгоджується з are.",
+                            "is / is": "Правильно: Some people are waiting outside. Someone is at the door. — Деякі люди чекають надворі. Хтось біля дверей. З people потрібне are; саме someone має is."
+                        }
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "m93-people-meaning-expectation",
+                        "source_index": 3,
+                        "label": "Організатор чув, що співрозмовник уже зустрічав декого з присутніх, і перевіряє це припущення.<br>Do you know some people here?<br>Ти тут знаєш декого?",
+                        "prompt": "Що відповідає цьому задуму?<br>a) Some робить будь-яке питання неграматичним.<br>b) Запитувач очікує знайомих серед присутніх; це ще не підтверджена відповідь.<br>c) Запитання доводить, що співрозмовник знає всіх присутніх.",
+                        "answer": "b",
+                        "accepted": [
+                            "b"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Some people не заборонене самим знаком питання. Тут є явне очікування, що знайомі серед присутніх є.",
+                            "b": "Do you know some people here? — Ти тут знаєш декого? Запитувач очікує позитивну відповідь, але питання саме по собі не доводить, що знайомство справді є.",
+                            "c": "Ні. Ні some people, ні саме питання не стверджують знайомства з усіма присутніми; точної кількості не названо."
+                        }
+                    },
+                    {
+                        "id": "m93-people-meaning-here",
+                        "source_index": 4,
+                        "label": "Людина вперше прийшла на цю зустріч. У неї є друзі в іншому місті, але жоден із присутніх їй не знайомий.<br>I do not know anyone here.<br>Я тут нікого не знаю.",
+                        "prompt": "Який висновок правильний?<br>a) Серед людей тут немає знайомих; знайомства деінде не заперечуються.<br>b) У цієї людини немає жодних знайомих ніде у світі.<br>c) У кімнаті взагалі немає людей.",
+                        "answer": "a",
+                        "accepted": [
+                            "a"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "I do not know anyone here. — Я тут нікого не знаю. Here обмежує заперечення цим місцем; речення не скасовує друзів в іншому місті.",
+                            "b": "Ні. Слово here не дозволяє поширити висновок на весь світ. Умова прямо називає друзів в іншому місті.",
+                            "c": "Ні. Йдеться про незнайомство з присутніми, а не про те, що в кімнаті фізично немає людей."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "id": "m93-people-full-group",
+                        "source_index": 5,
+                        "before": "in our group / Some people / speak Spanish.",
+                        "after": "Деякі люди в нашій групі говорять іспанською. Передай «деякі люди» словосполученням із people; «в нашій групі» — in our group; «говорять іспанською» — speak Spanish. Спочатку назви людей з уточненням групи, потім їхню дію. Не замінюй групу на someone. Підказка: Почни з деяких людей, уточни нашу групу й назви мову; збережи множину.",
+                        "answer": "Some people in our group speak Spanish.",
+                        "accepted": [
+                            "Some people in our group speak Spanish."
+                        ],
+                        "feedback": {
+                            "some people in our group speak spanish.": "Some people in our group speak Spanish. — Деякі люди в нашій групі говорять іспанською. Множина people, уточнення нашої групи та дія збережені; кількості людей не додано.",
+                            "some people in our group speak spanish": "Some people in our group speak Spanish. — Деякі люди в нашій групі говорять іспанською. Множина people, уточнення нашої групи та дія збережені; кількості людей не додано."
+                        },
+                        "verb_hint": "Почни з деяких людей, уточни нашу групу й назви мову; збережи множину.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "m93-people-full-negative",
+                        "source_index": 6,
+                        "before": "I do not / anyone / here. / know",
+                        "after": "Я тут нікого не знаю. Йдеться лише про людей у цьому місці. Почни з I та використай заперечну модель з do not або don't; дієслово know, займенник anyone (також допускається anybody), а here — наприкінці. Інші перефразування з nobody тут не є заданою моделлю, хоча можуть бути граматичними. Підказка: Почни з мовця та заперечення; назви відсутність знайомих лише в цьому місці.",
+                        "answer": "I do not know anyone here.",
+                        "accepted": [
+                            "I do not know anyone here.",
+                            "I don't know anyone here.",
+                            "I do not know anybody here.",
+                            "I don't know anybody here."
+                        ],
+                        "feedback": {
+                            "i do not know anyone here.": "I do not know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anyone here": "I do not know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anyone here.": "I don't know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anyone here": "I don't know anyone here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anybody here.": "I do not know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i do not know anybody here": "I do not know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anybody here.": "I don't know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти.",
+                            "i don't know anybody here": "I don't know anybody here. — Я тут нікого не знаю. Here зберігає місцеву межу заперечення. Anyone/anybody і повна/скорочена форма do not — явно дозволені варіанти."
+                        },
+                        "verb_hint": "Почни з мовця та заперечення; назви відсутність знайомих лише в цьому місці.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "some-any-native-people-gap-1",
+                        "practice_kind": "gap",
+                        "before": "____ has left a red glove on the bench. (Хтось залишив червону рукавичку на лавці.)",
+                        "after": "Назви невідому особу одним займенником; однина допоміжного дієслова вже наведена. Допустимі варіанти: (Someone / Somebody).",
+                        "verb_hint": "Назви невідому особу одним займенником; однина допоміжного дієслова вже наведена.",
+                        "answer": "Someone",
+                        "accepted": [
+                            "Someone",
+                            "Somebody"
+                        ],
+                        "feedback": {
+                            "someone": "Правильно. Назви невідому особу одним займенником; однина допоміжного дієслова вже наведена.",
+                            "somebody": "Правильно. Назви невідому особу одним займенником; однина допоміжного дієслова вже наведена."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-people-gap-2",
+                        "practice_kind": "gap",
+                        "before": "There isn't ____ in the music room. (У музичній кімнаті нікого немає.)",
+                        "after": "Заперечення вже наведене; уведи займенник для будь-якої людини, не додаючи другого заперечення. Допустимі варіанти: (anybody / anyone).",
+                        "verb_hint": "Заперечення вже наведене; уведи займенник для будь-якої людини, не додаючи другого заперечення.",
+                        "answer": "anybody",
+                        "accepted": [
+                            "anybody",
+                            "anyone"
+                        ],
+                        "feedback": {
+                            "anybody": "Правильно. Заперечення вже наведене; уведи займенник для будь-якої людини, не додаючи другого заперечення.",
+                            "anyone": "Правильно. Заперечення вже наведене; уведи займенник для будь-якої людини, не додаючи другого заперечення."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-people-translate-1",
+                        "practice_kind": "translation",
+                        "before": "is waiting / Everyone / main entrance. / by the",
+                        "after": "Усі чекають біля головного входу. Почни з одного займенника для всіх людей; дія відбувається зараз. Підказка: Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                        "verb_hint": "Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                        "answer": "Everyone is waiting by the main entrance.",
+                        "accepted": [
+                            "Everyone is waiting by the main entrance.",
+                            "Everybody is waiting by the main entrance.",
+                            "Everyone is waiting near the main entrance.",
+                            "Everybody is waiting near the main entrance."
+                        ],
+                        "feedback": {
+                            "everyone is waiting by the main entrance.": "Правильно. Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                            "everybody is waiting by the main entrance.": "Правильно. Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                            "everyone is waiting near the main entrance.": "Правильно. Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                            "everybody is waiting near the main entrance.": "Правильно. Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-people-translate-2",
+                        "practice_kind": "translation",
+                        "before": "knows / the new password. / Nobody",
+                        "after": "Ніхто не знає нового пароля. Почни із заперечного займенника; не додавай другого заперечення. Підказка: Назви відсутність обізнаних людей заперечним займенником; дієслово має форму однини.",
+                        "verb_hint": "Назви відсутність обізнаних людей заперечним займенником; дієслово має форму однини.",
+                        "answer": "Nobody knows the new password.",
+                        "accepted": [
+                            "Nobody knows the new password.",
+                            "No one knows the new password."
+                        ],
+                        "feedback": {
+                            "nobody knows the new password.": "Правильно. Назви відсутність обізнаних людей заперечним займенником; дієслово має форму однини.",
+                            "no one knows the new password.": "Правильно. Назви відсутність обізнаних людей заперечним займенником; дієслово має форму однини."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyPeopleAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 4. Побудуй речення"
+                },
+                "m93_native_v1": {
+                    "key": "theory-some-any-people-practice",
+                    "detail_keys": []
+                },
+                "some_any_practice_supplement": {
+                    "revision": "v1",
+                    "topic": "people"
+                }
+            },
+            "after_data_sha256": "8e779fc56fb3191662fa31157a3ba9a4f24b93bb2d6b70643f85d4f25d54553d",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "kind": "order",
+                    "hint_uk": "Почни з деяких людей, уточни нашу групу й назви мову; збережи множину.",
+                    "ordered_groups": [
+                        "Some people",
+                        "in our group",
+                        "speak Spanish."
+                    ],
+                    "shuffled_groups": [
+                        "in our group",
+                        "Some people",
+                        "speak Spanish."
+                    ]
+                },
+                {
+                    "index": 1,
+                    "kind": "order",
+                    "hint_uk": "Почни з мовця та заперечення; назви відсутність знайомих лише в цьому місці.",
+                    "ordered_groups": [
+                        "I do not",
+                        "know",
+                        "anyone",
+                        "here."
+                    ],
+                    "shuffled_groups": [
+                        "I do not",
+                        "anyone",
+                        "here.",
+                        "know"
+                    ]
+                }
+            ],
+            "editing_hint_indices": [],
+            "added": [
+                {
+                    "id": "some-any-native-people-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "focus_level": "A2",
+                    "condition": "{a1} has left a red glove on the bench. (Хтось залишив червону рукавичку на лавці.)",
+                    "answer": "Someone",
+                    "accepted": [
+                        "Someone",
+                        "Somebody"
+                    ],
+                    "hint_uk": "Назви невідому особу одним займенником; однина допоміжного дієслова вже наведена.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "some-any-native-people-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "focus_level": "A2",
+                    "condition": "There isn't {a1} in the music room. (У музичній кімнаті нікого немає.)",
+                    "answer": "anybody",
+                    "accepted": [
+                        "anybody",
+                        "anyone"
+                    ],
+                    "hint_uk": "Заперечення вже наведене; уведи займенник для будь-якої людини, не додаючи другого заперечення.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "some-any-native-people-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Усі чекають біля головного входу. Почни з одного займенника для всіх людей; дія відбувається зараз.",
+                    "answer": "Everyone is waiting by the main entrance.",
+                    "accepted": [
+                        "Everyone is waiting by the main entrance.",
+                        "Everybody is waiting by the main entrance.",
+                        "Everyone is waiting near the main entrance.",
+                        "Everybody is waiting near the main entrance."
+                    ],
+                    "hint_uk": "Займенник для всіх людей потребує однини; місце біля головного входу постав наприкінці.",
+                    "ordered_groups": [
+                        "Everyone",
+                        "is waiting",
+                        "by the",
+                        "main entrance."
+                    ],
+                    "shuffled_groups": [
+                        "is waiting",
+                        "Everyone",
+                        "main entrance.",
+                        "by the"
+                    ]
+                },
+                {
+                    "id": "some-any-native-people-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Ніхто не знає нового пароля. Почни із заперечного займенника; не додавай другого заперечення.",
+                    "answer": "Nobody knows the new password.",
+                    "accepted": [
+                        "Nobody knows the new password.",
+                        "No one knows the new password."
+                    ],
+                    "hint_uk": "Назви відсутність обізнаних людей заперечним займенником; дієслово має форму однини.",
+                    "ordered_groups": [
+                        "Nobody",
+                        "knows",
+                        "the new password."
+                    ],
+                    "shuffled_groups": [
+                        "knows",
+                        "the new password.",
+                        "Nobody"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "1": {
+                    "anyone": "anyone (anybody)"
+                },
+                "4": {
+                    "Everyone": "Everyone (Everybody)",
+                    "by the": "by the (near the)"
+                },
+                "5": {
+                    "Nobody": "Nobody (No one)"
+                }
+            }
+        },
+        {
+            "topic": "things",
+            "local_url": "http://gramlyze.loc/theory/some-any/theory-some-any-things",
+            "definition": "database/seeders/Page_V3/Articles/SomeAny/SomeAnyThingsTheorySeeder/definition.json",
+            "definition_sha256": "13fb95a55b5710a79079a80f7b46ef1326c844e280b161ebc6d36e1dd11623a6",
+            "release": "database/content-patches/m93-future-completion-demonstratives-some-any.v1.json",
+            "release_sha256": "58beaf325626784858765db31920c5dd660a49e233f6acb2d4c2d48c72d877a5",
+            "focus_level": "A2",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\Articles\\SomeAny\\SomeAnyThingsTheorySeeder",
+                "page_id": 265,
+                "page_category_id": 50,
+                "uuid": "3e36945d-f957-5021-8ce3-285c8a06d3b9",
+                "locale": "uk",
+                "type": "practice-set",
+                "column": "left",
+                "sort_order": 7,
+                "level": "A2",
+                "heading": null,
+                "css_class": null,
+                "body_sha256": "cf44f269a7db88cf152c2edd140ce489525a063b6d25259226b32ee89109c1e8"
+            },
+            "before_data": {
+                "title": "5. Практика",
+                "select_title": "Обери потрібну форму",
+                "select_intro": "Виконай видиму умову й обери один варіант. Інший задум не оголошується неграматичним, якщо він просто не відповідає цій задачі.",
+                "choice_title": "Перевір розуміння",
+                "choice_intro": "Обери висновок зі змісту й заданої ситуації, не додаючи неназваної кількості або іншої області заперечення.",
+                "choice_options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "input_title": "Побудуй повне речення",
+                "input_intro": "Уведи все речення вручну або склади його з перемішаних груп слів. Дотримайся видимого змісту, лексичних опор і порядку.",
+                "rephrase": [],
+                "selects": [
+                    {
+                        "id": "m93-things-form-plural",
+                        "source_index": 1,
+                        "label": "Говоримо про невизначені речі в множині в цій коробці, не про один предмет. Обери потрібну іменникову форму.<br>Some ___ in this box are fragile.<br>Деякі речі в цій коробці крихкі.",
+                        "answer": "things",
+                        "accepted": [
+                            "things"
+                        ],
+                        "options": [
+                            "things",
+                            "thing",
+                            "something"
+                        ],
+                        "feedback": {
+                            "things": "Some things in this box are fragile. — Деякі речі в цій коробці крихкі. Things має множину й узгоджується з are; уточнення in this box збережене.",
+                            "thing": "Правильно: Some things in this box are fragile. — Деякі речі в цій коробці крихкі. У заданому множинному змісті потрібне закінчення -s.",
+                            "something": "Правильно: Some things in this box are fragile. — Деякі речі в цій коробці крихкі. Something не ставимо після some як заміну множинного іменника things."
+                        }
+                    },
+                    {
+                        "id": "m93-things-form-adjective",
+                        "source_index": 2,
+                        "label": "У бібліотеці хочемо почитати щось цікаве, не називаючи іменника. Обери повну займенникову конструкцію зі значенням «щось цікаве».<br>I would like ___ to read.<br>Мені хотілося б почитати щось цікаве.",
+                        "answer": "something interesting",
+                        "accepted": [
+                            "something interesting"
+                        ],
+                        "options": [
+                            "something interesting",
+                            "interesting something",
+                            "some interesting"
+                        ],
+                        "feedback": {
+                            "something interesting": "I would like something interesting to read. — Мені хотілося б почитати щось цікаве. У цій конструкції прикметник interesting стоїть після something.",
+                            "interesting something": "Правильно: I would like something interesting to read. — Мені хотілося б почитати щось цікаве. Прикметник не переносимо перед something.",
+                            "some interesting": "Правильно: I would like something interesting to read. — Мені хотілося б почитати щось цікаве. Some interesting без потрібного іменника не є заданою самостійною займенниковою конструкцією."
+                        }
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "m93-things-meaning-partial",
+                        "source_index": 3,
+                        "label": "У списку є куртка, парасоля й зошит. Зошит зараз потрібний, а куртка й парасоля — ні. Мовець підкреслює саме непотрібну частину списку.<br>I do not need some things now.<br>Деякі речі мені зараз не потрібні.",
+                        "prompt": "Що зберігає повідомлення?<br>a) Можна без зміни змісту сказати, що зараз не потрібно нічого.<br>b) Не потрібна частина речей; інша річ за умовою потрібна.<br>c) Будь-яке some у запереченні неграматичне.",
+                        "answer": "b",
+                        "accepted": [
+                            "b"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Anything під нульовим запереченням означало б, що не потрібно нічого, але зошит за умовою потрібний.",
+                            "b": "I do not need some things now. — Деякі речі мені зараз не потрібні. У цьому контексті some охоплює непотрібну частину списку, а не всі речі.",
+                            "c": "Ні. Some things не є неправильною формою лише через наявність not: тут явно задане протиставлення частин списку."
+                        }
+                    },
+                    {
+                        "id": "m93-things-meaning-free-choice",
+                        "source_index": 4,
+                        "label": "За правилами магазину можна вибрати один подарунок. Усі речі на цій полиці доступні для такого вибору.<br>You can choose anything from this shelf.<br>Ти можеш вибрати що завгодно з цієї полиці.",
+                        "prompt": "Що означає anything тут?<br>a) На полиці немає нічого й вибрати неможливо.<br>b) Треба забрати всі речі на полиці.<br>c) Можна обрати будь-яку річ із цієї полиці; не потрібно брати все.",
+                        "answer": "c",
+                        "accepted": [
+                            "c"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Тут немає заперечного дієслова: anything означає вільний вибір у межах названої полиці, а не відсутність усіх подарунків.",
+                            "b": "Ні. Anything не вимагає забрати всі речі. Умова прямо дозволяє один подарунок.",
+                            "c": "You can choose anything from this shelf. — Ти можеш вибрати що завгодно з цієї полиці. Не обмежено, яку саме річ узяти; межа — ця полиця й один подарунок за умовою."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "id": "m93-things-full-plural",
+                        "source_index": 5,
+                        "before": "are heavy. / in this bag / Some things",
+                        "after": "Деякі речі в цій сумці важкі. Назви невизначені речі словосполученням із things, потім одразу додай in this bag; далі використай be у потрібному числі та heavy — важкі. Почни з Some. Не замінюй множинні речі на something.",
+                        "answer": "Some things in this bag are heavy.",
+                        "accepted": [
+                            "Some things in this bag are heavy."
+                        ],
+                        "feedback": {
+                            "some things in this bag are heavy.": "Some things in this bag are heavy. — Деякі речі в цій сумці важкі. Збережено множину things are та уточнення in this bag; heavy передає задану вагу.",
+                            "some things in this bag are heavy": "Some things in this bag are heavy. — Деякі речі в цій сумці важкі. Збережено множину things are та уточнення in this bag; heavy передає задану вагу."
+                        }
+                    },
+                    {
+                        "id": "m93-things-full-request",
+                        "source_index": 6,
+                        "before": "to drink. / cold / I would like / something",
+                        "after": "Мені хотілося б випити щось холодне. Сформулюй ввічливе бажання: почни з I, використай would like (скорочення I'd like також допустиме), потім something і cold; групу to drink постав наприкінці. Не замінюй бажання нейтральним запитанням.",
+                        "answer": "I would like something cold to drink.",
+                        "accepted": [
+                            "I would like something cold to drink.",
+                            "I'd like something cold to drink."
+                        ],
+                        "feedback": {
+                            "i would like something cold to drink.": "I would like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i would like something cold to drink": "I would like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i'd like something cold to drink.": "I'd like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i'd like something cold to drink": "I'd like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyThingsAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 4. Побудуй речення"
+                },
+                "m93_native_v1": {
+                    "key": "theory-some-any-things-practice",
+                    "detail_keys": []
+                }
+            },
+            "before_data_sha256": "cf44f269a7db88cf152c2edd140ce489525a063b6d25259226b32ee89109c1e8",
+            "after_data": {
+                "title": "5. Практика",
+                "select_title": "Обери потрібну форму",
+                "select_intro": "Виконай видиму умову й обери один варіант. Інший задум не оголошується неграматичним, якщо він просто не відповідає цій задачі.",
+                "choice_title": "Перевір розуміння",
+                "choice_intro": "Обери висновок зі змісту й заданої ситуації, не додаючи неназваної кількості або іншої області заперечення.",
+                "choice_options": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "input_title": "Заповни пропуски та склади речення",
+                "input_intro": "Виконай короткі завдання за їхніми умовами. Повні речення вводь вручну або складай із перемішаних груп.",
+                "rephrase": [],
+                "selects": [
+                    {
+                        "id": "m93-things-form-plural",
+                        "source_index": 1,
+                        "label": "Говоримо про невизначені речі в множині в цій коробці, не про один предмет. Обери потрібну іменникову форму.<br>Some ___ in this box are fragile.<br>Деякі речі в цій коробці крихкі.",
+                        "answer": "things",
+                        "accepted": [
+                            "things"
+                        ],
+                        "options": [
+                            "things",
+                            "thing",
+                            "something"
+                        ],
+                        "feedback": {
+                            "things": "Some things in this box are fragile. — Деякі речі в цій коробці крихкі. Things має множину й узгоджується з are; уточнення in this box збережене.",
+                            "thing": "Правильно: Some things in this box are fragile. — Деякі речі в цій коробці крихкі. У заданому множинному змісті потрібне закінчення -s.",
+                            "something": "Правильно: Some things in this box are fragile. — Деякі речі в цій коробці крихкі. Something не ставимо після some як заміну множинного іменника things."
+                        }
+                    },
+                    {
+                        "id": "m93-things-form-adjective",
+                        "source_index": 2,
+                        "label": "У бібліотеці хочемо почитати щось цікаве, не називаючи іменника. Обери повну займенникову конструкцію зі значенням «щось цікаве».<br>I would like ___ to read.<br>Мені хотілося б почитати щось цікаве.",
+                        "answer": "something interesting",
+                        "accepted": [
+                            "something interesting"
+                        ],
+                        "options": [
+                            "something interesting",
+                            "interesting something",
+                            "some interesting"
+                        ],
+                        "feedback": {
+                            "something interesting": "I would like something interesting to read. — Мені хотілося б почитати щось цікаве. У цій конструкції прикметник interesting стоїть після something.",
+                            "interesting something": "Правильно: I would like something interesting to read. — Мені хотілося б почитати щось цікаве. Прикметник не переносимо перед something.",
+                            "some interesting": "Правильно: I would like something interesting to read. — Мені хотілося б почитати щось цікаве. Some interesting без потрібного іменника не є заданою самостійною займенниковою конструкцією."
+                        }
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "m93-things-meaning-partial",
+                        "source_index": 3,
+                        "label": "У списку є куртка, парасоля й зошит. Зошит зараз потрібний, а куртка й парасоля — ні. Мовець підкреслює саме непотрібну частину списку.<br>I do not need some things now.<br>Деякі речі мені зараз не потрібні.",
+                        "prompt": "Що зберігає повідомлення?<br>a) Можна без зміни змісту сказати, що зараз не потрібно нічого.<br>b) Не потрібна частина речей; інша річ за умовою потрібна.<br>c) Будь-яке some у запереченні неграматичне.",
+                        "answer": "b",
+                        "accepted": [
+                            "b"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Anything під нульовим запереченням означало б, що не потрібно нічого, але зошит за умовою потрібний.",
+                            "b": "I do not need some things now. — Деякі речі мені зараз не потрібні. У цьому контексті some охоплює непотрібну частину списку, а не всі речі.",
+                            "c": "Ні. Some things не є неправильною формою лише через наявність not: тут явно задане протиставлення частин списку."
+                        }
+                    },
+                    {
+                        "id": "m93-things-meaning-free-choice",
+                        "source_index": 4,
+                        "label": "За правилами магазину можна вибрати один подарунок. Усі речі на цій полиці доступні для такого вибору.<br>You can choose anything from this shelf.<br>Ти можеш вибрати що завгодно з цієї полиці.",
+                        "prompt": "Що означає anything тут?<br>a) На полиці немає нічого й вибрати неможливо.<br>b) Треба забрати всі речі на полиці.<br>c) Можна обрати будь-яку річ із цієї полиці; не потрібно брати все.",
+                        "answer": "c",
+                        "accepted": [
+                            "c"
+                        ],
+                        "options": [
+                            "a",
+                            "b",
+                            "c"
+                        ],
+                        "feedback": {
+                            "a": "Ні. Тут немає заперечного дієслова: anything означає вільний вибір у межах названої полиці, а не відсутність усіх подарунків.",
+                            "b": "Ні. Anything не вимагає забрати всі речі. Умова прямо дозволяє один подарунок.",
+                            "c": "You can choose anything from this shelf. — Ти можеш вибрати що завгодно з цієї полиці. Не обмежено, яку саме річ узяти; межа — ця полиця й один подарунок за умовою."
+                        }
+                    }
+                ],
+                "inputs": [
+                    {
+                        "id": "m93-things-full-plural",
+                        "source_index": 5,
+                        "before": "are heavy. / Some things / in this bag",
+                        "after": "Деякі речі в цій сумці важкі. Назви невизначені речі словосполученням із things, потім одразу додай in this bag; далі використай be у потрібному числі та heavy — важкі. Почни з Some. Не замінюй множинні речі на something. Підказка: Почни з деяких речей, уточни цю сумку й узгодь множину з ознакою ваги.",
+                        "answer": "Some things in this bag are heavy.",
+                        "accepted": [
+                            "Some things in this bag are heavy."
+                        ],
+                        "feedback": {
+                            "some things in this bag are heavy.": "Some things in this bag are heavy. — Деякі речі в цій сумці важкі. Збережено множину things are та уточнення in this bag; heavy передає задану вагу.",
+                            "some things in this bag are heavy": "Some things in this bag are heavy. — Деякі речі в цій сумці важкі. Збережено множину things are та уточнення in this bag; heavy передає задану вагу."
+                        },
+                        "verb_hint": "Почни з деяких речей, уточни цю сумку й узгодь множину з ознакою ваги.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "m93-things-full-request",
+                        "source_index": 6,
+                        "before": "cold / to drink. / something / I would like",
+                        "after": "Мені хотілося б випити щось холодне. Сформулюй ввічливе бажання: почни з I, використай would like (скорочення I'd like також допустиме), потім something і cold; групу to drink постав наприкінці. Не замінюй бажання нейтральним запитанням. Підказка: Почни з ввічливого бажання мовця; назви щось холодне, а призначення напою постав наприкінці.",
+                        "answer": "I would like something cold to drink.",
+                        "accepted": [
+                            "I would like something cold to drink.",
+                            "I'd like something cold to drink."
+                        ],
+                        "feedback": {
+                            "i would like something cold to drink.": "I would like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i would like something cold to drink": "I would like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i'd like something cold to drink.": "I'd like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені.",
+                            "i'd like something cold to drink": "I'd like something cold to drink. — Мені хотілося б випити щось холодне. Після something потрібен прикметник cold; to drink пояснює бажане використання. Повна й скорочена форми would like явно дозволені."
+                        },
+                        "verb_hint": "Почни з ввічливого бажання мовця; назви щось холодне, а призначення напою постав наприкінці.",
+                        "practice_kind": "order"
+                    },
+                    {
+                        "id": "some-any-native-things-gap-1",
+                        "practice_kind": "gap",
+                        "before": "There is ____ warm in this cup. (У цій чашці є щось тепле; вміст не називаємо.)",
+                        "after": "Назви невизначений вміст чашки без назви предмета; ознака температури вже стоїть після пропуску.",
+                        "verb_hint": "Назви невизначений вміст чашки без назви предмета; ознака температури вже стоїть після пропуску.",
+                        "answer": "something",
+                        "accepted": [
+                            "something"
+                        ],
+                        "feedback": {
+                            "something": "Правильно. Назви невизначений вміст чашки без назви предмета; ознака температури вже стоїть після пропуску."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-things-gap-2",
+                        "practice_kind": "gap",
+                        "before": "There is ____ in this envelope. (Цей конверт порожній.)",
+                        "after": "Передай відсутність будь-якого вмісту одним заперечним займенником; не змінюй наведеного дієслова.",
+                        "verb_hint": "Передай відсутність будь-якого вмісту одним заперечним займенником; не змінюй наведеного дієслова.",
+                        "answer": "nothing",
+                        "accepted": [
+                            "nothing"
+                        ],
+                        "feedback": {
+                            "nothing": "Правильно. Передай відсутність будь-якого вмісту одним заперечним займенником; не змінюй наведеного дієслова."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-things-translate-1",
+                        "practice_kind": "translation",
+                        "before": "under the sofa? / Is there / anything",
+                        "after": "Чи є щось під диваном? Це нейтральне запитання без очікування позитивної відповіді. Підказка: Почни з питання про наявність; невизначений предмет під диваном не вважається наперед знайденим.",
+                        "verb_hint": "Почни з питання про наявність; невизначений предмет під диваном не вважається наперед знайденим.",
+                        "answer": "Is there anything under the sofa?",
+                        "accepted": [
+                            "Is there anything under the sofa?",
+                            "Is there anything under the couch?"
+                        ],
+                        "feedback": {
+                            "is there anything under the sofa?": "Правильно. Почни з питання про наявність; невизначений предмет під диваном не вважається наперед знайденим.",
+                            "is there anything under the couch?": "Правильно. Почни з питання про наявність; невизначений предмет під диваном не вважається наперед знайденим."
+                        }
+                    },
+                    {
+                        "id": "some-any-native-things-translate-2",
+                        "practice_kind": "translation",
+                        "before": "for the / is ready / school concert. / Everything",
+                        "after": "Усе готове до шкільного концерту. Почни із займенника, який охоплює всі потрібні речі. Підказка: Займенник для всіх речей потребує однини; далі назви готовність і призначення концерту.",
+                        "verb_hint": "Займенник для всіх речей потребує однини; далі назви готовність і призначення концерту.",
+                        "answer": "Everything is ready for the school concert.",
+                        "accepted": [
+                            "Everything is ready for the school concert."
+                        ],
+                        "feedback": {
+                            "everything is ready for the school concert.": "Правильно. Займенник для всіх речей потребує однини; далі назви готовність і призначення концерту."
+                        }
+                    }
+                ],
+                "linked_practice": {
+                    "source": "theory_links",
+                    "question_types": [
+                        "4"
+                    ],
+                    "seeder_classes": [
+                        "Database\\Seeders\\V3\\Polyglot\\PolyglotSomeAnyThingsAllLevelsLessonSeeder"
+                    ],
+                    "title": "Вправа 4. Побудуй речення"
+                },
+                "m93_native_v1": {
+                    "key": "theory-some-any-things-practice",
+                    "detail_keys": []
+                },
+                "some_any_practice_supplement": {
+                    "revision": "v1",
+                    "topic": "things"
+                }
+            },
+            "after_data_sha256": "ffde2e4ec804dc4b5d875aa7d3b904de9c60614fb5007237ad6836678302ca45",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "kind": "order",
+                    "hint_uk": "Почни з деяких речей, уточни цю сумку й узгодь множину з ознакою ваги.",
+                    "ordered_groups": [
+                        "Some things",
+                        "in this bag",
+                        "are heavy."
+                    ],
+                    "shuffled_groups": [
+                        "are heavy.",
+                        "Some things",
+                        "in this bag"
+                    ]
+                },
+                {
+                    "index": 1,
+                    "kind": "order",
+                    "hint_uk": "Почни з ввічливого бажання мовця; назви щось холодне, а призначення напою постав наприкінці.",
+                    "ordered_groups": [
+                        "I would like",
+                        "something",
+                        "cold",
+                        "to drink."
+                    ],
+                    "shuffled_groups": [
+                        "cold",
+                        "to drink.",
+                        "something",
+                        "I would like"
+                    ]
+                }
+            ],
+            "editing_hint_indices": [],
+            "added": [
+                {
+                    "id": "some-any-native-things-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "focus_level": "A2",
+                    "condition": "There is {a1} warm in this cup. (У цій чашці є щось тепле; вміст не називаємо.)",
+                    "answer": "something",
+                    "accepted": [
+                        "something"
+                    ],
+                    "hint_uk": "Назви невизначений вміст чашки без назви предмета; ознака температури вже стоїть після пропуску.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "some-any-native-things-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "focus_level": "A2",
+                    "condition": "There is {a1} in this envelope. (Цей конверт порожній.)",
+                    "answer": "nothing",
+                    "accepted": [
+                        "nothing"
+                    ],
+                    "hint_uk": "Передай відсутність будь-якого вмісту одним заперечним займенником; не змінюй наведеного дієслова.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "some-any-native-things-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Чи є щось під диваном? Це нейтральне запитання без очікування позитивної відповіді.",
+                    "answer": "Is there anything under the sofa?",
+                    "accepted": [
+                        "Is there anything under the sofa?",
+                        "Is there anything under the couch?"
+                    ],
+                    "hint_uk": "Почни з питання про наявність; невизначений предмет під диваном не вважається наперед знайденим.",
+                    "ordered_groups": [
+                        "Is there",
+                        "anything",
+                        "under the sofa?"
+                    ],
+                    "shuffled_groups": [
+                        "under the sofa?",
+                        "Is there",
+                        "anything"
+                    ]
+                },
+                {
+                    "id": "some-any-native-things-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "focus_level": "A2",
+                    "condition": "Усе готове до шкільного концерту. Почни із займенника, який охоплює всі потрібні речі.",
+                    "answer": "Everything is ready for the school concert.",
+                    "accepted": [
+                        "Everything is ready for the school concert."
+                    ],
+                    "hint_uk": "Займенник для всіх речей потребує однини; далі назви готовність і призначення концерту.",
+                    "ordered_groups": [
+                        "Everything",
+                        "is ready",
+                        "for the",
+                        "school concert."
+                    ],
+                    "shuffled_groups": [
+                        "for the",
+                        "is ready",
+                        "school concert.",
+                        "Everything"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "4": {
+                    "under the sofa?": "under the sofa? (under the couch?)"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,1648 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pronouns-demonstratives-v1",
+    "compiled_from": {
+        "path": "docs/content/pronouns-demonstratives-quality/personal-object-pronouns.v1.json",
+        "sha256": "caaa06eef17758b7c721362ece2f9c5c0318285af724e572aa7c846ca2520c89"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PronounsDemonstratives\\UkrainianMixedPersonalObjectPronounsQualityStandardSeeder",
+        "uuid_namespace": "pronouns-demonstratives-quality-personal-object-pronouns-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Pronouns / Demonstratives"
+    },
+    "sources": {
+        "pronouns_demonstratives_quality_personal_object_pronouns": {
+            "name": "Pronouns and Demonstratives Quality: Особові займенники: підмет і додаток"
+        }
+    },
+    "tags": {
+        "personal_object_pronouns": {
+            "name": "Personal / Object Pronouns",
+            "category": "pronouns_demonstratives"
+        },
+        "subject_before_verb": {
+            "name": "Subject Before Verb",
+            "category": "topic"
+        },
+        "object_after_verb": {
+            "name": "Object After Verb",
+            "category": "topic"
+        },
+        "she_vs_her": {
+            "name": "She VS Her",
+            "category": "topic"
+        },
+        "object_after_preposition": {
+            "name": "Object After Preposition",
+            "category": "topic"
+        },
+        "i_vs_me": {
+            "name": "I VS ME",
+            "category": "topic"
+        },
+        "he_vs_him": {
+            "name": "HE VS Him",
+            "category": "topic"
+        },
+        "we_vs_us": {
+            "name": "WE VS US",
+            "category": "topic"
+        },
+        "they_vs_them": {
+            "name": "They VS Them",
+            "category": "topic"
+        },
+        "it_subject_object": {
+            "name": "IT Subject Object",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "personal_object_pronouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pdqq-personal-object-pronouns-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} am feeding the rabbit.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Я годую кролика.",
+            "target_text": "I am feeding the rabbit.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "He",
+                        "They"
+                    ],
+                    "verb_hint": "Введи займенник «я» як підмет; дія відбувається зараз."
+                }
+            },
+            "verb_hint": "Введи займенник «я» як підмет; дія відбувається зараз.",
+            "accepted_target_texts": [
+                "I am feeding the rabbit."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am feeding",
+                "the rabbit."
+            ],
+            "token_groups": [
+                "I am feeding",
+                "the rabbit."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pdqq-personal-object-pronouns-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The nurse can see {a1} now.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Медсестра може прийняти тебе зараз.",
+            "target_text": "The nurse can see you now.",
+            "markers": {
+                "a1": {
+                    "answer": "you",
+                    "options": [
+                        "you",
+                        "him",
+                        "us"
+                    ],
+                    "verb_hint": "Введи займенник «тебе» після вже названої дії, без повторення назви медсестри."
+                }
+            },
+            "verb_hint": "Введи займенник «тебе» після вже названої дії, без повторення назви медсестри.",
+            "accepted_target_texts": [
+                "The nurse can see you now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nurse",
+                "can see you",
+                "now."
+            ],
+            "token_groups": [
+                "The nurse",
+                "can see you",
+                "now."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pdqq-personal-object-pronouns-a1-g03",
+            "author_id": "A1-g03",
+            "question": "This seat is for {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Це місце для мене.",
+            "target_text": "This seat is for me.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "her",
+                        "them"
+                    ],
+                    "verb_hint": "Назви мовця після прийменника зі значенням «для мене»."
+                }
+            },
+            "verb_hint": "Назви мовця після прийменника зі значенням «для мене».",
+            "accepted_target_texts": [
+                "This seat is for me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This seat",
+                "is for me."
+            ],
+            "token_groups": [
+                "This seat",
+                "is for me."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pdqq-personal-object-pronouns-a1-g04",
+            "author_id": "A1-g04",
+            "question": "{a1} lives next to the bakery.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Вона живе поруч із пекарнею.",
+            "target_text": "She lives next to the bakery.",
+            "markers": {
+                "a1": {
+                    "answer": "She",
+                    "options": [
+                        "She",
+                        "We",
+                        "I"
+                    ],
+                    "verb_hint": "Потрібен підмет зі значенням «вона», а не назва власниці; місце вже відоме."
+                }
+            },
+            "verb_hint": "Потрібен підмет зі значенням «вона», а не назва власниці; місце вже відоме.",
+            "accepted_target_texts": [
+                "She lives next to the bakery."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She lives",
+                "next to",
+                "the bakery."
+            ],
+            "token_groups": [
+                "She lives",
+                "next to",
+                "the bakery."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pdqq-personal-object-pronouns-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Please listen to {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Будь ласка, послухай нас.",
+            "target_text": "Please listen to us.",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "him",
+                        "it"
+                    ],
+                    "verb_hint": "Введи «нас» як групу, до якої входить мовець, після вже наведеного прийменника."
+                }
+            },
+            "verb_hint": "Введи «нас» як групу, до якої входить мовець, після вже наведеного прийменника.",
+            "accepted_target_texts": [
+                "Please listen to us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please listen",
+                "to us."
+            ],
+            "token_groups": [
+                "Please listen",
+                "to us."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pdqq-personal-object-pronouns-a1-g06",
+            "author_id": "A1-g06",
+            "question": "I know these children. I teach {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Я знаю цих дітей. Я їх навчаю.",
+            "target_text": "I know these children. I teach them.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "her",
+                        "him"
+                    ],
+                    "verb_hint": "Заміни кількох названих дітей займенником у додатку, не називай їх повторно."
+                }
+            },
+            "verb_hint": "Заміни кількох названих дітей займенником у додатку, не називай їх повторно.",
+            "accepted_target_texts": [
+                "I know these children. I teach them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I know",
+                "these children.",
+                "I teach them."
+            ],
+            "token_groups": [
+                "I know",
+                "these children.",
+                "I teach them."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pdqq-personal-object-pronouns-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Danylo gave {a1} the address before I left.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Данило дав мені адресу перед моїм від’їздом.",
+            "target_text": "Danylo gave me the address before I left.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "him",
+                        "them"
+                    ],
+                    "verb_hint": "Назви мовця як одержувача адреси, не як підмет уже наведеної дії."
+                }
+            },
+            "verb_hint": "Назви мовця як одержувача адреси, не як підмет уже наведеної дії.",
+            "accepted_target_texts": [
+                "Danylo gave me the address before I left."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Danylo gave me",
+                "the address",
+                "before I left."
+            ],
+            "token_groups": [
+                "Danylo gave me",
+                "the address",
+                "before I left."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pdqq-personal-object-pronouns-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Could {a1} open the side door for us?",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Можеш відчинити нам бічні двері?",
+            "target_text": "Could you open the side door for us?",
+            "markers": {
+                "a1": {
+                    "answer": "you",
+                    "options": [
+                        "you",
+                        "we",
+                        "they"
+                    ],
+                    "verb_hint": "Зверни ввічливе прохання до співрозмовника; займенник стоїть у підметі."
+                }
+            },
+            "verb_hint": "Зверни ввічливе прохання до співрозмовника; займенник стоїть у підметі.",
+            "accepted_target_texts": [
+                "Could you open the side door for us?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you open",
+                "the side door",
+                "for us?"
+            ],
+            "token_groups": [
+                "Could you open",
+                "the side door",
+                "for us?"
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pdqq-personal-object-pronouns-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The parcel arrived while {a1} were out.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Посилка прибула, коли нас не було вдома.",
+            "target_text": "The parcel arrived while we were out.",
+            "markers": {
+                "a1": {
+                    "answer": "we",
+                    "options": [
+                        "we",
+                        "he",
+                        "she"
+                    ],
+                    "verb_hint": "У підрядній частині назви групу з мовцем як підмет у минулому часі."
+                }
+            },
+            "verb_hint": "У підрядній частині назви групу з мовцем як підмет у минулому часі.",
+            "accepted_target_texts": [
+                "The parcel arrived while we were out."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parcel arrived",
+                "while we",
+                "were out."
+            ],
+            "token_groups": [
+                "The parcel arrived",
+                "while we",
+                "were out."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pdqq-personal-object-pronouns-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The invitation is addressed to Olha and {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Запрошення адресоване Ользі й мені.",
+            "target_text": "The invitation is addressed to Olha and me.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "she",
+                        "they"
+                    ],
+                    "verb_hint": "Після прийменника назви мовця у складі групи з іншою людиною; координація не змінює відмінкової форми."
+                }
+            },
+            "verb_hint": "Після прийменника назви мовця у складі групи з іншою людиною; координація не змінює відмінкової форми.",
+            "accepted_target_texts": [
+                "The invitation is addressed to Olha and me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The invitation",
+                "is addressed",
+                "to Olha",
+                "and me."
+            ],
+            "token_groups": [
+                "The invitation",
+                "is addressed",
+                "to Olha",
+                "and me."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pdqq-personal-object-pronouns-a2-g05",
+            "author_id": "A2-g05",
+            "question": "{a1} and my sister share a desk.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Він і моя сестра користуються одним письмовим столом.",
+            "target_text": "He and my sister share a desk.",
+            "markers": {
+                "a1": {
+                    "answer": "He",
+                    "options": [
+                        "He",
+                        "Him",
+                        "His"
+                    ],
+                    "verb_hint": "Назви чоловіка як частину складеного підмета, не як додаток чи власника."
+                }
+            },
+            "verb_hint": "Назви чоловіка як частину складеного підмета, не як додаток чи власника.",
+            "accepted_target_texts": [
+                "He and my sister share a desk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "He and",
+                "my sister",
+                "share a desk."
+            ],
+            "token_groups": [
+                "He and",
+                "my sister",
+                "share a desk."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pdqq-personal-object-pronouns-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Please do not park in front of {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Будь ласка, не паркуйся перед ним.",
+            "target_text": "Please do not park in front of it.",
+            "markers": {
+                "a1": {
+                    "answer": "it",
+                    "options": [
+                        "it",
+                        "we",
+                        "they"
+                    ],
+                    "verb_hint": "Йдеться про вже названий в’їзд як один неживий об’єкт; заміни його займенником після прийменника."
+                }
+            },
+            "verb_hint": "Йдеться про вже названий в’їзд як один неживий об’єкт; заміни його займенником після прийменника.",
+            "accepted_target_texts": [
+                "Please do not park in front of it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please do not",
+                "park in front",
+                "of it."
+            ],
+            "token_groups": [
+                "Please do not",
+                "park in front",
+                "of it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pdqq-personal-object-pronouns-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Between you and {a1}, the plan needs more work.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Між нами кажучи, план потребує доопрацювання.",
+            "target_text": "Between you and me, the plan needs more work.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "I",
+                        "mine"
+                    ],
+                    "verb_hint": "У вислові «між тобою і мною» потрібна форма мовця після прийменника."
+                }
+            },
+            "verb_hint": "У вислові «між тобою і мною» потрібна форма мовця після прийменника.",
+            "accepted_target_texts": [
+                "Between you and me, the plan needs more work."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Between you",
+                "and me,",
+                "the plan",
+                "needs more work."
+            ],
+            "token_groups": [
+                "Between you",
+                "and me,",
+                "the plan",
+                "needs more work."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pdqq-personal-object-pronouns-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The manager asked Taras and {a1} to check the stock.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Менеджер попросив Тараса й мене перевірити запаси.",
+            "target_text": "The manager asked Taras and me to check the stock.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "I",
+                        "my"
+                    ],
+                    "verb_hint": "Назви мовця як другого виконавця прохання у додатку, не як підмет головної частини."
+                }
+            },
+            "verb_hint": "Назви мовця як другого виконавця прохання у додатку, не як підмет головної частини.",
+            "accepted_target_texts": [
+                "The manager asked Taras and me to check the stock."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manager asked",
+                "Taras and me",
+                "to check",
+                "the stock."
+            ],
+            "token_groups": [
+                "The manager asked",
+                "Taras and me",
+                "to check",
+                "the stock."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pdqq-personal-object-pronouns-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Neither Petro nor {a1} knew where the spare key was kept.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Ні Петро, ні я не знали, де тримають запасний ключ.",
+            "target_text": "Neither Petro nor I knew where the spare key was kept.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "mine"
+                    ],
+                    "verb_hint": "Назви мовця як частину підмета парної конструкції; не використай форму додатка."
+                }
+            },
+            "verb_hint": "Назви мовця як частину підмета парної конструкції; не використай форму додатка.",
+            "accepted_target_texts": [
+                "Neither Petro nor I knew where the spare key was kept."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Neither Petro",
+                "nor I knew",
+                "where",
+                "the spare key",
+                "was kept."
+            ],
+            "token_groups": [
+                "Neither Petro",
+                "nor I knew",
+                "where",
+                "the spare key",
+                "was kept."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pdqq-personal-object-pronouns-b1-g04",
+            "author_id": "B1-g04",
+            "question": "We disagreed with {a1} about the starting time.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Ми не погодилися з ними щодо часу початку.",
+            "target_text": "We disagreed with them about the starting time.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "Введи «ними» після прийменника, не підмет або форму належності."
+                }
+            },
+            "verb_hint": "Введи «ними» після прийменника, не підмет або форму належності.",
+            "accepted_target_texts": [
+                "We disagreed with them about the starting time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We disagreed",
+                "with them",
+                "about",
+                "the starting time."
+            ],
+            "token_groups": [
+                "We disagreed",
+                "with them",
+                "about",
+                "the starting time."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pdqq-personal-object-pronouns-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The tutor encouraged {a1} to explain my reasoning.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Викладач заохотив мене пояснити свої міркування.",
+            "target_text": "The tutor encouraged me to explain my reasoning.",
+            "markers": {
+                "a1": {
+                    "answer": "me",
+                    "options": [
+                        "me",
+                        "I",
+                        "mine"
+                    ],
+                    "verb_hint": "Назви мовця як того, кого заохотили; далі вже вказано його міркування."
+                }
+            },
+            "verb_hint": "Назви мовця як того, кого заохотили; далі вже вказано його міркування.",
+            "accepted_target_texts": [
+                "The tutor encouraged me to explain my reasoning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tutor",
+                "encouraged me",
+                "to explain",
+                "my reasoning."
+            ],
+            "token_groups": [
+                "The tutor",
+                "encouraged me",
+                "to explain",
+                "my reasoning."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pdqq-personal-object-pronouns-b1-g06",
+            "author_id": "B1-g06",
+            "question": "{a1} were the only visitors who had booked in advance.",
+            "level": "B1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Ми були єдиними відвідувачами, які забронювали заздалегідь.",
+            "target_text": "We were the only visitors who had booked in advance.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "options": [
+                        "We",
+                        "Him",
+                        "Her"
+                    ],
+                    "verb_hint": "Назви групу з мовцем як підмет, не іншу групу; форма минулої множини вже наведена."
+                }
+            },
+            "verb_hint": "Назви групу з мовцем як підмет, не іншу групу; форма минулої множини вже наведена.",
+            "accepted_target_texts": [
+                "We were the only visitors who had booked in advance."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We were",
+                "the only visitors",
+                "who had booked",
+                "in advance."
+            ],
+            "token_groups": [
+                "We were",
+                "the only visitors",
+                "who had booked",
+                "in advance."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pdqq-personal-object-pronouns-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The chair made it clear that {a1} would have to justify our estimate.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Голова пояснив, що нам доведеться обґрунтувати нашу оцінку.",
+            "target_text": "The chair made it clear that we would have to justify our estimate.",
+            "markers": {
+                "a1": {
+                    "answer": "we",
+                    "options": [
+                        "we",
+                        "us",
+                        "our"
+                    ],
+                    "verb_hint": "У підрядній частині назви групу мовця як підмет; належність оцінки вже вказана."
+                }
+            },
+            "verb_hint": "У підрядній частині назви групу мовця як підмет; належність оцінки вже вказана.",
+            "accepted_target_texts": [
+                "The chair made it clear that we would have to justify our estimate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chair",
+                "made it clear",
+                "that we",
+                "would have to",
+                "justify our estimate."
+            ],
+            "token_groups": [
+                "The chair",
+                "made it clear",
+                "that we",
+                "would have to",
+                "justify our estimate."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pdqq-personal-object-pronouns-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The distinction matters to {a1} who must apply the rule in practice.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Відмінність важлива для тих, кому доводиться застосовувати правило на практиці.",
+            "target_text": "The distinction matters to those who must apply the rule in practice.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Введи групу людей після прийменника перед уточненням «хто»; потрібна самостійна множина."
+                }
+            },
+            "verb_hint": "Введи групу людей після прийменника перед уточненням «хто»; потрібна самостійна множина.",
+            "accepted_target_texts": [
+                "The distinction matters to those who must apply the rule in practice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "matters to those",
+                "who must apply",
+                "the rule",
+                "in practice."
+            ],
+            "token_groups": [
+                "The distinction",
+                "matters to those",
+                "who must apply",
+                "the rule",
+                "in practice."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pdqq-personal-object-pronouns-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The investigator believed {a1} to be the source of the misleading figures.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Слідчий вважав його джерелом оманливих чисел.",
+            "target_text": "The investigator believed him to be the source of the misleading figures.",
+            "markers": {
+                "a1": {
+                    "answer": "him",
+                    "options": [
+                        "him",
+                        "he",
+                        "his"
+                    ],
+                    "verb_hint": "Назви чоловіка як додаток перед інфінітивом, не як підмет окремої особової частини."
+                }
+            },
+            "verb_hint": "Назви чоловіка як додаток перед інфінітивом, не як підмет окремої особової частини.",
+            "accepted_target_texts": [
+                "The investigator believed him to be the source of the misleading figures."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The investigator",
+                "believed him",
+                "to be",
+                "the source",
+                "of",
+                "the misleading figures."
+            ],
+            "token_groups": [
+                "The investigator",
+                "believed him",
+                "to be",
+                "the source",
+                "of",
+                "the misleading figures."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pdqq-personal-object-pronouns-b2-g04",
+            "author_id": "B2-g04",
+            "question": "As far as {a1} am concerned, the revised terms are acceptable.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Як на мене, переглянуті умови прийнятні.",
+            "target_text": "As far as I am concerned, the revised terms are acceptable.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "mine"
+                    ],
+                    "verb_hint": "Потрібна форма мовця як підмета перед уже наведеним присудком, попри близькість прийменникового вислову."
+                }
+            },
+            "verb_hint": "Потрібна форма мовця як підмета перед уже наведеним присудком, попри близькість прийменникового вислову.",
+            "accepted_target_texts": [
+                "As far as I am concerned, the revised terms are acceptable."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "As far as",
+                "I am concerned,",
+                "the revised terms",
+                "are acceptable."
+            ],
+            "token_groups": [
+                "As far as",
+                "I am concerned,",
+                "the revised terms",
+                "are acceptable."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pdqq-personal-object-pronouns-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The report names several suppliers, but does not explain why {a1} were selected.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Звіт називає кількох постачальників, але не пояснює, чому їх обрали.",
+            "target_text": "The report names several suppliers, but does not explain why they were selected.",
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "them",
+                        "their"
+                    ],
+                    "verb_hint": "Повернися до постачальників як підмета пасивного уточнення, не як додатка."
+                }
+            },
+            "verb_hint": "Повернися до постачальників як підмета пасивного уточнення, не як додатка.",
+            "accepted_target_texts": [
+                "The report names several suppliers, but does not explain why they were selected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report names",
+                "several suppliers,",
+                "but does not",
+                "explain why",
+                "they were selected."
+            ],
+            "token_groups": [
+                "The report names",
+                "several suppliers,",
+                "but does not",
+                "explain why",
+                "they were selected."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pdqq-personal-object-pronouns-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The board left it to {a1} to decide whether to appeal.",
+            "level": "B2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Рада залишила нам вирішувати, чи подавати апеляцію.",
+            "target_text": "The board left it to us to decide whether to appeal.",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "we",
+                        "our"
+                    ],
+                    "verb_hint": "Назви групу мовця після прийменника й перед інфінітивом; рішення доручене нам."
+                }
+            },
+            "verb_hint": "Назви групу мовця після прийменника й перед інфінітивом; рішення доручене нам.",
+            "accepted_target_texts": [
+                "The board left it to us to decide whether to appeal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The board",
+                "left it",
+                "to us",
+                "to decide",
+                "whether to appeal."
+            ],
+            "token_groups": [
+                "The board",
+                "left it",
+                "to us",
+                "to decide",
+                "whether to appeal."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pdqq-personal-object-pronouns-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The candidate spoke more confidently than {a1} had expected.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Кандидат говорив упевненіше, ніж я очікував.",
+            "target_text": "The candidate spoke more confidently than I had expected.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "mine"
+                    ],
+                    "verb_hint": "Введи мовця як підмет повної порівняльної частини перед допоміжним словом."
+                }
+            },
+            "verb_hint": "Введи мовця як підмет повної порівняльної частини перед допоміжним словом.",
+            "accepted_target_texts": [
+                "The candidate spoke more confidently than I had expected."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The candidate",
+                "spoke more confidently",
+                "than I",
+                "had expected."
+            ],
+            "token_groups": [
+                "The candidate",
+                "spoke more confidently",
+                "than I",
+                "had expected."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pdqq-personal-object-pronouns-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The panel regarded {a1} as better placed to assess the practical risks.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Комісія вважала її краще підготовленою для оцінки практичних ризиків.",
+            "target_text": "The panel regarded her as better placed to assess the practical risks.",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "she",
+                        "hers"
+                    ],
+                    "verb_hint": "Назви одну жінку як додаток після оцінного дієслова; не використовуй незалежну форму належності."
+                }
+            },
+            "verb_hint": "Назви одну жінку як додаток після оцінного дієслова; не використовуй незалежну форму належності.",
+            "accepted_target_texts": [
+                "The panel regarded her as better placed to assess the practical risks."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "regarded her",
+                "as better placed",
+                "to assess",
+                "the practical risks."
+            ],
+            "token_groups": [
+                "The panel",
+                "regarded her",
+                "as better placed",
+                "to assess",
+                "the practical risks."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pdqq-personal-object-pronouns-c1-g03",
+            "author_id": "C1-g03",
+            "question": "For {a1} to concede the point now would undermine our entire argument.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Якби ми зараз поступилися в цьому питанні, це підірвало б увесь наш аргумент.",
+            "target_text": "For us to concede the point now would undermine our entire argument.",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "we",
+                        "our"
+                    ],
+                    "verb_hint": "Назви групу мовця як виконавця інфінітива після початкового прийменника."
+                }
+            },
+            "verb_hint": "Назви групу мовця як виконавця інфінітива після початкового прийменника.",
+            "accepted_target_texts": [
+                "For us to concede the point now would undermine our entire argument."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "For us",
+                "to concede",
+                "the point now",
+                "would undermine",
+                "our entire argument."
+            ],
+            "token_groups": [
+                "For us",
+                "to concede",
+                "the point now",
+                "would undermine",
+                "our entire argument."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pdqq-personal-object-pronouns-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The parties who signed the undertaking understood what was expected of {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Сторони, що підписали зобов’язання, розуміли, чого від них очікують.",
+            "target_text": "The parties who signed the undertaking understood what was expected of them.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "Повернися до сторін формою після вже наведеного прийменника, не підметом."
+                }
+            },
+            "verb_hint": "Повернися до сторін формою після вже наведеного прийменника, не підметом.",
+            "accepted_target_texts": [
+                "The parties who signed the undertaking understood what was expected of them."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parties",
+                "who signed",
+                "the undertaking",
+                "understood what",
+                "was expected",
+                "of them."
+            ],
+            "token_groups": [
+                "The parties",
+                "who signed",
+                "the undertaking",
+                "understood what",
+                "was expected",
+                "of them."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pdqq-personal-object-pronouns-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Only {a1} who had examined the original records could detect the discrepancy.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Лише ті, хто вивчив оригінальні записи, могли виявити розбіжність.",
+            "target_text": "Only those who had examined the original records could detect the discrepancy.",
+            "markers": {
+                "a1": {
+                    "answer": "those",
+                    "options": [
+                        "those",
+                        "that",
+                        "this"
+                    ],
+                    "verb_hint": "Самостійно назви визначену за наступним уточненням групу людей у множині."
+                }
+            },
+            "verb_hint": "Самостійно назви визначену за наступним уточненням групу людей у множині.",
+            "accepted_target_texts": [
+                "Only those who had examined the original records could detect the discrepancy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Only those",
+                "who had examined",
+                "the original records",
+                "could detect",
+                "the discrepancy."
+            ],
+            "token_groups": [
+                "Only those",
+                "who had examined",
+                "the original records",
+                "could detect",
+                "the discrepancy."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pdqq-personal-object-pronouns-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The inquiry established that the warning had reached {a1} before the decision was taken.",
+            "level": "C1",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Розслідування встановило, що попередження надійшло йому до ухвалення рішення.",
+            "target_text": "The inquiry established that the warning had reached him before the decision was taken.",
+            "markers": {
+                "a1": {
+                    "answer": "him",
+                    "options": [
+                        "him",
+                        "he",
+                        "his"
+                    ],
+                    "verb_hint": "Назви чоловіка як одержувача попередження у додатку вкладеної частини."
+                }
+            },
+            "verb_hint": "Назви чоловіка як одержувача попередження у додатку вкладеної частини.",
+            "accepted_target_texts": [
+                "The inquiry established that the warning had reached him before the decision was taken."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inquiry",
+                "established that",
+                "the warning",
+                "had reached him",
+                "before the decision",
+                "was taken."
+            ],
+            "token_groups": [
+                "The inquiry",
+                "established that",
+                "the warning",
+                "had reached him",
+                "before the decision",
+                "was taken."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pdqq-personal-object-pronouns-c2-g01",
+            "author_id": "C2-g01",
+            "question": "Whether {a1} endorse the conclusion is distinct from whether the argument supports it.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Те, чи ми схвалюємо висновок, відмінне від того, чи підтверджує його аргумент.",
+            "target_text": "Whether we endorse the conclusion is distinct from whether the argument supports it.",
+            "markers": {
+                "a1": {
+                    "answer": "we",
+                    "options": [
+                        "we",
+                        "us",
+                        "our"
+                    ],
+                    "verb_hint": "Назви групу мовця як підмет першої вкладеної частини; не змішуй позицію людей із доказовою силою аргументу."
+                }
+            },
+            "verb_hint": "Назви групу мовця як підмет першої вкладеної частини; не змішуй позицію людей із доказовою силою аргументу.",
+            "accepted_target_texts": [
+                "Whether we endorse the conclusion is distinct from whether the argument supports it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Whether we endorse",
+                "the conclusion",
+                "is distinct",
+                "from whether",
+                "the argument",
+                "supports it."
+            ],
+            "token_groups": [
+                "Whether we endorse",
+                "the conclusion",
+                "is distinct",
+                "from whether",
+                "the argument",
+                "supports it."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pdqq-personal-object-pronouns-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The absence of a remedy did not absolve {a1} of responsibility for the original interference.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Відсутність засобу правового захисту не звільнила їх від відповідальності за початкове втручання.",
+            "target_text": "The absence of a remedy did not absolve them of responsibility for the original interference.",
+            "markers": {
+                "a1": {
+                    "answer": "them",
+                    "options": [
+                        "them",
+                        "they",
+                        "their"
+                    ],
+                    "verb_hint": "Назви кількох осіб як додаток після дієслова звільнення від відповідальності."
+                }
+            },
+            "verb_hint": "Назви кількох осіб як додаток після дієслова звільнення від відповідальності.",
+            "accepted_target_texts": [
+                "The absence of a remedy did not absolve them of responsibility for the original interference."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The absence",
+                "of a remedy",
+                "did not absolve",
+                "them of responsibility",
+                "for",
+                "the original interference."
+            ],
+            "token_groups": [
+                "The absence",
+                "of a remedy",
+                "did not absolve",
+                "them of responsibility",
+                "for",
+                "the original interference."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pdqq-personal-object-pronouns-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The interpretation favoured by the majority is not one that {a1} can accept without qualification.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Тлумачення, яке підтримала більшість, не з тих, що я можу прийняти без застережень.",
+            "target_text": "The interpretation favoured by the majority is not one that I can accept without qualification.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "options": [
+                        "I",
+                        "me",
+                        "mine"
+                    ],
+                    "verb_hint": "Введи мовця як підмет останньої особової частини, не самостійну належність."
+                }
+            },
+            "verb_hint": "Введи мовця як підмет останньої особової частини, не самостійну належність.",
+            "accepted_target_texts": [
+                "The interpretation favoured by the majority is not one that I can accept without qualification."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretation favoured",
+                "by the majority",
+                "is not one",
+                "that I",
+                "can accept",
+                "without qualification."
+            ],
+            "token_groups": [
+                "The interpretation favoured",
+                "by the majority",
+                "is not one",
+                "that I",
+                "can accept",
+                "without qualification."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pdqq-personal-object-pronouns-c2-g04",
+            "author_id": "C2-g04",
+            "question": "No provision authorises the regulator to compel {a1} to disclose material beyond its jurisdiction.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Жодне положення не дозволяє регулятору змусити нас розкрити матеріал поза межами його юрисдикції.",
+            "target_text": "No provision authorises the regulator to compel us to disclose material beyond its jurisdiction.",
+            "markers": {
+                "a1": {
+                    "answer": "us",
+                    "options": [
+                        "us",
+                        "we",
+                        "our"
+                    ],
+                    "verb_hint": "Назви групу мовця як того, кого змушують виконати дію; не як підмет головної частини."
+                }
+            },
+            "verb_hint": "Назви групу мовця як того, кого змушують виконати дію; не як підмет головної частини.",
+            "accepted_target_texts": [
+                "No provision authorises the regulator to compel us to disclose material beyond its jurisdiction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "No provision authorises",
+                "the regulator",
+                "to compel us",
+                "to disclose material",
+                "beyond its jurisdiction."
+            ],
+            "token_groups": [
+                "No provision authorises",
+                "the regulator",
+                "to compel us",
+                "to disclose material",
+                "beyond its jurisdiction."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pdqq-personal-object-pronouns-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The report establishes who was consulted, not whether {a1} were free to refuse.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Звіт установлює, з ким радилися, а не те, чи могли вони вільно відмовитися.",
+            "target_text": "The report establishes who was consulted, not whether they were free to refuse.",
+            "markers": {
+                "a1": {
+                    "answer": "they",
+                    "options": [
+                        "they",
+                        "them",
+                        "their"
+                    ],
+                    "verb_hint": "Повернися до опитаних людей як підмета останньої частини; інша група не вводиться."
+                }
+            },
+            "verb_hint": "Повернися до опитаних людей як підмета останньої частини; інша група не вводиться.",
+            "accepted_target_texts": [
+                "The report establishes who was consulted, not whether they were free to refuse."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report establishes",
+                "who was consulted,",
+                "not whether they",
+                "were free",
+                "to refuse."
+            ],
+            "token_groups": [
+                "The report establishes",
+                "who was consulted,",
+                "not whether they",
+                "were free",
+                "to refuse."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pdqq-personal-object-pronouns-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The concession would leave {a1} bound by obligations that the other party could disregard.",
+            "level": "C2",
+            "type": 0,
+            "source": "pronouns_demonstratives_quality_personal_object_pronouns",
+            "translation_uk": "Поступка лишила б її зв’язаною зобов’язаннями, якими інша сторона могла б нехтувати.",
+            "target_text": "The concession would leave her bound by obligations that the other party could disregard.",
+            "markers": {
+                "a1": {
+                    "answer": "her",
+                    "options": [
+                        "her",
+                        "she",
+                        "hers"
+                    ],
+                    "verb_hint": "Назви одну жінку як додаток, стан якого описано далі; не використовуй форму власності."
+                }
+            },
+            "verb_hint": "Назви одну жінку як додаток, стан якого описано далі; не використовуй форму власності.",
+            "accepted_target_texts": [
+                "The concession would leave her bound by obligations that the other party could disregard."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The concession",
+                "would leave her",
+                "bound by obligations",
+                "that",
+                "the other party",
+                "could disregard."
+            ],
+            "token_groups": [
+                "The concession",
+                "would leave her",
+                "bound by obligations",
+                "that",
+                "the other party",
+                "could disregard."
+            ],
+            "quality_revision": "pronouns-demonstratives-v1"
+        }
+    ]
+}

@@ -1,0 +1,718 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/paraphrase-and-reformulation.v1.json",
+        "sha256": "7dd2ef79804bd73dc35ed7bac8f31e35dd4def38e6485e5c75c842ca44b28990"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FormalEnglish\\UkrainianMixedFeqParaphraseAndReformulationQualityStandardSeeder",
+        "uuid_namespace": "formal-english-quality-paraphrase-and-reformulation-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Formal English"
+    },
+    "sources": {
+        "formal_english_quality_paraphrase_and_reformulation": {
+            "name": "Formal English Quality: Paraphrase and Reformulation"
+        }
+    },
+    "tags": {
+        "paraphrase_and_reformulation": {
+            "name": "paraphrase and reformulation",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "preserve_meaning": {
+            "name": "paraphrase meaning preservation",
+            "category": "formal-english"
+        },
+        "reformulation_clarity": {
+            "name": "reformulation for clarity",
+            "category": "formal-english"
+        },
+        "formal_restatement": {
+            "name": "formal restatement",
+            "category": "formal-english"
+        },
+        "sentence_transformation": {
+            "name": "sentence transformation",
+            "category": "formal-english"
+        },
+        "precise_verbs": {
+            "name": "precise verbs",
+            "category": "formal-english"
+        },
+        "replace_vague_wording": {
+            "name": "replacing vague wording",
+            "category": "formal-english"
+        },
+        "clarify_logical_relation": {
+            "name": "clarifying logical relation",
+            "category": "formal-english"
+        },
+        "reduce_informal_tone": {
+            "name": "reducing informal tone",
+            "category": "formal-english"
+        },
+        "preserve_nuance": {
+            "name": "preserving nuance",
+            "category": "formal-english"
+        },
+        "avoid_over_formality": {
+            "name": "avoiding over formality",
+            "category": "formal-english"
+        },
+        "avoid_meaning_drift": {
+            "name": "avoiding meaning drift",
+            "category": "formal-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "formal-english"
+        }
+    },
+    "default_tag_keys": [
+        "paraphrase_and_reformulation"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-par-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Please {a1} your surname in the empty box.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Будь ласка, впиши своє прізвище в порожнє поле.",
+            "target_text": "Please write your surname in the empty box.",
+            "markers": {
+                "a1": {
+                    "answer": "write",
+                    "options": [
+                        "write",
+                        "writes",
+                        "writing"
+                    ],
+                    "verb_hint": "Впиши: назви дію заповнення порожнього поля після ввічливого звертання; приймається також дієслово внесення даних."
+                }
+            },
+            "verb_hint": "Впиши: назви дію заповнення порожнього поля після ввічливого звертання; приймається також дієслово внесення даних.",
+            "accepted_target_texts": [
+                "Please write your surname in the empty box.",
+                "Please enter your surname in the empty box."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "enter"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "enter"
+                ]
+            },
+            "reorder_groups": [
+                "Please write",
+                "your surname",
+                "in the",
+                "empty box."
+            ],
+            "token_groups": [
+                "Please write",
+                "your surname",
+                "in the",
+                "empty box."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "feq-par-a1-g02",
+            "author_id": "A1-g02",
+            "question": "This is a {a1} envelope, not a large one.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Це маленький конверт, а не великий.",
+            "target_text": "This is a small envelope, not a large one.",
+            "markers": {
+                "a1": {
+                    "answer": "small",
+                    "options": [
+                        "small",
+                        "long",
+                        "heavy"
+                    ],
+                    "verb_hint": "Маленький: назви розмір, протилежний великому; приймаються два природні прикметники."
+                }
+            },
+            "verb_hint": "Маленький: назви розмір, протилежний великому; приймаються два природні прикметники.",
+            "accepted_target_texts": [
+                "This is a small envelope, not a large one.",
+                "This is a little envelope, not a large one."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "little"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "little"
+                ]
+            },
+            "reorder_groups": [
+                "This is a",
+                "small envelope,",
+                "not a",
+                "large one."
+            ],
+            "token_groups": [
+                "This is a",
+                "small envelope,",
+                "not a",
+                "large one."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "feq-par-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The guide will {a1} the route before we leave.",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Екскурсовод пояснить маршрут, перш ніж ми вирушимо.",
+            "target_text": "The guide will explain the route before we leave.",
+            "markers": {
+                "a1": {
+                    "answer": "explain",
+                    "options": [
+                        "explain",
+                        "explains",
+                        "explaining"
+                    ],
+                    "verb_hint": "Пояснити: назви дію уточнення маршруту після допоміжного слова майбутнього часу; наведений підмет не повторюй."
+                }
+            },
+            "verb_hint": "Пояснити: назви дію уточнення маршруту після допоміжного слова майбутнього часу; наведений підмет не повторюй.",
+            "accepted_target_texts": [
+                "The guide will explain the route before we leave.",
+                "The guide will describe the route before we leave."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "describe"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "describe"
+                ]
+            },
+            "reorder_groups": [
+                "The guide",
+                "will explain",
+                "the route",
+                "before we leave."
+            ],
+            "token_groups": [
+                "The guide",
+                "will explain",
+                "the route",
+                "before we leave."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "feq-par-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The drawer is {a1}; there is nothing inside.",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Шухляда порожня; усередині нічого немає.",
+            "target_text": "The drawer is empty; there is nothing inside.",
+            "markers": {
+                "a1": {
+                    "answer": "empty",
+                    "options": [
+                        "empty",
+                        "full",
+                        "closed"
+                    ],
+                    "verb_hint": "Порожня: передай відсутність вмісту, а не положення шухляди."
+                }
+            },
+            "verb_hint": "Порожня: передай відсутність вмісту, а не положення шухляди.",
+            "accepted_target_texts": [
+                "The drawer is empty; there is nothing inside."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The drawer",
+                "is empty;",
+                "there is",
+                "nothing inside."
+            ],
+            "token_groups": [
+                "The drawer",
+                "is empty;",
+                "there is",
+                "nothing inside."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "feq-par-b1-g01",
+            "author_id": "B1-g01",
+            "question": "It is {a1} to use the side entrance; the front door is sealed.",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Потрібно скористатися бічним входом; головні двері опечатано.",
+            "target_text": "It is necessary to use the side entrance; the front door is sealed.",
+            "markers": {
+                "a1": {
+                    "answer": "necessary",
+                    "options": [
+                        "necessary",
+                        "unnecessary",
+                        "optional"
+                    ],
+                    "verb_hint": "Необхідно: передай обов’язковість використання бічного входу, а не лише можливість; приймаються два близькі прикметники."
+                }
+            },
+            "verb_hint": "Необхідно: передай обов’язковість використання бічного входу, а не лише можливість; приймаються два близькі прикметники.",
+            "accepted_target_texts": [
+                "It is necessary to use the side entrance; the front door is sealed.",
+                "It is essential to use the side entrance; the front door is sealed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "essential"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "essential"
+                ]
+            },
+            "reorder_groups": [
+                "It is necessary",
+                "to use",
+                "the side entrance;",
+                "the front door",
+                "is sealed."
+            ],
+            "token_groups": [
+                "It is necessary",
+                "to use",
+                "the side entrance;",
+                "the front door",
+                "is sealed."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "feq-par-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The radio worked {a1} the thick walls.",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Радіо працювало попри товсті стіни.",
+            "target_text": "The radio worked despite the thick walls.",
+            "markers": {
+                "a1": {
+                    "answer": "despite",
+                    "options": [
+                        "despite",
+                        "because of",
+                        "instead of"
+                    ],
+                    "verb_hint": "Попри: збережи поступку, а не причину чи заміну; приймаються короткий і розгорнутий відповідники."
+                }
+            },
+            "verb_hint": "Попри: збережи поступку, а не причину чи заміну; приймаються короткий і розгорнутий відповідники.",
+            "accepted_target_texts": [
+                "The radio worked despite the thick walls.",
+                "The radio worked in spite of the thick walls."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in spite of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in spite of"
+                ]
+            },
+            "reorder_groups": [
+                "The radio worked",
+                "despite the",
+                "thick walls."
+            ],
+            "token_groups": [
+                "The radio worked",
+                "despite the",
+                "thick walls."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "feq-par-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The picnic went ahead {a1} the weather was unsettled.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Пікнік відбувся, хоча погода була нестійкою.",
+            "target_text": "The picnic went ahead although the weather was unsettled.",
+            "markers": {
+                "a1": {
+                    "answer": "although",
+                    "options": [
+                        "although",
+                        "because",
+                        "unless"
+                    ],
+                    "verb_hint": "Хоча: приєднай відомий факт як обставину, що не завадила події; приймаються три способи виразити поступку."
+                }
+            },
+            "verb_hint": "Хоча: приєднай відомий факт як обставину, що не завадила події; приймаються три способи виразити поступку.",
+            "accepted_target_texts": [
+                "The picnic went ahead although the weather was unsettled.",
+                "The picnic went ahead though the weather was unsettled.",
+                "The picnic went ahead even though the weather was unsettled."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "though",
+                    "even though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "though",
+                    "even though"
+                ]
+            },
+            "reorder_groups": [
+                "The picnic",
+                "went ahead",
+                "although the weather",
+                "was unsettled."
+            ],
+            "token_groups": [
+                "The picnic",
+                "went ahead",
+                "although the weather",
+                "was unsettled."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "feq-par-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The clerk was {a1} to trace the payment.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Службовець не зміг відстежити платіж.",
+            "target_text": "The clerk was unable to trace the payment.",
+            "markers": {
+                "a1": {
+                    "answer": "unable",
+                    "options": [
+                        "unable",
+                        "unwilling",
+                        "unlikely"
+                    ],
+                    "verb_hint": "Не зміг: передай відсутність змоги, а не небажання чи низьку ймовірність; приймається також розгорнута форма."
+                }
+            },
+            "verb_hint": "Не зміг: передай відсутність змоги, а не небажання чи низьку ймовірність; приймається також розгорнута форма.",
+            "accepted_target_texts": [
+                "The clerk was unable to trace the payment.",
+                "The clerk was not able to trace the payment."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "not able"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "not able"
+                ]
+            },
+            "reorder_groups": [
+                "The clerk",
+                "was unable",
+                "to trace",
+                "the payment."
+            ],
+            "token_groups": [
+                "The clerk",
+                "was unable",
+                "to trace",
+                "the payment."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "feq-par-c1-g01",
+            "author_id": "C1-g01",
+            "question": "This note {a1} the earlier account rather than contradicting it.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Ця примітка уточнює попередній виклад, а не суперечить йому.",
+            "target_text": "This note clarifies the earlier account rather than contradicting it.",
+            "markers": {
+                "a1": {
+                    "answer": "clarifies",
+                    "options": [
+                        "clarifies",
+                        "contradicts",
+                        "withdraws"
+                    ],
+                    "verb_hint": "Уточнює: назви пояснювальне доповнення без спростування; приймаються два близькі дієслова."
+                }
+            },
+            "verb_hint": "Уточнює: назви пояснювальне доповнення без спростування; приймаються два близькі дієслова.",
+            "accepted_target_texts": [
+                "This note clarifies the earlier account rather than contradicting it.",
+                "This note elucidates the earlier account rather than contradicting it."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "elucidates"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "elucidates"
+                ]
+            },
+            "reorder_groups": [
+                "This note clarifies",
+                "the earlier account",
+                "rather than",
+                "contradicting it."
+            ],
+            "token_groups": [
+                "This note clarifies",
+                "the earlier account",
+                "rather than",
+                "contradicting it."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "feq-par-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The request was declined {a1} the applicant's age.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Запит відхилили незалежно від віку заявника.",
+            "target_text": "The request was declined regardless of the applicant's age.",
+            "markers": {
+                "a1": {
+                    "answer": "regardless of",
+                    "options": [
+                        "regardless of",
+                        "because of",
+                        "on account of"
+                    ],
+                    "verb_hint": "Незалежно від: не подавай вік причиною відмови; приймаються два рівнозначні прийменникові вирази."
+                }
+            },
+            "verb_hint": "Незалежно від: не подавай вік причиною відмови; приймаються два рівнозначні прийменникові вирази.",
+            "accepted_target_texts": [
+                "The request was declined regardless of the applicant's age.",
+                "The request was declined irrespective of the applicant's age."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "irrespective of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "irrespective of"
+                ]
+            },
+            "reorder_groups": [
+                "The request",
+                "was declined",
+                "regardless of",
+                "the applicant's age."
+            ],
+            "token_groups": [
+                "The request",
+                "was declined",
+                "regardless of",
+                "the applicant's age."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "feq-par-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The figures are {a1} an isolated fluctuation, not a lasting trend.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Цифри узгоджуються з окремим коливанням, а не зі стійкою тенденцією.",
+            "target_text": "The figures are consistent with an isolated fluctuation, not a lasting trend.",
+            "markers": {
+                "a1": {
+                    "answer": "consistent with",
+                    "options": [
+                        "consistent with",
+                        "proof of",
+                        "unrelated to"
+                    ],
+                    "verb_hint": "Узгоджуються з: передай сумісність з одним поясненням, а не його доведення; приймаються два близькі вирази."
+                }
+            },
+            "verb_hint": "Узгоджуються з: передай сумісність з одним поясненням, а не його доведення; приймаються два близькі вирази.",
+            "accepted_target_texts": [
+                "The figures are consistent with an isolated fluctuation, not a lasting trend.",
+                "The figures are compatible with an isolated fluctuation, not a lasting trend."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "compatible with"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "compatible with"
+                ]
+            },
+            "reorder_groups": [
+                "The figures",
+                "are consistent with",
+                "an isolated fluctuation,",
+                "not a",
+                "lasting trend."
+            ],
+            "token_groups": [
+                "The figures",
+                "are consistent with",
+                "an isolated fluctuation,",
+                "not a",
+                "lasting trend."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "feq-par-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The revised wording {a1} the possibility of an oversight without asserting that one occurred.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_paraphrase_and_reformulation",
+            "translation_uk": "Уточнене формулювання допускає можливість недогляду, не стверджуючи, що він стався.",
+            "target_text": "The revised wording leaves open the possibility of an oversight without asserting that one occurred.",
+            "markers": {
+                "a1": {
+                    "answer": "leaves open",
+                    "options": [
+                        "leaves open",
+                        "rules out",
+                        "proves"
+                    ],
+                    "verb_hint": "Допускає можливість: збережи відкритість пояснення без підтвердження факту; приймається також близьке фразове дієслово."
+                }
+            },
+            "verb_hint": "Допускає можливість: збережи відкритість пояснення без підтвердження факту; приймається також близьке фразове дієслово.",
+            "accepted_target_texts": [
+                "The revised wording leaves open the possibility of an oversight without asserting that one occurred.",
+                "The revised wording allows for the possibility of an oversight without asserting that one occurred."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "allows for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "allows for"
+                ]
+            },
+            "reorder_groups": [
+                "The revised wording",
+                "leaves open",
+                "the possibility",
+                "of an oversight",
+                "without asserting",
+                "that one occurred."
+            ],
+            "token_groups": [
+                "The revised wording",
+                "leaves open",
+                "the possibility",
+                "of an oversight",
+                "without asserting",
+                "that one occurred."
+            ],
+            "quality_revision": "feq-v1"
+        }
+    ]
+}

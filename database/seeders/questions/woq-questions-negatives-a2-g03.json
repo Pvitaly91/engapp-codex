@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 59818,
+        "uuid": "woq-questions-negatives-a2-g03",
+        "question": "How many guests {a1}?",
+        "difficulty": 2,
+        "level": "A2",
+        "category_id": 4,
+        "source_id": 412,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedWordOrderQuestionsNegativesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "have arrived",
+                "have they arrived",
+                "has arrived"
+            ]
+        },
+        "theory_text_block_uuid": "ec899a08-4708-53db-8d13-2225853d7b72",
+        "created_at": "2026-10-27T01:00:54.000000Z",
+        "updated_at": "2026-10-27T01:00:54.000000Z"
+    },
+    "category": {
+        "id": 4,
+        "name": "Базова граматика / Word Order",
+        "created_at": "2026-04-23T14:15:58.000000Z",
+        "updated_at": "2026-04-23T14:15:58.000000Z"
+    },
+    "source": {
+        "id": 412,
+        "name": "Word Order Quality: Порядок слів у питаннях і запереченнях",
+        "created_at": "2026-10-27T01:00:53.000000Z",
+        "updated_at": "2026-10-27T01:00:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 131,
+                "name": "Auxiliary Verbs",
+                "category": null,
+                "created_at": "2026-04-23T14:15:17.000000Z",
+                "updated_at": "2026-04-23T14:15:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 59818,
+                "tag_id": 131,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 19992,
+                "option": "have arrived",
+                "created_at": "2026-05-17T13:07:19.000000Z",
+                "updated_at": "2026-05-17T13:07:19.000000Z"
+            },
+            "pivot": {
+                "question_id": 59818,
+                "option_id": 19992,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 40872,
+                "option": "has arrived",
+                "created_at": "2026-08-16T21:57:18.000000Z",
+                "updated_at": "2026-08-16T21:57:18.000000Z"
+            },
+            "pivot": {
+                "question_id": 59818,
+                "option_id": 40872,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 51008,
+                "option": "have they arrived",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 59818,
+                "option_id": 51008,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 322662,
+                "question_id": 59818,
+                "marker": "a1",
+                "option_id": 19992,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 19992,
+                "option": "have arrived",
+                "created_at": "2026-05-17T13:07:19.000000Z",
+                "updated_at": "2026-05-17T13:07:19.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 39996,
+                "question_id": 59818,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 51007,
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            },
+            "option": {
+                "id": 51007,
+                "option": "Питальна група вже є підметом; не додавай ще одного займенника й узгодь присудок із множиною.",
+                "created_at": "2026-10-27T01:00:54.000000Z",
+                "updated_at": "2026-10-27T01:00:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 51833,
+            "question_id": 59818,
+            "text": "How many guests {a1}?",
+            "created_at": "2026-10-27T01:00:54.000000Z",
+            "updated_at": "2026-10-27T01:00:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

@@ -1,0 +1,3951 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/zero-article.v1.json",
+        "sha256": "77a9ae504b55261bc0defcf27b16841f70c203530f8df62c87e557b68a45f3e4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedZeroArticleQualityBuilderSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-zero-article-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_zero_article": {
+            "name": "Nouns Articles Quantity Quality: Нульовий артикль: загальні поняття, сталі сполуки й контекстні контрасти"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "polyglot_zero_article": {
+            "name": "Zero Article",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "plural_general": {
+            "name": "Plural General",
+            "category": "topic"
+        },
+        "uncountable_general": {
+            "name": "Uncountable General",
+            "category": "topic"
+        },
+        "meals_languages_subjects": {
+            "name": "Meals Languages Subjects",
+            "category": "topic"
+        },
+        "fixed_zero_article_phrases": {
+            "name": "Fixed Zero Article Phrases",
+            "category": "topic"
+        },
+        "proper_names": {
+            "name": "Proper Names",
+            "category": "topic"
+        },
+        "zero_vs_the": {
+            "name": "Zero Vs The",
+            "category": "topic"
+        },
+        "abstract_general": {
+            "name": "Abstract General",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-zero-article-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Я люблю хліб із маслом на сніданок.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Я люблю хліб із маслом на сніданок.",
+            "target_text": "I like bread and butter for breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "I",
+                        "They",
+                        "Me",
+                        "Him"
+                    ]
+                },
+                "a2": {
+                    "answer": "like",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "like",
+                        "close",
+                        "help",
+                        "wait"
+                    ]
+                },
+                "a3": {
+                    "answer": "bread",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "bread",
+                        "coffee",
+                        "tea",
+                        "juice"
+                    ]
+                },
+                "a4": {
+                    "answer": "and",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "and",
+                        "so",
+                        "yet",
+                        "because"
+                    ]
+                },
+                "a5": {
+                    "answer": "butter",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "butter",
+                        "sugar",
+                        "salt",
+                        "honey"
+                    ]
+                },
+                "a6": {
+                    "answer": "for",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "for",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a7": {
+                    "answer": "breakfast.",
+                    "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+                    "options": [
+                        "breakfast",
+                        "travel",
+                        "summer",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Продукти та звичний сніданок названі без артиклів; почни зі свого вподобання.",
+            "accepted_target_texts": [
+                "I like bread and butter for breakfast."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I like",
+                "bread and butter",
+                "for breakfast."
+            ],
+            "token_groups": [
+                "I like",
+                "bread and butter",
+                "for breakfast."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "I",
+                "like",
+                "bread",
+                "and",
+                "butter",
+                "for",
+                "breakfast."
+            ],
+            "options": [
+                "I",
+                "They",
+                "Me",
+                "Him",
+                "like",
+                "close",
+                "help",
+                "wait",
+                "bread",
+                "coffee",
+                "tea",
+                "juice",
+                "and",
+                "so",
+                "yet",
+                "because",
+                "butter",
+                "sugar",
+                "salt",
+                "honey",
+                "for",
+                "between",
+                "among",
+                "about",
+                "breakfast",
+                "travel",
+                "summer",
+                "sister"
+            ],
+            "source_text_uk": "Я люблю хліб із маслом на сніданок.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "They",
+                    "Me",
+                    "Him"
+                ],
+                "a2": [
+                    "like",
+                    "close",
+                    "help",
+                    "wait"
+                ],
+                "a3": [
+                    "bread",
+                    "coffee",
+                    "tea",
+                    "juice"
+                ],
+                "a4": [
+                    "and",
+                    "so",
+                    "yet",
+                    "because"
+                ],
+                "a5": [
+                    "butter",
+                    "sugar",
+                    "salt",
+                    "honey"
+                ],
+                "a6": [
+                    "for",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a7": [
+                    "breakfast",
+                    "travel",
+                    "summer",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-zero-article-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Моя сестра вчить німецьку в школі.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Моя сестра вчить німецьку в школі.",
+            "target_text": "My sister learns German at school.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "My",
+                        "Their",
+                        "Mine",
+                        "Yours"
+                    ]
+                },
+                "a2": {
+                    "answer": "sister",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "sister",
+                        "summer",
+                        "breakfast",
+                        "travel"
+                    ]
+                },
+                "a3": {
+                    "answer": "learns",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "learns",
+                        "tables",
+                        "tickets",
+                        "cups"
+                    ]
+                },
+                "a4": {
+                    "answer": "German",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "German",
+                        "Spanish",
+                        "Italian",
+                        "Ukrainian"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "at",
+                        "about",
+                        "during",
+                        "to"
+                    ]
+                },
+                "a6": {
+                    "answer": "school.",
+                    "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+                    "options": [
+                        "school",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Назву мови й школу як місце навчання вживаємо без артикля; сестру вже визначає присвійне слово.",
+            "accepted_target_texts": [
+                "My sister learns German at school."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My sister",
+                "learns German",
+                "at school."
+            ],
+            "token_groups": [
+                "My sister",
+                "learns German",
+                "at school."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "My",
+                "sister",
+                "learns",
+                "German",
+                "at",
+                "school."
+            ],
+            "options": [
+                "My",
+                "Their",
+                "Mine",
+                "Yours",
+                "sister",
+                "summer",
+                "breakfast",
+                "travel",
+                "learns",
+                "tables",
+                "tickets",
+                "cups",
+                "German",
+                "Spanish",
+                "Italian",
+                "Ukrainian",
+                "at",
+                "about",
+                "during",
+                "to",
+                "school",
+                "music",
+                "food",
+                "bike"
+            ],
+            "source_text_uk": "Моя сестра вчить німецьку в школі.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Their",
+                    "Mine",
+                    "Yours"
+                ],
+                "a2": [
+                    "sister",
+                    "summer",
+                    "breakfast",
+                    "travel"
+                ],
+                "a3": [
+                    "learns",
+                    "tables",
+                    "tickets",
+                    "cups"
+                ],
+                "a4": [
+                    "German",
+                    "Spanish",
+                    "Italian",
+                    "Ukrainian"
+                ],
+                "a5": [
+                    "at",
+                    "about",
+                    "during",
+                    "to"
+                ],
+                "a6": [
+                    "school",
+                    "music",
+                    "food",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-zero-article-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Улітку ми зазвичай подорожуємо потягом.",
+            "level": "A1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Улітку ми зазвичай подорожуємо потягом.",
+            "target_text": "We usually travel by train in summer.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "usually",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "usually",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a3": {
+                    "answer": "travel",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "travel",
+                        "sister",
+                        "school",
+                        "breakfast"
+                    ]
+                },
+                "a4": {
+                    "answer": "by",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "by",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a5": {
+                    "answer": "train",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "train",
+                        "van",
+                        "bicycle",
+                        "plane"
+                    ]
+                },
+                "a6": {
+                    "answer": "in",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "in",
+                        "with",
+                        "without",
+                        "under"
+                    ]
+                },
+                "a7": {
+                    "answer": "summer.",
+                    "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+                    "options": [
+                        "summer",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                }
+            },
+            "verb_hint": "Назви звичний спосіб пересування без артикля; не додавай артикля і до загальної назви пори року.",
+            "accepted_target_texts": [
+                "We usually travel by train in summer.",
+                "We usually travel by rail in summer."
+            ],
+            "answer_synonyms": {
+                "a5": [
+                    "rail"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a5": [
+                    "rail"
+                ]
+            },
+            "reorder_groups": [
+                "We usually",
+                "travel by train",
+                "in summer."
+            ],
+            "token_groups": [
+                "We usually",
+                "travel by train",
+                "in summer."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "usually",
+                "travel",
+                "by",
+                "train",
+                "in",
+                "summer."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "usually",
+                "never",
+                "always",
+                "often",
+                "travel",
+                "sister",
+                "school",
+                "breakfast",
+                "by",
+                "into",
+                "onto",
+                "over",
+                "train",
+                "van",
+                "bicycle",
+                "plane",
+                "in",
+                "with",
+                "without",
+                "under",
+                "summer",
+                "food",
+                "bike",
+                "car"
+            ],
+            "source_text_uk": "Улітку ми зазвичай подорожуємо потягом.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "usually",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a3": [
+                    "travel",
+                    "sister",
+                    "school",
+                    "breakfast"
+                ],
+                "a4": [
+                    "by",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a5": [
+                    "train",
+                    "van",
+                    "bicycle",
+                    "plane"
+                ],
+                "a6": [
+                    "in",
+                    "with",
+                    "without",
+                    "under"
+                ],
+                "a7": [
+                    "summer",
+                    "food",
+                    "bike",
+                    "car"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-zero-article-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Лео ходить на роботу пішки.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Лео ходить на роботу пішки.",
+            "target_text": "Leo goes to work on foot.",
+            "markers": {
+                "a1": {
+                    "answer": "Leo",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "Leo",
+                        "Nina",
+                        "Lena",
+                        "Ivan"
+                    ]
+                },
+                "a2": {
+                    "answer": "goes",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "goes",
+                        "watches",
+                        "visits",
+                        "cooks"
+                    ]
+                },
+                "a3": {
+                    "answer": "to",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "to",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a4": {
+                    "answer": "work",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "work",
+                        "play",
+                        "make",
+                        "get"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "on",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "foot.",
+                    "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+                    "options": [
+                        "foot",
+                        "Friday",
+                        "chess",
+                        "after"
+                    ]
+                }
+            },
+            "verb_hint": "Назви роботу як звичну діяльність і піший спосіб пересування без артиклів.",
+            "accepted_target_texts": [
+                "Leo goes to work on foot."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leo goes",
+                "to work",
+                "on foot."
+            ],
+            "token_groups": [
+                "Leo goes",
+                "to work",
+                "on foot."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Leo",
+                "goes",
+                "to",
+                "work",
+                "on",
+                "foot."
+            ],
+            "options": [
+                "Leo",
+                "Nina",
+                "Lena",
+                "Ivan",
+                "goes",
+                "watches",
+                "visits",
+                "cooks",
+                "to",
+                "for",
+                "of",
+                "in",
+                "work",
+                "play",
+                "make",
+                "get",
+                "on",
+                "between",
+                "among",
+                "about",
+                "foot",
+                "Friday",
+                "chess",
+                "after"
+            ],
+            "source_text_uk": "Лео ходить на роботу пішки.",
+            "options_by_marker": {
+                "a1": [
+                    "Leo",
+                    "Nina",
+                    "Lena",
+                    "Ivan"
+                ],
+                "a2": [
+                    "goes",
+                    "watches",
+                    "visits",
+                    "cooks"
+                ],
+                "a3": [
+                    "to",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a4": [
+                    "work",
+                    "play",
+                    "make",
+                    "get"
+                ],
+                "a5": [
+                    "on",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "foot",
+                    "Friday",
+                    "chess",
+                    "after"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-zero-article-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Ми зустрілися після вечері в п’ятницю.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Ми зустрілися після вечері в п’ятницю.",
+            "target_text": "We met after dinner on Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "We",
+                        "Herself",
+                        "Ourselves",
+                        "Themselves"
+                    ]
+                },
+                "a2": {
+                    "answer": "met",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "met",
+                        "watched",
+                        "visited",
+                        "cooked"
+                    ]
+                },
+                "a3": {
+                    "answer": "after",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "after",
+                        "chess",
+                        "foot",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "dinner",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "dinner",
+                        "window",
+                        "phone",
+                        "train"
+                    ]
+                },
+                "a5": {
+                    "answer": "on",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "on",
+                        "in",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "Friday.",
+                    "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+                    "options": [
+                        "Friday",
+                        "Table",
+                        "Ticket",
+                        "Cup"
+                    ]
+                }
+            },
+            "verb_hint": "Перед звичною вечерею та назвою дня тижня артиклі не потрібні.",
+            "accepted_target_texts": [
+                "We met after dinner on Friday."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We met",
+                "after dinner",
+                "on Friday."
+            ],
+            "token_groups": [
+                "We met",
+                "after dinner",
+                "on Friday."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "met",
+                "after",
+                "dinner",
+                "on",
+                "Friday."
+            ],
+            "options": [
+                "We",
+                "Herself",
+                "Ourselves",
+                "Themselves",
+                "met",
+                "watched",
+                "visited",
+                "cooked",
+                "after",
+                "chess",
+                "foot",
+                "food",
+                "dinner",
+                "window",
+                "phone",
+                "train",
+                "on",
+                "in",
+                "at",
+                "by",
+                "Friday",
+                "Table",
+                "Ticket",
+                "Cup"
+            ],
+            "source_text_uk": "Ми зустрілися після вечері в п’ятницю.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Herself",
+                    "Ourselves",
+                    "Themselves"
+                ],
+                "a2": [
+                    "met",
+                    "watched",
+                    "visited",
+                    "cooked"
+                ],
+                "a3": [
+                    "after",
+                    "chess",
+                    "foot",
+                    "food"
+                ],
+                "a4": [
+                    "dinner",
+                    "window",
+                    "phone",
+                    "train"
+                ],
+                "a5": [
+                    "on",
+                    "in",
+                    "at",
+                    "by"
+                ],
+                "a6": [
+                    "Friday",
+                    "Table",
+                    "Ticket",
+                    "Cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-zero-article-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Хлопці грають у шахи в бібліотеці.",
+            "level": "A2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Хлопці грають у шахи в бібліотеці.",
+            "target_text": "The boys play chess in the library.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "boys",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "boys",
+                        "chairs",
+                        "tables",
+                        "tickets"
+                    ]
+                },
+                "a3": {
+                    "answer": "play",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "play",
+                        "work",
+                        "call",
+                        "walk"
+                    ]
+                },
+                "a4": {
+                    "answer": "chess",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "chess",
+                        "dinner",
+                        "Friday",
+                        "foot"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "in",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a7": {
+                    "answer": "library.",
+                    "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+                    "options": [
+                        "library",
+                        "large",
+                        "new",
+                        "old"
+                    ]
+                }
+            },
+            "verb_hint": "Хлопці та бібліотека визначені контекстом, але перед назвою гри артикль не ставимо.",
+            "accepted_target_texts": [
+                "The boys play chess in the library."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The boys",
+                "play chess",
+                "in the library."
+            ],
+            "token_groups": [
+                "The boys",
+                "play chess",
+                "in the library."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "boys",
+                "play",
+                "chess",
+                "in",
+                "the",
+                "library."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "boys",
+                "chairs",
+                "tables",
+                "tickets",
+                "play",
+                "work",
+                "call",
+                "walk",
+                "chess",
+                "dinner",
+                "Friday",
+                "foot",
+                "in",
+                "between",
+                "among",
+                "about",
+                "the",
+                "both",
+                "a",
+                "an",
+                "library",
+                "large",
+                "new",
+                "old"
+            ],
+            "source_text_uk": "Хлопці грають у шахи в бібліотеці.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "boys",
+                    "chairs",
+                    "tables",
+                    "tickets"
+                ],
+                "a3": [
+                    "play",
+                    "work",
+                    "call",
+                    "walk"
+                ],
+                "a4": [
+                    "chess",
+                    "dinner",
+                    "Friday",
+                    "foot"
+                ],
+                "a5": [
+                    "in",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a7": [
+                    "library",
+                    "large",
+                    "new",
+                    "old"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-zero-article-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Добра порада часто корисніша за дороге обладнання.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Добра порада часто корисніша за дороге обладнання.",
+            "target_text": "Good advice is often more useful than expensive equipment.",
+            "markers": {
+                "a1": {
+                    "answer": "Good",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "Good",
+                        "Reliable",
+                        "Simple",
+                        "Happy"
+                    ]
+                },
+                "a2": {
+                    "answer": "advice",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "advice",
+                        "information",
+                        "before",
+                        "decision"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "often",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "often",
+                        "almost",
+                        "not",
+                        "never"
+                    ]
+                },
+                "a5": {
+                    "answer": "more",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "more",
+                        "much",
+                        "later",
+                        "usual"
+                    ]
+                },
+                "a6": {
+                    "answer": "useful",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "useful",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "than",
+                        "bag",
+                        "book",
+                        "box"
+                    ]
+                },
+                "a8": {
+                    "answer": "expensive",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "expensive",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a9": {
+                    "answer": "equipment.",
+                    "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+                    "options": [
+                        "equipment",
+                        "table",
+                        "ticket",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Обидва незлічувані поняття названі загально; не додавай артиклів.",
+            "accepted_target_texts": [
+                "Good advice is often more useful than expensive equipment."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Good advice",
+                "is often",
+                "more useful",
+                "than expensive equipment."
+            ],
+            "token_groups": [
+                "Good advice",
+                "is often",
+                "more useful",
+                "than expensive equipment."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Good",
+                "advice",
+                "is",
+                "often",
+                "more",
+                "useful",
+                "than",
+                "expensive",
+                "equipment."
+            ],
+            "options": [
+                "Good",
+                "Reliable",
+                "Simple",
+                "Happy",
+                "advice",
+                "information",
+                "before",
+                "decision",
+                "is",
+                "am",
+                "are",
+                "was",
+                "often",
+                "almost",
+                "not",
+                "never",
+                "more",
+                "much",
+                "later",
+                "usual",
+                "useful",
+                "easy",
+                "difficult",
+                "bright",
+                "than",
+                "bag",
+                "book",
+                "box",
+                "expensive",
+                "dark",
+                "heavy",
+                "light",
+                "equipment",
+                "table",
+                "ticket",
+                "cup"
+            ],
+            "source_text_uk": "Добра порада часто корисніша за дороге обладнання.",
+            "options_by_marker": {
+                "a1": [
+                    "Good",
+                    "Reliable",
+                    "Simple",
+                    "Happy"
+                ],
+                "a2": [
+                    "advice",
+                    "information",
+                    "before",
+                    "decision"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "often",
+                    "almost",
+                    "not",
+                    "never"
+                ],
+                "a5": [
+                    "more",
+                    "much",
+                    "later",
+                    "usual"
+                ],
+                "a6": [
+                    "useful",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a7": [
+                    "than",
+                    "bag",
+                    "book",
+                    "box"
+                ],
+                "a8": [
+                    "expensive",
+                    "dark",
+                    "heavy",
+                    "light"
+                ],
+                "a9": [
+                    "equipment",
+                    "table",
+                    "ticket",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-zero-article-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Нам потрібна надійна інформація, перш ніж ухвалювати рішення.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Нам потрібна надійна інформація, перш ніж ухвалювати рішення.",
+            "target_text": "We need reliable information before making a decision.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "We",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "need",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "need",
+                        "returned",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a3": {
+                    "answer": "reliable",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "reliable",
+                        "expensive",
+                        "Good",
+                        "useful"
+                    ]
+                },
+                "a4": {
+                    "answer": "information",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "information",
+                        "advice",
+                        "more",
+                        "than"
+                    ]
+                },
+                "a5": {
+                    "answer": "before",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "before",
+                        "later",
+                        "usual",
+                        "equipment"
+                    ]
+                },
+                "a6": {
+                    "answer": "making",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "making",
+                        "giving",
+                        "going",
+                        "taking"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "a",
+                        "all",
+                        "both",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "decision.",
+                    "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+                    "options": [
+                        "decision",
+                        "much",
+                        "book",
+                        "box"
+                    ]
+                }
+            },
+            "verb_hint": "Інформація незлічувана й загальна; окреме рішення вводиться неозначено.",
+            "accepted_target_texts": [
+                "We need reliable information before making a decision.",
+                "We need trustworthy information before making a decision."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "trustworthy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "trustworthy"
+                ]
+            },
+            "reorder_groups": [
+                "We need",
+                "reliable information",
+                "before making",
+                "a decision."
+            ],
+            "token_groups": [
+                "We need",
+                "reliable information",
+                "before making",
+                "a decision."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "We",
+                "need",
+                "reliable",
+                "information",
+                "before",
+                "making",
+                "a",
+                "decision."
+            ],
+            "options": [
+                "We",
+                "Us",
+                "Them",
+                "Myself",
+                "need",
+                "returned",
+                "rode",
+                "drove",
+                "reliable",
+                "expensive",
+                "Good",
+                "useful",
+                "information",
+                "advice",
+                "more",
+                "than",
+                "before",
+                "later",
+                "usual",
+                "equipment",
+                "making",
+                "giving",
+                "going",
+                "taking",
+                "a",
+                "all",
+                "both",
+                "an",
+                "decision",
+                "much",
+                "book",
+                "box"
+            ],
+            "source_text_uk": "Нам потрібна надійна інформація, перш ніж ухвалювати рішення.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "need",
+                    "returned",
+                    "rode",
+                    "drove"
+                ],
+                "a3": [
+                    "reliable",
+                    "expensive",
+                    "Good",
+                    "useful"
+                ],
+                "a4": [
+                    "information",
+                    "advice",
+                    "more",
+                    "than"
+                ],
+                "a5": [
+                    "before",
+                    "later",
+                    "usual",
+                    "equipment"
+                ],
+                "a6": [
+                    "making",
+                    "giving",
+                    "going",
+                    "taking"
+                ],
+                "a7": [
+                    "a",
+                    "all",
+                    "both",
+                    "an"
+                ],
+                "a8": [
+                    "decision",
+                    "much",
+                    "book",
+                    "box"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-zero-article-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Марія повернулася з роботи набагато пізніше, ніж зазвичай.",
+            "level": "B1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Марія повернулася з роботи набагато пізніше, ніж зазвичай.",
+            "target_text": "Maria returned from work much later than usual.",
+            "markers": {
+                "a1": {
+                    "answer": "Maria",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "Maria",
+                        "Petro",
+                        "Alice",
+                        "John"
+                    ]
+                },
+                "a2": {
+                    "answer": "returned",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "returned",
+                        "need",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a3": {
+                    "answer": "from",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "from",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a4": {
+                    "answer": "work",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "work",
+                        "see",
+                        "find",
+                        "bring"
+                    ]
+                },
+                "a5": {
+                    "answer": "much",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "much",
+                        "more",
+                        "equipment",
+                        "information"
+                    ]
+                },
+                "a6": {
+                    "answer": "later",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "later",
+                        "before",
+                        "decision",
+                        "advice"
+                    ]
+                },
+                "a7": {
+                    "answer": "than",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "than",
+                        "train",
+                        "bus",
+                        "desk"
+                    ]
+                },
+                "a8": {
+                    "answer": "usual.",
+                    "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+                    "options": [
+                        "usual",
+                        "picture",
+                        "child",
+                        "teacher"
+                    ]
+                }
+            },
+            "verb_hint": "Робота тут звична діяльність, тому назва не потребує артикля.",
+            "accepted_target_texts": [
+                "Maria returned from work much later than usual."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Maria returned",
+                "from work",
+                "much later",
+                "than usual."
+            ],
+            "token_groups": [
+                "Maria returned",
+                "from work",
+                "much later",
+                "than usual."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Maria",
+                "returned",
+                "from",
+                "work",
+                "much",
+                "later",
+                "than",
+                "usual."
+            ],
+            "options": [
+                "Maria",
+                "Petro",
+                "Alice",
+                "John",
+                "returned",
+                "need",
+                "needed",
+                "liked",
+                "from",
+                "of",
+                "in",
+                "on",
+                "work",
+                "see",
+                "find",
+                "bring",
+                "much",
+                "more",
+                "equipment",
+                "information",
+                "later",
+                "before",
+                "decision",
+                "advice",
+                "than",
+                "train",
+                "bus",
+                "desk",
+                "usual",
+                "picture",
+                "child",
+                "teacher"
+            ],
+            "source_text_uk": "Марія повернулася з роботи набагато пізніше, ніж зазвичай.",
+            "options_by_marker": {
+                "a1": [
+                    "Maria",
+                    "Petro",
+                    "Alice",
+                    "John"
+                ],
+                "a2": [
+                    "returned",
+                    "need",
+                    "needed",
+                    "liked"
+                ],
+                "a3": [
+                    "from",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a4": [
+                    "work",
+                    "see",
+                    "find",
+                    "bring"
+                ],
+                "a5": [
+                    "much",
+                    "more",
+                    "equipment",
+                    "information"
+                ],
+                "a6": [
+                    "later",
+                    "before",
+                    "decision",
+                    "advice"
+                ],
+                "a7": [
+                    "than",
+                    "train",
+                    "bus",
+                    "desk"
+                ],
+                "a8": [
+                    "usual",
+                    "picture",
+                    "child",
+                    "teacher"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-zero-article-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Доступ до освіти не повинен залежати від сімейного доходу.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Доступ до освіти не повинен залежати від сімейного доходу.",
+            "target_text": "Access to education should not depend on family income.",
+            "markers": {
+                "a1": {
+                    "answer": "Access",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "Access",
+                        "Detail",
+                        "After",
+                        "Lunch"
+                    ]
+                },
+                "a2": {
+                    "answer": "to",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "to",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a3": {
+                    "answer": "education",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "education",
+                        "charity",
+                        "shelter",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "should",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "should",
+                        "can",
+                        "could",
+                        "will"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a6": {
+                    "answer": "depend",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "depend",
+                        "proposal",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a7": {
+                    "answer": "on",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "on",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "family",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "family",
+                        "loudly",
+                        "quietly",
+                        "slowly"
+                    ]
+                },
+                "a9": {
+                    "answer": "income.",
+                    "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+                    "options": [
+                        "income",
+                        "dog",
+                        "cat",
+                        "person"
+                    ]
+                }
+            },
+            "verb_hint": "Освіта та дохід названі як загальні незлічувані поняття, без конкретної установи чи суми.",
+            "accepted_target_texts": [
+                "Access to education should not depend on family income."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Access to education",
+                "should not depend",
+                "on family income."
+            ],
+            "token_groups": [
+                "Access to education",
+                "should not depend",
+                "on family income."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Access",
+                "to",
+                "education",
+                "should",
+                "not",
+                "depend",
+                "on",
+                "family",
+                "income."
+            ],
+            "options": [
+                "Access",
+                "Detail",
+                "After",
+                "Lunch",
+                "to",
+                "under",
+                "through",
+                "across",
+                "education",
+                "charity",
+                "shelter",
+                "food",
+                "should",
+                "can",
+                "could",
+                "will",
+                "not",
+                "never",
+                "always",
+                "often",
+                "depend",
+                "proposal",
+                "map",
+                "letter",
+                "on",
+                "for",
+                "of",
+                "in",
+                "family",
+                "loudly",
+                "quietly",
+                "slowly",
+                "income",
+                "dog",
+                "cat",
+                "person"
+            ],
+            "source_text_uk": "Доступ до освіти не повинен залежати від сімейного доходу.",
+            "options_by_marker": {
+                "a1": [
+                    "Access",
+                    "Detail",
+                    "After",
+                    "Lunch"
+                ],
+                "a2": [
+                    "to",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a3": [
+                    "education",
+                    "charity",
+                    "shelter",
+                    "food"
+                ],
+                "a4": [
+                    "should",
+                    "can",
+                    "could",
+                    "will"
+                ],
+                "a5": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a6": [
+                    "depend",
+                    "proposal",
+                    "map",
+                    "letter"
+                ],
+                "a7": [
+                    "on",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a8": [
+                    "family",
+                    "loudly",
+                    "quietly",
+                    "slowly"
+                ],
+                "a9": [
+                    "income",
+                    "dog",
+                    "cat",
+                    "person"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-zero-article-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Благодійна організація надає притулок і їжу вимушено переміщеним сім’ям.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Благодійна організація надає притулок і їжу вимушено переміщеним сім’ям.",
+            "target_text": "The charity provides shelter and food for displaced families.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "charity",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "charity",
+                        "depend",
+                        "income",
+                        "proposal"
+                    ]
+                },
+                "a3": {
+                    "answer": "provides",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "provides",
+                        "teachers",
+                        "schools",
+                        "friends"
+                    ]
+                },
+                "a4": {
+                    "answer": "shelter",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "shelter",
+                        "detail",
+                        "after",
+                        "lunch"
+                    ]
+                },
+                "a5": {
+                    "answer": "and",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "and",
+                        "or",
+                        "nor",
+                        "so"
+                    ]
+                },
+                "a6": {
+                    "answer": "food",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "food",
+                        "Access",
+                        "education",
+                        "picture"
+                    ]
+                },
+                "a7": {
+                    "answer": "for",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "for",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a8": {
+                    "answer": "displaced",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "displaced",
+                        "discussed",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a9": {
+                    "answer": "families.",
+                    "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+                    "options": [
+                        "families",
+                        "rooms",
+                        "maps",
+                        "letters"
+                    ]
+                }
+            },
+            "verb_hint": "Організація відома, але допомогу і сім’ї описуємо загально; не додавай зайвих артиклів.",
+            "accepted_target_texts": [
+                "The charity provides shelter and food for displaced families."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The charity provides",
+                "shelter and food",
+                "for displaced families."
+            ],
+            "token_groups": [
+                "The charity provides",
+                "shelter and food",
+                "for displaced families."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "charity",
+                "provides",
+                "shelter",
+                "and",
+                "food",
+                "for",
+                "displaced",
+                "families."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "charity",
+                "depend",
+                "income",
+                "proposal",
+                "provides",
+                "teachers",
+                "schools",
+                "friends",
+                "shelter",
+                "detail",
+                "after",
+                "lunch",
+                "and",
+                "or",
+                "nor",
+                "so",
+                "food",
+                "Access",
+                "education",
+                "picture",
+                "for",
+                "onto",
+                "over",
+                "under",
+                "displaced",
+                "discussed",
+                "wanted",
+                "worked",
+                "families",
+                "rooms",
+                "maps",
+                "letters"
+            ],
+            "source_text_uk": "Благодійна організація надає притулок і їжу вимушено переміщеним сім’ям.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "charity",
+                    "depend",
+                    "income",
+                    "proposal"
+                ],
+                "a3": [
+                    "provides",
+                    "teachers",
+                    "schools",
+                    "friends"
+                ],
+                "a4": [
+                    "shelter",
+                    "detail",
+                    "after",
+                    "lunch"
+                ],
+                "a5": [
+                    "and",
+                    "or",
+                    "nor",
+                    "so"
+                ],
+                "a6": [
+                    "food",
+                    "Access",
+                    "education",
+                    "picture"
+                ],
+                "a7": [
+                    "for",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a8": [
+                    "displaced",
+                    "discussed",
+                    "wanted",
+                    "worked"
+                ],
+                "a9": [
+                    "families",
+                    "rooms",
+                    "maps",
+                    "letters"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-zero-article-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Після обіду вони докладно обговорили пропозицію.",
+            "level": "B2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Після обіду вони докладно обговорили пропозицію.",
+            "target_text": "They discussed the proposal in detail after lunch.",
+            "markers": {
+                "a1": {
+                    "answer": "They",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "They",
+                        "Me",
+                        "Him",
+                        "Us"
+                    ]
+                },
+                "a2": {
+                    "answer": "discussed",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "discussed",
+                        "displaced",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a4": {
+                    "answer": "proposal",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "proposal",
+                        "Access",
+                        "education",
+                        "depend"
+                    ]
+                },
+                "a5": {
+                    "answer": "in",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "in",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a6": {
+                    "answer": "detail",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "detail",
+                        "income",
+                        "charity",
+                        "shelter"
+                    ]
+                },
+                "a7": {
+                    "answer": "after",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "after",
+                        "food",
+                        "sister",
+                        "brother"
+                    ]
+                },
+                "a8": {
+                    "answer": "lunch.",
+                    "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+                    "options": [
+                        "lunch",
+                        "chair",
+                        "table",
+                        "ticket"
+                    ]
+                }
+            },
+            "verb_hint": "Пропозиція визначена; стала обставина докладності та звичний обід вживаються без артиклів.",
+            "accepted_target_texts": [
+                "They discussed the proposal in detail after lunch.",
+                "They debated the proposal in detail after lunch."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "debated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "debated"
+                ]
+            },
+            "reorder_groups": [
+                "They discussed",
+                "the proposal",
+                "in detail",
+                "after lunch."
+            ],
+            "token_groups": [
+                "They discussed",
+                "the proposal",
+                "in detail",
+                "after lunch."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "They",
+                "discussed",
+                "the",
+                "proposal",
+                "in",
+                "detail",
+                "after",
+                "lunch."
+            ],
+            "options": [
+                "They",
+                "Me",
+                "Him",
+                "Us",
+                "discussed",
+                "displaced",
+                "gave",
+                "made",
+                "the",
+                "these",
+                "those",
+                "each",
+                "proposal",
+                "Access",
+                "education",
+                "depend",
+                "in",
+                "to",
+                "from",
+                "for",
+                "detail",
+                "income",
+                "charity",
+                "shelter",
+                "after",
+                "food",
+                "sister",
+                "brother",
+                "lunch",
+                "chair",
+                "table",
+                "ticket"
+            ],
+            "source_text_uk": "Після обіду вони докладно обговорили пропозицію.",
+            "options_by_marker": {
+                "a1": [
+                    "They",
+                    "Me",
+                    "Him",
+                    "Us"
+                ],
+                "a2": [
+                    "discussed",
+                    "displaced",
+                    "gave",
+                    "made"
+                ],
+                "a3": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a4": [
+                    "proposal",
+                    "Access",
+                    "education",
+                    "depend"
+                ],
+                "a5": [
+                    "in",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a6": [
+                    "detail",
+                    "income",
+                    "charity",
+                    "shelter"
+                ],
+                "a7": [
+                    "after",
+                    "food",
+                    "sister",
+                    "brother"
+                ],
+                "a8": [
+                    "lunch",
+                    "chair",
+                    "table",
+                    "ticket"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-zero-article-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Довіра суспільства потребує прозорості, а не поодиноких запевнень.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Довіра суспільства потребує прозорості, а не поодиноких запевнень.",
+            "target_text": "Public trust requires transparency rather than occasional assurances.",
+            "markers": {
+                "a1": {
+                    "answer": "Public",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "Public",
+                        "Young",
+                        "Cold",
+                        "Warm"
+                    ]
+                },
+                "a2": {
+                    "answer": "trust",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "trust",
+                        "reform",
+                        "prevention",
+                        "punishment"
+                    ]
+                },
+                "a3": {
+                    "answer": "requires",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "requires",
+                        "conditions",
+                        "prioritises",
+                        "cases"
+                    ]
+                },
+                "a4": {
+                    "answer": "transparency",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "transparency",
+                        "minor",
+                        "grant",
+                        "independent"
+                    ]
+                },
+                "a5": {
+                    "answer": "rather",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "rather",
+                        "research",
+                        "commercial",
+                        "child"
+                    ]
+                },
+                "a6": {
+                    "answer": "than",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "than",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                },
+                "a7": {
+                    "answer": "occasional",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "occasional",
+                        "easy",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a8": {
+                    "answer": "assurances.",
+                    "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+                    "options": [
+                        "assurances",
+                        "supports",
+                        "phones",
+                        "children"
+                    ]
+                }
+            },
+            "verb_hint": "Довіра та прозорість є загальними абстрактними поняттями; запевнення наведені в неозначеній множині.",
+            "accepted_target_texts": [
+                "Public trust requires transparency rather than occasional assurances."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Public trust",
+                "requires transparency",
+                "rather than",
+                "occasional assurances."
+            ],
+            "token_groups": [
+                "Public trust",
+                "requires transparency",
+                "rather than",
+                "occasional assurances."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Public",
+                "trust",
+                "requires",
+                "transparency",
+                "rather",
+                "than",
+                "occasional",
+                "assurances."
+            ],
+            "options": [
+                "Public",
+                "Young",
+                "Cold",
+                "Warm",
+                "trust",
+                "reform",
+                "prevention",
+                "punishment",
+                "requires",
+                "conditions",
+                "prioritises",
+                "cases",
+                "transparency",
+                "minor",
+                "grant",
+                "independent",
+                "rather",
+                "research",
+                "commercial",
+                "child",
+                "than",
+                "phone",
+                "train",
+                "bus",
+                "occasional",
+                "easy",
+                "difficult",
+                "bright",
+                "assurances",
+                "supports",
+                "phones",
+                "children"
+            ],
+            "source_text_uk": "Довіра суспільства потребує прозорості, а не поодиноких запевнень.",
+            "options_by_marker": {
+                "a1": [
+                    "Public",
+                    "Young",
+                    "Cold",
+                    "Warm"
+                ],
+                "a2": [
+                    "trust",
+                    "reform",
+                    "prevention",
+                    "punishment"
+                ],
+                "a3": [
+                    "requires",
+                    "conditions",
+                    "prioritises",
+                    "cases"
+                ],
+                "a4": [
+                    "transparency",
+                    "minor",
+                    "grant",
+                    "independent"
+                ],
+                "a5": [
+                    "rather",
+                    "research",
+                    "commercial",
+                    "child"
+                ],
+                "a6": [
+                    "than",
+                    "phone",
+                    "train",
+                    "bus"
+                ],
+                "a7": [
+                    "occasional",
+                    "easy",
+                    "difficult",
+                    "bright"
+                ],
+                "a8": [
+                    "assurances",
+                    "supports",
+                    "phones",
+                    "children"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-zero-article-c1-c02",
+            "author_id": "C1-c02",
+            "question": "У дрібних справах реформа надає пріоритет запобіганню, а не покаранню.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "У дрібних справах реформа надає пріоритет запобіганню, а не покаранню.",
+            "target_text": "The reform prioritises prevention over punishment in minor cases.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "reform",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "reform",
+                        "grant",
+                        "independent",
+                        "research"
+                    ]
+                },
+                "a3": {
+                    "answer": "prioritises",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "prioritises",
+                        "requires",
+                        "assurances",
+                        "supports"
+                    ]
+                },
+                "a4": {
+                    "answer": "prevention",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "prevention",
+                        "commercial",
+                        "trust",
+                        "transparency"
+                    ]
+                },
+                "a5": {
+                    "answer": "over",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "over",
+                        "between",
+                        "among",
+                        "about"
+                    ]
+                },
+                "a6": {
+                    "answer": "punishment",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "punishment",
+                        "rather",
+                        "than",
+                        "food"
+                    ]
+                },
+                "a7": {
+                    "answer": "in",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "in",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a8": {
+                    "answer": "minor",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "minor",
+                        "book",
+                        "box",
+                        "chair"
+                    ]
+                },
+                "a9": {
+                    "answer": "cases.",
+                    "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+                    "options": [
+                        "cases",
+                        "conditions",
+                        "rooms",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Два загальні напрями політики після присудка не потребують артиклів.",
+            "accepted_target_texts": [
+                "The reform prioritises prevention over punishment in minor cases.",
+                "The reform prioritizes prevention over punishment in minor cases."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "prioritizes"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "prioritizes"
+                ]
+            },
+            "reorder_groups": [
+                "The reform prioritises",
+                "prevention over punishment",
+                "in minor cases."
+            ],
+            "token_groups": [
+                "The reform prioritises",
+                "prevention over punishment",
+                "in minor cases."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "reform",
+                "prioritises",
+                "prevention",
+                "over",
+                "punishment",
+                "in",
+                "minor",
+                "cases."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "reform",
+                "grant",
+                "independent",
+                "research",
+                "prioritises",
+                "requires",
+                "assurances",
+                "supports",
+                "prevention",
+                "commercial",
+                "trust",
+                "transparency",
+                "over",
+                "between",
+                "among",
+                "about",
+                "punishment",
+                "rather",
+                "than",
+                "food",
+                "in",
+                "under",
+                "through",
+                "across",
+                "minor",
+                "book",
+                "box",
+                "chair",
+                "cases",
+                "conditions",
+                "rooms",
+                "maps"
+            ],
+            "source_text_uk": "У дрібних справах реформа надає пріоритет запобіганню, а не покаранню.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "reform",
+                    "grant",
+                    "independent",
+                    "research"
+                ],
+                "a3": [
+                    "prioritises",
+                    "requires",
+                    "assurances",
+                    "supports"
+                ],
+                "a4": [
+                    "prevention",
+                    "commercial",
+                    "trust",
+                    "transparency"
+                ],
+                "a5": [
+                    "over",
+                    "between",
+                    "among",
+                    "about"
+                ],
+                "a6": [
+                    "punishment",
+                    "rather",
+                    "than",
+                    "food"
+                ],
+                "a7": [
+                    "in",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a8": [
+                    "minor",
+                    "book",
+                    "box",
+                    "chair"
+                ],
+                "a9": [
+                    "cases",
+                    "conditions",
+                    "rooms",
+                    "maps"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-zero-article-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Грант підтримує незалежні дослідження, не висуваючи комерційних умов.",
+            "level": "C1",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Грант підтримує незалежні дослідження, не висуваючи комерційних умов.",
+            "target_text": "The grant supports independent research without imposing commercial conditions.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "grant",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "grant",
+                        "trust",
+                        "transparency",
+                        "rather"
+                    ]
+                },
+                "a3": {
+                    "answer": "supports",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "supports",
+                        "requires",
+                        "assurances",
+                        "prioritises"
+                    ]
+                },
+                "a4": {
+                    "answer": "independent",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "independent",
+                        "than",
+                        "reform",
+                        "prevention"
+                    ]
+                },
+                "a5": {
+                    "answer": "research",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "research",
+                        "punishment",
+                        "minor",
+                        "room"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "without",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "imposing",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "imposing",
+                        "writing",
+                        "calling",
+                        "walking"
+                    ]
+                },
+                "a8": {
+                    "answer": "commercial",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "commercial",
+                        "bread",
+                        "milk",
+                        "music"
+                    ]
+                },
+                "a9": {
+                    "answer": "conditions.",
+                    "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+                    "options": [
+                        "conditions",
+                        "cases",
+                        "chairs",
+                        "tables"
+                    ]
+                }
+            },
+            "verb_hint": "Грант визначений, дослідження незлічувані, а умови — неозначена множина; зайвих артиклів не додавай.",
+            "accepted_target_texts": [
+                "The grant supports independent research without imposing commercial conditions."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The grant supports",
+                "independent research",
+                "without imposing",
+                "commercial conditions."
+            ],
+            "token_groups": [
+                "The grant supports",
+                "independent research",
+                "without imposing",
+                "commercial conditions."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "grant",
+                "supports",
+                "independent",
+                "research",
+                "without",
+                "imposing",
+                "commercial",
+                "conditions."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "grant",
+                "trust",
+                "transparency",
+                "rather",
+                "supports",
+                "requires",
+                "assurances",
+                "prioritises",
+                "independent",
+                "than",
+                "reform",
+                "prevention",
+                "research",
+                "punishment",
+                "minor",
+                "room",
+                "without",
+                "over",
+                "under",
+                "through",
+                "imposing",
+                "writing",
+                "calling",
+                "walking",
+                "commercial",
+                "bread",
+                "milk",
+                "music",
+                "conditions",
+                "cases",
+                "chairs",
+                "tables"
+            ],
+            "source_text_uk": "Грант підтримує незалежні дослідження, не висуваючи комерційних умов.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "grant",
+                    "trust",
+                    "transparency",
+                    "rather"
+                ],
+                "a3": [
+                    "supports",
+                    "requires",
+                    "assurances",
+                    "prioritises"
+                ],
+                "a4": [
+                    "independent",
+                    "than",
+                    "reform",
+                    "prevention"
+                ],
+                "a5": [
+                    "research",
+                    "punishment",
+                    "minor",
+                    "room"
+                ],
+                "a6": [
+                    "without",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "imposing",
+                    "writing",
+                    "calling",
+                    "walking"
+                ],
+                "a8": [
+                    "commercial",
+                    "bread",
+                    "milk",
+                    "music"
+                ],
+                "a9": [
+                    "conditions",
+                    "cases",
+                    "chairs",
+                    "tables"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-zero-article-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Демократична підзвітність залежить від доступу до інформації та свободи вираження поглядів.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Демократична підзвітність залежить від доступу до інформації та свободи вираження поглядів.",
+            "target_text": "Democratic accountability depends on access to information and freedom of expression.",
+            "markers": {
+                "a1": {
+                    "answer": "Democratic",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "Democratic",
+                        "Meaningful",
+                        "Reliable",
+                        "Bright"
+                    ]
+                },
+                "a2": {
+                    "answer": "accountability",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "accountability",
+                        "governance",
+                        "continuity",
+                        "change"
+                    ]
+                },
+                "a3": {
+                    "answer": "depends",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "depends",
+                        "requires",
+                        "separates",
+                        "schools"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "on",
+                        "onto",
+                        "over",
+                        "under"
+                    ]
+                },
+                "a5": {
+                    "answer": "access",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "access",
+                        "judgement",
+                        "legal",
+                        "liability"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "to",
+                        "through",
+                        "across",
+                        "between"
+                    ]
+                },
+                "a7": {
+                    "answer": "information",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "information",
+                        "moral",
+                        "blame",
+                        "concept"
+                    ]
+                },
+                "a8": {
+                    "answer": "and",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "and",
+                        "because",
+                        "although",
+                        "though"
+                    ]
+                },
+                "a9": {
+                    "answer": "freedom",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "freedom",
+                        "child",
+                        "teacher",
+                        "school"
+                    ]
+                },
+                "a10": {
+                    "answer": "of",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "of",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a11": {
+                    "answer": "expression.",
+                    "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+                    "options": [
+                        "expression",
+                        "sister",
+                        "brother",
+                        "friend"
+                    ]
+                }
+            },
+            "verb_hint": "Названі загальні абстрактні принципи без конкретизації; не додавай означених чи неозначених артиклів.",
+            "accepted_target_texts": [
+                "Democratic accountability depends on access to information and freedom of expression."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Democratic accountability",
+                "depends on",
+                "access to information",
+                "and freedom",
+                "of expression."
+            ],
+            "token_groups": [
+                "Democratic accountability",
+                "depends on",
+                "access to information",
+                "and freedom",
+                "of expression."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Democratic",
+                "accountability",
+                "depends",
+                "on",
+                "access",
+                "to",
+                "information",
+                "and",
+                "freedom",
+                "of",
+                "expression."
+            ],
+            "options": [
+                "Democratic",
+                "Meaningful",
+                "Reliable",
+                "Bright",
+                "accountability",
+                "governance",
+                "continuity",
+                "change",
+                "depends",
+                "requires",
+                "separates",
+                "schools",
+                "on",
+                "onto",
+                "over",
+                "under",
+                "access",
+                "judgement",
+                "legal",
+                "liability",
+                "to",
+                "through",
+                "across",
+                "between",
+                "information",
+                "moral",
+                "blame",
+                "concept",
+                "and",
+                "because",
+                "although",
+                "though",
+                "freedom",
+                "child",
+                "teacher",
+                "school",
+                "of",
+                "about",
+                "during",
+                "from",
+                "expression",
+                "sister",
+                "brother",
+                "friend"
+            ],
+            "source_text_uk": "Демократична підзвітність залежить від доступу до інформації та свободи вираження поглядів.",
+            "options_by_marker": {
+                "a1": [
+                    "Democratic",
+                    "Meaningful",
+                    "Reliable",
+                    "Bright"
+                ],
+                "a2": [
+                    "accountability",
+                    "governance",
+                    "continuity",
+                    "change"
+                ],
+                "a3": [
+                    "depends",
+                    "requires",
+                    "separates",
+                    "schools"
+                ],
+                "a4": [
+                    "on",
+                    "onto",
+                    "over",
+                    "under"
+                ],
+                "a5": [
+                    "access",
+                    "judgement",
+                    "legal",
+                    "liability"
+                ],
+                "a6": [
+                    "to",
+                    "through",
+                    "across",
+                    "between"
+                ],
+                "a7": [
+                    "information",
+                    "moral",
+                    "blame",
+                    "concept"
+                ],
+                "a8": [
+                    "and",
+                    "because",
+                    "although",
+                    "though"
+                ],
+                "a9": [
+                    "freedom",
+                    "child",
+                    "teacher",
+                    "school"
+                ],
+                "a10": [
+                    "of",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a11": [
+                    "expression",
+                    "sister",
+                    "brother",
+                    "friend"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-zero-article-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Рішення розмежовує юридичну відповідальність і моральну провину, не відкидаючи жодного з цих понять.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Рішення розмежовує юридичну відповідальність і моральну провину, не відкидаючи жодного з цих понять.",
+            "target_text": "The judgement separates legal liability from moral blame without dismissing either concept.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "The",
+                        "These",
+                        "Those",
+                        "Each"
+                    ]
+                },
+                "a2": {
+                    "answer": "judgement",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "judgement",
+                        "governance",
+                        "continuity",
+                        "change"
+                    ]
+                },
+                "a3": {
+                    "answer": "separates",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "separates",
+                        "depends",
+                        "requires",
+                        "people"
+                    ]
+                },
+                "a4": {
+                    "answer": "legal",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "legal",
+                        "accountability",
+                        "access",
+                        "information"
+                    ]
+                },
+                "a5": {
+                    "answer": "liability",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "liability",
+                        "expression",
+                        "freedom",
+                        "school"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "from",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "moral",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "moral",
+                        "water",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a8": {
+                    "answer": "blame",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "blame",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a9": {
+                    "answer": "without",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "without",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a10": {
+                    "answer": "dismissing",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "dismissing",
+                        "excluding",
+                        "riding",
+                        "driving"
+                    ]
+                },
+                "a11": {
+                    "answer": "either",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "either",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a12": {
+                    "answer": "concept.",
+                    "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+                    "options": [
+                        "concept",
+                        "phone",
+                        "train",
+                        "bus"
+                    ]
+                }
+            },
+            "verb_hint": "Два поняття вживаються загально як незлічувані назви; лише конкретне судове рішення має означений артикль.",
+            "accepted_target_texts": [
+                "The judgement separates legal liability from moral blame without dismissing either concept.",
+                "The judgment separates legal liability from moral blame without dismissing either concept."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "judgment"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "judgment"
+                ]
+            },
+            "reorder_groups": [
+                "The judgement separates",
+                "legal liability",
+                "from moral blame",
+                "without dismissing",
+                "either concept."
+            ],
+            "token_groups": [
+                "The judgement separates",
+                "legal liability",
+                "from moral blame",
+                "without dismissing",
+                "either concept."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "The",
+                "judgement",
+                "separates",
+                "legal",
+                "liability",
+                "from",
+                "moral",
+                "blame",
+                "without",
+                "dismissing",
+                "either",
+                "concept."
+            ],
+            "options": [
+                "The",
+                "These",
+                "Those",
+                "Each",
+                "judgement",
+                "governance",
+                "continuity",
+                "change",
+                "separates",
+                "depends",
+                "requires",
+                "people",
+                "legal",
+                "accountability",
+                "access",
+                "information",
+                "liability",
+                "expression",
+                "freedom",
+                "school",
+                "from",
+                "across",
+                "between",
+                "among",
+                "moral",
+                "water",
+                "bread",
+                "milk",
+                "blame",
+                "ticket",
+                "cup",
+                "door",
+                "without",
+                "for",
+                "of",
+                "in",
+                "dismissing",
+                "excluding",
+                "riding",
+                "driving",
+                "either",
+                "every",
+                "no",
+                "another",
+                "concept",
+                "phone",
+                "train",
+                "bus"
+            ],
+            "source_text_uk": "Рішення розмежовує юридичну відповідальність і моральну провину, не відкидаючи жодного з цих понять.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "These",
+                    "Those",
+                    "Each"
+                ],
+                "a2": [
+                    "judgement",
+                    "governance",
+                    "continuity",
+                    "change"
+                ],
+                "a3": [
+                    "separates",
+                    "depends",
+                    "requires",
+                    "people"
+                ],
+                "a4": [
+                    "legal",
+                    "accountability",
+                    "access",
+                    "information"
+                ],
+                "a5": [
+                    "liability",
+                    "expression",
+                    "freedom",
+                    "school"
+                ],
+                "a6": [
+                    "from",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "moral",
+                    "water",
+                    "bread",
+                    "milk"
+                ],
+                "a8": [
+                    "blame",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a9": [
+                    "without",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a10": [
+                    "dismissing",
+                    "excluding",
+                    "riding",
+                    "driving"
+                ],
+                "a11": [
+                    "either",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a12": [
+                    "concept",
+                    "phone",
+                    "train",
+                    "bus"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-zero-article-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Надійне врядування потребує безперервності, не виключаючи змістовних змін.",
+            "level": "C2",
+            "type": 4,
+            "source": "nouns_articles_quantity_quality_zero_article",
+            "translation_uk": "Надійне врядування потребує безперервності, не виключаючи змістовних змін.",
+            "target_text": "Reliable governance requires continuity without excluding meaningful change.",
+            "markers": {
+                "a1": {
+                    "answer": "Reliable",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "Reliable",
+                        "Democratic",
+                        "Final",
+                        "Small"
+                    ]
+                },
+                "a2": {
+                    "answer": "governance",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "governance",
+                        "accountability",
+                        "access",
+                        "information"
+                    ]
+                },
+                "a3": {
+                    "answer": "requires",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "requires",
+                        "separates",
+                        "depends",
+                        "letters"
+                    ]
+                },
+                "a4": {
+                    "answer": "continuity",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "continuity",
+                        "blame",
+                        "concept",
+                        "freedom"
+                    ]
+                },
+                "a5": {
+                    "answer": "without",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "without",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "excluding",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "excluding",
+                        "dismissing",
+                        "reading",
+                        "writing"
+                    ]
+                },
+                "a7": {
+                    "answer": "meaningful",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "meaningful",
+                        "useful",
+                        "helpful",
+                        "different"
+                    ]
+                },
+                "a8": {
+                    "answer": "change.",
+                    "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+                    "options": [
+                        "change",
+                        "expression",
+                        "judgement",
+                        "legal"
+                    ]
+                }
+            },
+            "verb_hint": "Усі основні іменники тут передають загальні абстрактні поняття й не потребують артиклів.",
+            "accepted_target_texts": [
+                "Reliable governance requires continuity without excluding meaningful change.",
+                "Trustworthy governance requires continuity without excluding meaningful change."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Trustworthy"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Trustworthy"
+                ]
+            },
+            "reorder_groups": [
+                "Reliable governance",
+                "requires continuity",
+                "without excluding",
+                "meaningful change."
+            ],
+            "token_groups": [
+                "Reliable governance",
+                "requires continuity",
+                "without excluding",
+                "meaningful change."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1",
+            "tokens_correct": [
+                "Reliable",
+                "governance",
+                "requires",
+                "continuity",
+                "without",
+                "excluding",
+                "meaningful",
+                "change."
+            ],
+            "options": [
+                "Reliable",
+                "Democratic",
+                "Final",
+                "Small",
+                "governance",
+                "accountability",
+                "access",
+                "information",
+                "requires",
+                "separates",
+                "depends",
+                "letters",
+                "continuity",
+                "blame",
+                "concept",
+                "freedom",
+                "without",
+                "into",
+                "onto",
+                "over",
+                "excluding",
+                "dismissing",
+                "reading",
+                "writing",
+                "meaningful",
+                "useful",
+                "helpful",
+                "different",
+                "change",
+                "expression",
+                "judgement",
+                "legal"
+            ],
+            "source_text_uk": "Надійне врядування потребує безперервності, не виключаючи змістовних змін.",
+            "options_by_marker": {
+                "a1": [
+                    "Reliable",
+                    "Democratic",
+                    "Final",
+                    "Small"
+                ],
+                "a2": [
+                    "governance",
+                    "accountability",
+                    "access",
+                    "information"
+                ],
+                "a3": [
+                    "requires",
+                    "separates",
+                    "depends",
+                    "letters"
+                ],
+                "a4": [
+                    "continuity",
+                    "blame",
+                    "concept",
+                    "freedom"
+                ],
+                "a5": [
+                    "without",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "excluding",
+                    "dismissing",
+                    "reading",
+                    "writing"
+                ],
+                "a7": [
+                    "meaningful",
+                    "useful",
+                    "helpful",
+                    "different"
+                ],
+                "a8": [
+                    "change",
+                    "expression",
+                    "judgement",
+                    "legal"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

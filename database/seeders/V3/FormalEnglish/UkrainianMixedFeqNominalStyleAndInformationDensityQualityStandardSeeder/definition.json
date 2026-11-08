@@ -1,0 +1,686 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/nominal-style-and-information-density.v1.json",
+        "sha256": "0a42221fec31b35e66bf2d777858e72cb42558f98263ada5e86ddd5564b83a51"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\FormalEnglish\\UkrainianMixedFeqNominalStyleAndInformationDensityQualityStandardSeeder",
+        "uuid_namespace": "formal-english-quality-nominal-style-and-information-density-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Formal English"
+    },
+    "sources": {
+        "formal_english_quality_nominal_style_and_information_density": {
+            "name": "Formal English Quality: Nominal Style and Information Density"
+        }
+    },
+    "tags": {
+        "nominal_style_and_information_density": {
+            "name": "nominal style and information density",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "nominal_style": {
+            "name": "nominal style",
+            "category": "formal-english"
+        },
+        "information_density": {
+            "name": "information density",
+            "category": "formal-english"
+        },
+        "compact_noun_phrasing": {
+            "name": "compact noun phrasing",
+            "category": "formal-english"
+        },
+        "noun_phrase_compression": {
+            "name": "noun phrase compression",
+            "category": "formal-english"
+        },
+        "verb_to_nominal_phrase": {
+            "name": "verb phrase to nominal phrase",
+            "category": "formal-english"
+        },
+        "modification_patterns": {
+            "name": "premodification and postmodification",
+            "category": "formal-english"
+        },
+        "apposition_clarification": {
+            "name": "apposition and clarification",
+            "category": "formal-english"
+        },
+        "academic_noun_groups": {
+            "name": "academic noun groups",
+            "category": "formal-english"
+        },
+        "concise_information_flow": {
+            "name": "concise formal information flow",
+            "category": "formal-english"
+        },
+        "avoid_overloaded_phrases": {
+            "name": "avoiding overloaded noun phrases",
+            "category": "formal-english"
+        },
+        "clarity_density_balance": {
+            "name": "balancing clarity and density",
+            "category": "formal-english"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "formal-english"
+        }
+    },
+    "default_tag_keys": [
+        "nominal_style_and_information_density"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-sty-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The {a1} of the lesson is at nine.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Початок уроку — о дев’ятій.",
+            "target_text": "The start of the lesson is at nine.",
+            "markers": {
+                "a1": {
+                    "answer": "start",
+                    "options": [
+                        "start",
+                        "starts",
+                        "started"
+                    ],
+                    "verb_hint": "Початок: доповни назву події одним іменником; приймається також природна назва починання."
+                }
+            },
+            "verb_hint": "Початок: доповни назву події одним іменником; приймається також природна назва починання.",
+            "accepted_target_texts": [
+                "The start of the lesson is at nine.",
+                "The beginning of the lesson is at nine."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "beginning"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "beginning"
+                ]
+            },
+            "reorder_groups": [
+                "The start",
+                "of the lesson",
+                "is at nine."
+            ],
+            "token_groups": [
+                "The start",
+                "of the lesson",
+                "is at nine."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "feq-sty-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Our {a1} to the zoo is on Monday.",
+            "level": "A1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Ми відвідаємо зоопарк у понеділок.",
+            "target_text": "Our visit to the zoo is on Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "visit",
+                    "options": [
+                        "visit",
+                        "visits",
+                        "visiting"
+                    ],
+                    "verb_hint": "Відвідини: назви заплановану подію іменником після наш; приймається також природна назва поїздки до зоопарку."
+                }
+            },
+            "verb_hint": "Відвідини: назви заплановану подію іменником після наш; приймається також природна назва поїздки до зоопарку.",
+            "accepted_target_texts": [
+                "Our visit to the zoo is on Monday.",
+                "Our trip to the zoo is on Monday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "trip"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "trip"
+                ]
+            },
+            "reorder_groups": [
+                "Our visit",
+                "to the zoo",
+                "is on Monday."
+            ],
+            "token_groups": [
+                "Our visit",
+                "to the zoo",
+                "is on Monday."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "feq-sty-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The {a1} of the parcel took three days.",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Доставка посилки тривала три дні.",
+            "target_text": "The delivery of the parcel took three days.",
+            "markers": {
+                "a1": {
+                    "answer": "delivery",
+                    "options": [
+                        "delivery",
+                        "deliver",
+                        "delivered"
+                    ],
+                    "verb_hint": "Доставка: назви дію іменником перед уже наведеним предметом; збережи тривалість."
+                }
+            },
+            "verb_hint": "Доставка: назви дію іменником перед уже наведеним предметом; збережи тривалість.",
+            "accepted_target_texts": [
+                "The delivery of the parcel took three days."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delivery",
+                "of the parcel",
+                "took three days."
+            ],
+            "token_groups": [
+                "The delivery",
+                "of the parcel",
+                "took three days."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "feq-sty-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The {a1} of the old fence starts tomorrow.",
+            "level": "A2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Ремонт старого паркану починається завтра.",
+            "target_text": "The repair of the old fence starts tomorrow.",
+            "markers": {
+                "a1": {
+                    "answer": "repair",
+                    "options": [
+                        "repair",
+                        "repairs",
+                        "repaired"
+                    ],
+                    "verb_hint": "Ремонт або лагодження: назви одну дію як подію, а не наказ щось робити; приймаються два відповідники."
+                }
+            },
+            "verb_hint": "Ремонт або лагодження: назви одну дію як подію, а не наказ щось робити; приймаються два відповідники.",
+            "accepted_target_texts": [
+                "The repair of the old fence starts tomorrow.",
+                "The mending of the old fence starts tomorrow."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "mending"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "mending"
+                ]
+            },
+            "reorder_groups": [
+                "The repair",
+                "of the",
+                "old fence",
+                "starts tomorrow."
+            ],
+            "token_groups": [
+                "The repair",
+                "of the",
+                "old fence",
+                "starts tomorrow."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "feq-sty-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The {a1} of the path caused a delay for wheelchair users.",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Закриття стежки спричинило затримку для користувачів крісел колісних.",
+            "target_text": "The closure of the path caused a delay for wheelchair users.",
+            "markers": {
+                "a1": {
+                    "answer": "closure",
+                    "options": [
+                        "closure",
+                        "closed",
+                        "close"
+                    ],
+                    "verb_hint": "Закриття: назви обмеження руху як подію, а не прикметник; приймається також природна віддієслівна назва дії."
+                }
+            },
+            "verb_hint": "Закриття: назви обмеження руху як подію, а не прикметник; приймається також природна віддієслівна назва дії.",
+            "accepted_target_texts": [
+                "The closure of the path caused a delay for wheelchair users.",
+                "The closing of the path caused a delay for wheelchair users."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "closing"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "closing"
+                ]
+            },
+            "reorder_groups": [
+                "The closure",
+                "of the path",
+                "caused a delay",
+                "for wheelchair users."
+            ],
+            "token_groups": [
+                "The closure",
+                "of the path",
+                "caused a delay",
+                "for wheelchair users."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "feq-sty-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Their {a1} to release the figures surprised the editor.",
+            "level": "B1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Їхня відмова оприлюднити цифри здивувала редактора.",
+            "target_text": "Their refusal to release the figures surprised the editor.",
+            "markers": {
+                "a1": {
+                    "answer": "refusal",
+                    "options": [
+                        "refusal",
+                        "refuse",
+                        "refused"
+                    ],
+                    "verb_hint": "Відмова: назви рішення не оприлюднювати цифри іменником; займенник належності вже наведений."
+                }
+            },
+            "verb_hint": "Відмова: назви рішення не оприлюднювати цифри іменником; займенник належності вже наведений.",
+            "accepted_target_texts": [
+                "Their refusal to release the figures surprised the editor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their refusal",
+                "to release",
+                "the figures",
+                "surprised the editor."
+            ],
+            "token_groups": [
+                "Their refusal",
+                "to release",
+                "the figures",
+                "surprised the editor."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "feq-sty-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The repeated {a1} of the alarm disrupted the rehearsal.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Неодноразове спрацьовування сигналізації завадило репетиції.",
+            "target_text": "The repeated activation of the alarm disrupted the rehearsal.",
+            "markers": {
+                "a1": {
+                    "answer": "activation",
+                    "options": [
+                        "activation",
+                        "activate",
+                        "activated"
+                    ],
+                    "verb_hint": "Спрацьовування: назви повторювану дію сигналізації іменником; приймаються два близькі відповідники."
+                }
+            },
+            "verb_hint": "Спрацьовування: назви повторювану дію сигналізації іменником; приймаються два близькі відповідники.",
+            "accepted_target_texts": [
+                "The repeated activation of the alarm disrupted the rehearsal.",
+                "The repeated triggering of the alarm disrupted the rehearsal."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "triggering"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "triggering"
+                ]
+            },
+            "reorder_groups": [
+                "The repeated",
+                "activation of",
+                "the alarm",
+                "disrupted the rehearsal."
+            ],
+            "token_groups": [
+                "The repeated",
+                "activation of",
+                "the alarm",
+                "disrupted the rehearsal."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "feq-sty-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The {a1} of the two accounts revealed a discrepancy in the dates.",
+            "level": "B2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Порівняння двох викладів виявило розбіжність у датах.",
+            "target_text": "The comparison of the two accounts revealed a discrepancy in the dates.",
+            "markers": {
+                "a1": {
+                    "answer": "comparison",
+                    "options": [
+                        "comparison",
+                        "comparisons",
+                        "comparative"
+                    ],
+                    "verb_hint": "Порівняння: назви одну операцію зіставлення двох викладів, а не множину таких операцій."
+                }
+            },
+            "verb_hint": "Порівняння: назви одну операцію зіставлення двох викладів, а не множину таких операцій.",
+            "accepted_target_texts": [
+                "The comparison of the two accounts revealed a discrepancy in the dates."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The comparison",
+                "of the",
+                "two accounts",
+                "revealed a discrepancy",
+                "in the dates."
+            ],
+            "token_groups": [
+                "The comparison",
+                "of the",
+                "two accounts",
+                "revealed a discrepancy",
+                "in the dates."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "feq-sty-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The committee's {a1} of the river plan was conditional on a new survey.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Схвалення комітетом плану щодо річки залежало від нового обстеження.",
+            "target_text": "The committee's approval of the river plan was conditional on a new survey.",
+            "markers": {
+                "a1": {
+                    "answer": "approval",
+                    "options": [
+                        "approval",
+                        "approvals",
+                        "approve"
+                    ],
+                    "verb_hint": "Схвалення: назви рішення комітету іменником в однині та збережи його умовність; приймаються два близькі відповідники."
+                }
+            },
+            "verb_hint": "Схвалення: назви рішення комітету іменником в однині та збережи його умовність; приймаються два близькі відповідники.",
+            "accepted_target_texts": [
+                "The committee's approval of the river plan was conditional on a new survey.",
+                "The committee's endorsement of the river plan was conditional on a new survey."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "endorsement"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "endorsement"
+                ]
+            },
+            "reorder_groups": [
+                "The committee's",
+                "approval of",
+                "the river plan",
+                "was conditional on",
+                "a new survey."
+            ],
+            "token_groups": [
+                "The committee's",
+                "approval of",
+                "the river plan",
+                "was conditional on",
+                "a new survey."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "feq-sty-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The report questions the {a1} of the inspectors' initial estimate.",
+            "level": "C1",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Звіт ставить під сумнів надійність початкової оцінки інспекторів.",
+            "target_text": "The report questions the reliability of the inspectors' initial estimate.",
+            "markers": {
+                "a1": {
+                    "answer": "reliability",
+                    "options": [
+                        "reliability",
+                        "reliable",
+                        "reliably"
+                    ],
+                    "verb_hint": "Надійність: назви властивість оцінки абстрактним іменником, а не прикметником або прислівником."
+                }
+            },
+            "verb_hint": "Надійність: назви властивість оцінки абстрактним іменником, а не прикметником або прислівником.",
+            "accepted_target_texts": [
+                "The report questions the reliability of the inspectors' initial estimate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report",
+                "questions the reliability",
+                "of the inspectors'",
+                "initial estimate."
+            ],
+            "token_groups": [
+                "The report",
+                "questions the reliability",
+                "of the inspectors'",
+                "initial estimate."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "feq-sty-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The report distinguishes the {a1} of the policy from its desirability.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Звіт відрізняє здійсненність політики від її бажаності.",
+            "target_text": "The report distinguishes the feasibility of the policy from its desirability.",
+            "markers": {
+                "a1": {
+                    "answer": "feasibility",
+                    "options": [
+                        "feasibility",
+                        "feasible",
+                        "feasibly"
+                    ],
+                    "verb_hint": "Здійсненність: назви можливість практичного втілення окремо від бажаності; приймаються два близькі абстрактні іменники."
+                }
+            },
+            "verb_hint": "Здійсненність: назви можливість практичного втілення окремо від бажаності; приймаються два близькі абстрактні іменники.",
+            "accepted_target_texts": [
+                "The report distinguishes the feasibility of the policy from its desirability.",
+                "The report distinguishes the practicability of the policy from its desirability."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "practicability"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "practicability"
+                ]
+            },
+            "reorder_groups": [
+                "The report",
+                "distinguishes the feasibility",
+                "of the policy",
+                "from its desirability."
+            ],
+            "token_groups": [
+                "The report",
+                "distinguishes the feasibility",
+                "of the policy",
+                "from its desirability."
+            ],
+            "quality_revision": "feq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "feq-sty-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The board rejected the {a1} that silence amounted to consent.",
+            "level": "C2",
+            "type": 0,
+            "source": "formal_english_quality_nominal_style_and_information_density",
+            "translation_uk": "Рада відкинула припущення, що мовчання означало згоду.",
+            "target_text": "The board rejected the assumption that silence amounted to consent.",
+            "markers": {
+                "a1": {
+                    "answer": "assumption",
+                    "options": [
+                        "assumption",
+                        "assume",
+                        "assumed"
+                    ],
+                    "verb_hint": "Припущення: назви відкинутий вихідний засновок іменником; приймається також близький формальний відповідник."
+                }
+            },
+            "verb_hint": "Припущення: назви відкинутий вихідний засновок іменником; приймається також близький формальний відповідник.",
+            "accepted_target_texts": [
+                "The board rejected the assumption that silence amounted to consent.",
+                "The board rejected the presumption that silence amounted to consent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "presumption"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "presumption"
+                ]
+            },
+            "reorder_groups": [
+                "The board",
+                "rejected the assumption",
+                "that silence",
+                "amounted to consent."
+            ],
+            "token_groups": [
+                "The board",
+                "rejected the assumption",
+                "that silence",
+                "amounted to consent."
+            ],
+            "quality_revision": "feq-v1"
+        }
+    ]
+}

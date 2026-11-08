@@ -1,0 +1,673 @@
+{
+    "schema_version": 1,
+    "quality_revision": "stq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-transformations-quality/reported-speech.v1.json",
+        "sha256": "2dda25437f01014252cddc6a98bbbfe3d5facd61fe1a7d18a78e69be328980a4"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqReportedSpeechQualityStandardSeeder",
+        "uuid_namespace": "sentence-transformations-quality-reported-speech-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Transformations"
+    },
+    "sources": {
+        "sentence_transformations_quality_reported_speech": {
+            "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech"
+        }
+    },
+    "tags": {
+        "sentence_transformations_reported_speech_all_levels": {
+            "name": "sentence transformations reported speech all levels",
+            "category": "sentence_transformations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "direct_statement_reported": {
+            "name": "Direct Statement Reported",
+            "category": "topic"
+        },
+        "direct_question_reported": {
+            "name": "Direct Question Reported",
+            "category": "topic"
+        },
+        "command_request_reported": {
+            "name": "Command Request Reported",
+            "category": "topic"
+        },
+        "backshift": {
+            "name": "Backshift",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "time_place_changes": {
+            "name": "Time Place Changes",
+            "category": "topic"
+        },
+        "said_told_asked": {
+            "name": "Said Told Asked",
+            "category": "topic"
+        },
+        "no_direct_question_order": {
+            "name": "No Direct Question Order",
+            "category": "topic"
+        },
+        "object_infinitive": {
+            "name": "Object Infinitive",
+            "category": "topic"
+        },
+        "preserve_meaning": {
+            "name": "Preserve Meaning",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "stq-reported-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Nora says that she {a1} coffee.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Нора зараз каже: „Я хочу кави“».",
+            "target_text": "Nora says that she wants coffee.",
+            "markers": {
+                "a1": {
+                    "answer": "wants",
+                    "options": [
+                        "wants",
+                        "want",
+                        "wanted"
+                    ],
+                    "verb_hint": "Початкове: «Нора зараз каже: „Я хочу кави“». Передай її слова непрямою мовою без зміни теперішнього часу."
+                }
+            },
+            "verb_hint": "Початкове: «Нора зараз каже: „Я хочу кави“». Передай її слова непрямою мовою без зміни теперішнього часу.",
+            "accepted_target_texts": [
+                "Nora says that she wants coffee."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Nora says",
+                "that she",
+                "wants coffee."
+            ],
+            "token_groups": [
+                "Nora says",
+                "that she",
+                "wants coffee."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "stq-reported-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Mum tells Ivan {a1} here.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Мама каже Іванові: „Почекай тут“».",
+            "target_text": "Mum tells Ivan to wait here.",
+            "markers": {
+                "a1": {
+                    "answer": "to wait",
+                    "options": [
+                        "to wait",
+                        "wait",
+                        "waiting"
+                    ],
+                    "verb_hint": "Початкове: «Мама каже Іванові: „Почекай тут“». Передай вказівку через інфінітив; повідомляємо в той самий момент у тому самому місці."
+                }
+            },
+            "verb_hint": "Початкове: «Мама каже Іванові: „Почекай тут“». Передай вказівку через інфінітив; повідомляємо в той самий момент у тому самому місці.",
+            "accepted_target_texts": [
+                "Mum tells Ivan to wait here."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mum tells Ivan",
+                "to wait here."
+            ],
+            "token_groups": [
+                "Mum tells Ivan",
+                "to wait here."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "stq-reported-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The chef said that he {a1} busy.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Учора шеф сказав: „Я зайнятий“; сьогодні він уже вільний».",
+            "target_text": "The chef said that he was busy.",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "is",
+                        "were"
+                    ],
+                    "verb_hint": "Початкове: «Учора шеф сказав: „Я зайнятий“; сьогодні він уже вільний». Передай минулий стан шефа, а не твердження про його стан зараз."
+                }
+            },
+            "verb_hint": "Початкове: «Учора шеф сказав: „Я зайнятий“; сьогодні він уже вільний». Передай минулий стан шефа, а не твердження про його стан зараз.",
+            "accepted_target_texts": [
+                "The chef said that he was busy."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The chef said",
+                "that he",
+                "was busy."
+            ],
+            "token_groups": [
+                "The chef said",
+                "that he",
+                "was busy."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "stq-reported-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Oksana asked the teacher {a1} the table was ready.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Оксана спитала вчителя: „Стіл готовий?“».",
+            "target_text": "Oksana asked the teacher whether the table was ready.",
+            "markers": {
+                "a1": {
+                    "answer": "whether",
+                    "options": [
+                        "whether",
+                        "that",
+                        "what"
+                    ],
+                    "verb_hint": "Початкове: «Оксана спитала вчителя: „Стіл готовий?“». Передай загальне питання непрямою мовою."
+                }
+            },
+            "verb_hint": "Початкове: «Оксана спитала вчителя: „Стіл готовий?“». Передай загальне питання непрямою мовою.",
+            "accepted_target_texts": [
+                "Oksana asked the teacher whether the table was ready.",
+                "Oksana asked the teacher if the table was ready."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "if"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "if"
+                ]
+            },
+            "reorder_groups": [
+                "Oksana asked",
+                "the teacher",
+                "whether the table",
+                "was ready."
+            ],
+            "token_groups": [
+                "Oksana asked",
+                "the teacher",
+                "whether the table",
+                "was ready."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "stq-reported-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Lina told Viktor that she {a1} him the next day.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «У понеділок Ліна сказала Вікторові: „Я подзвоню тобі завтра“; переповідаємо в середу».",
+            "target_text": "Lina told Viktor that she would call him the next day.",
+            "markers": {
+                "a1": {
+                    "answer": "would call",
+                    "options": [
+                        "would call",
+                        "will call",
+                        "had called"
+                    ],
+                    "verb_hint": "Початкове: «У понеділок Ліна сказала Вікторові: „Я подзвоню тобі завтра“; переповідаємо в середу». Збережи адресата й відносний майбутній час її слів."
+                }
+            },
+            "verb_hint": "Початкове: «У понеділок Ліна сказала Вікторові: „Я подзвоню тобі завтра“; переповідаємо в середу». Збережи адресата й відносний майбутній час її слів.",
+            "accepted_target_texts": [
+                "Lina told Viktor that she would call him the next day.",
+                "Lina told Viktor that she would phone him the next day.",
+                "Lina told Viktor that she would telephone him the next day."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "would phone",
+                    "would telephone"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "would phone",
+                    "would telephone"
+                ]
+            },
+            "reorder_groups": [
+                "Lina told Viktor",
+                "that she",
+                "would call him",
+                "the next day."
+            ],
+            "token_groups": [
+                "Lina told Viktor",
+                "that she",
+                "would call him",
+                "the next day."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "stq-reported-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Oleh asked Inna where she {a1} her paints.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Олег спитав Інну: „Де ти зберігаєш фарби?“; ті фарби тепер уже використані».",
+            "target_text": "Oleh asked Inna where she kept her paints.",
+            "markers": {
+                "a1": {
+                    "answer": "kept",
+                    "options": [
+                        "kept",
+                        "will keep",
+                        "keeps"
+                    ],
+                    "verb_hint": "Початкове: «Олег спитав Інну: „Де ти зберігаєш фарби?“; ті фарби тепер уже використані». Збережи питальне слово й передай минулий стан без прямого порядку питання."
+                }
+            },
+            "verb_hint": "Початкове: «Олег спитав Інну: „Де ти зберігаєш фарби?“; ті фарби тепер уже використані». Збережи питальне слово й передай минулий стан без прямого порядку питання.",
+            "accepted_target_texts": [
+                "Oleh asked Inna where she kept her paints.",
+                "Oleh asked Inna where she stored her paints."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stored"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stored"
+                ]
+            },
+            "reorder_groups": [
+                "Oleh asked Inna",
+                "where she",
+                "kept her paints."
+            ],
+            "token_groups": [
+                "Oleh asked Inna",
+                "where she",
+                "kept her paints."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "stq-reported-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The engineer said that they {a1} it for two days.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше».",
+            "target_text": "The engineer said that they had been investigating it for two days.",
+            "markers": {
+                "a1": {
+                    "answer": "had been investigating",
+                    "options": [
+                        "had been investigating",
+                        "have been investigating",
+                        "had investigating"
+                    ],
+                    "verb_hint": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше». Передай тривалість дослідження до минулого повідомлення."
+                }
+            },
+            "verb_hint": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше». Передай тривалість дослідження до минулого повідомлення.",
+            "accepted_target_texts": [
+                "The engineer said that they had been investigating it for two days.",
+                "The engineer said that they had been studying it for two days."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been studying"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been studying"
+                ]
+            },
+            "reorder_groups": [
+                "The engineer said",
+                "that they",
+                "had been investigating",
+                "it",
+                "for two days."
+            ],
+            "token_groups": [
+                "The engineer said",
+                "that they",
+                "had been investigating",
+                "it",
+                "for two days."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "stq-reported-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The teacher advised Ira {a1} the edge.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Учитель порадив Ірі: „Тобі варто перевірити край“».",
+            "target_text": "The teacher advised Ira to check the edge.",
+            "markers": {
+                "a1": {
+                    "answer": "to check",
+                    "options": [
+                        "to check",
+                        "check",
+                        "checking"
+                    ],
+                    "verb_hint": "Початкове: «Учитель порадив Ірі: „Тобі варто перевірити край“». Передай саме пораду через інфінітив, збережи одержувачку."
+                }
+            },
+            "verb_hint": "Початкове: «Учитель порадив Ірі: „Тобі варто перевірити край“». Передай саме пораду через інфінітив, збережи одержувачку.",
+            "accepted_target_texts": [
+                "The teacher advised Ira to check the edge.",
+                "The teacher advised Ira to inspect the edge.",
+                "The teacher advised Ira to examine the edge."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to inspect",
+                    "to examine"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to inspect",
+                    "to examine"
+                ]
+            },
+            "reorder_groups": [
+                "The teacher",
+                "advised Ira",
+                "to check",
+                "the edge."
+            ],
+            "token_groups": [
+                "The teacher",
+                "advised Ira",
+                "to check",
+                "the edge."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "stq-reported-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The researcher said that the data {a1} distorted.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне».",
+            "target_text": "The researcher said that the data might have been distorted.",
+            "markers": {
+                "a1": {
+                    "answer": "might have been",
+                    "options": [
+                        "might have been",
+                        "might be",
+                        "might have"
+                    ],
+                    "verb_hint": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне». Передай припущення про попереднє спотворення, не перетворюючи його на факт."
+                }
+            },
+            "verb_hint": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне». Передай припущення про попереднє спотворення, не перетворюючи його на факт.",
+            "accepted_target_texts": [
+                "The researcher said that the data might have been distorted.",
+                "The researcher said that the data may have been distorted."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "may have been"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "may have been"
+                ]
+            },
+            "reorder_groups": [
+                "The researcher said",
+                "that the data",
+                "might have been",
+                "distorted."
+            ],
+            "token_groups": [
+                "The researcher said",
+                "that the data",
+                "might have been",
+                "distorted."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "stq-reported-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The restorer warned the apprentices {a1} the solvent before testing it.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Реставратор застеріг учнів: „Не використовуйте розчинник до перевірки“».",
+            "target_text": "The restorer warned the apprentices not to use the solvent before testing it.",
+            "markers": {
+                "a1": {
+                    "answer": "not to use",
+                    "options": [
+                        "not to use",
+                        "to not using",
+                        "do not use"
+                    ],
+                    "verb_hint": "Початкове: «Реставратор застеріг учнів: „Не використовуйте розчинник до перевірки“». Передай застереження інфінітивом; ідеться про перевірку самого розчинника."
+                }
+            },
+            "verb_hint": "Початкове: «Реставратор застеріг учнів: „Не використовуйте розчинник до перевірки“». Передай застереження інфінітивом; ідеться про перевірку самого розчинника.",
+            "accepted_target_texts": [
+                "The restorer warned the apprentices not to use the solvent before testing it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restorer",
+                "warned the apprentices",
+                "not to use",
+                "the solvent",
+                "before testing it."
+            ],
+            "token_groups": [
+                "The restorer",
+                "warned the apprentices",
+                "not to use",
+                "the solvent",
+                "before testing it."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "stq-reported-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The archivist denied ever {a1} the seal.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «У відповідь на звинувачення архівіст сказав: „Я ніколи не ламав пломбу“».",
+            "target_text": "The archivist denied ever having broken the seal.",
+            "markers": {
+                "a1": {
+                    "answer": "having broken",
+                    "options": [
+                        "having broken",
+                        "to break",
+                        "have broken"
+                    ],
+                    "verb_hint": "Початкове: «У відповідь на звинувачення архівіст сказав: „Я ніколи не ламав пломбу“». Передай заперечення звинувачення, не додаючи другого граматичного заперечення."
+                }
+            },
+            "verb_hint": "Початкове: «У відповідь на звинувачення архівіст сказав: „Я ніколи не ламав пломбу“». Передай заперечення звинувачення, не додаючи другого граматичного заперечення.",
+            "accepted_target_texts": [
+                "The archivist denied ever having broken the seal.",
+                "The archivist denied ever breaking the seal."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "breaking"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "breaking"
+                ]
+            },
+            "reorder_groups": [
+                "The archivist",
+                "denied ever",
+                "having broken",
+                "the seal."
+            ],
+            "token_groups": [
+                "The archivist",
+                "denied ever",
+                "having broken",
+                "the seal."
+            ],
+            "quality_revision": "stq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "stq-reported-c2-g02",
+            "author_id": "C2-g02",
+            "question": "She insisted that the omission {a1} inadvertent.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_transformations_quality_reported_speech",
+            "translation_uk": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“».",
+            "target_text": "She insisted that the omission had been inadvertent.",
+            "markers": {
+                "a1": {
+                    "answer": "had been",
+                    "options": [
+                        "had been",
+                        "has been",
+                        "is"
+                    ],
+                    "verb_hint": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“». Перекажи наполягання; складеною минулою формою виразно познач попередність стану щодо її слів."
+                }
+            },
+            "verb_hint": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“». Перекажи наполягання; складеною минулою формою виразно познач попередність стану щодо її слів.",
+            "accepted_target_texts": [
+                "She insisted that the omission had been inadvertent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She insisted",
+                "that the omission",
+                "had been inadvertent."
+            ],
+            "token_groups": [
+                "She insisted",
+                "that the omission",
+                "had been inadvertent."
+            ],
+            "quality_revision": "stq-v1"
+        }
+    ]
+}

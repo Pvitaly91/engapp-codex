@@ -1,0 +1,742 @@
+{
+    "schema_version": 1,
+    "package": "sentence-structure-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/sentence-structure-practice-source.v1.json",
+        "sha256": "6c4c0e2c6e4a5523facdcb4dd6feac1a577de6a891627c7b8765d96fb7e1a556"
+    },
+    "targets": [
+        {
+            "topic": "cleft-sentences-basics",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesBasicsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/sentence-structure/cleft-sentences-basics",
+            "definition": "database/seeders/Page_V3/SentenceStructure/CleftSentencesBasicsTheorySeeder/definition.json",
+            "definition_sha256": "e6b8d472f92bee28f01b4d3727c49f10b6e49961620615708d47a58766b911ea",
+            "release": "database/content-patches/m28-m12-emphasis-inversion.v2.json",
+            "release_sha256": "f8d4b67ebb876cb36b17af3edf90afe6d593e401c85dbd38a99fc6f3ed88ca18",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesBasicsTheorySeeder",
+                "locale": "uk",
+                "uuid": "2fda2289-909a-51e7-8204-5fdda30588ef",
+                "sort_order": 7,
+                "page_id": 289,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B2",
+                "css_class": null,
+                "body_sha256": "a6f6cc090419fef68b8003464374e7b7b96a519f91371f37b666b5d94c2e2822"
+            },
+            "design": {
+                "source_index": 6,
+                "uuid": "2fda2289-909a-51e7-8204-5fdda30588ef",
+                "sort_order": 7,
+                "body_sha256": "a6f6cc090419fef68b8003464374e7b7b96a519f91371f37b666b5d94c2e2822",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 6,
+            "before_data_sha256": "a6f6cc090419fef68b8003464374e7b7b96a519f91371f37b666b5d94c2e2822",
+            "after_data_sha256": "d5db6a72fbbb360e6d69e2d61d9861aaeae87e02c7e3374e7e1f127cc595e7ad",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "It was Nora",
+                        "who found",
+                        "the spare key",
+                        "yesterday."
+                    ],
+                    "condition_uk": "Саме Нора, а не Лео, знайшла запасний ключ учора.",
+                    "hint_uk": "Виділи Нору як виконавицю; збережи запасний ключ і вчорашній час."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "It was",
+                        "on Friday",
+                        "that we signed",
+                        "the agreement."
+                    ],
+                    "condition_uk": "Ми підписали угоду саме в п’ятницю.",
+                    "hint_uk": "Виділи день підписання, а не виконавців; збережи минулий час."
+                }
+            ],
+            "added": [
+                {
+                    "id": "ssq-native-cleft-sentences-basics-gap-1",
+                    "kind": "gap",
+                    "condition": "It {a1} the blue folder that I need now, not the red one.",
+                    "answer": "is",
+                    "accepted": [
+                        "is"
+                    ],
+                    "hint_uk": "Теперішня потреба: встав теперішню форму дієслова-зв’язки; підмет уже наведено.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-basics-gap-2",
+                    "kind": "gap",
+                    "condition": "What the apprentices value {a1} patient guidance.",
+                    "answer": "is",
+                    "accepted": [
+                        "is"
+                    ],
+                    "hint_uk": "Теперішня оцінка учнів: узгодь дієслово-зв’язку з початковою частиною про те, що вони цінують.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-basics-translate-1",
+                    "kind": "translation",
+                    "condition": "Саме моя сестра спекла цей хліб учора.",
+                    "answer": "It was my sister who baked this bread yesterday.",
+                    "accepted": [
+                        "It was my sister who baked this bread yesterday.",
+                        "It was my sister that baked this bread yesterday."
+                    ],
+                    "hint_uk": "Виділи сестру як виконавицю випікання; збережи цей хліб і вчорашній час.",
+                    "ordered_groups": [
+                        "It was",
+                        "my sister",
+                        "who baked",
+                        "this bread",
+                        "yesterday."
+                    ],
+                    "shuffled_groups": [
+                        "yesterday.",
+                        "my sister",
+                        "It was",
+                        "who baked",
+                        "this bread"
+                    ],
+                    "token_labels": {
+                        "who baked": "who baked (that baked)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-basics-translate-2",
+                    "kind": "translation",
+                    "condition": "Те, що нам потрібно, — надійний човен.",
+                    "answer": "What we need is a reliable boat.",
+                    "accepted": [
+                        "What we need is a reliable boat.",
+                        "What we need is a reliable vessel.",
+                        "What we need is a dependable boat.",
+                        "What we need is a dependable vessel.",
+                        "What we require is a reliable boat.",
+                        "What we require is a reliable vessel.",
+                        "What we require is a dependable boat.",
+                        "What we require is a dependable vessel.",
+                        "The thing we need is a reliable boat.",
+                        "The thing we need is a reliable vessel.",
+                        "The thing we need is a dependable boat.",
+                        "The thing we need is a dependable vessel."
+                    ],
+                    "hint_uk": "Почни з того, що нам потрібно; збережи теперішню потребу й надійність човна.",
+                    "ordered_groups": [
+                        "What we need",
+                        "is a",
+                        "reliable boat."
+                    ],
+                    "shuffled_groups": [
+                        "is a",
+                        "reliable boat.",
+                        "What we need"
+                    ],
+                    "token_labels": {
+                        "reliable boat.": "reliable boat. (reliable vessel. / dependable boat. / dependable vessel.)",
+                        "What we need": "What we need (What we require / The thing we need)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "who found": "who found (that found)"
+                },
+                "1": [],
+                "4": {
+                    "who baked": "who baked (that baked)"
+                },
+                "5": {
+                    "reliable boat.": "reliable boat. (reliable vessel. / dependable boat. / dependable vessel.)",
+                    "What we need": "What we need (What we require / The thing we need)"
+                }
+            }
+        },
+        {
+            "topic": "cleft-sentences-emphasis",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesEmphasisTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/sentence-structure/cleft-sentences-emphasis",
+            "definition": "database/seeders/Page_V3/SentenceStructure/CleftSentencesEmphasisTheorySeeder/definition.json",
+            "definition_sha256": "0203d5f832f59b9e5746f37a7967730f04b90e468c0b470ce852584189cfcafd",
+            "release": "database/content-patches/m29-m13-sentence-structure.v2.json",
+            "release_sha256": "b630a175cb9058a7e847ac852b0bcd56be5e18106996de1ff8979c1831aab18a",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\CleftSentencesEmphasisTheorySeeder",
+                "locale": "uk",
+                "uuid": "9ee5a239-3235-5fd9-811a-fe15efa41057",
+                "sort_order": 9,
+                "page_id": 297,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C1",
+                "css_class": null,
+                "body_sha256": "562b9a6957d5cbfdf6959dda75a7465aa5aff28092b648dd508284442fa19a07"
+            },
+            "design": {
+                "source_index": 8,
+                "uuid": "9ee5a239-3235-5fd9-811a-fe15efa41057",
+                "sort_order": 9,
+                "body_sha256": "562b9a6957d5cbfdf6959dda75a7465aa5aff28092b648dd508284442fa19a07",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 8,
+            "before_data_sha256": "562b9a6957d5cbfdf6959dda75a7465aa5aff28092b648dd508284442fa19a07",
+            "after_data_sha256": "aedf7a1866f647109d0f8ab3db43497763cf70ce36b21f13321d3731a4a39231",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "When was it",
+                        "that the supplier",
+                        "changed",
+                        "the delivery date?"
+                    ],
+                    "condition_uk": "Коли саме постачальник змінив дату доставки?",
+                    "hint_uk": "Почни з питання про час; збережи постачальника та зміну дати доставки."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "What the team",
+                        "needed was",
+                        "a clearer brief."
+                    ],
+                    "condition_uk": "Обладнання вистачало, але команда не могла завершити дослідження. Їй потрібне було чіткіше завдання.",
+                    "hint_uk": "Виділи те, чого бракувало команді: чіткіше завдання, не додаткове обладнання."
+                }
+            ],
+            "added": [
+                {
+                    "id": "ssq-native-cleft-sentences-emphasis-gap-1",
+                    "kind": "gap",
+                    "condition": "Why {a1} it that the courier arrived so late yesterday?",
+                    "answer": "was",
+                    "accepted": [
+                        "was"
+                    ],
+                    "hint_uk": "Запитання про вчорашню причину: встав минулу форму дієслова-зв’язки перед уже наведеним підметом.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-emphasis-gap-2",
+                    "kind": "gap",
+                    "condition": "What the consultant did yesterday {a1} recommend a second inspection.",
+                    "answer": "was",
+                    "accepted": [
+                        "was"
+                    ],
+                    "hint_uk": "Повідомлення про вчорашню дію: встав минулу форму дієслова-зв’язки, не повторюй наведені частини.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-emphasis-translate-1",
+                    "kind": "translation",
+                    "condition": "Те, чого вона хотіла, — письмове вибачення.",
+                    "answer": "What she wanted was a written apology.",
+                    "accepted": [
+                        "What she wanted was a written apology.",
+                        "What she wanted was an apology in writing."
+                    ],
+                    "hint_uk": "Виділи бажаний результат; збережи минулий час і вимогу письмової форми вибачення.",
+                    "ordered_groups": [
+                        "What she wanted",
+                        "was a",
+                        "written apology."
+                    ],
+                    "shuffled_groups": [
+                        "written apology.",
+                        "was a",
+                        "What she wanted"
+                    ],
+                    "token_labels": [],
+                    "index": 4
+                },
+                {
+                    "id": "ssq-native-cleft-sentences-emphasis-translate-2",
+                    "kind": "translation",
+                    "condition": "Саме через те, що міст був закритий, ми поїхали іншою дорогою.",
+                    "answer": "It was because the bridge was closed that we took another road.",
+                    "accepted": [
+                        "It was because the bridge was closed that we took another road.",
+                        "It was because the bridge was closed that we took another route.",
+                        "It was because the bridge was closed that we took a different road.",
+                        "It was because the bridge was closed that we took a different route.",
+                        "It was because the bridge was closed that we used another road.",
+                        "It was because the bridge was closed that we used another route.",
+                        "It was because the bridge was closed that we used a different road.",
+                        "It was because the bridge was closed that we used a different route.",
+                        "It was because the bridge was closed that we went another way.",
+                        "It was because the bridge was closed that we went a different way.",
+                        "It was because the bridge was shut that we took another road.",
+                        "It was because the bridge was shut that we took another route.",
+                        "It was because the bridge was shut that we took a different road.",
+                        "It was because the bridge was shut that we took a different route.",
+                        "It was because the bridge was shut that we used another road.",
+                        "It was because the bridge was shut that we used another route.",
+                        "It was because the bridge was shut that we used a different road.",
+                        "It was because the bridge was shut that we used a different route.",
+                        "It was because the bridge was shut that we went another way.",
+                        "It was because the bridge was shut that we went a different way."
+                    ],
+                    "hint_uk": "Виділи причину вибору іншої дороги: міст був закритий; обидві події належать минулому.",
+                    "ordered_groups": [
+                        "It was because",
+                        "the bridge",
+                        "was closed",
+                        "that we took",
+                        "another road."
+                    ],
+                    "shuffled_groups": [
+                        "the bridge",
+                        "that we took",
+                        "was closed",
+                        "another road.",
+                        "It was because"
+                    ],
+                    "token_labels": {
+                        "another road.": "another road. (another route. / a different road. / a different route.)",
+                        "that we took": "that we took (that we used)",
+                        "was closed": "was closed (was shut)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": [],
+                "5": {
+                    "another road.": "another road. (another route. / a different road. / a different route.)",
+                    "that we took": "that we took (that we used)",
+                    "was closed": "was closed (was shut)"
+                }
+            }
+        },
+        {
+            "topic": "ellipsis-substitution-and-reference",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\SentenceStructure\\EllipsisSubstitutionAndReferenceTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/sentence-structure/ellipsis-substitution-and-reference",
+            "definition": "database/seeders/Page_V3/SentenceStructure/EllipsisSubstitutionAndReferenceTheorySeeder/definition.json",
+            "definition_sha256": "15a1307e396b59c7b19a71a1859be75d81a8a36859c8d5c3bafc1ffe9a4b76c0",
+            "release": "database/content-patches/m29-m13-sentence-structure.v2.json",
+            "release_sha256": "b630a175cb9058a7e847ac852b0bcd56be5e18106996de1ff8979c1831aab18a",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\EllipsisSubstitutionAndReferenceTheorySeeder",
+                "locale": "uk",
+                "uuid": "cf743e15-58b4-59d3-8ede-2b5227a6f8be",
+                "sort_order": 10,
+                "page_id": 311,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "0ef61995c8b2d34ce52b8176ef05f6f8f316c15a5919b047188c6c0e4286510f"
+            },
+            "design": {
+                "source_index": 9,
+                "uuid": "cf743e15-58b4-59d3-8ede-2b5227a6f8be",
+                "sort_order": 10,
+                "body_sha256": "0ef61995c8b2d34ce52b8176ef05f6f8f316c15a5919b047188c6c0e4286510f",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 9,
+            "before_data_sha256": "0ef61995c8b2d34ce52b8176ef05f6f8f316c15a5919b047188c6c0e4286510f",
+            "after_data_sha256": "77f71b498da176c7bf92b4b022b335a7d5a85bca0a81e4eac47252acdc682891",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "This ease",
+                        "of reference",
+                        "made the handbook",
+                        "useful for revision."
+                    ],
+                    "condition_uk": "Порівнювали онлайнсемінар і друкований посібник. Зручність звернення саме до посібника зробила його корисним для повторення.",
+                    "hint_uk": "Відсилання стосується зручності користування посібником, не онлайнсемінару; збережи причину його корисності."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Olena told Marta",
+                        "that Olena's notes",
+                        "were missing."
+                    ],
+                    "condition_uk": "Олена сказала Марті, що загубилися саме Оленині нотатки. Усунь неоднозначність власниці.",
+                    "hint_uk": "Олена повідомляє Марті про власні нотатки; не приписуй їх Марті."
+                }
+            ],
+            "added": [
+                {
+                    "id": "ssq-native-ellipsis-substitution-and-reference-gap-1",
+                    "kind": "gap",
+                    "condition": "The proofreader corrected the headings, and the editor {a1} too.",
+                    "answer": "did",
+                    "accepted": [
+                        "did"
+                    ],
+                    "hint_uk": "Минула стверджувальна дія: заміни повтор повної дії відповідним допоміжним дієсловом.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "ssq-native-ellipsis-substitution-and-reference-gap-2",
+                    "kind": "gap",
+                    "condition": "I prefer the plain notebook to the decorated {a1}.",
+                    "answer": "one",
+                    "accepted": [
+                        "one"
+                    ],
+                    "hint_uk": "Заміни повтор назви одного злічуваного предмета; не додавай назву зошита вдруге.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "ssq-native-ellipsis-substitution-and-reference-translate-1",
+                    "kind": "translation",
+                    "condition": "Мій брат уміє плавати, і я теж. Не повторюй назву дії в другій частині.",
+                    "answer": "My brother can swim, and I can too.",
+                    "accepted": [
+                        "My brother can swim, and I can too.",
+                        "My brother can swim, and so can I.",
+                        "My brother can swim, and I can as well."
+                    ],
+                    "hint_uk": "Почни з уміння брата, потім додай моє таке саме вміння без повтору основного дієслова.",
+                    "ordered_groups": [
+                        "My brother",
+                        "can swim,",
+                        "and I",
+                        "can too."
+                    ],
+                    "shuffled_groups": [
+                        "can swim,",
+                        "and I",
+                        "My brother",
+                        "can too."
+                    ],
+                    "token_labels": {
+                        "can too.": "can too. (can as well.)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "ssq-native-ellipsis-substitution-and-reference-translate-2",
+                    "kind": "translation",
+                    "condition": "Якщо вам потрібні ці рукавички, візьміть сині. Заміни друге називання рукавичок.",
+                    "answer": "If you need these gloves, take the blue ones.",
+                    "accepted": [
+                        "If you need these gloves, take the blue ones."
+                    ],
+                    "hint_uk": "Умова стосується конкретних рукавичок; у другій частині назву предметів заміни формою множини.",
+                    "ordered_groups": [
+                        "If you need",
+                        "these gloves,",
+                        "take",
+                        "the blue ones."
+                    ],
+                    "shuffled_groups": [
+                        "take",
+                        "If you need",
+                        "these gloves,",
+                        "the blue ones."
+                    ],
+                    "token_labels": [],
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "can too.": "can too. (can as well.)"
+                },
+                "5": []
+            }
+        },
+        {
+            "topic": "complex-noun-phrases",
+            "mode": "native",
+            "identity": "Database\\Seeders\\Page_V3\\SentenceStructure\\ComplexNounPhrasesTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/sentence-structure/complex-noun-phrases",
+            "definition": "database/seeders/Page_V3/SentenceStructure/ComplexNounPhrasesTheorySeeder/definition.json",
+            "definition_sha256": "980ce3cc243b00e08696ede33ee3ffaa818603634508f750078bd6811060089c",
+            "release": "database/content-patches/m29-m13-sentence-structure.v2.json",
+            "release_sha256": "b630a175cb9058a7e847ac852b0bcd56be5e18106996de1ff8979c1831aab18a",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\SentenceStructure\\ComplexNounPhrasesTheorySeeder",
+                "locale": "uk",
+                "uuid": "656dbbdc-4419-5b75-ab28-fba87426c34b",
+                "sort_order": 9,
+                "page_id": 312,
+                "page_category_id": 53,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "C2",
+                "css_class": null,
+                "body_sha256": "d0195b98a4ad53c3eca787a91e57c96ddb554ed940ea5fd72c679f65612eafc3"
+            },
+            "design": {
+                "source_index": 8,
+                "uuid": "656dbbdc-4419-5b75-ab28-fba87426c34b",
+                "sort_order": 9,
+                "body_sha256": "d0195b98a4ad53c3eca787a91e57c96ddb554ed940ea5fd72c679f65612eafc3",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 8,
+            "before_data_sha256": "d0195b98a4ad53c3eca787a91e57c96ddb554ed940ea5fd72c679f65612eafc3",
+            "after_data_sha256": "b5147e4d2916bcd4a481af18dd94c7b4b25cb49c2c1657c2e66188aea6e96ea1",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Leila,",
+                        "the project coordinator,",
+                        "approved the change."
+                    ],
+                    "condition_uk": "Лейла, координаторка проєкту, схвалила зміну. Посада — додаткова довідка про вже названу особу.",
+                    "hint_uk": "Збережи Лейлу виконавицею, її посаду додатковою довідкою та схвалення конкретної зміни."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "We need",
+                        "a new-staff",
+                        "training plan.",
+                        "The training",
+                        "will start",
+                        "in May."
+                    ],
+                    "condition_uk": "Нам потрібен план навчання нових працівників. Саме навчання почнеться в травні.",
+                    "hint_uk": "План стосується навчання нових працівників; у травні починається навчання, не новий план."
+                }
+            ],
+            "added": [
+                {
+                    "id": "ssq-native-complex-noun-phrases-gap-1",
+                    "kind": "gap",
+                    "condition": "The collection of ancient coins {a1} kept in a locked cabinet.",
+                    "answer": "is",
+                    "accepted": [
+                        "is"
+                    ],
+                    "hint_uk": "Теперішній стан: узгодь допоміжне дієслово з назвою колекції, а не монет; збережи пасив.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 2
+                },
+                {
+                    "id": "ssq-native-complex-noun-phrases-gap-2",
+                    "kind": "gap",
+                    "condition": "Two descriptions of the damaged mural {a1} missing from the catalogue.",
+                    "answer": "are",
+                    "accepted": [
+                        "are"
+                    ],
+                    "hint_uk": "Теперішній стан: встав дієслово-зв’язку за кількістю описів, не за числом назви розпису.",
+                    "ordered_groups": [],
+                    "shuffled_groups": [],
+                    "token_labels": [],
+                    "index": 3
+                },
+                {
+                    "id": "ssq-native-complex-noun-phrases-translate-1",
+                    "kind": "translation",
+                    "condition": "Обидві пропозиції щодо ремонту даху потребують перегляду.",
+                    "answer": "Both proposals for repairing the roof need review.",
+                    "accepted": [
+                        "Both proposals for repairing the roof need review.",
+                        "Both proposals for repairing the roof need revision.",
+                        "Both proposals for repairing the roof need reviewing.",
+                        "Both proposals for repairing the roof need a review.",
+                        "Both proposals for repairing the roof require review.",
+                        "Both proposals for repairing the roof require revision.",
+                        "Both proposals for repairing the roof require reviewing.",
+                        "Both proposals for repairing the roof require a review.",
+                        "Both proposals for repairing the roof need to be reviewed.",
+                        "Both proposals for repairing the roof need to be revised.",
+                        "Both proposals for roof repairs need review.",
+                        "Both proposals for roof repairs need revision.",
+                        "Both proposals for roof repairs need reviewing.",
+                        "Both proposals for roof repairs need a review.",
+                        "Both proposals for roof repairs require review.",
+                        "Both proposals for roof repairs require revision.",
+                        "Both proposals for roof repairs require reviewing.",
+                        "Both proposals for roof repairs require a review.",
+                        "Both proposals for roof repairs need to be reviewed.",
+                        "Both proposals for roof repairs need to be revised.",
+                        "Both proposals for the roof repairs need review.",
+                        "Both proposals for the roof repairs need revision.",
+                        "Both proposals for the roof repairs need reviewing.",
+                        "Both proposals for the roof repairs need a review.",
+                        "Both proposals for the roof repairs require review.",
+                        "Both proposals for the roof repairs require revision.",
+                        "Both proposals for the roof repairs require reviewing.",
+                        "Both proposals for the roof repairs require a review.",
+                        "Both proposals for the roof repairs need to be reviewed.",
+                        "Both proposals for the roof repairs need to be revised.",
+                        "Both of the proposals for repairing the roof need review.",
+                        "Both of the proposals for repairing the roof need revision.",
+                        "Both of the proposals for repairing the roof need reviewing.",
+                        "Both of the proposals for repairing the roof need a review.",
+                        "Both of the proposals for repairing the roof require review.",
+                        "Both of the proposals for repairing the roof require revision.",
+                        "Both of the proposals for repairing the roof require reviewing.",
+                        "Both of the proposals for repairing the roof require a review.",
+                        "Both of the proposals for repairing the roof need to be reviewed.",
+                        "Both of the proposals for repairing the roof need to be revised.",
+                        "Both of the proposals for roof repairs need review.",
+                        "Both of the proposals for roof repairs need revision.",
+                        "Both of the proposals for roof repairs need reviewing.",
+                        "Both of the proposals for roof repairs need a review.",
+                        "Both of the proposals for roof repairs require review.",
+                        "Both of the proposals for roof repairs require revision.",
+                        "Both of the proposals for roof repairs require reviewing.",
+                        "Both of the proposals for roof repairs require a review.",
+                        "Both of the proposals for roof repairs need to be reviewed.",
+                        "Both of the proposals for roof repairs need to be revised.",
+                        "Both of the proposals for the roof repairs need review.",
+                        "Both of the proposals for the roof repairs need revision.",
+                        "Both of the proposals for the roof repairs need reviewing.",
+                        "Both of the proposals for the roof repairs need a review.",
+                        "Both of the proposals for the roof repairs require review.",
+                        "Both of the proposals for the roof repairs require revision.",
+                        "Both of the proposals for the roof repairs require reviewing.",
+                        "Both of the proposals for the roof repairs require a review.",
+                        "Both of the proposals for the roof repairs need to be reviewed.",
+                        "Both of the proposals for the roof repairs need to be revised."
+                    ],
+                    "hint_uk": "Почни з обох пропозицій; ремонт стосується даху, а перегляду потребують самі пропозиції.",
+                    "ordered_groups": [
+                        "Both proposals",
+                        "for repairing",
+                        "the roof",
+                        "need review."
+                    ],
+                    "shuffled_groups": [
+                        "Both proposals",
+                        "need review.",
+                        "for repairing",
+                        "the roof"
+                    ],
+                    "token_labels": {
+                        "need review.": "need review. (need revision. / need reviewing. / require review. / require revision. / require reviewing. / require a review. / need to be reviewed. / need to be revised.)"
+                    },
+                    "index": 4
+                },
+                {
+                    "id": "ssq-native-complex-noun-phrases-translate-2",
+                    "kind": "translation",
+                    "condition": "Звіт про причини затримки готовий до публікації.",
+                    "answer": "The report on the causes of the delay is ready for publication.",
+                    "accepted": [
+                        "The report on the causes of the delay is ready for publication.",
+                        "The report on the causes of the delay is ready for publishing.",
+                        "The report on the causes of the delay is ready to be published.",
+                        "The report on the reasons for the delay is ready for publication.",
+                        "The report on the reasons for the delay is ready for publishing.",
+                        "The report on the reasons for the delay is ready to be published.",
+                        "The report about the causes of the delay is ready for publication.",
+                        "The report about the causes of the delay is ready for publishing.",
+                        "The report about the causes of the delay is ready to be published.",
+                        "The report about the reasons for the delay is ready for publication.",
+                        "The report about the reasons for the delay is ready for publishing.",
+                        "The report about the reasons for the delay is ready to be published."
+                    ],
+                    "hint_uk": "Головне слово називає один звіт; збережи причини конкретної затримки та готовність до публікації.",
+                    "ordered_groups": [
+                        "The report",
+                        "on the causes",
+                        "of the delay",
+                        "is ready",
+                        "for publication."
+                    ],
+                    "shuffled_groups": [
+                        "The report",
+                        "is ready",
+                        "on the causes",
+                        "of the delay",
+                        "for publication."
+                    ],
+                    "token_labels": {
+                        "for publication.": "for publication. (for publishing. / to be published.)",
+                        "on the causes": "on the causes (about the causes)"
+                    },
+                    "index": 5
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": {
+                    "need review.": "need review. (need revision. / need reviewing. / require review. / require revision. / require reviewing. / require a review. / need to be reviewed. / need to be revised.)"
+                },
+                "5": {
+                    "for publication.": "for publication. (for publishing. / to be published.)",
+                    "on the causes": "on the causes (about the causes)"
+                }
+            }
+        }
+    ]
+}

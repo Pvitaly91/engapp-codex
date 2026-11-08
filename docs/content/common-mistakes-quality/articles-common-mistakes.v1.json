@@ -1,0 +1,683 @@
+{
+    "schema_version": 1,
+    "topic_key": "articles-common-mistakes",
+    "title": "Articles: Common Mistakes",
+    "choice_pools": {
+        "proper_noun": [
+            "Lida",
+            "Nazar",
+            "Iryna",
+            "Taras",
+            "Marta",
+            "Danylo",
+            "Sofiia",
+            "Oleh",
+            "Nina",
+            "Ivan"
+        ],
+        "transitive_verb": [
+            "has",
+            "needs",
+            "sees",
+            "likes",
+            "carries",
+            "buys",
+            "wants",
+            "keeps",
+            "finds",
+            "uses"
+        ],
+        "noun_phrase": [
+            "a red cup",
+            "the blue box",
+            "her new hat",
+            "some old books",
+            "my little dog",
+            "a small room",
+            "the front door",
+            "a green chair",
+            "his warm coat",
+            "their garden"
+        ],
+        "subject_phrase": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "he",
+            "she",
+            "my sister",
+            "our teacher",
+            "the children",
+            "my parents"
+        ],
+        "base_intransitive_verb": [
+            "live",
+            "work",
+            "wait",
+            "stay",
+            "sit",
+            "sleep",
+            "walk",
+            "play"
+        ],
+        "preposition_phrase": [
+            "in",
+            "on",
+            "at",
+            "near",
+            "under",
+            "behind",
+            "before",
+            "after",
+            "with",
+            "from",
+            "to",
+            "for",
+            "of",
+            "by",
+            "through"
+        ],
+        "adverbial_phrase": [
+            "today",
+            "yesterday",
+            "tomorrow",
+            "every day",
+            "each week",
+            "at night",
+            "after lunch",
+            "before school",
+            "very slowly",
+            "quite often"
+        ],
+        "past_verb_phrase": [
+            "found",
+            "carried",
+            "bought",
+            "opened",
+            "closed",
+            "needed",
+            "used",
+            "washed",
+            "checked",
+            "chose"
+        ],
+        "bare_noun_phrase": [
+            "fresh bread",
+            "cold water",
+            "old books",
+            "new shoes",
+            "good news",
+            "strong coffee",
+            "small children",
+            "warm clothes",
+            "clean air",
+            "red flowers"
+        ],
+        "linking_verb": [
+            "is",
+            "are",
+            "was",
+            "were",
+            "seems",
+            "looks",
+            "became",
+            "remained"
+        ],
+        "noun_singular": [
+            "bag",
+            "book",
+            "chair",
+            "window",
+            "door",
+            "garden",
+            "bottle",
+            "camera",
+            "letter",
+            "basket"
+        ],
+        "noun_complement_phrase": [
+            "of the room",
+            "of the book",
+            "of the garden",
+            "of the house",
+            "of the lesson",
+            "of the story",
+            "of the plan",
+            "of the picture"
+        ],
+        "closed_prepositional_phrase": [
+            "in the garden",
+            "on the desk",
+            "near the shop",
+            "under the bed",
+            "after the lesson",
+            "before the match",
+            "with my friend",
+            "at the station"
+        ],
+        "comparative_copula": [
+            "is less",
+            "is more",
+            "was less",
+            "was more",
+            "seems less",
+            "seems more",
+            "became less",
+            "became more"
+        ],
+        "conjunction_phrase": [
+            "and",
+            "but",
+            "because",
+            "although",
+            "while",
+            "when",
+            "if",
+            "unless",
+            "so",
+            "since"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Oleh needs {a1} empty box for his toys.",
+            "target": "Oleh needs an empty box for his toys.",
+            "uk": "Олегові потрібна якась порожня коробка для іграшок.",
+            "hint_uk": "Уперше називаємо одну невизначену річ; наступне слово починається з голосного звука.",
+            "groups": [
+                "Oleh needs",
+                "an empty box",
+                "for his toys."
+            ],
+            "answer": "an",
+            "options": [
+                "an",
+                "a",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Nina wears {a1} yellow scarf today.",
+            "target": "Nina wears a yellow scarf today.",
+            "uk": "Сьогодні на Ніні жовтий шарф.",
+            "hint_uk": "Називаємо один шарф, про який раніше не йшлося; потрібен неозначений артикль.",
+            "groups": [
+                "Nina wears",
+                "a yellow scarf",
+                "today."
+            ],
+            "answer": "a",
+            "options": [
+                "a",
+                "an",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "У Ліди є синя сумка.",
+            "target": "Lida has a blue bag.",
+            "uk": "У Ліди є синя сумка.",
+            "hint_uk": "Почни з імені; назви одну сумку без попередньої згадки.",
+            "groups": [
+                "Lida",
+                "has",
+                "a blue bag."
+            ],
+            "compose_slots": [
+                "Lida",
+                "has",
+                "a blue bag."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "transitive_verb",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Lida has a blue handbag."
+            ],
+            "display_synonyms": {
+                "a blue bag.": [
+                    "a blue handbag."
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "We waited for {a1} hour outside the gallery.",
+            "target": "We waited for an hour outside the gallery.",
+            "uk": "Ми чекали годину надворі біля галереї.",
+            "hint_uk": "Одна година; на вибір артикля впливає перший звук, а не перша літера.",
+            "groups": [
+                "We waited",
+                "for an hour",
+                "outside the gallery."
+            ],
+            "answer": "an",
+            "options": [
+                "an",
+                "a",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "We found a wallet. {a1} wallet contained two photos.",
+            "target": "We found a wallet. The wallet contained two photos.",
+            "uk": "Ми знайшли гаманець. У цьому гаманці були дві фотографії.",
+            "hint_uk": "Тепер ідеться про той самий уже згаданий гаманець.",
+            "groups": [
+                "We found",
+                "a wallet.",
+                "The wallet",
+                "contained",
+                "two photos."
+            ],
+            "answer": "The",
+            "options": [
+                "The",
+                "A",
+                "An"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Ми живемо біля якогось аеропорту.",
+            "target": "We live near an airport.",
+            "uk": "Ми живемо біля якогось аеропорту.",
+            "hint_uk": "Почни з нас; уперше згадай один невизначений аеропорт.",
+            "groups": [
+                "We",
+                "live",
+                "near",
+                "an airport."
+            ],
+            "compose_slots": [
+                "We",
+                "live",
+                "near",
+                "an airport."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "base_intransitive_verb",
+                "preposition_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "We live close to an airport."
+            ],
+            "display_synonyms": {
+                "near": [
+                    "close to"
+                ]
+            }
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "My cousin studies at {a1} university in Lviv.",
+            "target": "My cousin studies at a university in Lviv.",
+            "uk": "Мій двоюрідний брат навчається в одному з університетів Львова.",
+            "hint_uk": "Назва закладу не уточнена; перший звук у слові про університет — приголосний.",
+            "groups": [
+                "My cousin",
+                "studies at",
+                "a university",
+                "in Lviv."
+            ],
+            "answer": "a",
+            "options": [
+                "a",
+                "an",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "This is {a1} most practical route to the campsite.",
+            "target": "This is the most practical route to the campsite.",
+            "uk": "Це найпрактичніший маршрут до кемпінгу.",
+            "hint_uk": "Перед найвищим ступенем прикметника потрібен означений артикль.",
+            "groups": [
+                "This is",
+                "the most",
+                "practical route",
+                "to the campsite."
+            ],
+            "answer": "the",
+            "options": [
+                "the",
+                "a",
+                "an"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Таня грає на скрипці щовечора.",
+            "target": "Tania plays the violin every evening.",
+            "uk": "Таня грає на скрипці щовечора.",
+            "hint_uk": "Почни з імені; назви інструмент і регулярний час.",
+            "groups": [
+                "Tania",
+                "plays",
+                "the violin",
+                "every evening."
+            ],
+            "compose_slots": [
+                "Tania",
+                "plays",
+                "the violin",
+                "every evening."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "transitive_verb",
+                "noun_phrase",
+                "adverbial_phrase"
+            ],
+            "accepted_targets": [
+                "Tania plays the violin each evening.",
+                "Tania plays violin every evening.",
+                "Tania plays violin each evening."
+            ],
+            "display_synonyms": {
+                "the violin": [
+                    "violin"
+                ],
+                "every evening.": [
+                    "each evening."
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The charity provides shelter for {a1} homeless.",
+            "target": "The charity provides shelter for the homeless.",
+            "uk": "Благодійна організація надає прихисток бездомним.",
+            "hint_uk": "Познач групу людей за ознакою: потрібен артикль перед прикметником.",
+            "groups": [
+                "The charity",
+                "provides shelter",
+                "for the homeless."
+            ],
+            "answer": "the",
+            "options": [
+                "the",
+                "a",
+                "an"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "This species is native to {a1} Netherlands.",
+            "target": "This species is native to the Netherlands.",
+            "uk": "Цей вид походить із Нідерландів.",
+            "hint_uk": "Ця географічна назва країни вживається з означеним артиклем.",
+            "groups": [
+                "This species",
+                "is native",
+                "to the Netherlands."
+            ],
+            "answer": "the",
+            "options": [
+                "the",
+                "a",
+                "an"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Потерпілі отримали медичну допомогу.",
+            "target": "The injured received medical help.",
+            "uk": "Потерпілі отримали медичну допомогу.",
+            "hint_uk": "Почни з групи постраждалих; передай її прикметником з артиклем.",
+            "groups": [
+                "The injured",
+                "received",
+                "medical help."
+            ],
+            "compose_slots": [
+                "The injured",
+                "received",
+                "medical help."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "past_verb_phrase",
+                "bare_noun_phrase"
+            ],
+            "accepted_targets": [
+                "The injured received medical assistance.",
+                "The injured received medical care.",
+                "The injured got medical help.",
+                "The injured got medical assistance.",
+                "The injured got medical care."
+            ],
+            "display_synonyms": {
+                "received": [
+                    "got"
+                ],
+                "medical help.": [
+                    "medical assistance.",
+                    "medical care."
+                ]
+            }
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The witness is {a1} MP, not a government employee.",
+            "target": "The witness is an MP, not a government employee.",
+            "uk": "Свідок — депутат парламенту, а не державний службовець.",
+            "hint_uk": "Уперше називаємо його роль; абревіатуру вимовляємо з початковим голосним звуком.",
+            "groups": [
+                "The witness",
+                "is an MP,",
+                "not a",
+                "government employee."
+            ],
+            "answer": "an",
+            "options": [
+                "an",
+                "a",
+                "the"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "We must protect {a1} of the press.",
+            "target": "We must protect the freedom of the press.",
+            "uk": "Ми маємо захищати свободу преси.",
+            "hint_uk": "Назви конкретну свободу, яку далі уточнює зворот про пресу.",
+            "groups": [
+                "We must",
+                "protect",
+                "the freedom",
+                "of the press."
+            ],
+            "answer": "the freedom",
+            "options": [
+                "the freedom",
+                "a freedom",
+                "freedoms"
+            ],
+            "answer_synonyms": [
+                "freedom"
+            ]
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "У вересні вона стала директоркою школи.",
+            "target": "She became head of the school in September.",
+            "uk": "У вересні вона стала директоркою школи.",
+            "hint_uk": "Почни з жінки; назви набуту посаду, школу й місяць.",
+            "groups": [
+                "She",
+                "became",
+                "head",
+                "of the school",
+                "in September."
+            ],
+            "compose_slots": [
+                "She",
+                "became",
+                "head",
+                "of the school",
+                "in September."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "linking_verb",
+                "noun_singular",
+                "noun_complement_phrase",
+                "closed_prepositional_phrase"
+            ],
+            "accepted_targets": [
+                "She became the head of the school in September."
+            ],
+            "display_synonyms": {
+                "head": [
+                    "the head"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The residents demanded {a1} in how their funds were spent.",
+            "target": "The residents demanded a say in how their funds were spent.",
+            "uk": "Мешканці вимагали права голосу у вирішенні того, як витрачають їхні кошти.",
+            "hint_uk": "Усталений зворот про можливість впливати на рішення вимагає неозначеного артикля.",
+            "groups": [
+                "The residents",
+                "demanded a say",
+                "in how",
+                "their funds",
+                "were spent."
+            ],
+            "answer": "a say",
+            "options": [
+                "a say",
+                "an say",
+                "the say"
+            ],
+            "answer_synonyms": [
+                "a voice"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The findings cast {a1} on the reliability of the witness.",
+            "target": "The findings cast doubt on the reliability of the witness.",
+            "uk": "Висновки поставили під сумнів надійність свідка.",
+            "hint_uk": "У сталому звороті про сумнів абстрактний іменник тут уживається без артикля.",
+            "groups": [
+                "The findings",
+                "cast doubt",
+                "on the reliability",
+                "of the witness."
+            ],
+            "answer": "doubt",
+            "options": [
+                "doubt",
+                "a doubt",
+                "an doubt"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Він не стільки дослідник, скільки вправний популяризатор.",
+            "target": "He is less a researcher than a skilled populariser.",
+            "uk": "Він не стільки дослідник, скільки вправний популяризатор.",
+            "hint_uk": "Почни з чоловіка; зістав дві ролі через конструкцію меншою мірою одне, ніж інше.",
+            "groups": [
+                "He",
+                "is less",
+                "a researcher",
+                "than",
+                "a skilled populariser."
+            ],
+            "compose_slots": [
+                "He",
+                "is less",
+                "a researcher",
+                "than",
+                "a skilled populariser."
+            ],
+            "slot_roles": [
+                "subject_phrase",
+                "comparative_copula",
+                "noun_phrase",
+                "conjunction_phrase",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "He is less a researcher than a skilled popularizer.",
+                "He is less a researcher than an able populariser.",
+                "He is less a researcher than an able popularizer.",
+                "He is less a scholar than a skilled populariser.",
+                "He is less a scholar than a skilled popularizer.",
+                "He is less a scholar than an able populariser.",
+                "He is less a scholar than an able popularizer."
+            ],
+            "display_synonyms": {
+                "a researcher": [
+                    "a scholar"
+                ],
+                "a skilled populariser.": [
+                    "a skilled popularizer.",
+                    "an able populariser.",
+                    "an able popularizer."
+                ]
+            }
+        }
+    ]
+}

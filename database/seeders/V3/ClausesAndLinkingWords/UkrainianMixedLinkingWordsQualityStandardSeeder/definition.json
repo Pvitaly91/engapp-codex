@@ -1,0 +1,727 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/linking-words.v1.json",
+        "sha256": "972d1084dcfa2ce4f973c48a27cc63e85d214b4801fd5edf603a108135ae9306"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedLinkingWordsQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-linking-words-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_linking_words": {
+            "name": "Clauses and Linking Words Quality: Linking Words"
+        }
+    },
+    "tags": {
+        "clauses_linking_words_linking_words": {
+            "name": "Linking Words",
+            "category": "clauses_and_linking_words"
+        },
+        "addition": {
+            "name": "Addition",
+            "category": "topic"
+        },
+        "contrast": {
+            "name": "Contrast",
+            "category": "topic"
+        },
+        "reason": {
+            "name": "Reason",
+            "category": "topic"
+        },
+        "result": {
+            "name": "Result",
+            "category": "topic"
+        },
+        "purpose": {
+            "name": "Purpose",
+            "category": "topic"
+        },
+        "sequence": {
+            "name": "Sequence",
+            "category": "topic"
+        },
+        "formal_linking_words": {
+            "name": "Formal Linking Words",
+            "category": "topic"
+        },
+        "punctuation": {
+            "name": "Punctuation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "clauses_linking_words_linking_words"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-linking-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The jam is sweet, {a1} the toast is salty.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Варення солодке, а тост солоний.",
+            "target_text": "The jam is sweet, but the toast is salty.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "so",
+                        "because"
+                    ],
+                    "verb_hint": "Протистав два різні смаки, не називаючи причину чи наслідок."
+                }
+            },
+            "verb_hint": "Протистав два різні смаки, не називаючи причину чи наслідок.",
+            "accepted_target_texts": [
+                "The jam is sweet, but the toast is salty."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The jam",
+                "is sweet,",
+                "but",
+                "the toast",
+                "is salty."
+            ],
+            "token_groups": [
+                "The jam",
+                "is sweet,",
+                "but",
+                "the toast",
+                "is salty."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-linking-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I wear a woollen hat {a1} my ears get cold.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Я ношу вовняну шапку, бо в мене мерзнуть вуха.",
+            "target_text": "I wear a woollen hat because my ears get cold.",
+            "markers": {
+                "a1": {
+                    "answer": "because",
+                    "options": [
+                        "because",
+                        "although",
+                        "until"
+                    ],
+                    "verb_hint": "Назви причину носіння шапки; решта речення вже наведена."
+                }
+            },
+            "verb_hint": "Назви причину носіння шапки; решта речення вже наведена.",
+            "accepted_target_texts": [
+                "I wear a woollen hat because my ears get cold.",
+                "I wear a woollen hat since my ears get cold.",
+                "I wear a woollen hat as my ears get cold."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "since",
+                    "as"
+                ]
+            },
+            "reorder_groups": [
+                "I wear",
+                "a woollen hat",
+                "because",
+                "my ears",
+                "get cold."
+            ],
+            "token_groups": [
+                "I wear",
+                "a woollen hat",
+                "because",
+                "my ears",
+                "get cold."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-linking-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The path was flooded, {a1} we crossed the wooden bridge.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Стежку затопило, тож ми перейшли дерев’яним мостом.",
+            "target_text": "The path was flooded, so we crossed the wooden bridge.",
+            "markers": {
+                "a1": {
+                    "answer": "so",
+                    "options": [
+                        "so",
+                        "because",
+                        "although"
+                    ],
+                    "verb_hint": "Подай перехід мостом як наслідок затоплення, не як його причину."
+                }
+            },
+            "verb_hint": "Подай перехід мостом як наслідок затоплення, не як його причину.",
+            "accepted_target_texts": [
+                "The path was flooded, so we crossed the wooden bridge."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The path",
+                "was flooded,",
+                "so",
+                "we crossed",
+                "the wooden bridge."
+            ],
+            "token_groups": [
+                "The path",
+                "was flooded,",
+                "so",
+                "we crossed",
+                "the wooden bridge."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-linking-a2-g02",
+            "author_id": "A2-g02",
+            "question": "{a1} the tent was old, it kept us dry.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Хоча намет був старий, він захистив нас від дощу.",
+            "target_text": "Although the tent was old, it kept us dry.",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Because",
+                        "Unless"
+                    ],
+                    "verb_hint": "Початкова частина визнає факт, який не завадив результату."
+                }
+            },
+            "verb_hint": "Початкова частина визнає факт, який не завадив результату.",
+            "accepted_target_texts": [
+                "Although the tent was old, it kept us dry.",
+                "Though the tent was old, it kept us dry.",
+                "Even though the tent was old, it kept us dry."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "reorder_groups": [
+                "Although",
+                "the tent",
+                "was old,",
+                "it kept",
+                "us dry."
+            ],
+            "token_groups": [
+                "Although",
+                "the tent",
+                "was old,",
+                "it kept",
+                "us dry."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-linking-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The pond is shallow; {a1}, its centre is difficult to reach.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Ставок мілкий; однак до його середини важко дістатися.",
+            "target_text": "The pond is shallow; however, its centre is difficult to reach.",
+            "markers": {
+                "a1": {
+                    "answer": "however",
+                    "options": [
+                        "however",
+                        "because",
+                        "so that"
+                    ],
+                    "verb_hint": "Після крапки з комою потрібна вставна зв’язка протиставлення."
+                }
+            },
+            "verb_hint": "Після крапки з комою потрібна вставна зв’язка протиставлення.",
+            "accepted_target_texts": [
+                "The pond is shallow; however, its centre is difficult to reach.",
+                "The pond is shallow; nevertheless, its centre is difficult to reach.",
+                "The pond is shallow; nonetheless, its centre is difficult to reach."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "nevertheless",
+                    "nonetheless"
+                ]
+            },
+            "reorder_groups": [
+                "The pond",
+                "is shallow;",
+                "however,",
+                "its centre",
+                "is difficult",
+                "to reach."
+            ],
+            "token_groups": [
+                "The pond",
+                "is shallow;",
+                "however,",
+                "its centre",
+                "is difficult",
+                "to reach."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-linking-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The studio buys local clay {a1} reduce transport costs.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Майстерня купує місцеву глину, щоб зменшити транспортні витрати.",
+            "target_text": "The studio buys local clay in order to reduce transport costs.",
+            "markers": {
+                "a1": {
+                    "answer": "in order to",
+                    "options": [
+                        "in order to",
+                        "because of",
+                        "even though"
+                    ],
+                    "verb_hint": "Назви мету; після пропуску вже стоїть початкова форма дієслова."
+                }
+            },
+            "verb_hint": "Назви мету; після пропуску вже стоїть початкова форма дієслова.",
+            "accepted_target_texts": [
+                "The studio buys local clay in order to reduce transport costs.",
+                "The studio buys local clay to reduce transport costs.",
+                "The studio buys local clay so as to reduce transport costs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to",
+                    "so as to"
+                ]
+            },
+            "reorder_groups": [
+                "The studio",
+                "buys local clay",
+                "in order to",
+                "reduce transport costs."
+            ],
+            "token_groups": [
+                "The studio",
+                "buys local clay",
+                "in order to",
+                "reduce transport costs."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-linking-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The timetable was revised; {a1}, several connections became impractical.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Розклад переглянули; унаслідок цього кілька пересадок стали незручними.",
+            "target_text": "The timetable was revised; consequently, several connections became impractical.",
+            "markers": {
+                "a1": {
+                    "answer": "consequently",
+                    "options": [
+                        "consequently",
+                        "nevertheless",
+                        "alternatively"
+                    ],
+                    "verb_hint": "Вставна зв’язка показує наслідок перегляду розкладу."
+                }
+            },
+            "verb_hint": "Вставна зв’язка показує наслідок перегляду розкладу.",
+            "accepted_target_texts": [
+                "The timetable was revised; consequently, several connections became impractical.",
+                "The timetable was revised; therefore, several connections became impractical.",
+                "The timetable was revised; as a result, several connections became impractical.",
+                "The timetable was revised; accordingly, several connections became impractical."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "therefore",
+                    "as a result",
+                    "accordingly"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "therefore",
+                    "as a result",
+                    "accordingly"
+                ]
+            },
+            "reorder_groups": [
+                "The timetable",
+                "was revised;",
+                "consequently,",
+                "several connections",
+                "became impractical."
+            ],
+            "token_groups": [
+                "The timetable",
+                "was revised;",
+                "consequently,",
+                "several connections",
+                "became impractical."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-linking-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The eastern slope receives morning sun, {a1} the western slope stays shaded until noon.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Східний схил освітлюється вранці, тоді як західний залишається затіненим до полудня.",
+            "target_text": "The eastern slope receives morning sun, whereas the western slope stays shaded until noon.",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "because",
+                        "unless"
+                    ],
+                    "verb_hint": "Зістав освітлення двох схилів; не називай причинного зв’язку."
+                }
+            },
+            "verb_hint": "Зістав освітлення двох схилів; не називай причинного зв’язку.",
+            "accepted_target_texts": [
+                "The eastern slope receives morning sun, whereas the western slope stays shaded until noon.",
+                "The eastern slope receives morning sun, while the western slope stays shaded until noon."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "reorder_groups": [
+                "The eastern slope",
+                "receives morning sun,",
+                "whereas",
+                "the western slope",
+                "stays shaded",
+                "until noon."
+            ],
+            "token_groups": [
+                "The eastern slope",
+                "receives morning sun,",
+                "whereas",
+                "the western slope",
+                "stays shaded",
+                "until noon."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-linking-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The response rate was modest; {a1}, several replies lacked essential details.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Частка відповідей була невисокою; до того ж у кількох відповідях бракувало істотних деталей.",
+            "target_text": "The response rate was modest; moreover, several replies lacked essential details.",
+            "markers": {
+                "a1": {
+                    "answer": "moreover",
+                    "options": [
+                        "moreover",
+                        "nevertheless",
+                        "consequently"
+                    ],
+                    "verb_hint": "Додай другу проблему до першої, не подаючи її як наслідок."
+                }
+            },
+            "verb_hint": "Додай другу проблему до першої, не подаючи її як наслідок.",
+            "accepted_target_texts": [
+                "The response rate was modest; moreover, several replies lacked essential details.",
+                "The response rate was modest; furthermore, several replies lacked essential details.",
+                "The response rate was modest; in addition, several replies lacked essential details."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "furthermore",
+                    "in addition"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "furthermore",
+                    "in addition"
+                ]
+            },
+            "reorder_groups": [
+                "The response rate",
+                "was modest;",
+                "moreover,",
+                "several replies",
+                "lacked essential details."
+            ],
+            "token_groups": [
+                "The response rate",
+                "was modest;",
+                "moreover,",
+                "several replies",
+                "lacked essential details."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-linking-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The revised policy preserves discretion, {a1} reasons are recorded in writing.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Переглянута політика зберігає свободу розсуду за умови, що причини фіксують письмово.",
+            "target_text": "The revised policy preserves discretion, provided that reasons are recorded in writing.",
+            "markers": {
+                "a1": {
+                    "answer": "provided that",
+                    "options": [
+                        "provided that",
+                        "despite",
+                        "therefore"
+                    ],
+                    "verb_hint": "Назви умову збереження розсуду; після пропуску йде повна частина."
+                }
+            },
+            "verb_hint": "Назви умову збереження розсуду; після пропуску йде повна частина.",
+            "accepted_target_texts": [
+                "The revised policy preserves discretion, provided that reasons are recorded in writing.",
+                "The revised policy preserves discretion, provided reasons are recorded in writing.",
+                "The revised policy preserves discretion, providing that reasons are recorded in writing.",
+                "The revised policy preserves discretion, as long as reasons are recorded in writing.",
+                "The revised policy preserves discretion, on condition that reasons are recorded in writing."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "provided",
+                    "providing that",
+                    "as long as",
+                    "on condition that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "provided",
+                    "providing that",
+                    "as long as",
+                    "on condition that"
+                ]
+            },
+            "reorder_groups": [
+                "The revised policy",
+                "preserves discretion,",
+                "provided that",
+                "reasons are recorded",
+                "in writing."
+            ],
+            "token_groups": [
+                "The revised policy",
+                "preserves discretion,",
+                "provided that",
+                "reasons are recorded",
+                "in writing."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-linking-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The assumption is defensible, {a1} the underlying conditions remain comparable.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Це припущення обґрунтоване тією мірою, якою вихідні умови залишаються зіставними.",
+            "target_text": "The assumption is defensible, insofar as the underlying conditions remain comparable.",
+            "markers": {
+                "a1": {
+                    "answer": "insofar as",
+                    "options": [
+                        "insofar as",
+                        "nevertheless",
+                        "in order to"
+                    ],
+                    "verb_hint": "Обмеж твердження мірою зіставності умов, а не просто додай наслідок."
+                }
+            },
+            "verb_hint": "Обмеж твердження мірою зіставності умов, а не просто додай наслідок.",
+            "accepted_target_texts": [
+                "The assumption is defensible, insofar as the underlying conditions remain comparable.",
+                "The assumption is defensible, in so far as the underlying conditions remain comparable.",
+                "The assumption is defensible, to the extent that the underlying conditions remain comparable."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "in so far as",
+                    "to the extent that"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "in so far as",
+                    "to the extent that"
+                ]
+            },
+            "reorder_groups": [
+                "The assumption",
+                "is defensible,",
+                "insofar as",
+                "the underlying conditions",
+                "remain comparable."
+            ],
+            "token_groups": [
+                "The assumption",
+                "is defensible,",
+                "insofar as",
+                "the underlying conditions",
+                "remain comparable."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-linking-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The evidence does not establish intent; {a1}, it identifies a procedural omission.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_linking_words",
+            "translation_uk": "Докази не встановлюють умислу; радше вони виявляють процедурний недолік.",
+            "target_text": "The evidence does not establish intent; rather, it identifies a procedural omission.",
+            "markers": {
+                "a1": {
+                    "answer": "rather",
+                    "options": [
+                        "rather",
+                        "therefore",
+                        "similarly"
+                    ],
+                    "verb_hint": "Виправ попереднє тлумачення точнішим описом, не додаючи ще один доказ."
+                }
+            },
+            "verb_hint": "Виправ попереднє тлумачення точнішим описом, не додаючи ще один доказ.",
+            "accepted_target_texts": [
+                "The evidence does not establish intent; rather, it identifies a procedural omission.",
+                "The evidence does not establish intent; instead, it identifies a procedural omission."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "instead"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "instead"
+                ]
+            },
+            "reorder_groups": [
+                "The evidence",
+                "does not establish",
+                "intent;",
+                "rather,",
+                "it identifies",
+                "a procedural omission."
+            ],
+            "token_groups": [
+                "The evidence",
+                "does not establish",
+                "intent;",
+                "rather,",
+                "it identifies",
+                "a procedural omission."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

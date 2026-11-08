@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67160,
+        "uuid": "stq-reported-a1-g01",
+        "question": "Nora says that she {a1} coffee.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 63,
+        "source_id": 574,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqReportedSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "wants",
+                "want",
+                "wanted"
+            ]
+        },
+        "theory_text_block_uuid": "3bbe3eae-de1f-546b-aa69-c2df4e53b382",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 574,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Reported Speech",
+        "created_at": "2026-11-03T01:30:42.000000Z",
+        "updated_at": "2026-11-03T01:30:42.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 279,
+                "option": "want",
+                "created_at": "2026-04-23T11:40:21.000000Z",
+                "updated_at": "2026-04-23T11:40:21.000000Z"
+            },
+            "pivot": {
+                "question_id": 67160,
+                "option_id": 279,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 374,
+                "option": "wants",
+                "created_at": "2026-04-23T11:40:36.000000Z",
+                "updated_at": "2026-04-23T11:40:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 67160,
+                "option_id": 374,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2730,
+                "option": "wanted",
+                "created_at": "2026-04-23T14:18:30.000000Z",
+                "updated_at": "2026-04-23T14:18:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 67160,
+                "option_id": 2730,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343233,
+                "question_id": 67160,
+                "marker": "a1",
+                "option_id": 374,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 374,
+                "option": "wants",
+                "created_at": "2026-04-23T11:40:36.000000Z",
+                "updated_at": "2026-04-23T11:40:36.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60567,
+                "question_id": 67160,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71264,
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            },
+            "option": {
+                "id": 71264,
+                "option": "Початкове: «Нора зараз каже: „Я хочу кави“». Передай її слова непрямою мовою без зміни теперішнього часу.",
+                "created_at": "2026-11-03T01:30:42.000000Z",
+                "updated_at": "2026-11-03T01:30:42.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59175,
+            "question_id": 67160,
+            "text": "Nora says that she {a1} coffee.",
+            "created_at": "2026-11-03T01:30:42.000000Z",
+            "updated_at": "2026-11-03T01:30:42.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

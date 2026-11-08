@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67125,
+        "uuid": "stq-modals-a1-g02",
+        "question": "All riders {a1} a helmet.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 63,
+        "source_id": 572,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqModalsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "must wear",
+                "can wear",
+                "might wear"
+            ]
+        },
+        "theory_text_block_uuid": "a76800f3-8baf-5a27-98b8-358bb6e01eda",
+        "created_at": "2026-11-03T01:30:36.000000Z",
+        "updated_at": "2026-11-03T01:30:36.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 572,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Modals",
+        "created_at": "2026-11-03T01:30:36.000000Z",
+        "updated_at": "2026-11-03T01:30:36.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 71112,
+                "option": "must wear",
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 67125,
+                "option_id": 71112,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71114,
+                "option": "can wear",
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 67125,
+                "option_id": 71114,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71115,
+                "option": "might wear",
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 67125,
+                "option_id": 71115,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343159,
+                "question_id": 67125,
+                "marker": "a1",
+                "option_id": 71112,
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            },
+            "option": {
+                "id": 71112,
+                "option": "must wear",
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60493,
+                "question_id": 67125,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71113,
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            },
+            "option": {
+                "id": 71113,
+                "option": "Початкове: «Усі велосипедисти зобов’язані носити шолом». Заміни слова про обов’язок модальним дієсловом із дією носити.",
+                "created_at": "2026-11-03T01:30:36.000000Z",
+                "updated_at": "2026-11-03T01:30:36.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59140,
+            "question_id": 67125,
+            "text": "All riders {a1} a helmet.",
+            "created_at": "2026-11-03T01:30:36.000000Z",
+            "updated_at": "2026-11-03T01:30:36.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

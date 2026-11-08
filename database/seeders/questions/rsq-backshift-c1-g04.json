@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66269,
+        "uuid": "rsq-backshift-c1-g04",
+        "question": "The analyst said that the anomaly {a1} from a miscalibration.",
+        "difficulty": 5,
+        "level": "C1",
+        "category_id": 62,
+        "source_id": 531,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechBackshiftOfTensesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "could have resulted",
+                "could has resulted",
+                "could have result"
+            ]
+        },
+        "theory_text_block_uuid": "44eb89c4-7fd8-5c7f-b24a-f7115d5b49b2",
+        "created_at": "2026-11-01T20:04:55.000000Z",
+        "updated_at": "2026-11-01T20:04:55.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 531,
+        "name": "Reported Speech Quality: Backshift of Tenses",
+        "created_at": "2026-11-01T20:04:53.000000Z",
+        "updated_at": "2026-11-01T20:04:53.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 68567,
+                "option": "could have resulted",
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 66269,
+                "option_id": 68567,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68569,
+                "option": "could has resulted",
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 66269,
+                "option_id": 68569,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68570,
+                "option": "could have result",
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            },
+            "pivot": {
+                "question_id": 66269,
+                "option_id": 68570,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341121,
+                "question_id": 66269,
+                "marker": "a1",
+                "option_id": 68567,
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            },
+            "option": {
+                "id": 68567,
+                "option": "could have resulted",
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58455,
+                "question_id": 66269,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68568,
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            },
+            "option": {
+                "id": 68568,
+                "option": "Передай припущення про попередню причину; завершена модальна група зберігається.",
+                "created_at": "2026-11-01T20:04:55.000000Z",
+                "updated_at": "2026-11-01T20:04:55.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58284,
+            "question_id": 66269,
+            "text": "The analyst said that the anomaly {a1} from a miscalibration.",
+            "created_at": "2026-11-01T20:04:55.000000Z",
+            "updated_at": "2026-11-01T20:04:55.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

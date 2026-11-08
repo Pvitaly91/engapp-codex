@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66156,
+        "uuid": "rsq-questions-b2-g05",
+        "question": "The supervisor asked if anyone {a1} the replacement procedure.",
+        "difficulty": 4,
+        "level": "B2",
+        "category_id": 62,
+        "source_id": 529,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechQuestionsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "had explained",
+                "had explain",
+                "has explain"
+            ]
+        },
+        "theory_text_block_uuid": "18c44d6a-938f-590a-b7be-ad91b970972d",
+        "created_at": "2026-11-01T20:04:41.000000Z",
+        "updated_at": "2026-11-01T20:04:41.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 529,
+        "name": "Reported Speech Quality: Reported Questions",
+        "created_at": "2026-11-01T20:04:39.000000Z",
+        "updated_at": "2026-11-01T20:04:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 66840,
+                "option": "had explained",
+                "created_at": "2026-11-01T17:04:30.000000Z",
+                "updated_at": "2026-11-01T17:04:30.000000Z"
+            },
+            "pivot": {
+                "question_id": 66156,
+                "option_id": 66840,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68188,
+                "option": "had explain",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66156,
+                "option_id": 68188,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68189,
+                "option": "has explain",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66156,
+                "option_id": 68189,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340845,
+                "question_id": 66156,
+                "marker": "a1",
+                "option_id": 66840,
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "option": {
+                "id": 66840,
+                "option": "had explained",
+                "created_at": "2026-11-01T17:04:30.000000Z",
+                "updated_at": "2026-11-01T17:04:30.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58179,
+                "question_id": 66156,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68187,
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            },
+            "option": {
+                "id": 68187,
+                "option": "Пояснив до питання; невизначений виконавець уже названий у реченні.",
+                "created_at": "2026-11-01T20:04:41.000000Z",
+                "updated_at": "2026-11-01T20:04:41.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58171,
+            "question_id": 66156,
+            "text": "The supervisor asked if anyone {a1} the replacement procedure.",
+            "created_at": "2026-11-01T20:04:41.000000Z",
+            "updated_at": "2026-11-01T20:04:41.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

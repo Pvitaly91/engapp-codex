@@ -1,0 +1,1775 @@
+{
+    "schema_version": 1,
+    "quality_revision": "rsq-v1",
+    "compiled_from": {
+        "path": "docs/content/reported-speech-quality/reported-statements.v1.json",
+        "sha256": "ab2082863eea2aaaf695fb3fd388461cd9fd64c140878471bef691fb7b8e3e37"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechStatementsQualityStandardSeeder",
+        "uuid_namespace": "reported-speech-quality-reported-statements-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Reported Speech"
+    },
+    "sources": {
+        "reported_speech_quality_reported_statements": {
+            "name": "Reported Speech Quality: Reported Statements"
+        }
+    },
+    "tags": {
+        "reported_speech_statements_all_levels": {
+            "name": "reported speech statements all levels",
+            "category": "reported_speech"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "direct_to_reported_statement": {
+            "name": "Direct to Reported Statement",
+            "category": "topic"
+        },
+        "said_told_that": {
+            "name": "Said Told That",
+            "category": "topic"
+        },
+        "reporting_verb_time": {
+            "name": "Reporting Verb Time",
+            "category": "topic"
+        },
+        "pronoun_changes": {
+            "name": "Pronoun Changes",
+            "category": "topic"
+        },
+        "statement_backshift": {
+            "name": "Statement Backshift",
+            "category": "topic"
+        },
+        "no_quotation_marks": {
+            "name": "No Quotation Marks",
+            "category": "topic"
+        },
+        "optional_that": {
+            "name": "Optional That",
+            "category": "topic"
+        },
+        "statement_word_order": {
+            "name": "Statement Word Order",
+            "category": "topic"
+        },
+        "meaning_preservation": {
+            "name": "Meaning Preservation",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "rsq-statements-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Mila says that {a1} six.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Міла каже, що їй шість років.",
+            "target_text": "Mila says that she is six.",
+            "markers": {
+                "a1": {
+                    "answer": "she is",
+                    "options": [
+                        "she is",
+                        "she are",
+                        "her is"
+                    ],
+                    "verb_hint": "Їй шість років; назви дівчинку займенником і додай потрібну форму зв’язки."
+                }
+            },
+            "verb_hint": "Їй шість років; назви дівчинку займенником і додай потрібну форму зв’язки.",
+            "accepted_target_texts": [
+                "Mila says that she is six."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mila",
+                "says that",
+                "she is",
+                "six."
+            ],
+            "token_groups": [
+                "Mila",
+                "says that",
+                "she is",
+                "six."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "rsq-statements-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Dan says that {a1} a red bike.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Ден каже, що в нього є червоний велосипед.",
+            "target_text": "Dan says that he has a red bike.",
+            "markers": {
+                "a1": {
+                    "answer": "he has",
+                    "options": [
+                        "he has",
+                        "he have",
+                        "him has"
+                    ],
+                    "verb_hint": "Має; передай володіння однієї людини в повідомленні тепер."
+                }
+            },
+            "verb_hint": "Має; передай володіння однієї людини в повідомленні тепер.",
+            "accepted_target_texts": [
+                "Dan says that he has a red bike."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Dan",
+                "says that",
+                "he has",
+                "a red bike."
+            ],
+            "token_groups": [
+                "Dan",
+                "says that",
+                "he has",
+                "a red bike."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "rsq-statements-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The twins say that {a1} milk.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Близнюки кажуть, що вони люблять молоко.",
+            "target_text": "The twins say that they like milk.",
+            "markers": {
+                "a1": {
+                    "answer": "they like",
+                    "options": [
+                        "they like",
+                        "they likes",
+                        "them like"
+                    ],
+                    "verb_hint": "Люблять; потрібні підметова форма множини й дієслово без додаткового закінчення."
+                }
+            },
+            "verb_hint": "Люблять; потрібні підметова форма множини й дієслово без додаткового закінчення.",
+            "accepted_target_texts": [
+                "The twins say that they like milk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The twins",
+                "say that",
+                "they like",
+                "milk."
+            ],
+            "token_groups": [
+                "The twins",
+                "say that",
+                "they like",
+                "milk."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "rsq-statements-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Leo says that his bag {a1} the chair.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Лео каже, що його сумка під стільцем.",
+            "target_text": "Leo says that his bag is under the chair.",
+            "markers": {
+                "a1": {
+                    "answer": "is under",
+                    "options": [
+                        "is under",
+                        "are under",
+                        "under is"
+                    ],
+                    "verb_hint": "Знаходиться під; додай зв’язку для однієї речі перед прийменником."
+                }
+            },
+            "verb_hint": "Знаходиться під; додай зв’язку для однієї речі перед прийменником.",
+            "accepted_target_texts": [
+                "Leo says that his bag is under the chair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leo",
+                "says that",
+                "his bag",
+                "is under",
+                "the chair."
+            ],
+            "token_groups": [
+                "Leo",
+                "says that",
+                "his bag",
+                "is under",
+                "the chair."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "rsq-statements-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Eva says that {a1} ready.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Єва каже, що вона не готова.",
+            "target_text": "Eva says that she is not ready.",
+            "markers": {
+                "a1": {
+                    "answer": "she is not",
+                    "options": [
+                        "she is not",
+                        "she not is",
+                        "her is not"
+                    ],
+                    "verb_hint": "Не готова; назви дівчинку підметовим займенником і запереч зв’язку."
+                }
+            },
+            "verb_hint": "Не готова; назви дівчинку підметовим займенником і запереч зв’язку.",
+            "accepted_target_texts": [
+                "Eva says that she is not ready."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Eva",
+                "says that",
+                "she is not",
+                "ready."
+            ],
+            "token_groups": [
+                "Eva",
+                "says that",
+                "she is not",
+                "ready."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "rsq-statements-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Max says that his dog {a1} a lot.",
+            "level": "A1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Макс каже, що його пес багато спить.",
+            "target_text": "Max says that his dog sleeps a lot.",
+            "markers": {
+                "a1": {
+                    "answer": "sleeps",
+                    "options": [
+                        "sleeps",
+                        "sleep",
+                        "sleeping"
+                    ],
+                    "verb_hint": "Спить; у повідомленні про звичку узгодь дієслово з однією твариною."
+                }
+            },
+            "verb_hint": "Спить; у повідомленні про звичку узгодь дієслово з однією твариною.",
+            "accepted_target_texts": [
+                "Max says that his dog sleeps a lot."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Max",
+                "says that",
+                "his dog",
+                "sleeps",
+                "a lot."
+            ],
+            "token_groups": [
+                "Max",
+                "says that",
+                "his dog",
+                "sleeps",
+                "a lot."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "rsq-statements-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Rosa said that she {a1} a new scarf.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Роза сказала, що їй був потрібний новий шарф.",
+            "target_text": "Rosa said that she needed a new scarf.",
+            "markers": {
+                "a1": {
+                    "answer": "needed",
+                    "options": [
+                        "needed",
+                        "need",
+                        "needing"
+                    ],
+                    "verb_hint": "Був потрібний; передай потребу саме в той минулий момент."
+                }
+            },
+            "verb_hint": "Був потрібний; передай потребу саме в той минулий момент.",
+            "accepted_target_texts": [
+                "Rosa said that she needed a new scarf."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Rosa",
+                "said that",
+                "she needed",
+                "a new scarf."
+            ],
+            "token_groups": [
+                "Rosa",
+                "said that",
+                "she needed",
+                "a new scarf."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "rsq-statements-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Oleh said that {a1} at the pool then.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Олег сказав, що тоді він був у басейні.",
+            "target_text": "Oleh said that he was at the pool then.",
+            "markers": {
+                "a1": {
+                    "answer": "he was",
+                    "options": [
+                        "he was",
+                        "he is",
+                        "him was"
+                    ],
+                    "verb_hint": "Тоді був; потрібна минула зв’язка після підметового займенника."
+                }
+            },
+            "verb_hint": "Тоді був; потрібна минула зв’язка після підметового займенника.",
+            "accepted_target_texts": [
+                "Oleh said that he was at the pool then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Oleh",
+                "said that",
+                "he was",
+                "at the pool",
+                "then."
+            ],
+            "token_groups": [
+                "Oleh",
+                "said that",
+                "he was",
+                "at the pool",
+                "then."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "rsq-statements-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Marta told us that her brother {a1} chess at school.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Марта сказала нам, що її брат тоді грав у шахи в школі.",
+            "target_text": "Marta told us that her brother played chess at school.",
+            "markers": {
+                "a1": {
+                    "answer": "played",
+                    "options": [
+                        "played",
+                        "plays",
+                        "play"
+                    ],
+                    "verb_hint": "Грав; ішлося про його заняття в минулому навчальному році."
+                }
+            },
+            "verb_hint": "Грав; ішлося про його заняття в минулому навчальному році.",
+            "accepted_target_texts": [
+                "Marta told us that her brother played chess at school."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta",
+                "told us that",
+                "her brother",
+                "played chess",
+                "at school."
+            ],
+            "token_groups": [
+                "Marta",
+                "told us that",
+                "her brother",
+                "played chess",
+                "at school."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "rsq-statements-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The boys said that {a1} hungry after the walk.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Хлопці сказали, що після прогулянки вони були голодні.",
+            "target_text": "The boys said that they were hungry after the walk.",
+            "markers": {
+                "a1": {
+                    "answer": "they were",
+                    "options": [
+                        "they were",
+                        "they was",
+                        "them were"
+                    ],
+                    "verb_hint": "Були голодні; узгодь минулу зв’язку з кількома мовцями."
+                }
+            },
+            "verb_hint": "Були голодні; узгодь минулу зв’язку з кількома мовцями.",
+            "accepted_target_texts": [
+                "The boys said that they were hungry after the walk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The boys",
+                "said that",
+                "they were",
+                "hungry",
+                "after the walk."
+            ],
+            "token_groups": [
+                "The boys",
+                "said that",
+                "they were",
+                "hungry",
+                "after the walk."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "rsq-statements-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Ida said that she {a1} carry the box on her own.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Іда сказала, що тоді могла сама нести коробку.",
+            "target_text": "Ida said that she could carry the box on her own.",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "can to",
+                        "could to"
+                    ],
+                    "verb_hint": "Могла; після минулої модальної форми не додавай частку інфінітива."
+                }
+            },
+            "verb_hint": "Могла; після минулої модальної форми не додавай частку інфінітива.",
+            "accepted_target_texts": [
+                "Ida said that she could carry the box on her own."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ida",
+                "said that",
+                "she could",
+                "carry the box",
+                "on her own."
+            ],
+            "token_groups": [
+                "Ida",
+                "said that",
+                "she could",
+                "carry the box",
+                "on her own."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "rsq-statements-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Tariq said that he {a1} the answer at that moment.",
+            "level": "A2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Тарік сказав, що в той момент не знав відповіді.",
+            "target_text": "Tariq said that he did not know the answer at that moment.",
+            "markers": {
+                "a1": {
+                    "answer": "did not know",
+                    "options": [
+                        "did not know",
+                        "did not knew",
+                        "not knew"
+                    ],
+                    "verb_hint": "Не знав; після допоміжної минулої форми потрібне незмінене основне дієслово."
+                }
+            },
+            "verb_hint": "Не знав; після допоміжної минулої форми потрібне незмінене основне дієслово.",
+            "accepted_target_texts": [
+                "Tariq said that he did not know the answer at that moment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tariq",
+                "said that",
+                "he",
+                "did not know",
+                "the answer",
+                "at that moment."
+            ],
+            "token_groups": [
+                "Tariq",
+                "said that",
+                "he",
+                "did not know",
+                "the answer",
+                "at that moment."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "rsq-statements-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The drummer said that he {a1} his sticks at home.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Барабанщик сказав, що раніше залишив свої палички вдома.",
+            "target_text": "The drummer said that he had left his sticks at home.",
+            "markers": {
+                "a1": {
+                    "answer": "had left",
+                    "options": [
+                        "had left",
+                        "had leave",
+                        "has left"
+                    ],
+                    "verb_hint": "Залишив раніше; дія передувала його минулим словам."
+                }
+            },
+            "verb_hint": "Залишив раніше; дія передувала його минулим словам.",
+            "accepted_target_texts": [
+                "The drummer said that he had left his sticks at home."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The drummer",
+                "said that",
+                "he had left",
+                "his sticks",
+                "at home."
+            ],
+            "token_groups": [
+                "The drummer",
+                "said that",
+                "he had left",
+                "his sticks",
+                "at home."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "rsq-statements-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The swimmers said that the water {a1} colder during the night.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Плавці сказали, що за ніч вода стала холоднішою.",
+            "target_text": "The swimmers said that the water had become colder during the night.",
+            "markers": {
+                "a1": {
+                    "answer": "had become",
+                    "options": [
+                        "had become",
+                        "had became",
+                        "has become"
+                    ],
+                    "verb_hint": "Стала до розмови; після допоміжного слова вжий потрібну третю форму."
+                }
+            },
+            "verb_hint": "Стала до розмови; після допоміжного слова вжий потрібну третю форму.",
+            "accepted_target_texts": [
+                "The swimmers said that the water had become colder during the night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The swimmers",
+                "said that",
+                "the water",
+                "had become",
+                "colder",
+                "during the night."
+            ],
+            "token_groups": [
+                "The swimmers",
+                "said that",
+                "the water",
+                "had become",
+                "colder",
+                "during the night."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "rsq-statements-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Felix said that he {a1} when the lights failed.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Фелікс сказав, що готував їжу, коли згасло світло.",
+            "target_text": "Felix said that he was cooking when the lights failed.",
+            "markers": {
+                "a1": {
+                    "answer": "was cooking",
+                    "options": [
+                        "was cooking",
+                        "were cooking",
+                        "was cook"
+                    ],
+                    "verb_hint": "Готував у той момент; передай процес під час іншої минулої події."
+                }
+            },
+            "verb_hint": "Готував у той момент; передай процес під час іншої минулої події.",
+            "accepted_target_texts": [
+                "Felix said that he was cooking when the lights failed.",
+                "Felix said that he was preparing food when the lights failed."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was preparing food"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was preparing food"
+                ]
+            },
+            "reorder_groups": [
+                "Felix",
+                "said that",
+                "he was cooking",
+                "when the lights",
+                "failed."
+            ],
+            "token_groups": [
+                "Felix",
+                "said that",
+                "he was cooking",
+                "when the lights",
+                "failed."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "rsq-statements-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The guide told us that the path {a1} after the storm.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Гід сказав нам, що стежку раніше розчистили після бурі.",
+            "target_text": "The guide told us that the path had been cleared after the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "had been cleared",
+                    "options": [
+                        "had been cleared",
+                        "had cleared",
+                        "has been cleared"
+                    ],
+                    "verb_hint": "Була розчищена раніше; потрібен минулий доконаний пасив."
+                }
+            },
+            "verb_hint": "Була розчищена раніше; потрібен минулий доконаний пасив.",
+            "accepted_target_texts": [
+                "The guide told us that the path had been cleared after the storm."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "told us that",
+                "the path",
+                "had been cleared",
+                "after the storm."
+            ],
+            "token_groups": [
+                "The guide",
+                "told us that",
+                "the path",
+                "had been cleared",
+                "after the storm."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "rsq-statements-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Daria said that she {a1} us outside the cinema later.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Дарія сказала, що пізніше зустріне нас біля кінотеатру.",
+            "target_text": "Daria said that she would meet us outside the cinema later.",
+            "markers": {
+                "a1": {
+                    "answer": "would meet",
+                    "options": [
+                        "would meet",
+                        "would met",
+                        "will met"
+                    ],
+                    "verb_hint": "Зустріне пізніше від тієї розмови; потрібна майбутня дія з минулої перспективи."
+                }
+            },
+            "verb_hint": "Зустріне пізніше від тієї розмови; потрібна майбутня дія з минулої перспективи.",
+            "accepted_target_texts": [
+                "Daria said that she would meet us outside the cinema later."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Daria",
+                "said that",
+                "she would meet",
+                "us",
+                "outside the cinema",
+                "later."
+            ],
+            "token_groups": [
+                "Daria",
+                "said that",
+                "she would meet",
+                "us",
+                "outside the cinema",
+                "later."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "rsq-statements-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The tenants said that they {a1} the spare room before.",
+            "level": "B1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Орендарі сказали, що до того не користувалися вільною кімнатою.",
+            "target_text": "The tenants said that they had not used the spare room before.",
+            "markers": {
+                "a1": {
+                    "answer": "had not used",
+                    "options": [
+                        "had not used",
+                        "had not use",
+                        "have not use"
+                    ],
+                    "verb_hint": "Раніше не користувалися; збережи заперечення й попередність."
+                }
+            },
+            "verb_hint": "Раніше не користувалися; збережи заперечення й попередність.",
+            "accepted_target_texts": [
+                "The tenants said that they had not used the spare room before."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tenants",
+                "said that",
+                "they",
+                "had not used",
+                "the spare room",
+                "before."
+            ],
+            "token_groups": [
+                "The tenants",
+                "said that",
+                "they",
+                "had not used",
+                "the spare room",
+                "before."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "rsq-statements-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The architect explained that the revised entrance {a1} wheelchair access.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Архітектор пояснив, що змінений вхід поліпшить доступ для візків.",
+            "target_text": "The architect explained that the revised entrance would improve wheelchair access.",
+            "markers": {
+                "a1": {
+                    "answer": "would improve",
+                    "options": [
+                        "would improve",
+                        "would improved",
+                        "will improved"
+                    ],
+                    "verb_hint": "Поліпшить у подальшому; збережи прогноз із минулого моменту пояснення."
+                }
+            },
+            "verb_hint": "Поліпшить у подальшому; збережи прогноз із минулого моменту пояснення.",
+            "accepted_target_texts": [
+                "The architect explained that the revised entrance would improve wheelchair access.",
+                "The architect explained that the revised entrance would enhance wheelchair access."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "would enhance"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "would enhance"
+                ]
+            },
+            "reorder_groups": [
+                "The architect",
+                "explained that",
+                "the revised entrance",
+                "would improve",
+                "wheelchair access."
+            ],
+            "token_groups": [
+                "The architect",
+                "explained that",
+                "the revised entrance",
+                "would improve",
+                "wheelchair access."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "rsq-statements-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The editor said that the missing paragraph {a1} deliberately.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Редактор сказав, що відсутній абзац навмисно вилучили раніше.",
+            "target_text": "The editor said that the missing paragraph had been removed deliberately.",
+            "markers": {
+                "a1": {
+                    "answer": "had been removed",
+                    "options": [
+                        "had been removed",
+                        "had removed",
+                        "was been removed"
+                    ],
+                    "verb_hint": "Було вилучено до розмови; названий абзац зазнав дії."
+                }
+            },
+            "verb_hint": "Було вилучено до розмови; названий абзац зазнав дії.",
+            "accepted_target_texts": [
+                "The editor said that the missing paragraph had been removed deliberately.",
+                "The editor said that the missing paragraph had been deleted deliberately."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had been deleted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had been deleted"
+                ]
+            },
+            "reorder_groups": [
+                "The editor",
+                "said that",
+                "the missing paragraph",
+                "had been removed",
+                "deliberately."
+            ],
+            "token_groups": [
+                "The editor",
+                "said that",
+                "the missing paragraph",
+                "had been removed",
+                "deliberately."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "rsq-statements-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The coach admitted that he {a1} the injury at first.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Тренер визнав, що спочатку недооцінив травму.",
+            "target_text": "The coach admitted that he had underestimated the injury at first.",
+            "markers": {
+                "a1": {
+                    "answer": "had underestimated",
+                    "options": [
+                        "had underestimated",
+                        "had underestimating",
+                        "has underestimate"
+                    ],
+                    "verb_hint": "Недооцінив раніше; передай завершену помилкову оцінку до зізнання."
+                }
+            },
+            "verb_hint": "Недооцінив раніше; передай завершену помилкову оцінку до зізнання.",
+            "accepted_target_texts": [
+                "The coach admitted that he had underestimated the injury at first."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The coach",
+                "admitted that",
+                "he had underestimated",
+                "the injury",
+                "at first."
+            ],
+            "token_groups": [
+                "The coach",
+                "admitted that",
+                "he had underestimated",
+                "the injury",
+                "at first."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "rsq-statements-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The technicians reported that the sensor {a1} correctly during the trial.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Техніки повідомили, що під час попереднього випробування датчик не працював належно.",
+            "target_text": "The technicians reported that the sensor had not worked correctly during the trial.",
+            "markers": {
+                "a1": {
+                    "answer": "had not worked",
+                    "options": [
+                        "had not worked",
+                        "had not work",
+                        "has not worked"
+                    ],
+                    "verb_hint": "Не працював у попередньому випробуванні; передай повну заперечну групу."
+                }
+            },
+            "verb_hint": "Не працював у попередньому випробуванні; передай повну заперечну групу.",
+            "accepted_target_texts": [
+                "The technicians reported that the sensor had not worked correctly during the trial."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The technicians",
+                "reported that",
+                "the sensor",
+                "had not worked",
+                "correctly",
+                "during the trial."
+            ],
+            "token_groups": [
+                "The technicians",
+                "reported that",
+                "the sensor",
+                "had not worked",
+                "correctly",
+                "during the trial."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "rsq-statements-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The witness said that she {a1} the driver under oath.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Свідкиня сказала, що тоді могла впізнати водія під присягою.",
+            "target_text": "The witness said that she could identify the driver under oath.",
+            "markers": {
+                "a1": {
+                    "answer": "could identify",
+                    "options": [
+                        "could identify",
+                        "could identified",
+                        "could to identify"
+                    ],
+                    "verb_hint": "Могла впізнати; після модальної форми потрібна початкова форма дієслова."
+                }
+            },
+            "verb_hint": "Могла впізнати; після модальної форми потрібна початкова форма дієслова.",
+            "accepted_target_texts": [
+                "The witness said that she could identify the driver under oath."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The witness",
+                "said that",
+                "she could identify",
+                "the driver",
+                "under oath."
+            ],
+            "token_groups": [
+                "The witness",
+                "said that",
+                "she could identify",
+                "the driver",
+                "under oath."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "rsq-statements-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The organiser stated that no participant {a1} to pay twice.",
+            "level": "B2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Організатор заявив, що жодного учасника не зобов’яжуть платити двічі.",
+            "target_text": "The organiser stated that no participant would be required to pay twice.",
+            "markers": {
+                "a1": {
+                    "answer": "would be required",
+                    "options": [
+                        "would be required",
+                        "would required",
+                        "would been required"
+                    ],
+                    "verb_hint": "Не зобов’яжуть надалі; заперечне значення вже передає початок підрядної частини."
+                }
+            },
+            "verb_hint": "Не зобов’яжуть надалі; заперечне значення вже передає початок підрядної частини.",
+            "accepted_target_texts": [
+                "The organiser stated that no participant would be required to pay twice."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The organiser",
+                "stated that",
+                "no participant",
+                "would be required",
+                "to pay twice."
+            ],
+            "token_groups": [
+                "The organiser",
+                "stated that",
+                "no participant",
+                "would be required",
+                "to pay twice."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "rsq-statements-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The reviewer conceded that the apparent inconsistency {a1} from the translation.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Рецензент визнав, що видима неузгодженість могла виникнути через переклад.",
+            "target_text": "The reviewer conceded that the apparent inconsistency might have arisen from the translation.",
+            "markers": {
+                "a1": {
+                    "answer": "might have arisen",
+                    "options": [
+                        "might have arisen",
+                        "might have arose",
+                        "may have arose"
+                    ],
+                    "verb_hint": "Могла виникнути раніше; передай обережне припущення, а не доведений факт."
+                }
+            },
+            "verb_hint": "Могла виникнути раніше; передай обережне припущення, а не доведений факт.",
+            "accepted_target_texts": [
+                "The reviewer conceded that the apparent inconsistency might have arisen from the translation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The reviewer",
+                "conceded that",
+                "the apparent inconsistency",
+                "might have arisen",
+                "from the translation."
+            ],
+            "token_groups": [
+                "The reviewer",
+                "conceded that",
+                "the apparent inconsistency",
+                "might have arisen",
+                "from the translation."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "rsq-statements-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The curator said that the provenance {a1} independently at that stage.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Куратор сказав, що на тому етапі походження ще не було незалежно перевірене.",
+            "target_text": "The curator said that the provenance had not been verified independently at that stage.",
+            "markers": {
+                "a1": {
+                    "answer": "had not been verified",
+                    "options": [
+                        "had not been verified",
+                        "had not verified",
+                        "was not been verified"
+                    ],
+                    "verb_hint": "Ще не було перевірене; назване походження є предметом перевірки."
+                }
+            },
+            "verb_hint": "Ще не було перевірене; назване походження є предметом перевірки.",
+            "accepted_target_texts": [
+                "The curator said that the provenance had not been verified independently at that stage.",
+                "The curator said that the provenance had not been checked independently at that stage."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "had not been checked"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "had not been checked"
+                ]
+            },
+            "reorder_groups": [
+                "The curator",
+                "said that",
+                "the provenance",
+                "had not been",
+                "verified independently",
+                "at that stage."
+            ],
+            "token_groups": [
+                "The curator",
+                "said that",
+                "the provenance",
+                "had not been",
+                "verified independently",
+                "at that stage."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "rsq-statements-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The analyst maintained that the discrepancy {a1} by rounding alone.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Аналітик наполягав, що розбіжність не можна було пояснити лише округленням.",
+            "target_text": "The analyst maintained that the discrepancy could not be explained by rounding alone.",
+            "markers": {
+                "a1": {
+                    "answer": "could not be explained",
+                    "options": [
+                        "could not be explained",
+                        "could not explained",
+                        "could not been explained"
+                    ],
+                    "verb_hint": "Не могла бути пояснена; передай неможливість пасивною модальною групою."
+                }
+            },
+            "verb_hint": "Не могла бути пояснена; передай неможливість пасивною модальною групою.",
+            "accepted_target_texts": [
+                "The analyst maintained that the discrepancy could not be explained by rounding alone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The analyst",
+                "maintained that",
+                "the discrepancy",
+                "could not be",
+                "explained",
+                "by rounding alone."
+            ],
+            "token_groups": [
+                "The analyst",
+                "maintained that",
+                "the discrepancy",
+                "could not be",
+                "explained",
+                "by rounding alone."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "rsq-statements-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The historian emphasised that several sources {a1} from a single account.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Історик наголосив, що кілька джерел раніше створили на основі одного викладу.",
+            "target_text": "The historian emphasised that several sources had been derived from a single account.",
+            "markers": {
+                "a1": {
+                    "answer": "had been derived",
+                    "options": [
+                        "had been derived",
+                        "had derived",
+                        "have been derive"
+                    ],
+                    "verb_hint": "Були похідними від одного викладу; збережи пасив і попередність."
+                }
+            },
+            "verb_hint": "Були похідними від одного викладу; збережи пасив і попередність.",
+            "accepted_target_texts": [
+                "The historian emphasised that several sources had been derived from a single account."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The historian",
+                "emphasised that",
+                "several sources",
+                "had been derived",
+                "from",
+                "a single account."
+            ],
+            "token_groups": [
+                "The historian",
+                "emphasised that",
+                "several sources",
+                "had been derived",
+                "from",
+                "a single account."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "rsq-statements-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The mediator said that neither side {a1} its claim by then.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Посередник сказав, що до того моменту жодна сторона не відкликала своєї вимоги.",
+            "target_text": "The mediator said that neither side had withdrawn its claim by then.",
+            "markers": {
+                "a1": {
+                    "answer": "had withdrawn",
+                    "options": [
+                        "had withdrawn",
+                        "had withdraw",
+                        "have withdrawn"
+                    ],
+                    "verb_hint": "Не відкликала до того моменту; заперечне значення вже задане словом жодна."
+                }
+            },
+            "verb_hint": "Не відкликала до того моменту; заперечне значення вже задане словом жодна.",
+            "accepted_target_texts": [
+                "The mediator said that neither side had withdrawn its claim by then."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The mediator",
+                "said that",
+                "neither side",
+                "had withdrawn",
+                "its claim",
+                "by then."
+            ],
+            "token_groups": [
+                "The mediator",
+                "said that",
+                "neither side",
+                "had withdrawn",
+                "its claim",
+                "by then."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "rsq-statements-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The principal investigator warned that the effect {a1} outside the original sample.",
+            "level": "C1",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Керівник дослідження попередив, що ефект може не зберегтися поза початковою вибіркою.",
+            "target_text": "The principal investigator warned that the effect might not persist outside the original sample.",
+            "markers": {
+                "a1": {
+                    "answer": "might not persist",
+                    "options": [
+                        "might not persist",
+                        "might not persisted",
+                        "might not to persist"
+                    ],
+                    "verb_hint": "Може не зберегтися; це обережний прогноз із минулого попередження."
+                }
+            },
+            "verb_hint": "Може не зберегтися; це обережний прогноз із минулого попередження.",
+            "accepted_target_texts": [
+                "The principal investigator warned that the effect might not persist outside the original sample."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The principal investigator",
+                "warned that",
+                "the effect",
+                "might not persist",
+                "outside",
+                "the original sample."
+            ],
+            "token_groups": [
+                "The principal investigator",
+                "warned that",
+                "the effect",
+                "might not persist",
+                "outside",
+                "the original sample."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "rsq-statements-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The philologist observed that the disputed reading {a1} on a later interpolation.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Філолог зауважив, що спірне прочитання, здавалося, залежало від пізнішої вставки.",
+            "target_text": "The philologist observed that the disputed reading appeared to depend on a later interpolation.",
+            "markers": {
+                "a1": {
+                    "answer": "appeared to depend",
+                    "options": [
+                        "appeared to depend",
+                        "appeared depending",
+                        "appeared to depended"
+                    ],
+                    "verb_hint": "Здавалося залежним; збережи обережність спостереження, не перетворюй його на доказ."
+                }
+            },
+            "verb_hint": "Здавалося залежним; збережи обережність спостереження, не перетворюй його на доказ.",
+            "accepted_target_texts": [
+                "The philologist observed that the disputed reading appeared to depend on a later interpolation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The philologist",
+                "observed that",
+                "the disputed reading",
+                "appeared to depend",
+                "on",
+                "a later interpolation."
+            ],
+            "token_groups": [
+                "The philologist",
+                "observed that",
+                "the disputed reading",
+                "appeared to depend",
+                "on",
+                "a later interpolation."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "rsq-statements-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The dissenting judge argued that the exception {a1} beyond recognition.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Суддя з окремою думкою стверджував, що виняток до того розширили до невпізнання.",
+            "target_text": "The dissenting judge argued that the exception had been stretched beyond recognition.",
+            "markers": {
+                "a1": {
+                    "answer": "had been stretched",
+                    "options": [
+                        "had been stretched",
+                        "had stretched",
+                        "has been stretch"
+                    ],
+                    "verb_hint": "Було надмірно розширено раніше; потрібен доконаний пасив."
+                }
+            },
+            "verb_hint": "Було надмірно розширено раніше; потрібен доконаний пасив.",
+            "accepted_target_texts": [
+                "The dissenting judge argued that the exception had been stretched beyond recognition."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dissenting judge",
+                "argued that",
+                "the exception",
+                "had been stretched",
+                "beyond recognition."
+            ],
+            "token_groups": [
+                "The dissenting judge",
+                "argued that",
+                "the exception",
+                "had been stretched",
+                "beyond recognition."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "rsq-statements-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The statistician cautioned that the narrow interval {a1} systematic bias.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Статистик застеріг, що вузький інтервал не виключав систематичного зміщення.",
+            "target_text": "The statistician cautioned that the narrow interval did not exclude systematic bias.",
+            "markers": {
+                "a1": {
+                    "answer": "did not exclude",
+                    "options": [
+                        "did not exclude",
+                        "did not excluded",
+                        "not excluded"
+                    ],
+                    "verb_hint": "Не виключав; передай межу висновку, а не заперечення самого інтервалу."
+                }
+            },
+            "verb_hint": "Не виключав; передай межу висновку, а не заперечення самого інтервалу.",
+            "accepted_target_texts": [
+                "The statistician cautioned that the narrow interval did not exclude systematic bias.",
+                "The statistician cautioned that the narrow interval did not rule out systematic bias."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "did not rule out"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "did not rule out"
+                ]
+            },
+            "reorder_groups": [
+                "The statistician",
+                "cautioned that",
+                "the narrow interval",
+                "did not exclude",
+                "systematic bias."
+            ],
+            "token_groups": [
+                "The statistician",
+                "cautioned that",
+                "the narrow interval",
+                "did not exclude",
+                "systematic bias."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "rsq-statements-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The archivist acknowledged that the annotation {a1} retrospectively.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Архівіст визнав, що примітку могли додати заднім числом.",
+            "target_text": "The archivist acknowledged that the annotation could have been added retrospectively.",
+            "markers": {
+                "a1": {
+                    "answer": "could have been added",
+                    "options": [
+                        "could have been added",
+                        "could have added",
+                        "could been added"
+                    ],
+                    "verb_hint": "Могли додати раніше; збережи можливість і пасивну роль примітки."
+                }
+            },
+            "verb_hint": "Могли додати раніше; збережи можливість і пасивну роль примітки.",
+            "accepted_target_texts": [
+                "The archivist acknowledged that the annotation could have been added retrospectively."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archivist",
+                "acknowledged that",
+                "the annotation",
+                "could have been",
+                "added retrospectively."
+            ],
+            "token_groups": [
+                "The archivist",
+                "acknowledged that",
+                "the annotation",
+                "could have been",
+                "added retrospectively."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "rsq-statements-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The rapporteur insisted that the reservation {a1} materially to the conclusion.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Доповідач наполягав, що застереження тоді все ще суттєво стосувалося висновку.",
+            "target_text": "The rapporteur insisted that the reservation still applied materially to the conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "still applied",
+                    "options": [
+                        "still applied",
+                        "still applying",
+                        "still apply"
+                    ],
+                    "verb_hint": "Усе ще стосувалося в той момент; потрібна особова минула форма."
+                }
+            },
+            "verb_hint": "Усе ще стосувалося в той момент; потрібна особова минула форма.",
+            "accepted_target_texts": [
+                "The rapporteur insisted that the reservation still applied materially to the conclusion."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The rapporteur",
+                "insisted that",
+                "the reservation",
+                "still applied",
+                "materially",
+                "to the conclusion."
+            ],
+            "token_groups": [
+                "The rapporteur",
+                "insisted that",
+                "the reservation",
+                "still applied",
+                "materially",
+                "to the conclusion."
+            ],
+            "quality_revision": "rsq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "rsq-statements-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The theorist admitted that the counterexample {a1} the stronger formulation.",
+            "level": "C2",
+            "type": 0,
+            "source": "reported_speech_quality_reported_statements",
+            "translation_uk": "Теоретик визнав, що контрприклад раніше підірвав сильніше формулювання.",
+            "target_text": "The theorist admitted that the counterexample had undermined the stronger formulation.",
+            "markers": {
+                "a1": {
+                    "answer": "had undermined",
+                    "options": [
+                        "had undermined",
+                        "had undermine",
+                        "has undermining"
+                    ],
+                    "verb_hint": "Підірвав до визнання; збережи попередність завершеної події."
+                }
+            },
+            "verb_hint": "Підірвав до визнання; збережи попередність завершеної події.",
+            "accepted_target_texts": [
+                "The theorist admitted that the counterexample had undermined the stronger formulation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The theorist",
+                "admitted that",
+                "the counterexample",
+                "had undermined",
+                "the stronger formulation."
+            ],
+            "token_groups": [
+                "The theorist",
+                "admitted that",
+                "the counterexample",
+                "had undermined",
+                "the stronger formulation."
+            ],
+            "quality_revision": "rsq-v1"
+        }
+    ]
+}

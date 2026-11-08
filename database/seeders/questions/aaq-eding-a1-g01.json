@@ -1,0 +1,157 @@
+{
+    "question": {
+        "id": 63110,
+        "uuid": "aaq-eding-a1-g01",
+        "question": "I was {a1} by the news.",
+        "difficulty": 1,
+        "level": "A1",
+        "category_id": 6,
+        "source_id": 473,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\Adjectives\\UkrainianMixedEdIngAdjectivesQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "excited",
+                "exciting",
+                "excite"
+            ]
+        },
+        "theory_text_block_uuid": "3b1b7594-5b90-554d-aee0-52edb21ff743",
+        "created_at": "2026-10-30T16:07:50.000000Z",
+        "updated_at": "2026-10-30T16:07:50.000000Z"
+    },
+    "category": {
+        "id": 6,
+        "name": "Adjectives and Adverbs",
+        "created_at": "2026-04-23T14:17:03.000000Z",
+        "updated_at": "2026-04-23T14:17:03.000000Z"
+    },
+    "source": {
+        "id": 473,
+        "name": "Adjectives and Adverbs Quality: Прикметники на -ed та -ing",
+        "created_at": "2026-10-30T16:07:50.000000Z",
+        "updated_at": "2026-10-30T16:07:50.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 165,
+                "name": "Adjectives and adverbs usage",
+                "category": null,
+                "created_at": "2026-04-23T14:15:34.000000Z",
+                "updated_at": "2026-04-23T14:15:34.000000Z"
+            },
+            "pivot": {
+                "question_id": 63110,
+                "tag_id": 165,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "tag": {
+                "id": 201,
+                "name": "-ed / -ing Adjectives",
+                "category": null,
+                "created_at": "2026-04-23T14:15:47.000000Z",
+                "updated_at": "2026-04-23T14:15:47.000000Z"
+            },
+            "pivot": {
+                "question_id": 63110,
+                "tag_id": 201,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2299,
+                "option": "excited",
+                "created_at": "2026-04-23T14:17:38.000000Z",
+                "updated_at": "2026-04-23T14:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 63110,
+                "option_id": 2299,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2300,
+                "option": "exciting",
+                "created_at": "2026-04-23T14:17:38.000000Z",
+                "updated_at": "2026-04-23T14:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 63110,
+                "option_id": 2300,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 2301,
+                "option": "excite",
+                "created_at": "2026-04-23T14:17:38.000000Z",
+                "updated_at": "2026-04-23T14:17:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 63110,
+                "option_id": 2301,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 333357,
+                "question_id": 63110,
+                "marker": "a1",
+                "option_id": 2299,
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            },
+            "option": {
+                "id": 2299,
+                "option": "excited",
+                "created_at": "2026-04-23T14:17:38.000000Z",
+                "updated_at": "2026-04-23T14:17:38.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 50691,
+                "question_id": 63110,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 58875,
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            },
+            "option": {
+                "id": 58875,
+                "option": "Схвильований, у захваті: назви почуття, а не властивість новини.",
+                "created_at": "2026-10-30T16:07:50.000000Z",
+                "updated_at": "2026-10-30T16:07:50.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 55125,
+            "question_id": 63110,
+            "text": "I was {a1} by the news.",
+            "created_at": "2026-10-30T16:07:50.000000Z",
+            "updated_at": "2026-10-30T16:07:50.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

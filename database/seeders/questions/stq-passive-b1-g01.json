@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 67146,
+        "uuid": "stq-passive-b1-g01",
+        "question": "The rugs {a1} by the weavers at the moment.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 63,
+        "source_id": 573,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\SentenceTransformations\\UkrainianMixedStqPassiveQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "are being woven",
+                "were woven",
+                "are weaving"
+            ]
+        },
+        "theory_text_block_uuid": "7b61a8f4-320c-5bb6-a67f-b050d4c97092",
+        "created_at": "2026-11-03T01:30:39.000000Z",
+        "updated_at": "2026-11-03T01:30:39.000000Z"
+    },
+    "category": {
+        "id": 63,
+        "name": "Sentence Transformations",
+        "created_at": "2026-05-22T21:37:33.000000Z",
+        "updated_at": "2026-05-22T21:37:33.000000Z"
+    },
+    "source": {
+        "id": 573,
+        "name": "Sentence Transformations Quality: Sentence Transformations: Passive",
+        "created_at": "2026-11-03T01:30:39.000000Z",
+        "updated_at": "2026-11-03T01:30:39.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 71204,
+                "option": "are being woven",
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 67146,
+                "option_id": 71204,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71206,
+                "option": "were woven",
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 67146,
+                "option_id": 71206,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 71207,
+                "option": "are weaving",
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            },
+            "pivot": {
+                "question_id": 67146,
+                "option_id": 71207,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 343203,
+                "question_id": 67146,
+                "marker": "a1",
+                "option_id": 71204,
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            },
+            "option": {
+                "id": 71204,
+                "option": "are being woven",
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 60537,
+                "question_id": 67146,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 71205,
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            },
+            "option": {
+                "id": 71205,
+                "option": "Початкове: «Ткачі зараз тчуть килими». Перебудуй у пасив; збережи тривання дії саме зараз і її спосіб.",
+                "created_at": "2026-11-03T01:30:39.000000Z",
+                "updated_at": "2026-11-03T01:30:39.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 59161,
+            "question_id": 67146,
+            "text": "The rugs {a1} by the weavers at the moment.",
+            "created_at": "2026-11-03T01:30:39.000000Z",
+            "updated_at": "2026-11-03T01:30:39.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

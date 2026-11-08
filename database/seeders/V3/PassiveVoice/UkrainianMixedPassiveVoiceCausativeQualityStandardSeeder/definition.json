@@ -1,0 +1,1717 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/causative.v1.json",
+        "sha256": "58d5375cc3a0bac39b8dfaa3fa1d024a222c7a90d8ec96c1c1dc4d401adaa8c8"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceCausativeQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-causative-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_causative": {
+            "name": "Passive Voice Quality: Замовлені послуги: каузативна конструкція"
+        }
+    },
+    "tags": {
+        "passive_voice_causative": {
+            "name": "Passive Voice Causative",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "have_object_v3": {
+            "name": "Have Object V3",
+            "category": "topic"
+        },
+        "get_object_v3": {
+            "name": "Get Object V3",
+            "category": "topic"
+        },
+        "service_done": {
+            "name": "Service Done",
+            "category": "topic"
+        },
+        "have_hair_cut": {
+            "name": "Have Hair Cut",
+            "category": "topic"
+        },
+        "get_car_repaired": {
+            "name": "Get Car Repaired",
+            "category": "topic"
+        },
+        "causative_vs_self": {
+            "name": "Causative Vs Self",
+            "category": "topic"
+        },
+        "causative_negatives": {
+            "name": "Causative Negatives",
+            "category": "topic"
+        },
+        "causative_questions": {
+            "name": "Causative Questions",
+            "category": "topic"
+        },
+        "tense_changes": {
+            "name": "Tense Changes",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-causative-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Eva had her shoes {a1} yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Єві вчора почистили взуття.",
+            "target_text": "Eva had her shoes cleaned yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "painted",
+                        "folded"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «почищений»; замовлення послуги вже виражене."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «почищений»; замовлення послуги вже виражене.",
+            "accepted_target_texts": [
+                "Eva had her shoes cleaned yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Eva had",
+                "her shoes",
+                "cleaned yesterday."
+            ],
+            "token_groups": [
+                "Eva had",
+                "her shoes",
+                "cleaned yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-causative-a1-g02",
+            "author_id": "A1-g02",
+            "question": "We had our photos {a1} on Friday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Нам надрукували фотографії в п'ятницю.",
+            "target_text": "We had our photos printed on Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "printed",
+                    "options": [
+                        "printed",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «надрукований»; не повторюй уже наведених замовників."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «надрукований»; не повторюй уже наведених замовників.",
+            "accepted_target_texts": [
+                "We had our photos printed on Friday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had",
+                "our photos",
+                "printed",
+                "on Friday."
+            ],
+            "token_groups": [
+                "We had",
+                "our photos",
+                "printed",
+                "on Friday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-causative-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Leo had his bike {a1} this morning.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Левові перевірили велосипед сьогодні вранці.",
+            "target_text": "Leo had his bike checked this morning.",
+            "markers": {
+                "a1": {
+                    "answer": "checked",
+                    "options": [
+                        "checked",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму дієслова «перевіряти» після вже наведеного об'єкта."
+                }
+            },
+            "verb_hint": "Уведи третю форму дієслова «перевіряти» після вже наведеного об'єкта.",
+            "accepted_target_texts": [
+                "Leo had his bike checked this morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Leo had",
+                "his bike",
+                "checked this morning."
+            ],
+            "token_groups": [
+                "Leo had",
+                "his bike",
+                "checked this morning."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-causative-a1-g04",
+            "author_id": "A1-g04",
+            "question": "I had my bag {a1} last week.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Мені полагодили сумку минулого тижня.",
+            "target_text": "I had my bag mended last week.",
+            "markers": {
+                "a1": {
+                    "answer": "mended",
+                    "options": [
+                        "mended",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «полагоджений» для пошкодженої тканини."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «полагоджений» для пошкодженої тканини.",
+            "accepted_target_texts": [
+                "I had my bag mended last week.",
+                "I had my bag repaired last week.",
+                "I had my bag fixed last week."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "repaired",
+                    "fixed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "repaired",
+                    "fixed"
+                ]
+            },
+            "reorder_groups": [
+                "I had",
+                "my bag",
+                "mended last week."
+            ],
+            "token_groups": [
+                "I had",
+                "my bag",
+                "mended last week."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-causative-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Mia had her nails {a1} pink.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Мії пофарбували нігті в рожевий колір.",
+            "target_text": "Mia had her nails painted pink.",
+            "markers": {
+                "a1": {
+                    "answer": "painted",
+                    "options": [
+                        "painted",
+                        "cleaned",
+                        "folded"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «пофарбований» у конструкції замовленої послуги."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «пофарбований» у конструкції замовленої послуги.",
+            "accepted_target_texts": [
+                "Mia had her nails painted pink."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mia had",
+                "her nails",
+                "painted pink."
+            ],
+            "token_groups": [
+                "Mia had",
+                "her nails",
+                "painted pink."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-causative-a1-g06",
+            "author_id": "A1-g06",
+            "question": "They had their names {a1} on the cups.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Їм написали імена на чашках.",
+            "target_text": "They had their names written on the cups.",
+            "markers": {
+                "a1": {
+                    "answer": "written",
+                    "options": [
+                        "written",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова «писати»."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова «писати».",
+            "accepted_target_texts": [
+                "They had their names written on the cups."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They had",
+                "their names",
+                "written",
+                "on the cups."
+            ],
+            "token_groups": [
+                "They had",
+                "their names",
+                "written",
+                "on the cups."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-causative-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Tara had her curtains {a1} before the party.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Тарі повісили штори до вечірки.",
+            "target_text": "Tara had her curtains hung before the party.",
+            "markers": {
+                "a1": {
+                    "answer": "hung",
+                    "options": [
+                        "hung",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова «вішати» після об'єкта."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова «вішати» після об'єкта.",
+            "accepted_target_texts": [
+                "Tara had her curtains hung before the party."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Tara had",
+                "her curtains",
+                "hung",
+                "before the party."
+            ],
+            "token_groups": [
+                "Tara had",
+                "her curtains",
+                "hung",
+                "before the party."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-causative-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We had the sofa {a1} to our flat.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Нам доставили диван у квартиру.",
+            "target_text": "We had the sofa delivered to our flat.",
+            "markers": {
+                "a1": {
+                    "answer": "delivered",
+                    "options": [
+                        "delivered",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «доставлений» у конструкції замовленої послуги."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «доставлений» у конструкції замовленої послуги.",
+            "accepted_target_texts": [
+                "We had the sofa delivered to our flat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had",
+                "the sofa",
+                "delivered",
+                "to our flat."
+            ],
+            "token_groups": [
+                "We had",
+                "the sofa",
+                "delivered",
+                "to our flat."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-causative-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Ben had his glasses {a1} at the shop.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Бенові відрегулювали окуляри в магазині.",
+            "target_text": "Ben had his glasses adjusted at the shop.",
+            "markers": {
+                "a1": {
+                    "answer": "adjusted",
+                    "options": [
+                        "adjusted",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «відрегульований»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «відрегульований».",
+            "accepted_target_texts": [
+                "Ben had his glasses adjusted at the shop."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Ben had",
+                "his glasses",
+                "adjusted",
+                "at the shop."
+            ],
+            "token_groups": [
+                "Ben had",
+                "his glasses",
+                "adjusted",
+                "at the shop."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-causative-a2-g04",
+            "author_id": "A2-g04",
+            "question": "My aunt had her necklace {a1} by a jeweller.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Моя тітка замовила чищення намиста в ювеліра.",
+            "target_text": "My aunt had her necklace cleaned by a jeweller.",
+            "markers": {
+                "a1": {
+                    "answer": "cleaned",
+                    "options": [
+                        "cleaned",
+                        "painted",
+                        "folded"
+                    ],
+                    "verb_hint": "Уведи третю форму дієслова «чистити»; виконавця послуги вже названо."
+                }
+            },
+            "verb_hint": "Уведи третю форму дієслова «чистити»; виконавця послуги вже названо.",
+            "accepted_target_texts": [
+                "My aunt had her necklace cleaned by a jeweller."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My aunt had",
+                "her necklace",
+                "cleaned",
+                "by a jeweller."
+            ],
+            "token_groups": [
+                "My aunt had",
+                "her necklace",
+                "cleaned",
+                "by a jeweller."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-causative-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The family had the chimney {a1} in September.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Родині прочистили димохід у вересні.",
+            "target_text": "The family had the chimney swept in September.",
+            "markers": {
+                "a1": {
+                    "answer": "swept",
+                    "options": [
+                        "swept",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова «прочищати, підмітати»."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова «прочищати, підмітати».",
+            "accepted_target_texts": [
+                "The family had the chimney swept in September."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The family had",
+                "the chimney",
+                "swept",
+                "in September."
+            ],
+            "token_groups": [
+                "The family had",
+                "the chimney",
+                "swept",
+                "in September."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-causative-a2-g06",
+            "author_id": "A2-g06",
+            "question": "We had a spare key {a1} for our neighbour.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Нам виготовили запасний ключ для сусіда.",
+            "target_text": "We had a spare key made for our neighbour.",
+            "markers": {
+                "a1": {
+                    "answer": "made",
+                    "options": [
+                        "made",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова «виготовляти»."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова «виготовляти».",
+            "accepted_target_texts": [
+                "We had a spare key made for our neighbour."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had",
+                "a spare key",
+                "made",
+                "for our neighbour."
+            ],
+            "token_groups": [
+                "We had",
+                "a spare key",
+                "made",
+                "for our neighbour."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-causative-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Our neighbours are having their roof {a1} this afternoon.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Сусідам сьогодні після обіду оглядають дах.",
+            "target_text": "Our neighbours are having their roof inspected this afternoon.",
+            "markers": {
+                "a1": {
+                    "answer": "inspected",
+                    "options": [
+                        "inspected",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «оглянутий» для запланованої послуги."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «оглянутий» для запланованої послуги.",
+            "accepted_target_texts": [
+                "Our neighbours are having their roof inspected this afternoon."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our neighbours",
+                "are having",
+                "their roof",
+                "inspected",
+                "this afternoon."
+            ],
+            "token_groups": [
+                "Our neighbours",
+                "are having",
+                "their roof",
+                "inspected",
+                "this afternoon."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-causative-b1-g02",
+            "author_id": "B1-g02",
+            "question": "I have had my passport photos {a1} professionally.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Мені вже професійно зробили фотографії на паспорт.",
+            "target_text": "I have had my passport photos taken professionally.",
+            "markers": {
+                "a1": {
+                    "answer": "taken",
+                    "options": [
+                        "taken",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова для фотографування; перфект уже наведено."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова для фотографування; перфект уже наведено.",
+            "accepted_target_texts": [
+                "I have had my passport photos taken professionally."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I have had",
+                "my passport photos",
+                "taken",
+                "professionally."
+            ],
+            "token_groups": [
+                "I have had",
+                "my passport photos",
+                "taken",
+                "professionally."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-causative-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Luca will have his piano {a1} before the concert.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Луці налаштують піаніно перед концертом.",
+            "target_text": "Luca will have his piano tuned before the concert.",
+            "markers": {
+                "a1": {
+                    "answer": "tuned",
+                    "options": [
+                        "tuned",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «налаштований» про музичний інструмент."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «налаштований» про музичний інструмент.",
+            "accepted_target_texts": [
+                "Luca will have his piano tuned before the concert."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Luca will have",
+                "his piano",
+                "tuned",
+                "before the concert."
+            ],
+            "token_groups": [
+                "Luca will have",
+                "his piano",
+                "tuned",
+                "before the concert."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-causative-b1-g04",
+            "author_id": "B1-g04",
+            "question": "They had had the parcel {a1} before buying the stamp.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Їм зважили посилку ще до купівлі марки.",
+            "target_text": "They had had the parcel weighed before buying the stamp.",
+            "markers": {
+                "a1": {
+                    "answer": "weighed",
+                    "options": [
+                        "weighed",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «зважений»; раніший минулий час уже виражено."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «зважений»; раніший минулий час уже виражено.",
+            "accepted_target_texts": [
+                "They had had the parcel weighed before buying the stamp."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They had had",
+                "the parcel",
+                "weighed",
+                "before buying",
+                "the stamp."
+            ],
+            "token_groups": [
+                "They had had",
+                "the parcel",
+                "weighed",
+                "before buying",
+                "the stamp."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-causative-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Did you have the leaking tap {a1} last month?",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Тобі замінили кран, що протікав, минулого місяця?",
+            "target_text": "Did you have the leaking tap replaced last month?",
+            "markers": {
+                "a1": {
+                    "answer": "replaced",
+                    "options": [
+                        "replaced",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «замінений»; не повторюй уже наведене питання."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «замінений»; не повторюй уже наведене питання.",
+            "accepted_target_texts": [
+                "Did you have the leaking tap replaced last month?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Did you have",
+                "the leaking tap",
+                "replaced",
+                "last month?"
+            ],
+            "token_groups": [
+                "Did you have",
+                "the leaking tap",
+                "replaced",
+                "last month?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-causative-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The dentist had the X-rays {a1} to a specialist.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Стоматолог організував надсилання рентгенівських знімків спеціалістові.",
+            "target_text": "The dentist had the X-rays sent to a specialist.",
+            "markers": {
+                "a1": {
+                    "answer": "sent",
+                    "options": [
+                        "sent",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи третю форму неправильного дієслова «надсилати»."
+                }
+            },
+            "verb_hint": "Уведи третю форму неправильного дієслова «надсилати».",
+            "accepted_target_texts": [
+                "The dentist had the X-rays sent to a specialist."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dentist had",
+                "the X-rays",
+                "sent",
+                "to a specialist."
+            ],
+            "token_groups": [
+                "The dentist had",
+                "the X-rays",
+                "sent",
+                "to a specialist."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-causative-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The charity had the donated computers {a1} for its classrooms.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Благодійна організація замовила відновлення подарованих комп'ютерів для своїх класів.",
+            "target_text": "The charity had the donated computers refurbished for its classrooms.",
+            "markers": {
+                "a1": {
+                    "answer": "refurbished",
+                    "options": [
+                        "refurbished",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «відновлений до робочого стану»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «відновлений до робочого стану».",
+            "accepted_target_texts": [
+                "The charity had the donated computers refurbished for its classrooms."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The charity had",
+                "the donated computers",
+                "refurbished",
+                "for its classrooms."
+            ],
+            "token_groups": [
+                "The charity had",
+                "the donated computers",
+                "refurbished",
+                "for its classrooms."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-causative-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The producer is having the soundtrack {a1} for a new release.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Продюсер зараз замовляє повторну обробку звукової доріжки для поліпшення звучання перед перевиданням.",
+            "target_text": "The producer is having the soundtrack remastered for a new release.",
+            "markers": {
+                "a1": {
+                    "answer": "remastered",
+                    "options": [
+                        "remastered",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «повторно оброблений для покращення звучання»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «повторно оброблений для покращення звучання».",
+            "accepted_target_texts": [
+                "The producer is having the soundtrack remastered for a new release."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The producer",
+                "is having",
+                "the soundtrack",
+                "remastered",
+                "for",
+                "a new release."
+            ],
+            "token_groups": [
+                "The producer",
+                "is having",
+                "the soundtrack",
+                "remastered",
+                "for",
+                "a new release."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-causative-b2-g03",
+            "author_id": "B2-g03",
+            "question": "We had our water supply {a1} after the flood.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Ми замовили перевірку водопостачання після повені.",
+            "target_text": "We had our water supply tested after the flood.",
+            "markers": {
+                "a1": {
+                    "answer": "tested",
+                    "options": [
+                        "tested",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «перевірений випробуванням»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «перевірений випробуванням».",
+            "accepted_target_texts": [
+                "We had our water supply tested after the flood."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had",
+                "our water supply",
+                "tested",
+                "after the flood."
+            ],
+            "token_groups": [
+                "We had",
+                "our water supply",
+                "tested",
+                "after the flood."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-causative-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The council will have the street signs {a1} into three languages.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Міська рада замовить переклад вуличних вказівників трьома мовами.",
+            "target_text": "The council will have the street signs translated into three languages.",
+            "markers": {
+                "a1": {
+                    "answer": "translated",
+                    "options": [
+                        "translated",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «перекладений»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «перекладений».",
+            "accepted_target_texts": [
+                "The council will have the street signs translated into three languages."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The council",
+                "will have",
+                "the street signs",
+                "translated",
+                "into three languages."
+            ],
+            "token_groups": [
+                "The council",
+                "will have",
+                "the street signs",
+                "translated",
+                "into three languages."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-causative-b2-g05",
+            "author_id": "B2-g05",
+            "question": "She had had the damaged frames {a1} before the sale.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Вона замовила реставрацію пошкоджених рам ще до продажу.",
+            "target_text": "She had had the damaged frames restored before the sale.",
+            "markers": {
+                "a1": {
+                    "answer": "restored",
+                    "options": [
+                        "restored",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «відреставрований»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «відреставрований».",
+            "accepted_target_texts": [
+                "She had had the damaged frames restored before the sale."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She had had",
+                "the damaged frames",
+                "restored",
+                "before the sale."
+            ],
+            "token_groups": [
+                "She had had",
+                "the damaged frames",
+                "restored",
+                "before the sale."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-causative-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The hotel has had its booking system {a1} twice this year.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Готель уже двічі цього року замовляв оновлення системи бронювання.",
+            "target_text": "The hotel has had its booking system upgraded twice this year.",
+            "markers": {
+                "a1": {
+                    "answer": "upgraded",
+                    "options": [
+                        "upgraded",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «оновлений до кращої версії»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «оновлений до кращої версії».",
+            "accepted_target_texts": [
+                "The hotel has had its booking system upgraded twice this year."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hotel",
+                "has had",
+                "its booking system",
+                "upgraded",
+                "twice this year."
+            ],
+            "token_groups": [
+                "The hotel",
+                "has had",
+                "its booking system",
+                "upgraded",
+                "twice this year."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-causative-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The trustees had the foundation's accounts {a1} before authorising further expenditure.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Опікуни замовили аудит рахунків фонду перед дозволом на подальші витрати.",
+            "target_text": "The trustees had the foundation's accounts audited before authorising further expenditure.",
+            "markers": {
+                "a1": {
+                    "answer": "audited",
+                    "options": [
+                        "audited",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «перевірений аудиторами»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «перевірений аудиторами».",
+            "accepted_target_texts": [
+                "The trustees had the foundation's accounts audited before authorising further expenditure."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trustees had",
+                "the foundation's accounts",
+                "audited",
+                "before authorising",
+                "further expenditure."
+            ],
+            "token_groups": [
+                "The trustees had",
+                "the foundation's accounts",
+                "audited",
+                "before authorising",
+                "further expenditure."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-causative-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The manufacturer is having the defective batch {a1} from overseas distributors.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Виробник зараз організовує відкликання дефектної партії в закордонних дистриб'юторів.",
+            "target_text": "The manufacturer is having the defective batch recalled from overseas distributors.",
+            "markers": {
+                "a1": {
+                    "answer": "recalled",
+                    "options": [
+                        "recalled",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «відкликаний із продажу»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «відкликаний із продажу».",
+            "accepted_target_texts": [
+                "The manufacturer is having the defective batch recalled from overseas distributors."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The manufacturer",
+                "is having",
+                "the defective batch",
+                "recalled",
+                "from overseas distributors."
+            ],
+            "token_groups": [
+                "The manufacturer",
+                "is having",
+                "the defective batch",
+                "recalled",
+                "from overseas distributors."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-causative-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The editor had the anonymous quotations {a1} against the original recordings.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Редактор замовив перевірку анонімних цитат за початковими записами.",
+            "target_text": "The editor had the anonymous quotations verified against the original recordings.",
+            "markers": {
+                "a1": {
+                    "answer": "verified",
+                    "options": [
+                        "verified",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «звірений і підтверджений»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «звірений і підтверджений».",
+            "accepted_target_texts": [
+                "The editor had the anonymous quotations verified against the original recordings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The editor had",
+                "the anonymous quotations",
+                "verified",
+                "against",
+                "the original recordings."
+            ],
+            "token_groups": [
+                "The editor had",
+                "the anonymous quotations",
+                "verified",
+                "against",
+                "the original recordings."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-causative-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The committee will have the conflicting valuations {a1} by an independent assessor.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Комітет доручить незалежному оцінювачеві узгодити суперечливі оцінки вартості.",
+            "target_text": "The committee will have the conflicting valuations reconciled by an independent assessor.",
+            "markers": {
+                "a1": {
+                    "answer": "reconciled",
+                    "options": [
+                        "reconciled",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «узгоджений після усунення розбіжностей»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «узгоджений після усунення розбіжностей».",
+            "accepted_target_texts": [
+                "The committee will have the conflicting valuations reconciled by an independent assessor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The committee",
+                "will have",
+                "the conflicting valuations",
+                "reconciled",
+                "by",
+                "an independent assessor."
+            ],
+            "token_groups": [
+                "The committee",
+                "will have",
+                "the conflicting valuations",
+                "reconciled",
+                "by",
+                "an independent assessor."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-causative-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The conservator has had the unstable emulsion {a1} under laboratory conditions.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Реставратор уже замовив аналіз нестабільної емульсії в лабораторних умовах.",
+            "target_text": "The conservator has had the unstable emulsion analysed under laboratory conditions.",
+            "markers": {
+                "a1": {
+                    "answer": "analysed",
+                    "options": [
+                        "analysed",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «проаналізований»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «проаналізований».",
+            "accepted_target_texts": [
+                "The conservator has had the unstable emulsion analysed under laboratory conditions.",
+                "The conservator has had the unstable emulsion analyzed under laboratory conditions."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "analyzed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "analyzed"
+                ]
+            },
+            "reorder_groups": [
+                "The conservator",
+                "has had",
+                "the unstable emulsion",
+                "analysed",
+                "under laboratory conditions."
+            ],
+            "token_groups": [
+                "The conservator",
+                "has had",
+                "the unstable emulsion",
+                "analysed",
+                "under laboratory conditions."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-causative-c1-g06",
+            "author_id": "C1-g06",
+            "question": "They had had the confidential correspondence {a1} before transferring it abroad.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Вони замовили шифрування конфіденційного листування ще до передавання за кордон.",
+            "target_text": "They had had the confidential correspondence encrypted before transferring it abroad.",
+            "markers": {
+                "a1": {
+                    "answer": "encrypted",
+                    "options": [
+                        "encrypted",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «зашифрований»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «зашифрований».",
+            "accepted_target_texts": [
+                "They had had the confidential correspondence encrypted before transferring it abroad."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They had had",
+                "the confidential correspondence",
+                "encrypted",
+                "before transferring it",
+                "abroad."
+            ],
+            "token_groups": [
+                "They had had",
+                "the confidential correspondence",
+                "encrypted",
+                "before transferring it",
+                "abroad."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-causative-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The liquidators had the intercompany transfers {a1} for evidence of preferential treatment.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Ліквідатори доручили ретельно вивчити внутрішньогрупові перекази на предмет неправомірних переваг.",
+            "target_text": "The liquidators had the intercompany transfers scrutinised for evidence of preferential treatment.",
+            "markers": {
+                "a1": {
+                    "answer": "scrutinised",
+                    "options": [
+                        "scrutinised",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «ретельно досліджений»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «ретельно досліджений».",
+            "accepted_target_texts": [
+                "The liquidators had the intercompany transfers scrutinised for evidence of preferential treatment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The liquidators had",
+                "the intercompany transfers",
+                "scrutinised",
+                "for evidence",
+                "of preferential treatment."
+            ],
+            "token_groups": [
+                "The liquidators had",
+                "the intercompany transfers",
+                "scrutinised",
+                "for evidence",
+                "of preferential treatment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-causative-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The appellant had the disputed passage {a1} to expose a material ambiguity.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Апелянт замовив повторний переклад спірного уривка, щоб виявити суттєву неоднозначність.",
+            "target_text": "The appellant had the disputed passage retranslated to expose a material ambiguity.",
+            "markers": {
+                "a1": {
+                    "answer": "retranslated",
+                    "options": [
+                        "retranslated",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «перекладений повторно»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «перекладений повторно».",
+            "accepted_target_texts": [
+                "The appellant had the disputed passage retranslated to expose a material ambiguity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The appellant had",
+                "the disputed passage",
+                "retranslated",
+                "to expose",
+                "a material ambiguity."
+            ],
+            "token_groups": [
+                "The appellant had",
+                "the disputed passage",
+                "retranslated",
+                "to expose",
+                "a material ambiguity."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-causative-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The museum has had the ostensibly authentic seal {a1} in light of new provenance evidence.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Музей замовив повторне оцінювання начебто справжньої печатки з огляду на нові докази походження.",
+            "target_text": "The museum has had the ostensibly authentic seal reappraised in light of new provenance evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "reappraised",
+                    "options": [
+                        "reappraised",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «переоцінений після нового розгляду»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «переоцінений після нового розгляду».",
+            "accepted_target_texts": [
+                "The museum has had the ostensibly authentic seal reappraised in light of new provenance evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The museum",
+                "has had",
+                "the",
+                "ostensibly authentic seal",
+                "reappraised",
+                "in light of",
+                "new provenance evidence."
+            ],
+            "token_groups": [
+                "The museum",
+                "has had",
+                "the",
+                "ostensibly authentic seal",
+                "reappraised",
+                "in light of",
+                "new provenance evidence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-causative-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The regulator will have the opaque ownership structures {a1} before approving the merger.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Регулятор доручить розплутати непрозорі структури власності перед схваленням злиття.",
+            "target_text": "The regulator will have the opaque ownership structures disentangled before approving the merger.",
+            "markers": {
+                "a1": {
+                    "answer": "disentangled",
+                    "options": [
+                        "disentangled",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «розплутаний і з'ясований»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «розплутаний і з'ясований».",
+            "accepted_target_texts": [
+                "The regulator will have the opaque ownership structures disentangled before approving the merger."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The regulator",
+                "will have",
+                "the",
+                "opaque ownership structures",
+                "disentangled",
+                "before approving",
+                "the merger."
+            ],
+            "token_groups": [
+                "The regulator",
+                "will have",
+                "the",
+                "opaque ownership structures",
+                "disentangled",
+                "before approving",
+                "the merger."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-causative-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The insurer had had the allegedly forged endorsement {a1} before rejecting the claim.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Страховик замовив перевірку справжності нібито підробленої додаткової угоди ще до відмови у виплаті.",
+            "target_text": "The insurer had had the allegedly forged endorsement authenticated before rejecting the claim.",
+            "markers": {
+                "a1": {
+                    "answer": "authenticated",
+                    "options": [
+                        "authenticated",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «перевірений на справжність»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «перевірений на справжність».",
+            "accepted_target_texts": [
+                "The insurer had had the allegedly forged endorsement authenticated before rejecting the claim."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The insurer",
+                "had had",
+                "the",
+                "allegedly forged endorsement",
+                "authenticated",
+                "before rejecting",
+                "the claim."
+            ],
+            "token_groups": [
+                "The insurer",
+                "had had",
+                "the",
+                "allegedly forged endorsement",
+                "authenticated",
+                "before rejecting",
+                "the claim."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-causative-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The commission is having the apparently incompatible datasets {a1} through a documented adjustment process.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_causative",
+            "translation_uk": "Комісія зараз доручає узгодити на позір несумісні набори даних через задокументоване коригування.",
+            "target_text": "The commission is having the apparently incompatible datasets reconciled through a documented adjustment process.",
+            "markers": {
+                "a1": {
+                    "answer": "reconciled",
+                    "options": [
+                        "reconciled",
+                        "painted",
+                        "cleaned"
+                    ],
+                    "verb_hint": "Уведи дієприкметник зі значенням «узгоджений після коригування»."
+                }
+            },
+            "verb_hint": "Уведи дієприкметник зі значенням «узгоджений після коригування».",
+            "accepted_target_texts": [
+                "The commission is having the apparently incompatible datasets reconciled through a documented adjustment process."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The commission",
+                "is having",
+                "the apparently",
+                "incompatible datasets",
+                "reconciled",
+                "through a documented",
+                "adjustment process."
+            ],
+            "token_groups": [
+                "The commission",
+                "is having",
+                "the apparently",
+                "incompatible datasets",
+                "reconciled",
+                "through a documented",
+                "adjustment process."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

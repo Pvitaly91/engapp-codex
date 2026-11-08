@@ -1,0 +1,687 @@
+{
+    "schema_version": 1,
+    "quality_revision": "ssq-v1",
+    "compiled_from": {
+        "path": "docs/content/sentence-structure-quality/complex-noun-phrases.v1.json",
+        "sha256": "89ad49072839917225bd21cc145bcf99095defa90d7380fa092a619823b9817c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\SentenceStructure\\UkrainianMixedSsqComplexNounPhrasesQualityStandardSeeder",
+        "uuid_namespace": "sentence-structure-quality-complex-noun-phrases-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Sentence Structure"
+    },
+    "sources": {
+        "sentence_structure_quality_complex_noun_phrases": {
+            "name": "Sentence Structure Quality: Complex Noun Phrases"
+        }
+    },
+    "tags": {
+        "complex_noun_phrases": {
+            "name": "complex noun phrases",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "noun_phrase_basics": {
+            "name": "noun phrase basics",
+            "category": "grammar"
+        },
+        "determiner_adjective_noun": {
+            "name": "determiner adjective noun",
+            "category": "grammar"
+        },
+        "premodification": {
+            "name": "premodification",
+            "category": "grammar"
+        },
+        "postmod_pp": {
+            "name": "postmod pp",
+            "category": "grammar"
+        },
+        "postmod_relative_clause": {
+            "name": "postmod relative clause",
+            "category": "grammar"
+        },
+        "apposition": {
+            "name": "apposition",
+            "category": "grammar"
+        },
+        "embedded_clauses": {
+            "name": "embedded clauses",
+            "category": "grammar"
+        },
+        "academic_noun_groups": {
+            "name": "academic noun groups",
+            "category": "grammar"
+        },
+        "information_density": {
+            "name": "information density",
+            "category": "grammar"
+        },
+        "clarity_overloading": {
+            "name": "clarity overloading",
+            "category": "grammar"
+        },
+        "punctuation_apposition": {
+            "name": "punctuation apposition",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [
+        "complex_noun_phrases"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "ssq-cnp-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The box of crayons {a1} on the shelf.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Коробка воскових олівців на полиці.",
+            "target_text": "The box of crayons is on the shelf.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "be"
+                    ],
+                    "verb_hint": "Названо одну коробку; узгодь дієслово саме з нею, а не з олівцями."
+                }
+            },
+            "verb_hint": "Названо одну коробку; узгодь дієслово саме з нею, а не з олівцями.",
+            "accepted_target_texts": [
+                "The box of crayons is on the shelf."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The box",
+                "of crayons",
+                "is on",
+                "the shelf."
+            ],
+            "token_groups": [
+                "The box",
+                "of crayons",
+                "is on",
+                "the shelf."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "ssq-cnp-a1-g02",
+            "author_id": "A1-g02",
+            "question": "I can see two small {a1} near the door.",
+            "level": "A1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Я бачу дві маленькі сумки біля дверей.",
+            "target_text": "I can see two small bags near the door.",
+            "markers": {
+                "a1": {
+                    "answer": "bags",
+                    "options": [
+                        "bags",
+                        "bag",
+                        "bagses"
+                    ],
+                    "verb_hint": "Назви дві сумки в множині після вже наведених кількості й прикметника."
+                }
+            },
+            "verb_hint": "Назви дві сумки в множині після вже наведених кількості й прикметника.",
+            "accepted_target_texts": [
+                "I can see two small bags near the door."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I can see",
+                "two small bags",
+                "near the door."
+            ],
+            "token_groups": [
+                "I can see",
+                "two small bags",
+                "near the door."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "ssq-cnp-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The pair of boots {a1} too expensive for me.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Ця пара чобіт для мене надто дорога.",
+            "target_text": "The pair of boots is too expensive for me.",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "being"
+                    ],
+                    "verb_hint": "Головне слово називає одну пару; форма дієслова залежить від нього."
+                }
+            },
+            "verb_hint": "Головне слово називає одну пару; форма дієслова залежить від нього.",
+            "accepted_target_texts": [
+                "The pair of boots is too expensive for me."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pair",
+                "of boots",
+                "is too expensive",
+                "for me."
+            ],
+            "token_groups": [
+                "The pair",
+                "of boots",
+                "is too expensive",
+                "for me."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "ssq-cnp-a2-g02",
+            "author_id": "A2-g02",
+            "question": "She bought a {a1} table for the kitchen.",
+            "level": "A2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Вона купила круглий дерев’яний стіл для кухні.",
+            "target_text": "She bought a round wooden table for the kitchen.",
+            "markers": {
+                "a1": {
+                    "answer": "round wooden",
+                    "options": [
+                        "round wooden",
+                        "wooden round",
+                        "round wood"
+                    ],
+                    "verb_hint": "Спочатку передай круглу форму, потім матеріал; назву стола вже наведено."
+                }
+            },
+            "verb_hint": "Спочатку передай круглу форму, потім матеріал; назву стола вже наведено.",
+            "accepted_target_texts": [
+                "She bought a round wooden table for the kitchen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She bought",
+                "a round wooden",
+                "table for",
+                "the kitchen."
+            ],
+            "token_groups": [
+                "She bought",
+                "a round wooden",
+                "table for",
+                "the kitchen."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "ssq-cnp-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The guide to the mountain paths {a1} several clear maps.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Путівник гірськими стежками містить кілька зрозумілих карт.",
+            "target_text": "The guide to the mountain paths contains several clear maps.",
+            "markers": {
+                "a1": {
+                    "answer": "contains",
+                    "options": [
+                        "contains",
+                        "contain",
+                        "containing"
+                    ],
+                    "verb_hint": "Узгодь дієслово з одним путівником; передай значення «містить»."
+                }
+            },
+            "verb_hint": "Узгодь дієслово з одним путівником; передай значення «містить».",
+            "accepted_target_texts": [
+                "The guide to the mountain paths contains several clear maps.",
+                "The guide to the mountain paths includes several clear maps.",
+                "The guide to the mountain paths has several clear maps."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "includes",
+                    "has"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "includes",
+                    "has"
+                ]
+            },
+            "reorder_groups": [
+                "The guide",
+                "to the",
+                "mountain paths",
+                "contains several",
+                "clear maps."
+            ],
+            "token_groups": [
+                "The guide",
+                "to the",
+                "mountain paths",
+                "contains several",
+                "clear maps."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "ssq-cnp-b1-g02",
+            "author_id": "B1-g02",
+            "question": "We need a cupboard with enough room {a1} our tools.",
+            "level": "B1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Нам потрібна шафа з достатнім місцем для наших інструментів.",
+            "target_text": "We need a cupboard with enough room for our tools.",
+            "markers": {
+                "a1": {
+                    "answer": "for",
+                    "options": [
+                        "for",
+                        "of",
+                        "by"
+                    ],
+                    "verb_hint": "Поєднай достатнє місце з його призначенням для інструментів одним прийменником."
+                }
+            },
+            "verb_hint": "Поєднай достатнє місце з його призначенням для інструментів одним прийменником.",
+            "accepted_target_texts": [
+                "We need a cupboard with enough room for our tools."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We need",
+                "a cupboard",
+                "with enough room",
+                "for our tools."
+            ],
+            "token_groups": [
+                "We need",
+                "a cupboard",
+                "with enough room",
+                "for our tools."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "ssq-cnp-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The possibility of further delays {a1} the organisers.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Можливість подальших затримок непокоїть організаторів.",
+            "target_text": "The possibility of further delays concerns the organisers.",
+            "markers": {
+                "a1": {
+                    "answer": "concerns",
+                    "options": [
+                        "concerns",
+                        "concern",
+                        "concerning"
+                    ],
+                    "verb_hint": "Узгодь дієслово з однією можливістю; передай значення «непокоїть»."
+                }
+            },
+            "verb_hint": "Узгодь дієслово з однією можливістю; передай значення «непокоїть».",
+            "accepted_target_texts": [
+                "The possibility of further delays concerns the organisers.",
+                "The possibility of further delays worries the organisers.",
+                "The possibility of further delays troubles the organisers."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "worries",
+                    "troubles"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "worries",
+                    "troubles"
+                ]
+            },
+            "reorder_groups": [
+                "The possibility",
+                "of further delays",
+                "concerns the organisers."
+            ],
+            "token_groups": [
+                "The possibility",
+                "of further delays",
+                "concerns the organisers."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "ssq-cnp-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Their decision {a1} the wildlife reserve was unanimous.",
+            "level": "B2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Їхнє рішення захистити природний заповідник було одностайним.",
+            "target_text": "Their decision to protect the wildlife reserve was unanimous.",
+            "markers": {
+                "a1": {
+                    "answer": "to protect",
+                    "options": [
+                        "to protect",
+                        "protecting",
+                        "for protect"
+                    ],
+                    "verb_hint": "Інфінітивом уточни зміст рішення захистити заповідник; уведи всю відсутню частину."
+                }
+            },
+            "verb_hint": "Інфінітивом уточни зміст рішення захистити заповідник; уведи всю відсутню частину.",
+            "accepted_target_texts": [
+                "Their decision to protect the wildlife reserve was unanimous.",
+                "Their decision to preserve the wildlife reserve was unanimous.",
+                "Their decision to safeguard the wildlife reserve was unanimous."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "to preserve",
+                    "to safeguard"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "to preserve",
+                    "to safeguard"
+                ]
+            },
+            "reorder_groups": [
+                "Their decision",
+                "to protect",
+                "the wildlife reserve",
+                "was unanimous."
+            ],
+            "token_groups": [
+                "Their decision",
+                "to protect",
+                "the wildlife reserve",
+                "was unanimous."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "ssq-cnp-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The claim that the specimens were contaminated {a1} independently verified.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Твердження, що зразки були забруднені, було незалежно перевірено.",
+            "target_text": "The claim that the specimens were contaminated has been independently verified.",
+            "markers": {
+                "a1": {
+                    "answer": "has been",
+                    "options": [
+                        "has been",
+                        "have been",
+                        "has being"
+                    ],
+                    "verb_hint": "Головне слово — одне твердження; уведи всю пасивну форму зі значенням завершеної перевірки."
+                }
+            },
+            "verb_hint": "Головне слово — одне твердження; уведи всю пасивну форму зі значенням завершеної перевірки.",
+            "accepted_target_texts": [
+                "The claim that the specimens were contaminated has been independently verified.",
+                "The claim that the specimens were contaminated was independently verified."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was"
+                ]
+            },
+            "reorder_groups": [
+                "The claim",
+                "that the specimens",
+                "were contaminated",
+                "has been",
+                "independently verified."
+            ],
+            "token_groups": [
+                "The claim",
+                "that the specimens",
+                "were contaminated",
+                "has been",
+                "independently verified."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "ssq-cnp-c1-g02",
+            "author_id": "C1-g02",
+            "question": "A substantial body of research {a1} the earlier hypothesis.",
+            "level": "C1",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Значна сукупність досліджень підтримує попередню гіпотезу.",
+            "target_text": "A substantial body of research supports the earlier hypothesis.",
+            "markers": {
+                "a1": {
+                    "answer": "supports",
+                    "options": [
+                        "supports",
+                        "support",
+                        "supporting"
+                    ],
+                    "verb_hint": "Дієслово залежить від однієї сукупності; передай значення «підтримує»."
+                }
+            },
+            "verb_hint": "Дієслово залежить від однієї сукупності; передай значення «підтримує».",
+            "accepted_target_texts": [
+                "A substantial body of research supports the earlier hypothesis.",
+                "A substantial body of research backs the earlier hypothesis."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "backs"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "backs"
+                ]
+            },
+            "reorder_groups": [
+                "A substantial body",
+                "of research",
+                "supports",
+                "the earlier hypothesis."
+            ],
+            "token_groups": [
+                "A substantial body",
+                "of research",
+                "supports",
+                "the earlier hypothesis."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "ssq-cnp-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The feasibility of the proposed changes {a1} dependent on external funding.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Здійсненність запропонованих змін залишається залежною від зовнішнього фінансування.",
+            "target_text": "The feasibility of the proposed changes remains dependent on external funding.",
+            "markers": {
+                "a1": {
+                    "answer": "remains",
+                    "options": [
+                        "remains",
+                        "remain",
+                        "remaining"
+                    ],
+                    "verb_hint": "Узгодь дієслово з однією здійсненністю, не зі змінами; збережи значення «залишається»."
+                }
+            },
+            "verb_hint": "Узгодь дієслово з однією здійсненністю, не зі змінами; збережи значення «залишається».",
+            "accepted_target_texts": [
+                "The feasibility of the proposed changes remains dependent on external funding.",
+                "The feasibility of the proposed changes is still dependent on external funding."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is still"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is still"
+                ]
+            },
+            "reorder_groups": [
+                "The feasibility",
+                "of the",
+                "proposed changes",
+                "remains dependent",
+                "on external funding."
+            ],
+            "token_groups": [
+                "The feasibility",
+                "of the",
+                "proposed changes",
+                "remains dependent",
+                "on external funding."
+            ],
+            "quality_revision": "ssq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "ssq-cnp-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The presumption of innocence, together with the procedural safeguards, {a1} the assessment.",
+            "level": "C2",
+            "type": 0,
+            "source": "sentence_structure_quality_complex_noun_phrases",
+            "translation_uk": "Презумпція невинуватості разом із процесуальними гарантіями визначає правила оцінювання.",
+            "target_text": "The presumption of innocence, together with the procedural safeguards, governs the assessment.",
+            "markers": {
+                "a1": {
+                    "answer": "governs",
+                    "options": [
+                        "governs",
+                        "govern",
+                        "governing"
+                    ],
+                    "verb_hint": "Узгодь дієслово з однією презумпцією; вставна група про гарантії не робить головне слово множиною."
+                }
+            },
+            "verb_hint": "Узгодь дієслово з однією презумпцією; вставна група про гарантії не робить головне слово множиною.",
+            "accepted_target_texts": [
+                "The presumption of innocence, together with the procedural safeguards, governs the assessment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The presumption",
+                "of innocence,",
+                "together with",
+                "the procedural safeguards,",
+                "governs the assessment."
+            ],
+            "token_groups": [
+                "The presumption",
+                "of innocence,",
+                "together with",
+                "the procedural safeguards,",
+                "governs the assessment."
+            ],
+            "quality_revision": "ssq-v1"
+        }
+    ]
+}

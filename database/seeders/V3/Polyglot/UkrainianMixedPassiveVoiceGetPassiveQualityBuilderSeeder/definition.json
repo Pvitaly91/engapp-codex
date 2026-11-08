@@ -1,0 +1,3874 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/get.v1.json",
+        "sha256": "158df8ec29b163f6169366e6357c0fce1e90ea63adef375f36d07a6b029a5541"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedPassiveVoiceGetPassiveQualityBuilderSeeder",
+        "uuid_namespace": "passive-voice-quality-get-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "passive_voice_quality_get": {
+            "name": "Passive Voice Quality: Розмовний пасив із дієсловом набуття стану"
+        }
+    },
+    "tags": {
+        "polyglot_passive_voice_get_passive": {
+            "name": "Get Passive",
+            "category": "passive_voice"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "get_v3": {
+            "name": "Get V3",
+            "category": "topic"
+        },
+        "informal_passive": {
+            "name": "Informal Passive",
+            "category": "topic"
+        },
+        "unexpected_events": {
+            "name": "Unexpected Events",
+            "category": "topic"
+        },
+        "change_of_state": {
+            "name": "Change Of State",
+            "category": "topic"
+        },
+        "negative_emotional": {
+            "name": "Negative Emotional",
+            "category": "topic"
+        },
+        "common_get_passives": {
+            "name": "Common Get Passives",
+            "category": "topic"
+        },
+        "get_vs_be_passive": {
+            "name": "Get Vs Be Passive",
+            "category": "topic"
+        },
+        "natural_use": {
+            "name": "Natural Use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-get-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Червона кулька луснула надворі.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Червона кулька луснула надворі.",
+            "target_text": "The red balloon got popped outside.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "red",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "red",
+                        "golden",
+                        "brown",
+                        "pink"
+                    ]
+                },
+                "a3": {
+                    "answer": "balloon",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "balloon",
+                        "actor",
+                        "analyst",
+                        "quotation"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "made",
+                        "left",
+                        "said"
+                    ]
+                },
+                "a5": {
+                    "answer": "popped",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "popped",
+                        "deleted",
+                        "sold",
+                        "delayed"
+                    ]
+                },
+                "a6": {
+                    "answer": "outside.",
+                    "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "outside",
+                        "blanket",
+                        "branch",
+                        "map"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з кульки; передай завершену минулу подію через розмовний пасив.",
+            "accepted_target_texts": [
+                "The red balloon got popped outside."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The red balloon",
+                "got",
+                "popped",
+                "outside."
+            ],
+            "token_groups": [
+                "The red balloon",
+                "got",
+                "popped",
+                "outside."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "red",
+                "balloon",
+                "got",
+                "popped",
+                "outside."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "red",
+                "golden",
+                "brown",
+                "pink",
+                "balloon",
+                "actor",
+                "analyst",
+                "quotation",
+                "got",
+                "made",
+                "left",
+                "said",
+                "popped",
+                "deleted",
+                "sold",
+                "delayed",
+                "outside",
+                "blanket",
+                "branch",
+                "map"
+            ],
+            "source_text_uk": "Червона кулька луснула надворі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "red",
+                    "golden",
+                    "brown",
+                    "pink"
+                ],
+                "a3": [
+                    "balloon",
+                    "actor",
+                    "analyst",
+                    "quotation"
+                ],
+                "a4": [
+                    "got",
+                    "made",
+                    "left",
+                    "said"
+                ],
+                "a5": [
+                    "popped",
+                    "deleted",
+                    "sold",
+                    "delayed"
+                ],
+                "a6": [
+                    "outside",
+                    "blanket",
+                    "branch",
+                    "map"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-get-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мої рукави забруднили соком.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Мої рукави забруднили соком.",
+            "target_text": "My sleeves got stained with juice.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "My",
+                        "Your",
+                        "His",
+                        "Her"
+                    ]
+                },
+                "a2": {
+                    "answer": "sleeves",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "sleeves",
+                        "bikes",
+                        "cars",
+                        "bags"
+                    ]
+                },
+                "a3": {
+                    "answer": "got",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "took",
+                        "wrote",
+                        "rode"
+                    ]
+                },
+                "a4": {
+                    "answer": "stained",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "stained",
+                        "popped",
+                        "torn",
+                        "measured"
+                    ]
+                },
+                "a5": {
+                    "answer": "with",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "with",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "juice.",
+                    "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+                    "options": [
+                        "juice",
+                        "salt",
+                        "butter",
+                        "honey"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з рукавів; передай небажану минулу дію забруднення через розмовний пасив.",
+            "accepted_target_texts": [
+                "My sleeves got stained with juice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My sleeves",
+                "got",
+                "stained",
+                "with juice."
+            ],
+            "token_groups": [
+                "My sleeves",
+                "got",
+                "stained",
+                "with juice."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "My",
+                "sleeves",
+                "got",
+                "stained",
+                "with",
+                "juice."
+            ],
+            "options": [
+                "My",
+                "Your",
+                "His",
+                "Her",
+                "sleeves",
+                "bikes",
+                "cars",
+                "bags",
+                "got",
+                "took",
+                "wrote",
+                "rode",
+                "stained",
+                "popped",
+                "torn",
+                "measured",
+                "with",
+                "into",
+                "onto",
+                "over",
+                "juice",
+                "salt",
+                "butter",
+                "honey"
+            ],
+            "source_text_uk": "Мої рукави забруднили соком.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Your",
+                    "His",
+                    "Her"
+                ],
+                "a2": [
+                    "sleeves",
+                    "bikes",
+                    "cars",
+                    "bags"
+                ],
+                "a3": [
+                    "got",
+                    "took",
+                    "wrote",
+                    "rode"
+                ],
+                "a4": [
+                    "stained",
+                    "popped",
+                    "torn",
+                    "measured"
+                ],
+                "a5": [
+                    "with",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "juice",
+                    "salt",
+                    "butter",
+                    "honey"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "auxiliary",
+                "a4": "participle",
+                "a5": "adjunct",
+                "a6": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-get-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Ковдра для пікніка порвалася об гілку.",
+            "level": "A1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Ковдра для пікніка порвалася об гілку.",
+            "target_text": "The picnic blanket got torn on a branch.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "picnic",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "picnic",
+                        "young",
+                        "quiet",
+                        "hungry"
+                    ]
+                },
+                "a3": {
+                    "answer": "blanket",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "blanket",
+                        "balloon",
+                        "actor",
+                        "analyst"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "opened",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a5": {
+                    "answer": "torn",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "torn",
+                        "restored",
+                        "delivered",
+                        "booed"
+                    ]
+                },
+                "a6": {
+                    "answer": "on",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "on",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "a",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a8": {
+                    "answer": "branch.",
+                    "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "branch",
+                        "proportion",
+                        "debate",
+                        "festival"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з ковдри; передай небажаний минулий результат через розмовний пасив.",
+            "accepted_target_texts": [
+                "The picnic blanket got torn on a branch."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The picnic blanket",
+                "got",
+                "torn",
+                "on a branch."
+            ],
+            "token_groups": [
+                "The picnic blanket",
+                "got",
+                "torn",
+                "on a branch."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "picnic",
+                "blanket",
+                "got",
+                "torn",
+                "on",
+                "a",
+                "branch."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "picnic",
+                "young",
+                "quiet",
+                "hungry",
+                "blanket",
+                "balloon",
+                "actor",
+                "analyst",
+                "got",
+                "opened",
+                "closed",
+                "helped",
+                "torn",
+                "restored",
+                "delivered",
+                "booed",
+                "on",
+                "for",
+                "of",
+                "in",
+                "a",
+                "that",
+                "these",
+                "those",
+                "branch",
+                "proportion",
+                "debate",
+                "festival"
+            ],
+            "source_text_uk": "Ковдра для пікніка порвалася об гілку.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "picnic",
+                    "young",
+                    "quiet",
+                    "hungry"
+                ],
+                "a3": [
+                    "blanket",
+                    "balloon",
+                    "actor",
+                    "analyst"
+                ],
+                "a4": [
+                    "got",
+                    "opened",
+                    "closed",
+                    "helped"
+                ],
+                "a5": [
+                    "torn",
+                    "restored",
+                    "delivered",
+                    "booed"
+                ],
+                "a6": [
+                    "on",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "a",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a8": [
+                    "branch",
+                    "proportion",
+                    "debate",
+                    "festival"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-get-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Молодого актора помітили на фестивалі.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Молодого актора помітили на фестивалі.",
+            "target_text": "The young actor got noticed at a festival.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "young",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "young",
+                        "picnic",
+                        "sad",
+                        "easy"
+                    ]
+                },
+                "a3": {
+                    "answer": "actor",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "actor",
+                        "allegation",
+                        "reservation",
+                        "analyst"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "drove",
+                        "gave",
+                        "made"
+                    ]
+                },
+                "a5": {
+                    "answer": "noticed",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "noticed",
+                        "cut",
+                        "weighed",
+                        "sealed"
+                    ]
+                },
+                "a6": {
+                    "answer": "at",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "at",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "a",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "festival.",
+                    "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+                    "options": [
+                        "festival",
+                        "hour",
+                        "branch",
+                        "campaign"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з актора; передай позитивну минулу подію через розмовний пасив.",
+            "accepted_target_texts": [
+                "The young actor got noticed at a festival."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The young actor",
+                "got",
+                "noticed",
+                "at a festival."
+            ],
+            "token_groups": [
+                "The young actor",
+                "got",
+                "noticed",
+                "at a festival."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "young",
+                "actor",
+                "got",
+                "noticed",
+                "at",
+                "a",
+                "festival."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "young",
+                "picnic",
+                "sad",
+                "easy",
+                "actor",
+                "allegation",
+                "reservation",
+                "analyst",
+                "got",
+                "drove",
+                "gave",
+                "made",
+                "noticed",
+                "cut",
+                "weighed",
+                "sealed",
+                "at",
+                "from",
+                "for",
+                "of",
+                "a",
+                "no",
+                "another",
+                "either",
+                "festival",
+                "hour",
+                "branch",
+                "campaign"
+            ],
+            "source_text_uk": "Молодого актора помітили на фестивалі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "young",
+                    "picnic",
+                    "sad",
+                    "easy"
+                ],
+                "a3": [
+                    "actor",
+                    "allegation",
+                    "reservation",
+                    "analyst"
+                ],
+                "a4": [
+                    "got",
+                    "drove",
+                    "gave",
+                    "made"
+                ],
+                "a5": [
+                    "noticed",
+                    "cut",
+                    "weighed",
+                    "sealed"
+                ],
+                "a6": [
+                    "at",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a7": [
+                    "a",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "festival",
+                    "hour",
+                    "branch",
+                    "campaign"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-get-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Наші плани на відпустку змінили в останню мить.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Наші плани на відпустку змінили в останню мить.",
+            "target_text": "Our holiday plans got changed at short notice.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "Our",
+                        "His",
+                        "Her",
+                        "Its"
+                    ]
+                },
+                "a2": {
+                    "answer": "holiday",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "holiday",
+                        "senior",
+                        "contingency",
+                        "procedural"
+                    ]
+                },
+                "a3": {
+                    "answer": "plans",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "plans",
+                        "photos",
+                        "tickets",
+                        "bikes"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "saw",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a5": {
+                    "answer": "changed",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "changed",
+                        "booed",
+                        "deleted",
+                        "noticed"
+                    ]
+                },
+                "a6": {
+                    "answer": "at",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "at",
+                        "during",
+                        "to",
+                        "from"
+                    ]
+                },
+                "a7": {
+                    "answer": "short",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "short",
+                        "an",
+                        "the",
+                        "late"
+                    ]
+                },
+                "a8": {
+                    "answer": "notice.",
+                    "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+                    "options": [
+                        "notice",
+                        "festival",
+                        "branch",
+                        "hour"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з планів; передай несподівану завершену минулу зміну через розмовний пасив.",
+            "accepted_target_texts": [
+                "Our holiday plans got changed at short notice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our holiday plans",
+                "got",
+                "changed",
+                "at short notice."
+            ],
+            "token_groups": [
+                "Our holiday plans",
+                "got",
+                "changed",
+                "at short notice."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Our",
+                "holiday",
+                "plans",
+                "got",
+                "changed",
+                "at",
+                "short",
+                "notice."
+            ],
+            "options": [
+                "Our",
+                "His",
+                "Her",
+                "Its",
+                "holiday",
+                "senior",
+                "contingency",
+                "procedural",
+                "plans",
+                "photos",
+                "tickets",
+                "bikes",
+                "got",
+                "saw",
+                "needed",
+                "liked",
+                "changed",
+                "booed",
+                "deleted",
+                "noticed",
+                "at",
+                "during",
+                "to",
+                "from",
+                "short",
+                "an",
+                "the",
+                "late",
+                "notice",
+                "festival",
+                "branch",
+                "hour"
+            ],
+            "source_text_uk": "Наші плани на відпустку змінили в останню мить.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "His",
+                    "Her",
+                    "Its"
+                ],
+                "a2": [
+                    "holiday",
+                    "senior",
+                    "contingency",
+                    "procedural"
+                ],
+                "a3": [
+                    "plans",
+                    "photos",
+                    "tickets",
+                    "bikes"
+                ],
+                "a4": [
+                    "got",
+                    "saw",
+                    "needed",
+                    "liked"
+                ],
+                "a5": [
+                    "changed",
+                    "booed",
+                    "deleted",
+                    "noticed"
+                ],
+                "a6": [
+                    "at",
+                    "during",
+                    "to",
+                    "from"
+                ],
+                "a7": [
+                    "short",
+                    "an",
+                    "the",
+                    "late"
+                ],
+                "a8": [
+                    "notice",
+                    "festival",
+                    "branch",
+                    "hour"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-get-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Фотографії з пікніка помилково видалили.",
+            "level": "A2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Фотографії з пікніка помилково видалили.",
+            "target_text": "The picnic photos got deleted by mistake.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "picnic",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "picnic",
+                        "young",
+                        "friendly",
+                        "lovely"
+                    ]
+                },
+                "a3": {
+                    "answer": "photos",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "photos",
+                        "plans",
+                        "tickets",
+                        "cats"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "said",
+                        "met",
+                        "went"
+                    ]
+                },
+                "a5": {
+                    "answer": "deleted",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "deleted",
+                        "delivered",
+                        "booed",
+                        "noticed"
+                    ]
+                },
+                "a6": {
+                    "answer": "by",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "by",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a7": {
+                    "answer": "mistake.",
+                    "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+                    "options": [
+                        "mistake",
+                        "juice",
+                        "actor",
+                        "festival"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з фотографій; передай небажане минуле видалення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The picnic photos got deleted by mistake."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The picnic photos",
+                "got",
+                "deleted",
+                "by mistake."
+            ],
+            "token_groups": [
+                "The picnic photos",
+                "got",
+                "deleted",
+                "by mistake."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "picnic",
+                "photos",
+                "got",
+                "deleted",
+                "by",
+                "mistake."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "picnic",
+                "young",
+                "friendly",
+                "lovely",
+                "photos",
+                "plans",
+                "tickets",
+                "cats",
+                "got",
+                "said",
+                "met",
+                "went",
+                "deleted",
+                "delivered",
+                "booed",
+                "noticed",
+                "by",
+                "with",
+                "without",
+                "into",
+                "mistake",
+                "juice",
+                "actor",
+                "festival"
+            ],
+            "source_text_uk": "Фотографії з пікніка помилково видалили.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "picnic",
+                    "young",
+                    "friendly",
+                    "lovely"
+                ],
+                "a3": [
+                    "photos",
+                    "plans",
+                    "tickets",
+                    "cats"
+                ],
+                "a4": [
+                    "got",
+                    "said",
+                    "met",
+                    "went"
+                ],
+                "a5": [
+                    "deleted",
+                    "delivered",
+                    "booed",
+                    "noticed"
+                ],
+                "a6": [
+                    "by",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a7": [
+                    "mistake",
+                    "juice",
+                    "actor",
+                    "festival"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-get-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Зайві квитки продали протягом години.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Зайві квитки продали протягом години.",
+            "target_text": "The spare tickets got sold within an hour.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Some",
+                        "Any",
+                        "This"
+                    ]
+                },
+                "a2": {
+                    "answer": "spare",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "spare",
+                        "contingency",
+                        "procedural",
+                        "holiday"
+                    ]
+                },
+                "a3": {
+                    "answer": "tickets",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "tickets",
+                        "plans",
+                        "photos",
+                        "windows"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "left",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a5": {
+                    "answer": "sold",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "sold",
+                        "suppressed",
+                        "excluded",
+                        "diverted"
+                    ]
+                },
+                "a6": {
+                    "answer": "within",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "within",
+                        "until",
+                        "without",
+                        "from"
+                    ]
+                },
+                "a7": {
+                    "answer": "an",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "an",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a8": {
+                    "answer": "hour.",
+                    "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+                    "options": [
+                        "hour",
+                        "afternoon",
+                        "evening",
+                        "night"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з квитків; передай завершену минулу подію через розмовний пасив.",
+            "accepted_target_texts": [
+                "The spare tickets got sold within an hour."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The spare tickets",
+                "got",
+                "sold",
+                "within an hour."
+            ],
+            "token_groups": [
+                "The spare tickets",
+                "got",
+                "sold",
+                "within an hour."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "spare",
+                "tickets",
+                "got",
+                "sold",
+                "within",
+                "an",
+                "hour."
+            ],
+            "options": [
+                "The",
+                "Some",
+                "Any",
+                "This",
+                "spare",
+                "contingency",
+                "procedural",
+                "holiday",
+                "tickets",
+                "plans",
+                "photos",
+                "windows",
+                "got",
+                "left",
+                "said",
+                "met",
+                "sold",
+                "suppressed",
+                "excluded",
+                "diverted",
+                "within",
+                "until",
+                "without",
+                "from",
+                "an",
+                "another",
+                "either",
+                "neither",
+                "hour",
+                "afternoon",
+                "evening",
+                "night"
+            ],
+            "source_text_uk": "Зайві квитки продали протягом години.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Some",
+                    "Any",
+                    "This"
+                ],
+                "a2": [
+                    "spare",
+                    "contingency",
+                    "procedural",
+                    "holiday"
+                ],
+                "a3": [
+                    "tickets",
+                    "plans",
+                    "photos",
+                    "windows"
+                ],
+                "a4": [
+                    "got",
+                    "left",
+                    "said",
+                    "met"
+                ],
+                "a5": [
+                    "sold",
+                    "suppressed",
+                    "excluded",
+                    "diverted"
+                ],
+                "a6": [
+                    "within",
+                    "until",
+                    "without",
+                    "from"
+                ],
+                "a7": [
+                    "an",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a8": [
+                    "hour",
+                    "afternoon",
+                    "evening",
+                    "night"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-get-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Суддю освистали після матчу.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Суддю освистали після матчу.",
+            "target_text": "The referee got booed after the match.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "A",
+                        "An",
+                        "Some"
+                    ]
+                },
+                "a2": {
+                    "answer": "referee",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "referee",
+                        "departure",
+                        "substitute",
+                        "spare"
+                    ]
+                },
+                "a3": {
+                    "answer": "got",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "wanted",
+                        "worked",
+                        "played"
+                    ]
+                },
+                "a4": {
+                    "answer": "booed",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "booed",
+                        "transferred",
+                        "repeated",
+                        "postponed"
+                    ]
+                },
+                "a5": {
+                    "answer": "after",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "after",
+                        "beyond",
+                        "within",
+                        "by"
+                    ]
+                },
+                "a6": {
+                    "answer": "the",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "the",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "match.",
+                    "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+                    "options": [
+                        "match",
+                        "notice",
+                        "campaign",
+                        "autumn"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із судді; передай небажану минулу дію освистування через розмовний пасив.",
+            "accepted_target_texts": [
+                "The referee got booed after the match."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The referee",
+                "got booed",
+                "after the match."
+            ],
+            "token_groups": [
+                "The referee",
+                "got booed",
+                "after the match."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "referee",
+                "got",
+                "booed",
+                "after",
+                "the",
+                "match."
+            ],
+            "options": [
+                "The",
+                "A",
+                "An",
+                "Some",
+                "referee",
+                "departure",
+                "substitute",
+                "spare",
+                "got",
+                "wanted",
+                "worked",
+                "played",
+                "booed",
+                "transferred",
+                "repeated",
+                "postponed",
+                "after",
+                "beyond",
+                "within",
+                "by",
+                "the",
+                "either",
+                "neither",
+                "all",
+                "match",
+                "notice",
+                "campaign",
+                "autumn"
+            ],
+            "source_text_uk": "Суддю освистали після матчу.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "A",
+                    "An",
+                    "Some"
+                ],
+                "a2": [
+                    "referee",
+                    "departure",
+                    "substitute",
+                    "spare"
+                ],
+                "a3": [
+                    "got",
+                    "wanted",
+                    "worked",
+                    "played"
+                ],
+                "a4": [
+                    "booed",
+                    "transferred",
+                    "repeated",
+                    "postponed"
+                ],
+                "a5": [
+                    "after",
+                    "beyond",
+                    "within",
+                    "by"
+                ],
+                "a6": [
+                    "the",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a7": [
+                    "match",
+                    "notice",
+                    "campaign",
+                    "autumn"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "auxiliary",
+                "a4": "participle",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-get-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Наш від'їзд затримався через інтенсивний рух.",
+            "level": "B1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Наш від'їзд затримався через інтенсивний рух.",
+            "target_text": "Our departure got delayed by heavy traffic.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "Our",
+                        "Its",
+                        "Their",
+                        "Mine"
+                    ]
+                },
+                "a2": {
+                    "answer": "departure",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "departure",
+                        "referee",
+                        "substitute",
+                        "after"
+                    ]
+                },
+                "a3": {
+                    "answer": "got",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "brought",
+                        "took",
+                        "wrote"
+                    ]
+                },
+                "a4": {
+                    "answer": "delayed",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "delayed",
+                        "deleted",
+                        "injured",
+                        "transferred"
+                    ]
+                },
+                "a5": {
+                    "answer": "by",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "by",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a6": {
+                    "answer": "heavy",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "heavy",
+                        "preliminary",
+                        "meaningful",
+                        "old"
+                    ]
+                },
+                "a7": {
+                    "answer": "traffic.",
+                    "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+                    "options": [
+                        "traffic",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з від'їзду; передай небажану завершену затримку через розмовний пасив.",
+            "accepted_target_texts": [
+                "Our departure got delayed by heavy traffic."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our departure",
+                "got",
+                "delayed",
+                "by heavy traffic."
+            ],
+            "token_groups": [
+                "Our departure",
+                "got",
+                "delayed",
+                "by heavy traffic."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "Our",
+                "departure",
+                "got",
+                "delayed",
+                "by",
+                "heavy",
+                "traffic."
+            ],
+            "options": [
+                "Our",
+                "Its",
+                "Their",
+                "Mine",
+                "departure",
+                "referee",
+                "substitute",
+                "after",
+                "got",
+                "brought",
+                "took",
+                "wrote",
+                "delayed",
+                "deleted",
+                "injured",
+                "transferred",
+                "by",
+                "over",
+                "under",
+                "through",
+                "heavy",
+                "preliminary",
+                "meaningful",
+                "old",
+                "traffic",
+                "small",
+                "large",
+                "new"
+            ],
+            "source_text_uk": "Наш від'їзд затримався через інтенсивний рух.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Its",
+                    "Their",
+                    "Mine"
+                ],
+                "a2": [
+                    "departure",
+                    "referee",
+                    "substitute",
+                    "after"
+                ],
+                "a3": [
+                    "got",
+                    "brought",
+                    "took",
+                    "wrote"
+                ],
+                "a4": [
+                    "delayed",
+                    "deleted",
+                    "injured",
+                    "transferred"
+                ],
+                "a5": [
+                    "by",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a6": [
+                    "heavy",
+                    "preliminary",
+                    "meaningful",
+                    "old"
+                ],
+                "a7": [
+                    "traffic",
+                    "small",
+                    "large",
+                    "new"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "auxiliary",
+                "a4": "participle",
+                "a5": "adjunct",
+                "a6": "adjunct",
+                "a7": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-get-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Молодшу аналітикиню перевели проти її волі.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Молодшу аналітикиню перевели проти її волі.",
+            "target_text": "The junior analyst got transferred against her wishes.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "junior",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "junior",
+                        "minority",
+                        "senior",
+                        "contingency"
+                    ]
+                },
+                "a3": {
+                    "answer": "analyst",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "analyst",
+                        "opinion",
+                        "negotiator",
+                        "fund"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "left",
+                        "said",
+                        "met"
+                    ]
+                },
+                "a5": {
+                    "answer": "transferred",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "transferred",
+                        "postponed",
+                        "diverted",
+                        "popped"
+                    ]
+                },
+                "a6": {
+                    "answer": "against",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "against",
+                        "to",
+                        "beyond",
+                        "throughout"
+                    ]
+                },
+                "a7": {
+                    "answer": "her",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "her",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                },
+                "a8": {
+                    "answer": "wishes.",
+                    "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+                    "options": [
+                        "wishes",
+                        "consultations",
+                        "dogs",
+                        "cats"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з аналітикині; передай небажану завершену подію переведення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The junior analyst got transferred against her wishes."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The junior analyst",
+                "got",
+                "transferred",
+                "against her wishes."
+            ],
+            "token_groups": [
+                "The junior analyst",
+                "got",
+                "transferred",
+                "against her wishes."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "junior",
+                "analyst",
+                "got",
+                "transferred",
+                "against",
+                "her",
+                "wishes."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "junior",
+                "minority",
+                "senior",
+                "contingency",
+                "analyst",
+                "opinion",
+                "negotiator",
+                "fund",
+                "got",
+                "left",
+                "said",
+                "met",
+                "transferred",
+                "postponed",
+                "diverted",
+                "popped",
+                "against",
+                "to",
+                "beyond",
+                "throughout",
+                "her",
+                "my",
+                "your",
+                "his",
+                "wishes",
+                "consultations",
+                "dogs",
+                "cats"
+            ],
+            "source_text_uk": "Молодшу аналітикиню перевели проти її волі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "junior",
+                    "minority",
+                    "senior",
+                    "contingency"
+                ],
+                "a3": [
+                    "analyst",
+                    "opinion",
+                    "negotiator",
+                    "fund"
+                ],
+                "a4": [
+                    "got",
+                    "left",
+                    "said",
+                    "met"
+                ],
+                "a5": [
+                    "transferred",
+                    "postponed",
+                    "diverted",
+                    "popped"
+                ],
+                "a6": [
+                    "against",
+                    "to",
+                    "beyond",
+                    "throughout"
+                ],
+                "a7": [
+                    "her",
+                    "my",
+                    "your",
+                    "his"
+                ],
+                "a8": [
+                    "wishes",
+                    "consultations",
+                    "dogs",
+                    "cats"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-get-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Оманливу цитату повторювали протягом усієї кампанії.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Оманливу цитату повторювали протягом усієї кампанії.",
+            "target_text": "The misleading quotation got repeated throughout the campaign.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "misleading",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "misleading",
+                        "opening",
+                        "watching",
+                        "visiting"
+                    ]
+                },
+                "a3": {
+                    "answer": "quotation",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "quotation",
+                        "negotiator",
+                        "fund",
+                        "recommendation"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "needed",
+                        "liked",
+                        "wanted"
+                    ]
+                },
+                "a5": {
+                    "answer": "repeated",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "repeated",
+                        "folded",
+                        "mended",
+                        "polished"
+                    ]
+                },
+                "a6": {
+                    "answer": "throughout",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "throughout",
+                        "until",
+                        "against",
+                        "without"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a8": {
+                    "answer": "campaign.",
+                    "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+                    "options": [
+                        "campaign",
+                        "autumn",
+                        "scrutiny",
+                        "branch"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з цитати; передай поширений небажаний минулий результат через розмовний пасив.",
+            "accepted_target_texts": [
+                "The misleading quotation got repeated throughout the campaign."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The misleading quotation",
+                "got",
+                "repeated",
+                "throughout the campaign."
+            ],
+            "token_groups": [
+                "The misleading quotation",
+                "got",
+                "repeated",
+                "throughout the campaign."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "misleading",
+                "quotation",
+                "got",
+                "repeated",
+                "throughout",
+                "the",
+                "campaign."
+            ],
+            "options": [
+                "The",
+                "Either",
+                "Neither",
+                "All",
+                "misleading",
+                "opening",
+                "watching",
+                "visiting",
+                "quotation",
+                "negotiator",
+                "fund",
+                "recommendation",
+                "got",
+                "needed",
+                "liked",
+                "wanted",
+                "repeated",
+                "folded",
+                "mended",
+                "polished",
+                "throughout",
+                "until",
+                "against",
+                "without",
+                "the",
+                "some",
+                "any",
+                "this",
+                "campaign",
+                "autumn",
+                "scrutiny",
+                "branch"
+            ],
+            "source_text_uk": "Оманливу цитату повторювали протягом усієї кампанії.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "misleading",
+                    "opening",
+                    "watching",
+                    "visiting"
+                ],
+                "a3": [
+                    "quotation",
+                    "negotiator",
+                    "fund",
+                    "recommendation"
+                ],
+                "a4": [
+                    "got",
+                    "needed",
+                    "liked",
+                    "wanted"
+                ],
+                "a5": [
+                    "repeated",
+                    "folded",
+                    "mended",
+                    "polished"
+                ],
+                "a6": [
+                    "throughout",
+                    "until",
+                    "against",
+                    "without"
+                ],
+                "a7": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a8": [
+                    "campaign",
+                    "autumn",
+                    "scrutiny",
+                    "branch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-get-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Церемонію відкриття перенесли на кінець осені.",
+            "level": "B2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Церемонію відкриття перенесли на кінець осені.",
+            "target_text": "The opening ceremony got postponed until late autumn.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "opening",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "opening",
+                        "misleading",
+                        "playing",
+                        "reading"
+                    ]
+                },
+                "a3": {
+                    "answer": "ceremony",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "ceremony",
+                        "allegation",
+                        "reservation",
+                        "analyst"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a5": {
+                    "answer": "postponed",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "postponed",
+                        "overridden",
+                        "painted",
+                        "cleaned"
+                    ]
+                },
+                "a6": {
+                    "answer": "until",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "until",
+                        "by",
+                        "from",
+                        "to"
+                    ]
+                },
+                "a7": {
+                    "answer": "late",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "late",
+                        "outright",
+                        "all",
+                        "her"
+                    ]
+                },
+                "a8": {
+                    "answer": "autumn.",
+                    "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+                    "options": [
+                        "autumn",
+                        "debate",
+                        "campaign",
+                        "scrutiny"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з церемонії; передай небажану завершену зміну дати через розмовний пасив.",
+            "accepted_target_texts": [
+                "The opening ceremony got postponed until late autumn."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The opening ceremony",
+                "got",
+                "postponed",
+                "until late autumn."
+            ],
+            "token_groups": [
+                "The opening ceremony",
+                "got",
+                "postponed",
+                "until late autumn."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "opening",
+                "ceremony",
+                "got",
+                "postponed",
+                "until",
+                "late",
+                "autumn."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "opening",
+                "misleading",
+                "playing",
+                "reading",
+                "ceremony",
+                "allegation",
+                "reservation",
+                "analyst",
+                "got",
+                "closed",
+                "helped",
+                "waited",
+                "postponed",
+                "overridden",
+                "painted",
+                "cleaned",
+                "until",
+                "by",
+                "from",
+                "to",
+                "late",
+                "outright",
+                "all",
+                "her",
+                "autumn",
+                "debate",
+                "campaign",
+                "scrutiny"
+            ],
+            "source_text_uk": "Церемонію відкриття перенесли на кінець осені.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "opening",
+                    "misleading",
+                    "playing",
+                    "reading"
+                ],
+                "a3": [
+                    "ceremony",
+                    "allegation",
+                    "reservation",
+                    "analyst"
+                ],
+                "a4": [
+                    "got",
+                    "closed",
+                    "helped",
+                    "waited"
+                ],
+                "a5": [
+                    "postponed",
+                    "overridden",
+                    "painted",
+                    "cleaned"
+                ],
+                "a6": [
+                    "until",
+                    "by",
+                    "from",
+                    "to"
+                ],
+                "a7": [
+                    "late",
+                    "outright",
+                    "all",
+                    "her"
+                ],
+                "a8": [
+                    "autumn",
+                    "debate",
+                    "campaign",
+                    "scrutiny"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-get-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Думку меншості придушили без належного розгляду.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Думку меншості придушили без належного розгляду.",
+            "target_text": "The minority opinion got suppressed without adequate scrutiny.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "minority",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "minority",
+                        "junior",
+                        "procedural",
+                        "contingency"
+                    ]
+                },
+                "a3": {
+                    "answer": "opinion",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "opinion",
+                        "negotiator",
+                        "recommendation",
+                        "balloon"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "worked",
+                        "played",
+                        "called"
+                    ]
+                },
+                "a5": {
+                    "answer": "suppressed",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "suppressed",
+                        "repeated",
+                        "postponed",
+                        "caricatured"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "without",
+                        "with",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a7": {
+                    "answer": "adequate",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "adequate",
+                        "routine",
+                        "short",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "scrutiny.",
+                    "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+                    "options": [
+                        "scrutiny",
+                        "autumn",
+                        "opposition",
+                        "proportion"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з думки меншості; передай небажаний завершений результат через розмовний пасив.",
+            "accepted_target_texts": [
+                "The minority opinion got suppressed without adequate scrutiny."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The minority opinion",
+                "got",
+                "suppressed",
+                "without adequate scrutiny."
+            ],
+            "token_groups": [
+                "The minority opinion",
+                "got",
+                "suppressed",
+                "without adequate scrutiny."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "minority",
+                "opinion",
+                "got",
+                "suppressed",
+                "without",
+                "adequate",
+                "scrutiny."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "minority",
+                "junior",
+                "procedural",
+                "contingency",
+                "opinion",
+                "negotiator",
+                "recommendation",
+                "balloon",
+                "got",
+                "worked",
+                "played",
+                "called",
+                "suppressed",
+                "repeated",
+                "postponed",
+                "caricatured",
+                "without",
+                "with",
+                "into",
+                "onto",
+                "adequate",
+                "routine",
+                "short",
+                "an",
+                "scrutiny",
+                "autumn",
+                "opposition",
+                "proportion"
+            ],
+            "source_text_uk": "Думку меншості придушили без належного розгляду.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "minority",
+                    "junior",
+                    "procedural",
+                    "contingency"
+                ],
+                "a3": [
+                    "opinion",
+                    "negotiator",
+                    "recommendation",
+                    "balloon"
+                ],
+                "a4": [
+                    "got",
+                    "worked",
+                    "played",
+                    "called"
+                ],
+                "a5": [
+                    "suppressed",
+                    "repeated",
+                    "postponed",
+                    "caricatured"
+                ],
+                "a6": [
+                    "without",
+                    "with",
+                    "into",
+                    "onto"
+                ],
+                "a7": [
+                    "adequate",
+                    "routine",
+                    "short",
+                    "an"
+                ],
+                "a8": [
+                    "scrutiny",
+                    "autumn",
+                    "opposition",
+                    "proportion"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-get-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Старшого перемовника виключили з попередніх консультацій.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Старшого перемовника виключили з попередніх консультацій.",
+            "target_text": "The senior negotiator got excluded from preliminary consultations.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "senior",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "senior",
+                        "procedural",
+                        "contingency",
+                        "minority"
+                    ]
+                },
+                "a3": {
+                    "answer": "negotiator",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "negotiator",
+                        "reservation",
+                        "fund",
+                        "opinion"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "liked",
+                        "wanted",
+                        "worked"
+                    ]
+                },
+                "a5": {
+                    "answer": "excluded",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "excluded",
+                        "caricatured",
+                        "amplified",
+                        "overridden"
+                    ]
+                },
+                "a6": {
+                    "answer": "from",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "from",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "preliminary",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "preliminary",
+                        "heavy",
+                        "meaningful",
+                        "clear"
+                    ]
+                },
+                "a8": {
+                    "answer": "consultations.",
+                    "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+                    "options": [
+                        "consultations",
+                        "wishes",
+                        "men",
+                        "women"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з перемовника; передай небажану завершену подію виключення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The senior negotiator got excluded from preliminary consultations."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The senior negotiator",
+                "got",
+                "excluded",
+                "from preliminary consultations."
+            ],
+            "token_groups": [
+                "The senior negotiator",
+                "got",
+                "excluded",
+                "from preliminary consultations."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "senior",
+                "negotiator",
+                "got",
+                "excluded",
+                "from",
+                "preliminary",
+                "consultations."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "senior",
+                "procedural",
+                "contingency",
+                "minority",
+                "negotiator",
+                "reservation",
+                "fund",
+                "opinion",
+                "got",
+                "liked",
+                "wanted",
+                "worked",
+                "excluded",
+                "caricatured",
+                "amplified",
+                "overridden",
+                "from",
+                "of",
+                "in",
+                "on",
+                "preliminary",
+                "heavy",
+                "meaningful",
+                "clear",
+                "consultations",
+                "wishes",
+                "men",
+                "women"
+            ],
+            "source_text_uk": "Старшого перемовника виключили з попередніх консультацій.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "senior",
+                    "procedural",
+                    "contingency",
+                    "minority"
+                ],
+                "a3": [
+                    "negotiator",
+                    "reservation",
+                    "fund",
+                    "opinion"
+                ],
+                "a4": [
+                    "got",
+                    "liked",
+                    "wanted",
+                    "worked"
+                ],
+                "a5": [
+                    "excluded",
+                    "caricatured",
+                    "amplified",
+                    "overridden"
+                ],
+                "a6": [
+                    "from",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "preliminary",
+                    "heavy",
+                    "meaningful",
+                    "clear"
+                ],
+                "a8": [
+                    "consultations",
+                    "wishes",
+                    "men",
+                    "women"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-get-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Резервний фонд перенаправили на поточні витрати.",
+            "level": "C1",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Резервний фонд перенаправили на поточні витрати.",
+            "target_text": "The contingency fund got diverted to routine expenditure.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "contingency",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "contingency",
+                        "procedural",
+                        "minority",
+                        "senior"
+                    ]
+                },
+                "a3": {
+                    "answer": "fund",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "fund",
+                        "blanket",
+                        "actor",
+                        "analyst"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                },
+                "a5": {
+                    "answer": "diverted",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "diverted",
+                        "popped",
+                        "stained",
+                        "torn"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "to",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "routine",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "routine",
+                        "a",
+                        "an",
+                        "her"
+                    ]
+                },
+                "a8": {
+                    "answer": "expenditure.",
+                    "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+                    "options": [
+                        "expenditure",
+                        "scrutiny",
+                        "notice",
+                        "branch"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з резервного фонду; передай несподіване завершене перенаправлення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The contingency fund got diverted to routine expenditure."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The contingency fund",
+                "got",
+                "diverted",
+                "to routine expenditure."
+            ],
+            "token_groups": [
+                "The contingency fund",
+                "got",
+                "diverted",
+                "to routine expenditure."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "contingency",
+                "fund",
+                "got",
+                "diverted",
+                "to",
+                "routine",
+                "expenditure."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "contingency",
+                "procedural",
+                "minority",
+                "senior",
+                "fund",
+                "blanket",
+                "actor",
+                "analyst",
+                "got",
+                "closed",
+                "helped",
+                "waited",
+                "diverted",
+                "popped",
+                "stained",
+                "torn",
+                "to",
+                "in",
+                "on",
+                "at",
+                "routine",
+                "a",
+                "an",
+                "her",
+                "expenditure",
+                "scrutiny",
+                "notice",
+                "branch"
+            ],
+            "source_text_uk": "Резервний фонд перенаправили на поточні витрати.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "contingency",
+                    "procedural",
+                    "minority",
+                    "senior"
+                ],
+                "a3": [
+                    "fund",
+                    "blanket",
+                    "actor",
+                    "analyst"
+                ],
+                "a4": [
+                    "got",
+                    "closed",
+                    "helped",
+                    "waited"
+                ],
+                "a5": [
+                    "diverted",
+                    "popped",
+                    "stained",
+                    "torn"
+                ],
+                "a6": [
+                    "to",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a7": [
+                    "routine",
+                    "a",
+                    "an",
+                    "her"
+                ],
+                "a8": [
+                    "expenditure",
+                    "scrutiny",
+                    "notice",
+                    "branch"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-get-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Нюансовану рекомендацію карикатурно подали як цілковиту протидію.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Нюансовану рекомендацію карикатурно подали як цілковиту протидію.",
+            "target_text": "The nuanced recommendation got caricatured as outright opposition.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Neither",
+                        "All",
+                        "Both"
+                    ]
+                },
+                "a2": {
+                    "answer": "nuanced",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "nuanced",
+                        "uncorroborated",
+                        "red",
+                        "opened"
+                    ]
+                },
+                "a3": {
+                    "answer": "recommendation",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "recommendation",
+                        "opinion",
+                        "negotiator",
+                        "fund"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "walked",
+                        "closed",
+                        "helped"
+                    ]
+                },
+                "a5": {
+                    "answer": "caricatured",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "caricatured",
+                        "delayed",
+                        "transferred",
+                        "repeated"
+                    ]
+                },
+                "a6": {
+                    "answer": "as",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "as",
+                        "letters",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a7": {
+                    "answer": "outright",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "outright",
+                        "a",
+                        "short",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "opposition.",
+                    "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+                    "options": [
+                        "opposition",
+                        "hour",
+                        "campaign",
+                        "autumn"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з рекомендації; передай небажане завершене спотворення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The nuanced recommendation got caricatured as outright opposition."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The nuanced recommendation",
+                "got",
+                "caricatured",
+                "as outright opposition."
+            ],
+            "token_groups": [
+                "The nuanced recommendation",
+                "got",
+                "caricatured",
+                "as outright opposition."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "nuanced",
+                "recommendation",
+                "got",
+                "caricatured",
+                "as",
+                "outright",
+                "opposition."
+            ],
+            "options": [
+                "The",
+                "Neither",
+                "All",
+                "Both",
+                "nuanced",
+                "uncorroborated",
+                "red",
+                "opened",
+                "recommendation",
+                "opinion",
+                "negotiator",
+                "fund",
+                "got",
+                "walked",
+                "closed",
+                "helped",
+                "caricatured",
+                "delayed",
+                "transferred",
+                "repeated",
+                "as",
+                "letters",
+                "windows",
+                "phones",
+                "outright",
+                "a",
+                "short",
+                "an",
+                "opposition",
+                "hour",
+                "campaign",
+                "autumn"
+            ],
+            "source_text_uk": "Нюансовану рекомендацію карикатурно подали як цілковиту протидію.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Neither",
+                    "All",
+                    "Both"
+                ],
+                "a2": [
+                    "nuanced",
+                    "uncorroborated",
+                    "red",
+                    "opened"
+                ],
+                "a3": [
+                    "recommendation",
+                    "opinion",
+                    "negotiator",
+                    "fund"
+                ],
+                "a4": [
+                    "got",
+                    "walked",
+                    "closed",
+                    "helped"
+                ],
+                "a5": [
+                    "caricatured",
+                    "delayed",
+                    "transferred",
+                    "repeated"
+                ],
+                "a6": [
+                    "as",
+                    "letters",
+                    "windows",
+                    "phones"
+                ],
+                "a7": [
+                    "outright",
+                    "a",
+                    "short",
+                    "an"
+                ],
+                "a8": [
+                    "opposition",
+                    "hour",
+                    "campaign",
+                    "autumn"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-get-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Непідтверджене звинувачення непропорційно роздмухали.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Непідтверджене звинувачення непропорційно роздмухали.",
+            "target_text": "The uncorroborated allegation got amplified beyond all proportion.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "Another",
+                        "Either",
+                        "Neither"
+                    ]
+                },
+                "a2": {
+                    "answer": "uncorroborated",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "uncorroborated",
+                        "nuanced",
+                        "red",
+                        "visited"
+                    ]
+                },
+                "a3": {
+                    "answer": "allegation",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "allegation",
+                        "recommendation",
+                        "balloon",
+                        "blanket"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "saw",
+                        "needed",
+                        "liked"
+                    ]
+                },
+                "a5": {
+                    "answer": "amplified",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "amplified",
+                        "sealed",
+                        "checked",
+                        "measured"
+                    ]
+                },
+                "a6": {
+                    "answer": "beyond",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "beyond",
+                        "on",
+                        "at",
+                        "within"
+                    ]
+                },
+                "a7": {
+                    "answer": "all",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "all",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a8": {
+                    "answer": "proportion.",
+                    "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+                    "options": [
+                        "proportion",
+                        "notice",
+                        "hour",
+                        "campaign"
+                    ]
+                }
+            },
+            "verb_hint": "Почни зі звинувачення; передай небажане завершене перебільшення через розмовний пасив.",
+            "accepted_target_texts": [
+                "The uncorroborated allegation got amplified beyond all proportion."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The uncorroborated allegation",
+                "got",
+                "amplified",
+                "beyond all proportion."
+            ],
+            "token_groups": [
+                "The uncorroborated allegation",
+                "got",
+                "amplified",
+                "beyond all proportion."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "uncorroborated",
+                "allegation",
+                "got",
+                "amplified",
+                "beyond",
+                "all",
+                "proportion."
+            ],
+            "options": [
+                "The",
+                "Another",
+                "Either",
+                "Neither",
+                "uncorroborated",
+                "nuanced",
+                "red",
+                "visited",
+                "allegation",
+                "recommendation",
+                "balloon",
+                "blanket",
+                "got",
+                "saw",
+                "needed",
+                "liked",
+                "amplified",
+                "sealed",
+                "checked",
+                "measured",
+                "beyond",
+                "on",
+                "at",
+                "within",
+                "all",
+                "these",
+                "those",
+                "each",
+                "proportion",
+                "notice",
+                "hour",
+                "campaign"
+            ],
+            "source_text_uk": "Непідтверджене звинувачення непропорційно роздмухали.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Another",
+                    "Either",
+                    "Neither"
+                ],
+                "a2": [
+                    "uncorroborated",
+                    "nuanced",
+                    "red",
+                    "visited"
+                ],
+                "a3": [
+                    "allegation",
+                    "recommendation",
+                    "balloon",
+                    "blanket"
+                ],
+                "a4": [
+                    "got",
+                    "saw",
+                    "needed",
+                    "liked"
+                ],
+                "a5": [
+                    "amplified",
+                    "sealed",
+                    "checked",
+                    "measured"
+                ],
+                "a6": [
+                    "beyond",
+                    "on",
+                    "at",
+                    "within"
+                ],
+                "a7": [
+                    "all",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a8": [
+                    "proportion",
+                    "notice",
+                    "hour",
+                    "campaign"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-get-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Процедурне застереження відхилили без змістовного обговорення.",
+            "level": "C2",
+            "type": 4,
+            "source": "passive_voice_quality_get",
+            "translation_uk": "Процедурне застереження відхилили без змістовного обговорення.",
+            "target_text": "The procedural reservation got overridden without meaningful debate.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "The",
+                        "This",
+                        "That",
+                        "These"
+                    ]
+                },
+                "a2": {
+                    "answer": "procedural",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "procedural",
+                        "senior",
+                        "contingency",
+                        "holiday"
+                    ]
+                },
+                "a3": {
+                    "answer": "reservation",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "reservation",
+                        "recommendation",
+                        "allegation",
+                        "ceremony"
+                    ]
+                },
+                "a4": {
+                    "answer": "got",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "got",
+                        "nuanced",
+                        "uncorroborated",
+                        "walked"
+                    ]
+                },
+                "a5": {
+                    "answer": "overridden",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "overridden",
+                        "delayed",
+                        "transferred",
+                        "repeated"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "without",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a7": {
+                    "answer": "meaningful",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "meaningful",
+                        "preliminary",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a8": {
+                    "answer": "debate.",
+                    "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+                    "options": [
+                        "debate",
+                        "autumn",
+                        "branch",
+                        "festival"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із застереження; передай небажану завершену подію через розмовний пасив.",
+            "accepted_target_texts": [
+                "The procedural reservation got overridden without meaningful debate."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The procedural reservation",
+                "got",
+                "overridden",
+                "without meaningful debate."
+            ],
+            "token_groups": [
+                "The procedural reservation",
+                "got",
+                "overridden",
+                "without meaningful debate."
+            ],
+            "quality_revision": "pvq-v1",
+            "tokens_correct": [
+                "The",
+                "procedural",
+                "reservation",
+                "got",
+                "overridden",
+                "without",
+                "meaningful",
+                "debate."
+            ],
+            "options": [
+                "The",
+                "This",
+                "That",
+                "These",
+                "procedural",
+                "senior",
+                "contingency",
+                "holiday",
+                "reservation",
+                "recommendation",
+                "allegation",
+                "ceremony",
+                "got",
+                "nuanced",
+                "uncorroborated",
+                "walked",
+                "overridden",
+                "delayed",
+                "transferred",
+                "repeated",
+                "without",
+                "in",
+                "on",
+                "at",
+                "meaningful",
+                "preliminary",
+                "heavy",
+                "light",
+                "debate",
+                "autumn",
+                "branch",
+                "festival"
+            ],
+            "source_text_uk": "Процедурне застереження відхилили без змістовного обговорення.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "This",
+                    "That",
+                    "These"
+                ],
+                "a2": [
+                    "procedural",
+                    "senior",
+                    "contingency",
+                    "holiday"
+                ],
+                "a3": [
+                    "reservation",
+                    "recommendation",
+                    "allegation",
+                    "ceremony"
+                ],
+                "a4": [
+                    "got",
+                    "nuanced",
+                    "uncorroborated",
+                    "walked"
+                ],
+                "a5": [
+                    "overridden",
+                    "delayed",
+                    "transferred",
+                    "repeated"
+                ],
+                "a6": [
+                    "without",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a7": [
+                    "meaningful",
+                    "preliminary",
+                    "heavy",
+                    "light"
+                ],
+                "a8": [
+                    "debate",
+                    "autumn",
+                    "branch",
+                    "festival"
+                ]
+            },
+            "slot_roles": {
+                "a1": "subject",
+                "a2": "subject",
+                "a3": "subject",
+                "a4": "auxiliary",
+                "a5": "participle",
+                "a6": "adjunct",
+                "a7": "adjunct",
+                "a8": "adjunct"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

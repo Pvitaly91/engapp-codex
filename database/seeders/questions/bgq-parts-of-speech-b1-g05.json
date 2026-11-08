@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60642,
+        "uuid": "bgq-parts-of-speech-b1-g05",
+        "question": "They sought {a1} to enter the restricted area.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 12,
+        "source_id": 427,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedPartsOfSpeechQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "permission",
+                "permit",
+                "permissive"
+            ]
+        },
+        "theory_text_block_uuid": "6b17fe3e-1f10-5088-92b6-f1853ad6324d",
+        "created_at": "2026-10-27T15:50:48.000000Z",
+        "updated_at": "2026-10-27T15:50:48.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 427,
+        "name": "Basic Grammar Quality: Частини мови",
+        "created_at": "2026-10-27T15:50:47.000000Z",
+        "updated_at": "2026-10-27T15:50:47.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 86,
+                "name": "Parts of speech identification",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60642,
+                "tag_id": 86,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 16574,
+                "option": "permission",
+                "created_at": "2026-04-25T22:08:56.000000Z",
+                "updated_at": "2026-04-25T22:08:56.000000Z"
+            },
+            "pivot": {
+                "question_id": 60642,
+                "option_id": 16574,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 35691,
+                "option": "permit",
+                "created_at": "2026-07-13T22:01:36.000000Z",
+                "updated_at": "2026-07-13T22:01:36.000000Z"
+            },
+            "pivot": {
+                "question_id": 60642,
+                "option_id": 35691,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53129,
+                "option": "permissive",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "pivot": {
+                "question_id": 60642,
+                "option_id": 53129,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325697,
+                "question_id": 60642,
+                "marker": "a1",
+                "option_id": 16574,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 16574,
+                "option": "permission",
+                "created_at": "2026-04-25T22:08:56.000000Z",
+                "updated_at": "2026-04-25T22:08:56.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43031,
+                "question_id": 60642,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53128,
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            },
+            "option": {
+                "id": 53128,
+                "option": "Потрібний зміст: «Дозвіл». Після перехідного дієслова потрібна назва дозволу як іменник.",
+                "created_at": "2026-10-27T15:50:48.000000Z",
+                "updated_at": "2026-10-27T15:50:48.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52657,
+            "question_id": 60642,
+            "text": "They sought {a1} to enter the restricted area.",
+            "created_at": "2026-10-27T15:50:48.000000Z",
+            "updated_at": "2026-10-27T15:50:48.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

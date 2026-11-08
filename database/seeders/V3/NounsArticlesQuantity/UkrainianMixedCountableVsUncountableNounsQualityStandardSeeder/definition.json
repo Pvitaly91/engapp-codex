@@ -1,0 +1,1681 @@
+{
+    "schema_version": 1,
+    "quality_revision": "nouns-articles-quantity-v1",
+    "compiled_from": {
+        "path": "docs/content/nouns-articles-quantity-quality/countable-uncountable.v1.json",
+        "sha256": "fc230dac3f59d47bf26f22d39e15f0e0f80a5b600631caaad07f89246300369c"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\NounsArticlesQuantity\\UkrainianMixedCountableVsUncountableNounsQualityStandardSeeder",
+        "uuid_namespace": "nouns-articles-quantity-quality-countable-uncountable-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Nouns / Articles / Quantity"
+    },
+    "sources": {
+        "nouns_articles_quantity_quality_countable_uncountable": {
+            "name": "Nouns Articles Quantity Quality: Злічувані й незлічувані значення іменників"
+        }
+    },
+    "tags": {
+        "countable_vs_uncountable_nouns": {
+            "name": "Countable Vs Uncountable Nouns",
+            "category": "nouns_articles_quantity"
+        },
+        "countable_singular": {
+            "name": "Countable Singular",
+            "category": "topic"
+        },
+        "countable_plural": {
+            "name": "Countable Plural",
+            "category": "topic"
+        },
+        "uncountable_no_plural": {
+            "name": "Uncountable No Plural",
+            "category": "topic"
+        },
+        "uncountable_singular_verb": {
+            "name": "Uncountable Singular Verb",
+            "category": "topic"
+        },
+        "article_determiner_needed": {
+            "name": "Article Determiner Needed",
+            "category": "topic"
+        },
+        "much_many": {
+            "name": "Much Many",
+            "category": "topic"
+        },
+        "few_little": {
+            "name": "Few Little",
+            "category": "topic"
+        },
+        "common_uncountables": {
+            "name": "Common Uncountables",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "countable_vs_uncountable_nouns"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "naqq-countable-uncountable-a1-g01",
+            "author_id": "A1-g01",
+            "question": "There is some {a1} in the jug.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "У глечику є трохи води.",
+            "target_text": "There is some water in the jug.",
+            "markers": {
+                "a1": {
+                    "answer": "water",
+                    "options": [
+                        "water",
+                        "waters",
+                        "a water"
+                    ],
+                    "verb_hint": "Назви воду як речовину, без окремих пляшок або порцій; потрібна незлічувана форма."
+                }
+            },
+            "verb_hint": "Назви воду як речовину, без окремих пляшок або порцій; потрібна незлічувана форма.",
+            "accepted_target_texts": [
+                "There is some water in the jug."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "There is",
+                "some water",
+                "in the jug."
+            ],
+            "token_groups": [
+                "There is",
+                "some water",
+                "in the jug."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "naqq-countable-uncountable-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The baker sells fresh {a1} every morning.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Пекар продає свіжий хліб щоранку.",
+            "target_text": "The baker sells fresh bread every morning.",
+            "markers": {
+                "a1": {
+                    "answer": "bread",
+                    "options": [
+                        "bread",
+                        "breads",
+                        "a bread"
+                    ],
+                    "verb_hint": "Назви хліб як продукт загалом; кількість буханців і сортів тут не рахуємо."
+                }
+            },
+            "verb_hint": "Назви хліб як продукт загалом; кількість буханців і сортів тут не рахуємо.",
+            "accepted_target_texts": [
+                "The baker sells fresh bread every morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The baker",
+                "sells fresh bread",
+                "every morning."
+            ],
+            "token_groups": [
+                "The baker",
+                "sells fresh bread",
+                "every morning."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "naqq-countable-uncountable-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Three {a1} are on the green plate.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "На зеленій тарілці три яйця.",
+            "target_text": "Three eggs are on the green plate.",
+            "markers": {
+                "a1": {
+                    "answer": "eggs",
+                    "options": [
+                        "eggs",
+                        "egg",
+                        "egges"
+                    ],
+                    "verb_hint": "Назви кілька окремих яєць; після числівника потрібна злічувана множина."
+                }
+            },
+            "verb_hint": "Назви кілька окремих яєць; після числівника потрібна злічувана множина.",
+            "accepted_target_texts": [
+                "Three eggs are on the green plate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Three eggs",
+                "are",
+                "on",
+                "the green plate."
+            ],
+            "token_groups": [
+                "Three eggs",
+                "are",
+                "on",
+                "the green plate."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "naqq-countable-uncountable-a1-g04",
+            "author_id": "A1-g04",
+            "question": "We cook {a1} with vegetables.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Ми готуємо рис з овочами.",
+            "target_text": "We cook rice with vegetables.",
+            "markers": {
+                "a1": {
+                    "answer": "rice",
+                    "options": [
+                        "rice",
+                        "rices",
+                        "a rice"
+                    ],
+                    "verb_hint": "Назви рис як їжу; зерна або окремі сорти в цьому повідомленні не рахуємо."
+                }
+            },
+            "verb_hint": "Назви рис як їжу; зерна або окремі сорти в цьому повідомленні не рахуємо.",
+            "accepted_target_texts": [
+                "We cook rice with vegetables."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We cook rice",
+                "with vegetables."
+            ],
+            "token_groups": [
+                "We cook rice",
+                "with vegetables."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "naqq-countable-uncountable-a1-g05",
+            "author_id": "A1-g05",
+            "question": "This {a1} is for the kitten.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Це молоко для кошеняти.",
+            "target_text": "This milk is for the kitten.",
+            "markers": {
+                "a1": {
+                    "answer": "milk",
+                    "options": [
+                        "milk",
+                        "milks",
+                        "a milk"
+                    ],
+                    "verb_hint": "Назви молоко як речовину; потрібна форма без множини й без артикля окремого предмета."
+                }
+            },
+            "verb_hint": "Назви молоко як речовину; потрібна форма без множини й без артикля окремого предмета.",
+            "accepted_target_texts": [
+                "This milk is for the kitten."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "This milk",
+                "is",
+                "for the kitten."
+            ],
+            "token_groups": [
+                "This milk",
+                "is",
+                "for the kitten."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "naqq-countable-uncountable-a1-g06",
+            "author_id": "A1-g06",
+            "question": "Two {a1} are beside the sink.",
+            "level": "A1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Біля мийки дві чашки.",
+            "target_text": "Two cups are beside the sink.",
+            "markers": {
+                "a1": {
+                    "answer": "cups",
+                    "options": [
+                        "cups",
+                        "cup",
+                        "a cup"
+                    ],
+                    "verb_hint": "Назви дві окремі чашки; посуд тут можна порахувати."
+                }
+            },
+            "verb_hint": "Назви дві окремі чашки; посуд тут можна порахувати.",
+            "accepted_target_texts": [
+                "Two cups are beside the sink.",
+                "Two mugs are beside the sink."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "mugs"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "mugs"
+                ]
+            },
+            "reorder_groups": [
+                "Two cups",
+                "are beside",
+                "the sink."
+            ],
+            "token_groups": [
+                "Two cups",
+                "are beside",
+                "the sink."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "naqq-countable-uncountable-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The missing {a1} is on the last page.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Відсутня інформація на останній сторінці.",
+            "target_text": "The missing information is on the last page.",
+            "markers": {
+                "a1": {
+                    "answer": "information",
+                    "options": [
+                        "information",
+                        "informations",
+                        "an information"
+                    ],
+                    "verb_hint": "Назви інформацію як зміст повідомлення; англійська назва тут незлічувана, окремі повідомлення не рахуємо."
+                }
+            },
+            "verb_hint": "Назви інформацію як зміст повідомлення; англійська назва тут незлічувана, окремі повідомлення не рахуємо.",
+            "accepted_target_texts": [
+                "The missing information is on the last page."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The missing information",
+                "is",
+                "on",
+                "the last page."
+            ],
+            "token_groups": [
+                "The missing information",
+                "is",
+                "on",
+                "the last page."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "naqq-countable-uncountable-a2-g02",
+            "author_id": "A2-g02",
+            "question": "All our {a1} is already in the taxi.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Увесь наш багаж уже в таксі.",
+            "target_text": "All our luggage is already in the taxi.",
+            "markers": {
+                "a1": {
+                    "answer": "luggage",
+                    "options": [
+                        "luggage",
+                        "luggages",
+                        "a luggage"
+                    ],
+                    "verb_hint": "Назви багаж сукупно, не окремі валізи; обидві звичайні незлічувані назви прийнятні."
+                }
+            },
+            "verb_hint": "Назви багаж сукупно, не окремі валізи; обидві звичайні незлічувані назви прийнятні.",
+            "accepted_target_texts": [
+                "All our luggage is already in the taxi.",
+                "All our baggage is already in the taxi."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "baggage"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "baggage"
+                ]
+            },
+            "reorder_groups": [
+                "All our luggage",
+                "is already",
+                "in the taxi."
+            ],
+            "token_groups": [
+                "All our luggage",
+                "is already",
+                "in the taxi."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "naqq-countable-uncountable-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The old {a1} is being sold with the flat.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Старі меблі продають разом із квартирою.",
+            "target_text": "The old furniture is being sold with the flat.",
+            "markers": {
+                "a1": {
+                    "answer": "furniture",
+                    "options": [
+                        "furniture",
+                        "furnitures",
+                        "a furniture"
+                    ],
+                    "verb_hint": "Назви меблі сукупно; англійська назва в цьому значенні не утворює звичайної множини."
+                }
+            },
+            "verb_hint": "Назви меблі сукупно; англійська назва в цьому значенні не утворює звичайної множини.",
+            "accepted_target_texts": [
+                "The old furniture is being sold with the flat."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The old furniture",
+                "is being sold",
+                "with the flat."
+            ],
+            "token_groups": [
+                "The old furniture",
+                "is being sold",
+                "with the flat."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "naqq-countable-uncountable-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Your {a1} has helped me make a decision.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Твоя порада допомогла мені ухвалити рішення.",
+            "target_text": "Your advice has helped me make a decision.",
+            "markers": {
+                "a1": {
+                    "answer": "advice",
+                    "options": [
+                        "advice",
+                        "advices",
+                        "an advice"
+                    ],
+                    "verb_hint": "Назви пораду як рекомендацію, а не окремий документ; потрібне незлічуване слово без доданого артикля."
+                }
+            },
+            "verb_hint": "Назви пораду як рекомендацію, а не окремий документ; потрібне незлічуване слово без доданого артикля.",
+            "accepted_target_texts": [
+                "Your advice has helped me make a decision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Your advice",
+                "has helped me",
+                "make a decision."
+            ],
+            "token_groups": [
+                "Your advice",
+                "has helped me",
+                "make a decision."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "naqq-countable-uncountable-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The new {a1} takes up less space than the old machines.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Нове обладнання займає менше місця, ніж старі машини.",
+            "target_text": "The new equipment takes up less space than the old machines.",
+            "markers": {
+                "a1": {
+                    "answer": "equipment",
+                    "options": [
+                        "equipment",
+                        "equipments",
+                        "an equipment"
+                    ],
+                    "verb_hint": "Назви обладнання як сукупність засобів; у цьому значенні потрібна незлічувана форма."
+                }
+            },
+            "verb_hint": "Назви обладнання як сукупність засобів; у цьому значенні потрібна незлічувана форма.",
+            "accepted_target_texts": [
+                "The new equipment takes up less space than the old machines."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The new equipment",
+                "takes up",
+                "less space",
+                "than",
+                "the old machines."
+            ],
+            "token_groups": [
+                "The new equipment",
+                "takes up",
+                "less space",
+                "than",
+                "the old machines."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "naqq-countable-uncountable-a2-g06",
+            "author_id": "A2-g06",
+            "question": "My {a1} is in the folder, not in the notebook.",
+            "level": "A2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Моє домашнє завдання в папці, а не в зошиті.",
+            "target_text": "My homework is in the folder, not in the notebook.",
+            "markers": {
+                "a1": {
+                    "answer": "homework",
+                    "options": [
+                        "homework",
+                        "homeworks",
+                        "a homework"
+                    ],
+                    "verb_hint": "Назви навчальну роботу, яку виконують удома, сукупно; не утворюй множини від цієї назви."
+                }
+            },
+            "verb_hint": "Назви навчальну роботу, яку виконують удома, сукупно; не утворюй множини від цієї назви.",
+            "accepted_target_texts": [
+                "My homework is in the folder, not in the notebook."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My homework",
+                "is",
+                "in the folder,",
+                "not",
+                "in the notebook."
+            ],
+            "token_groups": [
+                "My homework",
+                "is",
+                "in the folder,",
+                "not",
+                "in the notebook."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "naqq-countable-uncountable-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The editor has read both {a1} on urban transport.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Редактор прочитав обидві статті про міський транспорт.",
+            "target_text": "The editor has read both papers on urban transport.",
+            "markers": {
+                "a1": {
+                    "answer": "papers",
+                    "options": [
+                        "papers",
+                        "paper",
+                        "a paper"
+                    ],
+                    "verb_hint": "Назви дві окремі наукові статті, не папір як матеріал; після вказівки на обидва предмети потрібна множина."
+                }
+            },
+            "verb_hint": "Назви дві окремі наукові статті, не папір як матеріал; після вказівки на обидва предмети потрібна множина.",
+            "accepted_target_texts": [
+                "The editor has read both papers on urban transport.",
+                "The editor has read both articles on urban transport."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "articles"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "articles"
+                ]
+            },
+            "reorder_groups": [
+                "The editor",
+                "has read",
+                "both papers",
+                "on urban transport."
+            ],
+            "token_groups": [
+                "The editor",
+                "has read",
+                "both papers",
+                "on urban transport."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "naqq-countable-uncountable-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The window is made of frosted {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Вікно зроблене з матового скла.",
+            "target_text": "The window is made of frosted glass.",
+            "markers": {
+                "a1": {
+                    "answer": "glass",
+                    "options": [
+                        "glass",
+                        "glasses",
+                        "a glass"
+                    ],
+                    "verb_hint": "Назви скло як матеріал, не склянки або окуляри."
+                }
+            },
+            "verb_hint": "Назви скло як матеріал, не склянки або окуляри.",
+            "accepted_target_texts": [
+                "The window is made of frosted glass."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The window",
+                "is made",
+                "of frosted glass."
+            ],
+            "token_groups": [
+                "The window",
+                "is made",
+                "of frosted glass."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "naqq-countable-uncountable-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Could we order three {a1} before the meeting?",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Можна нам замовити три порції кави перед зустріччю?",
+            "target_text": "Could we order three coffees before the meeting?",
+            "markers": {
+                "a1": {
+                    "answer": "coffees",
+                    "options": [
+                        "coffees",
+                        "coffee",
+                        "a coffee"
+                    ],
+                    "verb_hint": "У замовленні рахують три окремі порції кави; назва напою набуває злічуваного значення."
+                }
+            },
+            "verb_hint": "У замовленні рахують три окремі порції кави; назва напою набуває злічуваного значення.",
+            "accepted_target_texts": [
+                "Could we order three coffees before the meeting?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could we order",
+                "three coffees",
+                "before the meeting?"
+            ],
+            "token_groups": [
+                "Could we order",
+                "three coffees",
+                "before the meeting?"
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "naqq-countable-uncountable-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Working abroad was an unforgettable {a1}.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Робота за кордоном була незабутнім досвідом.",
+            "target_text": "Working abroad was an unforgettable experience.",
+            "markers": {
+                "a1": {
+                    "answer": "experience",
+                    "options": [
+                        "experience",
+                        "experiences",
+                        "experiencing"
+                    ],
+                    "verb_hint": "Назви одну пережиту подію або ситуацію, а не сукупність професійних знань; не замінюй іменник дієслівною формою."
+                }
+            },
+            "verb_hint": "Назви одну пережиту подію або ситуацію, а не сукупність професійних знань; не замінюй іменник дієслівною формою.",
+            "accepted_target_texts": [
+                "Working abroad was an unforgettable experience."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Working abroad",
+                "was",
+                "an unforgettable experience."
+            ],
+            "token_groups": [
+                "Working abroad",
+                "was",
+                "an unforgettable experience."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "naqq-countable-uncountable-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The farmer keeps twenty {a1} behind the barn.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Фермер тримає двадцять курей за коморою.",
+            "target_text": "The farmer keeps twenty chickens behind the barn.",
+            "markers": {
+                "a1": {
+                    "answer": "chickens",
+                    "options": [
+                        "chickens",
+                        "chicken",
+                        "a chicken"
+                    ],
+                    "verb_hint": "Назви окремих живих курей, не м’ясо; після числа потрібна множина."
+                }
+            },
+            "verb_hint": "Назви окремих живих курей, не м’ясо; після числа потрібна множина.",
+            "accepted_target_texts": [
+                "The farmer keeps twenty chickens behind the barn."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The farmer",
+                "keeps twenty chickens",
+                "behind the barn."
+            ],
+            "token_groups": [
+                "The farmer",
+                "keeps twenty chickens",
+                "behind the barn."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "naqq-countable-uncountable-b1-g06",
+            "author_id": "B1-g06",
+            "question": "You will need an {a1} to smooth this shirt.",
+            "level": "B1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Щоб розпрасувати цю сорочку, тобі знадобиться праска.",
+            "target_text": "You will need an iron to smooth this shirt.",
+            "markers": {
+                "a1": {
+                    "answer": "iron",
+                    "options": [
+                        "iron",
+                        "irons",
+                        "ironing"
+                    ],
+                    "verb_hint": "Назви один побутовий прилад для прасування, не метал і не сам процес."
+                }
+            },
+            "verb_hint": "Назви один побутовий прилад для прасування, не метал і не сам процес.",
+            "accepted_target_texts": [
+                "You will need an iron to smooth this shirt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You will need",
+                "an iron",
+                "to smooth",
+                "this shirt."
+            ],
+            "token_groups": [
+                "You will need",
+                "an iron",
+                "to smooth",
+                "this shirt."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "naqq-countable-uncountable-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The laboratory needs more {a1} before it can recommend this material.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Лабораторії потрібні додаткові дослідження, перш ніж рекомендувати цей матеріал.",
+            "target_text": "The laboratory needs more research before it can recommend this material.",
+            "markers": {
+                "a1": {
+                    "answer": "research",
+                    "options": [
+                        "research",
+                        "researches",
+                        "a research"
+                    ],
+                    "verb_hint": "Назви дослідницьку роботу сукупно, не окремі публікації; у звичайному сучасному викладі це незлічуваний процес."
+                }
+            },
+            "verb_hint": "Назви дослідницьку роботу сукупно, не окремі публікації; у звичайному сучасному викладі це незлічуваний процес.",
+            "accepted_target_texts": [
+                "The laboratory needs more research before it can recommend this material."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The laboratory",
+                "needs more research",
+                "before it",
+                "can recommend",
+                "this material."
+            ],
+            "token_groups": [
+                "The laboratory",
+                "needs more research",
+                "before it",
+                "can recommend",
+                "this material."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "naqq-countable-uncountable-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The archive contains three early {a1} by the same sculptor.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Архів містить три ранні твори того самого скульптора.",
+            "target_text": "The archive contains three early works by the same sculptor.",
+            "markers": {
+                "a1": {
+                    "answer": "works",
+                    "options": [
+                        "works",
+                        "work",
+                        "a work"
+                    ],
+                    "verb_hint": "Назви окремі мистецькі твори; у цьому значенні іменник має множину, на відміну від роботи як діяльності."
+                }
+            },
+            "verb_hint": "Назви окремі мистецькі твори; у цьому значенні іменник має множину, на відміну від роботи як діяльності.",
+            "accepted_target_texts": [
+                "The archive contains three early works by the same sculptor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "contains",
+                "three early works",
+                "by",
+                "the same sculptor."
+            ],
+            "token_groups": [
+                "The archive",
+                "contains",
+                "three early works",
+                "by",
+                "the same sculptor."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "naqq-countable-uncountable-b2-g03",
+            "author_id": "B2-g03",
+            "question": "There is not much {a1} for another table in the studio.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "У майстерні небагато місця для ще одного столу.",
+            "target_text": "There is not much room for another table in the studio.",
+            "markers": {
+                "a1": {
+                    "answer": "room",
+                    "options": [
+                        "room",
+                        "rooms",
+                        "a room"
+                    ],
+                    "verb_hint": "Назви вільний простір, не окремі кімнати; потрібне незлічуване значення."
+                }
+            },
+            "verb_hint": "Назви вільний простір, не окремі кімнати; потрібне незлічуване значення.",
+            "accepted_target_texts": [
+                "There is not much room for another table in the studio.",
+                "There is not much space for another table in the studio."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "space"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "space"
+                ]
+            },
+            "reorder_groups": [
+                "There is",
+                "not much room",
+                "for another table",
+                "in the studio."
+            ],
+            "token_groups": [
+                "There is",
+                "not much room",
+                "for another table",
+                "in the studio."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "naqq-countable-uncountable-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Several small {a1} have opened near the new station.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Біля нової станції відкрилося кілька малих підприємств.",
+            "target_text": "Several small businesses have opened near the new station.",
+            "markers": {
+                "a1": {
+                    "answer": "businesses",
+                    "options": [
+                        "businesses",
+                        "business",
+                        "a business"
+                    ],
+                    "verb_hint": "Назви окремі підприємства, не ділову діяльність загалом; після вказівки на кілька потрібна множина."
+                }
+            },
+            "verb_hint": "Назви окремі підприємства, не ділову діяльність загалом; після вказівки на кілька потрібна множина.",
+            "accepted_target_texts": [
+                "Several small businesses have opened near the new station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several small businesses",
+                "have opened",
+                "near",
+                "the new station."
+            ],
+            "token_groups": [
+                "Several small businesses",
+                "have opened",
+                "near",
+                "the new station."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "naqq-countable-uncountable-b2-g05",
+            "author_id": "B2-g05",
+            "question": "We do not have enough {a1} to reconsider the whole proposal.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "У нас недостатньо часу, щоб переглянути всю пропозицію.",
+            "target_text": "We do not have enough time to reconsider the whole proposal.",
+            "markers": {
+                "a1": {
+                    "answer": "time",
+                    "options": [
+                        "time",
+                        "times",
+                        "a time"
+                    ],
+                    "verb_hint": "Назви доступний час як тривалість, не кількість повторів або окремих випадків."
+                }
+            },
+            "verb_hint": "Назви доступний час як тривалість, не кількість повторів або окремих випадків.",
+            "accepted_target_texts": [
+                "We do not have enough time to reconsider the whole proposal."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We do not",
+                "have enough time",
+                "to reconsider",
+                "the whole proposal."
+            ],
+            "token_groups": [
+                "We do not",
+                "have enough time",
+                "to reconsider",
+                "the whole proposal."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "naqq-countable-uncountable-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Practical {a1} matters more than familiarity with the terminology.",
+            "level": "B2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Практичний досвід важливіший за знайомство з термінологією.",
+            "target_text": "Practical experience matters more than familiarity with the terminology.",
+            "markers": {
+                "a1": {
+                    "answer": "experience",
+                    "options": [
+                        "experience",
+                        "experiences",
+                        "an experience"
+                    ],
+                    "verb_hint": "Назви набуті вміння та практичний досвід сукупно, не одну пережиту подію."
+                }
+            },
+            "verb_hint": "Назви набуті вміння та практичний досвід сукупно, не одну пережиту подію.",
+            "accepted_target_texts": [
+                "Practical experience matters more than familiarity with the terminology."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Practical experience",
+                "matters more",
+                "than familiarity",
+                "with the terminology."
+            ],
+            "token_groups": [
+                "Practical experience",
+                "matters more",
+                "than familiarity",
+                "with the terminology."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "naqq-countable-uncountable-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The panel found insufficient {a1} to attribute the failure to negligence.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Комісія не знайшла достатніх доказів, щоб пояснити збій недбалістю.",
+            "target_text": "The panel found insufficient evidence to attribute the failure to negligence.",
+            "markers": {
+                "a1": {
+                    "answer": "evidence",
+                    "options": [
+                        "evidence",
+                        "evidences",
+                        "an evidence"
+                    ],
+                    "verb_hint": "Назви доказовий матеріал сукупно, не окремі документи; обидві незлічувані назви доказу доречні."
+                }
+            },
+            "verb_hint": "Назви доказовий матеріал сукупно, не окремі документи; обидві незлічувані назви доказу доречні.",
+            "accepted_target_texts": [
+                "The panel found insufficient evidence to attribute the failure to negligence.",
+                "The panel found insufficient proof to attribute the failure to negligence."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "proof"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "proof"
+                ]
+            },
+            "reorder_groups": [
+                "The panel",
+                "found insufficient evidence",
+                "to attribute",
+                "the failure",
+                "to negligence."
+            ],
+            "token_groups": [
+                "The panel",
+                "found insufficient evidence",
+                "to attribute",
+                "the failure",
+                "to negligence."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "naqq-countable-uncountable-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The court awarded substantial {a1} for the loss of earnings.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Суд присудив значну компенсацію за втрату заробітку.",
+            "target_text": "The court awarded substantial damages for the loss of earnings.",
+            "markers": {
+                "a1": {
+                    "answer": "damages",
+                    "options": [
+                        "damages",
+                        "damage",
+                        "a damage"
+                    ],
+                    "verb_hint": "Назви грошове відшкодування, а не саму завдану шкоду; у цьому юридичному значенні потрібна форма множини."
+                }
+            },
+            "verb_hint": "Назви грошове відшкодування, а не саму завдану шкоду; у цьому юридичному значенні потрібна форма множини.",
+            "accepted_target_texts": [
+                "The court awarded substantial damages for the loss of earnings."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The court",
+                "awarded substantial damages",
+                "for the loss",
+                "of earnings."
+            ],
+            "token_groups": [
+                "The court",
+                "awarded substantial damages",
+                "for the loss",
+                "of earnings."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "naqq-countable-uncountable-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The distinction has little practical {a1} outside this narrow field.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Поза цією вузькою галуззю ця відмінність майже не має практичного значення.",
+            "target_text": "The distinction has little practical importance outside this narrow field.",
+            "markers": {
+                "a1": {
+                    "answer": "importance",
+                    "options": [
+                        "importance",
+                        "importances",
+                        "an importance"
+                    ],
+                    "verb_hint": "Назви важливість як незлічувану властивість, не окремі важливі питання."
+                }
+            },
+            "verb_hint": "Назви важливість як незлічувану властивість, не окремі важливі питання.",
+            "accepted_target_texts": [
+                "The distinction has little practical importance outside this narrow field.",
+                "The distinction has little practical significance outside this narrow field."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "significance"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "significance"
+                ]
+            },
+            "reorder_groups": [
+                "The distinction",
+                "has",
+                "little practical importance",
+                "outside",
+                "this narrow field."
+            ],
+            "token_groups": [
+                "The distinction",
+                "has",
+                "little practical importance",
+                "outside",
+                "this narrow field."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "naqq-countable-uncountable-c1-g04",
+            "author_id": "C1-g04",
+            "question": "His persistent {a1} eventually made the visits unwelcome.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Через його наполегливі знаки уваги ці відвідини зрештою стали небажаними.",
+            "target_text": "His persistent attentions eventually made the visits unwelcome.",
+            "markers": {
+                "a1": {
+                    "answer": "attentions",
+                    "options": [
+                        "attentions",
+                        "attention",
+                        "an attention"
+                    ],
+                    "verb_hint": "Назви окремі нав’язливі знаки уваги, не зосередженість як психічний стан; потрібне спеціальне значення множини."
+                }
+            },
+            "verb_hint": "Назви окремі нав’язливі знаки уваги, не зосередженість як психічний стан; потрібне спеціальне значення множини.",
+            "accepted_target_texts": [
+                "His persistent attentions eventually made the visits unwelcome."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "His persistent attentions",
+                "eventually made",
+                "the visits unwelcome."
+            ],
+            "token_groups": [
+                "His persistent attentions",
+                "eventually made",
+                "the visits unwelcome."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "naqq-countable-uncountable-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The disclosure rules apply to financial {a1} as well as direct employment.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Правила розкриття інформації стосуються фінансових інтересів, а також безпосередньої зайнятості.",
+            "target_text": "The disclosure rules apply to financial interests as well as direct employment.",
+            "markers": {
+                "a1": {
+                    "answer": "interests",
+                    "options": [
+                        "interests",
+                        "interest",
+                        "an interest"
+                    ],
+                    "verb_hint": "Назви майнові або фінансові інтереси у множині, не зацікавленість чи відсоток як загальну величину."
+                }
+            },
+            "verb_hint": "Назви майнові або фінансові інтереси у множині, не зацікавленість чи відсоток як загальну величину.",
+            "accepted_target_texts": [
+                "The disclosure rules apply to financial interests as well as direct employment."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disclosure rules",
+                "apply to",
+                "financial interests",
+                "as well as",
+                "direct employment."
+            ],
+            "token_groups": [
+                "The disclosure rules",
+                "apply to",
+                "financial interests",
+                "as well as",
+                "direct employment."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "naqq-countable-uncountable-c1-g06",
+            "author_id": "C1-g06",
+            "question": "Their understanding rests on shared {a1} rather than a written agreement.",
+            "level": "C1",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Їхнє порозуміння ґрунтується на спільних знаннях, а не на письмовій угоді.",
+            "target_text": "Their understanding rests on shared knowledge rather than a written agreement.",
+            "markers": {
+                "a1": {
+                    "answer": "knowledge",
+                    "options": [
+                        "knowledge",
+                        "knowledges",
+                        "a knowledge"
+                    ],
+                    "verb_hint": "Назви знання як сукупний зміст; у цьому загальному значенні не утворюй множини або окремого предмета."
+                }
+            },
+            "verb_hint": "Назви знання як сукупний зміст; у цьому загальному значенні не утворюй множини або окремого предмета.",
+            "accepted_target_texts": [
+                "Their understanding rests on shared knowledge rather than a written agreement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Their understanding",
+                "rests on",
+                "shared knowledge",
+                "rather than",
+                "a written agreement."
+            ],
+            "token_groups": [
+                "Their understanding",
+                "rests on",
+                "shared knowledge",
+                "rather than",
+                "a written agreement."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "naqq-countable-uncountable-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The theory predicts systematic {a1} between changes at the two levels.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Теорія передбачає системні відповідності між змінами на двох рівнях.",
+            "target_text": "The theory predicts systematic correspondences between changes at the two levels.",
+            "markers": {
+                "a1": {
+                    "answer": "correspondences",
+                    "options": [
+                        "correspondences",
+                        "correspondence",
+                        "a correspondence"
+                    ],
+                    "verb_hint": "Назви окремі відповідності між явищами, не листування як діяльність; потрібне злічуване значення множини."
+                }
+            },
+            "verb_hint": "Назви окремі відповідності між явищами, не листування як діяльність; потрібне злічуване значення множини.",
+            "accepted_target_texts": [
+                "The theory predicts systematic correspondences between changes at the two levels."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The theory",
+                "predicts systematic correspondences",
+                "between changes",
+                "at",
+                "the two levels."
+            ],
+            "token_groups": [
+                "The theory",
+                "predicts systematic correspondences",
+                "between changes",
+                "at",
+                "the two levels."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "naqq-countable-uncountable-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The analysis treats each right as a distinct {a1}, not as an aspect of general freedom.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "В аналізі кожне право розглядають як окрему свободу, а не як аспект свободи загалом.",
+            "target_text": "The analysis treats each right as a distinct liberty, not as an aspect of general freedom.",
+            "markers": {
+                "a1": {
+                    "answer": "liberty",
+                    "options": [
+                        "liberty",
+                        "liberties",
+                        "a liberty"
+                    ],
+                    "verb_hint": "Назви одну окрему свободу після вже наведеного означення окремості й артикля; не повторюй артикль."
+                }
+            },
+            "verb_hint": "Назви одну окрему свободу після вже наведеного означення окремості й артикля; не повторюй артикль.",
+            "accepted_target_texts": [
+                "The analysis treats each right as a distinct liberty, not as an aspect of general freedom.",
+                "The analysis treats each right as a distinct freedom, not as an aspect of general freedom."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "freedom"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "freedom"
+                ]
+            },
+            "reorder_groups": [
+                "The analysis",
+                "treats each right",
+                "as",
+                "a distinct liberty,",
+                "not",
+                "as an aspect",
+                "of general freedom."
+            ],
+            "token_groups": [
+                "The analysis",
+                "treats each right",
+                "as",
+                "a distinct liberty,",
+                "not",
+                "as an aspect",
+                "of general freedom."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "naqq-countable-uncountable-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The company’s contingent {a1} were disclosed without being recognised as current debt.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Умовні зобов’язання компанії розкрили, але не визнали поточним боргом.",
+            "target_text": "The company’s contingent liabilities were disclosed without being recognised as current debt.",
+            "markers": {
+                "a1": {
+                    "answer": "liabilities",
+                    "options": [
+                        "liabilities",
+                        "liability",
+                        "a liability"
+                    ],
+                    "verb_hint": "Назви окремі можливі зобов’язання у множині, не відповідальність як абстрактний стан."
+                }
+            },
+            "verb_hint": "Назви окремі можливі зобов’язання у множині, не відповідальність як абстрактний стан.",
+            "accepted_target_texts": [
+                "The company’s contingent liabilities were disclosed without being recognised as current debt."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The company’s",
+                "contingent liabilities",
+                "were disclosed",
+                "without being recognised",
+                "as current debt."
+            ],
+            "token_groups": [
+                "The company’s",
+                "contingent liabilities",
+                "were disclosed",
+                "without being recognised",
+                "as current debt."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "naqq-countable-uncountable-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The model isolates those {a1} that remain invariant under a change of scale.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Модель виокремлює властивості, що залишаються незмінними за зміни масштабу.",
+            "target_text": "The model isolates those properties that remain invariant under a change of scale.",
+            "markers": {
+                "a1": {
+                    "answer": "properties",
+                    "options": [
+                        "properties",
+                        "property",
+                        "a property"
+                    ],
+                    "verb_hint": "Назви окремі властивості, не майно як сукупність речей; вказівне слово вже вимагає множини."
+                }
+            },
+            "verb_hint": "Назви окремі властивості, не майно як сукупність речей; вказівне слово вже вимагає множини.",
+            "accepted_target_texts": [
+                "The model isolates those properties that remain invariant under a change of scale."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The model",
+                "isolates those properties",
+                "that remain invariant",
+                "under",
+                "a change",
+                "of scale."
+            ],
+            "token_groups": [
+                "The model",
+                "isolates those properties",
+                "that remain invariant",
+                "under",
+                "a change",
+                "of scale."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "naqq-countable-uncountable-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The treaty leaves established {a1} intact while imposing new reporting duties.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Договір зберігає усталені звичаї, водночас запроваджуючи нові обов’язки звітності.",
+            "target_text": "The treaty leaves established customs intact while imposing new reporting duties.",
+            "markers": {
+                "a1": {
+                    "answer": "customs",
+                    "options": [
+                        "customs",
+                        "custom",
+                        "a custom"
+                    ],
+                    "verb_hint": "Назви кілька усталених звичаїв, не митну службу й не звичай як абстрактне джерело норми."
+                }
+            },
+            "verb_hint": "Назви кілька усталених звичаїв, не митну службу й не звичай як абстрактне джерело норми.",
+            "accepted_target_texts": [
+                "The treaty leaves established customs intact while imposing new reporting duties."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The treaty",
+                "leaves established customs",
+                "intact while imposing",
+                "new reporting duties."
+            ],
+            "token_groups": [
+                "The treaty",
+                "leaves established customs",
+                "intact while imposing",
+                "new reporting duties."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "naqq-countable-uncountable-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The restriction concerns the use of {a1}, not the number of companies involved.",
+            "level": "C2",
+            "type": 0,
+            "source": "nouns_articles_quantity_quality_countable_uncountable",
+            "translation_uk": "Обмеження стосується використання капіталу, а не кількості залучених компаній.",
+            "target_text": "The restriction concerns the use of capital, not the number of companies involved.",
+            "markers": {
+                "a1": {
+                    "answer": "capital",
+                    "options": [
+                        "capital",
+                        "capitals",
+                        "a capital"
+                    ],
+                    "verb_hint": "Назви капітал як сукупний фінансовий ресурс, не столиці або великі літери."
+                }
+            },
+            "verb_hint": "Назви капітал як сукупний фінансовий ресурс, не столиці або великі літери.",
+            "accepted_target_texts": [
+                "The restriction concerns the use of capital, not the number of companies involved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restriction",
+                "concerns the use",
+                "of capital,",
+                "not the number",
+                "of companies involved."
+            ],
+            "token_groups": [
+                "The restriction",
+                "concerns the use",
+                "of capital,",
+                "not the number",
+                "of companies involved."
+            ],
+            "quality_revision": "nouns-articles-quantity-v1"
+        }
+    ]
+}

@@ -1,0 +1,1690 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/formation.v1.json",
+        "sha256": "03eb8e8cb9cf7a2a1b761abf61b71387d80a32a2d0aa3413301bfe0c7a4e4a9f"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceFormationRulesQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-formation-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_formation": {
+            "name": "Passive Voice Quality: Правила утворення пасиву"
+        }
+    },
+    "tags": {
+        "passive_voice_formation_rules": {
+            "name": "Passive Voice Formation Rules",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "be_v3": {
+            "name": "Be V3",
+            "category": "topic"
+        },
+        "active_to_passive": {
+            "name": "Active To Passive",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "subject_by_agent": {
+            "name": "Subject By Agent",
+            "category": "topic"
+        },
+        "by_phrase": {
+            "name": "By Phrase",
+            "category": "topic"
+        },
+        "be_by_tense": {
+            "name": "Be By Tense",
+            "category": "topic"
+        },
+        "participles": {
+            "name": "Participles",
+            "category": "topic"
+        },
+        "passive_use": {
+            "name": "Passive Use",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-formation-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The clay cups {a1} in a hot oven.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Глиняні чашки випалюють у гарячій печі.",
+            "target_text": "The clay cups are baked in a hot oven.",
+            "markers": {
+                "a1": {
+                    "answer": "are baked",
+                    "options": [
+                        "are baked",
+                        "is baked",
+                        "was baked"
+                    ],
+                    "verb_hint": "Передай регулярну дію «випалювати» в теперішньому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай регулярну дію «випалювати» в теперішньому пасиві множини.",
+            "accepted_target_texts": [
+                "The clay cups are baked in a hot oven."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The clay cups",
+                "are baked",
+                "in",
+                "a hot oven."
+            ],
+            "token_groups": [
+                "The clay cups",
+                "are baked",
+                "in",
+                "a hot oven."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-formation-a1-g02",
+            "author_id": "A1-g02",
+            "question": "A small bell {a1} under the desk.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Маленький дзвоник знайшли під партою.",
+            "target_text": "A small bell was found under the desk.",
+            "markers": {
+                "a1": {
+                    "answer": "was found",
+                    "options": [
+                        "was found",
+                        "is found",
+                        "will be found"
+                    ],
+                    "verb_hint": "Передай завершений пошук у минулому; потрібен пасив однини."
+                }
+            },
+            "verb_hint": "Передай завершений пошук у минулому; потрібен пасив однини.",
+            "accepted_target_texts": [
+                "A small bell was found under the desk."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A small bell",
+                "was",
+                "found",
+                "under the desk."
+            ],
+            "token_groups": [
+                "A small bell",
+                "was",
+                "found",
+                "under the desk."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-formation-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The purple flag {a1} every morning.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Фіолетовий прапор піднімають щоранку.",
+            "target_text": "The purple flag is raised every morning.",
+            "markers": {
+                "a1": {
+                    "answer": "is raised",
+                    "options": [
+                        "is raised",
+                        "was raised",
+                        "will be raised"
+                    ],
+                    "verb_hint": "Передай щоденну дію «піднімати» в теперішньому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай щоденну дію «піднімати» в теперішньому пасиві однини.",
+            "accepted_target_texts": [
+                "The purple flag is raised every morning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The purple flag",
+                "is",
+                "raised",
+                "every morning."
+            ],
+            "token_groups": [
+                "The purple flag",
+                "is",
+                "raised",
+                "every morning."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-formation-a1-g04",
+            "author_id": "A1-g04",
+            "question": "These paper stars {a1} after class.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Ці паперові зірки вирізали після уроку.",
+            "target_text": "These paper stars were cut after class.",
+            "markers": {
+                "a1": {
+                    "answer": "were cut",
+                    "options": [
+                        "were cut",
+                        "is cut",
+                        "was cut"
+                    ],
+                    "verb_hint": "Передай завершену дію «вирізати» в минулому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай завершену дію «вирізати» в минулому пасиві множини.",
+            "accepted_target_texts": [
+                "These paper stars were cut after class."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These paper stars",
+                "were",
+                "cut",
+                "after class."
+            ],
+            "token_groups": [
+                "These paper stars",
+                "were",
+                "cut",
+                "after class."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-formation-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Our lunch boxes {a1} at home.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Наші коробки для обіду наповнюють удома.",
+            "target_text": "Our lunch boxes are filled at home.",
+            "markers": {
+                "a1": {
+                    "answer": "are filled",
+                    "options": [
+                        "are filled",
+                        "is filled",
+                        "was filled"
+                    ],
+                    "verb_hint": "Передай звичну дію «наповнювати» в теперішньому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай звичну дію «наповнювати» в теперішньому пасиві множини.",
+            "accepted_target_texts": [
+                "Our lunch boxes are filled at home."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our lunch boxes",
+                "are",
+                "filled",
+                "at home."
+            ],
+            "token_groups": [
+                "Our lunch boxes",
+                "are",
+                "filled",
+                "at home."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-formation-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The little ladder {a1} green.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Маленьку драбину пофарбували в зелений колір.",
+            "target_text": "The little ladder was painted green.",
+            "markers": {
+                "a1": {
+                    "answer": "was painted",
+                    "options": [
+                        "was painted",
+                        "is painted",
+                        "will be painted"
+                    ],
+                    "verb_hint": "Передай завершену дію «фарбувати» в минулому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай завершену дію «фарбувати» в минулому пасиві однини.",
+            "accepted_target_texts": [
+                "The little ladder was painted green."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The little ladder",
+                "was",
+                "painted",
+                "green."
+            ],
+            "token_groups": [
+                "The little ladder",
+                "was",
+                "painted",
+                "green."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-formation-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The pottery lesson {a1} because of snow.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Урок гончарства скасували через сніг.",
+            "target_text": "The pottery lesson was cancelled because of snow.",
+            "markers": {
+                "a1": {
+                    "answer": "was cancelled",
+                    "options": [
+                        "was cancelled",
+                        "is cancelled",
+                        "will be cancelled"
+                    ],
+                    "verb_hint": "Передай скасування в минулому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай скасування в минулому пасиві однини.",
+            "accepted_target_texts": [
+                "The pottery lesson was cancelled because of snow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The pottery lesson",
+                "was",
+                "cancelled",
+                "because of snow."
+            ],
+            "token_groups": [
+                "The pottery lesson",
+                "was",
+                "cancelled",
+                "because of snow."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-formation-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Our photo albums {a1} in a dry cupboard.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Наші фотоальбоми зберігають у сухій шафі.",
+            "target_text": "Our photo albums are stored in a dry cupboard.",
+            "markers": {
+                "a1": {
+                    "answer": "are stored",
+                    "options": [
+                        "are stored",
+                        "is stored",
+                        "was stored"
+                    ],
+                    "verb_hint": "Передай звичне зберігання в теперішньому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай звичне зберігання в теперішньому пасиві множини.",
+            "accepted_target_texts": [
+                "Our photo albums are stored in a dry cupboard."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our photo albums",
+                "are stored",
+                "in",
+                "a dry cupboard."
+            ],
+            "token_groups": [
+                "Our photo albums",
+                "are stored",
+                "in",
+                "a dry cupboard."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-formation-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The muddy footprints {a1} near the stairs.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Брудні сліди помітили біля сходів.",
+            "target_text": "The muddy footprints were noticed near the stairs.",
+            "markers": {
+                "a1": {
+                    "answer": "were noticed",
+                    "options": [
+                        "were noticed",
+                        "is noticed",
+                        "was noticed"
+                    ],
+                    "verb_hint": "Передай минулу дію «помітити» в пасиві множини."
+                }
+            },
+            "verb_hint": "Передай минулу дію «помітити» в пасиві множини.",
+            "accepted_target_texts": [
+                "The muddy footprints were noticed near the stairs."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The muddy footprints",
+                "were",
+                "noticed",
+                "near the stairs."
+            ],
+            "token_groups": [
+                "The muddy footprints",
+                "were",
+                "noticed",
+                "near the stairs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-formation-a2-g04",
+            "author_id": "A2-g04",
+            "question": "A fresh timetable {a1} each term.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Новий розклад друкують кожного семестру.",
+            "target_text": "A fresh timetable is printed each term.",
+            "markers": {
+                "a1": {
+                    "answer": "is printed",
+                    "options": [
+                        "is printed",
+                        "was printed",
+                        "will be printed"
+                    ],
+                    "verb_hint": "Передай регулярну дію «друкувати» в теперішньому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай регулярну дію «друкувати» в теперішньому пасиві однини.",
+            "accepted_target_texts": [
+                "A fresh timetable is printed each term."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "A fresh timetable",
+                "is",
+                "printed",
+                "each term."
+            ],
+            "token_groups": [
+                "A fresh timetable",
+                "is",
+                "printed",
+                "each term."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-formation-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The broken crayons {a1} after the activity.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Поламані олівці зібрали після заняття.",
+            "target_text": "The broken crayons were collected after the activity.",
+            "markers": {
+                "a1": {
+                    "answer": "were collected",
+                    "options": [
+                        "were collected",
+                        "is collected",
+                        "was collected"
+                    ],
+                    "verb_hint": "Передай завершене збирання в минулому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай завершене збирання в минулому пасиві множини.",
+            "accepted_target_texts": [
+                "The broken crayons were collected after the activity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The broken crayons",
+                "were",
+                "collected",
+                "after the activity."
+            ],
+            "token_groups": [
+                "The broken crayons",
+                "were",
+                "collected",
+                "after the activity."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-formation-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The bird feeder {a1} to the balcony.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Годівничку прикріпили до балкона.",
+            "target_text": "The bird feeder was attached to the balcony.",
+            "markers": {
+                "a1": {
+                    "answer": "was attached",
+                    "options": [
+                        "was attached",
+                        "is attached",
+                        "will be attached"
+                    ],
+                    "verb_hint": "Передай завершену дію «прикріпити» в минулому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай завершену дію «прикріпити» в минулому пасиві однини.",
+            "accepted_target_texts": [
+                "The bird feeder was attached to the balcony."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bird feeder",
+                "was",
+                "attached",
+                "to the balcony."
+            ],
+            "token_groups": [
+                "The bird feeder",
+                "was",
+                "attached",
+                "to the balcony."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-formation-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The damaged canoe {a1} beside the lake.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Пошкоджене каное зараз оглядають біля озера.",
+            "target_text": "The damaged canoe is being examined beside the lake.",
+            "markers": {
+                "a1": {
+                    "answer": "is being examined",
+                    "options": [
+                        "is being examined",
+                        "is examined",
+                        "was examined"
+                    ],
+                    "verb_hint": "Передай поточний огляд у теперішньому тривалому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай поточний огляд у теперішньому тривалому пасиві однини.",
+            "accepted_target_texts": [
+                "The damaged canoe is being examined beside the lake."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The damaged canoe",
+                "is being",
+                "examined",
+                "beside the lake."
+            ],
+            "token_groups": [
+                "The damaged canoe",
+                "is being",
+                "examined",
+                "beside the lake."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-formation-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The costume designs {a1} by the director.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Ескізи костюмів уже затвердив режисер.",
+            "target_text": "The costume designs have been approved by the director.",
+            "markers": {
+                "a1": {
+                    "answer": "have been approved",
+                    "options": [
+                        "have been approved",
+                        "is approved",
+                        "was approved"
+                    ],
+                    "verb_hint": "Передай завершене затвердження з теперішнім результатом у пасиві множини."
+                }
+            },
+            "verb_hint": "Передай завершене затвердження з теперішнім результатом у пасиві множини.",
+            "accepted_target_texts": [
+                "The costume designs have been approved by the director."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The costume designs",
+                "have been",
+                "approved",
+                "by the director."
+            ],
+            "token_groups": [
+                "The costume designs",
+                "have been",
+                "approved",
+                "by the director."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-formation-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The exhibition labels {a1} when we arrived.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Етикетки експозиції замінювали, коли ми прийшли.",
+            "target_text": "The exhibition labels were being replaced when we arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "were being replaced",
+                    "options": [
+                        "were being replaced",
+                        "is replaced",
+                        "was replaced"
+                    ],
+                    "verb_hint": "Передай дію заміни, яка тривала в певний момент минулого."
+                }
+            },
+            "verb_hint": "Передай дію заміни, яка тривала в певний момент минулого.",
+            "accepted_target_texts": [
+                "The exhibition labels were being replaced when we arrived."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The exhibition labels",
+                "were being",
+                "replaced",
+                "when we arrived."
+            ],
+            "token_groups": [
+                "The exhibition labels",
+                "were being",
+                "replaced",
+                "when we arrived."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-formation-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The wooden model {a1} before the demonstration.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Дерев'яну модель зібрали до початку демонстрації.",
+            "target_text": "The wooden model had been assembled before the demonstration.",
+            "markers": {
+                "a1": {
+                    "answer": "had been assembled",
+                    "options": [
+                        "had been assembled",
+                        "is assembled",
+                        "was assembled"
+                    ],
+                    "verb_hint": "Передай завершене збирання, що передувало іншій минулій події."
+                }
+            },
+            "verb_hint": "Передай завершене збирання, що передувало іншій минулій події.",
+            "accepted_target_texts": [
+                "The wooden model had been assembled before the demonstration."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wooden model",
+                "had been",
+                "assembled",
+                "before the demonstration."
+            ],
+            "token_groups": [
+                "The wooden model",
+                "had been",
+                "assembled",
+                "before the demonstration."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-formation-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The glass display {a1} next Tuesday.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Скляну вітрину встановлять наступного вівторка.",
+            "target_text": "The glass display will be installed next Tuesday.",
+            "markers": {
+                "a1": {
+                    "answer": "will be installed",
+                    "options": [
+                        "will be installed",
+                        "is installed",
+                        "was installed"
+                    ],
+                    "verb_hint": "Передай майбутню дію «встановити» в пасиві однини."
+                }
+            },
+            "verb_hint": "Передай майбутню дію «встановити» в пасиві однини.",
+            "accepted_target_texts": [
+                "The glass display will be installed next Tuesday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The glass display",
+                "will be",
+                "installed",
+                "next Tuesday."
+            ],
+            "token_groups": [
+                "The glass display",
+                "will be",
+                "installed",
+                "next Tuesday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-formation-b1-g06",
+            "author_id": "B1-g06",
+            "question": "Every visitor badge {a1} inside the workshop.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Кожен бейдж відвідувача треба носити в майстерні.",
+            "target_text": "Every visitor badge must be worn inside the workshop.",
+            "markers": {
+                "a1": {
+                    "answer": "must be worn",
+                    "options": [
+                        "must be worn",
+                        "is worn",
+                        "was worn"
+                    ],
+                    "verb_hint": "Передай обов'язок носити бейдж через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай обов'язок носити бейдж через модальний пасив.",
+            "accepted_target_texts": [
+                "Every visitor badge must be worn inside the workshop."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Every visitor badge",
+                "must be",
+                "worn",
+                "inside the workshop."
+            ],
+            "token_groups": [
+                "Every visitor badge",
+                "must be",
+                "worn",
+                "inside the workshop."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-formation-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The disputed attribution {a1} after a pigment analysis.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Спірне авторство зараз переглядають після аналізу пігменту.",
+            "target_text": "The disputed attribution is being reconsidered after a pigment analysis.",
+            "markers": {
+                "a1": {
+                    "answer": "is being reconsidered",
+                    "options": [
+                        "is being reconsidered",
+                        "is reconsidered",
+                        "was reconsidered"
+                    ],
+                    "verb_hint": "Передай поточний перегляд у тривалому теперішньому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай поточний перегляд у тривалому теперішньому пасиві однини.",
+            "accepted_target_texts": [
+                "The disputed attribution is being reconsidered after a pigment analysis."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The disputed attribution",
+                "is being reconsidered",
+                "after",
+                "a pigment analysis."
+            ],
+            "token_groups": [
+                "The disputed attribution",
+                "is being reconsidered",
+                "after",
+                "a pigment analysis."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-formation-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Several hidden layers {a1} before restoration stopped.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Кілька прихованих шарів відкрили до припинення реставрації.",
+            "target_text": "Several hidden layers had been exposed before restoration stopped.",
+            "markers": {
+                "a1": {
+                    "answer": "had been exposed",
+                    "options": [
+                        "had been exposed",
+                        "is exposed",
+                        "was exposed"
+                    ],
+                    "verb_hint": "Передай ранішу завершену дію відкриття шарів у минулому пасиві."
+                }
+            },
+            "verb_hint": "Передай ранішу завершену дію відкриття шарів у минулому пасиві.",
+            "accepted_target_texts": [
+                "Several hidden layers had been exposed before restoration stopped."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several hidden layers",
+                "had been",
+                "exposed",
+                "before restoration stopped."
+            ],
+            "token_groups": [
+                "Several hidden layers",
+                "had been",
+                "exposed",
+                "before restoration stopped."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-formation-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The original proportions {a1} despite the enlargement.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Початкові пропорції зберегли попри збільшення.",
+            "target_text": "The original proportions have been preserved despite the enlargement.",
+            "markers": {
+                "a1": {
+                    "answer": "have been preserved",
+                    "options": [
+                        "have been preserved",
+                        "is preserved",
+                        "was preserved"
+                    ],
+                    "verb_hint": "Передай теперішній результат збереження у перфектному пасиві множини."
+                }
+            },
+            "verb_hint": "Передай теперішній результат збереження у перфектному пасиві множини.",
+            "accepted_target_texts": [
+                "The original proportions have been preserved despite the enlargement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The original proportions",
+                "have been",
+                "preserved",
+                "despite the enlargement."
+            ],
+            "token_groups": [
+                "The original proportions",
+                "have been",
+                "preserved",
+                "despite the enlargement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-formation-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The bronze replica {a1} for an original.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Бронзову копію можна помилково прийняти за оригінал.",
+            "target_text": "The bronze replica could be mistaken for an original.",
+            "markers": {
+                "a1": {
+                    "answer": "could be mistaken",
+                    "options": [
+                        "could be mistaken",
+                        "is mistaken",
+                        "was mistaken"
+                    ],
+                    "verb_hint": "Передай можливість помилкового сприйняття через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливість помилкового сприйняття через модальний пасив.",
+            "accepted_target_texts": [
+                "The bronze replica could be mistaken for an original."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bronze replica",
+                "could be",
+                "mistaken",
+                "for an original."
+            ],
+            "token_groups": [
+                "The bronze replica",
+                "could be",
+                "mistaken",
+                "for an original."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-formation-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The excavation records {a1} over the coming winter.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Документацію розкопок оцифрують протягом наступної зими.",
+            "target_text": "The excavation records will be digitised over the coming winter.",
+            "markers": {
+                "a1": {
+                    "answer": "will be digitised",
+                    "options": [
+                        "will be digitised",
+                        "is digitised",
+                        "was digitised"
+                    ],
+                    "verb_hint": "Передай майбутню дію «оцифрувати» в пасиві множини."
+                }
+            },
+            "verb_hint": "Передай майбутню дію «оцифрувати» в пасиві множини.",
+            "accepted_target_texts": [
+                "The excavation records will be digitised over the coming winter.",
+                "The excavation records will be digitized over the coming winter."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be digitized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be digitized"
+                ]
+            },
+            "reorder_groups": [
+                "The excavation records",
+                "will be digitised",
+                "over",
+                "the coming winter."
+            ],
+            "token_groups": [
+                "The excavation records",
+                "will be digitised",
+                "over",
+                "the coming winter."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-formation-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The delicate fragments {a1} with padded gloves.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Крихкі фрагменти слід брати в руки в рукавичках із підкладкою.",
+            "target_text": "The delicate fragments should be handled with padded gloves.",
+            "markers": {
+                "a1": {
+                    "answer": "should be handled",
+                    "options": [
+                        "should be handled",
+                        "is handled",
+                        "was handled"
+                    ],
+                    "verb_hint": "Передай рекомендацію щодо обережного поводження через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай рекомендацію щодо обережного поводження через модальний пасив.",
+            "accepted_target_texts": [
+                "The delicate fragments should be handled with padded gloves."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The delicate fragments",
+                "should be",
+                "handled",
+                "with padded gloves."
+            ],
+            "token_groups": [
+                "The delicate fragments",
+                "should be",
+                "handled",
+                "with padded gloves."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-formation-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The preliminary attribution {a1} on stylistic grounds.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Попереднє визначення авторства оскаржили на підставі стилістичних ознак.",
+            "target_text": "The preliminary attribution has been challenged on stylistic grounds.",
+            "markers": {
+                "a1": {
+                    "answer": "has been challenged",
+                    "options": [
+                        "has been challenged",
+                        "is challenged",
+                        "was challenged"
+                    ],
+                    "verb_hint": "Передай перфектний пасив із теперішнім результатом оскарження."
+                }
+            },
+            "verb_hint": "Передай перфектний пасив із теперішнім результатом оскарження.",
+            "accepted_target_texts": [
+                "The preliminary attribution has been challenged on stylistic grounds."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The preliminary attribution",
+                "has been",
+                "challenged",
+                "on stylistic grounds."
+            ],
+            "token_groups": [
+                "The preliminary attribution",
+                "has been",
+                "challenged",
+                "on stylistic grounds."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-formation-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The surviving correspondence {a1} for evidence of ownership.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Листування, що збереглося, зараз ретельно вивчають у пошуках доказів володіння.",
+            "target_text": "The surviving correspondence is being scrutinised for evidence of ownership.",
+            "markers": {
+                "a1": {
+                    "answer": "is being scrutinised",
+                    "options": [
+                        "is being scrutinised",
+                        "is scrutinised",
+                        "was scrutinised"
+                    ],
+                    "verb_hint": "Передай поточне ретельне вивчення в тривалому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай поточне ретельне вивчення в тривалому пасиві однини.",
+            "accepted_target_texts": [
+                "The surviving correspondence is being scrutinised for evidence of ownership.",
+                "The surviving correspondence is being scrutinized for evidence of ownership."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is being scrutinized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is being scrutinized"
+                ]
+            },
+            "reorder_groups": [
+                "The surviving correspondence",
+                "is being scrutinised",
+                "for",
+                "evidence of ownership."
+            ],
+            "token_groups": [
+                "The surviving correspondence",
+                "is being scrutinised",
+                "for",
+                "evidence of ownership."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-formation-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The painted surface {a1} before its value was recognised.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Фарбований шар надмірно очистили ще до усвідомлення його цінності.",
+            "target_text": "The painted surface had been overcleaned before its value was recognised.",
+            "markers": {
+                "a1": {
+                    "answer": "had been overcleaned",
+                    "options": [
+                        "had been overcleaned",
+                        "is overcleaned",
+                        "was overcleaned"
+                    ],
+                    "verb_hint": "Передай ранішу завершену дію надмірного очищення в минулому пасиві."
+                }
+            },
+            "verb_hint": "Передай ранішу завершену дію надмірного очищення в минулому пасиві.",
+            "accepted_target_texts": [
+                "The painted surface had been overcleaned before its value was recognised."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The painted surface",
+                "had been overcleaned",
+                "before",
+                "its value",
+                "was recognised."
+            ],
+            "token_groups": [
+                "The painted surface",
+                "had been overcleaned",
+                "before",
+                "its value",
+                "was recognised."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-formation-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The loan conditions {a1} if insurance costs rise.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Умови позики можуть переглянути, якщо зростуть витрати на страхування.",
+            "target_text": "The loan conditions may be renegotiated if insurance costs rise.",
+            "markers": {
+                "a1": {
+                    "answer": "may be renegotiated",
+                    "options": [
+                        "may be renegotiated",
+                        "is renegotiated",
+                        "was renegotiated"
+                    ],
+                    "verb_hint": "Передай можливість повторного узгодження через модальний пасив."
+                }
+            },
+            "verb_hint": "Передай можливість повторного узгодження через модальний пасив.",
+            "accepted_target_texts": [
+                "The loan conditions may be renegotiated if insurance costs rise."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The loan conditions",
+                "may be renegotiated",
+                "if",
+                "insurance costs",
+                "rise."
+            ],
+            "token_groups": [
+                "The loan conditions",
+                "may be renegotiated",
+                "if",
+                "insurance costs",
+                "rise."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-formation-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The restoration methods {a1} before funding was released.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Методи реставрації незалежно оцінили до виділення коштів.",
+            "target_text": "The restoration methods were independently assessed before funding was released.",
+            "markers": {
+                "a1": {
+                    "answer": "were independently assessed",
+                    "options": [
+                        "were independently assessed",
+                        "is independently assessed",
+                        "was independently assessed"
+                    ],
+                    "verb_hint": "Передай завершене незалежне оцінювання в минулому пасиві множини."
+                }
+            },
+            "verb_hint": "Передай завершене незалежне оцінювання в минулому пасиві множини.",
+            "accepted_target_texts": [
+                "The restoration methods were independently assessed before funding was released."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The restoration methods",
+                "were independently assessed",
+                "before",
+                "funding was released."
+            ],
+            "token_groups": [
+                "The restoration methods",
+                "were independently assessed",
+                "before",
+                "funding was released."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-formation-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The fragile binding {a1} before public display.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Крихку палітурку зміцнять перед публічним показом.",
+            "target_text": "The fragile binding will be stabilised before public display.",
+            "markers": {
+                "a1": {
+                    "answer": "will be stabilised",
+                    "options": [
+                        "will be stabilised",
+                        "is stabilised",
+                        "was stabilised"
+                    ],
+                    "verb_hint": "Передай заплановану майбутню дію зміцнення в пасиві однини."
+                }
+            },
+            "verb_hint": "Передай заплановану майбутню дію зміцнення в пасиві однини.",
+            "accepted_target_texts": [
+                "The fragile binding will be stabilised before public display.",
+                "The fragile binding will be stabilized before public display."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "will be stabilized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "will be stabilized"
+                ]
+            },
+            "reorder_groups": [
+                "The fragile binding",
+                "will be",
+                "stabilised",
+                "before public display."
+            ],
+            "token_groups": [
+                "The fragile binding",
+                "will be",
+                "stabilised",
+                "before public display."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-formation-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The ostensibly minor discrepancy {a1} in light of the rediscovered sketch.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "На позір незначну розбіжність переоцінили з огляду на повторно знайдений ескіз.",
+            "target_text": "The ostensibly minor discrepancy has been reassessed in light of the rediscovered sketch.",
+            "markers": {
+                "a1": {
+                    "answer": "has been reassessed",
+                    "options": [
+                        "has been reassessed",
+                        "is reassessed",
+                        "was reassessed"
+                    ],
+                    "verb_hint": "Передай перфектний пасив із теперішнім результатом переоцінювання."
+                }
+            },
+            "verb_hint": "Передай перфектний пасив із теперішнім результатом переоцінювання.",
+            "accepted_target_texts": [
+                "The ostensibly minor discrepancy has been reassessed in light of the rediscovered sketch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "ostensibly minor discrepancy",
+                "has been reassessed",
+                "in light of",
+                "the rediscovered sketch."
+            ],
+            "token_groups": [
+                "The",
+                "ostensibly minor discrepancy",
+                "has been reassessed",
+                "in light of",
+                "the rediscovered sketch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-formation-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The archival lacunae {a1} by conjecture alone.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Прогалини в архівах не можна заповнити самими лише припущеннями.",
+            "target_text": "The archival lacunae cannot be bridged by conjecture alone.",
+            "markers": {
+                "a1": {
+                    "answer": "cannot be bridged",
+                    "options": [
+                        "cannot be bridged",
+                        "is bridged",
+                        "was bridged"
+                    ],
+                    "verb_hint": "Передай неможливість заповнення прогалин через заперечний модальний пасив."
+                }
+            },
+            "verb_hint": "Передай неможливість заповнення прогалин через заперечний модальний пасив.",
+            "accepted_target_texts": [
+                "The archival lacunae cannot be bridged by conjecture alone."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archival lacunae",
+                "cannot be",
+                "bridged",
+                "by conjecture alone."
+            ],
+            "token_groups": [
+                "The archival lacunae",
+                "cannot be",
+                "bridged",
+                "by conjecture alone."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-formation-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The compromised chain of custody {a1} long before litigation began.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Порушений ланцюг зберігання задокументували задовго до початку судового спору.",
+            "target_text": "The compromised chain of custody had been documented long before litigation began.",
+            "markers": {
+                "a1": {
+                    "answer": "had been documented",
+                    "options": [
+                        "had been documented",
+                        "is documented",
+                        "was documented"
+                    ],
+                    "verb_hint": "Передай ранішу завершену дію документування в минулому пасиві."
+                }
+            },
+            "verb_hint": "Передай ранішу завершену дію документування в минулому пасиві.",
+            "accepted_target_texts": [
+                "The compromised chain of custody had been documented long before litigation began."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The compromised chain",
+                "of custody",
+                "had been documented",
+                "long before",
+                "litigation began."
+            ],
+            "token_groups": [
+                "The compromised chain",
+                "of custody",
+                "had been documented",
+                "long before",
+                "litigation began."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-formation-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The unsubstantiated provenance claim {a1} by the acquisition committee.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Непідтверджене твердження про походження без зволікань відхилив закупівельний комітет.",
+            "target_text": "The unsubstantiated provenance claim was summarily rejected by the acquisition committee.",
+            "markers": {
+                "a1": {
+                    "answer": "was summarily rejected",
+                    "options": [
+                        "was summarily rejected",
+                        "is summarily rejected",
+                        "will be summarily rejected"
+                    ],
+                    "verb_hint": "Передай завершене рішуче відхилення в минулому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай завершене рішуче відхилення в минулому пасиві однини.",
+            "accepted_target_texts": [
+                "The unsubstantiated provenance claim was summarily rejected by the acquisition committee."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The",
+                "unsubstantiated provenance claim",
+                "was summarily rejected",
+                "by",
+                "the acquisition committee."
+            ],
+            "token_groups": [
+                "The",
+                "unsubstantiated provenance claim",
+                "was summarily rejected",
+                "by",
+                "the acquisition committee."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-formation-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The disputed restoration intervention {a1} within contemporary conservation ethics.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Спірне реставраційне втручання зараз розглядають у контексті сучасної етики збереження.",
+            "target_text": "The disputed restoration intervention is being contextualised within contemporary conservation ethics.",
+            "markers": {
+                "a1": {
+                    "answer": "is being contextualised",
+                    "options": [
+                        "is being contextualised",
+                        "is contextualised",
+                        "was contextualised"
+                    ],
+                    "verb_hint": "Передай поточне контекстуальне осмислення в тривалому пасиві однини."
+                }
+            },
+            "verb_hint": "Передай поточне контекстуальне осмислення в тривалому пасиві однини.",
+            "accepted_target_texts": [
+                "The disputed restoration intervention is being contextualised within contemporary conservation ethics.",
+                "The disputed restoration intervention is being contextualized within contemporary conservation ethics."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "is being contextualized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "is being contextualized"
+                ]
+            },
+            "reorder_groups": [
+                "The",
+                "disputed restoration intervention",
+                "is being contextualised",
+                "within",
+                "contemporary conservation ethics."
+            ],
+            "token_groups": [
+                "The",
+                "disputed restoration intervention",
+                "is being contextualised",
+                "within",
+                "contemporary conservation ethics."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-formation-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The material inconsistencies {a1} with the newly authenticated correspondence.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_formation",
+            "translation_uk": "Суттєві невідповідності узгодять із нещодавно підтвердженим листуванням.",
+            "target_text": "The material inconsistencies will be reconciled with the newly authenticated correspondence.",
+            "markers": {
+                "a1": {
+                    "answer": "will be reconciled",
+                    "options": [
+                        "will be reconciled",
+                        "is reconciled",
+                        "was reconciled"
+                    ],
+                    "verb_hint": "Передай майбутню дію усунення невідповідностей у пасиві множини."
+                }
+            },
+            "verb_hint": "Передай майбутню дію усунення невідповідностей у пасиві множини.",
+            "accepted_target_texts": [
+                "The material inconsistencies will be reconciled with the newly authenticated correspondence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The material inconsistencies",
+                "will be reconciled",
+                "with the",
+                "newly authenticated correspondence."
+            ],
+            "token_groups": [
+                "The material inconsistencies",
+                "will be reconciled",
+                "with the",
+                "newly authenticated correspondence."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

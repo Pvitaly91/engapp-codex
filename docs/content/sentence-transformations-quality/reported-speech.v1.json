@@ -1,0 +1,718 @@
+{
+    "schema_version": 1,
+    "topic_key": "reported-speech",
+    "title": "Sentence Transformations: Reported Speech",
+    "choice_pools": {
+        "proper_noun": [
+            "Lida",
+            "Nazar",
+            "Iryna",
+            "Taras",
+            "Marta",
+            "Danylo",
+            "Sofiia",
+            "Oleh",
+            "Nina",
+            "Ivan"
+        ],
+        "reporting_present_phrase": [
+            "says that",
+            "says",
+            "tells us that",
+            "explains that",
+            "claims that",
+            "thinks that",
+            "hopes that",
+            "knows that"
+        ],
+        "personal_transitive_clause": [
+            "he likes",
+            "she likes",
+            "they want",
+            "we need",
+            "my sister sees",
+            "you have",
+            "he wants",
+            "she needs"
+        ],
+        "noun_phrase": [
+            "a red cup",
+            "the blue box",
+            "her new hat",
+            "some old books",
+            "my little dog",
+            "a small room",
+            "the front door",
+            "a green chair",
+            "his warm coat",
+            "their garden"
+        ],
+        "past_reporting_object": [
+            "told us",
+            "asked us",
+            "warned us",
+            "reminded us",
+            "taught us",
+            "advised us",
+            "ordered us",
+            "instructed us"
+        ],
+        "negative_infinitive_prefix": [
+            "not to make",
+            "not to use",
+            "not to open",
+            "not to touch",
+            "not to change",
+            "not to lose",
+            "not to take",
+            "not to break"
+        ],
+        "bare_noun_phrase": [
+            "fresh bread",
+            "cold water",
+            "old books",
+            "new shoes",
+            "good news",
+            "strong coffee",
+            "small children",
+            "warm clothes",
+            "clean air",
+            "red flowers"
+        ],
+        "past_reporting_phrase": [
+            "said that",
+            "said",
+            "explained that",
+            "claimed that",
+            "thought that",
+            "knew that",
+            "hoped that",
+            "wrote that"
+        ],
+        "subject_singular": [
+            "he",
+            "she",
+            "my brother",
+            "my sister",
+            "our teacher",
+            "the driver",
+            "a child",
+            "the woman",
+            "her father",
+            "his mother"
+        ],
+        "past_perfect_predicate": [
+            "had finished",
+            "had opened",
+            "had closed",
+            "had written",
+            "had found",
+            "had kept",
+            "had carried",
+            "had seen"
+        ],
+        "question_phrase": [
+            "Where",
+            "When",
+            "Why",
+            "How",
+            "Who",
+            "What",
+            "Which",
+            "Whose"
+        ],
+        "auxiliary_phrase": [
+            "do",
+            "did",
+            "have",
+            "has",
+            "will",
+            "would",
+            "can",
+            "must",
+            "should",
+            "may"
+        ],
+        "base_verb": [
+            "wait",
+            "read",
+            "carry",
+            "open",
+            "close",
+            "help",
+            "work",
+            "move",
+            "write",
+            "wash"
+        ],
+        "proposal_phrase": [
+            "suggested that",
+            "proposed that",
+            "suggested",
+            "proposed",
+            "discovered that",
+            "insisted that",
+            "asked that",
+            "requested that"
+        ],
+        "plural_transitive_clause": [
+            "we compare",
+            "they check",
+            "we read",
+            "they use",
+            "we choose",
+            "we make",
+            "they carry",
+            "we keep"
+        ],
+        "reporting_indirect_object": [
+            "told the teacher",
+            "told the driver",
+            "told the doctor",
+            "told the guide",
+            "told the manager",
+            "told the waiter",
+            "told the guard",
+            "told the witness"
+        ],
+        "subordinator_subject_phrase": [
+            "that he",
+            "that she",
+            "that they",
+            "that we",
+            "that I",
+            "that you",
+            "he",
+            "she"
+        ],
+        "modal_perfect_predicate": [
+            "would have left",
+            "could have waited",
+            "might have stopped",
+            "should have listened",
+            "would have helped",
+            "could have stayed",
+            "might have changed",
+            "would have returned"
+        ],
+        "conditional_subject_phrase": [
+            "if he",
+            "if she",
+            "if they",
+            "if we",
+            "if I",
+            "if you",
+            "unless he",
+            "unless she"
+        ]
+    },
+    "questions": [
+        {
+            "id": "A1-g01",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Nora says that she {a1} coffee.",
+            "target": "Nora says that she wants coffee.",
+            "uk": "Початкове: «Нора зараз каже: „Я хочу кави“».",
+            "hint_uk": "Початкове: «Нора зараз каже: „Я хочу кави“». Передай її слова непрямою мовою без зміни теперішнього часу.",
+            "groups": [
+                "Nora says",
+                "that she",
+                "wants coffee."
+            ],
+            "answer": "wants",
+            "options": [
+                "wants",
+                "want",
+                "wanted"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-g02",
+            "level": "A1",
+            "kind": "gap",
+            "question": "Mum tells Ivan {a1} here.",
+            "target": "Mum tells Ivan to wait here.",
+            "uk": "Початкове: «Мама каже Іванові: „Почекай тут“».",
+            "hint_uk": "Початкове: «Мама каже Іванові: „Почекай тут“». Передай вказівку через інфінітив; повідомляємо в той самий момент у тому самому місці.",
+            "groups": [
+                "Mum tells Ivan",
+                "to wait here."
+            ],
+            "answer": "to wait",
+            "options": [
+                "to wait",
+                "wait",
+                "waiting"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A1-c01",
+            "level": "A1",
+            "kind": "compose",
+            "question": "Павло каже, що йому подобається цей суп.",
+            "target": "Pavlo says that he likes this soup.",
+            "uk": "Павло каже, що йому подобається цей суп.",
+            "hint_uk": "Передай непрямою мовою; той самий суп і теперішній час зберігаються.",
+            "groups": [
+                "Pavlo",
+                "says that",
+                "he likes",
+                "this soup."
+            ],
+            "compose_slots": [
+                "Pavlo",
+                "says that",
+                "he likes",
+                "this soup."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "reporting_present_phrase",
+                "personal_transitive_clause",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Pavlo says he likes this soup."
+            ],
+            "display_synonyms": {
+                "says that": [
+                    "says"
+                ]
+            }
+        },
+        {
+            "id": "A2-g01",
+            "level": "A2",
+            "kind": "gap",
+            "question": "The chef said that he {a1} busy.",
+            "target": "The chef said that he was busy.",
+            "uk": "Початкове: «Учора шеф сказав: „Я зайнятий“; сьогодні він уже вільний».",
+            "hint_uk": "Початкове: «Учора шеф сказав: „Я зайнятий“; сьогодні він уже вільний». Передай минулий стан шефа, а не твердження про його стан зараз.",
+            "groups": [
+                "The chef said",
+                "that he",
+                "was busy."
+            ],
+            "answer": "was",
+            "options": [
+                "was",
+                "is",
+                "were"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "A2-g02",
+            "level": "A2",
+            "kind": "gap",
+            "question": "Oksana asked the teacher {a1} the table was ready.",
+            "target": "Oksana asked the teacher whether the table was ready.",
+            "uk": "Початкове: «Оксана спитала вчителя: „Стіл готовий?“».",
+            "hint_uk": "Початкове: «Оксана спитала вчителя: „Стіл готовий?“». Передай загальне питання непрямою мовою.",
+            "groups": [
+                "Oksana asked",
+                "the teacher",
+                "whether the table",
+                "was ready."
+            ],
+            "answer": "whether",
+            "options": [
+                "whether",
+                "that",
+                "what"
+            ],
+            "answer_synonyms": [
+                "if"
+            ]
+        },
+        {
+            "id": "A2-c01",
+            "level": "A2",
+            "kind": "compose",
+            "question": "Марк сказав нам не шуміти.",
+            "target": "Mark told us not to make noise.",
+            "uk": "Марк сказав нам не шуміти.",
+            "hint_uk": "Передай негативну вказівку через додаток та інфінітив, збережи адресатів.",
+            "groups": [
+                "Mark",
+                "told us",
+                "not to make",
+                "noise."
+            ],
+            "compose_slots": [
+                "Mark",
+                "told us",
+                "not to make",
+                "noise."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "past_reporting_object",
+                "negative_infinitive_prefix",
+                "bare_noun_phrase"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "B1-g01",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Lina told Viktor that she {a1} him the next day.",
+            "target": "Lina told Viktor that she would call him the next day.",
+            "uk": "Початкове: «У понеділок Ліна сказала Вікторові: „Я подзвоню тобі завтра“; переповідаємо в середу».",
+            "hint_uk": "Початкове: «У понеділок Ліна сказала Вікторові: „Я подзвоню тобі завтра“; переповідаємо в середу». Збережи адресата й відносний майбутній час її слів.",
+            "groups": [
+                "Lina told Viktor",
+                "that she",
+                "would call him",
+                "the next day."
+            ],
+            "answer": "would call",
+            "options": [
+                "would call",
+                "will call",
+                "had called"
+            ],
+            "answer_synonyms": [
+                "would phone",
+                "would telephone"
+            ]
+        },
+        {
+            "id": "B1-g02",
+            "level": "B1",
+            "kind": "gap",
+            "question": "Oleh asked Inna where she {a1} her paints.",
+            "target": "Oleh asked Inna where she kept her paints.",
+            "uk": "Початкове: «Олег спитав Інну: „Де ти зберігаєш фарби?“; ті фарби тепер уже використані».",
+            "hint_uk": "Початкове: «Олег спитав Інну: „Де ти зберігаєш фарби?“; ті фарби тепер уже використані». Збережи питальне слово й передай минулий стан без прямого порядку питання.",
+            "groups": [
+                "Oleh asked Inna",
+                "where she",
+                "kept her paints."
+            ],
+            "answer": "kept",
+            "options": [
+                "kept",
+                "will keep",
+                "keeps"
+            ],
+            "answer_synonyms": [
+                "stored"
+            ]
+        },
+        {
+            "id": "B1-c01",
+            "level": "B1",
+            "kind": "compose",
+            "question": "Марта сказала, що закінчила ескіз.",
+            "target": "Marta said that she had finished the sketch.",
+            "uk": "Марта сказала, що закінчила ескіз.",
+            "hint_uk": "Перекажи її слова й виразно познач завершення ескізу до минулого повідомлення.",
+            "groups": [
+                "Marta",
+                "said that",
+                "she",
+                "had finished",
+                "the sketch."
+            ],
+            "compose_slots": [
+                "Marta",
+                "said that",
+                "she",
+                "had finished",
+                "the sketch."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "past_reporting_phrase",
+                "subject_singular",
+                "past_perfect_predicate",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Marta said that she had completed the sketch.",
+                "Marta said she had finished the sketch.",
+                "Marta said she had completed the sketch."
+            ],
+            "display_synonyms": {
+                "said that": [
+                    "said"
+                ],
+                "had finished": [
+                    "had completed"
+                ]
+            }
+        },
+        {
+            "id": "B2-g01",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The engineer said that they {a1} it for two days.",
+            "target": "The engineer said that they had been investigating it for two days.",
+            "uk": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше».",
+            "hint_uk": "Початкове: «Інженер від імені своєї команди сказав: „Ми досліджуємо це два дні“; зовнішній спостерігач звітує пізніше». Передай тривалість дослідження до минулого повідомлення.",
+            "groups": [
+                "The engineer said",
+                "that they",
+                "had been investigating",
+                "it",
+                "for two days."
+            ],
+            "answer": "had been investigating",
+            "options": [
+                "had been investigating",
+                "have been investigating",
+                "had investigating"
+            ],
+            "answer_synonyms": [
+                "had been studying"
+            ]
+        },
+        {
+            "id": "B2-g02",
+            "level": "B2",
+            "kind": "gap",
+            "question": "The teacher advised Ira {a1} the edge.",
+            "target": "The teacher advised Ira to check the edge.",
+            "uk": "Початкове: «Учитель порадив Ірі: „Тобі варто перевірити край“».",
+            "hint_uk": "Початкове: «Учитель порадив Ірі: „Тобі варто перевірити край“». Передай саме пораду через інфінітив, збережи одержувачку.",
+            "groups": [
+                "The teacher",
+                "advised Ira",
+                "to check",
+                "the edge."
+            ],
+            "answer": "to check",
+            "options": [
+                "to check",
+                "check",
+                "checking"
+            ],
+            "answer_synonyms": [
+                "to inspect",
+                "to examine"
+            ]
+        },
+        {
+            "id": "B2-c01",
+            "level": "B2",
+            "kind": "compose",
+            "question": "Скільки коштує цей токарний верстат?",
+            "target": "How much does this lathe cost?",
+            "uk": "Скільки коштує цей токарний верстат?",
+            "hint_uk": "Запитай лише про ціну; після питальної групи потрібні допоміжне дієслово й підмет.",
+            "groups": [
+                "How much",
+                "does",
+                "this lathe",
+                "cost?"
+            ],
+            "compose_slots": [
+                "How much",
+                "does",
+                "this lathe",
+                "cost?"
+            ],
+            "slot_roles": [
+                "question_phrase",
+                "auxiliary_phrase",
+                "noun_phrase",
+                "base_verb"
+            ],
+            "accepted_targets": [],
+            "display_synonyms": {}
+        },
+        {
+            "id": "C1-g01",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The researcher said that the data {a1} distorted.",
+            "target": "The researcher said that the data might have been distorted.",
+            "uk": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне».",
+            "hint_uk": "Початкове: «Дослідниця сказала: „Ці дані, можливо, було спотворено“; припущення досі чинне». Передай припущення про попереднє спотворення, не перетворюючи його на факт.",
+            "groups": [
+                "The researcher said",
+                "that the data",
+                "might have been",
+                "distorted."
+            ],
+            "answer": "might have been",
+            "options": [
+                "might have been",
+                "might be",
+                "might have"
+            ],
+            "answer_synonyms": [
+                "may have been"
+            ]
+        },
+        {
+            "id": "C1-g02",
+            "level": "C1",
+            "kind": "gap",
+            "question": "The restorer warned the apprentices {a1} the solvent before testing it.",
+            "target": "The restorer warned the apprentices not to use the solvent before testing it.",
+            "uk": "Початкове: «Реставратор застеріг учнів: „Не використовуйте розчинник до перевірки“».",
+            "hint_uk": "Початкове: «Реставратор застеріг учнів: „Не використовуйте розчинник до перевірки“». Передай застереження інфінітивом; ідеться про перевірку самого розчинника.",
+            "groups": [
+                "The restorer",
+                "warned the apprentices",
+                "not to use",
+                "the solvent",
+                "before testing it."
+            ],
+            "answer": "not to use",
+            "options": [
+                "not to use",
+                "to not using",
+                "do not use"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C1-c01",
+            "level": "C1",
+            "kind": "compose",
+            "question": "Наш ментор запропонував, щоб ми порівняли обидві версії.",
+            "target": "Our mentor suggested that we compare both versions.",
+            "uk": "Наш ментор запропонував, щоб ми порівняли обидві версії.",
+            "hint_uk": "Передай пропозицію для нашої спільної групи, не перетворюючи її на факт виконання.",
+            "groups": [
+                "Our mentor",
+                "suggested that",
+                "we compare",
+                "both versions."
+            ],
+            "compose_slots": [
+                "Our mentor",
+                "suggested that",
+                "we compare",
+                "both versions."
+            ],
+            "slot_roles": [
+                "noun_phrase",
+                "proposal_phrase",
+                "plural_transitive_clause",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Our mentor suggested that we should compare both versions.",
+                "Our mentor suggested we compare both versions.",
+                "Our mentor suggested we should compare both versions.",
+                "Our mentor proposed that we compare both versions.",
+                "Our mentor proposed that we should compare both versions.",
+                "Our mentor proposed we compare both versions.",
+                "Our mentor proposed we should compare both versions."
+            ],
+            "display_synonyms": {
+                "suggested that": [
+                    "suggested",
+                    "proposed that",
+                    "proposed"
+                ],
+                "we compare": [
+                    "we should compare"
+                ]
+            }
+        },
+        {
+            "id": "C2-g01",
+            "level": "C2",
+            "kind": "gap",
+            "question": "The archivist denied ever {a1} the seal.",
+            "target": "The archivist denied ever having broken the seal.",
+            "uk": "Початкове: «У відповідь на звинувачення архівіст сказав: „Я ніколи не ламав пломбу“».",
+            "hint_uk": "Початкове: «У відповідь на звинувачення архівіст сказав: „Я ніколи не ламав пломбу“». Передай заперечення звинувачення, не додаючи другого граматичного заперечення.",
+            "groups": [
+                "The archivist",
+                "denied ever",
+                "having broken",
+                "the seal."
+            ],
+            "answer": "having broken",
+            "options": [
+                "having broken",
+                "to break",
+                "have broken"
+            ],
+            "answer_synonyms": [
+                "breaking"
+            ]
+        },
+        {
+            "id": "C2-g02",
+            "level": "C2",
+            "kind": "gap",
+            "question": "She insisted that the omission {a1} inadvertent.",
+            "target": "She insisted that the omission had been inadvertent.",
+            "uk": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“».",
+            "hint_uk": "Початкове: «Вона наполягла: „Пропуск був ненавмисним“». Перекажи наполягання; складеною минулою формою виразно познач попередність стану щодо її слів.",
+            "groups": [
+                "She insisted",
+                "that the omission",
+                "had been inadvertent."
+            ],
+            "answer": "had been",
+            "options": [
+                "had been",
+                "has been",
+                "is"
+            ],
+            "answer_synonyms": []
+        },
+        {
+            "id": "C2-c01",
+            "level": "C2",
+            "kind": "compose",
+            "question": "Павло сказав слідчому, що вийшов би, якби почув сигнал.",
+            "target": "Pavlo told the investigator that he would have left if he had heard the signal.",
+            "uk": "Павло сказав слідчому, що вийшов би, якби почув сигнал.",
+            "hint_uk": "Передай нездійснену минулу умову непрямою мовою, зберігши обох учасників.",
+            "groups": [
+                "Pavlo",
+                "told the investigator",
+                "that he",
+                "would have left",
+                "if he",
+                "had heard",
+                "the signal."
+            ],
+            "compose_slots": [
+                "Pavlo",
+                "told the investigator",
+                "that he",
+                "would have left",
+                "if he",
+                "had heard",
+                "the signal."
+            ],
+            "slot_roles": [
+                "proper_noun",
+                "reporting_indirect_object",
+                "subordinator_subject_phrase",
+                "modal_perfect_predicate",
+                "conditional_subject_phrase",
+                "past_perfect_predicate",
+                "noun_phrase"
+            ],
+            "accepted_targets": [
+                "Pavlo told the investigator that he would have departed if he had heard the signal.",
+                "Pavlo told the investigator he would have left if he had heard the signal.",
+                "Pavlo told the investigator he would have departed if he had heard the signal."
+            ],
+            "display_synonyms": {
+                "that he": [
+                    "he"
+                ],
+                "would have left": [
+                    "would have departed"
+                ]
+            }
+        }
+    ]
+}

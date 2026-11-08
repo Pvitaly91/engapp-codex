@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "owner": "Database\\Seeders\\Page_V3\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsIndirectQuestionsTheorySeeder",
+  "level": "B1",
+  "purpose": "Minimal distinct practical-request supplement: three cases beyond the two suitable existing if/whether candidates. Original banks and shared case/formatting engine stay unchanged.",
+  "questions": [
+    {
+      "source_uid": "m79-ind-b1-01",
+      "question_uk": "Попроси працівника сказати: «Можете сказати, коли зачиняється музей?»",
+      "context_uk": "Ти зараз плануєш відвідини й хочеш дізнатися звичайний час закриття. Рамка звернення вже подана в банку; не замінюй її іншою.",
+      "criterion_uk": "Збережи подане модальне дієслово, прохальну рамку й теперішній розклад. Потрібний час закриття, не місце музею.",
+      "translation_uk": "Можете сказати, коли зачиняється музей?",
+      "ambiguity_note_uk": "Ціль — подане менш пряме прохання сказати інформацію, не довільна інша ввічлива фраза. Минула форма закрився не відповідає теперішньому розкладу.",
+      "canonical_en": "Could you tell me when the museum closes?",
+      "tokens_correct": ["Could you", "tell me when", "the museum", "closes?"],
+      "tokens_shuffled": ["the museum", "closes?", "tell me when", "Could you"],
+      "distractors": ["does the museum", "closed?", "Can you"],
+      "learning_requirements": ["specified Could request", "current schedule", "information wh retained", "inner subject-verb order", "grouped lowercase wh", "exact settled visible sentence"],
+      "editorial_note": "Can you may form another grammatical request; it is not the fixed Could frame required here. Actual read-only case inspection found shared What time would display an uppercase internal What, so the draft was explicitly revised to the equally natural when model with a three-word tell me when group. The given schedule context still requests closing time, not the museum's location. Original shared option rows are untouched."
+    },
+    {
+      "source_uid": "m79-ind-b1-02",
+      "question_uk": "Дай інформацію у відповідь на запит про квиткову касу: «Квиткова каса біля входу».",
+      "context_uk": "Відвідувач просить сказати, де квиткова каса. Ти знаєш, що вона біля входу. Потрібно одразу назвати місце, а не лише підтвердити, що ти можеш говорити.",
+      "criterion_uk": "Склади повне стверджувальне речення про місце каси. Не змінюй його на прохання або буквальне так, можу.",
+      "translation_uk": "Квиткова каса біля входу.",
+      "ambiguity_note_uk": "Це відповідь, яка виконує інформаційний запит, а не перевірка ввічливої інтонації. Використай подане словосполучення для квиткової каси.",
+      "canonical_en": "The ticket office is beside the entrance.",
+      "tokens_correct": ["The ticket office", "is", "beside", "the entrance."],
+      "tokens_shuffled": ["the entrance.", "beside", "The ticket office", "is"],
+      "distractors": ["Yes, I can.", "behind", "was"],
+      "learning_requirements": ["relevant informative response", "statement not request", "current known location", "no literal-ability-only reply", "exact settled visible sentence"],
+      "editorial_note": "Yes, I can is not labelled ungrammatical; it simply fails the visible requirement to give the known location. Beside is the specified location and must not be changed to behind."
+    },
+    {
+      "source_uid": "m79-ind-b1-03",
+      "question_uk": "Зараз запитай м’яко: «Хотів би дізнатися, чи можна мені оплатити карткою».",
+      "context_uk": "Ти стоїш біля каси й запитуєш про теперішню можливість оплати. Це не переказ учорашнього запитання. Використай подану минулу за формою рамку та поданий сполучник.",
+      "criterion_uk": "Збережи теперішній запит про власну оплату; минула рамка не переносить усю ситуацію в минуле. Використай наведені слова, не підмінюй їх іншою рамкою.",
+      "translation_uk": "Хотів би дізнатися, чи можна мені оплатити карткою.",
+      "ambiguity_note_uk": "Мовець питає про свою можливість платити карткою зараз. Інші правильні способи ввічливо спитати існують, але цей конструктор тренує подану рамку й сполучник.",
+      "canonical_en": "I was wondering whether I can pay by card.",
+      "tokens_correct": ["I was wondering", "whether I", "can pay", "by card."],
+      "tokens_shuffled": ["by card.", "can pay", "I was wondering", "whether I"],
+      "distractors": ["whether you", "did pay", "in cash."],
+      "learning_requirements": ["current polite-past frame", "speaker I preserved", "whether clause", "present possibility explicitly requested", "payment method retained", "exact settled visible sentence"],
+      "editorial_note": "The did pay distractor would change a current question about payment possibility into a report about a completed payment. Could pay was considered but not used as a distractor because it can also express a current polite request. Whole I was wondering is exactly three words. Whether I is two and preserves uppercase pronoun I without a global token-label change."
+    }
+  ],
+  "review": {
+    "status": "Author-reviewed source draft, not SQL/live or formatter PASS. Main must compile using existing scoped supplement, inspect global labels and test complete visible answers before freeze.",
+    "new_questions": 3,
+    "type": 4,
+    "existing_bank_rows_changed": 0,
+    "coverage": ["fixed current Could request for schedule", "informative reply rather than literal yes", "present soft was-wondering request with same speaker"],
+    "copying": "All examples authored for M79, no publisher exercises copied.",
+    "source_ledger": [
+      {"url": "https://dictionary.cambridge.org/pl/grammar/british-grammar/politeness_2", "access": "Official indexed editorial English body read, not direct fetch.", "use": "Past-shaped frames can soften current requests; not obligatory historical meaning."},
+      {"url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives", "access": "Direct fetch timeout twice; official indexed editorial body read.", "use": "Request frames and shared embedded word order, without copying exercises."}
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+{
+    "question": {
+        "id": 66218,
+        "uuid": "rsq-commands-c2-g01",
+        "question": "The adjudicator enjoined the panel {a1} prejudicial assumptions.",
+        "difficulty": 5,
+        "level": "C2",
+        "category_id": 62,
+        "source_id": 530,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ReportedSpeech\\UkrainianMixedReportedSpeechCommandsRequestsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "to disregard",
+                "disregarding",
+                "to disregarded"
+            ]
+        },
+        "theory_text_block_uuid": "a859497f-77ca-5869-8c7b-65809ee580fe",
+        "created_at": "2026-11-01T20:04:49.000000Z",
+        "updated_at": "2026-11-01T20:04:49.000000Z"
+    },
+    "category": {
+        "id": 62,
+        "name": "Reported Speech",
+        "created_at": "2026-05-22T18:57:00.000000Z",
+        "updated_at": "2026-05-22T18:57:00.000000Z"
+    },
+    "source": {
+        "id": 530,
+        "name": "Reported Speech Quality: Reported Commands and Requests",
+        "created_at": "2026-11-01T20:04:47.000000Z",
+        "updated_at": "2026-11-01T20:04:47.000000Z"
+    },
+    "tags": [],
+    "options": [
+        {
+            "option": {
+                "id": 37991,
+                "option": "disregarding",
+                "created_at": "2026-07-19T23:06:38.000000Z",
+                "updated_at": "2026-07-19T23:06:38.000000Z"
+            },
+            "pivot": {
+                "question_id": 66218,
+                "option_id": 37991,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68403,
+                "option": "to disregard",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 66218,
+                "option_id": 68403,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 68405,
+                "option": "to disregarded",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "pivot": {
+                "question_id": 66218,
+                "option_id": 68405,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 340995,
+                "question_id": 66218,
+                "marker": "a1",
+                "option_id": 68403,
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "option": {
+                "id": 68403,
+                "option": "to disregard",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 58329,
+                "question_id": 66218,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 68404,
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            },
+            "option": {
+                "id": 68404,
+                "option": "Відкинути; формальне дієслово наказу керує адресатом та інфінітивом.",
+                "created_at": "2026-11-01T20:04:49.000000Z",
+                "updated_at": "2026-11-01T20:04:49.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58233,
+            "question_id": 66218,
+            "text": "The adjudicator enjoined the panel {a1} prejudicial assumptions.",
+            "created_at": "2026-11-01T20:04:49.000000Z",
+            "updated_at": "2026-11-01T20:04:49.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

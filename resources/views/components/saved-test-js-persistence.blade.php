@@ -28,6 +28,16 @@
         $mode,
         $stateEndpoint,
     ]));
+    $stateNamespace = \App\Support\FinitePracticeQualityCatalogs::stateNamespace(
+        is_array($test->filters ?? null) ? $test->filters : [], app()->getLocale(), (string) ($test->uuid ?? '')
+    );
+    $storageKeys = array_values(array_unique([$storageKey, $legacyStorageKey]));
+    if ($stateNamespace !== null) {
+        $storageKey .= ':'.$stateNamespace;
+        // The existing persistence helper deletes listed legacy keys after a
+        // write. Do not expose old bank/locale keys to that cleanup path.
+        $storageKeys = [$storageKey];
+    }
 @endphp
 <script>
 window.JS_TEST_PERSISTENCE = {
@@ -36,7 +46,7 @@ window.JS_TEST_PERSISTENCE = {
     token: '{{ csrf_token() }}',
     questionsEndpoint: @json($questionsEndpoint),
     storageKey: @json($storageKey),
-    storageKeys: @json(array_values(array_unique([$storageKey, $legacyStorageKey]))),
+    storageKeys: @json($storageKeys),
     saved: @json($savedState),
 };
 </script>

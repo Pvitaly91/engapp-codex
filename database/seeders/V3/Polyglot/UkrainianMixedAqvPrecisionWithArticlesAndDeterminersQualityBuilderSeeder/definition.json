@@ -1,0 +1,1450 @@
+{
+    "schema_version": 1,
+    "quality_revision": "aqv-v1",
+    "compiled_from": {
+        "path": "docs/content/articles-quantifiers-quality/precision-with-articles-and-determiners.v1.json",
+        "sha256": "d9c86102513c1c6bfebef4931c3694c8cedc936e7b6b31c613fa548c1a0ee1c5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedAqvPrecisionWithArticlesAndDeterminersQualityBuilderSeeder",
+        "uuid_namespace": "articles-quantifiers-quality-precision-with-articles-and-determiners-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "articles_quantifiers_quality_precision_with_articles_and_determiners": {
+            "name": "Articles and Quantifiers Quality: Precision with Articles and Determiners"
+        }
+    },
+    "tags": {
+        "pad_topic": {
+            "name": "precision with articles and determiners",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "precision_articles": {
+            "name": "precision with articles",
+            "category": "articles-and-quantifiers"
+        },
+        "definite_reference": {
+            "name": "definite reference",
+            "category": "articles-and-quantifiers"
+        },
+        "first_second_mention": {
+            "name": "first and second mention",
+            "category": "articles-and-quantifiers"
+        },
+        "unique_reference": {
+            "name": "unique reference",
+            "category": "articles-and-quantifiers"
+        },
+        "zero_article_general": {
+            "name": "zero article for general meaning",
+            "category": "articles-and-quantifiers"
+        },
+        "possessives_vs_articles": {
+            "name": "possessives vs articles",
+            "category": "articles-and-quantifiers"
+        },
+        "demonstrative_determiners": {
+            "name": "demonstrative determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "quantifier_determiners": {
+            "name": "quantifier determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "each_every_all": {
+            "name": "each every and all",
+            "category": "articles-and-quantifiers"
+        },
+        "many_much": {
+            "name": "many and much",
+            "category": "articles-and-quantifiers"
+        },
+        "few_little": {
+            "name": "few and little",
+            "category": "articles-and-quantifiers"
+        },
+        "several_enough": {
+            "name": "several and enough",
+            "category": "articles-and-quantifiers"
+        },
+        "abstract_nouns": {
+            "name": "determiners with abstract nouns",
+            "category": "articles-and-quantifiers"
+        },
+        "reference_tracking": {
+            "name": "reference tracking across sentences",
+            "category": "articles-and-quantifiers"
+        },
+        "formal_precision": {
+            "name": "precision in formal writing",
+            "category": "articles-and-quantifiers"
+        },
+        "vague_determiners": {
+            "name": "avoiding vague determiners",
+            "category": "articles-and-quantifiers"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "articles-and-quantifiers"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "pad_topic"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "aqv-pad-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Обидві чашки стоять на полиці.",
+            "level": "A1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Обидві чашки стоять на полиці.",
+            "target_text": "Both cups are on the shelf.",
+            "markers": {
+                "a1": {
+                    "answer": "Both",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "Both",
+                        "Either",
+                        "Neither",
+                        "All"
+                    ]
+                },
+                "a2": {
+                    "answer": "cups",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "cups",
+                        "plates",
+                        "bowls",
+                        "glasses"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "on",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "on",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a6": {
+                    "answer": "shelf.",
+                    "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+                    "options": [
+                        "shelf",
+                        "bench",
+                        "counter",
+                        "sink"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з двох чашок разом і збережи теперішнє місце на полиці.",
+            "accepted_target_texts": [
+                "Both cups are on the shelf."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Both cups",
+                "are",
+                "on the shelf."
+            ],
+            "token_groups": [
+                "Both cups",
+                "are",
+                "on the shelf."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "Both",
+                "cups",
+                "are",
+                "on",
+                "the",
+                "shelf."
+            ],
+            "options": [
+                "Both",
+                "Either",
+                "Neither",
+                "All",
+                "cups",
+                "plates",
+                "bowls",
+                "glasses",
+                "are",
+                "was",
+                "were",
+                "be",
+                "on",
+                "under",
+                "through",
+                "across",
+                "the",
+                "a",
+                "an",
+                "some",
+                "shelf",
+                "bench",
+                "counter",
+                "sink"
+            ],
+            "source_text_uk": "Обидві чашки стоять на полиці.",
+            "options_by_marker": {
+                "a1": [
+                    "Both",
+                    "Either",
+                    "Neither",
+                    "All"
+                ],
+                "a2": [
+                    "cups",
+                    "plates",
+                    "bowls",
+                    "glasses"
+                ],
+                "a3": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "on",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a5": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a6": [
+                    "shelf",
+                    "bench",
+                    "counter",
+                    "sink"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_subject",
+                "a2": "aone_subject",
+                "a3": "aone_verb",
+                "a4": "aone_object",
+                "a5": "aone_object",
+                "a6": "aone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "aqv-pad-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Це наші сумки, а не їхні.",
+            "level": "A2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Це наші сумки, а не їхні.",
+            "target_text": "These are our bags, not theirs.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "These",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "are",
+                        "weren't",
+                        "am",
+                        "is"
+                    ]
+                },
+                "a3": {
+                    "answer": "our",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "our",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a4": {
+                    "answer": "bags,",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "bags",
+                        "boxes",
+                        "coats",
+                        "books"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a6": {
+                    "answer": "theirs.",
+                    "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+                    "options": [
+                        "theirs",
+                        "my",
+                        "your",
+                        "his"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з близьких предметів; збережи протиставлення наших сумок і належності іншим людям.",
+            "accepted_target_texts": [
+                "These are our bags, not theirs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These are",
+                "our bags,",
+                "not theirs."
+            ],
+            "token_groups": [
+                "These are",
+                "our bags,",
+                "not theirs."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "These",
+                "are",
+                "our",
+                "bags,",
+                "not",
+                "theirs."
+            ],
+            "options": [
+                "These",
+                "Each",
+                "Every",
+                "No",
+                "are",
+                "weren't",
+                "am",
+                "is",
+                "our",
+                "mine",
+                "yours",
+                "hers",
+                "bags",
+                "boxes",
+                "coats",
+                "books",
+                "not",
+                "still",
+                "just",
+                "also",
+                "theirs",
+                "my",
+                "your",
+                "his"
+            ],
+            "source_text_uk": "Це наші сумки, а не їхні.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "are",
+                    "weren't",
+                    "am",
+                    "is"
+                ],
+                "a3": [
+                    "our",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a4": [
+                    "bags",
+                    "boxes",
+                    "coats",
+                    "books"
+                ],
+                "a5": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a6": [
+                    "theirs",
+                    "my",
+                    "your",
+                    "his"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_subject",
+                "a2": "atwo_subject",
+                "a3": "atwo_verb",
+                "a4": "atwo_verb",
+                "a5": "atwo_object",
+                "a6": "atwo_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "aqv-pad-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Усі фрукти в цій мисці стиглі.",
+            "level": "B1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Усі фрукти в цій мисці стиглі.",
+            "target_text": "All the fruit in this bowl is ripe.",
+            "markers": {
+                "a1": {
+                    "answer": "All",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "All",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "the",
+                        "a",
+                        "an",
+                        "some"
+                    ]
+                },
+                "a3": {
+                    "answer": "fruit",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "fruit",
+                        "milk",
+                        "bread",
+                        "cheese"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "in",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a5": {
+                    "answer": "this",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "this",
+                        "neither",
+                        "both",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "bowl",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "bowl",
+                        "basket",
+                        "bag",
+                        "tray"
+                    ]
+                },
+                "a7": {
+                    "answer": "is",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a8": {
+                    "answer": "ripe.",
+                    "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+                    "options": [
+                        "ripe",
+                        "local",
+                        "fresh",
+                        "dog"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з усіх конкретних фруктів як сукупності; збережи миску та стиглість. Для посудини приймаються два близькі слова.",
+            "accepted_target_texts": [
+                "All the fruit in this bowl is ripe.",
+                "All the fruit in this dish is ripe."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "dish"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "dish"
+                ]
+            },
+            "reorder_groups": [
+                "All the fruit",
+                "in this bowl",
+                "is ripe."
+            ],
+            "token_groups": [
+                "All the fruit",
+                "in this bowl",
+                "is ripe."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "All",
+                "the",
+                "fruit",
+                "in",
+                "this",
+                "bowl",
+                "is",
+                "ripe."
+            ],
+            "options": [
+                "All",
+                "That",
+                "These",
+                "Those",
+                "the",
+                "a",
+                "an",
+                "some",
+                "fruit",
+                "milk",
+                "bread",
+                "cheese",
+                "in",
+                "by",
+                "with",
+                "without",
+                "this",
+                "neither",
+                "both",
+                "any",
+                "bowl",
+                "basket",
+                "bag",
+                "tray",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "ripe",
+                "local",
+                "fresh",
+                "dog"
+            ],
+            "source_text_uk": "Усі фрукти в цій мисці стиглі.",
+            "options_by_marker": {
+                "a1": [
+                    "All",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "the",
+                    "a",
+                    "an",
+                    "some"
+                ],
+                "a3": [
+                    "fruit",
+                    "milk",
+                    "bread",
+                    "cheese"
+                ],
+                "a4": [
+                    "in",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a5": [
+                    "this",
+                    "neither",
+                    "both",
+                    "any"
+                ],
+                "a6": [
+                    "bowl",
+                    "basket",
+                    "bag",
+                    "tray"
+                ],
+                "a7": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a8": [
+                    "ripe",
+                    "local",
+                    "fresh",
+                    "dog"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_subject",
+                "a2": "bone_subject",
+                "a3": "bone_subject",
+                "a4": "bone_verb",
+                "a5": "bone_verb",
+                "a6": "bone_verb",
+                "a7": "bone_object",
+                "a8": "bone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "aqv-pad-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Кожен зі свідків подав іншу версію.",
+            "level": "B2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Кожен зі свідків подав іншу версію.",
+            "target_text": "Each of the witnesses gave a different account.",
+            "markers": {
+                "a1": {
+                    "answer": "Each",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "Each",
+                        "No",
+                        "Another",
+                        "Either"
+                    ]
+                },
+                "a2": {
+                    "answer": "of",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "of",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a3": {
+                    "answer": "the",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "the",
+                        "any",
+                        "this",
+                        "that"
+                    ]
+                },
+                "a4": {
+                    "answer": "witnesses",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "witnesses",
+                        "residents",
+                        "delegates",
+                        "visitors"
+                    ]
+                },
+                "a5": {
+                    "answer": "gave",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "gave",
+                        "wrote",
+                        "rode",
+                        "drove"
+                    ]
+                },
+                "a6": {
+                    "answer": "a",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "a",
+                        "some",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a7": {
+                    "answer": "different",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "different",
+                        "identical",
+                        "difficult",
+                        "bright"
+                    ]
+                },
+                "a8": {
+                    "answer": "account.",
+                    "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+                    "options": [
+                        "account",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з кожного свідка окремо, збережи минулий час і відмінність версій; останній іменник має два природні відповідники.",
+            "accepted_target_texts": [
+                "Each of the witnesses gave a different account.",
+                "Each of the witnesses gave a different version."
+            ],
+            "answer_synonyms": {
+                "a8": [
+                    "version."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a8": [
+                    "version."
+                ]
+            },
+            "reorder_groups": [
+                "Each of",
+                "the witnesses",
+                "gave",
+                "a different account."
+            ],
+            "token_groups": [
+                "Each of",
+                "the witnesses",
+                "gave",
+                "a different account."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "Each",
+                "of",
+                "the",
+                "witnesses",
+                "gave",
+                "a",
+                "different",
+                "account."
+            ],
+            "options": [
+                "Each",
+                "No",
+                "Another",
+                "Either",
+                "of",
+                "at",
+                "by",
+                "with",
+                "the",
+                "any",
+                "this",
+                "that",
+                "witnesses",
+                "residents",
+                "delegates",
+                "visitors",
+                "gave",
+                "wrote",
+                "rode",
+                "drove",
+                "a",
+                "some",
+                "these",
+                "those",
+                "different",
+                "identical",
+                "difficult",
+                "bright",
+                "account",
+                "music",
+                "food",
+                "bike"
+            ],
+            "source_text_uk": "Кожен зі свідків подав іншу версію.",
+            "options_by_marker": {
+                "a1": [
+                    "Each",
+                    "No",
+                    "Another",
+                    "Either"
+                ],
+                "a2": [
+                    "of",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a3": [
+                    "the",
+                    "any",
+                    "this",
+                    "that"
+                ],
+                "a4": [
+                    "witnesses",
+                    "residents",
+                    "delegates",
+                    "visitors"
+                ],
+                "a5": [
+                    "gave",
+                    "wrote",
+                    "rode",
+                    "drove"
+                ],
+                "a6": [
+                    "a",
+                    "some",
+                    "these",
+                    "those"
+                ],
+                "a7": [
+                    "different",
+                    "identical",
+                    "difficult",
+                    "bright"
+                ],
+                "a8": [
+                    "account",
+                    "music",
+                    "food",
+                    "bike"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_subject",
+                "a2": "btwo_subject",
+                "a3": "btwo_verb",
+                "a4": "btwo_verb",
+                "a5": "btwo_object",
+                "a6": "btwo_context",
+                "a7": "btwo_context",
+                "a8": "btwo_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "aqv-pad-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Кожного другого претендента попросили надати рекомендацію.",
+            "level": "C1",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Кожного другого претендента попросили надати рекомендацію.",
+            "target_text": "Every other applicant was asked to provide a reference.",
+            "markers": {
+                "a1": {
+                    "answer": "Every",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "Every",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "other",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "other",
+                        "first",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a3": {
+                    "answer": "applicant",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "applicant",
+                        "car",
+                        "bag",
+                        "book"
+                    ]
+                },
+                "a4": {
+                    "answer": "was",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "was",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a5": {
+                    "answer": "asked",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "asked",
+                        "allowed",
+                        "sent",
+                        "done"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "to",
+                        "of",
+                        "in",
+                        "on"
+                    ]
+                },
+                "a7": {
+                    "answer": "provide",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "provide",
+                        "verify",
+                        "obtain",
+                        "discuss"
+                    ]
+                },
+                "a8": {
+                    "answer": "a",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "some"
+                    ]
+                },
+                "a9": {
+                    "answer": "reference.",
+                    "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+                    "options": [
+                        "reference",
+                        "photograph",
+                        "transcript",
+                        "portfolio"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з кожного другого претендента, а не всіх інших; збережи минуле прохання й рекомендацію. Надання рекомендації можна передати двома природними дієсловами.",
+            "accepted_target_texts": [
+                "Every other applicant was asked to provide a reference.",
+                "Every other applicant was asked to submit a reference."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "submit"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "submit"
+                ]
+            },
+            "reorder_groups": [
+                "Every other applicant",
+                "was asked",
+                "to provide",
+                "a reference."
+            ],
+            "token_groups": [
+                "Every other applicant",
+                "was asked",
+                "to provide",
+                "a reference."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "Every",
+                "other",
+                "applicant",
+                "was",
+                "asked",
+                "to",
+                "provide",
+                "a",
+                "reference."
+            ],
+            "options": [
+                "Every",
+                "That",
+                "These",
+                "Those",
+                "other",
+                "first",
+                "map",
+                "letter",
+                "applicant",
+                "car",
+                "bag",
+                "book",
+                "was",
+                "be",
+                "been",
+                "being",
+                "asked",
+                "allowed",
+                "sent",
+                "done",
+                "to",
+                "of",
+                "in",
+                "on",
+                "provide",
+                "verify",
+                "obtain",
+                "discuss",
+                "a",
+                "an",
+                "the",
+                "some",
+                "reference",
+                "photograph",
+                "transcript",
+                "portfolio"
+            ],
+            "source_text_uk": "Кожного другого претендента попросили надати рекомендацію.",
+            "options_by_marker": {
+                "a1": [
+                    "Every",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "other",
+                    "first",
+                    "map",
+                    "letter"
+                ],
+                "a3": [
+                    "applicant",
+                    "car",
+                    "bag",
+                    "book"
+                ],
+                "a4": [
+                    "was",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a5": [
+                    "asked",
+                    "allowed",
+                    "sent",
+                    "done"
+                ],
+                "a6": [
+                    "to",
+                    "of",
+                    "in",
+                    "on"
+                ],
+                "a7": [
+                    "provide",
+                    "verify",
+                    "obtain",
+                    "discuss"
+                ],
+                "a8": [
+                    "a",
+                    "an",
+                    "the",
+                    "some"
+                ],
+                "a9": [
+                    "reference",
+                    "photograph",
+                    "transcript",
+                    "portfolio"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_subject",
+                "a2": "cone_subject",
+                "a3": "cone_subject",
+                "a4": "cone_verb",
+                "a5": "cone_verb",
+                "a6": "cone_object",
+                "a7": "cone_object",
+                "a8": "cone_context",
+                "a9": "cone_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "aqv-pad-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Пропозиція не стосується ні першої, ні другої з двох названих груп.",
+            "level": "C2",
+            "type": 4,
+            "source": "articles_quantifiers_quality_precision_with_articles_and_determiners",
+            "translation_uk": "Пропозиція не стосується ні першої, ні другої з двох названих груп.",
+            "target_text": "The proposal concerns neither the former nor the latter group.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "The",
+                        "That",
+                        "These",
+                        "Those"
+                    ]
+                },
+                "a2": {
+                    "answer": "proposal",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "proposal",
+                        "restriction",
+                        "concession",
+                        "exemption"
+                    ]
+                },
+                "a3": {
+                    "answer": "concerns",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "concerns",
+                        "people",
+                        "men",
+                        "women"
+                    ]
+                },
+                "a4": {
+                    "answer": "neither",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "neither",
+                        "each",
+                        "every",
+                        "no"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "the",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a6": {
+                    "answer": "former",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "former",
+                        "person",
+                        "water",
+                        "bread"
+                    ]
+                },
+                "a7": {
+                    "answer": "nor",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "nor",
+                        "whereas",
+                        "while",
+                        "if"
+                    ]
+                },
+                "a8": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "the",
+                        "either",
+                        "all",
+                        "both"
+                    ]
+                },
+                "a9": {
+                    "answer": "latter",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "latter",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a10": {
+                    "answer": "group.",
+                    "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+                    "options": [
+                        "group",
+                        "committee",
+                        "class",
+                        "population"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретної пропозиції; збережи повне заперечення щодо обох раніше названих груп. Стосуватися можна передати двома дієслівними моделями.",
+            "accepted_target_texts": [
+                "The proposal concerns neither the former nor the latter group.",
+                "The proposal relates to neither the former nor the latter group."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal",
+                "concerns",
+                "neither the former",
+                "nor the latter",
+                "group."
+            ],
+            "token_groups": [
+                "The proposal",
+                "concerns",
+                "neither the former",
+                "nor the latter",
+                "group."
+            ],
+            "quality_revision": "aqv-v1",
+            "tokens_correct": [
+                "The",
+                "proposal",
+                "concerns",
+                "neither",
+                "the",
+                "former",
+                "nor",
+                "the",
+                "latter",
+                "group."
+            ],
+            "options": [
+                "The",
+                "That",
+                "These",
+                "Those",
+                "proposal",
+                "restriction",
+                "concession",
+                "exemption",
+                "concerns",
+                "people",
+                "men",
+                "women",
+                "neither",
+                "each",
+                "every",
+                "no",
+                "the",
+                "some",
+                "any",
+                "this",
+                "former",
+                "person",
+                "water",
+                "bread",
+                "nor",
+                "whereas",
+                "while",
+                "if",
+                "either",
+                "all",
+                "both",
+                "latter",
+                "milk",
+                "music",
+                "food",
+                "group",
+                "committee",
+                "class",
+                "population"
+            ],
+            "source_text_uk": "Пропозиція не стосується ні першої, ні другої з двох названих груп.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "a2": [
+                    "proposal",
+                    "restriction",
+                    "concession",
+                    "exemption"
+                ],
+                "a3": [
+                    "concerns",
+                    "people",
+                    "men",
+                    "women"
+                ],
+                "a4": [
+                    "neither",
+                    "each",
+                    "every",
+                    "no"
+                ],
+                "a5": [
+                    "the",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a6": [
+                    "former",
+                    "person",
+                    "water",
+                    "bread"
+                ],
+                "a7": [
+                    "nor",
+                    "whereas",
+                    "while",
+                    "if"
+                ],
+                "a8": [
+                    "the",
+                    "either",
+                    "all",
+                    "both"
+                ],
+                "a9": [
+                    "latter",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a10": [
+                    "group",
+                    "committee",
+                    "class",
+                    "population"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_subject",
+                "a2": "ctwo_subject",
+                "a3": "ctwo_verb",
+                "a4": "ctwo_object",
+                "a5": "ctwo_object",
+                "a6": "ctwo_object",
+                "a7": "ctwo_context",
+                "a8": "ctwo_context",
+                "a9": "ctwo_context",
+                "a10": "ctwo_ending"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

@@ -1,0 +1,1718 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/agent.v1.json",
+        "sha256": "554c53198dfc4e1c0e0f80b5b723821db6eecc1238f96e3c92391aab2adab231"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoiceByPhraseQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-agent-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_agent": {
+            "name": "Passive Voice Quality: Виконавець, причина та інструмент у пасиві"
+        }
+    },
+    "tags": {
+        "passive_voice_by_phrase": {
+            "name": "Passive Voice By Phrase",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "include_by_phrase": {
+            "name": "Include By Phrase",
+            "category": "topic"
+        },
+        "omit_by_phrase": {
+            "name": "Omit By Phrase",
+            "category": "topic"
+        },
+        "agent_relevance": {
+            "name": "Agent Relevance",
+            "category": "topic"
+        },
+        "agent_types": {
+            "name": "Agent Types",
+            "category": "topic"
+        },
+        "instrument_vs_agent": {
+            "name": "Instrument Vs Agent",
+            "category": "topic"
+        },
+        "by_overuse": {
+            "name": "By Overuse",
+            "category": "topic"
+        },
+        "active_passive_agent": {
+            "name": "Active Passive Agent",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-agent-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The soup was made {a1} my dad.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Суп приготував мій тато.",
+            "target_text": "The soup was made by my dad.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Приготував мій тато; потрібно назвати виконавця."
+                }
+            },
+            "verb_hint": "Приготував мій тато; потрібно назвати виконавця.",
+            "accepted_target_texts": [
+                "The soup was made by my dad."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The soup",
+                "was made",
+                "by",
+                "my dad."
+            ],
+            "token_groups": [
+                "The soup",
+                "was made",
+                "by",
+                "my dad."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-agent-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The line was drawn {a1} a pencil.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Лінію намалювали олівцем.",
+            "target_text": "The line was drawn with a pencil.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Намалювали олівцем; потрібно назвати інструмент."
+                }
+            },
+            "verb_hint": "Намалювали олівцем; потрібно назвати інструмент.",
+            "accepted_target_texts": [
+                "The line was drawn with a pencil."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The line",
+                "was drawn",
+                "with",
+                "a pencil."
+            ],
+            "token_groups": [
+                "The line",
+                "was drawn",
+                "with",
+                "a pencil."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-agent-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The door was opened {a1} a girl.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Двері відчинила дівчинка.",
+            "target_text": "The door was opened by a girl.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Відчинила дівчинка; називаємо виконавицю."
+                }
+            },
+            "verb_hint": "Відчинила дівчинка; називаємо виконавицю.",
+            "accepted_target_texts": [
+                "The door was opened by a girl."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The door",
+                "was opened",
+                "by",
+                "a girl."
+            ],
+            "token_groups": [
+                "The door",
+                "was opened",
+                "by",
+                "a girl."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-agent-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The bread was cut {a1} a knife.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Хліб порізали ножем.",
+            "target_text": "The bread was cut with a knife.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "at"
+                    ],
+                    "verb_hint": "Порізали ножем; називаємо інструмент."
+                }
+            },
+            "verb_hint": "Порізали ножем; називаємо інструмент.",
+            "accepted_target_texts": [
+                "The bread was cut with a knife."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bread",
+                "was cut",
+                "with",
+                "a knife."
+            ],
+            "token_groups": [
+                "The bread",
+                "was cut",
+                "with",
+                "a knife."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-agent-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The song was sung {a1} our class.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Пісню заспівав наш клас.",
+            "target_text": "The song was sung by our class.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "on"
+                    ],
+                    "verb_hint": "Заспівав наш клас; називаємо виконавця."
+                }
+            },
+            "verb_hint": "Заспівав наш клас; називаємо виконавця.",
+            "accepted_target_texts": [
+                "The song was sung by our class."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The song",
+                "was sung",
+                "by",
+                "our class."
+            ],
+            "token_groups": [
+                "The song",
+                "was sung",
+                "by",
+                "our class."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-agent-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The box was tied {a1} a red string.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Коробку перев’язали червоною мотузкою.",
+            "target_text": "The box was tied with a red string.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Перев’язали червоною мотузкою; називаємо засіб."
+                }
+            },
+            "verb_hint": "Перев’язали червоною мотузкою; називаємо засіб.",
+            "accepted_target_texts": [
+                "The box was tied with a red string."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The box",
+                "was tied",
+                "with",
+                "a red",
+                "string."
+            ],
+            "token_groups": [
+                "The box",
+                "was tied",
+                "with",
+                "a red",
+                "string."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-agent-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The cake was decorated {a1} my cousin.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Торт прикрашав мій двоюрідний брат.",
+            "target_text": "The cake was decorated by my cousin.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Прикрашав мій двоюрідний брат."
+                }
+            },
+            "verb_hint": "Прикрашав мій двоюрідний брат.",
+            "accepted_target_texts": [
+                "The cake was decorated by my cousin."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cake",
+                "was decorated",
+                "by",
+                "my cousin."
+            ],
+            "token_groups": [
+                "The cake",
+                "was decorated",
+                "by",
+                "my cousin."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-agent-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The wall was covered {a1} white paint.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Стіну покрили білою фарбою.",
+            "target_text": "The wall was covered with white paint.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "for"
+                    ],
+                    "verb_hint": "Покрили білою фарбою; називаємо матеріал."
+                }
+            },
+            "verb_hint": "Покрили білою фарбою; називаємо матеріал.",
+            "accepted_target_texts": [
+                "The wall was covered with white paint."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The wall",
+                "was covered",
+                "with",
+                "white paint."
+            ],
+            "token_groups": [
+                "The wall",
+                "was covered",
+                "with",
+                "white paint."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-agent-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The window was broken {a1} a falling branch.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Вікно розбила гілка, що падала.",
+            "target_text": "The window was broken by a falling branch.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Розбила гілка, що падала; називаємо причину."
+                }
+            },
+            "verb_hint": "Розбила гілка, що падала; називаємо причину.",
+            "accepted_target_texts": [
+                "The window was broken by a falling branch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The window",
+                "was broken",
+                "by",
+                "a falling",
+                "branch."
+            ],
+            "token_groups": [
+                "The window",
+                "was broken",
+                "by",
+                "a falling",
+                "branch."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-agent-a2-g04",
+            "author_id": "A2-g04",
+            "question": "The hole was dug {a1} a small spade.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Яму викопали маленькою лопатою.",
+            "target_text": "The hole was dug with a small spade.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "on"
+                    ],
+                    "verb_hint": "Викопали маленькою лопатою; називаємо інструмент."
+                }
+            },
+            "verb_hint": "Викопали маленькою лопатою; називаємо інструмент.",
+            "accepted_target_texts": [
+                "The hole was dug with a small spade."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hole",
+                "was dug",
+                "with",
+                "a small",
+                "spade."
+            ],
+            "token_groups": [
+                "The hole",
+                "was dug",
+                "with",
+                "a small",
+                "spade."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-agent-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The book was translated {a1} a local poet.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Книгу переклав місцевий поет.",
+            "target_text": "The book was translated by a local poet.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Переклав місцевий поет."
+                }
+            },
+            "verb_hint": "Переклав місцевий поет.",
+            "accepted_target_texts": [
+                "The book was translated by a local poet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The book",
+                "was translated",
+                "by",
+                "a local",
+                "poet."
+            ],
+            "token_groups": [
+                "The book",
+                "was translated",
+                "by",
+                "a local",
+                "poet."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-agent-a2-g06",
+            "author_id": "A2-g06",
+            "question": "The labels were attached {a1} glue.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Етикетки прикріпили клеєм.",
+            "target_text": "The labels were attached with glue.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Прикріпили клеєм; називаємо засіб."
+                }
+            },
+            "verb_hint": "Прикріпили клеєм; називаємо засіб.",
+            "accepted_target_texts": [
+                "The labels were attached with glue."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The labels",
+                "were attached",
+                "with",
+                "glue."
+            ],
+            "token_groups": [
+                "The labels",
+                "were attached",
+                "with",
+                "glue."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-agent-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The equipment was inspected {a1} a qualified engineer.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Обладнання перевірив кваліфікований інженер.",
+            "target_text": "The equipment was inspected by a qualified engineer.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Перевірив кваліфікований інженер."
+                }
+            },
+            "verb_hint": "Перевірив кваліфікований інженер.",
+            "accepted_target_texts": [
+                "The equipment was inspected by a qualified engineer."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The equipment",
+                "was inspected",
+                "by",
+                "a qualified",
+                "engineer."
+            ],
+            "token_groups": [
+                "The equipment",
+                "was inspected",
+                "by",
+                "a qualified",
+                "engineer."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-agent-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The package was sealed {a1} waterproof tape.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Посилку заклеїли водостійкою стрічкою.",
+            "target_text": "The package was sealed with waterproof tape.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Заклеїли водостійкою стрічкою; називаємо матеріал."
+                }
+            },
+            "verb_hint": "Заклеїли водостійкою стрічкою; називаємо матеріал.",
+            "accepted_target_texts": [
+                "The package was sealed with waterproof tape."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The package",
+                "was sealed",
+                "with",
+                "waterproof tape."
+            ],
+            "token_groups": [
+                "The package",
+                "was sealed",
+                "with",
+                "waterproof tape."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-agent-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The cyclist was struck {a1} a reversing van.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Велосипедиста збив фургон, що їхав заднім ходом.",
+            "target_text": "The cyclist was struck by a reversing van.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Збив фургон, що їхав заднім ходом."
+                }
+            },
+            "verb_hint": "Збив фургон, що їхав заднім ходом.",
+            "accepted_target_texts": [
+                "The cyclist was struck by a reversing van."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cyclist",
+                "was struck",
+                "by",
+                "a reversing",
+                "van."
+            ],
+            "token_groups": [
+                "The cyclist",
+                "was struck",
+                "by",
+                "a reversing",
+                "van."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-agent-b1-g04",
+            "author_id": "B1-g04",
+            "question": "The signature was copied {a1} a special pen.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Підпис скопіювали спеціальною ручкою.",
+            "target_text": "The signature was copied with a special pen.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "on"
+                    ],
+                    "verb_hint": "Скопіювали спеціальною ручкою."
+                }
+            },
+            "verb_hint": "Скопіювали спеціальною ручкою.",
+            "accepted_target_texts": [
+                "The signature was copied with a special pen."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The signature",
+                "was copied",
+                "with",
+                "a special",
+                "pen."
+            ],
+            "token_groups": [
+                "The signature",
+                "was copied",
+                "with",
+                "a special",
+                "pen."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-agent-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The prisoners were released {a1} the commander.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Полонених звільнив командир.",
+            "target_text": "The prisoners were released by the commander.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "under"
+                    ],
+                    "verb_hint": "Звільнив командир; називаємо виконавця."
+                }
+            },
+            "verb_hint": "Звільнив командир; називаємо виконавця.",
+            "accepted_target_texts": [
+                "The prisoners were released by the commander."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The prisoners",
+                "were released",
+                "by",
+                "the commander."
+            ],
+            "token_groups": [
+                "The prisoners",
+                "were released",
+                "by",
+                "the commander."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-agent-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The surface was polished {a1} a soft brush.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Поверхню відполірували м’якою щіткою.",
+            "target_text": "The surface was polished with a soft brush.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "at"
+                    ],
+                    "verb_hint": "Відполірували м’якою щіткою."
+                }
+            },
+            "verb_hint": "Відполірували м’якою щіткою.",
+            "accepted_target_texts": [
+                "The surface was polished with a soft brush."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The surface",
+                "was polished",
+                "with",
+                "a soft",
+                "brush."
+            ],
+            "token_groups": [
+                "The surface",
+                "was polished",
+                "with",
+                "a soft",
+                "brush."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-agent-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The documentary was directed {a1} an independent filmmaker.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Документальний фільм зняв незалежний режисер.",
+            "target_text": "The documentary was directed by an independent filmmaker.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "from"
+                    ],
+                    "verb_hint": "Зняв незалежний режисер."
+                }
+            },
+            "verb_hint": "Зняв незалежний режисер.",
+            "accepted_target_texts": [
+                "The documentary was directed by an independent filmmaker."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The documentary",
+                "was directed",
+                "by",
+                "an independent",
+                "filmmaker."
+            ],
+            "token_groups": [
+                "The documentary",
+                "was directed",
+                "by",
+                "an independent",
+                "filmmaker."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-agent-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The fracture was identified {a1} a portable scanner.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Тріщину виявили, використовуючи портативний сканер.",
+            "target_text": "The fracture was identified using a portable scanner.",
+            "markers": {
+                "a1": {
+                    "answer": "using",
+                    "options": [
+                        "using",
+                        "despite",
+                        "without"
+                    ],
+                    "verb_hint": "Виявили, використовуючи портативний сканер; потрібне слово зі значенням використання."
+                }
+            },
+            "verb_hint": "Виявили, використовуючи портативний сканер; потрібне слово зі значенням використання.",
+            "accepted_target_texts": [
+                "The fracture was identified using a portable scanner.",
+                "The fracture was identified with a portable scanner.",
+                "The fracture was identified by a portable scanner."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "reorder_groups": [
+                "The fracture",
+                "was identified",
+                "using",
+                "a portable",
+                "scanner."
+            ],
+            "token_groups": [
+                "The fracture",
+                "was identified",
+                "using",
+                "a portable",
+                "scanner."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-agent-b2-g03",
+            "author_id": "B2-g03",
+            "question": "The discrepancy was noticed {a1} an external auditor.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Розбіжність помітив зовнішній аудитор.",
+            "target_text": "The discrepancy was noticed by an external auditor.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "on"
+                    ],
+                    "verb_hint": "Помітив зовнішній аудитор."
+                }
+            },
+            "verb_hint": "Помітив зовнішній аудитор.",
+            "accepted_target_texts": [
+                "The discrepancy was noticed by an external auditor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "was noticed",
+                "by",
+                "an external",
+                "auditor."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "was noticed",
+                "by",
+                "an external",
+                "auditor."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-agent-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The samples were handled {a1} sterile forceps.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Зразки брали стерильним пінцетом.",
+            "target_text": "The samples were handled with sterile forceps.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Брали стерильним пінцетом."
+                }
+            },
+            "verb_hint": "Брали стерильним пінцетом.",
+            "accepted_target_texts": [
+                "The samples were handled with sterile forceps."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The samples",
+                "were handled",
+                "with",
+                "sterile forceps."
+            ],
+            "token_groups": [
+                "The samples",
+                "were handled",
+                "with",
+                "sterile forceps."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-agent-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The village was devastated {a1} a landslide.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Село спустошив зсув.",
+            "target_text": "The village was devastated by a landslide.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Спустошив зсув; називаємо причину."
+                }
+            },
+            "verb_hint": "Спустошив зсув; називаємо причину.",
+            "accepted_target_texts": [
+                "The village was devastated by a landslide."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The village",
+                "was devastated",
+                "by",
+                "a landslide."
+            ],
+            "token_groups": [
+                "The village",
+                "was devastated",
+                "by",
+                "a landslide."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-agent-b2-g06",
+            "author_id": "B2-g06",
+            "question": "The archive was digitised {a1} a specialist team.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Архів оцифрувала спеціалізована команда.",
+            "target_text": "The archive was digitised by a specialist team.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Оцифрувала спеціалізована команда."
+                }
+            },
+            "verb_hint": "Оцифрувала спеціалізована команда.",
+            "accepted_target_texts": [
+                "The archive was digitised by a specialist team."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The archive",
+                "was digitised",
+                "by",
+                "a specialist",
+                "team."
+            ],
+            "token_groups": [
+                "The archive",
+                "was digitised",
+                "by",
+                "a specialist",
+                "team."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-agent-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The account was corroborated {a1} several independent witnesses.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Розповідь підтвердили кілька незалежних свідків.",
+            "target_text": "The account was corroborated by several independent witnesses.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Підтвердили кілька незалежних свідків."
+                }
+            },
+            "verb_hint": "Підтвердили кілька незалежних свідків.",
+            "accepted_target_texts": [
+                "The account was corroborated by several independent witnesses."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The account",
+                "was corroborated",
+                "by",
+                "several independent",
+                "witnesses."
+            ],
+            "token_groups": [
+                "The account",
+                "was corroborated",
+                "by",
+                "several independent",
+                "witnesses."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-agent-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The inscriptions were revealed {a1} multispectral imaging.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Написи виявили, використовуючи багатоспектральне зображення.",
+            "target_text": "The inscriptions were revealed using multispectral imaging.",
+            "markers": {
+                "a1": {
+                    "answer": "using",
+                    "options": [
+                        "using",
+                        "despite",
+                        "without"
+                    ],
+                    "verb_hint": "Виявили, використовуючи багатоспектральне зображення."
+                }
+            },
+            "verb_hint": "Виявили, використовуючи багатоспектральне зображення.",
+            "accepted_target_texts": [
+                "The inscriptions were revealed using multispectral imaging.",
+                "The inscriptions were revealed with multispectral imaging.",
+                "The inscriptions were revealed by multispectral imaging."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "reorder_groups": [
+                "The inscriptions",
+                "were revealed",
+                "using",
+                "multispectral imaging."
+            ],
+            "token_groups": [
+                "The inscriptions",
+                "were revealed",
+                "using",
+                "multispectral imaging."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-agent-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The presumption was rebutted {a1} documentary evidence.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Презумпцію спростували документальні докази.",
+            "target_text": "The presumption was rebutted by documentary evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "on"
+                    ],
+                    "verb_hint": "Спростували документальні докази; докази виступають джерелом спростування."
+                }
+            },
+            "verb_hint": "Спростували документальні докази; докази виступають джерелом спростування.",
+            "accepted_target_texts": [
+                "The presumption was rebutted by documentary evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The presumption",
+                "was rebutted",
+                "by",
+                "documentary evidence."
+            ],
+            "token_groups": [
+                "The presumption",
+                "was rebutted",
+                "by",
+                "documentary evidence."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-agent-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The tissue was dissected {a1} a microtome blade.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Тканину розрізали лезом мікротома.",
+            "target_text": "The tissue was dissected with a microtome blade.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Розрізали лезом мікротома; називаємо інструмент."
+                }
+            },
+            "verb_hint": "Розрізали лезом мікротома; називаємо інструмент.",
+            "accepted_target_texts": [
+                "The tissue was dissected with a microtome blade."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The tissue",
+                "was dissected",
+                "with",
+                "a microtome",
+                "blade."
+            ],
+            "token_groups": [
+                "The tissue",
+                "was dissected",
+                "with",
+                "a microtome",
+                "blade."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-agent-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The negotiations were facilitated {a1} an impartial mediator.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Переговорам сприяв неупереджений посередник.",
+            "target_text": "The negotiations were facilitated by an impartial mediator.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Сприяв неупереджений посередник."
+                }
+            },
+            "verb_hint": "Сприяв неупереджений посередник.",
+            "accepted_target_texts": [
+                "The negotiations were facilitated by an impartial mediator."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The negotiations",
+                "were facilitated",
+                "by",
+                "an impartial",
+                "mediator."
+            ],
+            "token_groups": [
+                "The negotiations",
+                "were facilitated",
+                "by",
+                "an impartial",
+                "mediator."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-agent-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The fresco was damaged {a1} prolonged exposure to moisture.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Фреску пошкодив тривалий вплив вологи.",
+            "target_text": "The fresco was damaged by prolonged exposure to moisture.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Пошкодив тривалий вплив вологи."
+                }
+            },
+            "verb_hint": "Пошкодив тривалий вплив вологи.",
+            "accepted_target_texts": [
+                "The fresco was damaged by prolonged exposure to moisture."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The fresco",
+                "was damaged",
+                "by",
+                "prolonged exposure",
+                "to moisture."
+            ],
+            "token_groups": [
+                "The fresco",
+                "was damaged",
+                "by",
+                "prolonged exposure",
+                "to moisture."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-agent-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The interpretation was propounded {a1} a dissenting jurist.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Тлумачення запропонував юрист з окремою позицією.",
+            "target_text": "The interpretation was propounded by a dissenting jurist.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Запропонував юрист з окремою позицією."
+                }
+            },
+            "verb_hint": "Запропонував юрист з окремою позицією.",
+            "accepted_target_texts": [
+                "The interpretation was propounded by a dissenting jurist."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The interpretation",
+                "was propounded",
+                "by",
+                "a dissenting",
+                "jurist."
+            ],
+            "token_groups": [
+                "The interpretation",
+                "was propounded",
+                "by",
+                "a dissenting",
+                "jurist."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-agent-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The palimpsest was deciphered {a1} hyperspectral reconstruction.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Палімпсест розшифрували, використовуючи гіперспектральну реконструкцію.",
+            "target_text": "The palimpsest was deciphered using hyperspectral reconstruction.",
+            "markers": {
+                "a1": {
+                    "answer": "using",
+                    "options": [
+                        "using",
+                        "despite",
+                        "without"
+                    ],
+                    "verb_hint": "Розшифрували, використовуючи гіперспектральну реконструкцію."
+                }
+            },
+            "verb_hint": "Розшифрували, використовуючи гіперспектральну реконструкцію.",
+            "accepted_target_texts": [
+                "The palimpsest was deciphered using hyperspectral reconstruction.",
+                "The palimpsest was deciphered with hyperspectral reconstruction.",
+                "The palimpsest was deciphered by hyperspectral reconstruction."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "with",
+                    "by"
+                ]
+            },
+            "reorder_groups": [
+                "The palimpsest",
+                "was deciphered",
+                "using",
+                "hyperspectral reconstruction."
+            ],
+            "token_groups": [
+                "The palimpsest",
+                "was deciphered",
+                "using",
+                "hyperspectral reconstruction."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-agent-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The inference was undermined {a1} irreconcilable counterexamples.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Висновок похитнули несумісні з ним контрприклади.",
+            "target_text": "The inference was undermined by irreconcilable counterexamples.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "on"
+                    ],
+                    "verb_hint": "Похитнули несумісні з ним контрприклади."
+                }
+            },
+            "verb_hint": "Похитнули несумісні з ним контрприклади.",
+            "accepted_target_texts": [
+                "The inference was undermined by irreconcilable counterexamples."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inference",
+                "was undermined",
+                "by",
+                "irreconcilable counterexamples."
+            ],
+            "token_groups": [
+                "The inference",
+                "was undermined",
+                "by",
+                "irreconcilable counterexamples."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-agent-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The membrane was perforated {a1} a calibrated probe.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Мембрану прокололи каліброваним зондом.",
+            "target_text": "The membrane was perforated with a calibrated probe.",
+            "markers": {
+                "a1": {
+                    "answer": "with",
+                    "options": [
+                        "with",
+                        "by",
+                        "from"
+                    ],
+                    "verb_hint": "Прокололи каліброваним зондом."
+                }
+            },
+            "verb_hint": "Прокололи каліброваним зондом.",
+            "accepted_target_texts": [
+                "The membrane was perforated with a calibrated probe."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The membrane",
+                "was perforated",
+                "with",
+                "a calibrated",
+                "probe."
+            ],
+            "token_groups": [
+                "The membrane",
+                "was perforated",
+                "with",
+                "a calibrated",
+                "probe."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-agent-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The doctrine was repudiated {a1} the appellate chamber.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Доктрину відкинула апеляційна палата.",
+            "target_text": "The doctrine was repudiated by the appellate chamber.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "at"
+                    ],
+                    "verb_hint": "Відкинула апеляційна палата."
+                }
+            },
+            "verb_hint": "Відкинула апеляційна палата.",
+            "accepted_target_texts": [
+                "The doctrine was repudiated by the appellate chamber."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The doctrine",
+                "was repudiated",
+                "by",
+                "the appellate",
+                "chamber."
+            ],
+            "token_groups": [
+                "The doctrine",
+                "was repudiated",
+                "by",
+                "the appellate",
+                "chamber."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-agent-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The settlement was imperilled {a1} renewed hostilities.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_agent",
+            "translation_uk": "Врегулювання поставило під загрозу поновлення бойових дій.",
+            "target_text": "The settlement was imperilled by renewed hostilities.",
+            "markers": {
+                "a1": {
+                    "answer": "by",
+                    "options": [
+                        "by",
+                        "with",
+                        "in"
+                    ],
+                    "verb_hint": "Поставило під загрозу поновлення бойових дій."
+                }
+            },
+            "verb_hint": "Поставило під загрозу поновлення бойових дій.",
+            "accepted_target_texts": [
+                "The settlement was imperilled by renewed hostilities."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The settlement",
+                "was imperilled",
+                "by",
+                "renewed hostilities."
+            ],
+            "token_groups": [
+                "The settlement",
+                "was imperilled",
+                "by",
+                "renewed hostilities."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

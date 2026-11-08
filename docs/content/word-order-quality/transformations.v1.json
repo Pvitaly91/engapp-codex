@@ -1,0 +1,1072 @@
+{
+    "schema_version": 1,
+    "topic_key": "transformations",
+    "title": "Перетворення речень: порядок слів і наголос",
+    "level_notes": {
+        "A1": "Підготовка: простий порядок слів, заперечення й прямі питання.",
+        "A2": "Часові обставини, прислівники й прості допоміжні конструкції.",
+        "B1": "Вкладені питання та зміни структури без інверсії головного питання.",
+        "B2": "Виділення важливого учасника або обставини, початкова інверсія.",
+        "C1": "Формальне виділення, умовна й заперечна інверсія.",
+        "C2": "Інформаційна структура, складна інверсія й риторична паралельність."
+    },
+    "questions": [
+        {
+            "id": "a1-g01",
+            "kind": "gap",
+            "level": "A1",
+            "question": "This room {a1}.",
+            "answer": "is very bright",
+            "options": [
+                "is very bright",
+                "very is bright",
+                "is bright very"
+            ],
+            "hint_uk": "Після підмета постав зв’язку, а слово «дуже» — перед ознакою кімнати.",
+            "target": "This room is very bright.",
+            "uk": "Ця кімната дуже світла.",
+            "groups": [
+                "This room",
+                "is very bright."
+            ]
+        },
+        {
+            "id": "a1-g02",
+            "kind": "gap",
+            "level": "A1",
+            "question": "{a1} the blue folder?",
+            "answer": "Do you want",
+            "options": [
+                "Do you want",
+                "You do want",
+                "Do want you"
+            ],
+            "hint_uk": "Почни загальне питання з допоміжного дієслова, потім постав «ти» та дію «хотіти».",
+            "target": "Do you want the blue folder?",
+            "uk": "Ти хочеш синю папку?",
+            "groups": [
+                "Do you want",
+                "the blue folder?"
+            ]
+        },
+        {
+            "id": "a1-g03",
+            "kind": "gap",
+            "level": "A1",
+            "question": "These keys {a1}.",
+            "answer": "are not mine",
+            "options": [
+                "are not mine",
+                "not are mine",
+                "are mine not"
+            ],
+            "hint_uk": "Заперечну частку постав після дієслова «бути», перед словом «мої».",
+            "target": "These keys are not mine.",
+            "uk": "Ці ключі не мої.",
+            "groups": [
+                "These keys",
+                "are not mine."
+            ]
+        },
+        {
+            "id": "a1-g04",
+            "kind": "gap",
+            "level": "A1",
+            "question": "She {a1} after dinner.",
+            "answer": "does her homework",
+            "options": [
+                "does her homework",
+                "her homework does",
+                "does homework her"
+            ],
+            "hint_uk": "Постав дію «робить» перед додатком «її домашнє завдання»; час уже наведений.",
+            "target": "She does her homework after dinner.",
+            "uk": "Вона робить домашнє завдання після вечері.",
+            "groups": [
+                "She",
+                "does her homework",
+                "after dinner."
+            ]
+        },
+        {
+            "id": "a1-g05",
+            "kind": "gap",
+            "level": "A1",
+            "question": "The train {a1}.",
+            "answer": "leaves at six",
+            "options": [
+                "leaves at six",
+                "at six leaves",
+                "leaves six at"
+            ],
+            "hint_uk": "Після назви поїзда постав дію «відправляється», потім час із прийменником.",
+            "target": "The train leaves at six.",
+            "uk": "Поїзд відправляється о шостій.",
+            "groups": [
+                "The train",
+                "leaves at six."
+            ]
+        },
+        {
+            "id": "a1-g06",
+            "kind": "gap",
+            "level": "A1",
+            "question": "On Fridays, {a1} bread.",
+            "answer": "we buy fresh",
+            "options": [
+                "we buy fresh",
+                "buy we fresh",
+                "we fresh buy"
+            ],
+            "hint_uk": "Після початкової обставини часу назви «ми», дію «купуємо» та ознаку хліба.",
+            "target": "On Fridays, we buy fresh bread.",
+            "uk": "У п’ятницю ми купуємо свіжий хліб.",
+            "groups": [
+                "On Fridays,",
+                "we buy fresh",
+                "bread."
+            ]
+        },
+        {
+            "id": "a1-c01",
+            "kind": "compose",
+            "level": "A1",
+            "question": "Сьогодні мій дядько вдома.",
+            "target": "Today my uncle is at home.",
+            "hint_uk": "Почни з обставини «сьогодні»; після назви дядька має бути дієслово «бути».",
+            "groups": [
+                "Today",
+                "my uncle",
+                "is at home."
+            ],
+            "accepted_targets": [
+                "Today my uncle is at home."
+            ]
+        },
+        {
+            "id": "a1-c02",
+            "kind": "compose",
+            "level": "A1",
+            "question": "Можна нам сісти біля вікна?",
+            "target": "Can we sit near the window?",
+            "hint_uk": "У питанні про можливість модальне дієслово стоїть перед «ми», а дія — після.",
+            "groups": [
+                "Can we sit",
+                "near the window?"
+            ],
+            "accepted_targets": [
+                "Can we sit near the window?",
+                "May we sit near the window?"
+            ],
+            "display_synonyms": {"Can": ["May"]}
+        },
+        {
+            "id": "a1-c03",
+            "kind": "compose",
+            "level": "A1",
+            "question": "На цій стіні чотири картини.",
+            "target": "There are four pictures on this wall.",
+            "hint_uk": "Використай конструкцію наявності: спочатку назви, що є, а місце постав наприкінці.",
+            "groups": [
+                "There are",
+                "four pictures",
+                "on this wall."
+            ],
+            "accepted_targets": [
+                "There are four pictures on this wall.",
+                "There are four paintings on this wall."
+            ],
+            "display_synonyms": {"pictures": ["paintings"]}
+        },
+        {
+            "id": "a2-g01",
+            "kind": "gap",
+            "level": "A2",
+            "question": "The baker {a1} on Saturdays.",
+            "answer": "gets up early",
+            "options": [
+                "gets up early",
+                "gets early up",
+                "up gets early"
+            ],
+            "hint_uk": "Після підмета збережи дві частини дії «вставати», а потім час «рано».",
+            "target": "The baker gets up early on Saturdays.",
+            "uk": "Пекар рано встає по суботах.",
+            "groups": [
+                "The baker",
+                "gets up early",
+                "on Saturdays."
+            ]
+        },
+        {
+            "id": "a2-g02",
+            "kind": "gap",
+            "level": "A2",
+            "question": "{a1} before noon?",
+            "answer": "Did the visitors arrive",
+            "options": [
+                "Did the visitors arrive",
+                "The visitors did arrive",
+                "Did arrive the visitors"
+            ],
+            "hint_uk": "Запитай про минулу подію: допоміжне дієслово, відвідувачі, початкова форма «прибути».",
+            "target": "Did the visitors arrive before noon?",
+            "uk": "Відвідувачі прибули до полудня?",
+            "groups": [
+                "Did the visitors",
+                "arrive before noon?"
+            ]
+        },
+        {
+            "id": "a2-g03",
+            "kind": "gap",
+            "level": "A2",
+            "question": "Nina {a1} the plates.",
+            "answer": "has just washed",
+            "options": [
+                "has just washed",
+                "just has washed",
+                "has washed just"
+            ],
+            "hint_uk": "«Щойно» постав між допоміжним дієсловом та завершеною дією «помити».",
+            "target": "Nina has just washed the plates.",
+            "uk": "Ніна щойно помила тарілки.",
+            "groups": [
+                "Nina",
+                "has just washed",
+                "the plates."
+            ]
+        },
+        {
+            "id": "a2-g04",
+            "kind": "gap",
+            "level": "A2",
+            "question": "The café {a1} on Mondays.",
+            "answer": "is often closed",
+            "options": [
+                "is often closed",
+                "often is closed",
+                "is closed often"
+            ],
+            "hint_uk": "Частотність «часто» постав після зв’язки й перед станом «зачинене».",
+            "target": "The café is often closed on Mondays.",
+            "uk": "Кафе часто зачинене по понеділках.",
+            "groups": [
+                "The café",
+                "is often closed",
+                "on Mondays."
+            ]
+        },
+        {
+            "id": "a2-g05",
+            "kind": "gap",
+            "level": "A2",
+            "question": "I {a1} blanket.",
+            "answer": "would like another",
+            "options": [
+                "would like another",
+                "like would another",
+                "would another like"
+            ],
+            "hint_uk": "Збережи ввічливу конструкцію «хотів би», а слово «ще одну» постав перед ковдрою.",
+            "target": "I would like another blanket.",
+            "uk": "Я хотів би ще одну ковдру.",
+            "groups": [
+                "I",
+                "would like another",
+                "blanket."
+            ]
+        },
+        {
+            "id": "a2-g06",
+            "kind": "gap",
+            "level": "A2",
+            "question": "When {a1}?",
+            "answer": "are your guests leaving",
+            "options": [
+                "are your guests leaving",
+                "your guests are leaving",
+                "are leaving your guests"
+            ],
+            "hint_uk": "Питальне слово вже є; допоміжну форму постав перед гостями, а тривалу дію — після.",
+            "target": "When are your guests leaving?",
+            "uk": "Коли твої гості їдуть?",
+            "groups": [
+                "When are",
+                "your guests",
+                "leaving?"
+            ]
+        },
+        {
+            "id": "a2-c01",
+            "kind": "compose",
+            "level": "A2",
+            "question": "Ми збираємося пофарбувати паркан наступних вихідних.",
+            "target": "We are going to paint the fence next weekend.",
+            "hint_uk": "Почни з «ми»; після конструкції наміру постав дію й предмет, а час — наприкінці.",
+            "groups": [
+                "We are going",
+                "to paint",
+                "the fence",
+                "next weekend."
+            ],
+            "accepted_targets": [
+                "We are going to paint the fence next weekend."
+            ]
+        },
+        {
+            "id": "a2-c02",
+            "kind": "compose",
+            "level": "A2",
+            "question": "Моя сестра майже ніколи не дивиться мультфільмів.",
+            "target": "My sister hardly ever watches cartoons.",
+            "hint_uk": "Групу частотності «майже ніколи» постав перед звичайною дією.",
+            "groups": [
+                "My sister",
+                "hardly ever",
+                "watches cartoons."
+            ],
+            "accepted_targets": [
+                "My sister hardly ever watches cartoons.",
+                "My sister almost never watches cartoons."
+            ]
+        },
+        {
+            "id": "a2-c03",
+            "kind": "compose",
+            "level": "A2",
+            "question": "Скільки стільців нам потрібно?",
+            "target": "How many chairs do we need?",
+            "hint_uk": "На початку об’єднай питальні слова з назвою предметів; далі утвори звичайне питання.",
+            "groups": [
+                "How many chairs",
+                "do we need?"
+            ],
+            "accepted_targets": [
+                "How many chairs do we need?"
+            ]
+        },
+        {
+            "id": "b1-g01",
+            "kind": "gap",
+            "level": "B1",
+            "question": "Please tell me {a1}.",
+            "answer": "why the printer stopped",
+            "options": [
+                "why the printer stopped",
+                "why did the printer stop",
+                "why stopped the printer"
+            ],
+            "hint_uk": "У залежному питанні після «чому» назви принтер, а потім минулу дію; допоміжного дієслова не додавай.",
+            "target": "Please tell me why the printer stopped.",
+            "uk": "Скажи, будь ласка, чому принтер зупинився.",
+            "groups": [
+                "Please tell me",
+                "why the printer",
+                "stopped."
+            ]
+        },
+        {
+            "id": "b1-g02",
+            "kind": "gap",
+            "level": "B1",
+            "question": "The storm {a1}.",
+            "answer": "made the crossing impossible",
+            "options": [
+                "made the crossing impossible",
+                "made impossible the crossing",
+                "the crossing made impossible"
+            ],
+            "hint_uk": "Після «зробив» постав об’єкт впливу, а потім ознаку «неможливою».",
+            "target": "The storm made the crossing impossible.",
+            "uk": "Шторм зробив переправу неможливою.",
+            "groups": [
+                "The storm",
+                "made the crossing",
+                "impossible."
+            ]
+        },
+        {
+            "id": "b1-g03",
+            "kind": "gap",
+            "level": "B1",
+            "question": "We {a1} since dawn.",
+            "answer": "have been waiting here",
+            "options": [
+                "have been waiting here",
+                "have here been waiting",
+                "here have been waiting"
+            ],
+            "hint_uk": "Спочатку постав усю тривалу дієслівну групу, потім місце «тут».",
+            "target": "We have been waiting here since dawn.",
+            "uk": "Ми чекаємо тут від світанку.",
+            "groups": [
+                "We",
+                "have been waiting",
+                "here since dawn."
+            ]
+        },
+        {
+            "id": "b1-g04",
+            "kind": "gap",
+            "level": "B1",
+            "question": "I {a1}.",
+            "answer": "found her explanation helpful",
+            "options": [
+                "found her explanation helpful",
+                "found helpful her explanation",
+                "her explanation found helpful"
+            ],
+            "hint_uk": "Після «вважав» постав пояснення, яке оцінюєш, а вже потім оцінку «корисним».",
+            "target": "I found her explanation helpful.",
+            "uk": "Я вважав її пояснення корисним.",
+            "groups": [
+                "I",
+                "found her explanation",
+                "helpful."
+            ]
+        },
+        {
+            "id": "b1-g05",
+            "kind": "gap",
+            "level": "B1",
+            "question": "The supervisor {a1}.",
+            "answer": "asked us not to enter",
+            "options": [
+                "asked us not to enter",
+                "asked not us to enter",
+                "asked us not entering"
+            ],
+            "hint_uk": "Після дії назви «нас» і заперечений інфінітив «не заходити». Заперечна частка можлива перед інфінітивною групою або всередині неї.",
+            "target": "The supervisor asked us not to enter.",
+            "uk": "Керівник попросив нас не заходити.",
+            "groups": [
+                "The supervisor",
+                "asked us",
+                "not to enter."
+            ],
+            "answer_synonyms": ["asked us to not enter"],
+            "accepted_targets": ["The supervisor asked us not to enter.", "The supervisor asked us to not enter."]
+        },
+        {
+            "id": "b1-g06",
+            "kind": "gap",
+            "level": "B1",
+            "question": "Which route {a1}?",
+            "answer": "did the cyclists choose",
+            "options": [
+                "did the cyclists choose",
+                "the cyclists did choose",
+                "did choose the cyclists"
+            ],
+            "hint_uk": "Об’єкт уже винесений на початок; далі потрібні допоміжне дієслово, велосипедисти та початкова форма дії.",
+            "target": "Which route did the cyclists choose?",
+            "uk": "Який маршрут обрали велосипедисти?",
+            "groups": [
+                "Which route",
+                "did the cyclists",
+                "choose?"
+            ]
+        },
+        {
+            "id": "b1-c01",
+            "kind": "compose",
+            "level": "B1",
+            "question": "Тренер хоче, щоб усі розминалися надворі.",
+            "target": "The coach wants everyone to warm up outside.",
+            "hint_uk": "Після «хоче» назви виконавців, потім дію з інфінітивним показником, а місце — наприкінці.",
+            "groups": [
+                "The coach",
+                "wants everyone",
+                "to warm up",
+                "outside."
+            ],
+            "accepted_targets": [
+                "The coach wants everyone to warm up outside."
+            ]
+        },
+        {
+            "id": "b1-c02",
+            "kind": "compose",
+            "level": "B1",
+            "question": "Ставало надто темно, щоб читати карту.",
+            "target": "It was getting too dark to read the map.",
+            "hint_uk": "Спочатку передай зміну стану, потім надмірний ступінь темряви й наслідок.",
+            "groups": [
+                "It was getting",
+                "too dark",
+                "to read",
+                "the map."
+            ],
+            "accepted_targets": [
+                "It was getting too dark to read the map."
+            ]
+        },
+        {
+            "id": "b1-c03",
+            "kind": "compose",
+            "level": "B1",
+            "question": "Я не можу пригадати, чий велосипед пошкодили.",
+            "target": "I cannot remember whose bicycle was damaged.",
+            "hint_uk": "Після «чий велосипед» збережи звичайний порядок пасивного присудка; не утворюй прямого питання.",
+            "groups": [
+                "I cannot remember",
+                "whose bicycle",
+                "was damaged."
+            ],
+            "accepted_targets": [
+                "I cannot remember whose bicycle was damaged."
+            ]
+        },
+        {
+            "id": "b2-g01",
+            "kind": "gap",
+            "level": "B2",
+            "question": "It was the night porter {a1}.",
+            "answer": "who noticed the leak",
+            "options": [
+                "who noticed the leak",
+                "who did noticed the leak",
+                "noticed who the leak"
+            ],
+            "hint_uk": "Названа особа виділена на початку; приєднай її дію означальною частиною, не додаючи ще одного підмета.",
+            "target": "It was the night porter who noticed the leak.",
+            "uk": "Саме нічний портьє помітив витік.",
+            "groups": [
+                "It was",
+                "the night porter",
+                "who noticed",
+                "the leak."
+            ]
+        },
+        {
+            "id": "b2-g02",
+            "kind": "gap",
+            "level": "B2",
+            "question": "What the residents need {a1}.",
+            "answer": "is a reliable water supply",
+            "options": [
+                "is a reliable water supply",
+                "a reliable water supply is",
+                "it is a reliable water supply"
+            ],
+            "hint_uk": "Заверши початкову частину про потребу через зв’язку й іменникову групу з відповіддю.",
+            "target": "What the residents need is a reliable water supply.",
+            "uk": "Мешканцям потрібне саме надійне водопостачання.",
+            "groups": [
+                "What the residents",
+                "need is",
+                "a reliable",
+                "water supply."
+            ]
+        },
+        {
+            "id": "b2-g03",
+            "kind": "gap",
+            "level": "B2",
+            "question": "Only when the tide receded {a1}.",
+            "answer": "did the crew approach the wreck",
+            "options": [
+                "did the crew approach the wreck",
+                "the crew did approach the wreck",
+                "approached did the crew the wreck"
+            ],
+            "hint_uk": "Після початкового обмеження постав допоміжне дієслово перед назвою команди, а дію «наблизитися» — у початковій формі.",
+            "target": "Only when the tide receded did the crew approach the wreck.",
+            "uk": "Лише коли вода відступила, команда наблизилася до уламків судна.",
+            "groups": [
+                "Only when",
+                "the tide receded",
+                "did the crew",
+                "approach the wreck."
+            ],
+            "answer_synonyms": ["did the crew get close to the wreck"],
+            "accepted_targets": ["Only when the tide receded did the crew approach the wreck.", "Only when the tide receded did the crew get close to the wreck."]
+        },
+        {
+            "id": "b2-g04",
+            "kind": "gap",
+            "level": "B2",
+            "question": "The curator {a1} the provenance.",
+            "answer": "did insist on checking",
+            "options": [
+                "did insist on checking",
+                "did insisted on checking",
+                "insist did on checking"
+            ],
+            "hint_uk": "Виділи минулу дію допоміжним дієсловом; далі збережи початкову форму й прийменник перед перевіркою.",
+            "target": "The curator did insist on checking the provenance.",
+            "uk": "Куратор таки наполіг на перевірці походження.",
+            "groups": [
+                "The curator",
+                "did insist on",
+                "checking the provenance."
+            ]
+        },
+        {
+            "id": "b2-g05",
+            "kind": "gap",
+            "level": "B2",
+            "question": "It is not the price {a1} concerns us.",
+            "answer": "but the delivery date that",
+            "options": [
+                "but the delivery date that",
+                "but that the delivery date",
+                "that but the delivery date"
+            ],
+            "hint_uk": "У зіставленні після ціни назви альтернативу та введи частину про те, що нас турбує.",
+            "target": "It is not the price but the delivery date that concerns us.",
+            "uk": "Нас турбує не ціна, а саме дата доставки.",
+            "groups": [
+                "It is not",
+                "the price",
+                "but the delivery",
+                "date that",
+                "concerns us."
+            ]
+        },
+        {
+            "id": "b2-g06",
+            "kind": "gap",
+            "level": "B2",
+            "question": "So {a1} the investigators changed their approach.",
+            "answer": "convincing was her account that",
+            "options": [
+                "convincing was her account that",
+                "was convincing her account that",
+                "convincing her account was that"
+            ],
+            "hint_uk": "Після початкового ступеня постав ознаку, зв’язку й підмет; наслідок введи сполучником.",
+            "target": "So convincing was her account that the investigators changed their approach.",
+            "uk": "Її розповідь була такою переконливою, що слідчі змінили підхід.",
+            "groups": [
+                "So convincing",
+                "was her account",
+                "that the investigators",
+                "changed their approach."
+            ]
+        },
+        {
+            "id": "b2-c01",
+            "kind": "compose",
+            "level": "B2",
+            "question": "Людина, з якою нам треба порадитися, — начальник порту.",
+            "target": "The person we need to consult is the harbour master.",
+            "hint_uk": "Спочатку подай групу про потрібного фахівця, а його назву виділи після зв’язки.",
+            "groups": [
+                "The person",
+                "we need",
+                "to consult",
+                "is the",
+                "harbour master."
+            ],
+            "accepted_targets": [
+                "The person we need to consult is the harbour master.",
+                "The person we need to consult is the harbor master."
+            ],
+            "display_synonyms": {"harbour": ["harbor"]}
+        },
+        {
+            "id": "b2-c02",
+            "kind": "compose",
+            "level": "B2",
+            "question": "Ці прилади рідко потребують повторного калібрування.",
+            "target": "Rarely do these instruments require recalibration.",
+            "hint_uk": "Почни зі слова «рідко» та використай інверсію з допоміжним дієсловом перед підметом.",
+            "groups": [
+                "Rarely do",
+                "these instruments",
+                "require recalibration."
+            ],
+            "accepted_targets": [
+                "Rarely do these instruments require recalibration."
+            ]
+        },
+        {
+            "id": "b2-c03",
+            "kind": "compose",
+            "level": "B2",
+            "question": "Причина моєї відмови полягала в тому, що умови постійно змінювалися.",
+            "target": "The reason I declined was that the terms kept changing.",
+            "hint_uk": "Виділи причину через початкову іменникову групу; після зв’язки введи пояснення сполучником.",
+            "groups": [
+                "The reason",
+                "I declined",
+                "was that",
+                "the terms",
+                "kept changing."
+            ],
+            "accepted_targets": [
+                "The reason I declined was that the terms kept changing."
+            ]
+        },
+        {
+            "id": "c1-g01",
+            "kind": "gap",
+            "level": "C1",
+            "question": "Had the team {a1}, it would have halted the trial.",
+            "answer": "been informed of the discrepancy",
+            "options": [
+                "been informed of the discrepancy",
+                "informed been of the discrepancy",
+                "been of the discrepancy informed"
+            ],
+            "hint_uk": "Допоміжне дієслово вже винесене на початок; заверши пасивну дію «поінформувати про розбіжність».",
+            "target": "Had the team been informed of the discrepancy, it would have halted the trial.",
+            "uk": "Якби команду поінформували про розбіжність, вона б зупинила випробування.",
+            "groups": [
+                "Had the team",
+                "been informed of",
+                "the discrepancy,",
+                "it would have",
+                "halted the trial."
+            ]
+        },
+        {
+            "id": "c1-g02",
+            "kind": "gap",
+            "level": "C1",
+            "question": "Not until the archive reopened {a1}.",
+            "answer": "could the claim be verified",
+            "options": [
+                "could the claim be verified",
+                "the claim could be verified",
+                "could be the claim verified"
+            ],
+            "hint_uk": "Після початкового обмеження постав модальну форму перед твердженням, далі пасивну дію перевірки.",
+            "target": "Not until the archive reopened could the claim be verified.",
+            "uk": "Лише коли архів знову відкрився, твердження вдалося перевірити.",
+            "groups": [
+                "Not until",
+                "the archive reopened",
+                "could the claim",
+                "be verified."
+            ]
+        },
+        {
+            "id": "c1-g03",
+            "kind": "gap",
+            "level": "C1",
+            "question": "Such {a1} that the chair called a recess.",
+            "answer": "was the intensity of the debate",
+            "options": [
+                "was the intensity of the debate",
+                "the intensity of the debate was",
+                "was of the debate the intensity"
+            ],
+            "hint_uk": "Початкове підсилення вже є; постав зв’язку перед групою про інтенсивність дебатів.",
+            "target": "Such was the intensity of the debate that the chair called a recess.",
+            "uk": "Дебати були такими напруженими, що голова оголосив перерву.",
+            "groups": [
+                "Such was",
+                "the intensity of",
+                "the debate",
+                "that the chair",
+                "called a recess."
+            ]
+        },
+        {
+            "id": "c1-g04",
+            "kind": "gap",
+            "level": "C1",
+            "question": "Under no circumstances {a1}.",
+            "answer": "should the original seal be removed",
+            "options": [
+                "should the original seal be removed",
+                "the original seal should be removed",
+                "should be removed the original seal"
+            ],
+            "hint_uk": "Після заперечного обмеження постав модальне дієслово перед підметом, а потім пасивний присудок.",
+            "target": "Under no circumstances should the original seal be removed.",
+            "uk": "За жодних обставин не слід знімати оригінальну пломбу.",
+            "groups": [
+                "Under no circumstances",
+                "should the original",
+                "seal be removed."
+            ]
+        },
+        {
+            "id": "c1-g05",
+            "kind": "gap",
+            "level": "C1",
+            "question": "What lends the argument credibility {a1}.",
+            "answer": "is the independence of its sources",
+            "options": [
+                "is the independence of its sources",
+                "the independence of its sources is",
+                "it is the independence of its sources"
+            ],
+            "hint_uk": "Заверши частину про джерело переконливості зв’язкою та іменниковою групою.",
+            "target": "What lends the argument credibility is the independence of its sources.",
+            "uk": "Переконливості аргументу надає саме незалежність його джерел.",
+            "groups": [
+                "What lends",
+                "the argument credibility",
+                "is the independence",
+                "of its sources."
+            ]
+        },
+        {
+            "id": "c1-g06",
+            "kind": "gap",
+            "level": "C1",
+            "question": "The concession {a1} concerns the inspection schedule.",
+            "answer": "I am least willing to make",
+            "options": [
+                "I am least willing to make",
+                "am I least willing to make",
+                "I least am willing to make"
+            ],
+            "hint_uk": "У відносній частині спочатку назви «я» і ступінь готовності; дію поступки залиш наприкінці цієї частини.",
+            "target": "The concession I am least willing to make concerns the inspection schedule.",
+            "uk": "Поступка, на яку я найменше готовий піти, стосується графіка перевірок.",
+            "groups": [
+                "The concession",
+                "I am least",
+                "willing to make",
+                "concerns the inspection",
+                "schedule."
+            ]
+        },
+        {
+            "id": "c1-c01",
+            "kind": "compose",
+            "level": "C1",
+            "question": "Представник жодного разу не визнав суперечності.",
+            "target": "At no point did the spokesperson acknowledge the contradiction.",
+            "hint_uk": "Почни із заперечної обставини; після допоміжної форми назви представника та дію визнання.",
+            "groups": [
+                "At no point",
+                "did the spokesperson",
+                "acknowledge the contradiction."
+            ],
+            "accepted_targets": [
+                "At no point did the spokesperson acknowledge the contradiction.",
+                "At no point did the representative acknowledge the contradiction."
+            ],
+            "display_synonyms": {"spokesperson": ["representative"]}
+        },
+        {
+            "id": "c1-c02",
+            "kind": "compose",
+            "level": "C1",
+            "question": "Хоч ці застереження й важливі, вони не роблять результат недійсним.",
+            "target": "Important as these reservations are, they do not invalidate the result.",
+            "hint_uk": "У допустовій частині почни з оцінки; у головній збережи звичайний порядок заперечного присудка.",
+            "groups": [
+                "Important as",
+                "these reservations are,",
+                "they do not",
+                "invalidate the result."
+            ],
+            "accepted_targets": [
+                "Important as these reservations are, they do not invalidate the result."
+            ]
+        },
+        {
+            "id": "c1-c03",
+            "kind": "compose",
+            "level": "C1",
+            "question": "Лише розділивши зразки, можна простежити забруднення.",
+            "target": "Only by separating the samples can the contamination be traced.",
+            "hint_uk": "Винеси обмежений спосіб дії на початок і постав модальну форму перед підметом головної частини.",
+            "groups": [
+                "Only by separating",
+                "the samples",
+                "can the contamination",
+                "be traced."
+            ],
+            "accepted_targets": [
+                "Only by separating the samples can the contamination be traced."
+            ]
+        },
+        {
+            "id": "c2-g01",
+            "kind": "gap",
+            "level": "C2",
+            "question": "Were it not for the independent audit, {a1}.",
+            "answer": "the irregularity might never have surfaced",
+            "options": [
+                "the irregularity might never have surfaced",
+                "might the irregularity never have surfaced",
+                "the irregularity never might have surfaced"
+            ],
+            "hint_uk": "У головній частині почни з порушення; після модального дієслова постав «ніколи» та завершену дію.",
+            "target": "Were it not for the independent audit, the irregularity might never have surfaced.",
+            "uk": "Якби не незалежний аудит, порушення могло б так і не виявитися.",
+            "groups": [
+                "Were it not",
+                "for the independent",
+                "audit,",
+                "the irregularity",
+                "might never have",
+                "surfaced."
+            ]
+        },
+        {
+            "id": "c2-g02",
+            "kind": "gap",
+            "level": "C2",
+            "question": "Scarcely {a1} objections arose from within the coalition.",
+            "answer": "had the amendment been tabled when",
+            "options": [
+                "had the amendment been tabled when",
+                "the amendment had been tabled when",
+                "had been tabled the amendment than"
+            ],
+            "hint_uk": "Після початкового обмежувального прислівника потрібна інверсія завершеної пасивної дії; друга подія вводиться часовим сполучником.",
+            "target": "Scarcely had the amendment been tabled when objections arose from within the coalition.",
+            "uk": "Ледве поправку винесли на розгляд, як заперечення пролунали всередині коаліції.",
+            "groups": [
+                "Scarcely had",
+                "the amendment",
+                "been tabled",
+                "when objections arose",
+                "from within",
+                "the coalition."
+            ]
+        },
+        {
+            "id": "c2-g03",
+            "kind": "gap",
+            "level": "C2",
+            "question": "The more cautiously the figures are interpreted, {a1}.",
+            "answer": "the harder the initial claim is to sustain",
+            "options": [
+                "the harder the initial claim is to sustain",
+                "the initial claim harder is to sustain",
+                "the harder is the initial claim to sustain"
+            ],
+            "hint_uk": "У другій частині почни зі ступеня труднощів, далі назви твердження й віднеси до нього інфінітив.",
+            "target": "The more cautiously the figures are interpreted, the harder the initial claim is to sustain.",
+            "uk": "Що обережніше тлумачать цифри, то важче обстоювати початкове твердження.",
+            "groups": [
+                "The more cautiously",
+                "the figures",
+                "are interpreted,",
+                "the harder",
+                "the initial claim",
+                "is to sustain."
+            ]
+        },
+        {
+            "id": "c2-g04",
+            "kind": "gap",
+            "level": "C2",
+            "question": "Nowhere {a1} in the final paragraph.",
+            "answer": "is the tension more apparent than",
+            "options": [
+                "is the tension more apparent than",
+                "the tension is more apparent than",
+                "is more apparent the tension than"
+            ],
+            "hint_uk": "Після заперечної обставини постав зв’язку перед підметом і збережи порівняльну групу.",
+            "target": "Nowhere is the tension more apparent than in the final paragraph.",
+            "uk": "Ніде напруження не помітне так виразно, як в останньому абзаці.",
+            "groups": [
+                "Nowhere is",
+                "the tension",
+                "more apparent than",
+                "in the final",
+                "paragraph."
+            ]
+        },
+        {
+            "id": "c2-g05",
+            "kind": "gap",
+            "level": "C2",
+            "question": "What the memorandum conspicuously fails to address {a1}.",
+            "answer": "is how liability would be apportioned",
+            "options": [
+                "is how liability would be apportioned",
+                "is how would liability be apportioned",
+                "how liability would be apportioned is"
+            ],
+            "hint_uk": "Після початкової частини постав зв’язку та непряме питання зі звичайним порядком підмета й присудка.",
+            "target": "What the memorandum conspicuously fails to address is how liability would be apportioned.",
+            "uk": "У службовій записці виразно не розглянуто саме те, як розподілятиметься відповідальність.",
+            "groups": [
+                "What the memorandum",
+                "conspicuously fails",
+                "to address",
+                "is how liability",
+                "would be apportioned."
+            ]
+        },
+        {
+            "id": "c2-g06",
+            "kind": "gap",
+            "level": "C2",
+            "question": "To suggest otherwise {a1}.",
+            "answer": "would be to mistake correlation for causation",
+            "options": [
+                "would be to mistake correlation for causation",
+                "to mistake correlation would be for causation",
+                "would to be mistake correlation for causation"
+            ],
+            "hint_uk": "Після початкового інфінітива постав умовну зв’язку й паралельний інфінітив; збережи об’єкти розрізнення.",
+            "target": "To suggest otherwise would be to mistake correlation for causation.",
+            "uk": "Стверджувати протилежне означало б плутати кореляцію з причинністю.",
+            "groups": [
+                "To suggest otherwise",
+                "would be",
+                "to mistake correlation",
+                "for causation."
+            ]
+        },
+        {
+            "id": "c2-c01",
+            "kind": "compose",
+            "level": "C2",
+            "question": "Звичай настільки вкоренився, що незгода була майже немислимою.",
+            "target": "So entrenched had the convention become that dissent was scarcely conceivable.",
+            "hint_uk": "Почни зі ступеня ознаки та використай інверсію завершеної зміни стану; потім приєднай наслідок.",
+            "groups": [
+                "So entrenched",
+                "had the convention",
+                "become that",
+                "dissent was",
+                "scarcely conceivable."
+            ],
+            "accepted_targets": [
+                "So entrenched had the convention become that dissent was scarcely conceivable."
+            ]
+        },
+        {
+            "id": "c2-c02",
+            "kind": "compose",
+            "level": "C2",
+            "question": "Запевнення були не лише безпідставними: саме їх повторення також вводило в оману.",
+            "target": "Not only were the assurances unfounded, but their repetition was itself misleading.",
+            "hint_uk": "Першу частину почни з обмежувальної групи та інверсії; у другій інверсію не повторюй.",
+            "groups": [
+                "Not only were",
+                "the assurances unfounded,",
+                "but their repetition",
+                "was itself misleading."
+            ],
+            "accepted_targets": [
+                "Not only were the assurances unfounded, but their repetition was itself misleading."
+            ]
+        },
+        {
+            "id": "c2-c03",
+            "kind": "compose",
+            "level": "C2",
+            "question": "Ось у цьому свідки могли погодитися; послідовність подій залишалася спірною.",
+            "target": "This much the witnesses could agree on; the sequence of events remained disputed.",
+            "hint_uk": "Винеси обмежений спільний висновок на початок першої частини; другу залиш стверджувальною.",
+            "groups": [
+                "This much",
+                "the witnesses",
+                "could agree on;",
+                "the sequence",
+                "of events",
+                "remained disputed."
+            ],
+            "accepted_targets": [
+                "This much the witnesses could agree on; the sequence of events remained disputed."
+            ]
+        }
+    ]
+}

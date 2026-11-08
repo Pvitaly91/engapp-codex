@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 66553,
+        "uuid": "clq-reason-b1-g02",
+        "question": "The match was delayed {a1} the pitch had frozen overnight.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 57,
+        "source_id": 540,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedReasonBecauseSinceAsQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "because",
+                "owing to",
+                "however"
+            ]
+        },
+        "theory_text_block_uuid": "0e0ebfe4-c58b-546a-877b-c5424ecfe256",
+        "created_at": "2026-11-02T00:58:12.000000Z",
+        "updated_at": "2026-11-02T00:58:12.000000Z"
+    },
+    "category": {
+        "id": 57,
+        "name": "Clauses and Linking Words",
+        "created_at": "2026-05-20T10:26:26.000000Z",
+        "updated_at": "2026-05-20T10:26:26.000000Z"
+    },
+    "source": {
+        "id": 540,
+        "name": "Clauses and Linking Words Quality: Reason: because / since / as",
+        "created_at": "2026-11-02T00:58:12.000000Z",
+        "updated_at": "2026-11-02T00:58:12.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 2408,
+                "name": "Reason: because / since / as",
+                "category": "clauses_and_linking_words",
+                "created_at": "2026-05-20T10:26:41.000000Z",
+                "updated_at": "2026-05-20T10:26:41.000000Z"
+            },
+            "pivot": {
+                "question_id": 66553,
+                "tag_id": 2408,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 2760,
+                "option": "because",
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
+            },
+            "pivot": {
+                "question_id": 66553,
+                "option_id": 2760,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 4983,
+                "option": "however",
+                "created_at": "2026-04-23T14:41:26.000000Z",
+                "updated_at": "2026-04-23T14:41:26.000000Z"
+            },
+            "pivot": {
+                "question_id": 66553,
+                "option_id": 4983,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 22064,
+                "option": "owing to",
+                "created_at": "2026-05-20T10:26:42.000000Z",
+                "updated_at": "2026-05-20T10:26:42.000000Z"
+            },
+            "pivot": {
+                "question_id": 66553,
+                "option_id": 22064,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 341904,
+                "question_id": 66553,
+                "marker": "a1",
+                "option_id": 2760,
+                "created_at": "2026-11-02T00:58:12.000000Z",
+                "updated_at": "2026-11-02T00:58:12.000000Z"
+            },
+            "option": {
+                "id": 2760,
+                "option": "because",
+                "created_at": "2026-04-23T14:18:31.000000Z",
+                "updated_at": "2026-04-23T14:18:31.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 59238,
+                "question_id": 66553,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 69385,
+                "created_at": "2026-11-02T00:58:12.000000Z",
+                "updated_at": "2026-11-02T00:58:12.000000Z"
+            },
+            "option": {
+                "id": 69385,
+                "option": "Бо поле замерзло; перед повною частиною потрібен сполучник причини.",
+                "created_at": "2026-11-02T00:58:12.000000Z",
+                "updated_at": "2026-11-02T00:58:12.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 58568,
+            "question_id": 66553,
+            "text": "The match was delayed {a1} the pitch had frozen overnight.",
+            "created_at": "2026-11-02T00:58:12.000000Z",
+            "updated_at": "2026-11-02T00:58:12.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

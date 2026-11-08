@@ -1,0 +1,1664 @@
+{
+    "schema_version": 1,
+    "quality_revision": "qnq-v1",
+    "compiled_from": {
+        "path": "docs/content/questions-negations-quality/subject.v1.json",
+        "sha256": "b8d937445e3f420831faa4225fc9a21b5c718648a4bb3e49c19647cd7890f44b"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\QuestionsNegations\\UkrainianMixedSubjectQuestionsQualityStandardSeeder",
+        "uuid_namespace": "questions-negations-quality-subject-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Questions / Negations"
+    },
+    "sources": {
+        "questions_negations_quality_subject": {
+            "name": "Questions and Negations Quality: Subject Questions"
+        }
+    },
+    "tags": {
+        "subject_questions": {
+            "name": "Subject Questions",
+            "category": "questions_negations"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "who_what_subject": {
+            "name": "Who What Subject",
+            "category": "topic"
+        },
+        "no_do_does_did": {
+            "name": "No Do Does Did",
+            "category": "topic"
+        },
+        "affirmative_word_order": {
+            "name": "Affirmative Word Order",
+            "category": "topic"
+        },
+        "who_called": {
+            "name": "Who Called",
+            "category": "topic"
+        },
+        "what_happened": {
+            "name": "What Happened",
+            "category": "topic"
+        },
+        "who_knows": {
+            "name": "Who Knows",
+            "category": "topic"
+        },
+        "subject_vs_object_question": {
+            "name": "Subject Vs Object Question",
+            "category": "topic"
+        },
+        "third_person_singular": {
+            "name": "Third Person Singular",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "subject_questions"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "qnq-subject-a1-g01",
+            "author_id": "A1-g01",
+            "question": "Who {a1} the yellow gate every evening?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто щовечора зачиняє жовту хвіртку?",
+            "target_text": "Who closes the yellow gate every evening?",
+            "markers": {
+                "a1": {
+                    "answer": "closes",
+                    "options": [
+                        "closes",
+                        "close",
+                        "closing"
+                    ],
+                    "verb_hint": "Зачиняти: невідомий виконавець є підметом; для звички потрібна особова форма."
+                }
+            },
+            "verb_hint": "Зачиняти: невідомий виконавець є підметом; для звички потрібна особова форма.",
+            "accepted_target_texts": [
+                "Who closes the yellow gate every evening?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "closes",
+                "the yellow gate",
+                "every evening?"
+            ],
+            "token_groups": [
+                "Who",
+                "closes",
+                "the yellow gate",
+                "every evening?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "qnq-subject-a1-g02",
+            "author_id": "A1-g02",
+            "question": "What {a1} this strange noise?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що створює цей дивний шум?",
+            "target_text": "What makes this strange noise?",
+            "markers": {
+                "a1": {
+                    "answer": "makes",
+                    "options": [
+                        "makes",
+                        "make",
+                        "making"
+                    ],
+                    "verb_hint": "Створювати шум: невідома причина є підметом у теперішньому часі."
+                }
+            },
+            "verb_hint": "Створювати шум: невідома причина є підметом у теперішньому часі.",
+            "accepted_target_texts": [
+                "What makes this strange noise?",
+                "What causes this strange noise?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "causes"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "causes"
+                ]
+            },
+            "reorder_groups": [
+                "What",
+                "makes",
+                "this strange noise?"
+            ],
+            "token_groups": [
+                "What",
+                "makes",
+                "this strange noise?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "qnq-subject-a1-g03",
+            "author_id": "A1-g03",
+            "question": "Which pupils {a1} near the river?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які учні живуть біля річки?",
+            "target_text": "Which pupils live near the river?",
+            "markers": {
+                "a1": {
+                    "answer": "live",
+                    "options": [
+                        "live",
+                        "lives",
+                        "living"
+                    ],
+                    "verb_hint": "Жити: запитальна група називає кількох виконавців."
+                }
+            },
+            "verb_hint": "Жити: запитальна група називає кількох виконавців.",
+            "accepted_target_texts": [
+                "Which pupils live near the river?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which pupils",
+                "live",
+                "near the river?"
+            ],
+            "token_groups": [
+                "Which pupils",
+                "live",
+                "near the river?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "qnq-subject-a1-g04",
+            "author_id": "A1-g04",
+            "question": "Who {a1} a purple backpack?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "У кого є фіолетовий рюкзак?",
+            "target_text": "Who has a purple backpack?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "have",
+                        "having"
+                    ],
+                    "verb_hint": "Мати: у нейтральному питанні невідома людина сама є підметом."
+                }
+            },
+            "verb_hint": "Мати: у нейтральному питанні невідома людина сама є підметом.",
+            "accepted_target_texts": [
+                "Who has a purple backpack?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "has",
+                "a purple backpack?"
+            ],
+            "token_groups": [
+                "Who",
+                "has",
+                "a purple backpack?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "qnq-subject-a1-g05",
+            "author_id": "A1-g05",
+            "question": "Which dog {a1} the red ball?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Який собака хоче червоний м’яч?",
+            "target_text": "Which dog wants the red ball?",
+            "markers": {
+                "a1": {
+                    "answer": "wants",
+                    "options": [
+                        "wants",
+                        "want",
+                        "wanting"
+                    ],
+                    "verb_hint": "Хотіти: запит стосується однієї тварини."
+                }
+            },
+            "verb_hint": "Хотіти: запит стосується однієї тварини.",
+            "accepted_target_texts": [
+                "Which dog wants the red ball?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which dog",
+                "wants",
+                "the red ball?"
+            ],
+            "token_groups": [
+                "Which dog",
+                "wants",
+                "the red ball?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "qnq-subject-a1-g06",
+            "author_id": "A1-g06",
+            "question": "What {a1} in this box?",
+            "level": "A1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що в цій коробці?",
+            "target_text": "What is in this box?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "are",
+                        "do"
+                    ],
+                    "verb_hint": "Запитай про одну невідому річ у коробці; не додавай допоміжного дієслова дії."
+                }
+            },
+            "verb_hint": "Запитай про одну невідому річ у коробці; не додавай допоміжного дієслова дії.",
+            "accepted_target_texts": [
+                "What is in this box?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "is",
+                "in this box?"
+            ],
+            "token_groups": [
+                "What",
+                "is",
+                "in this box?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "qnq-subject-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Who {a1} the garden fence last weekend?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто минулими вихідними пошкодив садову огорожу?",
+            "target_text": "Who damaged the garden fence last weekend?",
+            "markers": {
+                "a1": {
+                    "answer": "damaged",
+                    "options": [
+                        "damaged",
+                        "damage",
+                        "damaging"
+                    ],
+                    "verb_hint": "Пошкодити: невідомий виконавець є підметом; дія вже завершилася минулими вихідними."
+                }
+            },
+            "verb_hint": "Пошкодити: невідомий виконавець є підметом; дія вже завершилася минулими вихідними.",
+            "accepted_target_texts": [
+                "Who damaged the garden fence last weekend?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "damaged",
+                "the garden fence",
+                "last weekend?"
+            ],
+            "token_groups": [
+                "Who",
+                "damaged",
+                "the garden fence",
+                "last weekend?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "qnq-subject-a2-g02",
+            "author_id": "A2-g02",
+            "question": "Which guests {a1} early last night?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які гості вчора ввечері прибули рано?",
+            "target_text": "Which guests arrived early last night?",
+            "markers": {
+                "a1": {
+                    "answer": "arrived",
+                    "options": [
+                        "arrived",
+                        "arrive",
+                        "arriving"
+                    ],
+                    "verb_hint": "Прибути: запитай про виконавців минулої події без додаткового допоміжного."
+                }
+            },
+            "verb_hint": "Прибути: запитай про виконавців минулої події без додаткового допоміжного.",
+            "accepted_target_texts": [
+                "Which guests arrived early last night?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which guests",
+                "arrived early",
+                "last night?"
+            ],
+            "token_groups": [
+                "Which guests",
+                "arrived early",
+                "last night?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "qnq-subject-a2-g03",
+            "author_id": "A2-g03",
+            "question": "What {a1} on the kitchen floor?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що впало на кухонну підлогу?",
+            "target_text": "What fell on the kitchen floor?",
+            "markers": {
+                "a1": {
+                    "answer": "fell",
+                    "options": [
+                        "fell",
+                        "fall",
+                        "falling"
+                    ],
+                    "verb_hint": "Впасти: запит стосується предмета, з яким сталася завершена подія."
+                }
+            },
+            "verb_hint": "Впасти: запит стосується предмета, з яким сталася завершена подія.",
+            "accepted_target_texts": [
+                "What fell on the kitchen floor?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "fell",
+                "on",
+                "the kitchen floor?"
+            ],
+            "token_groups": [
+                "What",
+                "fell",
+                "on",
+                "the kitchen floor?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "qnq-subject-a2-g04",
+            "author_id": "A2-g04",
+            "question": "Who {a1} waiting by the back door?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто чекає біля задніх дверей?",
+            "target_text": "Who is waiting by the back door?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про виконавця поточної дії; основне дієслово вже має тривалу форму."
+                }
+            },
+            "verb_hint": "Запитай про виконавця поточної дії; основне дієслово вже має тривалу форму.",
+            "accepted_target_texts": [
+                "Who is waiting by the back door?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "is waiting",
+                "by",
+                "the back door?"
+            ],
+            "token_groups": [
+                "Who",
+                "is waiting",
+                "by",
+                "the back door?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "qnq-subject-a2-g05",
+            "author_id": "A2-g05",
+            "question": "Which of these keys {a1} the garage?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Який із цих ключів відмикає гараж?",
+            "target_text": "Which of these keys opens the garage?",
+            "markers": {
+                "a1": {
+                    "answer": "opens",
+                    "options": [
+                        "opens",
+                        "open",
+                        "opening"
+                    ],
+                    "verb_hint": "Відмикати: обираємо один ключ із кількох."
+                }
+            },
+            "verb_hint": "Відмикати: обираємо один ключ із кількох.",
+            "accepted_target_texts": [
+                "Which of these keys opens the garage?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which",
+                "of these keys",
+                "opens",
+                "the garage?"
+            ],
+            "token_groups": [
+                "Which",
+                "of these keys",
+                "opens",
+                "the garage?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "qnq-subject-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Who {a1} help with the chairs?",
+            "level": "A2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто може допомогти зі стільцями?",
+            "target_text": "Who can help with the chairs?",
+            "markers": {
+                "a1": {
+                    "answer": "can",
+                    "options": [
+                        "can",
+                        "does",
+                        "is"
+                    ],
+                    "verb_hint": "Запитай про здатного допомогти виконавця; основне дієслово вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про здатного допомогти виконавця; основне дієслово вже наведено.",
+            "accepted_target_texts": [
+                "Who can help with the chairs?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "can help",
+                "with the chairs?"
+            ],
+            "token_groups": [
+                "Who",
+                "can help",
+                "with the chairs?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "qnq-subject-b1-g01",
+            "author_id": "B1-g01",
+            "question": "Who {a1} the emergency exit?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто заблокував аварійний вихід?",
+            "target_text": "Who has blocked the emergency exit?",
+            "markers": {
+                "a1": {
+                    "answer": "has blocked",
+                    "options": [
+                        "has blocked",
+                        "has block",
+                        "have blocked"
+                    ],
+                    "verb_hint": "Заблокувати: запитай про виконавця дії з наявним результатом."
+                }
+            },
+            "verb_hint": "Заблокувати: запитай про виконавця дії з наявним результатом.",
+            "accepted_target_texts": [
+                "Who has blocked the emergency exit?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "has blocked",
+                "the emergency exit?"
+            ],
+            "token_groups": [
+                "Who",
+                "has blocked",
+                "the emergency exit?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "qnq-subject-b1-g02",
+            "author_id": "B1-g02",
+            "question": "Which buildings {a1} damaged during the storm?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які будівлі було пошкоджено під час бурі?",
+            "target_text": "Which buildings were damaged during the storm?",
+            "markers": {
+                "a1": {
+                    "answer": "were",
+                    "options": [
+                        "were",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про кілька об’єктів минулої пасивної дії."
+                }
+            },
+            "verb_hint": "Запитай про кілька об’єктів минулої пасивної дії.",
+            "accepted_target_texts": [
+                "Which buildings were damaged during the storm?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which buildings",
+                "were damaged",
+                "during the storm?"
+            ],
+            "token_groups": [
+                "Which buildings",
+                "were damaged",
+                "during the storm?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "qnq-subject-b1-g03",
+            "author_id": "B1-g03",
+            "question": "What {a1} the alarm to go off?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що спричинило спрацювання сигналізації?",
+            "target_text": "What caused the alarm to go off?",
+            "markers": {
+                "a1": {
+                    "answer": "caused",
+                    "options": [
+                        "caused",
+                        "cause",
+                        "causing"
+                    ],
+                    "verb_hint": "Спричинити: невідома причина є підметом завершеної події."
+                }
+            },
+            "verb_hint": "Спричинити: невідома причина є підметом завершеної події.",
+            "accepted_target_texts": [
+                "What caused the alarm to go off?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "caused",
+                "the alarm",
+                "to go off?"
+            ],
+            "token_groups": [
+                "What",
+                "caused",
+                "the alarm",
+                "to go off?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "qnq-subject-b1-g04",
+            "author_id": "B1-g04",
+            "question": "Who {a1} been using my computer?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто користувався моїм комп’ютером?",
+            "target_text": "Who has been using my computer?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про виконавця недавнього процесу з видимими слідами; решту форми вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про виконавця недавнього процесу з видимими слідами; решту форми вже наведено.",
+            "accepted_target_texts": [
+                "Who has been using my computer?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "has been using",
+                "my computer?"
+            ],
+            "token_groups": [
+                "Who",
+                "has been using",
+                "my computer?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "qnq-subject-b1-g05",
+            "author_id": "B1-g05",
+            "question": "Which applicant {a1} selected for the interview?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Якого кандидата було обрано для співбесіди?",
+            "target_text": "Which applicant was selected for the interview?",
+            "markers": {
+                "a1": {
+                    "answer": "was",
+                    "options": [
+                        "was",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про одного учасника минулої пасивної дії."
+                }
+            },
+            "verb_hint": "Запитай про одного учасника минулої пасивної дії.",
+            "accepted_target_texts": [
+                "Which applicant was selected for the interview?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which applicant",
+                "was selected",
+                "for the interview?"
+            ],
+            "token_groups": [
+                "Which applicant",
+                "was selected",
+                "for the interview?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "qnq-subject-b1-g06",
+            "author_id": "B1-g06",
+            "question": "What {a1} happen if the pump stopped?",
+            "level": "B1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що сталося б, якби насос зупинився?",
+            "target_text": "What would happen if the pump stopped?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про уявний наслідок наведеної умови."
+                }
+            },
+            "verb_hint": "Запитай про уявний наслідок наведеної умови.",
+            "accepted_target_texts": [
+                "What would happen if the pump stopped?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "would happen",
+                "if the pump",
+                "stopped?"
+            ],
+            "token_groups": [
+                "What",
+                "would happen",
+                "if the pump",
+                "stopped?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "qnq-subject-b2-g01",
+            "author_id": "B2-g01",
+            "question": "Who {a1} authorised the transfer before the audit began?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто дозволив переказ ще до початку аудиту?",
+            "target_text": "Who had authorised the transfer before the audit began?",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про виконавця ранішої минулої дії; не використовуй підсилювальне допоміжне."
+                }
+            },
+            "verb_hint": "Запитай про виконавця ранішої минулої дії; не використовуй підсилювальне допоміжне.",
+            "accepted_target_texts": [
+                "Who had authorised the transfer before the audit began?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "had authorised",
+                "the transfer",
+                "before the audit",
+                "began?"
+            ],
+            "token_groups": [
+                "Who",
+                "had authorised",
+                "the transfer",
+                "before the audit",
+                "began?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "qnq-subject-b2-g02",
+            "author_id": "B2-g02",
+            "question": "Which proposals {a1} being reconsidered after the consultation?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які пропозиції зараз повторно розглядають після консультацій?",
+            "target_text": "Which proposals are being reconsidered after the consultation?",
+            "markers": {
+                "a1": {
+                    "answer": "are",
+                    "options": [
+                        "are",
+                        "do",
+                        "have"
+                    ],
+                    "verb_hint": "Запитай про кілька об’єктів поточного пасивного процесу."
+                }
+            },
+            "verb_hint": "Запитай про кілька об’єктів поточного пасивного процесу.",
+            "accepted_target_texts": [
+                "Which proposals are being reconsidered after the consultation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which proposals",
+                "are being reconsidered",
+                "after the consultation?"
+            ],
+            "token_groups": [
+                "Which proposals",
+                "are being reconsidered",
+                "after the consultation?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "qnq-subject-b2-g03",
+            "author_id": "B2-g03",
+            "question": "What {a1} have prompted such a sudden resignation?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що могло спричинити таку раптову відставку?",
+            "target_text": "What might have prompted such a sudden resignation?",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про можливу минулу причину, не видаючи її за встановлений факт."
+                }
+            },
+            "verb_hint": "Запитай про можливу минулу причину, не видаючи її за встановлений факт.",
+            "accepted_target_texts": [
+                "What might have prompted such a sudden resignation?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "might have prompted",
+                "such",
+                "a sudden resignation?"
+            ],
+            "token_groups": [
+                "What",
+                "might have prompted",
+                "such",
+                "a sudden resignation?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "qnq-subject-b2-g04",
+            "author_id": "B2-g04",
+            "question": "Who {a1} have taken responsibility if the project had failed?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто взяв би на себе відповідальність, якби проєкт провалився?",
+            "target_text": "Who would have taken responsibility if the project had failed?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "did",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про невідомого виконавця нереальної минулої дії."
+                }
+            },
+            "verb_hint": "Запитай про невідомого виконавця нереальної минулої дії.",
+            "accepted_target_texts": [
+                "Who would have taken responsibility if the project had failed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "would have taken",
+                "responsibility",
+                "if the project",
+                "had failed?"
+            ],
+            "token_groups": [
+                "Who",
+                "would have taken",
+                "responsibility",
+                "if the project",
+                "had failed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "qnq-subject-b2-g05",
+            "author_id": "B2-g05",
+            "question": "Which departments {a1} merged by the end of the year?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які відділи об’єднають до кінця року?",
+            "target_text": "Which departments will be merged by the end of the year?",
+            "markers": {
+                "a1": {
+                    "answer": "will be",
+                    "options": [
+                        "will be",
+                        "will",
+                        "will being"
+                    ],
+                    "verb_hint": "Запитай про кілька об’єктів майбутньої пасивної дії; потрібен повний допоміжний ланцюжок."
+                }
+            },
+            "verb_hint": "Запитай про кілька об’єктів майбутньої пасивної дії; потрібен повний допоміжний ланцюжок.",
+            "accepted_target_texts": [
+                "Which departments will be merged by the end of the year?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which departments",
+                "will be merged",
+                "by the end",
+                "of the year?"
+            ],
+            "token_groups": [
+                "Which departments",
+                "will be merged",
+                "by the end",
+                "of the year?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "qnq-subject-b2-g06",
+            "author_id": "B2-g06",
+            "question": "What {a1} been preventing the team from sharing the results?",
+            "level": "B2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що заважає команді оприлюднити результати?",
+            "target_text": "What has been preventing the team from sharing the results?",
+            "markers": {
+                "a1": {
+                    "answer": "has",
+                    "options": [
+                        "has",
+                        "is",
+                        "does"
+                    ],
+                    "verb_hint": "Запитай про тривалу причину перешкоди, яка діє досі."
+                }
+            },
+            "verb_hint": "Запитай про тривалу причину перешкоди, яка діє досі.",
+            "accepted_target_texts": [
+                "What has been preventing the team from sharing the results?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "has been preventing",
+                "the team",
+                "from sharing",
+                "the results?"
+            ],
+            "token_groups": [
+                "What",
+                "has been preventing",
+                "the team",
+                "from sharing",
+                "the results?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "qnq-subject-c1-g01",
+            "author_id": "C1-g01",
+            "question": "Who {a1} accountable for the integrity of the evidence?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Кого вважають відповідальним за цілісність доказів?",
+            "target_text": "Who is held accountable for the integrity of the evidence?",
+            "markers": {
+                "a1": {
+                    "answer": "is held",
+                    "options": [
+                        "is held",
+                        "is hold",
+                        "does held"
+                    ],
+                    "verb_hint": "Запитай про особу в теперішній пасивній моделі відповідальності."
+                }
+            },
+            "verb_hint": "Запитай про особу в теперішній пасивній моделі відповідальності.",
+            "accepted_target_texts": [
+                "Who is held accountable for the integrity of the evidence?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "is held",
+                "accountable",
+                "for the integrity",
+                "of the evidence?"
+            ],
+            "token_groups": [
+                "Who",
+                "is held",
+                "accountable",
+                "for the integrity",
+                "of the evidence?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "qnq-subject-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Which provisions {a1} been rendered obsolete by the ruling?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які положення застаріли внаслідок цього рішення?",
+            "target_text": "Which provisions have been rendered obsolete by the ruling?",
+            "markers": {
+                "a1": {
+                    "answer": "have",
+                    "options": [
+                        "have",
+                        "has",
+                        "are"
+                    ],
+                    "verb_hint": "Запитай про кілька положень у пасивній перфектній конструкції."
+                }
+            },
+            "verb_hint": "Запитай про кілька положень у пасивній перфектній конструкції.",
+            "accepted_target_texts": [
+                "Which provisions have been rendered obsolete by the ruling?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which provisions",
+                "have been rendered",
+                "obsolete",
+                "by the ruling?"
+            ],
+            "token_groups": [
+                "Which provisions",
+                "have been rendered",
+                "obsolete",
+                "by the ruling?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "qnq-subject-c1-g03",
+            "author_id": "C1-g03",
+            "question": "What {a1} have justified withholding the supplementary analysis?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що могло б виправдати нерозкриття додаткового аналізу?",
+            "target_text": "What could have justified withholding the supplementary analysis?",
+            "markers": {
+                "a1": {
+                    "answer": "could",
+                    "options": [
+                        "could",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про можливу минулу підставу виправдання."
+                }
+            },
+            "verb_hint": "Запитай про можливу минулу підставу виправдання.",
+            "accepted_target_texts": [
+                "What could have justified withholding the supplementary analysis?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "could have justified",
+                "withholding",
+                "the supplementary analysis?"
+            ],
+            "token_groups": [
+                "What",
+                "could have justified",
+                "withholding",
+                "the supplementary analysis?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "qnq-subject-c1-g04",
+            "author_id": "C1-g04",
+            "question": "Who {a1} been overseeing compliance when the breach occurred?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто наглядав за дотриманням вимог, коли сталося порушення?",
+            "target_text": "Who had been overseeing compliance when the breach occurred?",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "was",
+                        "did"
+                    ],
+                    "verb_hint": "Запитай про виконавця процесу, що тривав до названої минулої події."
+                }
+            },
+            "verb_hint": "Запитай про виконавця процесу, що тривав до названої минулої події.",
+            "accepted_target_texts": [
+                "Who had been overseeing compliance when the breach occurred?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "had been overseeing",
+                "compliance",
+                "when the breach",
+                "occurred?"
+            ],
+            "token_groups": [
+                "Who",
+                "had been overseeing",
+                "compliance",
+                "when the breach",
+                "occurred?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "qnq-subject-c1-g05",
+            "author_id": "C1-g05",
+            "question": "Which concessions {a1} have been obtainable under a different negotiating mandate?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Яких поступок можна було б домогтися за іншого переговорного мандата?",
+            "target_text": "Which concessions might have been obtainable under a different negotiating mandate?",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "did",
+                        "were"
+                    ],
+                    "verb_hint": "Запитай про можливі результати іншої минулої переговорної ситуації."
+                }
+            },
+            "verb_hint": "Запитай про можливі результати іншої минулої переговорної ситуації.",
+            "accepted_target_texts": [
+                "Which concessions might have been obtainable under a different negotiating mandate?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which concessions",
+                "might have been",
+                "obtainable",
+                "under a different",
+                "negotiating mandate?"
+            ],
+            "token_groups": [
+                "Which concessions",
+                "might have been",
+                "obtainable",
+                "under a different",
+                "negotiating mandate?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "qnq-subject-c1-g06",
+            "author_id": "C1-g06",
+            "question": "What {a1} the apparent divergence between the two assessments?",
+            "level": "C1",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Чим пояснюється видима розбіжність між двома оцінками?",
+            "target_text": "What accounts for the apparent divergence between the two assessments?",
+            "markers": {
+                "a1": {
+                    "answer": "accounts for",
+                    "options": [
+                        "accounts for",
+                        "account for",
+                        "accounting for"
+                    ],
+                    "verb_hint": "Пояснювати: невідома причина є підметом; потрібна особова форма з прийменником."
+                }
+            },
+            "verb_hint": "Пояснювати: невідома причина є підметом; потрібна особова форма з прийменником.",
+            "accepted_target_texts": [
+                "What accounts for the apparent divergence between the two assessments?",
+                "What explains the apparent divergence between the two assessments?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "explains"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "explains"
+                ]
+            },
+            "reorder_groups": [
+                "What",
+                "accounts for",
+                "the apparent divergence",
+                "between",
+                "the two assessments?"
+            ],
+            "token_groups": [
+                "What",
+                "accounts for",
+                "the apparent divergence",
+                "between",
+                "the two assessments?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "qnq-subject-c2-g01",
+            "author_id": "C2-g01",
+            "question": "What {a1} the tacit assumption that procedural compliance entails substantive fairness?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що лежить в основі неявного припущення, що дотримання процедури означає справедливість по суті?",
+            "target_text": "What underlies the tacit assumption that procedural compliance entails substantive fairness?",
+            "markers": {
+                "a1": {
+                    "answer": "underlies",
+                    "options": [
+                        "underlies",
+                        "underlie",
+                        "underlying"
+                    ],
+                    "verb_hint": "Лежати в основі: абстрактна причина є підметом; потрібна теперішня особова форма."
+                }
+            },
+            "verb_hint": "Лежати в основі: абстрактна причина є підметом; потрібна теперішня особова форма.",
+            "accepted_target_texts": [
+                "What underlies the tacit assumption that procedural compliance entails substantive fairness?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "underlies",
+                "the tacit assumption",
+                "that procedural compliance",
+                "entails substantive fairness?"
+            ],
+            "token_groups": [
+                "What",
+                "underlies",
+                "the tacit assumption",
+                "that procedural compliance",
+                "entails substantive fairness?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "qnq-subject-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Who {a1} have benefited had the competing interpretation prevailed?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто отримав би вигоду, якби взяло гору інше тлумачення?",
+            "target_text": "Who would have benefited had the competing interpretation prevailed?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "will",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про учасника нереального минулого результату; умову вже передано інверсією."
+                }
+            },
+            "verb_hint": "Запитай про учасника нереального минулого результату; умову вже передано інверсією.",
+            "accepted_target_texts": [
+                "Who would have benefited had the competing interpretation prevailed?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "would have benefited",
+                "had the competing",
+                "interpretation prevailed?"
+            ],
+            "token_groups": [
+                "Who",
+                "would have benefited",
+                "had the competing",
+                "interpretation prevailed?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "qnq-subject-c2-g03",
+            "author_id": "C2-g03",
+            "question": "Which reservations {a1} been suppressed in the published synthesis?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які застереження могли бути приховані в опублікованому узагальненні?",
+            "target_text": "Which reservations may have been suppressed in the published synthesis?",
+            "markers": {
+                "a1": {
+                    "answer": "may have",
+                    "options": [
+                        "may have",
+                        "may",
+                        "may be"
+                    ],
+                    "verb_hint": "Запитай про можливе минуле приховування в пасиві; потрібна вся перфектна допоміжна частина."
+                }
+            },
+            "verb_hint": "Запитай про можливе минуле приховування в пасиві; потрібна вся перфектна допоміжна частина.",
+            "accepted_target_texts": [
+                "Which reservations may have been suppressed in the published synthesis?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which reservations",
+                "may have been",
+                "suppressed",
+                "in the published",
+                "synthesis?"
+            ],
+            "token_groups": [
+                "Which reservations",
+                "may have been",
+                "suppressed",
+                "in the published",
+                "synthesis?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "qnq-subject-c2-g04",
+            "author_id": "C2-g04",
+            "question": "What {a1} have lent the counterargument greater explanatory force?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Що могло б надати контраргументу більшої пояснювальної сили?",
+            "target_text": "What might have lent the counterargument greater explanatory force?",
+            "markers": {
+                "a1": {
+                    "answer": "might",
+                    "options": [
+                        "might",
+                        "did",
+                        "was"
+                    ],
+                    "verb_hint": "Запитай про можливий, але нереалізований чинник посилення минулого аргументу."
+                }
+            },
+            "verb_hint": "Запитай про можливий, але нереалізований чинник посилення минулого аргументу.",
+            "accepted_target_texts": [
+                "What might have lent the counterargument greater explanatory force?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What",
+                "might have lent",
+                "the counterargument",
+                "greater explanatory force?"
+            ],
+            "token_groups": [
+                "What",
+                "might have lent",
+                "the counterargument",
+                "greater explanatory force?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "qnq-subject-c2-g05",
+            "author_id": "C2-g05",
+            "question": "Who {a1} to bear the residual risk once every contractual remedy is exhausted?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Хто має нести залишковий ризик після вичерпання всіх договірних засобів захисту?",
+            "target_text": "Who is to bear the residual risk once every contractual remedy is exhausted?",
+            "markers": {
+                "a1": {
+                    "answer": "is",
+                    "options": [
+                        "is",
+                        "does",
+                        "has"
+                    ],
+                    "verb_hint": "Запитай про передбаченого носія обов’язку; інфінітивну частину вже наведено."
+                }
+            },
+            "verb_hint": "Запитай про передбаченого носія обов’язку; інфінітивну частину вже наведено.",
+            "accepted_target_texts": [
+                "Who is to bear the residual risk once every contractual remedy is exhausted?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "is to bear",
+                "the residual risk",
+                "once every",
+                "contractual remedy",
+                "is exhausted?"
+            ],
+            "token_groups": [
+                "Who",
+                "is to bear",
+                "the residual risk",
+                "once every",
+                "contractual remedy",
+                "is exhausted?"
+            ],
+            "quality_revision": "qnq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "qnq-subject-c2-g06",
+            "author_id": "C2-g06",
+            "question": "Which distinctions {a1} withstand scrutiny if the underlying categories were redefined?",
+            "level": "C2",
+            "type": 0,
+            "source": "questions_negations_quality_subject",
+            "translation_uk": "Які розрізнення витримали б перевірку, якби базові категорії було перевизначено?",
+            "target_text": "Which distinctions would withstand scrutiny if the underlying categories were redefined?",
+            "markers": {
+                "a1": {
+                    "answer": "would",
+                    "options": [
+                        "would",
+                        "have",
+                        "are"
+                    ],
+                    "verb_hint": "Запитай про стійкість уявного результату за іншої концептуальної умови."
+                }
+            },
+            "verb_hint": "Запитай про стійкість уявного результату за іншої концептуальної умови.",
+            "accepted_target_texts": [
+                "Which distinctions would withstand scrutiny if the underlying categories were redefined?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Which distinctions",
+                "would withstand scrutiny",
+                "if the underlying",
+                "categories were redefined?"
+            ],
+            "token_groups": [
+                "Which distinctions",
+                "would withstand scrutiny",
+                "if the underlying",
+                "categories were redefined?"
+            ],
+            "quality_revision": "qnq-v1"
+        }
+    ]
+}

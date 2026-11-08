@@ -1,0 +1,688 @@
+{
+    "schema_version": 1,
+    "quality_revision": "vpq-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-patterns-quality/bare-infinitive.v1.json",
+        "sha256": "9e825d3370dc916097d9465f3066978d01e87537df0605c50448d96b4b98e3b8"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\VerbPatterns\\UkrainianMixedVpqBareInfinitiveQualityStandardSeeder",
+        "uuid_namespace": "verb-patterns-quality-bare-infinitive-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Verb Patterns"
+    },
+    "sources": {
+        "verb_patterns_quality_bare_infinitive": {
+            "name": "Verb Patterns Quality: Bare Infinitive"
+        }
+    },
+    "tags": {
+        "bare_infinitive": {
+            "name": "Bare Infinitive",
+            "category": "verb_patterns"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "base_without_to": {
+            "name": "Base Without To",
+            "category": "topic"
+        },
+        "after_modals": {
+            "name": "After Modals",
+            "category": "topic"
+        },
+        "after_let": {
+            "name": "After Let",
+            "category": "topic"
+        },
+        "after_make": {
+            "name": "After Make",
+            "category": "topic"
+        },
+        "after_help": {
+            "name": "After Help",
+            "category": "topic"
+        },
+        "perception_verbs": {
+            "name": "Perception Verbs",
+            "category": "topic"
+        },
+        "do_support": {
+            "name": "Do Support",
+            "category": "topic"
+        },
+        "bare_vs_to": {
+            "name": "Bare Vs To",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "vpq-bare-a1-g01",
+            "author_id": "A1-g01",
+            "question": "We can {a1} our names here.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Ми можемо написати тут наші імена.",
+            "target_text": "We can write our names here.",
+            "markers": {
+                "a1": {
+                    "answer": "write",
+                    "options": [
+                        "write",
+                        "to write",
+                        "writes"
+                    ],
+                    "verb_hint": "Після вже наведеного модального дієслова передай дію «писати» початковою формою без частки."
+                }
+            },
+            "verb_hint": "Після вже наведеного модального дієслова передай дію «писати» початковою формою без частки.",
+            "accepted_target_texts": [
+                "We can write our names here.",
+                "We can print our names here."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "print"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "print"
+                ]
+            },
+            "reorder_groups": [
+                "We can write",
+                "our names here."
+            ],
+            "token_groups": [
+                "We can write",
+                "our names here."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "vpq-bare-a1-g02",
+            "author_id": "A1-g02",
+            "question": "Mum lets me {a1} her tablet.",
+            "level": "A1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Мама дозволяє мені користуватися її планшетом.",
+            "target_text": "Mum lets me use her tablet.",
+            "markers": {
+                "a1": {
+                    "answer": "use",
+                    "options": [
+                        "use",
+                        "to use",
+                        "using"
+                    ],
+                    "verb_hint": "Передай дію «користуватися» після вже названого одержувача дозволу; використай початкову форму без частки."
+                }
+            },
+            "verb_hint": "Передай дію «користуватися» після вже названого одержувача дозволу; використай початкову форму без частки.",
+            "accepted_target_texts": [
+                "Mum lets me use her tablet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Mum lets me",
+                "use her tablet."
+            ],
+            "token_groups": [
+                "Mum lets me",
+                "use her tablet."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "vpq-bare-a2-g01",
+            "author_id": "A2-g01",
+            "question": "Please help me {a1} the red tent.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Будь ласка, допоможи мені встановити червоний намет.",
+            "target_text": "Please help me put up the red tent.",
+            "markers": {
+                "a1": {
+                    "answer": "put up",
+                    "options": [
+                        "put up",
+                        "putting up",
+                        "puts up"
+                    ],
+                    "verb_hint": "Передай дію «встановити намет» початковою формою без частки; доречне як коротке дієслово, так і двослівний відповідник."
+                }
+            },
+            "verb_hint": "Передай дію «встановити намет» початковою формою без частки; доречне як коротке дієслово, так і двослівний відповідник.",
+            "accepted_target_texts": [
+                "Please help me put up the red tent.",
+                "Please help me pitch the red tent.",
+                "Please help me erect the red tent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "pitch",
+                    "erect"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "pitch",
+                    "erect"
+                ]
+            },
+            "reorder_groups": [
+                "Please help me",
+                "put up",
+                "the red tent."
+            ],
+            "token_groups": [
+                "Please help me",
+                "put up",
+                "the red tent."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "vpq-bare-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The music made the baby {a1}.",
+            "level": "A2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Музика змусила немовля усміхнутися.",
+            "target_text": "The music made the baby smile.",
+            "markers": {
+                "a1": {
+                    "answer": "smile",
+                    "options": [
+                        "smile",
+                        "to smile",
+                        "smiling"
+                    ],
+                    "verb_hint": "Після вже названого немовляти передай дію «усміхнутися» початковою формою без частки; не додавай закінчення теперішнього часу."
+                }
+            },
+            "verb_hint": "Після вже названого немовляти передай дію «усміхнутися» початковою формою без частки; не додавай закінчення теперішнього часу.",
+            "accepted_target_texts": [
+                "The music made the baby smile."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The music made",
+                "the baby smile."
+            ],
+            "token_groups": [
+                "The music made",
+                "the baby smile."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "vpq-bare-b1-g01",
+            "author_id": "B1-g01",
+            "question": "I heard the door {a1} shut.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Я почув, як двері різко зачинилися.",
+            "target_text": "I heard the door slam shut.",
+            "markers": {
+                "a1": {
+                    "answer": "slam",
+                    "options": [
+                        "slam",
+                        "to slam",
+                        "slammed"
+                    ],
+                    "verb_hint": "Передай цілісну почуту подію — «грюкнути, різко зачинитися» — початковою формою після названого об'єкта сприйняття."
+                }
+            },
+            "verb_hint": "Передай цілісну почуту подію — «грюкнути, різко зачинитися» — початковою формою після названого об'єкта сприйняття.",
+            "accepted_target_texts": [
+                "I heard the door slam shut.",
+                "I heard the door bang shut."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "bang"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "bang"
+                ]
+            },
+            "reorder_groups": [
+                "I heard",
+                "the door",
+                "slam shut."
+            ],
+            "token_groups": [
+                "I heard",
+                "the door",
+                "slam shut."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "vpq-bare-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You had better {a1} the receipt.",
+            "level": "B1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Тобі краще зберегти чек.",
+            "target_text": "You had better keep the receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "keep",
+                    "options": [
+                        "keep",
+                        "to keep",
+                        "kept"
+                    ],
+                    "verb_hint": "Після вже наведеної поради передай дію «зберегти» початковою формою без частки; не додавай минулого часу до основного дієслова."
+                }
+            },
+            "verb_hint": "Після вже наведеної поради передай дію «зберегти» початковою формою без частки; не додавай минулого часу до основного дієслова.",
+            "accepted_target_texts": [
+                "You had better keep the receipt.",
+                "You had better save the receipt.",
+                "You had better retain the receipt."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "save",
+                    "retain"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "save",
+                    "retain"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "keep the receipt."
+            ],
+            "token_groups": [
+                "You had better",
+                "keep the receipt."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "vpq-bare-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The broker did nothing but {a1} about the delay.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Брокер тільки й робив, що скаржився на затримку.",
+            "target_text": "The broker did nothing but complain about the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "complain",
+                    "options": [
+                        "complain",
+                        "to complain",
+                        "complained"
+                    ],
+                    "verb_hint": "Передай дію «скаржитися, бурчати»: після вже наведеної моделі єдиної дії постав початкову форму без частки."
+                }
+            },
+            "verb_hint": "Передай дію «скаржитися, бурчати»: після вже наведеної моделі єдиної дії постав початкову форму без частки.",
+            "accepted_target_texts": [
+                "The broker did nothing but complain about the delay.",
+                "The broker did nothing but grumble about the delay.",
+                "The broker did nothing but moan about the delay."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "grumble",
+                    "moan"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "grumble",
+                    "moan"
+                ]
+            },
+            "reorder_groups": [
+                "The broker did",
+                "nothing but complain",
+                "about the delay."
+            ],
+            "token_groups": [
+                "The broker did",
+                "nothing but complain",
+                "about the delay."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "vpq-bare-b2-g02",
+            "author_id": "B2-g02",
+            "question": "All she did was {a1} the loose screw.",
+            "level": "B2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Усе, що вона зробила, — підтягнула розхитаний гвинт.",
+            "target_text": "All she did was tighten the loose screw.",
+            "markers": {
+                "a1": {
+                    "answer": "tighten",
+                    "options": [
+                        "tighten",
+                        "tightened",
+                        "tightening"
+                    ],
+                    "verb_hint": "Передай дію «підтягнути гвинт» початковою формою без частки в заданій видільній конструкції."
+                }
+            },
+            "verb_hint": "Передай дію «підтягнути гвинт» початковою формою без частки в заданій видільній конструкції.",
+            "accepted_target_texts": [
+                "All she did was tighten the loose screw."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "All she did",
+                "was tighten",
+                "the loose screw."
+            ],
+            "token_groups": [
+                "All she did",
+                "was tighten",
+                "the loose screw."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "vpq-bare-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The consultant would sooner {a1} the contract than accept that clause.",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Консультант радше відмовився б від контракту, ніж погодився на той пункт.",
+            "target_text": "The consultant would sooner forgo the contract than accept that clause.",
+            "markers": {
+                "a1": {
+                    "answer": "forgo",
+                    "options": [
+                        "forgo",
+                        "to forgo",
+                        "forgone"
+                    ],
+                    "verb_hint": "Після вже наведеної моделі переваги передай добровільне «відмовитися від» початковою формою без частки; можливий двослівний відповідник."
+                }
+            },
+            "verb_hint": "Після вже наведеної моделі переваги передай добровільне «відмовитися від» початковою формою без частки; можливий двослівний відповідник.",
+            "accepted_target_texts": [
+                "The consultant would sooner forgo the contract than accept that clause.",
+                "The consultant would sooner give up the contract than accept that clause.",
+                "The consultant would sooner relinquish the contract than accept that clause."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "give up",
+                    "relinquish"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "give up",
+                    "relinquish"
+                ]
+            },
+            "reorder_groups": [
+                "The consultant",
+                "would sooner forgo",
+                "the contract",
+                "than accept",
+                "that clause."
+            ],
+            "token_groups": [
+                "The consultant",
+                "would sooner forgo",
+                "the contract",
+                "than accept",
+                "that clause."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "vpq-bare-c1-g02",
+            "author_id": "C1-g02",
+            "question": "Why not {a1} the wording before circulating the draft?",
+            "level": "C1",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Чому б не переглянути формулювання перед поширенням проєкту?",
+            "target_text": "Why not revise the wording before circulating the draft?",
+            "markers": {
+                "a1": {
+                    "answer": "revise",
+                    "options": [
+                        "revise",
+                        "to revise",
+                        "revising"
+                    ],
+                    "verb_hint": "У вже розпочатій пропозиції передай «переглянути, переформулювати» початковою формою без частки; питальні слова не повторюй."
+                }
+            },
+            "verb_hint": "У вже розпочатій пропозиції передай «переглянути, переформулювати» початковою формою без частки; питальні слова не повторюй.",
+            "accepted_target_texts": [
+                "Why not revise the wording before circulating the draft?",
+                "Why not reword the wording before circulating the draft?",
+                "Why not amend the wording before circulating the draft?",
+                "Why not rephrase the wording before circulating the draft?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "reword",
+                    "amend",
+                    "rephrase"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "reword",
+                    "amend",
+                    "rephrase"
+                ]
+            },
+            "reorder_groups": [
+                "Why not revise",
+                "the wording",
+                "before circulating",
+                "the draft?"
+            ],
+            "token_groups": [
+                "Why not revise",
+                "the wording",
+                "before circulating",
+                "the draft?"
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "vpq-bare-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The defence did no more than {a1} the prosecution's chronology.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Захист лише оспорив хронологію подій, запропоновану обвинуваченням.",
+            "target_text": "The defence did no more than contest the prosecution's chronology.",
+            "markers": {
+                "a1": {
+                    "answer": "contest",
+                    "options": [
+                        "contest",
+                        "contested",
+                        "contesting"
+                    ],
+                    "verb_hint": "Після заданої обмежувальної конструкції з попереднім допоміжним дієсловом передай «оспорювати, ставити під сумнів» початковою формою без частки."
+                }
+            },
+            "verb_hint": "Після заданої обмежувальної конструкції з попереднім допоміжним дієсловом передай «оспорювати, ставити під сумнів» початковою формою без частки.",
+            "accepted_target_texts": [
+                "The defence did no more than contest the prosecution's chronology.",
+                "The defence did no more than challenge the prosecution's chronology.",
+                "The defence did no more than dispute the prosecution's chronology.",
+                "The defence did no more than question the prosecution's chronology."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "challenge",
+                    "dispute",
+                    "question"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "challenge",
+                    "dispute",
+                    "question"
+                ]
+            },
+            "reorder_groups": [
+                "The defence did",
+                "no more than",
+                "contest",
+                "the prosecution's chronology."
+            ],
+            "token_groups": [
+                "The defence did",
+                "no more than",
+                "contest",
+                "the prosecution's chronology."
+            ],
+            "quality_revision": "vpq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "vpq-bare-c2-g02",
+            "author_id": "C2-g02",
+            "question": "One might as well {a1} the inquiry as endorse such a cursory review.",
+            "level": "C2",
+            "type": 0,
+            "source": "verb_patterns_quality_bare_infinitive",
+            "translation_uk": "Так само можна було б відмовитися від розслідування, як і схвалити такий поверховий огляд.",
+            "target_text": "One might as well abandon the inquiry as endorse such a cursory review.",
+            "markers": {
+                "a1": {
+                    "answer": "abandon",
+                    "options": [
+                        "abandon",
+                        "to abandon",
+                        "abandoned"
+                    ],
+                    "verb_hint": "Після вже наведеної ідіоматичної моделі передай «припинити, відмовитися від» початковою формою без частки; порівняльна частина вже задана."
+                }
+            },
+            "verb_hint": "Після вже наведеної ідіоматичної моделі передай «припинити, відмовитися від» початковою формою без частки; порівняльна частина вже задана.",
+            "accepted_target_texts": [
+                "One might as well abandon the inquiry as endorse such a cursory review.",
+                "One might as well discontinue the inquiry as endorse such a cursory review.",
+                "One might as well give up the inquiry as endorse such a cursory review."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "discontinue",
+                    "give up"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "discontinue",
+                    "give up"
+                ]
+            },
+            "reorder_groups": [
+                "One might as",
+                "well abandon",
+                "the inquiry",
+                "as endorse such",
+                "a cursory review."
+            ],
+            "token_groups": [
+                "One might as",
+                "well abandon",
+                "the inquiry",
+                "as endorse such",
+                "a cursory review."
+            ],
+            "quality_revision": "vpq-v1"
+        }
+    ]
+}

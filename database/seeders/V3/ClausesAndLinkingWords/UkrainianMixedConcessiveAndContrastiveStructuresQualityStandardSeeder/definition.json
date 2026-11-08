@@ -1,0 +1,651 @@
+{
+    "schema_version": 1,
+    "quality_revision": "clq-v1",
+    "compiled_from": {
+        "path": "docs/content/clauses-linking-words-quality/concessive-and-contrastive-structures.v1.json",
+        "sha256": "b3732c7da04b6f32bdacd04ee10c9193fd42a910a45f3b6aebe99c80b70fff59"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\ClausesAndLinkingWords\\UkrainianMixedConcessiveAndContrastiveStructuresQualityStandardSeeder",
+        "uuid_namespace": "clauses-linking-words-quality-concessive-and-contrastive-structures-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Clauses and Linking Words"
+    },
+    "sources": {
+        "clauses_linking_words_quality_concessive_and_contrastive_structures": {
+            "name": "Clauses and Linking Words Quality: Concessive and Contrastive Structures"
+        }
+    },
+    "tags": [],
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "clq-concessive-a1-g01",
+            "author_id": "A1-g01",
+            "question": "{a1} the pear is green, it tastes sweet.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоча груша зелена, вона солодка на смак.",
+            "target_text": "Although the pear is green, it tastes sweet.",
+            "markers": {
+                "a1": {
+                    "answer": "Although",
+                    "options": [
+                        "Although",
+                        "Because",
+                        "Unless"
+                    ],
+                    "verb_hint": "Зелений колір є фактом, який не виключає солодкого смаку."
+                }
+            },
+            "verb_hint": "Зелений колір є фактом, який не виключає солодкого смаку.",
+            "accepted_target_texts": [
+                "Although the pear is green, it tastes sweet.",
+                "Though the pear is green, it tastes sweet.",
+                "Even though the pear is green, it tastes sweet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Though",
+                    "Even though"
+                ]
+            },
+            "reorder_groups": [
+                "Although",
+                "the pear",
+                "is green,",
+                "it tastes sweet."
+            ],
+            "token_groups": [
+                "Although",
+                "the pear",
+                "is green,",
+                "it tastes sweet."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "clq-concessive-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The cupboard is wide, {a1} the drawer is narrow.",
+            "level": "A1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Шафа широка, але шухляда вузька.",
+            "target_text": "The cupboard is wide, but the drawer is narrow.",
+            "markers": {
+                "a1": {
+                    "answer": "but",
+                    "options": [
+                        "but",
+                        "because",
+                        "so"
+                    ],
+                    "verb_hint": "Зістав ширину двох предметів без причинного зв’язку."
+                }
+            },
+            "verb_hint": "Зістав ширину двох предметів без причинного зв’язку.",
+            "accepted_target_texts": [
+                "The cupboard is wide, but the drawer is narrow."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The cupboard",
+                "is wide,",
+                "but",
+                "the drawer",
+                "is narrow."
+            ],
+            "token_groups": [
+                "The cupboard",
+                "is wide,",
+                "but",
+                "the drawer",
+                "is narrow."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "clq-concessive-a2-g01",
+            "author_id": "A2-g01",
+            "question": "{a1} her sore ankle, Lida walked to the bakery.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Попри біль у щиколотці, Ліда дійшла до пекарні.",
+            "target_text": "Despite her sore ankle, Lida walked to the bakery.",
+            "markers": {
+                "a1": {
+                    "answer": "Despite",
+                    "options": [
+                        "Despite",
+                        "Although",
+                        "However"
+                    ],
+                    "verb_hint": "Поступка вводить іменникову групу, а не повну частину."
+                }
+            },
+            "verb_hint": "Поступка вводить іменникову групу, а не повну частину.",
+            "accepted_target_texts": [
+                "Despite her sore ankle, Lida walked to the bakery.",
+                "In spite of her sore ankle, Lida walked to the bakery."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "In spite of"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "In spite of"
+                ]
+            },
+            "reorder_groups": [
+                "Despite",
+                "her sore ankle,",
+                "Lida walked",
+                "to the bakery."
+            ],
+            "token_groups": [
+                "Despite",
+                "her sore ankle,",
+                "Lida walked",
+                "to the bakery."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "clq-concessive-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The black bag is light, {a1} the brown bag is heavy.",
+            "level": "A2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Чорна сумка легка, тоді як коричнева важка.",
+            "target_text": "The black bag is light, whereas the brown bag is heavy.",
+            "markers": {
+                "a1": {
+                    "answer": "whereas",
+                    "options": [
+                        "whereas",
+                        "because",
+                        "unless"
+                    ],
+                    "verb_hint": "Порівняй вагу двох сумок як різні факти."
+                }
+            },
+            "verb_hint": "Порівняй вагу двох сумок як різні факти.",
+            "accepted_target_texts": [
+                "The black bag is light, whereas the brown bag is heavy.",
+                "The black bag is light, while the brown bag is heavy."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "while"
+                ]
+            },
+            "reorder_groups": [
+                "The black bag",
+                "is light,",
+                "whereas",
+                "the brown bag",
+                "is heavy."
+            ],
+            "token_groups": [
+                "The black bag",
+                "is light,",
+                "whereas",
+                "the brown bag",
+                "is heavy."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "clq-concessive-b1-g01",
+            "author_id": "B1-g01",
+            "question": "I will keep the appointment {a1} the weather gets worse.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Я не скасую зустрічі, навіть якщо погода погіршиться.",
+            "target_text": "I will keep the appointment even if the weather gets worse.",
+            "markers": {
+                "a1": {
+                    "answer": "even if",
+                    "options": [
+                        "even if",
+                        "even though",
+                        "because"
+                    ],
+                    "verb_hint": "Погіршення лише можливе; рішення не залежить від нього."
+                }
+            },
+            "verb_hint": "Погіршення лише можливе; рішення не залежить від нього.",
+            "accepted_target_texts": [
+                "I will keep the appointment even if the weather gets worse."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I will",
+                "keep the appointment",
+                "even if",
+                "the weather",
+                "gets worse."
+            ],
+            "token_groups": [
+                "I will",
+                "keep the appointment",
+                "even if",
+                "the weather",
+                "gets worse."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "clq-concessive-b1-g02",
+            "author_id": "B1-g02",
+            "question": "{a1} the outer shell is rigid, the lining is flexible.",
+            "level": "B1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Тоді як зовнішня оболонка жорстка, підкладка гнучка.",
+            "target_text": "While the outer shell is rigid, the lining is flexible.",
+            "markers": {
+                "a1": {
+                    "answer": "While",
+                    "options": [
+                        "While",
+                        "Because",
+                        "Unless"
+                    ],
+                    "verb_hint": "Зістав фізичні властивості двох частин; одночасність не є метою зв’язки."
+                }
+            },
+            "verb_hint": "Зістав фізичні властивості двох частин; одночасність не є метою зв’язки.",
+            "accepted_target_texts": [
+                "While the outer shell is rigid, the lining is flexible.",
+                "Whereas the outer shell is rigid, the lining is flexible."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Whereas"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Whereas"
+                ]
+            },
+            "reorder_groups": [
+                "While",
+                "the outer shell",
+                "is rigid,",
+                "the lining",
+                "is flexible."
+            ],
+            "token_groups": [
+                "While",
+                "the outer shell",
+                "is rigid,",
+                "the lining",
+                "is flexible."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "clq-concessive-b2-g01",
+            "author_id": "B2-g01",
+            "question": "{a1} carefully you plan, some delays remain unavoidable.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоч би як ретельно ви планували, деяких затримок не уникнути.",
+            "target_text": "However carefully you plan, some delays remain unavoidable.",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Despite"
+                    ],
+                    "verb_hint": "Перед уже наведеною ознакою ретельності потрібна допустова зв’язка ступеня."
+                }
+            },
+            "verb_hint": "Перед уже наведеною ознакою ретельності потрібна допустова зв’язка ступеня.",
+            "accepted_target_texts": [
+                "However carefully you plan, some delays remain unavoidable.",
+                "No matter how carefully you plan, some delays remain unavoidable."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No matter how"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No matter how"
+                ]
+            },
+            "reorder_groups": [
+                "However",
+                "carefully you plan,",
+                "some delays",
+                "remain unavoidable."
+            ],
+            "token_groups": [
+                "However",
+                "carefully you plan,",
+                "some delays",
+                "remain unavoidable."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "clq-concessive-b2-g02",
+            "author_id": "B2-g02",
+            "question": "{a1} the pilot succeeded, the board requested further trials.",
+            "level": "B2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоча пробний запуск вдався, правління попросило додаткові випробування.",
+            "target_text": "Even though the pilot succeeded, the board requested further trials.",
+            "markers": {
+                "a1": {
+                    "answer": "Even though",
+                    "options": [
+                        "Even though",
+                        "Even if",
+                        "Unless"
+                    ],
+                    "verb_hint": "Успіх уже підтверджений; це факт, а не можлива майбутня умова."
+                }
+            },
+            "verb_hint": "Успіх уже підтверджений; це факт, а не можлива майбутня умова.",
+            "accepted_target_texts": [
+                "Even though the pilot succeeded, the board requested further trials.",
+                "Although the pilot succeeded, the board requested further trials.",
+                "Though the pilot succeeded, the board requested further trials."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Though"
+                ]
+            },
+            "reorder_groups": [
+                "Even though",
+                "the pilot succeeded,",
+                "the board",
+                "requested further trials."
+            ],
+            "token_groups": [
+                "Even though",
+                "the pilot succeeded,",
+                "the board",
+                "requested further trials."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "clq-concessive-c1-g01",
+            "author_id": "C1-g01",
+            "question": "{a1} the sample is small, the effect is unusually consistent.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоча слід визнати, що вибірка мала, ефект незвично послідовний.",
+            "target_text": "Granted that the sample is small, the effect is unusually consistent.",
+            "markers": {
+                "a1": {
+                    "answer": "Granted that",
+                    "options": [
+                        "Granted that",
+                        "So that",
+                        "As a result"
+                    ],
+                    "verb_hint": "Визнай обмеження як факт і протистав йому стійкість результату."
+                }
+            },
+            "verb_hint": "Визнай обмеження як факт і протистав йому стійкість результату.",
+            "accepted_target_texts": [
+                "Granted that the sample is small, the effect is unusually consistent.",
+                "Although the sample is small, the effect is unusually consistent.",
+                "Even though the sample is small, the effect is unusually consistent."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Even though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Although",
+                    "Even though"
+                ]
+            },
+            "reorder_groups": [
+                "Granted that",
+                "the sample",
+                "is small,",
+                "the effect",
+                "is unusually consistent."
+            ],
+            "token_groups": [
+                "Granted that",
+                "the sample",
+                "is small,",
+                "the effect",
+                "is unusually consistent."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "clq-concessive-c1-g02",
+            "author_id": "C1-g02",
+            "question": "{a1} persuasive the testimony may sound, it requires independent corroboration.",
+            "level": "C1",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоч би якими переконливими здавалися свідчення, вони потребують незалежного підтвердження.",
+            "target_text": "However persuasive the testimony may sound, it requires independent corroboration.",
+            "markers": {
+                "a1": {
+                    "answer": "However",
+                    "options": [
+                        "However",
+                        "Although",
+                        "Despite"
+                    ],
+                    "verb_hint": "Перед прикметником потрібна допустова конструкція ступеня, не звичайна вставна зв’язка."
+                }
+            },
+            "verb_hint": "Перед прикметником потрібна допустова конструкція ступеня, не звичайна вставна зв’язка.",
+            "accepted_target_texts": [
+                "However persuasive the testimony may sound, it requires independent corroboration.",
+                "No matter how persuasive the testimony may sound, it requires independent corroboration."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "No matter how"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "No matter how"
+                ]
+            },
+            "reorder_groups": [
+                "However",
+                "persuasive the testimony",
+                "may sound,",
+                "it requires",
+                "independent corroboration."
+            ],
+            "token_groups": [
+                "However",
+                "persuasive the testimony",
+                "may sound,",
+                "it requires",
+                "independent corroboration."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "clq-concessive-c2-g01",
+            "author_id": "C2-g01",
+            "question": "{a1} they might, the negotiators could not reconcile the competing claims.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Хоч як вони намагалися, учасникам переговорів не вдалося узгодити суперечливі вимоги.",
+            "target_text": "Try as they might, the negotiators could not reconcile the competing claims.",
+            "markers": {
+                "a1": {
+                    "answer": "Try as",
+                    "options": [
+                        "Try as",
+                        "Although try",
+                        "Despite try"
+                    ],
+                    "verb_hint": "Почни з допустової інверсії дієслова з модальним продовженням."
+                }
+            },
+            "verb_hint": "Почни з допустової інверсії дієслова з модальним продовженням.",
+            "accepted_target_texts": [
+                "Try as they might, the negotiators could not reconcile the competing claims.",
+                "Try though they might, the negotiators could not reconcile the competing claims."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "Try though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "Try though"
+                ]
+            },
+            "reorder_groups": [
+                "Try as",
+                "they might,",
+                "the negotiators",
+                "could not reconcile",
+                "the competing claims."
+            ],
+            "token_groups": [
+                "Try as",
+                "they might,",
+                "the negotiators",
+                "could not reconcile",
+                "the competing claims."
+            ],
+            "quality_revision": "clq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "clq-concessive-c2-g02",
+            "author_id": "C2-g02",
+            "question": "The text is formally neutral, {a1} markedly selective in its examples.",
+            "level": "C2",
+            "type": 0,
+            "source": "clauses_linking_words_quality_concessive_and_contrastive_structures",
+            "translation_uk": "Текст формально нейтральний, хоча й помітно вибірковий у прикладах.",
+            "target_text": "The text is formally neutral, albeit markedly selective in its examples.",
+            "markers": {
+                "a1": {
+                    "answer": "albeit",
+                    "options": [
+                        "albeit",
+                        "despite",
+                        "however"
+                    ],
+                    "verb_hint": "Скорочена поступка вводить уже наведений прикметниковий опис."
+                }
+            },
+            "verb_hint": "Скорочена поступка вводить уже наведений прикметниковий опис.",
+            "accepted_target_texts": [
+                "The text is formally neutral, albeit markedly selective in its examples.",
+                "The text is formally neutral, although markedly selective in its examples.",
+                "The text is formally neutral, though markedly selective in its examples."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "although",
+                    "though"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "although",
+                    "though"
+                ]
+            },
+            "reorder_groups": [
+                "The text",
+                "is formally neutral,",
+                "albeit",
+                "markedly selective",
+                "in its examples."
+            ],
+            "token_groups": [
+                "The text",
+                "is formally neutral,",
+                "albeit",
+                "markedly selective",
+                "in its examples."
+            ],
+            "quality_revision": "clq-v1"
+        }
+    ]
+}

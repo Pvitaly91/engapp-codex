@@ -1,0 +1,142 @@
+{
+    "question": {
+        "id": 60695,
+        "uuid": "bgq-sentence-structure-b1-g04",
+        "question": "The story about the missing painting {a1}.",
+        "difficulty": 3,
+        "level": "B1",
+        "category_id": 12,
+        "source_id": 428,
+        "flag": 2,
+        "type": "0",
+        "seeder": "Database\\Seeders\\V3\\BasicGrammar\\UkrainianMixedSentenceStructureSvoQualityStandardSeeder",
+        "options_by_marker": {
+            "a1": [
+                "fascinated the children",
+                "the children fascinated",
+                "fascinated they children"
+            ]
+        },
+        "theory_text_block_uuid": "ccfcb959-d3a1-58ed-a924-27a00a3ba4ee",
+        "created_at": "2026-10-27T15:50:54.000000Z",
+        "updated_at": "2026-10-27T15:50:54.000000Z"
+    },
+    "category": {
+        "id": 12,
+        "name": "Базова граматика",
+        "created_at": "2026-04-23T14:40:58.000000Z",
+        "updated_at": "2026-04-23T14:40:58.000000Z"
+    },
+    "source": {
+        "id": 428,
+        "name": "Basic Grammar Quality: Підмет, присудок і додаток",
+        "created_at": "2026-10-27T15:50:53.000000Z",
+        "updated_at": "2026-10-27T15:50:53.000000Z"
+    },
+    "tags": [
+        {
+            "tag": {
+                "id": 90,
+                "name": "S-V-O word order",
+                "category": null,
+                "created_at": "2026-04-23T12:59:17.000000Z",
+                "updated_at": "2026-04-23T12:59:17.000000Z"
+            },
+            "pivot": {
+                "question_id": 60695,
+                "tag_id": 90,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "options": [
+        {
+            "option": {
+                "id": 53280,
+                "option": "fascinated the children",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60695,
+                "option_id": 53280,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53282,
+                "option": "the children fascinated",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60695,
+                "option_id": 53282,
+                "flag": null
+            }
+        },
+        {
+            "option": {
+                "id": 53283,
+                "option": "fascinated they children",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "pivot": {
+                "question_id": 60695,
+                "option_id": 53283,
+                "flag": null
+            }
+        }
+    ],
+    "answers": [
+        {
+            "answer": {
+                "id": 325856,
+                "question_id": 60695,
+                "marker": "a1",
+                "option_id": 53280,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53280,
+                "option": "fascinated the children",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "verb_hints": [
+        {
+            "verb_hint": {
+                "id": 43190,
+                "question_id": 60695,
+                "marker": "a1",
+                "locale": "",
+                "option_id": 53281,
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            },
+            "option": {
+                "id": 53281,
+                "option": "Потрібний зміст: «Захопила дітей». Після всієї групи підмета постав дієслово впливу та людей, яких воно стосується.",
+                "created_at": "2026-10-27T15:50:54.000000Z",
+                "updated_at": "2026-10-27T15:50:54.000000Z"
+            }
+        }
+    ],
+    "variants": [
+        {
+            "id": 52710,
+            "question_id": 60695,
+            "text": "The story about the missing painting {a1}.",
+            "created_at": "2026-10-27T15:50:54.000000Z",
+            "updated_at": "2026-10-27T15:50:54.000000Z"
+        }
+    ],
+    "hints": [],
+    "chatgpt_explanations": []
+}

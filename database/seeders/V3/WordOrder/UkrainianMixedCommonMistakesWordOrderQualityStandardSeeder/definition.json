@@ -1,0 +1,1664 @@
+{
+    "schema_version": 1,
+    "quality_revision": "word-order-v1",
+    "compiled_from": {
+        "path": "docs/content/word-order-quality/common-mistakes.v1.json",
+        "sha256": "bb1f963ddeeadd327aa3cf7d45322af160e866073c88fdaf007b34fd92207cb5"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\WordOrder\\UkrainianMixedCommonMistakesWordOrderQualityStandardSeeder",
+        "uuid_namespace": "word-order-quality-common-mistakes-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Common Mistakes"
+    },
+    "sources": {
+        "word_order_quality_common_mistakes": {
+            "name": "Word Order Quality: Порядок слів: типові помилки"
+        }
+    },
+    "tags": {
+        "common_mistakes_word_order_common_mistakes_all_levels": {
+            "name": "common mistakes word order common mistakes all levels",
+            "category": "common_mistakes"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "svo": {
+            "name": "Svo",
+            "category": "topic"
+        },
+        "subject_before_verb": {
+            "name": "Subject Before Verb",
+            "category": "topic"
+        },
+        "question_inversion": {
+            "name": "Question Inversion",
+            "category": "topic"
+        },
+        "negative_word_order": {
+            "name": "Negative Word Order",
+            "category": "topic"
+        },
+        "frequency_adverbs": {
+            "name": "Frequency Adverbs",
+            "category": "topic"
+        },
+        "adverbial_position": {
+            "name": "Adverbial Position",
+            "category": "topic"
+        },
+        "adjective_before_noun": {
+            "name": "Adjective Before Noun",
+            "category": "topic"
+        },
+        "indirect_questions": {
+            "name": "Indirect Questions",
+            "category": "topic"
+        },
+        "object_position": {
+            "name": "Object Position",
+            "category": "topic"
+        },
+        "place_before_time": {
+            "name": "Place Before Time",
+            "category": "topic"
+        },
+        "uk_word_order_transfer": {
+            "name": "Ukrainian Word Order Transfer",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "woq-common-mistakes-a1-g01",
+            "author_id": "a1-g01",
+            "question": "The red cap {a1} the chair.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Червона кепка лежить під стільцем.",
+            "target_text": "The red cap is under the chair.",
+            "markers": {
+                "a1": {
+                    "answer": "is under",
+                    "options": [
+                        "is under",
+                        "under is",
+                        "under it is"
+                    ],
+                    "verb_hint": "Передай, де лежить кепка: спочатку форма дієслова «бути», потім прийменник «під»."
+                }
+            },
+            "verb_hint": "Передай, де лежить кепка: спочатку форма дієслова «бути», потім прийменник «під».",
+            "accepted_target_texts": [
+                "The red cap is under the chair."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The red cap",
+                "is under",
+                "the chair."
+            ],
+            "token_groups": [
+                "The red cap",
+                "is under",
+                "the chair."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "woq-common-mistakes-a1-g02",
+            "author_id": "a1-g02",
+            "question": "Marta {a1} umbrella.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "У Марти є жовта парасолька.",
+            "target_text": "Marta has a yellow umbrella.",
+            "markers": {
+                "a1": {
+                    "answer": "has a yellow",
+                    "options": [
+                        "has a yellow",
+                        "a yellow has",
+                        "yellow a has"
+                    ],
+                    "verb_hint": "У пропуску спочатку передай «має», далі артикль і колір парасольки."
+                }
+            },
+            "verb_hint": "У пропуску спочатку передай «має», далі артикль і колір парасольки.",
+            "accepted_target_texts": [
+                "Marta has a yellow umbrella."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Marta",
+                "has a yellow",
+                "umbrella."
+            ],
+            "token_groups": [
+                "Marta",
+                "has a yellow",
+                "umbrella."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "woq-common-mistakes-a1-g03",
+            "author_id": "a1-g03",
+            "question": "We {a1} sugar.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Нам не потрібен цукор.",
+            "target_text": "We do not need sugar.",
+            "markers": {
+                "a1": {
+                    "answer": "do not need",
+                    "options": [
+                        "do not need",
+                        "not do need",
+                        "do need not"
+                    ],
+                    "verb_hint": "Утвори заперечення дії «потребувати»: допоміжне дієслово, заперечна частка, основне дієслово."
+                }
+            },
+            "verb_hint": "Утвори заперечення дії «потребувати»: допоміжне дієслово, заперечна частка, основне дієслово.",
+            "accepted_target_texts": [
+                "We do not need sugar."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "do not need",
+                "sugar."
+            ],
+            "token_groups": [
+                "We",
+                "do not need",
+                "sugar."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "woq-common-mistakes-a1-g04",
+            "author_id": "a1-g04",
+            "question": "{a1} fresh?",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Яблука свіжі?",
+            "target_text": "Are the apples fresh?",
+            "markers": {
+                "a1": {
+                    "answer": "Are the apples",
+                    "options": [
+                        "Are the apples",
+                        "The apples are",
+                        "Are apples the"
+                    ],
+                    "verb_hint": "Почни загальне питання з дієслова «бути», потім назви яблука."
+                }
+            },
+            "verb_hint": "Почни загальне питання з дієслова «бути», потім назви яблука.",
+            "accepted_target_texts": [
+                "Are the apples fresh?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Are",
+                "the apples",
+                "fresh?"
+            ],
+            "token_groups": [
+                "Are",
+                "the apples",
+                "fresh?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "woq-common-mistakes-a1-g05",
+            "author_id": "a1-g05",
+            "question": "Anton {a1} this box.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Антон може нести цю коробку.",
+            "target_text": "Anton can carry this box.",
+            "markers": {
+                "a1": {
+                    "answer": "can carry",
+                    "options": [
+                        "can carry",
+                        "carry can",
+                        "can carries"
+                    ],
+                    "verb_hint": "Постав значення «може» перед дією «нести»; не додавай прийменника між ними."
+                }
+            },
+            "verb_hint": "Постав значення «може» перед дією «нести»; не додавай прийменника між ними.",
+            "accepted_target_texts": [
+                "Anton can carry this box."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Anton",
+                "can carry",
+                "this box."
+            ],
+            "token_groups": [
+                "Anton",
+                "can carry",
+                "this box."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "woq-common-mistakes-a1-g06",
+            "author_id": "a1-g06",
+            "question": "Please {a1} by the door.",
+            "level": "A1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Будь ласка, поклади сумку біля дверей.",
+            "target_text": "Please put the bag by the door.",
+            "markers": {
+                "a1": {
+                    "answer": "put the bag",
+                    "options": [
+                        "put the bag",
+                        "the bag put",
+                        "put bag the"
+                    ],
+                    "verb_hint": "Після прохання постав дію «поклади», а за нею предмет «сумку»."
+                }
+            },
+            "verb_hint": "Після прохання постав дію «поклади», а за нею предмет «сумку».",
+            "accepted_target_texts": [
+                "Please put the bag by the door."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Please",
+                "put the bag",
+                "by the door."
+            ],
+            "token_groups": [
+                "Please",
+                "put the bag",
+                "by the door."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "woq-common-mistakes-a2-g01",
+            "author_id": "a2-g01",
+            "question": "I {a1} the side gate.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Я зазвичай замикаю бічну хвіртку.",
+            "target_text": "I usually lock the side gate.",
+            "markers": {
+                "a1": {
+                    "answer": "usually lock",
+                    "options": [
+                        "usually lock",
+                        "lock usually",
+                        "usually am lock"
+                    ],
+                    "verb_hint": "Постав частотність «зазвичай» перед звичайною дією «замикати»."
+                }
+            },
+            "verb_hint": "Постав частотність «зазвичай» перед звичайною дією «замикати».",
+            "accepted_target_texts": [
+                "I usually lock the side gate."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "usually lock",
+                "the side gate."
+            ],
+            "token_groups": [
+                "I",
+                "usually lock",
+                "the side gate."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "woq-common-mistakes-a2-g02",
+            "author_id": "a2-g02",
+            "question": "My gloves {a1} wet.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Мої рукавички досі мокрі.",
+            "target_text": "My gloves are still wet.",
+            "markers": {
+                "a1": {
+                    "answer": "are still",
+                    "options": [
+                        "are still",
+                        "still are",
+                        "are wet still"
+                    ],
+                    "verb_hint": "Слово «досі» постав після форми дієслова «бути»."
+                }
+            },
+            "verb_hint": "Слово «досі» постав після форми дієслова «бути».",
+            "accepted_target_texts": [
+                "My gloves are still wet."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My gloves",
+                "are still",
+                "wet."
+            ],
+            "token_groups": [
+                "My gloves",
+                "are still",
+                "wet."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "woq-common-mistakes-a2-g03",
+            "author_id": "a2-g03",
+            "question": "Who {a1} this scarf?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Хто дав тобі цей шарф?",
+            "target_text": "Who gave you this scarf?",
+            "markers": {
+                "a1": {
+                    "answer": "gave you",
+                    "options": [
+                        "gave you",
+                        "gave did you",
+                        "you gave"
+                    ],
+                    "verb_hint": "Питальне слово вже називає невідомого виконавця; далі постав минулу дію «дав» і одержувача."
+                }
+            },
+            "verb_hint": "Питальне слово вже називає невідомого виконавця; далі постав минулу дію «дав» і одержувача.",
+            "accepted_target_texts": [
+                "Who gave you this scarf?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Who",
+                "gave you",
+                "this scarf?"
+            ],
+            "token_groups": [
+                "Who",
+                "gave you",
+                "this scarf?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "woq-common-mistakes-a2-g04",
+            "author_id": "a2-g04",
+            "question": "Lena {a1} at night.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Лена не водить машину вночі.",
+            "target_text": "Lena does not drive at night.",
+            "markers": {
+                "a1": {
+                    "answer": "does not drive",
+                    "options": [
+                        "does not drive",
+                        "does not drives",
+                        "not does drive"
+                    ],
+                    "verb_hint": "Запереч дію «водити» через допоміжне дієслово; основну форму вдруге не змінюй."
+                }
+            },
+            "verb_hint": "Запереч дію «водити» через допоміжне дієслово; основну форму вдруге не змінюй.",
+            "accepted_target_texts": [
+                "Lena does not drive at night."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Lena",
+                "does not drive",
+                "at night."
+            ],
+            "token_groups": [
+                "Lena",
+                "does not drive",
+                "at night."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "woq-common-mistakes-a2-g05",
+            "author_id": "a2-g05",
+            "question": "{a1} the receipt?",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Де ти залишив чек?",
+            "target_text": "Where did you leave the receipt?",
+            "markers": {
+                "a1": {
+                    "answer": "Where did you leave",
+                    "options": [
+                        "Where did you leave",
+                        "Did where you leave",
+                        "Where you did leave"
+                    ],
+                    "verb_hint": "Запитай про місце: питальне слово, допоміжне дієслово минулого часу, «ти», дія «залишити»."
+                }
+            },
+            "verb_hint": "Запитай про місце: питальне слово, допоміжне дієслово минулого часу, «ти», дія «залишити».",
+            "accepted_target_texts": [
+                "Where did you leave the receipt?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Where did you",
+                "leave the receipt?"
+            ],
+            "token_groups": [
+                "Where did you",
+                "leave the receipt?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "woq-common-mistakes-a2-g06",
+            "author_id": "a2-g06",
+            "question": "She bought {a1} stool.",
+            "level": "A2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Вона купила маленький дерев’яний табурет.",
+            "target_text": "She bought a small wooden stool.",
+            "markers": {
+                "a1": {
+                    "answer": "a small wooden",
+                    "options": [
+                        "a small wooden",
+                        "a wooden small",
+                        "small a wooden"
+                    ],
+                    "verb_hint": "Перед назвою предмета постав артикль, розмір, а потім матеріал."
+                }
+            },
+            "verb_hint": "Перед назвою предмета постав артикль, розмір, а потім матеріал.",
+            "accepted_target_texts": [
+                "She bought a small wooden stool."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She bought",
+                "a small wooden",
+                "stool."
+            ],
+            "token_groups": [
+                "She bought",
+                "a small wooden",
+                "stool."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "woq-common-mistakes-b1-g01",
+            "author_id": "b1-g01",
+            "question": "Do you know {a1}?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Ти знаєш, де посилка?",
+            "target_text": "Do you know where the parcel is?",
+            "markers": {
+                "a1": {
+                    "answer": "where the parcel is",
+                    "options": [
+                        "where the parcel is",
+                        "where is the parcel",
+                        "where does the parcel be"
+                    ],
+                    "verb_hint": "У вкладеному питанні назви місце без інверсії: «де», предмет, форма дієслова «бути»."
+                }
+            },
+            "verb_hint": "У вкладеному питанні назви місце без інверсії: «де», предмет, форма дієслова «бути».",
+            "accepted_target_texts": [
+                "Do you know where the parcel is?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Do you know",
+                "where the parcel",
+                "is?"
+            ],
+            "token_groups": [
+                "Do you know",
+                "where the parcel",
+                "is?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "woq-common-mistakes-b1-g02",
+            "author_id": "b1-g02",
+            "question": "The guide {a1} us.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Гід пояснив нам маршрут.",
+            "target_text": "The guide explained the route to us.",
+            "markers": {
+                "a1": {
+                    "answer": "explained the route to",
+                    "options": [
+                        "explained the route to",
+                        "explained us the route",
+                        "the route explained to"
+                    ],
+                    "verb_hint": "Після «пояснив» постав маршрут, а перед одержувачем потрібен прийменник."
+                }
+            },
+            "verb_hint": "Після «пояснив» постав маршрут, а перед одержувачем потрібен прийменник.",
+            "accepted_target_texts": [
+                "The guide explained the route to us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The guide",
+                "explained the route",
+                "to us."
+            ],
+            "token_groups": [
+                "The guide",
+                "explained the route",
+                "to us."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "woq-common-mistakes-b1-g03",
+            "author_id": "b1-g03",
+            "question": "I {a1} that warning.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Я ніколи не забував того попередження.",
+            "target_text": "I have never forgotten that warning.",
+            "markers": {
+                "a1": {
+                    "answer": "have never forgotten",
+                    "options": [
+                        "have never forgotten",
+                        "never have forgotten",
+                        "have forgotten never"
+                    ],
+                    "verb_hint": "Слово «ніколи» постав між допоміжним дієсловом і дієприкметником «забувати»."
+                }
+            },
+            "verb_hint": "Слово «ніколи» постав між допоміжним дієсловом і дієприкметником «забувати».",
+            "accepted_target_texts": [
+                "I have never forgotten that warning."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "have never forgotten",
+                "that warning."
+            ],
+            "token_groups": [
+                "I",
+                "have never forgotten",
+                "that warning."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "woq-common-mistakes-b1-g04",
+            "author_id": "b1-g04",
+            "question": "She {a1} outside the station.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Вона забрала їх біля вокзалу.",
+            "target_text": "She picked them up outside the station.",
+            "markers": {
+                "a1": {
+                    "answer": "picked them up",
+                    "options": [
+                        "picked them up",
+                        "picked up them",
+                        "them picked up"
+                    ],
+                    "verb_hint": "Короткий займенник-додаток постав між дієсловом «забрала» і відокремлюваною часткою."
+                }
+            },
+            "verb_hint": "Короткий займенник-додаток постав між дієсловом «забрала» і відокремлюваною часткою.",
+            "accepted_target_texts": [
+                "She picked them up outside the station."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "picked them up",
+                "outside the station."
+            ],
+            "token_groups": [
+                "She",
+                "picked them up",
+                "outside the station."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "woq-common-mistakes-b1-g05",
+            "author_id": "b1-g05",
+            "question": "We {a1} the last instruction.",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Ми не зовсім зрозуміли останню інструкцію.",
+            "target_text": "We did not quite understand the last instruction.",
+            "markers": {
+                "a1": {
+                    "answer": "did not quite understand",
+                    "options": [
+                        "did not quite understand",
+                        "did quite not understand",
+                        "did not understood quite"
+                    ],
+                    "verb_hint": "Передай неповне розуміння: заперечення, слово «цілком» і початкова форма дії."
+                }
+            },
+            "verb_hint": "Передай неповне розуміння: заперечення, слово «цілком» і початкова форма дії.",
+            "accepted_target_texts": [
+                "We did not quite understand the last instruction."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We",
+                "did not quite",
+                "understand",
+                "the last instruction."
+            ],
+            "token_groups": [
+                "We",
+                "did not quite",
+                "understand",
+                "the last instruction."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "woq-common-mistakes-b1-g06",
+            "author_id": "b1-g06",
+            "question": "Why {a1} again?",
+            "level": "B1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Чому розклад знову змінився?",
+            "target_text": "Why has the timetable changed again?",
+            "markers": {
+                "a1": {
+                    "answer": "has the timetable changed",
+                    "options": [
+                        "has the timetable changed",
+                        "the timetable has changed",
+                        "has changed the timetable"
+                    ],
+                    "verb_hint": "Питальне слово вже є; постав допоміжну форму перед розкладом, а далі дієприкметник."
+                }
+            },
+            "verb_hint": "Питальне слово вже є; постав допоміжну форму перед розкладом, а далі дієприкметник.",
+            "accepted_target_texts": [
+                "Why has the timetable changed again?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Why has",
+                "the timetable",
+                "changed again?"
+            ],
+            "token_groups": [
+                "Why has",
+                "the timetable",
+                "changed again?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "woq-common-mistakes-b2-g01",
+            "author_id": "b2-g01",
+            "question": "The panel {a1} a decision.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Комісія ще не ухвалила рішення.",
+            "target_text": "The panel has not yet reached a decision.",
+            "markers": {
+                "a1": {
+                    "answer": "has not yet reached",
+                    "options": [
+                        "has not yet reached",
+                        "not has yet reached",
+                        "has reached not yet"
+                    ],
+                    "verb_hint": "Після допоміжної форми постав заперечення й «ще», потім дієприкметник результату."
+                }
+            },
+            "verb_hint": "Після допоміжної форми постав заперечення й «ще», потім дієприкметник результату.",
+            "accepted_target_texts": [
+                "The panel has not yet reached a decision."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "has not yet",
+                "reached a decision."
+            ],
+            "token_groups": [
+                "The panel",
+                "has not yet",
+                "reached a decision."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "woq-common-mistakes-b2-g02",
+            "author_id": "b2-g02",
+            "question": "Could you clarify {a1}?",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Чи могли б ви пояснити, що означають ці цифри?",
+            "target_text": "Could you clarify what these figures represent?",
+            "markers": {
+                "a1": {
+                    "answer": "what these figures represent",
+                    "options": [
+                        "what these figures represent",
+                        "what do these figures represent",
+                        "what represent these figures"
+                    ],
+                    "verb_hint": "У непрямому питанні після «що» спочатку назви цифри, потім дію «означають»."
+                }
+            },
+            "verb_hint": "У непрямому питанні після «що» спочатку назви цифри, потім дію «означають».",
+            "accepted_target_texts": [
+                "Could you clarify what these figures represent?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Could you clarify",
+                "what these figures",
+                "represent?"
+            ],
+            "token_groups": [
+                "Could you clarify",
+                "what these figures",
+                "represent?"
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "woq-common-mistakes-b2-g03",
+            "author_id": "b2-g03",
+            "question": "The consultant {a1} the launch.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Консультант порадив, щоб ми відклали запуск.",
+            "target_text": "The consultant recommended that we postpone the launch.",
+            "markers": {
+                "a1": {
+                    "answer": "recommended that we postpone",
+                    "options": [
+                        "recommended that we postpone",
+                        "recommended us to postpone",
+                        "that we recommended postpone"
+                    ],
+                    "verb_hint": "Після «порадив» використай підрядну частину зі словами «щоб ми відклали», не конструкцію з додатком перед інфінітивом."
+                }
+            },
+            "verb_hint": "Після «порадив» використай підрядну частину зі словами «щоб ми відклали», не конструкцію з додатком перед інфінітивом.",
+            "accepted_target_texts": [
+                "The consultant recommended that we postpone the launch."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The consultant",
+                "recommended that we",
+                "postpone the launch."
+            ],
+            "token_groups": [
+                "The consultant",
+                "recommended that we",
+                "postpone the launch."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "woq-common-mistakes-b2-g04",
+            "author_id": "b2-g04",
+            "question": "Not all the applicants {a1} the deadline.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Не всі кандидати повністю усвідомлювали крайній термін.",
+            "target_text": "Not all the applicants were fully aware of the deadline.",
+            "markers": {
+                "a1": {
+                    "answer": "were fully aware of",
+                    "options": [
+                        "were fully aware of",
+                        "fully were aware of",
+                        "were aware fully of"
+                    ],
+                    "verb_hint": "Заперечення вже стосується не всіх кандидатів; далі постав «були», ступінь усвідомлення та потрібний прийменник."
+                }
+            },
+            "verb_hint": "Заперечення вже стосується не всіх кандидатів; далі постав «були», ступінь усвідомлення та потрібний прийменник.",
+            "accepted_target_texts": [
+                "Not all the applicants were fully aware of the deadline."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Not all",
+                "the applicants",
+                "were fully aware",
+                "of the deadline."
+            ],
+            "token_groups": [
+                "Not all",
+                "the applicants",
+                "were fully aware",
+                "of the deadline."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "woq-common-mistakes-b2-g05",
+            "author_id": "b2-g05",
+            "question": "She {a1} the estimate was provisional.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Вона чітко дала зрозуміти, що оцінка була попередньою.",
+            "target_text": "She made it clear that the estimate was provisional.",
+            "markers": {
+                "a1": {
+                    "answer": "made it clear that",
+                    "options": [
+                        "made it clear that",
+                        "made clear it that",
+                        "it made clear that"
+                    ],
+                    "verb_hint": "Після «зробила» постав формальний додаток, потім оцінку «зрозумілим» і сполучник підрядної частини."
+                }
+            },
+            "verb_hint": "Після «зробила» постав формальний додаток, потім оцінку «зрозумілим» і сполучник підрядної частини.",
+            "accepted_target_texts": [
+                "She made it clear that the estimate was provisional."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "made it clear",
+                "that the estimate",
+                "was provisional."
+            ],
+            "token_groups": [
+                "She",
+                "made it clear",
+                "that the estimate",
+                "was provisional."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "woq-common-mistakes-b2-g06",
+            "author_id": "b2-g06",
+            "question": "The memo {a1} internal use.",
+            "level": "B2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Службова записка призначалася насамперед для внутрішнього використання.",
+            "target_text": "The memo was intended primarily for internal use.",
+            "markers": {
+                "a1": {
+                    "answer": "was intended primarily for",
+                    "options": [
+                        "was intended primarily for",
+                        "was intended primary for",
+                        "was for intended primarily"
+                    ],
+                    "verb_hint": "Віднови пасивну групу «призначалася насамперед для». Прислівник може стояти перед дієприкметником або після нього; прийменник лишається перед призначенням."
+                }
+            },
+            "verb_hint": "Віднови пасивну групу «призначалася насамперед для». Прислівник може стояти перед дієприкметником або після нього; прийменник лишається перед призначенням.",
+            "accepted_target_texts": [
+                "The memo was intended primarily for internal use.",
+                "The memo was primarily intended for internal use.",
+                "The memo primarily was intended for internal use."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was primarily intended for",
+                    "primarily was intended for"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was primarily intended for",
+                    "primarily was intended for"
+                ]
+            },
+            "reorder_groups": [
+                "The memo",
+                "was intended primarily",
+                "for internal use."
+            ],
+            "token_groups": [
+                "The memo",
+                "was intended primarily",
+                "for internal use."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "woq-common-mistakes-c1-g01",
+            "author_id": "c1-g01",
+            "question": "The proposal, {a1}, merits serious consideration.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Пропозиція, хоч би якою суперечливою вона була, заслуговує на серйозний розгляд.",
+            "target_text": "The proposal, controversial though it may be, merits serious consideration.",
+            "markers": {
+                "a1": {
+                    "answer": "controversial though it may be",
+                    "options": [
+                        "controversial though it may be",
+                        "though controversial it may be",
+                        "controversial may though it be"
+                    ],
+                    "verb_hint": "У допустовій вставці почни з оцінки, потім постав сполучник поступки, займенник і модальну конструкцію."
+                }
+            },
+            "verb_hint": "У допустовій вставці почни з оцінки, потім постав сполучник поступки, займенник і модальну конструкцію.",
+            "accepted_target_texts": [
+                "The proposal, controversial though it may be, merits serious consideration."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The proposal,",
+                "controversial though it",
+                "may be,",
+                "merits serious consideration."
+            ],
+            "token_groups": [
+                "The proposal,",
+                "controversial though it",
+                "may be,",
+                "merits serious consideration."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "woq-common-mistakes-c1-g02",
+            "author_id": "c1-g02",
+            "question": "What surprised the reviewers {a1} the lack of evidence.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Рецензентів здивував не висновок, а брак доказів.",
+            "target_text": "What surprised the reviewers was not the conclusion but the lack of evidence.",
+            "markers": {
+                "a1": {
+                    "answer": "was not the conclusion but",
+                    "options": [
+                        "was not the conclusion but",
+                        "not was the conclusion but",
+                        "was the conclusion not but"
+                    ],
+                    "verb_hint": "Зв’яжи початкову підметову частину зі зіставленням «не висновок, а»; не додавай зайвого підмета."
+                }
+            },
+            "verb_hint": "Зв’яжи початкову підметову частину зі зіставленням «не висновок, а»; не додавай зайвого підмета.",
+            "accepted_target_texts": [
+                "What surprised the reviewers was not the conclusion but the lack of evidence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "What surprised",
+                "the reviewers",
+                "was not",
+                "the conclusion but",
+                "the lack",
+                "of evidence."
+            ],
+            "token_groups": [
+                "What surprised",
+                "the reviewers",
+                "was not",
+                "the conclusion but",
+                "the lack",
+                "of evidence."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "woq-common-mistakes-c1-g03",
+            "author_id": "c1-g03",
+            "question": "The report {a1} since Monday.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Здається, звіт істотно переробили від понеділка.",
+            "target_text": "The report appears to have been substantially revised since Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "appears to have been substantially revised",
+                    "options": [
+                        "appears to have been substantially revised",
+                        "appears to have substantially revised been",
+                        "appears have to been substantially revised"
+                    ],
+                    "verb_hint": "Після «здається» збережи завершену пасивну дію; ступінь змін постав перед дієприкметником."
+                }
+            },
+            "verb_hint": "Після «здається» збережи завершену пасивну дію; ступінь змін постав перед дієприкметником.",
+            "accepted_target_texts": [
+                "The report appears to have been substantially revised since Monday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The report",
+                "appears to have",
+                "been substantially revised",
+                "since Monday."
+            ],
+            "token_groups": [
+                "The report",
+                "appears to have",
+                "been substantially revised",
+                "since Monday."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "woq-common-mistakes-c1-g04",
+            "author_id": "c1-g04",
+            "question": "She {a1} the transfer.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Вона заперечила, що коли-небудь давала дозвіл на переказ.",
+            "target_text": "She denied ever having authorised the transfer.",
+            "markers": {
+                "a1": {
+                    "answer": "denied ever having authorised",
+                    "options": [
+                        "denied ever having authorised",
+                        "denied having ever to authorise",
+                        "denied ever to have authorised"
+                    ],
+                    "verb_hint": "Після «заперечила» постав «коли-небудь» та форму попередньої завершеної дії."
+                }
+            },
+            "verb_hint": "Після «заперечила» постав «коли-небудь» та форму попередньої завершеної дії.",
+            "accepted_target_texts": [
+                "She denied ever having authorised the transfer.",
+                "She denied ever having authorized the transfer."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "denied ever having authorized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "denied ever having authorized"
+                ]
+            },
+            "reorder_groups": [
+                "She",
+                "denied ever having",
+                "authorised the transfer."
+            ],
+            "token_groups": [
+                "She",
+                "denied ever having",
+                "authorised the transfer."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "woq-common-mistakes-c1-g05",
+            "author_id": "c1-g05",
+            "question": "The more precisely the terms are defined, {a1}.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Що точніше визначені терміни, то менш імовірні непорозуміння.",
+            "target_text": "The more precisely the terms are defined, the less likely misunderstandings are.",
+            "markers": {
+                "a1": {
+                    "answer": "the less likely misunderstandings are",
+                    "options": [
+                        "the less likely misunderstandings are",
+                        "the less misunderstandings likely are",
+                        "less likely the misunderstandings are"
+                    ],
+                    "verb_hint": "У другій порівняльній частині після «менш імовірні» постав непорозуміння та зв’язку."
+                }
+            },
+            "verb_hint": "У другій порівняльній частині після «менш імовірні» постав непорозуміння та зв’язку.",
+            "accepted_target_texts": [
+                "The more precisely the terms are defined, the less likely misunderstandings are."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The more precisely",
+                "the terms",
+                "are defined,",
+                "the less likely",
+                "misunderstandings are."
+            ],
+            "token_groups": [
+                "The more precisely",
+                "the terms",
+                "are defined,",
+                "the less likely",
+                "misunderstandings are."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "woq-common-mistakes-c1-g06",
+            "author_id": "c1-g06",
+            "question": "The draft {a1} in terms of coherence.",
+            "level": "C1",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Послідовність викладу в чернетці залишає бажати кращого.",
+            "target_text": "The draft leaves much to be desired in terms of coherence.",
+            "markers": {
+                "a1": {
+                    "answer": "leaves much to be desired",
+                    "options": [
+                        "leaves much to be desired",
+                        "leaves to be desired much",
+                        "much leaves to be desired"
+                    ],
+                    "verb_hint": "Відтвори стійку конструкцію про незадовільну якість: «залишає багато», потім пасивний інфінітив."
+                }
+            },
+            "verb_hint": "Відтвори стійку конструкцію про незадовільну якість: «залишає багато», потім пасивний інфінітив.",
+            "accepted_target_texts": [
+                "The draft leaves much to be desired in terms of coherence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The draft",
+                "leaves much",
+                "to be desired",
+                "in terms",
+                "of coherence."
+            ],
+            "token_groups": [
+                "The draft",
+                "leaves much",
+                "to be desired",
+                "in terms",
+                "of coherence."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "woq-common-mistakes-c2-g01",
+            "author_id": "c2-g01",
+            "question": "The findings {a1} than the earlier trial can be ignored.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Результати не можна відкинути як суто поодинокі свідчення так само, як не можна ігнорувати попереднє випробування.",
+            "target_text": "The findings can no more be dismissed as anecdotal than the earlier trial can be ignored.",
+            "markers": {
+                "a1": {
+                    "answer": "can no more be dismissed as anecdotal",
+                    "options": [
+                        "can no more be dismissed as anecdotal",
+                        "no more can be dismissed as anecdotal",
+                        "can be no dismissed more as anecdotal"
+                    ],
+                    "verb_hint": "Після модального дієслова постав порівняльне заперечення, далі пасивну дію та оцінку свідчень."
+                }
+            },
+            "verb_hint": "Після модального дієслова постав порівняльне заперечення, далі пасивну дію та оцінку свідчень.",
+            "accepted_target_texts": [
+                "The findings can no more be dismissed as anecdotal than the earlier trial can be ignored."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The findings",
+                "can no more",
+                "be dismissed",
+                "as anecdotal",
+                "than the earlier",
+                "trial can",
+                "be ignored."
+            ],
+            "token_groups": [
+                "The findings",
+                "can no more",
+                "be dismissed",
+                "as anecdotal",
+                "than the earlier",
+                "trial can",
+                "be ignored."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "woq-common-mistakes-c2-g02",
+            "author_id": "c2-g02",
+            "question": "However persuasive the account may seem, {a1} causation.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Хоч би якою переконливою здавалася розповідь, вона не встановлює причинного зв’язку.",
+            "target_text": "However persuasive the account may seem, it does not establish causation.",
+            "markers": {
+                "a1": {
+                    "answer": "it does not establish",
+                    "options": [
+                        "it does not establish",
+                        "does it not establish",
+                        "it establishes not"
+                    ],
+                    "verb_hint": "Після допустової частини віднови підмет «вона» та звичайне заперечення основної дії."
+                }
+            },
+            "verb_hint": "Після допустової частини віднови підмет «вона» та звичайне заперечення основної дії.",
+            "accepted_target_texts": [
+                "However persuasive the account may seem, it does not establish causation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "However persuasive",
+                "the account",
+                "may seem,",
+                "it does not",
+                "establish causation."
+            ],
+            "token_groups": [
+                "However persuasive",
+                "the account",
+                "may seem,",
+                "it does not",
+                "establish causation."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "woq-common-mistakes-c2-g03",
+            "author_id": "c2-g03",
+            "question": "The court {a1} to the risk involved.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Суд визнав обмеження непропорційним відповідному ризику.",
+            "target_text": "The court found the restriction to be disproportionate to the risk involved.",
+            "markers": {
+                "a1": {
+                    "answer": "found the restriction to be disproportionate",
+                    "options": [
+                        "found the restriction to be disproportionate",
+                        "found to be the restriction disproportionate",
+                        "the restriction found to be disproportionate"
+                    ],
+                    "verb_hint": "Після «визнав» постав об’єкт оцінки, потім інфінітивну зв’язку й ознаку."
+                }
+            },
+            "verb_hint": "Після «визнав» постав об’єкт оцінки, потім інфінітивну зв’язку й ознаку.",
+            "accepted_target_texts": [
+                "The court found the restriction to be disproportionate to the risk involved."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The court",
+                "found the restriction",
+                "to be disproportionate",
+                "to the risk",
+                "involved."
+            ],
+            "token_groups": [
+                "The court",
+                "found the restriction",
+                "to be disproportionate",
+                "to the risk",
+                "involved."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "woq-common-mistakes-c2-g04",
+            "author_id": "c2-g04",
+            "question": "The discrepancy {a1} the precision of the instruments.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Розбіжність була тим разючішою з огляду на точність приладів.",
+            "target_text": "The discrepancy was all the more striking given the precision of the instruments.",
+            "markers": {
+                "a1": {
+                    "answer": "was all the more striking given",
+                    "options": [
+                        "was all the more striking given",
+                        "was the striking all more given",
+                        "all was the more striking given"
+                    ],
+                    "verb_hint": "Після зв’язки збережи єдину підсилювальну групу «тим разючішою», а потім підставу порівняння."
+                }
+            },
+            "verb_hint": "Після зв’язки збережи єдину підсилювальну групу «тим разючішою», а потім підставу порівняння.",
+            "accepted_target_texts": [
+                "The discrepancy was all the more striking given the precision of the instruments."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The discrepancy",
+                "was all",
+                "the more striking",
+                "given the precision",
+                "of the instruments."
+            ],
+            "token_groups": [
+                "The discrepancy",
+                "was all",
+                "the more striking",
+                "given the precision",
+                "of the instruments."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "woq-common-mistakes-c2-g05",
+            "author_id": "c2-g05",
+            "question": "The minister {a1} the amendment.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Міністр не пішов так далеко, щоб відкрито підтримати поправку.",
+            "target_text": "The minister stopped short of explicitly endorsing the amendment.",
+            "markers": {
+                "a1": {
+                    "answer": "stopped short of explicitly endorsing",
+                    "options": [
+                        "stopped short of explicitly endorsing",
+                        "stopped explicitly short of to endorse",
+                        "stopped of short explicitly endorsing"
+                    ],
+                    "verb_hint": "У стійкій конструкції межі дії постав прислівник «відкрито» перед дієслівною формою після прийменника."
+                }
+            },
+            "verb_hint": "У стійкій конструкції межі дії постав прислівник «відкрито» перед дієслівною формою після прийменника.",
+            "accepted_target_texts": [
+                "The minister stopped short of explicitly endorsing the amendment.",
+                "The minister stopped short of explicitly supporting the amendment."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "stopped short of explicitly supporting"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "stopped short of explicitly supporting"
+                ]
+            },
+            "reorder_groups": [
+                "The minister",
+                "stopped short of",
+                "explicitly endorsing",
+                "the amendment."
+            ],
+            "token_groups": [
+                "The minister",
+                "stopped short of",
+                "explicitly endorsing",
+                "the amendment."
+            ],
+            "quality_revision": "word-order-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "woq-common-mistakes-c2-g06",
+            "author_id": "c2-g06",
+            "question": "The justification {a1} to the matter before us.",
+            "level": "C2",
+            "type": 0,
+            "source": "word_order_quality_common_mistakes",
+            "translation_uk": "Обґрунтування не стільки хибне, скільки не стосується питання, яке ми розглядаємо.",
+            "target_text": "The justification is not so much flawed as irrelevant to the matter before us.",
+            "markers": {
+                "a1": {
+                    "answer": "is not so much flawed as irrelevant",
+                    "options": [
+                        "is not so much flawed as irrelevant",
+                        "is not as much flawed so irrelevant",
+                        "not is so much flawed as irrelevant"
+                    ],
+                    "verb_hint": "Збережи паралельне зіставлення двох ознак «не стільки … скільки», не міняючи їх місцями."
+                }
+            },
+            "verb_hint": "Збережи паралельне зіставлення двох ознак «не стільки … скільки», не міняючи їх місцями.",
+            "accepted_target_texts": [
+                "The justification is not so much flawed as irrelevant to the matter before us."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The justification",
+                "is not",
+                "so much flawed",
+                "as irrelevant",
+                "to the matter",
+                "before us."
+            ],
+            "token_groups": [
+                "The justification",
+                "is not",
+                "so much flawed",
+                "as irrelevant",
+                "to the matter",
+                "before us."
+            ],
+            "quality_revision": "word-order-v1"
+        }
+    ]
+}

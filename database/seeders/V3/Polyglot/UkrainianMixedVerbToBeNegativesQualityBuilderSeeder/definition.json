@@ -1,0 +1,4495 @@
+{
+    "schema_version": 1,
+    "quality_revision": "verb-to-be-v1",
+    "compiled_from": {
+        "path": "docs/content/verb-to-be-quality/negatives.v1.json",
+        "sha256": "00d0f540da561d6c1793f68a09cab4715c4c18595cf6b883ac186676e9816b44"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedVerbToBeNegativesQualityBuilderSeeder",
+        "uuid_namespace": "verb-to-be-quality-negatives-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "verb_to_be_quality_negatives": {
+            "name": "Verb to Be Quality: Заперечення з дієсловом бути"
+        }
+    },
+    "tags": {
+        "polyglot_compose_tokens": {
+            "name": "Polyglot Compose Tokens",
+            "category": "topic"
+        },
+        "polyglot_verb_to_be_negatives": {
+            "name": "Verb to Be: Negatives",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        }
+    },
+    "default_tag_keys": [
+        "polyglot_compose_tokens",
+        "polyglot_verb_to_be_negatives"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "beq-negatives-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Двері не замкнені.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Двері не замкнені.",
+            "target_text": "The door is not locked.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+                    "options": [
+                        "The",
+                        "Each",
+                        "Every",
+                        "No"
+                    ]
+                },
+                "a2": {
+                    "answer": "door",
+                    "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+                    "options": [
+                        "door",
+                        "school",
+                        "afraid",
+                        "desk"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a5": {
+                    "answer": "locked.",
+                    "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+                    "options": [
+                        "locked",
+                        "closed",
+                        "helped",
+                        "waited"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з уже відомих дверей як одного предмета й запереч стан замкненості.",
+            "accepted_target_texts": [
+                "The door is not locked."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The door",
+                "is not",
+                "locked."
+            ],
+            "token_groups": [
+                "The door",
+                "is not",
+                "locked."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "door",
+                "is",
+                "not",
+                "locked."
+            ],
+            "options": [
+                "The",
+                "Each",
+                "Every",
+                "No",
+                "door",
+                "school",
+                "afraid",
+                "desk",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "locked",
+                "closed",
+                "helped",
+                "waited"
+            ],
+            "source_text_uk": "Двері не замкнені.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Each",
+                    "Every",
+                    "No"
+                ],
+                "a2": [
+                    "door",
+                    "school",
+                    "afraid",
+                    "desk"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a5": [
+                    "locked",
+                    "closed",
+                    "helped",
+                    "waited"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "beq-negatives-a1-c02",
+            "author_id": "A1-c02",
+            "question": "Мої брати не в школі.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Мої брати не в школі.",
+            "target_text": "My brothers are not at school.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "My",
+                        "Yours",
+                        "Hers",
+                        "Ours"
+                    ]
+                },
+                "a2": {
+                    "answer": "brothers",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "brothers",
+                        "dogs",
+                        "cats",
+                        "people"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "are",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "at",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "at",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a6": {
+                    "answer": "school.",
+                    "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+                    "options": [
+                        "school",
+                        "afraid",
+                        "door",
+                        "cup"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з братів у множині й запереч назване місце перебування.",
+            "accepted_target_texts": [
+                "My brothers are not at school."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My brothers",
+                "are not",
+                "at school."
+            ],
+            "token_groups": [
+                "My brothers",
+                "are not",
+                "at school."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "My",
+                "brothers",
+                "are",
+                "not",
+                "at",
+                "school."
+            ],
+            "options": [
+                "My",
+                "Yours",
+                "Hers",
+                "Ours",
+                "brothers",
+                "dogs",
+                "cats",
+                "people",
+                "are",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "not",
+                "still",
+                "just",
+                "also",
+                "at",
+                "across",
+                "between",
+                "among",
+                "school",
+                "afraid",
+                "door",
+                "cup"
+            ],
+            "source_text_uk": "Мої брати не в школі.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "Yours",
+                    "Hers",
+                    "Ours"
+                ],
+                "a2": [
+                    "brothers",
+                    "dogs",
+                    "cats",
+                    "people"
+                ],
+                "a3": [
+                    "are",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a4": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "at",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a6": [
+                    "school",
+                    "afraid",
+                    "door",
+                    "cup"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "beq-negatives-a1-c03",
+            "author_id": "A1-c03",
+            "question": "Я не боюся собак.",
+            "level": "A1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я не боюся собак.",
+            "target_text": "I am not afraid of dogs.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "am",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a4": {
+                    "answer": "afraid",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "afraid",
+                        "door",
+                        "school",
+                        "train"
+                    ]
+                },
+                "a5": {
+                    "answer": "of",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "of",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a6": {
+                    "answer": "dogs.",
+                    "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+                    "options": [
+                        "dogs",
+                        "brothers",
+                        "doors",
+                        "keys"
+                    ]
+                }
+            },
+            "verb_hint": "Почни із займенника мовця й запереч страх перед собаками.",
+            "accepted_target_texts": [
+                "I am not afraid of dogs."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "am not",
+                "afraid of dogs."
+            ],
+            "token_groups": [
+                "I",
+                "am not",
+                "afraid of dogs."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "not",
+                "afraid",
+                "of",
+                "dogs."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "am",
+                "is",
+                "are",
+                "was",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "afraid",
+                "door",
+                "school",
+                "train",
+                "of",
+                "into",
+                "onto",
+                "over",
+                "dogs",
+                "brothers",
+                "doors",
+                "keys"
+            ],
+            "source_text_uk": "Я не боюся собак.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "am",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a3": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a4": [
+                    "afraid",
+                    "door",
+                    "school",
+                    "train"
+                ],
+                "a5": [
+                    "of",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a6": [
+                    "dogs",
+                    "brothers",
+                    "doors",
+                    "keys"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "beq-negatives-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Рушники ще не сухі.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Рушники ще не сухі.",
+            "target_text": "The towels are not dry yet.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "The",
+                        "Both",
+                        "A",
+                        "An"
+                    ]
+                },
+                "a2": {
+                    "answer": "towels",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "towels",
+                        "cats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "are",
+                        "is",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "not",
+                        "still",
+                        "just",
+                        "also"
+                    ]
+                },
+                "a5": {
+                    "answer": "dry",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "dry",
+                        "angry",
+                        "luggage",
+                        "little"
+                    ]
+                },
+                "a6": {
+                    "answer": "yet.",
+                    "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+                    "options": [
+                        "yet",
+                        "though",
+                        "unless",
+                        "whereas"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення і слово про те, що очікуваний стан поки не настав.",
+            "accepted_target_texts": [
+                "The towels are not dry yet."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The towels",
+                "are not",
+                "dry yet."
+            ],
+            "token_groups": [
+                "The towels",
+                "are not",
+                "dry yet."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "towels",
+                "are",
+                "not",
+                "dry",
+                "yet."
+            ],
+            "options": [
+                "The",
+                "Both",
+                "A",
+                "An",
+                "towels",
+                "cats",
+                "people",
+                "men",
+                "are",
+                "is",
+                "was",
+                "were",
+                "not",
+                "still",
+                "just",
+                "also",
+                "dry",
+                "angry",
+                "luggage",
+                "little",
+                "yet",
+                "though",
+                "unless",
+                "whereas"
+            ],
+            "source_text_uk": "Рушники ще не сухі.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Both",
+                    "A",
+                    "An"
+                ],
+                "a2": [
+                    "towels",
+                    "cats",
+                    "people",
+                    "men"
+                ],
+                "a3": [
+                    "are",
+                    "is",
+                    "was",
+                    "were"
+                ],
+                "a4": [
+                    "not",
+                    "still",
+                    "just",
+                    "also"
+                ],
+                "a5": [
+                    "dry",
+                    "angry",
+                    "luggage",
+                    "little"
+                ],
+                "a6": [
+                    "yet",
+                    "though",
+                    "unless",
+                    "whereas"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "beq-negatives-a2-c02",
+            "author_id": "A2-c02",
+            "question": "Моя молодша сестра на тебе не сердиться.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Моя молодша сестра на тебе не сердиться.",
+            "target_text": "My little sister is not angry with you.",
+            "markers": {
+                "a1": {
+                    "answer": "My",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "My",
+                        "His",
+                        "Her",
+                        "Its"
+                    ]
+                },
+                "a2": {
+                    "answer": "little",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "little",
+                        "luggage",
+                        "dry",
+                        "ticket"
+                    ]
+                },
+                "a3": {
+                    "answer": "sister",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "sister",
+                        "milk",
+                        "music",
+                        "food"
+                    ]
+                },
+                "a4": {
+                    "answer": "is",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "is",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a5": {
+                    "answer": "not",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a6": {
+                    "answer": "angry",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "angry",
+                        "door",
+                        "key",
+                        "room"
+                    ]
+                },
+                "a7": {
+                    "answer": "with",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a8": {
+                    "answer": "you.",
+                    "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+                    "options": [
+                        "you",
+                        "he",
+                        "she",
+                        "it"
+                    ]
+                }
+            },
+            "verb_hint": "Назви молодшу сестру й запереч її сердитий стан щодо співрозмовника.",
+            "accepted_target_texts": [
+                "My little sister is not angry with you."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My little sister",
+                "is not",
+                "angry with you."
+            ],
+            "token_groups": [
+                "My little sister",
+                "is not",
+                "angry with you."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "My",
+                "little",
+                "sister",
+                "is",
+                "not",
+                "angry",
+                "with",
+                "you."
+            ],
+            "options": [
+                "My",
+                "His",
+                "Her",
+                "Its",
+                "little",
+                "luggage",
+                "dry",
+                "ticket",
+                "sister",
+                "milk",
+                "music",
+                "food",
+                "is",
+                "being",
+                "isn't",
+                "aren't",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "angry",
+                "door",
+                "key",
+                "room",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "you",
+                "he",
+                "she",
+                "it"
+            ],
+            "source_text_uk": "Моя молодша сестра на тебе не сердиться.",
+            "options_by_marker": {
+                "a1": [
+                    "My",
+                    "His",
+                    "Her",
+                    "Its"
+                ],
+                "a2": [
+                    "little",
+                    "luggage",
+                    "dry",
+                    "ticket"
+                ],
+                "a3": [
+                    "sister",
+                    "milk",
+                    "music",
+                    "food"
+                ],
+                "a4": [
+                    "is",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a5": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a6": [
+                    "angry",
+                    "door",
+                    "key",
+                    "room"
+                ],
+                "a7": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a8": [
+                    "you",
+                    "he",
+                    "she",
+                    "it"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "beq-negatives-a2-c03",
+            "author_id": "A2-c03",
+            "question": "Ми не відповідаємо за твій багаж.",
+            "level": "A2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ми не відповідаємо за твій багаж.",
+            "target_text": "We are not responsible for your luggage.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "We",
+                        "I",
+                        "You",
+                        "He"
+                    ]
+                },
+                "a2": {
+                    "answer": "are",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "are",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "not",
+                        "often",
+                        "sometimes",
+                        "already"
+                    ]
+                },
+                "a4": {
+                    "answer": "responsible",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "responsible",
+                        "dark",
+                        "heavy",
+                        "light"
+                    ]
+                },
+                "a5": {
+                    "answer": "for",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "for",
+                        "among",
+                        "about",
+                        "during"
+                    ]
+                },
+                "a6": {
+                    "answer": "your",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "your",
+                        "yours",
+                        "hers",
+                        "ours"
+                    ]
+                },
+                "a7": {
+                    "answer": "luggage.",
+                    "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+                    "options": [
+                        "luggage",
+                        "dry",
+                        "little",
+                        "sister"
+                    ]
+                }
+            },
+            "verb_hint": "Запереч відповідальність групи за багаж співрозмовника.",
+            "accepted_target_texts": [
+                "We are not responsible for your luggage.",
+                "We are not responsible for your baggage."
+            ],
+            "answer_synonyms": {
+                "a7": [
+                    "baggage."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a7": [
+                    "baggage."
+                ]
+            },
+            "reorder_groups": [
+                "We are",
+                "not responsible",
+                "for your luggage."
+            ],
+            "token_groups": [
+                "We are",
+                "not responsible",
+                "for your luggage."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "We",
+                "are",
+                "not",
+                "responsible",
+                "for",
+                "your",
+                "luggage."
+            ],
+            "options": [
+                "We",
+                "I",
+                "You",
+                "He",
+                "are",
+                "be",
+                "been",
+                "being",
+                "not",
+                "often",
+                "sometimes",
+                "already",
+                "responsible",
+                "dark",
+                "heavy",
+                "light",
+                "for",
+                "among",
+                "about",
+                "during",
+                "your",
+                "yours",
+                "hers",
+                "ours",
+                "luggage",
+                "dry",
+                "little",
+                "sister"
+            ],
+            "source_text_uk": "Ми не відповідаємо за твій багаж.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "I",
+                    "You",
+                    "He"
+                ],
+                "a2": [
+                    "are",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "not",
+                    "often",
+                    "sometimes",
+                    "already"
+                ],
+                "a4": [
+                    "responsible",
+                    "dark",
+                    "heavy",
+                    "light"
+                ],
+                "a5": [
+                    "for",
+                    "among",
+                    "about",
+                    "during"
+                ],
+                "a6": [
+                    "your",
+                    "yours",
+                    "hers",
+                    "ours"
+                ],
+                "a7": [
+                    "luggage",
+                    "dry",
+                    "little",
+                    "sister"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 7,
+            "uuid": "beq-negatives-b1-c01",
+            "author_id": "B1-c01",
+            "question": "Готель не такий дорогий, як ми очікували.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Готель не такий дорогий, як ми очікували.",
+            "target_text": "The hotel is not as expensive as we expected.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "The",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "hotel",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "hotel",
+                        "ready",
+                        "decision",
+                        "general"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "is",
+                        "am",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "not",
+                        "rarely",
+                        "only",
+                        "even"
+                    ]
+                },
+                "a5": {
+                    "answer": "as",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "as",
+                        "seats",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a6": {
+                    "answer": "expensive",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "expensive",
+                        "public",
+                        "final",
+                        "available"
+                    ]
+                },
+                "a7": {
+                    "answer": "as",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "as",
+                        "tickets",
+                        "cups",
+                        "doors"
+                    ]
+                },
+                "a8": {
+                    "answer": "we",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "we",
+                        "you",
+                        "he",
+                        "she"
+                    ]
+                },
+                "a9": {
+                    "answer": "expected.",
+                    "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+                    "options": [
+                        "expected",
+                        "met",
+                        "went",
+                        "saw"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечне порівняння вартості з нашими очікуваннями.",
+            "accepted_target_texts": [
+                "The hotel is not as expensive as we expected."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hotel",
+                "is not",
+                "as expensive",
+                "as we expected."
+            ],
+            "token_groups": [
+                "The hotel",
+                "is not",
+                "as expensive",
+                "as we expected."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "hotel",
+                "is",
+                "not",
+                "as",
+                "expensive",
+                "as",
+                "we",
+                "expected."
+            ],
+            "options": [
+                "The",
+                "Those",
+                "Each",
+                "Every",
+                "hotel",
+                "ready",
+                "decision",
+                "general",
+                "is",
+                "am",
+                "are",
+                "was",
+                "not",
+                "rarely",
+                "only",
+                "even",
+                "as",
+                "seats",
+                "people",
+                "men",
+                "expensive",
+                "public",
+                "final",
+                "available",
+                "tickets",
+                "cups",
+                "doors",
+                "we",
+                "you",
+                "he",
+                "she",
+                "expected",
+                "met",
+                "went",
+                "saw"
+            ],
+            "source_text_uk": "Готель не такий дорогий, як ми очікували.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "hotel",
+                    "ready",
+                    "decision",
+                    "general"
+                ],
+                "a3": [
+                    "is",
+                    "am",
+                    "are",
+                    "was"
+                ],
+                "a4": [
+                    "not",
+                    "rarely",
+                    "only",
+                    "even"
+                ],
+                "a5": [
+                    "as",
+                    "seats",
+                    "people",
+                    "men"
+                ],
+                "a6": [
+                    "expensive",
+                    "public",
+                    "final",
+                    "available"
+                ],
+                "a7": [
+                    "as",
+                    "tickets",
+                    "cups",
+                    "doors"
+                ],
+                "a8": [
+                    "we",
+                    "you",
+                    "he",
+                    "she"
+                ],
+                "a9": [
+                    "expected",
+                    "met",
+                    "went",
+                    "saw"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 8,
+            "uuid": "beq-negatives-b1-c02",
+            "author_id": "B1-c02",
+            "question": "Ті місця недоступні широкій публіці.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ті місця недоступні широкій публіці.",
+            "target_text": "Those seats are not available to the general public.",
+            "markers": {
+                "a1": {
+                    "answer": "Those",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "Those",
+                        "These",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "seats",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "seats",
+                        "as",
+                        "people",
+                        "men"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "are",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "available",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "available",
+                        "final",
+                        "expensive",
+                        "old"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "to",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "the",
+                        "no",
+                        "another",
+                        "either"
+                    ]
+                },
+                "a8": {
+                    "answer": "general",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "general",
+                        "decision",
+                        "hotel",
+                        "ready"
+                    ]
+                },
+                "a9": {
+                    "answer": "public.",
+                    "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+                    "options": [
+                        "public",
+                        "clean",
+                        "dirty",
+                        "good"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з названих місць і запереч їхню доступність усім охочим.",
+            "accepted_target_texts": [
+                "Those seats are not available to the general public."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Those seats",
+                "are not",
+                "available to",
+                "the general public."
+            ],
+            "token_groups": [
+                "Those seats",
+                "are not",
+                "available to",
+                "the general public."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Those",
+                "seats",
+                "are",
+                "not",
+                "available",
+                "to",
+                "the",
+                "general",
+                "public."
+            ],
+            "options": [
+                "Those",
+                "These",
+                "Each",
+                "Every",
+                "seats",
+                "as",
+                "people",
+                "men",
+                "are",
+                "be",
+                "been",
+                "being",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "available",
+                "final",
+                "expensive",
+                "old",
+                "to",
+                "at",
+                "by",
+                "with",
+                "the",
+                "no",
+                "another",
+                "either",
+                "general",
+                "decision",
+                "hotel",
+                "ready",
+                "public",
+                "clean",
+                "dirty",
+                "good"
+            ],
+            "source_text_uk": "Ті місця недоступні широкій публіці.",
+            "options_by_marker": {
+                "a1": [
+                    "Those",
+                    "These",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "seats",
+                    "as",
+                    "people",
+                    "men"
+                ],
+                "a3": [
+                    "are",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "available",
+                    "final",
+                    "expensive",
+                    "old"
+                ],
+                "a6": [
+                    "to",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a7": [
+                    "the",
+                    "no",
+                    "another",
+                    "either"
+                ],
+                "a8": [
+                    "general",
+                    "decision",
+                    "hotel",
+                    "ready"
+                ],
+                "a9": [
+                    "public",
+                    "clean",
+                    "dirty",
+                    "good"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 9,
+            "uuid": "beq-negatives-b1-c03",
+            "author_id": "B1-c03",
+            "question": "Я ще не готовий ухвалити остаточне рішення.",
+            "level": "B1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я ще не готовий ухвалити остаточне рішення.",
+            "target_text": "I am not ready to make a final decision.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "I",
+                        "It",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "am",
+                        "is",
+                        "are",
+                        "was"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "not",
+                        "never",
+                        "always",
+                        "often"
+                    ]
+                },
+                "a4": {
+                    "answer": "ready",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "ready",
+                        "hotel",
+                        "general",
+                        "map"
+                    ]
+                },
+                "a5": {
+                    "answer": "to",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "to",
+                        "at",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a6": {
+                    "answer": "make",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "make",
+                        "play",
+                        "call",
+                        "walk"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a8": {
+                    "answer": "final",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "final",
+                        "public",
+                        "expensive",
+                        "available"
+                    ]
+                },
+                "a9": {
+                    "answer": "decision.",
+                    "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+                    "options": [
+                        "decision",
+                        "cat",
+                        "person",
+                        "water"
+                    ]
+                }
+            },
+            "verb_hint": "Передай відсутність готовності мовця; не заперечуй саме існування рішення.",
+            "accepted_target_texts": [
+                "I am not ready to make a final decision."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am not",
+                "ready to make",
+                "a final decision."
+            ],
+            "token_groups": [
+                "I am not",
+                "ready to make",
+                "a final decision."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "not",
+                "ready",
+                "to",
+                "make",
+                "a",
+                "final",
+                "decision."
+            ],
+            "options": [
+                "I",
+                "It",
+                "We",
+                "They",
+                "am",
+                "is",
+                "are",
+                "was",
+                "not",
+                "never",
+                "always",
+                "often",
+                "ready",
+                "hotel",
+                "general",
+                "map",
+                "to",
+                "at",
+                "by",
+                "with",
+                "make",
+                "play",
+                "call",
+                "walk",
+                "a",
+                "the",
+                "some",
+                "any",
+                "final",
+                "public",
+                "expensive",
+                "available",
+                "decision",
+                "cat",
+                "person",
+                "water"
+            ],
+            "source_text_uk": "Я ще не готовий ухвалити остаточне рішення.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "It",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "am",
+                    "is",
+                    "are",
+                    "was"
+                ],
+                "a3": [
+                    "not",
+                    "never",
+                    "always",
+                    "often"
+                ],
+                "a4": [
+                    "ready",
+                    "hotel",
+                    "general",
+                    "map"
+                ],
+                "a5": [
+                    "to",
+                    "at",
+                    "by",
+                    "with"
+                ],
+                "a6": [
+                    "make",
+                    "play",
+                    "call",
+                    "walk"
+                ],
+                "a7": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a8": [
+                    "final",
+                    "public",
+                    "expensive",
+                    "available"
+                ],
+                "a9": [
+                    "decision",
+                    "cat",
+                    "person",
+                    "water"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 10,
+            "uuid": "beq-negatives-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Відсутність скарг не є доказом задоволеності.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Відсутність скарг не є доказом задоволеності.",
+            "target_text": "The absence of complaints is not proof of satisfaction.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "The",
+                        "Any",
+                        "This",
+                        "That"
+                    ]
+                },
+                "a2": {
+                    "answer": "absence",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "absence",
+                        "earlier",
+                        "delay",
+                        "inconsistent"
+                    ]
+                },
+                "a3": {
+                    "answer": "of",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "of",
+                        "in",
+                        "on",
+                        "at"
+                    ]
+                },
+                "a4": {
+                    "answer": "complaints",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "complaints",
+                        "findings",
+                        "teachers",
+                        "schools"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "is",
+                        "isn't",
+                        "aren't",
+                        "wasn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "not",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a7": {
+                    "answer": "proof",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "proof",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a8": {
+                    "answer": "of",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "of",
+                        "for",
+                        "by",
+                        "with"
+                    ]
+                },
+                "a9": {
+                    "answer": "satisfaction.",
+                    "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+                    "options": [
+                        "satisfaction",
+                        "map",
+                        "letter",
+                        "window"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи заперечення доказової сили відсутності скарг.",
+            "accepted_target_texts": [
+                "The absence of complaints is not proof of satisfaction."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The absence",
+                "of complaints",
+                "is not",
+                "proof of satisfaction."
+            ],
+            "token_groups": [
+                "The absence",
+                "of complaints",
+                "is not",
+                "proof of satisfaction."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "absence",
+                "of",
+                "complaints",
+                "is",
+                "not",
+                "proof",
+                "of",
+                "satisfaction."
+            ],
+            "options": [
+                "The",
+                "Any",
+                "This",
+                "That",
+                "absence",
+                "earlier",
+                "delay",
+                "inconsistent",
+                "of",
+                "in",
+                "on",
+                "at",
+                "complaints",
+                "findings",
+                "teachers",
+                "schools",
+                "is",
+                "isn't",
+                "aren't",
+                "wasn't",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "proof",
+                "ticket",
+                "cup",
+                "door",
+                "for",
+                "by",
+                "with",
+                "satisfaction",
+                "map",
+                "letter",
+                "window"
+            ],
+            "source_text_uk": "Відсутність скарг не є доказом задоволеності.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Any",
+                    "This",
+                    "That"
+                ],
+                "a2": [
+                    "absence",
+                    "earlier",
+                    "delay",
+                    "inconsistent"
+                ],
+                "a3": [
+                    "of",
+                    "in",
+                    "on",
+                    "at"
+                ],
+                "a4": [
+                    "complaints",
+                    "findings",
+                    "teachers",
+                    "schools"
+                ],
+                "a5": [
+                    "is",
+                    "isn't",
+                    "aren't",
+                    "wasn't"
+                ],
+                "a6": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a7": [
+                    "proof",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a8": [
+                    "of",
+                    "for",
+                    "by",
+                    "with"
+                ],
+                "a9": [
+                    "satisfaction",
+                    "map",
+                    "letter",
+                    "window"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 11,
+            "uuid": "beq-negatives-b2-c02",
+            "author_id": "B2-c02",
+            "question": "Наші висновки не суперечать попередньому дослідженню.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Наші висновки не суперечать попередньому дослідженню.",
+            "target_text": "Our findings are not inconsistent with the earlier study.",
+            "markers": {
+                "a1": {
+                    "answer": "Our",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "Our",
+                        "Mine",
+                        "Yours",
+                        "Hers"
+                    ]
+                },
+                "a2": {
+                    "answer": "findings",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "findings",
+                        "complaints",
+                        "cups",
+                        "doors"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "are",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "not",
+                        "sometimes",
+                        "already",
+                        "still"
+                    ]
+                },
+                "a5": {
+                    "answer": "inconsistent",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "inconsistent",
+                        "proof",
+                        "satisfaction",
+                        "delay"
+                    ]
+                },
+                "a6": {
+                    "answer": "with",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "with",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a8": {
+                    "answer": "earlier",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "earlier",
+                        "absence",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a9": {
+                    "answer": "study.",
+                    "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+                    "options": [
+                        "study",
+                        "make",
+                        "get",
+                        "go"
+                    ]
+                }
+            },
+            "verb_hint": "Передай обережне твердження через заперечення несумісності, не посилюй його до повної тотожності.",
+            "accepted_target_texts": [
+                "Our findings are not inconsistent with the earlier study."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Our findings",
+                "are not",
+                "inconsistent with",
+                "the earlier study."
+            ],
+            "token_groups": [
+                "Our findings",
+                "are not",
+                "inconsistent with",
+                "the earlier study."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "Our",
+                "findings",
+                "are",
+                "not",
+                "inconsistent",
+                "with",
+                "the",
+                "earlier",
+                "study."
+            ],
+            "options": [
+                "Our",
+                "Mine",
+                "Yours",
+                "Hers",
+                "findings",
+                "complaints",
+                "cups",
+                "doors",
+                "are",
+                "was",
+                "were",
+                "be",
+                "not",
+                "sometimes",
+                "already",
+                "still",
+                "inconsistent",
+                "proof",
+                "satisfaction",
+                "delay",
+                "with",
+                "over",
+                "under",
+                "through",
+                "the",
+                "those",
+                "each",
+                "every",
+                "earlier",
+                "absence",
+                "cat",
+                "person",
+                "study",
+                "make",
+                "get",
+                "go"
+            ],
+            "source_text_uk": "Наші висновки не суперечать попередньому дослідженню.",
+            "options_by_marker": {
+                "a1": [
+                    "Our",
+                    "Mine",
+                    "Yours",
+                    "Hers"
+                ],
+                "a2": [
+                    "findings",
+                    "complaints",
+                    "cups",
+                    "doors"
+                ],
+                "a3": [
+                    "are",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a4": [
+                    "not",
+                    "sometimes",
+                    "already",
+                    "still"
+                ],
+                "a5": [
+                    "inconsistent",
+                    "proof",
+                    "satisfaction",
+                    "delay"
+                ],
+                "a6": [
+                    "with",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a7": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a8": [
+                    "earlier",
+                    "absence",
+                    "cat",
+                    "person"
+                ],
+                "a9": [
+                    "study",
+                    "make",
+                    "get",
+                    "go"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 12,
+            "uuid": "beq-negatives-b2-c03",
+            "author_id": "B2-c03",
+            "question": "Незрозуміло, хто відповідає за затримку.",
+            "level": "B2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Незрозуміло, хто відповідає за затримку.",
+            "target_text": "It is not clear who is accountable for the delay.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "It",
+                        "She",
+                        "We",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "not",
+                        "always",
+                        "often",
+                        "sometimes"
+                    ]
+                },
+                "a4": {
+                    "answer": "clear",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "clear",
+                        "light",
+                        "clean",
+                        "dirty"
+                    ]
+                },
+                "a5": {
+                    "answer": "who",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "who",
+                        "where",
+                        "when",
+                        "why"
+                    ]
+                },
+                "a6": {
+                    "answer": "is",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a7": {
+                    "answer": "accountable",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "accountable",
+                        "small",
+                        "large",
+                        "new"
+                    ]
+                },
+                "a8": {
+                    "answer": "for",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "for",
+                        "into",
+                        "onto",
+                        "over"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "the",
+                        "that",
+                        "these",
+                        "those"
+                    ]
+                },
+                "a10": {
+                    "answer": "delay.",
+                    "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+                    "options": [
+                        "delay",
+                        "satisfaction",
+                        "inconsistent",
+                        "earlier"
+                    ]
+                }
+            },
+            "verb_hint": "Використай формальний початок із заперечною оцінкою ясності.",
+            "accepted_target_texts": [
+                "It is not clear who is accountable for the delay."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is not",
+                "clear who",
+                "is accountable",
+                "for the delay."
+            ],
+            "token_groups": [
+                "It is not",
+                "clear who",
+                "is accountable",
+                "for the delay."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "not",
+                "clear",
+                "who",
+                "is",
+                "accountable",
+                "for",
+                "the",
+                "delay."
+            ],
+            "options": [
+                "It",
+                "She",
+                "We",
+                "They",
+                "is",
+                "are",
+                "was",
+                "were",
+                "not",
+                "always",
+                "often",
+                "sometimes",
+                "clear",
+                "light",
+                "clean",
+                "dirty",
+                "who",
+                "where",
+                "when",
+                "why",
+                "be",
+                "been",
+                "being",
+                "accountable",
+                "small",
+                "large",
+                "new",
+                "for",
+                "into",
+                "onto",
+                "over",
+                "the",
+                "that",
+                "these",
+                "those",
+                "delay",
+                "satisfaction",
+                "inconsistent",
+                "earlier"
+            ],
+            "source_text_uk": "Незрозуміло, хто відповідає за затримку.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "She",
+                    "We",
+                    "They"
+                ],
+                "a2": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a3": [
+                    "not",
+                    "always",
+                    "often",
+                    "sometimes"
+                ],
+                "a4": [
+                    "clear",
+                    "light",
+                    "clean",
+                    "dirty"
+                ],
+                "a5": [
+                    "who",
+                    "where",
+                    "when",
+                    "why"
+                ],
+                "a6": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a7": [
+                    "accountable",
+                    "small",
+                    "large",
+                    "new"
+                ],
+                "a8": [
+                    "for",
+                    "into",
+                    "onto",
+                    "over"
+                ],
+                "a9": [
+                    "the",
+                    "that",
+                    "these",
+                    "those"
+                ],
+                "a10": [
+                    "delay",
+                    "satisfaction",
+                    "inconsistent",
+                    "earlier"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 13,
+            "uuid": "beq-negatives-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Висновки можна обґрунтовано оскаржити, попри впевнений тон звіту.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Висновки можна обґрунтовано оскаржити, попри впевнений тон звіту.",
+            "target_text": "The conclusions are not beyond reasonable challenge, despite the report's confident tone.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "The",
+                        "An",
+                        "Some",
+                        "Any"
+                    ]
+                },
+                "a2": {
+                    "answer": "conclusions",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "conclusions",
+                        "effects",
+                        "premises",
+                        "people"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "are",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a5": {
+                    "answer": "beyond",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "beyond",
+                        "scale",
+                        "reform",
+                        "controversial"
+                    ]
+                },
+                "a6": {
+                    "answer": "reasonable",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "reasonable",
+                        "distributional",
+                        "light",
+                        "clean"
+                    ]
+                },
+                "a7": {
+                    "answer": "challenge,",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "challenge",
+                        "remain",
+                        "position",
+                        "endorse"
+                    ]
+                },
+                "a8": {
+                    "answer": "despite",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "despite",
+                        "claim",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a9": {
+                    "answer": "the",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a10": {
+                    "answer": "report's",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "report's",
+                        "doors",
+                        "keys",
+                        "rooms"
+                    ]
+                },
+                "a11": {
+                    "answer": "confident",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "confident",
+                        "ticket",
+                        "cup",
+                        "door"
+                    ]
+                },
+                "a12": {
+                    "answer": "tone.",
+                    "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+                    "options": [
+                        "tone",
+                        "chair",
+                        "table",
+                        "key"
+                    ]
+                }
+            },
+            "verb_hint": "Передай можливість обґрунтованого заперечення через заперечну оцінку безспірності.",
+            "accepted_target_texts": [
+                "The conclusions are not beyond reasonable challenge, despite the report's confident tone."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conclusions",
+                "are not",
+                "beyond reasonable challenge,",
+                "despite the report's",
+                "confident tone."
+            ],
+            "token_groups": [
+                "The conclusions",
+                "are not",
+                "beyond reasonable challenge,",
+                "despite the report's",
+                "confident tone."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "conclusions",
+                "are",
+                "not",
+                "beyond",
+                "reasonable",
+                "challenge,",
+                "despite",
+                "the",
+                "report's",
+                "confident",
+                "tone."
+            ],
+            "options": [
+                "The",
+                "An",
+                "Some",
+                "Any",
+                "conclusions",
+                "effects",
+                "premises",
+                "people",
+                "are",
+                "be",
+                "been",
+                "being",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "beyond",
+                "scale",
+                "reform",
+                "controversial",
+                "reasonable",
+                "distributional",
+                "light",
+                "clean",
+                "challenge",
+                "remain",
+                "position",
+                "endorse",
+                "despite",
+                "claim",
+                "window",
+                "phone",
+                "the",
+                "those",
+                "each",
+                "every",
+                "report's",
+                "doors",
+                "keys",
+                "rooms",
+                "confident",
+                "ticket",
+                "cup",
+                "door",
+                "tone",
+                "chair",
+                "table",
+                "key"
+            ],
+            "source_text_uk": "Висновки можна обґрунтовано оскаржити, попри впевнений тон звіту.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "An",
+                    "Some",
+                    "Any"
+                ],
+                "a2": [
+                    "conclusions",
+                    "effects",
+                    "premises",
+                    "people"
+                ],
+                "a3": [
+                    "are",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a4": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a5": [
+                    "beyond",
+                    "scale",
+                    "reform",
+                    "controversial"
+                ],
+                "a6": [
+                    "reasonable",
+                    "distributional",
+                    "light",
+                    "clean"
+                ],
+                "a7": [
+                    "challenge",
+                    "remain",
+                    "position",
+                    "endorse"
+                ],
+                "a8": [
+                    "despite",
+                    "claim",
+                    "window",
+                    "phone"
+                ],
+                "a9": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a10": [
+                    "report's",
+                    "doors",
+                    "keys",
+                    "rooms"
+                ],
+                "a11": [
+                    "confident",
+                    "ticket",
+                    "cup",
+                    "door"
+                ],
+                "a12": [
+                    "tone",
+                    "chair",
+                    "table",
+                    "key"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 14,
+            "uuid": "beq-negatives-c1-c02",
+            "author_id": "C1-c02",
+            "question": "Спірним є не масштаб реформи, а її вплив на розподіл ресурсів.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Спірним є не масштаб реформи, а її вплив на розподіл ресурсів.",
+            "target_text": "It is not the scale of the reform that is controversial but its distributional effects.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "It",
+                        "Ourselves",
+                        "Themselves",
+                        "I"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "the",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a5": {
+                    "answer": "scale",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "scale",
+                        "confident",
+                        "tone",
+                        "position"
+                    ]
+                },
+                "a6": {
+                    "answer": "of",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "of",
+                        "to",
+                        "from",
+                        "for"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a8": {
+                    "answer": "reform",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "reform",
+                        "beyond",
+                        "challenge",
+                        "despite"
+                    ]
+                },
+                "a9": {
+                    "answer": "that",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "that",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a10": {
+                    "answer": "is",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "is",
+                        "was",
+                        "were",
+                        "be"
+                    ]
+                },
+                "a11": {
+                    "answer": "controversial",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "controversial",
+                        "endorse",
+                        "claim",
+                        "remain"
+                    ]
+                },
+                "a12": {
+                    "answer": "but",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "but",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a13": {
+                    "answer": "its",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "its",
+                        "whose",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a14": {
+                    "answer": "distributional",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "distributional",
+                        "reasonable",
+                        "quiet",
+                        "hungry"
+                    ]
+                },
+                "a15": {
+                    "answer": "effects.",
+                    "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+                    "options": [
+                        "effects",
+                        "report's",
+                        "premises",
+                        "conclusions"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи повне протиставлення того, що не є і що є предметом суперечки.",
+            "accepted_target_texts": [
+                "It is not the scale of the reform that is controversial but its distributional effects."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is not",
+                "the scale",
+                "of the reform",
+                "that is controversial",
+                "but its distributional",
+                "effects."
+            ],
+            "token_groups": [
+                "It is not",
+                "the scale",
+                "of the reform",
+                "that is controversial",
+                "but its distributional",
+                "effects."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "not",
+                "the",
+                "scale",
+                "of",
+                "the",
+                "reform",
+                "that",
+                "is",
+                "controversial",
+                "but",
+                "its",
+                "distributional",
+                "effects."
+            ],
+            "options": [
+                "It",
+                "Ourselves",
+                "Themselves",
+                "I",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "the",
+                "these",
+                "those",
+                "each",
+                "scale",
+                "confident",
+                "tone",
+                "position",
+                "of",
+                "to",
+                "from",
+                "for",
+                "every",
+                "no",
+                "another",
+                "reform",
+                "beyond",
+                "challenge",
+                "despite",
+                "that",
+                "some",
+                "any",
+                "this",
+                "was",
+                "were",
+                "be",
+                "controversial",
+                "endorse",
+                "claim",
+                "remain",
+                "but",
+                "while",
+                "if",
+                "whether",
+                "its",
+                "whose",
+                "my",
+                "your",
+                "distributional",
+                "reasonable",
+                "quiet",
+                "hungry",
+                "effects",
+                "report's",
+                "premises",
+                "conclusions"
+            ],
+            "source_text_uk": "Спірним є не масштаб реформи, а її вплив на розподіл ресурсів.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Ourselves",
+                    "Themselves",
+                    "I"
+                ],
+                "a2": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "the",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a5": [
+                    "scale",
+                    "confident",
+                    "tone",
+                    "position"
+                ],
+                "a6": [
+                    "of",
+                    "to",
+                    "from",
+                    "for"
+                ],
+                "a7": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a8": [
+                    "reform",
+                    "beyond",
+                    "challenge",
+                    "despite"
+                ],
+                "a9": [
+                    "that",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a10": [
+                    "is",
+                    "was",
+                    "were",
+                    "be"
+                ],
+                "a11": [
+                    "controversial",
+                    "endorse",
+                    "claim",
+                    "remain"
+                ],
+                "a12": [
+                    "but",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a13": [
+                    "its",
+                    "whose",
+                    "my",
+                    "your"
+                ],
+                "a14": [
+                    "distributional",
+                    "reasonable",
+                    "quiet",
+                    "hungry"
+                ],
+                "a15": [
+                    "effects",
+                    "report's",
+                    "premises",
+                    "conclusions"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 15,
+            "uuid": "beq-negatives-c1-c03",
+            "author_id": "C1-c03",
+            "question": "Я не в тому становищі, щоб підтримати твердження, передумови якого ще не перевірені.",
+            "level": "C1",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Я не в тому становищі, щоб підтримати твердження, передумови якого ще не перевірені.",
+            "target_text": "I am not in a position to endorse a claim whose premises remain untested.",
+            "markers": {
+                "a1": {
+                    "answer": "I",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "I",
+                        "She",
+                        "It",
+                        "We"
+                    ]
+                },
+                "a2": {
+                    "answer": "am",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "am",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "not",
+                        "only",
+                        "even",
+                        "almost"
+                    ]
+                },
+                "a4": {
+                    "answer": "in",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "in",
+                        "from",
+                        "for",
+                        "of"
+                    ]
+                },
+                "a5": {
+                    "answer": "a",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "a",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a6": {
+                    "answer": "position",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "position",
+                        "confident",
+                        "tone",
+                        "scale"
+                    ]
+                },
+                "a7": {
+                    "answer": "to",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "to",
+                        "by",
+                        "with",
+                        "without"
+                    ]
+                },
+                "a8": {
+                    "answer": "endorse",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "endorse",
+                        "reform",
+                        "controversial",
+                        "beyond"
+                    ]
+                },
+                "a9": {
+                    "answer": "a",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "a",
+                        "the",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a10": {
+                    "answer": "claim",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "claim",
+                        "despite",
+                        "challenge",
+                        "friend"
+                    ]
+                },
+                "a11": {
+                    "answer": "whose",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "whose",
+                        "theirs",
+                        "my",
+                        "your"
+                    ]
+                },
+                "a12": {
+                    "answer": "premises",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "premises",
+                        "conclusions",
+                        "report's",
+                        "effects"
+                    ]
+                },
+                "a13": {
+                    "answer": "remain",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "remain",
+                        "food",
+                        "bike",
+                        "car"
+                    ]
+                },
+                "a14": {
+                    "answer": "untested.",
+                    "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+                    "options": [
+                        "untested",
+                        "found",
+                        "brought",
+                        "took"
+                    ]
+                }
+            },
+            "verb_hint": "Передай обмеження можливості мовця підтримати твердження та збережи причину обережності.",
+            "accepted_target_texts": [
+                "I am not in a position to endorse a claim whose premises remain untested."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I am not",
+                "in a position",
+                "to endorse",
+                "a claim",
+                "whose premises",
+                "remain untested."
+            ],
+            "token_groups": [
+                "I am not",
+                "in a position",
+                "to endorse",
+                "a claim",
+                "whose premises",
+                "remain untested."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "I",
+                "am",
+                "not",
+                "in",
+                "a",
+                "position",
+                "to",
+                "endorse",
+                "a",
+                "claim",
+                "whose",
+                "premises",
+                "remain",
+                "untested."
+            ],
+            "options": [
+                "I",
+                "She",
+                "It",
+                "We",
+                "am",
+                "be",
+                "been",
+                "being",
+                "not",
+                "only",
+                "even",
+                "almost",
+                "in",
+                "from",
+                "for",
+                "of",
+                "a",
+                "another",
+                "either",
+                "neither",
+                "position",
+                "confident",
+                "tone",
+                "scale",
+                "to",
+                "by",
+                "with",
+                "without",
+                "endorse",
+                "reform",
+                "controversial",
+                "beyond",
+                "the",
+                "some",
+                "any",
+                "claim",
+                "despite",
+                "challenge",
+                "friend",
+                "whose",
+                "theirs",
+                "my",
+                "your",
+                "premises",
+                "conclusions",
+                "report's",
+                "effects",
+                "remain",
+                "food",
+                "bike",
+                "car",
+                "untested",
+                "found",
+                "brought",
+                "took"
+            ],
+            "source_text_uk": "Я не в тому становищі, щоб підтримати твердження, передумови якого ще не перевірені.",
+            "options_by_marker": {
+                "a1": [
+                    "I",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "a2": [
+                    "am",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a3": [
+                    "not",
+                    "only",
+                    "even",
+                    "almost"
+                ],
+                "a4": [
+                    "in",
+                    "from",
+                    "for",
+                    "of"
+                ],
+                "a5": [
+                    "a",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a6": [
+                    "position",
+                    "confident",
+                    "tone",
+                    "scale"
+                ],
+                "a7": [
+                    "to",
+                    "by",
+                    "with",
+                    "without"
+                ],
+                "a8": [
+                    "endorse",
+                    "reform",
+                    "controversial",
+                    "beyond"
+                ],
+                "a9": [
+                    "a",
+                    "the",
+                    "some",
+                    "any"
+                ],
+                "a10": [
+                    "claim",
+                    "despite",
+                    "challenge",
+                    "friend"
+                ],
+                "a11": [
+                    "whose",
+                    "theirs",
+                    "my",
+                    "your"
+                ],
+                "a12": [
+                    "premises",
+                    "conclusions",
+                    "report's",
+                    "effects"
+                ],
+                "a13": [
+                    "remain",
+                    "food",
+                    "bike",
+                    "car"
+                ],
+                "a14": [
+                    "untested",
+                    "found",
+                    "brought",
+                    "took"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 16,
+            "uuid": "beq-negatives-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Виклад не стільки неточний, скільки систематично вибірковий у тому, про що він мовчить.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Виклад не стільки неточний, скільки систематично вибірковий у тому, про що він мовчить.",
+            "target_text": "The account is not so much inaccurate as systematically selective in what it leaves unsaid.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "account",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "account",
+                        "incidental",
+                        "argument",
+                        "central"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "is",
+                        "weren't",
+                        "am",
+                        "are"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "not",
+                        "already",
+                        "still",
+                        "just"
+                    ]
+                },
+                "a5": {
+                    "answer": "so",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "so",
+                        "but",
+                        "or",
+                        "nor"
+                    ]
+                },
+                "a6": {
+                    "answer": "much",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "much",
+                        "self-evident",
+                        "greater",
+                        "procedural"
+                    ]
+                },
+                "a7": {
+                    "answer": "inaccurate",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "inaccurate",
+                        "uniformity",
+                        "justice",
+                        "chair"
+                    ]
+                },
+                "a8": {
+                    "answer": "as",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "as",
+                        "reservations",
+                        "maps",
+                        "letters"
+                    ]
+                },
+                "a9": {
+                    "answer": "systematically",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "systematically",
+                        "invariably",
+                        "badly",
+                        "clearly"
+                    ]
+                },
+                "a10": {
+                    "answer": "selective",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "selective",
+                        "compatible",
+                        "substantive",
+                        "quiet"
+                    ]
+                },
+                "a11": {
+                    "answer": "in",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "in",
+                        "over",
+                        "under",
+                        "through"
+                    ]
+                },
+                "a12": {
+                    "answer": "what",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "what",
+                        "which",
+                        "where",
+                        "when"
+                    ]
+                },
+                "a13": {
+                    "answer": "it",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "it",
+                        "they",
+                        "me",
+                        "him"
+                    ]
+                },
+                "a14": {
+                    "answer": "leaves",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "leaves",
+                        "says",
+                        "tells",
+                        "meets"
+                    ]
+                },
+                "a15": {
+                    "answer": "unsaid.",
+                    "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+                    "options": [
+                        "unsaid",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи градаційне протиставлення неточності та вибіркового замовчування.",
+            "accepted_target_texts": [
+                "The account is not so much inaccurate as systematically selective in what it leaves unsaid."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The account",
+                "is not",
+                "so much inaccurate",
+                "as systematically selective",
+                "in what",
+                "it leaves unsaid."
+            ],
+            "token_groups": [
+                "The account",
+                "is not",
+                "so much inaccurate",
+                "as systematically selective",
+                "in what",
+                "it leaves unsaid."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "The",
+                "account",
+                "is",
+                "not",
+                "so",
+                "much",
+                "inaccurate",
+                "as",
+                "systematically",
+                "selective",
+                "in",
+                "what",
+                "it",
+                "leaves",
+                "unsaid."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "account",
+                "incidental",
+                "argument",
+                "central",
+                "is",
+                "weren't",
+                "am",
+                "are",
+                "not",
+                "already",
+                "still",
+                "just",
+                "so",
+                "but",
+                "or",
+                "nor",
+                "much",
+                "self-evident",
+                "greater",
+                "procedural",
+                "inaccurate",
+                "uniformity",
+                "justice",
+                "chair",
+                "as",
+                "reservations",
+                "maps",
+                "letters",
+                "systematically",
+                "invariably",
+                "badly",
+                "clearly",
+                "selective",
+                "compatible",
+                "substantive",
+                "quiet",
+                "in",
+                "over",
+                "under",
+                "through",
+                "what",
+                "which",
+                "where",
+                "when",
+                "it",
+                "they",
+                "me",
+                "him",
+                "leaves",
+                "says",
+                "tells",
+                "meets",
+                "unsaid",
+                "room",
+                "map",
+                "letter"
+            ],
+            "source_text_uk": "Виклад не стільки неточний, скільки систематично вибірковий у тому, про що він мовчить.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "account",
+                    "incidental",
+                    "argument",
+                    "central"
+                ],
+                "a3": [
+                    "is",
+                    "weren't",
+                    "am",
+                    "are"
+                ],
+                "a4": [
+                    "not",
+                    "already",
+                    "still",
+                    "just"
+                ],
+                "a5": [
+                    "so",
+                    "but",
+                    "or",
+                    "nor"
+                ],
+                "a6": [
+                    "much",
+                    "self-evident",
+                    "greater",
+                    "procedural"
+                ],
+                "a7": [
+                    "inaccurate",
+                    "uniformity",
+                    "justice",
+                    "chair"
+                ],
+                "a8": [
+                    "as",
+                    "reservations",
+                    "maps",
+                    "letters"
+                ],
+                "a9": [
+                    "systematically",
+                    "invariably",
+                    "badly",
+                    "clearly"
+                ],
+                "a10": [
+                    "selective",
+                    "compatible",
+                    "substantive",
+                    "quiet"
+                ],
+                "a11": [
+                    "in",
+                    "over",
+                    "under",
+                    "through"
+                ],
+                "a12": [
+                    "what",
+                    "which",
+                    "where",
+                    "when"
+                ],
+                "a13": [
+                    "it",
+                    "they",
+                    "me",
+                    "him"
+                ],
+                "a14": [
+                    "leaves",
+                    "says",
+                    "tells",
+                    "meets"
+                ],
+                "a15": [
+                    "unsaid",
+                    "room",
+                    "map",
+                    "letter"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 17,
+            "uuid": "beq-negatives-c2-c02",
+            "author_id": "C2-c02",
+            "question": "Ці застереження не другорядні для аргументу; вони є його суттю.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Ці застереження не другорядні для аргументу; вони є його суттю.",
+            "target_text": "These reservations are not incidental to the argument; they are central to it.",
+            "markers": {
+                "a1": {
+                    "answer": "These",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "These",
+                        "Those",
+                        "Each",
+                        "Every"
+                    ]
+                },
+                "a2": {
+                    "answer": "reservations",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "reservations",
+                        "as",
+                        "windows",
+                        "phones"
+                    ]
+                },
+                "a3": {
+                    "answer": "are",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "are",
+                        "being",
+                        "isn't",
+                        "aren't"
+                    ]
+                },
+                "a4": {
+                    "answer": "not",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a5": {
+                    "answer": "incidental",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "incidental",
+                        "unsaid",
+                        "self-evident",
+                        "greater"
+                    ]
+                },
+                "a6": {
+                    "answer": "to",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "to",
+                        "across",
+                        "between",
+                        "among"
+                    ]
+                },
+                "a7": {
+                    "answer": "the",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "the",
+                        "both",
+                        "a",
+                        "an"
+                    ]
+                },
+                "a8": {
+                    "answer": "argument;",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "argument",
+                        "account",
+                        "much",
+                        "inaccurate"
+                    ]
+                },
+                "a9": {
+                    "answer": "they",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "they",
+                        "he",
+                        "she",
+                        "we"
+                    ]
+                },
+                "a10": {
+                    "answer": "are",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "are",
+                        "am",
+                        "is",
+                        "was"
+                    ]
+                },
+                "a11": {
+                    "answer": "central",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "central",
+                        "justice",
+                        "procedural",
+                        "uniformity"
+                    ]
+                },
+                "a12": {
+                    "answer": "to",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "to",
+                        "about",
+                        "during",
+                        "from"
+                    ]
+                },
+                "a13": {
+                    "answer": "it.",
+                    "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+                    "options": [
+                        "it",
+                        "you",
+                        "me",
+                        "him"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи два пов'язані твердження: заперечення другорядності й наголос на центральній ролі.",
+            "accepted_target_texts": [
+                "These reservations are not incidental to the argument; they are central to it."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "These reservations",
+                "are not",
+                "incidental to",
+                "the argument;",
+                "they are",
+                "central to it."
+            ],
+            "token_groups": [
+                "These reservations",
+                "are not",
+                "incidental to",
+                "the argument;",
+                "they are",
+                "central to it."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "These",
+                "reservations",
+                "are",
+                "not",
+                "incidental",
+                "to",
+                "the",
+                "argument;",
+                "they",
+                "are",
+                "central",
+                "to",
+                "it."
+            ],
+            "options": [
+                "These",
+                "Those",
+                "Each",
+                "Every",
+                "reservations",
+                "as",
+                "windows",
+                "phones",
+                "are",
+                "being",
+                "isn't",
+                "aren't",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "incidental",
+                "unsaid",
+                "self-evident",
+                "greater",
+                "to",
+                "across",
+                "between",
+                "among",
+                "the",
+                "both",
+                "a",
+                "an",
+                "argument",
+                "account",
+                "much",
+                "inaccurate",
+                "they",
+                "he",
+                "she",
+                "we",
+                "am",
+                "is",
+                "was",
+                "central",
+                "justice",
+                "procedural",
+                "uniformity",
+                "about",
+                "during",
+                "from",
+                "it",
+                "you",
+                "me",
+                "him"
+            ],
+            "source_text_uk": "Ці застереження не другорядні для аргументу; вони є його суттю.",
+            "options_by_marker": {
+                "a1": [
+                    "These",
+                    "Those",
+                    "Each",
+                    "Every"
+                ],
+                "a2": [
+                    "reservations",
+                    "as",
+                    "windows",
+                    "phones"
+                ],
+                "a3": [
+                    "are",
+                    "being",
+                    "isn't",
+                    "aren't"
+                ],
+                "a4": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a5": [
+                    "incidental",
+                    "unsaid",
+                    "self-evident",
+                    "greater"
+                ],
+                "a6": [
+                    "to",
+                    "across",
+                    "between",
+                    "among"
+                ],
+                "a7": [
+                    "the",
+                    "both",
+                    "a",
+                    "an"
+                ],
+                "a8": [
+                    "argument",
+                    "account",
+                    "much",
+                    "inaccurate"
+                ],
+                "a9": [
+                    "they",
+                    "he",
+                    "she",
+                    "we"
+                ],
+                "a10": [
+                    "are",
+                    "am",
+                    "is",
+                    "was"
+                ],
+                "a11": [
+                    "central",
+                    "justice",
+                    "procedural",
+                    "uniformity"
+                ],
+                "a12": [
+                    "to",
+                    "about",
+                    "during",
+                    "from"
+                ],
+                "a13": [
+                    "it",
+                    "you",
+                    "me",
+                    "him"
+                ]
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 18,
+            "uuid": "beq-negatives-c2-c03",
+            "author_id": "C2-c03",
+            "question": "Не є самоочевидним, що більша процедурна одноманітність завжди сумісна зі справедливістю по суті.",
+            "level": "C2",
+            "type": 4,
+            "source": "verb_to_be_quality_negatives",
+            "translation_uk": "Не є самоочевидним, що більша процедурна одноманітність завжди сумісна зі справедливістю по суті.",
+            "target_text": "It is not self-evident that greater procedural uniformity is invariably compatible with substantive justice.",
+            "markers": {
+                "a1": {
+                    "answer": "It",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "It",
+                        "Us",
+                        "Them",
+                        "Myself"
+                    ]
+                },
+                "a2": {
+                    "answer": "is",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "is",
+                        "are",
+                        "was",
+                        "were"
+                    ]
+                },
+                "a3": {
+                    "answer": "not",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "not",
+                        "usually",
+                        "rarely",
+                        "only"
+                    ]
+                },
+                "a4": {
+                    "answer": "self-evident",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "self-evident",
+                        "inaccurate",
+                        "unsaid",
+                        "incidental"
+                    ]
+                },
+                "a5": {
+                    "answer": "that",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a6": {
+                    "answer": "greater",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "greater",
+                        "argument",
+                        "central",
+                        "account"
+                    ]
+                },
+                "a7": {
+                    "answer": "procedural",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "procedural",
+                        "much",
+                        "cat",
+                        "person"
+                    ]
+                },
+                "a8": {
+                    "answer": "uniformity",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "uniformity",
+                        "room",
+                        "map",
+                        "letter"
+                    ]
+                },
+                "a9": {
+                    "answer": "is",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "is",
+                        "be",
+                        "been",
+                        "being"
+                    ]
+                },
+                "a10": {
+                    "answer": "invariably",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "invariably",
+                        "systematically",
+                        "well",
+                        "badly"
+                    ]
+                },
+                "a11": {
+                    "answer": "compatible",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "compatible",
+                        "selective",
+                        "helpful",
+                        "different"
+                    ]
+                },
+                "a12": {
+                    "answer": "with",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "with",
+                        "without",
+                        "into",
+                        "onto"
+                    ]
+                },
+                "a13": {
+                    "answer": "substantive",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "substantive",
+                        "lovely",
+                        "final",
+                        "small"
+                    ]
+                },
+                "a14": {
+                    "answer": "justice.",
+                    "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+                    "options": [
+                        "justice",
+                        "music",
+                        "food",
+                        "bike"
+                    ]
+                }
+            },
+            "verb_hint": "Збережи обережне заперечення самоочевидності, не перетворюй його на заперечення сумісності.",
+            "accepted_target_texts": [
+                "It is not self-evident that greater procedural uniformity is invariably compatible with substantive justice."
+            ],
+            "answer_synonyms": [],
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "It is not",
+                "self-evident that",
+                "greater procedural uniformity",
+                "is invariably compatible",
+                "with substantive justice."
+            ],
+            "token_groups": [
+                "It is not",
+                "self-evident that",
+                "greater procedural uniformity",
+                "is invariably compatible",
+                "with substantive justice."
+            ],
+            "quality_revision": "verb-to-be-v1",
+            "tokens_correct": [
+                "It",
+                "is",
+                "not",
+                "self-evident",
+                "that",
+                "greater",
+                "procedural",
+                "uniformity",
+                "is",
+                "invariably",
+                "compatible",
+                "with",
+                "substantive",
+                "justice."
+            ],
+            "options": [
+                "It",
+                "Us",
+                "Them",
+                "Myself",
+                "is",
+                "are",
+                "was",
+                "were",
+                "not",
+                "usually",
+                "rarely",
+                "only",
+                "self-evident",
+                "inaccurate",
+                "unsaid",
+                "incidental",
+                "that",
+                "these",
+                "those",
+                "each",
+                "greater",
+                "argument",
+                "central",
+                "account",
+                "procedural",
+                "much",
+                "cat",
+                "person",
+                "uniformity",
+                "room",
+                "map",
+                "letter",
+                "be",
+                "been",
+                "being",
+                "invariably",
+                "systematically",
+                "well",
+                "badly",
+                "compatible",
+                "selective",
+                "helpful",
+                "different",
+                "with",
+                "without",
+                "into",
+                "onto",
+                "substantive",
+                "lovely",
+                "final",
+                "small",
+                "justice",
+                "music",
+                "food",
+                "bike"
+            ],
+            "source_text_uk": "Не є самоочевидним, що більша процедурна одноманітність завжди сумісна зі справедливістю по суті.",
+            "options_by_marker": {
+                "a1": [
+                    "It",
+                    "Us",
+                    "Them",
+                    "Myself"
+                ],
+                "a2": [
+                    "is",
+                    "are",
+                    "was",
+                    "were"
+                ],
+                "a3": [
+                    "not",
+                    "usually",
+                    "rarely",
+                    "only"
+                ],
+                "a4": [
+                    "self-evident",
+                    "inaccurate",
+                    "unsaid",
+                    "incidental"
+                ],
+                "a5": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a6": [
+                    "greater",
+                    "argument",
+                    "central",
+                    "account"
+                ],
+                "a7": [
+                    "procedural",
+                    "much",
+                    "cat",
+                    "person"
+                ],
+                "a8": [
+                    "uniformity",
+                    "room",
+                    "map",
+                    "letter"
+                ],
+                "a9": [
+                    "is",
+                    "be",
+                    "been",
+                    "being"
+                ],
+                "a10": [
+                    "invariably",
+                    "systematically",
+                    "well",
+                    "badly"
+                ],
+                "a11": [
+                    "compatible",
+                    "selective",
+                    "helpful",
+                    "different"
+                ],
+                "a12": [
+                    "with",
+                    "without",
+                    "into",
+                    "onto"
+                ],
+                "a13": [
+                    "substantive",
+                    "lovely",
+                    "final",
+                    "small"
+                ],
+                "a14": [
+                    "justice",
+                    "music",
+                    "food",
+                    "bike"
+                ]
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}

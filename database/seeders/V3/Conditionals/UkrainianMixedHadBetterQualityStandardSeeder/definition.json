@@ -1,0 +1,1738 @@
+{
+    "schema_version": 1,
+    "quality_revision": "cqq-v1",
+    "compiled_from": {
+        "path": "docs/content/conditionals-quality/had-better.v1.json",
+        "sha256": "4ab4fbd1c9ed0257b5faa9d3e3fad5e47e5715be4927f72426dabbc630767a75"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Conditionals\\UkrainianMixedHadBetterQualityStandardSeeder",
+        "uuid_namespace": "conditionals-quality-had-better-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Conditionals"
+    },
+    "sources": {
+        "conditionals_quality_had_better": {
+            "name": "Conditionals Quality: Had Better: Specific Advice and Consequences"
+        }
+    },
+    "tags": {
+        "conditionals_had_better": {
+            "name": "Had better",
+            "category": "conditionals"
+        },
+        "had_better_base": {
+            "name": "Had Better Base",
+            "category": "topic"
+        },
+        "had_better_not": {
+            "name": "Had Better Not",
+            "category": "topic"
+        },
+        "strong_advice": {
+            "name": "Strong Advice",
+            "category": "topic"
+        },
+        "warning": {
+            "name": "Warning",
+            "category": "topic"
+        },
+        "consequence": {
+            "name": "Consequence",
+            "category": "topic"
+        },
+        "had_better_vs_should": {
+            "name": "Had Better Vs Should",
+            "category": "topic"
+        },
+        "no_to_after_had_better": {
+            "name": "No To After Had Better",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "conditionals_had_better"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "cqq-better-a1-g01",
+            "author_id": "A1-g01",
+            "question": "The plate is hot. You {a1}.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тарілка гаряча. Тобі краще зачекати.",
+            "target_text": "The plate is hot. You had better wait.",
+            "markers": {
+                "a1": {
+                    "answer": "had better wait",
+                    "options": [
+                        "had better wait",
+                        "had better waited",
+                        "have better wait"
+                    ],
+                    "verb_hint": "Передай конкретну пораду зачекати через небезпеку опіку."
+                }
+            },
+            "verb_hint": "Передай конкретну пораду зачекати через небезпеку опіку.",
+            "accepted_target_texts": [
+                "The plate is hot. You had better wait."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The plate",
+                "is hot.",
+                "You",
+                "had better wait."
+            ],
+            "token_groups": [
+                "The plate",
+                "is hot.",
+                "You",
+                "had better wait."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "cqq-better-a1-g02",
+            "author_id": "A1-g02",
+            "question": "The dog is asleep. We {a1} shout.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Собака спить. Нам краще не кричати.",
+            "target_text": "The dog is asleep. We had better not shout.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "had not better to",
+                        "do not had better"
+                    ],
+                    "verb_hint": "Уведи всю заперечну конструкцію поради перед уже наведеною дією."
+                }
+            },
+            "verb_hint": "Уведи всю заперечну конструкцію поради перед уже наведеною дією.",
+            "accepted_target_texts": [
+                "The dog is asleep. We had better not shout."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The dog",
+                "is asleep.",
+                "We",
+                "had better not",
+                "shout."
+            ],
+            "token_groups": [
+                "The dog",
+                "is asleep.",
+                "We",
+                "had better not",
+                "shout."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "cqq-better-a1-g03",
+            "author_id": "A1-g03",
+            "question": "You had better {a1} the tea first.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще спочатку остудити чай.",
+            "target_text": "You had better cool the tea first.",
+            "markers": {
+                "a1": {
+                    "answer": "cool",
+                    "options": [
+                        "cool",
+                        "to cool",
+                        "cooled"
+                    ],
+                    "verb_hint": "Остуди — початкова форма дії після конкретної поради."
+                }
+            },
+            "verb_hint": "Остуди — початкова форма дії після конкретної поради.",
+            "accepted_target_texts": [
+                "You had better cool the tea first."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You had better",
+                "cool",
+                "the tea",
+                "first."
+            ],
+            "token_groups": [
+                "You had better",
+                "cool",
+                "the tea",
+                "first."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "cqq-better-a1-g04",
+            "author_id": "A1-g04",
+            "question": "I {a1} better find my shoe.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще знайти свій черевик.",
+            "target_text": "I had better find my shoe.",
+            "markers": {
+                "a1": {
+                    "answer": "had",
+                    "options": [
+                        "had",
+                        "would",
+                        "have"
+                    ],
+                    "verb_hint": "Для вивченої поради потрібне допоміжне слово, а не форма бажання."
+                }
+            },
+            "verb_hint": "Для вивченої поради потрібне допоміжне слово, а не форма бажання.",
+            "accepted_target_texts": [
+                "I had better find my shoe."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "had",
+                "better",
+                "find",
+                "my shoe."
+            ],
+            "token_groups": [
+                "I",
+                "had",
+                "better",
+                "find",
+                "my shoe."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "cqq-better-a1-g05",
+            "author_id": "A1-g05",
+            "question": "She had better {a1} on the wet floor.",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їй краще не бігти мокрою підлогою.",
+            "target_text": "She had better not run on the wet floor.",
+            "markers": {
+                "a1": {
+                    "answer": "not run",
+                    "options": [
+                        "not run",
+                        "not to run",
+                        "does not run"
+                    ],
+                    "verb_hint": "Не бігти — заперечення постав перед початковою формою дії."
+                }
+            },
+            "verb_hint": "Не бігти — заперечення постав перед початковою формою дії.",
+            "accepted_target_texts": [
+                "She had better not run on the wet floor."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She had better",
+                "not run",
+                "on",
+                "the wet floor."
+            ],
+            "token_groups": [
+                "She had better",
+                "not run",
+                "on",
+                "the wet floor."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "cqq-better-a1-g06",
+            "author_id": "A1-g06",
+            "question": "{a1} we better ask Mum?",
+            "level": "A1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще нам запитати маму?",
+            "target_text": "Had we better ask Mum?",
+            "markers": {
+                "a1": {
+                    "answer": "Had",
+                    "options": [
+                        "Had",
+                        "Do",
+                        "Would"
+                    ],
+                    "verb_hint": "Почни пряме питання з допоміжного слова цільової конструкції."
+                }
+            },
+            "verb_hint": "Почни пряме питання з допоміжного слова цільової конструкції.",
+            "accepted_target_texts": [
+                "Had we better ask Mum?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Had",
+                "we better",
+                "ask",
+                "Mum?"
+            ],
+            "token_groups": [
+                "Had",
+                "we better",
+                "ask",
+                "Mum?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "cqq-better-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The forecast shows frost. You {a1} the roses.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Прогнозують мороз. Тобі краще накрити троянди.",
+            "target_text": "The forecast shows frost. You had better cover the roses.",
+            "markers": {
+                "a1": {
+                    "answer": "had better cover",
+                    "options": [
+                        "had better cover",
+                        "had better covered",
+                        "would better cover"
+                    ],
+                    "verb_hint": "Накрити троянди — конкретна порада через небезпеку замерзання."
+                }
+            },
+            "verb_hint": "Накрити троянди — конкретна порада через небезпеку замерзання.",
+            "accepted_target_texts": [
+                "The forecast shows frost. You had better cover the roses."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The forecast",
+                "shows frost.",
+                "You",
+                "had better cover",
+                "the roses."
+            ],
+            "token_groups": [
+                "The forecast",
+                "shows frost.",
+                "You",
+                "had better cover",
+                "the roses."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "cqq-better-a2-g02",
+            "author_id": "A2-g02",
+            "question": "We had better {a1} the oven before bed.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще перевірити духовку перед сном.",
+            "target_text": "We had better check the oven before bed.",
+            "markers": {
+                "a1": {
+                    "answer": "check",
+                    "options": [
+                        "check",
+                        "to check",
+                        "checked"
+                    ],
+                    "verb_hint": "Перевірити — початкова форма після цільової поради."
+                }
+            },
+            "verb_hint": "Перевірити — початкова форма після цільової поради.",
+            "accepted_target_texts": [
+                "We had better check the oven before bed."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "We had better",
+                "check",
+                "the oven",
+                "before bed."
+            ],
+            "token_groups": [
+                "We had better",
+                "check",
+                "the oven",
+                "before bed."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "cqq-better-a2-g03",
+            "author_id": "A2-g03",
+            "question": "The glue is wet. He {a1} the handle.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Клей ще мокрий. Йому краще не торкатися ручки.",
+            "target_text": "The glue is wet. He had better not touch the handle.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not touch",
+                    "options": [
+                        "had better not touch",
+                        "had not better touching",
+                        "does not had better touch"
+                    ],
+                    "verb_hint": "Не торкатися — уведи всю заперечну пораду."
+                }
+            },
+            "verb_hint": "Не торкатися — уведи всю заперечну пораду.",
+            "accepted_target_texts": [
+                "The glue is wet. He had better not touch the handle."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The glue",
+                "is wet.",
+                "He",
+                "had better not",
+                "touch",
+                "the handle."
+            ],
+            "token_groups": [
+                "The glue",
+                "is wet.",
+                "He",
+                "had better not",
+                "touch",
+                "the handle."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "cqq-better-a2-g04",
+            "author_id": "A2-g04",
+            "question": "{a1} you better bring a spare bulb?",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще тобі принести запасну лампочку?",
+            "target_text": "Hadn't you better bring a spare bulb?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "options": [
+                        "Hadn't",
+                        "Don't",
+                        "Wouldn't"
+                    ],
+                    "verb_hint": "Почни заперечне пряме питання зі скороченої допоміжної форми."
+                }
+            },
+            "verb_hint": "Почни заперечне пряме питання зі скороченої допоміжної форми.",
+            "accepted_target_texts": [
+                "Hadn't you better bring a spare bulb?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "you better",
+                "bring",
+                "a spare bulb?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "you better",
+                "bring",
+                "a spare bulb?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "cqq-better-a2-g05",
+            "author_id": "A2-g05",
+            "question": "I had better {a1} the parcel today.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще надіслати посилку сьогодні.",
+            "target_text": "I had better send the parcel today.",
+            "markers": {
+                "a1": {
+                    "answer": "send",
+                    "options": [
+                        "send",
+                        "to send",
+                        "sent"
+                    ],
+                    "verb_hint": "Надіслати — початкова форма дії, яку радять виконати сьогодні."
+                }
+            },
+            "verb_hint": "Надіслати — початкова форма дії, яку радять виконати сьогодні.",
+            "accepted_target_texts": [
+                "I had better send the parcel today.",
+                "I had better post the parcel today.",
+                "I had better dispatch the parcel today."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "post",
+                    "dispatch"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "post",
+                    "dispatch"
+                ]
+            },
+            "reorder_groups": [
+                "I had better",
+                "send",
+                "the parcel",
+                "today."
+            ],
+            "token_groups": [
+                "I had better",
+                "send",
+                "the parcel",
+                "today."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "cqq-better-a2-g06",
+            "author_id": "A2-g06",
+            "question": "You {a1} use that loose plug.",
+            "level": "A2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще не користуватися тим розхитаним штекером.",
+            "target_text": "You had better not use that loose plug.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "have better not",
+                        "had better don't"
+                    ],
+                    "verb_hint": "Перед наведеною дією утвори заперечну конкретну пораду."
+                }
+            },
+            "verb_hint": "Перед наведеною дією утвори заперечну конкретну пораду.",
+            "accepted_target_texts": [
+                "You had better not use that loose plug."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "You",
+                "had better not",
+                "use",
+                "that loose plug."
+            ],
+            "token_groups": [
+                "You",
+                "had better not",
+                "use",
+                "that loose plug."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "cqq-better-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The trail is closing. We {a1} back now.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Стежку закривають. Нам краще зараз повернути назад.",
+            "target_text": "The trail is closing. We had better turn back now.",
+            "markers": {
+                "a1": {
+                    "answer": "had better turn",
+                    "options": [
+                        "had better turn",
+                        "had better turned",
+                        "would better turning"
+                    ],
+                    "verb_hint": "Передай конкретну пораду розвернутися через обмеження маршруту."
+                }
+            },
+            "verb_hint": "Передай конкретну пораду розвернутися через обмеження маршруту.",
+            "accepted_target_texts": [
+                "The trail is closing. We had better turn back now."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The trail",
+                "is closing.",
+                "We",
+                "had better turn",
+                "back now."
+            ],
+            "token_groups": [
+                "The trail",
+                "is closing.",
+                "We",
+                "had better turn",
+                "back now."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "cqq-better-b1-g02",
+            "author_id": "B1-g02",
+            "question": "You had better {a1} the warranty card.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще зберегти гарантійний талон.",
+            "target_text": "You had better retain the warranty card.",
+            "markers": {
+                "a1": {
+                    "answer": "retain",
+                    "options": [
+                        "retain",
+                        "to retain",
+                        "retained"
+                    ],
+                    "verb_hint": "Зберегти — початкова форма; йдеться про документ, який може знадобитися."
+                }
+            },
+            "verb_hint": "Зберегти — початкова форма; йдеться про документ, який може знадобитися.",
+            "accepted_target_texts": [
+                "You had better retain the warranty card.",
+                "You had better keep the warranty card."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "keep"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "keep"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "retain",
+                "the warranty card."
+            ],
+            "token_groups": [
+                "You had better",
+                "retain",
+                "the warranty card."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "cqq-better-b1-g03",
+            "author_id": "B1-g03",
+            "question": "The hostel locks at ten. They {a1} late.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Хостел замикають о десятій. Їм краще не приїжджати пізно.",
+            "target_text": "The hostel locks at ten. They had better not arrive late.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not arrive",
+                    "options": [
+                        "had better not arrive",
+                        "had not better arrived",
+                        "do not had better arrive"
+                    ],
+                    "verb_hint": "Уведи повну заперечну пораду приїхати не запізно."
+                }
+            },
+            "verb_hint": "Уведи повну заперечну пораду приїхати не запізно.",
+            "accepted_target_texts": [
+                "The hostel locks at ten. They had better not arrive late."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hostel",
+                "locks at ten.",
+                "They",
+                "had better not",
+                "arrive",
+                "late."
+            ],
+            "token_groups": [
+                "The hostel",
+                "locks at ten.",
+                "They",
+                "had better not",
+                "arrive",
+                "late."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "cqq-better-b1-g04",
+            "author_id": "B1-g04",
+            "question": "{a1} we better confirm the pickup point?",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще нам підтвердити місце посадки?",
+            "target_text": "Hadn't we better confirm the pickup point?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "options": [
+                        "Hadn't",
+                        "Don't",
+                        "Shouldn't to"
+                    ],
+                    "verb_hint": "Утвори заперечне пряме питання з цільовою конструкцією поради."
+                }
+            },
+            "verb_hint": "Утвори заперечне пряме питання з цільовою конструкцією поради.",
+            "accepted_target_texts": [
+                "Hadn't we better confirm the pickup point?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "we better",
+                "confirm",
+                "the pickup point?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "we better",
+                "confirm",
+                "the pickup point?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "cqq-better-b1-g05",
+            "author_id": "B1-g05",
+            "question": "She had better {a1} the receptionist about the broken latch.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їй краще повідомити адміністраторові про зламану засувку.",
+            "target_text": "She had better inform the receptionist about the broken latch.",
+            "markers": {
+                "a1": {
+                    "answer": "inform",
+                    "options": [
+                        "inform",
+                        "to inform",
+                        "informed"
+                    ],
+                    "verb_hint": "Повідомити — початкова форма після конкретної поради."
+                }
+            },
+            "verb_hint": "Повідомити — початкова форма після конкретної поради.",
+            "accepted_target_texts": [
+                "She had better inform the receptionist about the broken latch.",
+                "She had better notify the receptionist about the broken latch."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "notify"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "notify"
+                ]
+            },
+            "reorder_groups": [
+                "She had better",
+                "inform",
+                "the receptionist",
+                "about",
+                "the broken latch."
+            ],
+            "token_groups": [
+                "She had better",
+                "inform",
+                "the receptionist",
+                "about",
+                "the broken latch."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "cqq-better-b1-g06",
+            "author_id": "B1-g06",
+            "question": "I {a1} promise an exact arrival time.",
+            "level": "B1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще не обіцяти точного часу прибуття.",
+            "target_text": "I had better not promise an exact arrival time.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "have better not",
+                        "had better didn't"
+                    ],
+                    "verb_hint": "Уведи всю заперечну конструкцію перед уже наведеною дією обіцяти."
+                }
+            },
+            "verb_hint": "Уведи всю заперечну конструкцію перед уже наведеною дією обіцяти.",
+            "accepted_target_texts": [
+                "I had better not promise an exact arrival time."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "had better not",
+                "promise",
+                "an exact arrival",
+                "time."
+            ],
+            "token_groups": [
+                "I",
+                "had better not",
+                "promise",
+                "an exact arrival",
+                "time."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "cqq-better-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The evidence is incomplete. You {a1} that allegation.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Докази неповні. Тобі краще зробити застереження до того звинувачення.",
+            "target_text": "The evidence is incomplete. You had better qualify that allegation.",
+            "markers": {
+                "a1": {
+                    "answer": "had better qualify",
+                    "options": [
+                        "had better qualify",
+                        "had better qualified",
+                        "would better qualify"
+                    ],
+                    "verb_hint": "Уведи всю пораду обмежити категоричність звинувачення."
+                }
+            },
+            "verb_hint": "Уведи всю пораду обмежити категоричність звинувачення.",
+            "accepted_target_texts": [
+                "The evidence is incomplete. You had better qualify that allegation."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The evidence",
+                "is incomplete.",
+                "You",
+                "had better qualify",
+                "that allegation."
+            ],
+            "token_groups": [
+                "The evidence",
+                "is incomplete.",
+                "You",
+                "had better qualify",
+                "that allegation."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "cqq-better-b2-g02",
+            "author_id": "B2-g02",
+            "question": "We had better {a1} the discrepancy before the audit.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще повідомити про розбіжність до аудиту.",
+            "target_text": "We had better disclose the discrepancy before the audit.",
+            "markers": {
+                "a1": {
+                    "answer": "disclose",
+                    "options": [
+                        "disclose",
+                        "to disclose",
+                        "disclosed"
+                    ],
+                    "verb_hint": "Повідомити відкрито — початкова форма після цільової поради."
+                }
+            },
+            "verb_hint": "Повідомити відкрито — початкова форма після цільової поради.",
+            "accepted_target_texts": [
+                "We had better disclose the discrepancy before the audit.",
+                "We had better reveal the discrepancy before the audit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "reveal"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "reveal"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "disclose",
+                "the discrepancy",
+                "before",
+                "the audit."
+            ],
+            "token_groups": [
+                "We had better",
+                "disclose",
+                "the discrepancy",
+                "before",
+                "the audit."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "cqq-better-b2-g03",
+            "author_id": "B2-g03",
+            "question": "She {a1} the unredacted transcript.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їй краще не поширювати невідредаговану стенограму.",
+            "target_text": "She had better not circulate the unredacted transcript.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not circulate",
+                    "options": [
+                        "had better not circulate",
+                        "had not better circulated",
+                        "does not had better circulate"
+                    ],
+                    "verb_hint": "Уведи повну заперечну пораду не поширювати документ."
+                }
+            },
+            "verb_hint": "Уведи повну заперечну пораду не поширювати документ.",
+            "accepted_target_texts": [
+                "She had better not circulate the unredacted transcript."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "She",
+                "had better not",
+                "circulate",
+                "the unredacted transcript."
+            ],
+            "token_groups": [
+                "She",
+                "had better not",
+                "circulate",
+                "the unredacted transcript."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "cqq-better-b2-g04",
+            "author_id": "B2-g04",
+            "question": "{a1} they better obtain written consent first?",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще їм спочатку отримати письмову згоду?",
+            "target_text": "Hadn't they better obtain written consent first?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "options": [
+                        "Hadn't",
+                        "Didn't",
+                        "Wouldn't"
+                    ],
+                    "verb_hint": "Почни заперечне пряме питання допоміжною формою вивченої поради."
+                }
+            },
+            "verb_hint": "Почни заперечне пряме питання допоміжною формою вивченої поради.",
+            "accepted_target_texts": [
+                "Hadn't they better obtain written consent first?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "they better",
+                "obtain",
+                "written consent",
+                "first?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "they better",
+                "obtain",
+                "written consent",
+                "first?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "cqq-better-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The supplier has warned us. We had better {a1} the delivery estimate.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Постачальник нас попередив. Нам краще переглянути прогнозований строк доставки.",
+            "target_text": "The supplier has warned us. We had better revise the delivery estimate.",
+            "markers": {
+                "a1": {
+                    "answer": "revise",
+                    "options": [
+                        "revise",
+                        "to revise",
+                        "revised"
+                    ],
+                    "verb_hint": "Переглянути — початкова форма після конструкції конкретної поради."
+                }
+            },
+            "verb_hint": "Переглянути — початкова форма після конструкції конкретної поради.",
+            "accepted_target_texts": [
+                "The supplier has warned us. We had better revise the delivery estimate.",
+                "The supplier has warned us. We had better update the delivery estimate."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "update"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "update"
+                ]
+            },
+            "reorder_groups": [
+                "The supplier",
+                "has warned us.",
+                "We had better",
+                "revise",
+                "the delivery estimate."
+            ],
+            "token_groups": [
+                "The supplier",
+                "has warned us.",
+                "We had better",
+                "revise",
+                "the delivery estimate."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "cqq-better-b2-g06",
+            "author_id": "B2-g06",
+            "question": "I {a1} attribute the delay to negligence.",
+            "level": "B2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Мені краще не пояснювати затримку недбалістю.",
+            "target_text": "I had better not attribute the delay to negligence.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "have better not",
+                        "had better wasn't"
+                    ],
+                    "verb_hint": "Перед наведеною дією утвори заперечну пораду, не додаючи минулого часу."
+                }
+            },
+            "verb_hint": "Перед наведеною дією утвори заперечну пораду, не додаючи минулого часу.",
+            "accepted_target_texts": [
+                "I had better not attribute the delay to negligence."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "I",
+                "had better not",
+                "attribute",
+                "the delay",
+                "to negligence."
+            ],
+            "token_groups": [
+                "I",
+                "had better not",
+                "attribute",
+                "the delay",
+                "to negligence."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "cqq-better-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The distinction is legally significant. We {a1} it.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Ця відмінність юридично значуща. Нам краще її зберегти.",
+            "target_text": "The distinction is legally significant. We had better preserve it.",
+            "markers": {
+                "a1": {
+                    "answer": "had better preserve",
+                    "options": [
+                        "had better preserve",
+                        "had better preserved",
+                        "would better preserving"
+                    ],
+                    "verb_hint": "Уведи всю пораду не втратити значущу відмінність."
+                }
+            },
+            "verb_hint": "Уведи всю пораду не втратити значущу відмінність.",
+            "accepted_target_texts": [
+                "The distinction is legally significant. We had better preserve it."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The distinction",
+                "is legally significant.",
+                "We",
+                "had better preserve",
+                "it."
+            ],
+            "token_groups": [
+                "The distinction",
+                "is legally significant.",
+                "We",
+                "had better preserve",
+                "it."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "cqq-better-c1-g02",
+            "author_id": "C1-g02",
+            "question": "You had better {a1} the causal claim before publication.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще обґрунтувати твердження про причинність до публікації.",
+            "target_text": "You had better substantiate the causal claim before publication.",
+            "markers": {
+                "a1": {
+                    "answer": "substantiate",
+                    "options": [
+                        "substantiate",
+                        "to substantiate",
+                        "substantiated"
+                    ],
+                    "verb_hint": "Обґрунтувати доказами — початкова форма після цільової поради."
+                }
+            },
+            "verb_hint": "Обґрунтувати доказами — початкова форма після цільової поради.",
+            "accepted_target_texts": [
+                "You had better substantiate the causal claim before publication.",
+                "You had better justify the causal claim before publication.",
+                "You had better support the causal claim before publication."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "justify",
+                    "support"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "justify",
+                    "support"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "substantiate",
+                "the causal claim",
+                "before publication."
+            ],
+            "token_groups": [
+                "You had better",
+                "substantiate",
+                "the causal claim",
+                "before publication."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "cqq-better-c1-g03",
+            "author_id": "C1-g03",
+            "question": "The panel {a1} eligibility with entitlement.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Комісії краще не ототожнювати відповідність критеріям із правом на отримання.",
+            "target_text": "The panel had better not conflate eligibility with entitlement.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not conflate",
+                    "options": [
+                        "had better not conflate",
+                        "had not better conflating",
+                        "does not had better conflate"
+                    ],
+                    "verb_hint": "Уведи всю заперечну пораду; не змішуй два різні поняття."
+                }
+            },
+            "verb_hint": "Уведи всю заперечну пораду; не змішуй два різні поняття.",
+            "accepted_target_texts": [
+                "The panel had better not conflate eligibility with entitlement."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The panel",
+                "had better not",
+                "conflate",
+                "eligibility",
+                "with entitlement."
+            ],
+            "token_groups": [
+                "The panel",
+                "had better not",
+                "conflate",
+                "eligibility",
+                "with entitlement."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "cqq-better-c1-g04",
+            "author_id": "C1-g04",
+            "question": "{a1} the agency better consult affected communities?",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще агенції проконсультуватися з громадами, яких це стосується?",
+            "target_text": "Hadn't the agency better consult affected communities?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "options": [
+                        "Hadn't",
+                        "Doesn't",
+                        "Wouldn't"
+                    ],
+                    "verb_hint": "Почни заперечне пряме питання з допоміжного слова цільової поради."
+                }
+            },
+            "verb_hint": "Почни заперечне пряме питання з допоміжного слова цільової поради.",
+            "accepted_target_texts": [
+                "Hadn't the agency better consult affected communities?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "the agency",
+                "better",
+                "consult",
+                "affected communities?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "the agency",
+                "better",
+                "consult",
+                "affected communities?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "cqq-better-c1-g05",
+            "author_id": "C1-g05",
+            "question": "We had better {a1} the competing interpretation.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще визнати альтернативне тлумачення.",
+            "target_text": "We had better acknowledge the competing interpretation.",
+            "markers": {
+                "a1": {
+                    "answer": "acknowledge",
+                    "options": [
+                        "acknowledge",
+                        "to acknowledge",
+                        "acknowledged"
+                    ],
+                    "verb_hint": "Визнати — початкова форма, а не повідомлення про вже виконану дію."
+                }
+            },
+            "verb_hint": "Визнати — початкова форма, а не повідомлення про вже виконану дію.",
+            "accepted_target_texts": [
+                "We had better acknowledge the competing interpretation.",
+                "We had better recognise the competing interpretation.",
+                "We had better recognize the competing interpretation."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "recognise",
+                    "recognize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "recognise",
+                    "recognize"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "acknowledge",
+                "the competing interpretation."
+            ],
+            "token_groups": [
+                "We had better",
+                "acknowledge",
+                "the competing interpretation."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "cqq-better-c1-g06",
+            "author_id": "C1-g06",
+            "question": "They {a1} prejudge the consultation outcome.",
+            "level": "C1",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їм краще не вирішувати наперед результат консультації.",
+            "target_text": "They had better not prejudge the consultation outcome.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "have better not",
+                        "had better doesn't"
+                    ],
+                    "verb_hint": "Утворюй заперечну конкретну пораду перед наведеною дією."
+                }
+            },
+            "verb_hint": "Утворюй заперечну конкретну пораду перед наведеною дією.",
+            "accepted_target_texts": [
+                "They had better not prejudge the consultation outcome."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "had better not",
+                "prejudge",
+                "the consultation outcome."
+            ],
+            "token_groups": [
+                "They",
+                "had better not",
+                "prejudge",
+                "the consultation outcome."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "cqq-better-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The inference is contestable. We {a1} its reach.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Висновок можна оскаржити. Нам краще обмежити сферу його застосування.",
+            "target_text": "The inference is contestable. We had better delimit its reach.",
+            "markers": {
+                "a1": {
+                    "answer": "had better delimit",
+                    "options": [
+                        "had better delimit",
+                        "had better delimited",
+                        "would better delimit"
+                    ],
+                    "verb_hint": "Уведи всю пораду окреслити межі застосування висновку."
+                }
+            },
+            "verb_hint": "Уведи всю пораду окреслити межі застосування висновку.",
+            "accepted_target_texts": [
+                "The inference is contestable. We had better delimit its reach."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The inference",
+                "is contestable.",
+                "We",
+                "had better delimit",
+                "its reach."
+            ],
+            "token_groups": [
+                "The inference",
+                "is contestable.",
+                "We",
+                "had better delimit",
+                "its reach."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "cqq-better-c2-g02",
+            "author_id": "C2-g02",
+            "question": "You had better {a1} procedural fairness from substantive justice.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Тобі краще розрізняти процедурну справедливість і справедливість по суті.",
+            "target_text": "You had better differentiate procedural fairness from substantive justice.",
+            "markers": {
+                "a1": {
+                    "answer": "differentiate",
+                    "options": [
+                        "differentiate",
+                        "to differentiate",
+                        "differentiated"
+                    ],
+                    "verb_hint": "Розрізняти — початкова форма після конкретної поради."
+                }
+            },
+            "verb_hint": "Розрізняти — початкова форма після конкретної поради.",
+            "accepted_target_texts": [
+                "You had better differentiate procedural fairness from substantive justice.",
+                "You had better distinguish procedural fairness from substantive justice."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "distinguish"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "distinguish"
+                ]
+            },
+            "reorder_groups": [
+                "You had better",
+                "differentiate",
+                "procedural fairness",
+                "from substantive justice."
+            ],
+            "token_groups": [
+                "You had better",
+                "differentiate",
+                "procedural fairness",
+                "from substantive justice."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "cqq-better-c2-g03",
+            "author_id": "C2-g03",
+            "question": "The authors {a1} universal assent.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Авторам краще не припускати загальної згоди наперед.",
+            "target_text": "The authors had better not presuppose universal assent.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not presuppose",
+                    "options": [
+                        "had better not presuppose",
+                        "had not better presupposed",
+                        "do not had better presuppose"
+                    ],
+                    "verb_hint": "Уведи всю заперечну пораду не вважати згоду наперед заданою."
+                }
+            },
+            "verb_hint": "Уведи всю заперечну пораду не вважати згоду наперед заданою.",
+            "accepted_target_texts": [
+                "The authors had better not presuppose universal assent."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The authors",
+                "had better not",
+                "presuppose",
+                "universal assent."
+            ],
+            "token_groups": [
+                "The authors",
+                "had better not",
+                "presuppose",
+                "universal assent."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "cqq-better-c2-g04",
+            "author_id": "C2-g04",
+            "question": "{a1} the tribunal better articulate its interpretative premise?",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Чи не краще судовому органові чітко сформулювати вихідну передумову тлумачення?",
+            "target_text": "Hadn't the tribunal better articulate its interpretative premise?",
+            "markers": {
+                "a1": {
+                    "answer": "Hadn't",
+                    "options": [
+                        "Hadn't",
+                        "Doesn't",
+                        "Wouldn't"
+                    ],
+                    "verb_hint": "Почни з допоміжного слова заперечного питання цільової поради."
+                }
+            },
+            "verb_hint": "Почни з допоміжного слова заперечного питання цільової поради.",
+            "accepted_target_texts": [
+                "Hadn't the tribunal better articulate its interpretative premise?"
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Hadn't",
+                "the tribunal",
+                "better",
+                "articulate",
+                "its interpretative premise?"
+            ],
+            "token_groups": [
+                "Hadn't",
+                "the tribunal",
+                "better",
+                "articulate",
+                "its interpretative premise?"
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "cqq-better-c2-g05",
+            "author_id": "C2-g05",
+            "question": "We had better {a1} the irreducible uncertainty.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Нам краще висунути на перший план невизначеність, яку неможливо усунути.",
+            "target_text": "We had better foreground the irreducible uncertainty.",
+            "markers": {
+                "a1": {
+                    "answer": "foreground",
+                    "options": [
+                        "foreground",
+                        "to foreground",
+                        "foregrounded"
+                    ],
+                    "verb_hint": "Висунути на перший план — початкова форма після вивченої поради."
+                }
+            },
+            "verb_hint": "Висунути на перший план — початкова форма після вивченої поради.",
+            "accepted_target_texts": [
+                "We had better foreground the irreducible uncertainty.",
+                "We had better highlight the irreducible uncertainty.",
+                "We had better emphasise the irreducible uncertainty.",
+                "We had better emphasize the irreducible uncertainty."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "highlight",
+                    "emphasise",
+                    "emphasize"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "highlight",
+                    "emphasise",
+                    "emphasize"
+                ]
+            },
+            "reorder_groups": [
+                "We had better",
+                "foreground",
+                "the irreducible uncertainty."
+            ],
+            "token_groups": [
+                "We had better",
+                "foreground",
+                "the irreducible uncertainty."
+            ],
+            "quality_revision": "cqq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "cqq-better-c2-g06",
+            "author_id": "C2-g06",
+            "question": "They {a1} recast a contingent finding as necessity.",
+            "level": "C2",
+            "type": 0,
+            "source": "conditionals_quality_had_better",
+            "translation_uk": "Їм краще не подавати залежний від обставин висновок як необхідність.",
+            "target_text": "They had better not recast a contingent finding as necessity.",
+            "markers": {
+                "a1": {
+                    "answer": "had better not",
+                    "options": [
+                        "had better not",
+                        "have better not",
+                        "had better weren't"
+                    ],
+                    "verb_hint": "Уведи всю заперечну конструкцію перед наведеною дією переформулювання."
+                }
+            },
+            "verb_hint": "Уведи всю заперечну конструкцію перед наведеною дією переформулювання.",
+            "accepted_target_texts": [
+                "They had better not recast a contingent finding as necessity."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "They",
+                "had better not",
+                "recast",
+                "a contingent finding",
+                "as necessity."
+            ],
+            "token_groups": [
+                "They",
+                "had better not",
+                "recast",
+                "a contingent finding",
+                "as necessity."
+            ],
+            "quality_revision": "cqq-v1"
+        }
+    ]
+}

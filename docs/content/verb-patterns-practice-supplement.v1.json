@@ -1,0 +1,1240 @@
+{
+    "schema_version": 1,
+    "package": "verb-patterns-native-practice-supplement",
+    "status": "frozen",
+    "source": {
+        "path": "docs/content/verb-patterns-practice-source.v1.json",
+        "sha256": "181d3408955a750a75a957a190111eec37af30771f6a83f704df3012202529fe"
+    },
+    "targets": [
+        {
+            "topic": "bare-infinitive",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBareInfinitiveTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/bare-infinitive",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsBareInfinitiveTheorySeeder/definition.json",
+            "definition_sha256": "2ac8ccb1a1c1f97ed9d7b55467778ad31766fcd24e709ec9181de8cc65c476cb",
+            "release": "database/content-patches/m66-verb-patterns-core.v3.json",
+            "release_sha256": "7339ef045e403c2473ed5e8a034d54bbe1639d179ba4782a84b9ce64088135a7",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBareInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "95abf5d5-9eb9-5357-97a1-f9ec4c3f5938",
+                "sort_order": 7,
+                "page_id": 193,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "87934e3f47ca959d1b6984bbd31372f421554465000ce720bdf5cec030520a24"
+            },
+            "design": {
+                "package": "m66-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBareInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "95abf5d5-9eb9-5357-97a1-f9ec4c3f5938",
+                "source_index": 6,
+                "body_sha256": "87934e3f47ca959d1b6984bbd31372f421554465000ce720bdf5cec030520a24",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "87934e3f47ca959d1b6984bbd31372f421554465000ce720bdf5cec030520a24",
+            "after_data_sha256": "26e600e478b7724ac61f4c8edff6faa1cee9eb88989f1ad31111d720bab20a9f",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "The driver",
+                        "did not",
+                        "make us",
+                        "wait."
+                    ],
+                    "condition_uk": "Водій не змусив нас чекати.",
+                    "hint_uk": "Заперечуй саме минулий примус; після допоміжної форми дієслово примусу має початкову форму."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Please help me",
+                        "open",
+                        "the window."
+                    ],
+                    "condition_uk": "Будь ласка, допоможи мені відкрити вікно.",
+                    "hint_uk": "Почни з ввічливого прохання; обидві моделі інфінітива після допомоги приймаються."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-bare-infinitive-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Our coach lets us {a1} after training.",
+                    "answer": "rest",
+                    "accepted": [
+                        "rest"
+                    ],
+                    "hint_uk": "Відпочивати: після дозволу з названими учасниками постав лише початкову форму дії.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-bare-infinitive-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "The joke made everyone {a1}.",
+                    "answer": "laugh",
+                    "accepted": [
+                        "laugh"
+                    ],
+                    "hint_uk": "Сміятися: після спричинення дії та названих людей потрібна початкова форма без інфінітивної частки.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-bare-infinitive-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Не змушуй мене повторювати це.",
+                    "answer": "Do not make me repeat this.",
+                    "accepted": [
+                        "Do not make me repeat this."
+                    ],
+                    "hint_uk": "Почни із заперечного прохання; збережи мовця як виконавця повторення.",
+                    "ordered_groups": [
+                        "Do not",
+                        "make me",
+                        "repeat this."
+                    ],
+                    "shuffled_groups": [
+                        "repeat this.",
+                        "Do not",
+                        "make me"
+                    ]
+                },
+                {
+                    "id": "vpq-native-bare-infinitive-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Я чув, як вона заспівала всю пісню.",
+                    "answer": "I heard her sing the whole song.",
+                    "accepted": [
+                        "I heard her sing the whole song."
+                    ],
+                    "hint_uk": "Передай сприйняту цілісну дію в минулому, не процес у певний момент.",
+                    "ordered_groups": [
+                        "I heard",
+                        "her sing",
+                        "the whole song."
+                    ],
+                    "shuffled_groups": [
+                        "the whole song.",
+                        "her sing",
+                        "I heard"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "did not": "did not (didn't)"
+                },
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "be-used-to-get-used-to-used-to",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/be-used-to-get-used-to-used-to",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder/definition.json",
+            "definition_sha256": "ba08c399c7395625a3368d3f2996d6607968fb720abe5f0a0e2346150aeb76b5",
+            "release": "database/content-patches/m67-verb-patterns-completion.v1.json",
+            "release_sha256": "de64f598892a693bbd6292c31ff484fd8bbe7662d305a5c4217ff7ff794568ae",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder",
+                "locale": "uk",
+                "uuid": "b831f448-c9f1-5222-ba41-1c2b337cea94",
+                "sort_order": 7,
+                "page_id": 194,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "076262a175a28aa2720cd499968d01cd79c001134c722af33c4b8c4d22d5be7f"
+            },
+            "design": {
+                "package": "m67-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsBeUsedToGetUsedToUsedToTheorySeeder",
+                "locale": "uk",
+                "uuid": "b831f448-c9f1-5222-ba41-1c2b337cea94",
+                "source_index": 6,
+                "body_sha256": "076262a175a28aa2720cd499968d01cd79c001134c722af33c4b8c4d22d5be7f",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "076262a175a28aa2720cd499968d01cd79c001134c722af33c4b8c4d22d5be7f",
+            "after_data_sha256": "ad8b8fb05ae8eada24effd9540303fcffb0d5fb157760f52c507b11acaf2f520",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "We are",
+                        "not used to",
+                        "the damp climate",
+                        "yet."
+                    ],
+                    "condition_uk": "Ми ще не звикли до вологого клімату.",
+                    "hint_uk": "Передай теперішній заперечний стан звичності; «ще» постав наприкінці."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Did Artem",
+                        "get used to",
+                        "the new timetable",
+                        "last week?"
+                    ],
+                    "condition_uk": "Чи звик Артем до нового розкладу минулого тижня?",
+                    "hint_uk": "Питай про набуття звичності в завершений минулий період, не про стан зараз."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-be-used-to-get-used-to-used-to-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "We are used to {a1} early.",
+                    "answer": "getting up",
+                    "accepted": [
+                        "getting up"
+                    ],
+                    "hint_uk": "Рано вставати: звичність уже є; після прийменника назви дію вставання, не мету.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-be-used-to-get-used-to-used-to-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "Lena used to {a1} in a village.",
+                    "answer": "live",
+                    "accepted": [
+                        "live"
+                    ],
+                    "hint_uk": "Жити: це колишня звичка, яка тепер змінилася; потрібна лише початкова форма дії.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-be-used-to-get-used-to-used-to-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Він поступово звикає працювати ночами.",
+                    "answer": "He is getting used to working at night.",
+                    "accepted": [
+                        "He is getting used to working at night."
+                    ],
+                    "hint_uk": "Покажи поточний процес пристосування, не вже звичний стан.",
+                    "ordered_groups": [
+                        "He is",
+                        "getting used to",
+                        "working",
+                        "at night."
+                    ],
+                    "shuffled_groups": [
+                        "He is",
+                        "getting used to",
+                        "at night.",
+                        "working"
+                    ]
+                },
+                {
+                    "id": "vpq-native-be-used-to-get-used-to-used-to-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Ми раніше не пили кави.",
+                    "answer": "We did not use to drink coffee.",
+                    "accepted": [
+                        "We did not use to drink coffee."
+                    ],
+                    "hint_uk": "Передай відсутність колишньої звички; після допоміжного заперечення збережи початкову форму.",
+                    "ordered_groups": [
+                        "We did not",
+                        "use to",
+                        "drink coffee."
+                    ],
+                    "shuffled_groups": [
+                        "We did not",
+                        "drink coffee.",
+                        "use to"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "We are": "We are (We're)"
+                },
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "gerund",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/gerund",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundTheorySeeder/definition.json",
+            "definition_sha256": "5880d4abd45f10f7780df4364ed33b3f7745955c3066d8a4836628de11d96f72",
+            "release": "database/content-patches/m65-purpose-gerund-infinitive.v1.json",
+            "release_sha256": "1bd5439ce9729c0d4e1003002d3484b8b3c9aae31a6ce11ef2d9a3ffa6b274d7",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundTheorySeeder",
+                "locale": "uk",
+                "uuid": "821e87e1-52c6-536d-a2c0-d37a0b6092c6",
+                "sort_order": 7,
+                "page_id": 195,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "e398c4872a267d649cb3cb34db7143735536701691370de198a70fb5b98b1496"
+            },
+            "design": {
+                "package": "m65-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundTheorySeeder",
+                "locale": "uk",
+                "uuid": "821e87e1-52c6-536d-a2c0-d37a0b6092c6",
+                "source_index": 6,
+                "body_sha256": "e398c4872a267d649cb3cb34db7143735536701691370de198a70fb5b98b1496",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "e398c4872a267d649cb3cb34db7143735536701691370de198a70fb5b98b1496",
+            "after_data_sha256": "d74c8e3f2348f067e60e5d8558c03bf92036e7ea5f855c9f8506db5d11e4a14c",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Olia finished",
+                        "washing",
+                        "the cups."
+                    ],
+                    "condition_uk": "Оля закінчила мити чашки.",
+                    "hint_uk": "Після минулої форми завершення дії вживай форму миття на відповідне закінчення; чашки вже відомі."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "They left",
+                        "without",
+                        "saying goodbye."
+                    ],
+                    "condition_uk": "Вони пішли, не попрощавшись.",
+                    "hint_uk": "Передай завершений відхід і відсутність прощання; після прийменника потрібна назва дії."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-gerund-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "{a1} every morning helps me relax.",
+                    "answer": "Walking",
+                    "accepted": [
+                        "Walking"
+                    ],
+                    "hint_uk": "Ходити пішки: назви регулярне заняття як підмет, а не наказ.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-gerund-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "Thank you for {a1} so patiently.",
+                    "answer": "waiting",
+                    "accepted": [
+                        "waiting"
+                    ],
+                    "hint_uk": "Чекати: подяку висловлено за очікування; після прийменника потрібна назва дії.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-gerund-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Малювати тварин цікаво.",
+                    "answer": "Drawing animals is interesting.",
+                    "accepted": [
+                        "Drawing animals is interesting."
+                    ],
+                    "hint_uk": "Назви заняття на початку речення, а потім дай йому оцінку.",
+                    "ordered_groups": [
+                        "Drawing animals",
+                        "is interesting."
+                    ],
+                    "shuffled_groups": [
+                        "is interesting.",
+                        "Drawing animals"
+                    ]
+                },
+                {
+                    "id": "vpq-native-gerund-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Вона вийшла, не зачинивши дверей.",
+                    "answer": "She went out without closing the door.",
+                    "accepted": [
+                        "She went out without closing the door."
+                    ],
+                    "hint_uk": "Передай завершений вихід і відсутність зачинення; двері відомі співрозмовникам.",
+                    "ordered_groups": [
+                        "She went out",
+                        "without closing",
+                        "the door."
+                    ],
+                    "shuffled_groups": [
+                        "without closing",
+                        "She went out",
+                        "the door."
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "gerund-vs-infinitive",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/gerund-vs-infinitive",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsGerundVsInfinitiveTheorySeeder/definition.json",
+            "definition_sha256": "7b0de828a663f7d02872ba1a80de8c8da09a5291fd04362b4f7e0c4751103fbb",
+            "release": "database/content-patches/m66-verb-patterns-core.v3.json",
+            "release_sha256": "7339ef045e403c2473ed5e8a034d54bbe1639d179ba4782a84b9ce64088135a7",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "81a3cf02-cb6b-527b-ba83-47007857ac64",
+                "sort_order": 7,
+                "page_id": 196,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "74af4fcdbe01cb2a6a0817a0d437345c250d64f7fe2d768f76e08871cd18bd17"
+            },
+            "design": {
+                "package": "m66-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsGerundVsInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "81a3cf02-cb6b-527b-ba83-47007857ac64",
+                "source_index": 6,
+                "body_sha256": "74af4fcdbe01cb2a6a0817a0d437345c250d64f7fe2d768f76e08871cd18bd17",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "74af4fcdbe01cb2a6a0817a0d437345c250d64f7fe2d768f76e08871cd18bd17",
+            "after_data_sha256": "51929f53525562269b2896b1580edc48289574c3619d9358dbb155413288e07b",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Taras remembered",
+                        "to bring",
+                        "the cable."
+                    ],
+                    "condition_uk": "Тарас не забув узяти кабель із собою.",
+                    "hint_uk": "Тарас згадав про доручення і справді виконав його; не описуй спогад про попередню дію."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Marta likes",
+                        "to check",
+                        "the route",
+                        "before a trip."
+                    ],
+                    "condition_uk": "Марта любить перевіряти маршрут перед поїздкою.",
+                    "hint_uk": "Передай звичне вподобання, не разове ввічливе бажання; обидві доречні форми перевіряння приймаються."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-gerund-vs-infinitive-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Olha hopes {a1} a new skill this summer.",
+                    "answer": "to learn",
+                    "accepted": [
+                        "to learn"
+                    ],
+                    "hint_uk": "Навчитися: після сподівання постав інфінітив опанування нової навички.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-gerund-vs-infinitive-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "I enjoy {a1} with my cousins.",
+                    "answer": "swimming",
+                    "accepted": [
+                        "swimming"
+                    ],
+                    "hint_uk": "Плавати: назви заняття, яке приносить задоволення, не майбутній намір.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-gerund-vs-infinitive-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Ми вирішили залишитися ще на день.",
+                    "answer": "We decided to stay another day.",
+                    "accepted": [
+                        "We decided to stay another day."
+                    ],
+                    "hint_uk": "Передай минуле рішення з інфінітивом; не стверджуй окремо, що його вже виконано.",
+                    "ordered_groups": [
+                        "We decided",
+                        "to stay",
+                        "another day."
+                    ],
+                    "shuffled_groups": [
+                        "another day.",
+                        "to stay",
+                        "We decided"
+                    ]
+                },
+                {
+                    "id": "vpq-native-gerund-vs-infinitive-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Вона уникала розмов про гроші.",
+                    "answer": "She avoided talking about money.",
+                    "accepted": [
+                        "She avoided talking about money."
+                    ],
+                    "hint_uk": "Після минулого уникання потрібна назва дії розмовляти; не додавай адресата.",
+                    "ordered_groups": [
+                        "She avoided",
+                        "talking",
+                        "about money."
+                    ],
+                    "shuffled_groups": [
+                        "about money.",
+                        "She avoided",
+                        "talking"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": {
+                    "to check": "to check (checking)"
+                },
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "stop-remember-forget-try-regret",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsStopRememberForgetTryRegretTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/stop-remember-forget-try-regret",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsStopRememberForgetTryRegretTheorySeeder/definition.json",
+            "definition_sha256": "fc7943a97fd7297115124276a83d034e1fe58f963eef730399b01004132a74a1",
+            "release": "database/content-patches/m67-verb-patterns-completion.v1.json",
+            "release_sha256": "de64f598892a693bbd6292c31ff484fd8bbe7662d305a5c4217ff7ff794568ae",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsStopRememberForgetTryRegretTheorySeeder",
+                "locale": "uk",
+                "uuid": "2fb0ee1f-79f1-5931-b8a0-46edbd7c6280",
+                "sort_order": 7,
+                "page_id": 197,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "cb1c02663d0fdae6cc61a2045b3d3d2be25f09be1db71d5e275d69a5d8b9ca3b"
+            },
+            "design": {
+                "package": "m67-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsStopRememberForgetTryRegretTheorySeeder",
+                "locale": "uk",
+                "uuid": "2fb0ee1f-79f1-5931-b8a0-46edbd7c6280",
+                "source_index": 6,
+                "body_sha256": "cb1c02663d0fdae6cc61a2045b3d3d2be25f09be1db71d5e275d69a5d8b9ca3b",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "cb1c02663d0fdae6cc61a2045b3d3d2be25f09be1db71d5e275d69a5d8b9ca3b",
+            "after_data_sha256": "5731451e1e6d8a9360d8e4f08b2aa722386ef013e54a202c55d9fab7fd260ab2",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "I regret",
+                        "not keeping",
+                        "the receipt."
+                    ],
+                    "condition_uk": "Я шкодую, що не зберіг квитанцію.",
+                    "hint_uk": "Жаль є тепер, а незбереження вже відбулося; заперечення стосується збереження, не жалю."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "We regret",
+                        "to inform you",
+                        "that the workshop",
+                        "is full."
+                    ],
+                    "condition_uk": "На жаль, повідомляємо вам, що на майстер-класі немає вільних місць.",
+                    "hint_uk": "Це теперішнє формальне повідомлення адресатові, не жаль про вже надіслану звістку."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-stop-remember-forget-try-regret-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Please remember {a1} the plants before you leave.",
+                    "answer": "to water",
+                    "accepted": [
+                        "to water"
+                    ],
+                    "hint_uk": "Полити: це нагадування про ще не виконане доручення, не спогад про полив.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-stop-remember-forget-try-regret-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "The pain continued, so I tried {a1} a warmer blanket.",
+                    "answer": "using",
+                    "accepted": [
+                        "using"
+                    ],
+                    "hint_uk": "Використати: мовець випробував теплішу ковдру як можливий спосіб; полегшення не підтверджене.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-stop-remember-forget-try-regret-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Він перестав кусати нігті.",
+                    "answer": "He stopped biting his nails.",
+                    "accepted": [
+                        "He stopped biting his nails."
+                    ],
+                    "hint_uk": "Припинилася саме дія кусання; не описуй зупинку заради цієї дії.",
+                    "ordered_groups": [
+                        "He stopped",
+                        "biting",
+                        "his nails."
+                    ],
+                    "shuffled_groups": [
+                        "his nails.",
+                        "He stopped",
+                        "biting"
+                    ]
+                },
+                {
+                    "id": "vpq-native-stop-remember-forget-try-regret-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Я пам’ятаю, як відвідав цю вежу.",
+                    "answer": "I remember visiting this tower.",
+                    "accepted": [
+                        "I remember visiting this tower."
+                    ],
+                    "hint_uk": "Це теперішній спогад про минуле відвідання, не нагадування про майбутнє.",
+                    "ordered_groups": [
+                        "I remember",
+                        "visiting",
+                        "this tower."
+                    ],
+                    "shuffled_groups": [
+                        "visiting",
+                        "this tower.",
+                        "I remember"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "not keeping": "not keeping (not having kept)"
+                },
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "to-infinitive",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsToInfinitiveTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/to-infinitive",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsToInfinitiveTheorySeeder/definition.json",
+            "definition_sha256": "aed0d1d158f08014f27164d9ac0b6539cbe2780697c7bdb920ea879e6e7d12fa",
+            "release": "database/content-patches/m65-purpose-gerund-infinitive.v1.json",
+            "release_sha256": "1bd5439ce9729c0d4e1003002d3484b8b3c9aae31a6ce11ef2d9a3ffa6b274d7",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsToInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "5044f845-32df-531b-a453-cca431ef28d3",
+                "sort_order": 7,
+                "page_id": 198,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "A2",
+                "css_class": null,
+                "body_sha256": "148f773013d92b71460f93afdb91fc5aa2c83d31b0525adcde382cebcdf44fc4"
+            },
+            "design": {
+                "package": "m65-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsToInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "5044f845-32df-531b-a453-cca431ef28d3",
+                "source_index": 6,
+                "body_sha256": "148f773013d92b71460f93afdb91fc5aa2c83d31b0525adcde382cebcdf44fc4",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "148f773013d92b71460f93afdb91fc5aa2c83d31b0525adcde382cebcdf44fc4",
+            "after_data_sha256": "13bbe3a360f981ef39b633a3d46e613cbfec04a06b08f865efe06d86f56c3ef8",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Iryna wants",
+                        "me to check",
+                        "the address."
+                    ],
+                    "condition_uk": "Ірина хоче, щоб я перевірив адресу.",
+                    "hint_uk": "Ірина має бажання, а перевірку виконує мовець; збережи різних учасників."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "We decided",
+                        "not to change",
+                        "the date."
+                    ],
+                    "condition_uk": "Ми вирішили не міняти дату.",
+                    "hint_uk": "Рішення вже прийнято; заперечуй зміну дати, не саме рішення. Обидва доречні положення заперечення приймаються."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-to-infinitive-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Nazar went outside {a1} some fresh air.",
+                    "answer": "to get",
+                    "accepted": [
+                        "to get"
+                    ],
+                    "hint_uk": "Подихати свіжим повітрям: назви мету виходу інфінітивом отримання повітря.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-to-infinitive-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "Please remind me {a1} the gate.",
+                    "answer": "to lock",
+                    "accepted": [
+                        "to lock"
+                    ],
+                    "hint_uk": "Замкнути: після названого адресата нагадування потрібна інфінітивна дія.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-to-infinitive-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Їй було приємно знову побачити друзів.",
+                    "answer": "She was pleased to see her friends again.",
+                    "accepted": [
+                        "She was pleased to see her friends again."
+                    ],
+                    "hint_uk": "Після минулої оцінки назви дію бачення інфінітивом; друзів уже визначено.",
+                    "ordered_groups": [
+                        "She was pleased",
+                        "to see",
+                        "her friends again."
+                    ],
+                    "shuffled_groups": [
+                        "She was pleased",
+                        "her friends again.",
+                        "to see"
+                    ]
+                },
+                {
+                    "id": "vpq-native-to-infinitive-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Мені потрібне щось почитати.",
+                    "answer": "I need something to read.",
+                    "accepted": [
+                        "I need something to read."
+                    ],
+                    "hint_uk": "Назви невизначений предмет і поясни його призначення інфінітивом читання.",
+                    "ordered_groups": [
+                        "I need",
+                        "something",
+                        "to read."
+                    ],
+                    "shuffled_groups": [
+                        "something",
+                        "I need",
+                        "to read."
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": {
+                    "not to change": "not to change (to not change)"
+                },
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "verbs-plus-gerund",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusGerundTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/verbs-plus-gerund",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusGerundTheorySeeder/definition.json",
+            "definition_sha256": "dc04b0cc83da21f616a43ca0199a2606b7f84db9ccd24fbe0d85997f4bc4e9e8",
+            "release": "database/content-patches/m66-verb-patterns-core.v3.json",
+            "release_sha256": "7339ef045e403c2473ed5e8a034d54bbe1639d179ba4782a84b9ce64088135a7",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusGerundTheorySeeder",
+                "locale": "uk",
+                "uuid": "83a3f96c-9ac1-5e93-be1d-ce3225f9d84a",
+                "sort_order": 7,
+                "page_id": 199,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "3ebaf74c1b1e1eefcc9e96f442961a6314c5c88badd61cb874141222459b7039"
+            },
+            "design": {
+                "package": "m66-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusGerundTheorySeeder",
+                "locale": "uk",
+                "uuid": "83a3f96c-9ac1-5e93-be1d-ce3225f9d84a",
+                "source_index": 6,
+                "body_sha256": "3ebaf74c1b1e1eefcc9e96f442961a6314c5c88badd61cb874141222459b7039",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "3ebaf74c1b1e1eefcc9e96f442961a6314c5c88badd61cb874141222459b7039",
+            "after_data_sha256": "75c6e0a671e802203d1081a11f5dce5991801d519af4ddb102628bc111508973",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Olena suggested",
+                        "meeting",
+                        "near the museum."
+                    ],
+                    "condition_uk": "Олена запропонувала зустрітися біля музею.",
+                    "hint_uk": "Передай минулу пропозицію через дієслово пропонування та форму зустрічання; не повідомляй про виконання."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "They considered",
+                        "not renting",
+                        "the office."
+                    ],
+                    "condition_uk": "Вони розглядали можливість не орендувати офіс.",
+                    "hint_uk": "Заперечуй можливу оренду, не сам розгляд; рішення та фактична оренда не підтверджені."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-verbs-plus-gerund-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Please avoid {a1} the wet wall.",
+                    "answer": "touching",
+                    "accepted": [
+                        "touching"
+                    ],
+                    "hint_uk": "Торкатися: після прохання уникати дії потрібна її назва, а не інфінітив.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-verbs-plus-gerund-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "We postponed {a1} until Tuesday.",
+                    "answer": "leaving",
+                    "accepted": [
+                        "leaving"
+                    ],
+                    "hint_uk": "Вирушати: відкладено сам відхід до вівторка; після дієслова відкладання назви цю дію.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-verbs-plus-gerund-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Він заперечував, що взяв ключ.",
+                    "answer": "He denied taking the key.",
+                    "accepted": [
+                        "He denied taking the key."
+                    ],
+                    "hint_uk": "Передай минуле заперечення факту через дієслово заперечування з наступною назвою дії.",
+                    "ordered_groups": [
+                        "He denied",
+                        "taking",
+                        "the key."
+                    ],
+                    "shuffled_groups": [
+                        "taking",
+                        "He denied",
+                        "the key."
+                    ]
+                },
+                {
+                    "id": "vpq-native-verbs-plus-gerund-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Вони продовжували стукати у двері.",
+                    "answer": "They kept knocking on the door.",
+                    "accepted": [
+                        "They kept knocking on the door."
+                    ],
+                    "hint_uk": "Передай тривале продовження через дієслово збереження дії; після нього назви стукання.",
+                    "ordered_groups": [
+                        "They kept",
+                        "knocking",
+                        "on the door."
+                    ],
+                    "shuffled_groups": [
+                        "on the door.",
+                        "They kept",
+                        "knocking"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "verbs-plus-infinitive",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusInfinitiveTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/verbs-plus-infinitive",
+            "definition": "database/seeders/Page_V3/VerbPatterns/VerbPatternsVerbsPlusInfinitiveTheorySeeder/definition.json",
+            "definition_sha256": "96398f1b7f9d587ba6744a95870af4305d5d9130c27d82ffa39b68a467c2ba85",
+            "release": "database/content-patches/m67-verb-patterns-completion.v1.json",
+            "release_sha256": "de64f598892a693bbd6292c31ff484fd8bbe7662d305a5c4217ff7ff794568ae",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "c7d90c9d-d14b-5b10-bc1d-356f9ecaace6",
+                "sort_order": 7,
+                "page_id": 200,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B1",
+                "css_class": null,
+                "body_sha256": "8835a26791ecaf285e527489f948dcfa31e2527b4f9c4ba428a4c1f7d79f6de7"
+            },
+            "design": {
+                "package": "m67-native-v1",
+                "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\VerbPatternsVerbsPlusInfinitiveTheorySeeder",
+                "locale": "uk",
+                "uuid": "c7d90c9d-d14b-5b10-bc1d-356f9ecaace6",
+                "source_index": 6,
+                "body_sha256": "8835a26791ecaf285e527489f948dcfa31e2527b4f9c4ba428a4c1f7d79f6de7",
+                "component": "practice-set"
+            },
+            "source_index": 6,
+            "before_data_sha256": "8835a26791ecaf285e527489f948dcfa31e2527b4f9c4ba428a4c1f7d79f6de7",
+            "after_data_sha256": "fdf3ed7e159ff6ac41f5f6c5971d1c04a60cc11b5b67064c3df30d3a1916db68",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "They decided",
+                        "not to sell",
+                        "the house."
+                    ],
+                    "condition_uk": "Вони вирішили не продавати будинок.",
+                    "hint_uk": "Рішення ухвалено; заперечуй сам продаж. Обидва доречні положення заперечення приймаються."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "I need",
+                        "you to check",
+                        "the address."
+                    ],
+                    "condition_uk": "Мені потрібно, щоб ти перевірив адресу.",
+                    "hint_uk": "Передай необхідність, не просто бажання; перевірку маєш виконати ти, а не мовець."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-verbs-plus-infinitive-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "Oleh refused {a1} the agreement.",
+                    "answer": "to sign",
+                    "accepted": [
+                        "to sign"
+                    ],
+                    "hint_uk": "Підписати: він відмовився від дії; після відмови потрібен інфінітив.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-verbs-plus-infinitive-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "The children hope {a1} the planetarium soon.",
+                    "answer": "to visit",
+                    "accepted": [
+                        "to visit"
+                    ],
+                    "hint_uk": "Відвідати: після сподівання назви ще не підтверджену дію інфінітивом.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-verbs-plus-infinitive-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Вона погодилася перевірити список.",
+                    "answer": "She agreed to check the list.",
+                    "accepted": [
+                        "She agreed to check the list."
+                    ],
+                    "hint_uk": "Передай минулу згоду виконати перевірку; не стверджуй, що список уже перевірено.",
+                    "ordered_groups": [
+                        "She agreed",
+                        "to check",
+                        "the list."
+                    ],
+                    "shuffled_groups": [
+                        "to check",
+                        "the list.",
+                        "She agreed"
+                    ]
+                },
+                {
+                    "id": "vpq-native-verbs-plus-infinitive-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Я пообіцяв бути обережним.",
+                    "answer": "I promised to be careful.",
+                    "accepted": [
+                        "I promised to be careful."
+                    ],
+                    "hint_uk": "Мовець сам бере на себе обіцянку; після неї назви інфінітив стану.",
+                    "ordered_groups": [
+                        "I promised",
+                        "to be",
+                        "careful."
+                    ],
+                    "shuffled_groups": [
+                        "to be",
+                        "careful.",
+                        "I promised"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": {
+                    "not to sell": "not to sell (to not sell)"
+                },
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        },
+        {
+            "topic": "advanced-gerund-infinitive-patterns",
+            "identity": "Database\\Seeders\\Page_V3\\VerbPatterns\\AdvancedGerundInfinitivePatternsTheorySeeder",
+            "local_url": "http://gramlyze.loc/theory/verb-patterns/advanced-gerund-infinitive-patterns",
+            "definition": "database/seeders/Page_V3/VerbPatterns/AdvancedGerundInfinitivePatternsTheorySeeder/definition.json",
+            "definition_sha256": "30d64016397d1ca3830a15d18d39ec8a8154158de559b08212a2193d7e30bd58",
+            "release": "database/content-patches/m37-m21-grammar-structures.v1.json",
+            "release_sha256": "0006e0ecbb6d29aee047527bb1739884ad29930ec74eb4e499e5010e3764dbc5",
+            "binding": {
+                "seeder": "Database\\Seeders\\Page_V3\\VerbPatterns\\AdvancedGerundInfinitivePatternsTheorySeeder",
+                "locale": "uk",
+                "uuid": "c6a1ecad-f017-5c2b-aea0-4198c0f8e3e5",
+                "sort_order": 8,
+                "page_id": 286,
+                "page_category_id": 33,
+                "type": "practice-set",
+                "column": "left",
+                "heading": null,
+                "level": "B2",
+                "css_class": null,
+                "body_sha256": "20d1b8b19c0d420216a56a24e27ca687f474aacfceb9bf18b67c75b1f0420e31"
+            },
+            "design": {
+                "source_index": 7,
+                "uuid": "c6a1ecad-f017-5c2b-aea0-4198c0f8e3e5",
+                "sort_order": 8,
+                "body_sha256": "20d1b8b19c0d420216a56a24e27ca687f474aacfceb9bf18b67c75b1f0420e31",
+                "component": "practice-set",
+                "color": "blue",
+                "semantic_role": "core-explanation",
+                "section_colors": [],
+                "rich_fields": [],
+                "rich_em_exceptions": [],
+                "rich_mixed_fields": []
+            },
+            "source_index": 7,
+            "before_data_sha256": "20d1b8b19c0d420216a56a24e27ca687f474aacfceb9bf18b67c75b1f0420e31",
+            "after_data_sha256": "8c63ece56c50b8f2dcb2906bf205c66c59a5b525922e308ec4ad06066b578b8e",
+            "input_updates": [
+                {
+                    "index": 0,
+                    "ordered_groups": [
+                        "Mila tried",
+                        "to lift",
+                        "the heavy lid.",
+                        "Mila tried",
+                        "opening",
+                        "the side vent",
+                        "to cool",
+                        "the room."
+                    ],
+                    "condition_uk": "Міла спробувала підняти важку кришку. Міла спробувала відкрити боковий клапан, щоб охолодити кімнату.",
+                    "hint_uk": "У першій частині покажи зусилля досягти мети, у другій — випробування способу; жоден результат не підтверджено."
+                },
+                {
+                    "index": 1,
+                    "ordered_groups": [
+                        "Yesterday we decided",
+                        "to fix",
+                        "the shelf.",
+                        "We tried",
+                        "to loosen",
+                        "the screw.",
+                        "We look",
+                        "forward to seeing",
+                        "our helper."
+                    ],
+                    "condition_uk": "Учора ми вирішили полагодити полицю. Ми спробували відкрутити гвинт. Ми з нетерпінням чекаємо приїзду помічника.",
+                    "hint_uk": "Рішення і спроба не доводять завершення ремонту; після прийменникової частини очікування потрібна назва дії."
+                }
+            ],
+            "added": [
+                {
+                    "id": "vpq-native-advanced-gerund-infinitive-patterns-gap-1",
+                    "index": 2,
+                    "kind": "gap",
+                    "condition": "The device needs {a1} before it can be used.",
+                    "answer": "repairing",
+                    "accepted": [
+                        "repairing"
+                    ],
+                    "hint_uk": "Полагодити: пристрій потребує ремонту; використай активну назву дії з пасивним значенням після потреби.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-advanced-gerund-infinitive-patterns-gap-2",
+                    "index": 3,
+                    "kind": "gap",
+                    "condition": "I object to {a1} as a beginner.",
+                    "answer": "being treated",
+                    "accepted": [
+                        "being treated"
+                    ],
+                    "hint_uk": "Поводитися зі мною: після прийменника потрібна пасивна назва процесу ставлення, не активна дія мовця.",
+                    "ordered_groups": [],
+                    "shuffled_groups": []
+                },
+                {
+                    "id": "vpq-native-advanced-gerund-infinitive-patterns-translate-1",
+                    "index": 4,
+                    "kind": "translation",
+                    "condition": "Я вдячний тобі за те, що ти заздалегідь попередив мене.",
+                    "answer": "I appreciate your warning me in advance.",
+                    "accepted": [
+                        "I appreciate your warning me in advance."
+                    ],
+                    "hint_uk": "Подяка стосується твоєї дії попередження; збережи мовця як адресата та завчасність.",
+                    "ordered_groups": [
+                        "I appreciate",
+                        "your warning me",
+                        "in advance."
+                    ],
+                    "shuffled_groups": [
+                        "in advance.",
+                        "I appreciate",
+                        "your warning me"
+                    ]
+                },
+                {
+                    "id": "vpq-native-advanced-gerund-infinitive-patterns-translate-2",
+                    "index": 5,
+                    "kind": "translation",
+                    "condition": "Вона заперечувала, що бачила цей лист раніше.",
+                    "answer": "She denied having seen this letter before.",
+                    "accepted": [
+                        "She denied having seen this letter before."
+                    ],
+                    "hint_uk": "Покажи попередність бачення доконаною назвою дії після минулого заперечування.",
+                    "ordered_groups": [
+                        "She denied",
+                        "having seen",
+                        "this letter before."
+                    ],
+                    "shuffled_groups": [
+                        "having seen",
+                        "this letter before.",
+                        "She denied"
+                    ]
+                }
+            ],
+            "input_token_labels": {
+                "0": [],
+                "1": [],
+                "4": [],
+                "5": []
+            }
+        }
+    ]
+}

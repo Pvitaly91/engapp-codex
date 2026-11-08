@@ -1,0 +1,1903 @@
+{
+    "schema_version": 1,
+    "quality_revision": "pvq-v1",
+    "compiled_from": {
+        "path": "docs/content/passive-voice-quality/past-simple.v1.json",
+        "sha256": "93c4b223494495c0071e19b1c8c12bd8b9f123d7e1d8c4f8b638f8c8600627ec"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\PassiveVoice\\UkrainianMixedPassiveVoicePastSimpleQualityStandardSeeder",
+        "uuid_namespace": "passive-voice-quality-past-simple-standard"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 2,
+        "type": 0,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "Passive Voice"
+    },
+    "sources": {
+        "passive_voice_quality_past_simple": {
+            "name": "Passive Voice Quality: Passive Voice Past Simple"
+        }
+    },
+    "tags": {
+        "passive_voice_past_simple": {
+            "name": "Passive Voice Past Simple",
+            "category": "passive_voice"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "was_were_v3": {
+            "name": "Was Were V3",
+            "category": "topic"
+        },
+        "completed_past_passive": {
+            "name": "Completed Past Passive",
+            "category": "topic"
+        },
+        "unknown_agent": {
+            "name": "Unknown Agent",
+            "category": "topic"
+        },
+        "object_subject": {
+            "name": "Object Subject",
+            "category": "topic"
+        },
+        "by_agent": {
+            "name": "By Agent",
+            "category": "topic"
+        },
+        "active_passive": {
+            "name": "Active Passive",
+            "category": "topic"
+        },
+        "agreement": {
+            "name": "Agreement",
+            "category": "topic"
+        },
+        "typical_mistakes": {
+            "name": "Typical Mistakes",
+            "category": "topic"
+        }
+    },
+    "default_tag_keys": [
+        "passive_voice_past_simple"
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "pvq-past-simple-a1-g01",
+            "author_id": "A1-g01",
+            "question": "My cup {a1} yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Мою чашку вчора розбили.",
+            "target_text": "My cup was broken yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "was broken",
+                    "options": [
+                        "was broken",
+                        "were broken",
+                        "is broken"
+                    ],
+                    "verb_hint": "Розбили вчора; утвори минулий пасив від «розбивати». Дія сталася з одним предметом."
+                }
+            },
+            "verb_hint": "Розбили вчора; утвори минулий пасив від «розбивати». Дія сталася з одним предметом.",
+            "accepted_target_texts": [
+                "My cup was broken yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My cup",
+                "was broken",
+                "yesterday."
+            ],
+            "token_groups": [
+                "My cup",
+                "was broken",
+                "yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 2,
+            "uuid": "pvq-past-simple-a1-g02",
+            "author_id": "A1-g02",
+            "question": "These cards {a1} on Monday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Ці листівки надіслали в понеділок.",
+            "target_text": "These cards were sent on Monday.",
+            "markers": {
+                "a1": {
+                    "answer": "were sent",
+                    "options": [
+                        "were sent",
+                        "was sent",
+                        "are sent"
+                    ],
+                    "verb_hint": "Надіслали в понеділок; утвори минулий пасив від «надсилати» для кількох предметів."
+                }
+            },
+            "verb_hint": "Надіслали в понеділок; утвори минулий пасив від «надсилати» для кількох предметів.",
+            "accepted_target_texts": [
+                "These cards were sent on Monday.",
+                "These cards were mailed on Monday.",
+                "These cards were posted on Monday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were mailed",
+                    "were posted"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were mailed",
+                    "were posted"
+                ]
+            },
+            "reorder_groups": [
+                "These cards",
+                "were sent",
+                "on Monday."
+            ],
+            "token_groups": [
+                "These cards",
+                "were sent",
+                "on Monday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 3,
+            "uuid": "pvq-past-simple-a1-g03",
+            "author_id": "A1-g03",
+            "question": "The toy {a1} last night.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Іграшку полагодили вчора ввечері.",
+            "target_text": "The toy was repaired last night.",
+            "markers": {
+                "a1": {
+                    "answer": "was repaired",
+                    "options": [
+                        "was repaired",
+                        "were repaired",
+                        "is repaired"
+                    ],
+                    "verb_hint": "Полагодили зламану річ; утвори минулий пасив від «ремонтувати, лагодити»."
+                }
+            },
+            "verb_hint": "Полагодили зламану річ; утвори минулий пасив від «ремонтувати, лагодити».",
+            "accepted_target_texts": [
+                "The toy was repaired last night.",
+                "The toy was fixed last night.",
+                "The toy was mended last night."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was fixed",
+                    "was mended"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was fixed",
+                    "was mended"
+                ]
+            },
+            "reorder_groups": [
+                "The toy",
+                "was repaired",
+                "last night."
+            ],
+            "token_groups": [
+                "The toy",
+                "was repaired",
+                "last night."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 4,
+            "uuid": "pvq-past-simple-a1-g04",
+            "author_id": "A1-g04",
+            "question": "The eggs {a1} this morning.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Яйця приготували сьогодні вранці.",
+            "target_text": "The eggs were cooked this morning.",
+            "markers": {
+                "a1": {
+                    "answer": "were cooked",
+                    "options": [
+                        "were cooked",
+                        "was cooked",
+                        "are cooked"
+                    ],
+                    "verb_hint": "Приготували їжу вранці; потрібен минулий пасив від «готувати» з допоміжною формою для множини."
+                }
+            },
+            "verb_hint": "Приготували їжу вранці; потрібен минулий пасив від «готувати» з допоміжною формою для множини.",
+            "accepted_target_texts": [
+                "The eggs were cooked this morning.",
+                "The eggs were prepared this morning."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were prepared"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were prepared"
+                ]
+            },
+            "reorder_groups": [
+                "The eggs",
+                "were cooked",
+                "this morning."
+            ],
+            "token_groups": [
+                "The eggs",
+                "were cooked",
+                "this morning."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 5,
+            "uuid": "pvq-past-simple-a1-g05",
+            "author_id": "A1-g05",
+            "question": "The bread {a1} at breakfast.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Хліб з’їли за сніданком.",
+            "target_text": "The bread was eaten at breakfast.",
+            "markers": {
+                "a1": {
+                    "answer": "was eaten",
+                    "options": [
+                        "was eaten",
+                        "were eaten",
+                        "is eaten"
+                    ],
+                    "verb_hint": "З’їли за сніданком; утвори минулий пасив від неправильного дієслова «їсти»."
+                }
+            },
+            "verb_hint": "З’їли за сніданком; утвори минулий пасив від неправильного дієслова «їсти».",
+            "accepted_target_texts": [
+                "The bread was eaten at breakfast."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The bread",
+                "was eaten",
+                "at breakfast."
+            ],
+            "token_groups": [
+                "The bread",
+                "was eaten",
+                "at breakfast."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 6,
+            "uuid": "pvq-past-simple-a1-g06",
+            "author_id": "A1-g06",
+            "question": "The towels {a1} outside yesterday.",
+            "level": "A1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Рушники вчора висушили надворі.",
+            "target_text": "The towels were dried outside yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "were dried",
+                    "options": [
+                        "were dried",
+                        "was dried",
+                        "are dried"
+                    ],
+                    "verb_hint": "Висушили надворі; передай завершену минулу дію пасивною формою від «сушити»."
+                }
+            },
+            "verb_hint": "Висушили надворі; передай завершену минулу дію пасивною формою від «сушити».",
+            "accepted_target_texts": [
+                "The towels were dried outside yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The towels",
+                "were dried",
+                "outside yesterday."
+            ],
+            "token_groups": [
+                "The towels",
+                "were dried",
+                "outside yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 7,
+            "uuid": "pvq-past-simple-a2-g01",
+            "author_id": "A2-g01",
+            "question": "The parcel {a1} to the wrong address last week.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Посилку минулого тижня доставили не за тією адресою.",
+            "target_text": "The parcel was delivered to the wrong address last week.",
+            "markers": {
+                "a1": {
+                    "answer": "was delivered",
+                    "options": [
+                        "was delivered",
+                        "were delivered",
+                        "is delivered"
+                    ],
+                    "verb_hint": "Доставили не за тією адресою; утвори минулий пасив від «доставляти»."
+                }
+            },
+            "verb_hint": "Доставили не за тією адресою; утвори минулий пасив від «доставляти».",
+            "accepted_target_texts": [
+                "The parcel was delivered to the wrong address last week."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The parcel",
+                "was delivered",
+                "to the",
+                "wrong address",
+                "last week."
+            ],
+            "token_groups": [
+                "The parcel",
+                "was delivered",
+                "to the",
+                "wrong address",
+                "last week."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 8,
+            "uuid": "pvq-past-simple-a2-g02",
+            "author_id": "A2-g02",
+            "question": "The ferry tickets {a1} after the storm.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Квитки на пором анулювали після бурі.",
+            "target_text": "The ferry tickets were cancelled after the storm.",
+            "markers": {
+                "a1": {
+                    "answer": "were cancelled",
+                    "options": [
+                        "were cancelled",
+                        "was cancelled",
+                        "are cancelled"
+                    ],
+                    "verb_hint": "Анулювали після бурі; утвори минулий пасив від «скасовувати, анулювати». Можливі два нормативні написання дієслова."
+                }
+            },
+            "verb_hint": "Анулювали після бурі; утвори минулий пасив від «скасовувати, анулювати». Можливі два нормативні написання дієслова.",
+            "accepted_target_texts": [
+                "The ferry tickets were cancelled after the storm.",
+                "The ferry tickets were canceled after the storm."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were canceled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were canceled"
+                ]
+            },
+            "reorder_groups": [
+                "The ferry tickets",
+                "were cancelled",
+                "after the storm."
+            ],
+            "token_groups": [
+                "The ferry tickets",
+                "were cancelled",
+                "after the storm."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 9,
+            "uuid": "pvq-past-simple-a2-g03",
+            "author_id": "A2-g03",
+            "question": "Where {a1} on Saturday?",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Куди в суботу здали знайдений гаманець?",
+            "target_text": "Where was the wallet handed in on Saturday?",
+            "markers": {
+                "a1": {
+                    "answer": "was the wallet handed in",
+                    "options": [
+                        "was the wallet handed in",
+                        "were the wallet handed in",
+                        "is the wallet handed in"
+                    ],
+                    "verb_hint": "Запитай, куди здали знайдений гаманець; у пропуску потрібні підмет «гаманець» і минулий пасив від «здавати знайдену річ»."
+                }
+            },
+            "verb_hint": "Запитай, куди здали знайдений гаманець; у пропуску потрібні підмет «гаманець» і минулий пасив від «здавати знайдену річ».",
+            "accepted_target_texts": [
+                "Where was the wallet handed in on Saturday?",
+                "Where was the wallet turned in on Saturday?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was the wallet turned in"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was the wallet turned in"
+                ]
+            },
+            "reorder_groups": [
+                "Where",
+                "was the wallet",
+                "handed in",
+                "on Saturday?"
+            ],
+            "token_groups": [
+                "Where",
+                "was the wallet",
+                "handed in",
+                "on Saturday?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 10,
+            "uuid": "pvq-past-simple-a2-g04",
+            "author_id": "A2-g04",
+            "question": "My bicycle {a1} outside the pool yesterday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Мій велосипед учора вкрали біля басейну.",
+            "target_text": "My bicycle was stolen outside the pool yesterday.",
+            "markers": {
+                "a1": {
+                    "answer": "was stolen",
+                    "options": [
+                        "was stolen",
+                        "were stolen",
+                        "is stolen"
+                    ],
+                    "verb_hint": "Украли вчора; утвори минулий пасив від неправильного дієслова «красти»."
+                }
+            },
+            "verb_hint": "Украли вчора; утвори минулий пасив від неправильного дієслова «красти».",
+            "accepted_target_texts": [
+                "My bicycle was stolen outside the pool yesterday."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "My bicycle",
+                "was stolen",
+                "outside the pool",
+                "yesterday."
+            ],
+            "token_groups": [
+                "My bicycle",
+                "was stolen",
+                "outside the pool",
+                "yesterday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 11,
+            "uuid": "pvq-past-simple-a2-g05",
+            "author_id": "A2-g05",
+            "question": "The travel notice {a1} in two languages.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Повідомлення для мандрівників написали двома мовами.",
+            "target_text": "The travel notice was written in two languages.",
+            "markers": {
+                "a1": {
+                    "answer": "was written",
+                    "options": [
+                        "was written",
+                        "were written",
+                        "is written"
+                    ],
+                    "verb_hint": "Написали двома мовами; утвори минулий пасив від неправильного дієслова «писати»."
+                }
+            },
+            "verb_hint": "Написали двома мовами; утвори минулий пасив від неправильного дієслова «писати».",
+            "accepted_target_texts": [
+                "The travel notice was written in two languages."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The travel notice",
+                "was written",
+                "in two languages."
+            ],
+            "token_groups": [
+                "The travel notice",
+                "was written",
+                "in two languages."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 12,
+            "uuid": "pvq-past-simple-a2-g06",
+            "author_id": "A2-g06",
+            "question": "Packed lunches {a1} on Friday.",
+            "level": "A2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "У п’ятницю сухі пайки не надали.",
+            "target_text": "Packed lunches were not provided on Friday.",
+            "markers": {
+                "a1": {
+                    "answer": "were not provided",
+                    "options": [
+                        "were not provided",
+                        "was not provided",
+                        "are not provided"
+                    ],
+                    "verb_hint": "Не надали готові обіди для поїздки; утвори заперечний минулий пасив від «надавати»."
+                }
+            },
+            "verb_hint": "Не надали готові обіди для поїздки; утвори заперечний минулий пасив від «надавати».",
+            "accepted_target_texts": [
+                "Packed lunches were not provided on Friday.",
+                "Packed lunches weren't provided on Friday.",
+                "Packed lunches were not supplied on Friday.",
+                "Packed lunches weren't supplied on Friday."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "weren't provided",
+                    "were not supplied",
+                    "weren't supplied"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "weren't provided",
+                    "were not supplied",
+                    "weren't supplied"
+                ]
+            },
+            "reorder_groups": [
+                "Packed lunches",
+                "were not provided",
+                "on Friday."
+            ],
+            "token_groups": [
+                "Packed lunches",
+                "were not provided",
+                "on Friday."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 13,
+            "uuid": "pvq-past-simple-b1-g01",
+            "author_id": "B1-g01",
+            "question": "The hikers {a1} safety instructions before they set off.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Мандрівникам дали інструкції з безпеки перед виходом у похід.",
+            "target_text": "The hikers were given safety instructions before they set off.",
+            "markers": {
+                "a1": {
+                    "answer": "were given",
+                    "options": [
+                        "were given",
+                        "was given",
+                        "are given"
+                    ],
+                    "verb_hint": "Дали інструкції учасникам походу; утвори минулий пасив від «давати». Одержувачі вже наведені як підмет."
+                }
+            },
+            "verb_hint": "Дали інструкції учасникам походу; утвори минулий пасив від «давати». Одержувачі вже наведені як підмет.",
+            "accepted_target_texts": [
+                "The hikers were given safety instructions before they set off."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The hikers",
+                "were given",
+                "safety instructions",
+                "before they",
+                "set off."
+            ],
+            "token_groups": [
+                "The hikers",
+                "were given",
+                "safety instructions",
+                "before they",
+                "set off."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 14,
+            "uuid": "pvq-past-simple-b1-g02",
+            "author_id": "B1-g02",
+            "question": "The conference venue {a1} because of flooding.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Місце проведення конференції змінили через підтоплення.",
+            "target_text": "The conference venue was changed because of flooding.",
+            "markers": {
+                "a1": {
+                    "answer": "was changed",
+                    "options": [
+                        "was changed",
+                        "were changed",
+                        "is changed"
+                    ],
+                    "verb_hint": "Змінили місце проведення через підтоплення; потрібен минулий пасив від «змінювати»."
+                }
+            },
+            "verb_hint": "Змінили місце проведення через підтоплення; потрібен минулий пасив від «змінювати».",
+            "accepted_target_texts": [
+                "The conference venue was changed because of flooding."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The conference venue",
+                "was changed",
+                "because of flooding."
+            ],
+            "token_groups": [
+                "The conference venue",
+                "was changed",
+                "because of flooding."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 15,
+            "uuid": "pvq-past-simple-b1-g03",
+            "author_id": "B1-g03",
+            "question": "Why {a1} last month?",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Чому минулого місяця відмовили в цьому запиті?",
+            "target_text": "Why was the request refused last month?",
+            "markers": {
+                "a1": {
+                    "answer": "was the request refused",
+                    "options": [
+                        "was the request refused",
+                        "were the request refused",
+                        "is the request refused"
+                    ],
+                    "verb_hint": "Запитай про причину відмови; у пропуску потрібні підмет «запит» і минулий пасив від «відхиляти, не задовольняти»."
+                }
+            },
+            "verb_hint": "Запитай про причину відмови; у пропуску потрібні підмет «запит» і минулий пасив від «відхиляти, не задовольняти».",
+            "accepted_target_texts": [
+                "Why was the request refused last month?",
+                "Why was the request rejected last month?",
+                "Why was the request denied last month?",
+                "Why was the request turned down last month?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was the request rejected",
+                    "was the request denied",
+                    "was the request turned down"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was the request rejected",
+                    "was the request denied",
+                    "was the request turned down"
+                ]
+            },
+            "reorder_groups": [
+                "Why",
+                "was the request",
+                "refused",
+                "last month?"
+            ],
+            "token_groups": [
+                "Why",
+                "was the request",
+                "refused",
+                "last month?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 16,
+            "uuid": "pvq-past-simple-b1-g04",
+            "author_id": "B1-g04",
+            "question": "A refund {a1} because the receipt was missing.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Кошти не повернули, бо не було чека.",
+            "target_text": "A refund was not issued because the receipt was missing.",
+            "markers": {
+                "a1": {
+                    "answer": "was not issued",
+                    "options": [
+                        "was not issued",
+                        "were not issued",
+                        "is not issued"
+                    ],
+                    "verb_hint": "Не оформили повернення коштів через відсутній чек; утвори заперечний минулий пасив від «видавати, оформлювати»."
+                }
+            },
+            "verb_hint": "Не оформили повернення коштів через відсутній чек; утвори заперечний минулий пасив від «видавати, оформлювати».",
+            "accepted_target_texts": [
+                "A refund was not issued because the receipt was missing.",
+                "A refund wasn't issued because the receipt was missing.",
+                "A refund was not given because the receipt was missing.",
+                "A refund wasn't given because the receipt was missing."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wasn't issued",
+                    "was not given",
+                    "wasn't given"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wasn't issued",
+                    "was not given",
+                    "wasn't given"
+                ]
+            },
+            "reorder_groups": [
+                "A refund",
+                "was not issued",
+                "because the receipt",
+                "was missing."
+            ],
+            "token_groups": [
+                "A refund",
+                "was not issued",
+                "because the receipt",
+                "was missing."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 17,
+            "uuid": "pvq-past-simple-b1-g05",
+            "author_id": "B1-g05",
+            "question": "The seats {a1} by drawing lots.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Місця розподілили жеребкуванням.",
+            "target_text": "The seats were allocated by drawing lots.",
+            "markers": {
+                "a1": {
+                    "answer": "were allocated",
+                    "options": [
+                        "were allocated",
+                        "was allocated",
+                        "are allocated"
+                    ],
+                    "verb_hint": "Розподілили місця жеребкуванням; утвори минулий пасив від «розподіляти»."
+                }
+            },
+            "verb_hint": "Розподілили місця жеребкуванням; утвори минулий пасив від «розподіляти».",
+            "accepted_target_texts": [
+                "The seats were allocated by drawing lots.",
+                "The seats were assigned by drawing lots."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were assigned"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were assigned"
+                ]
+            },
+            "reorder_groups": [
+                "The seats",
+                "were allocated",
+                "by drawing lots."
+            ],
+            "token_groups": [
+                "The seats",
+                "were allocated",
+                "by drawing lots."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 18,
+            "uuid": "pvq-past-simple-b1-g06",
+            "author_id": "B1-g06",
+            "question": "The final bill {a1} by the organiser.",
+            "level": "B1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Остаточний рахунок оплатив організатор.",
+            "target_text": "The final bill was paid by the organiser.",
+            "markers": {
+                "a1": {
+                    "answer": "was paid",
+                    "options": [
+                        "was paid",
+                        "were paid",
+                        "is paid"
+                    ],
+                    "verb_hint": "Оплатив названий організатор; утвори минулий пасив від «оплачувати», не повторюючи вже наведений рахунок."
+                }
+            },
+            "verb_hint": "Оплатив названий організатор; утвори минулий пасив від «оплачувати», не повторюючи вже наведений рахунок.",
+            "accepted_target_texts": [
+                "The final bill was paid by the organiser.",
+                "The final bill was settled by the organiser."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was settled"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was settled"
+                ]
+            },
+            "reorder_groups": [
+                "The final bill",
+                "was paid",
+                "by the organiser."
+            ],
+            "token_groups": [
+                "The final bill",
+                "was paid",
+                "by the organiser."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 19,
+            "uuid": "pvq-past-simple-b2-g01",
+            "author_id": "B2-g01",
+            "question": "The leak {a1} during a routine inspection.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Витік виявили під час планової перевірки.",
+            "target_text": "The leak was detected during a routine inspection.",
+            "markers": {
+                "a1": {
+                    "answer": "was detected",
+                    "options": [
+                        "was detected",
+                        "were detected",
+                        "is detected"
+                    ],
+                    "verb_hint": "Виявили несправність під час перевірки; утвори минулий пасив від «виявляти»."
+                }
+            },
+            "verb_hint": "Виявили несправність під час перевірки; утвори минулий пасив від «виявляти».",
+            "accepted_target_texts": [
+                "The leak was detected during a routine inspection.",
+                "The leak was discovered during a routine inspection.",
+                "The leak was found during a routine inspection."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was discovered",
+                    "was found"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was discovered",
+                    "was found"
+                ]
+            },
+            "reorder_groups": [
+                "The leak",
+                "was detected",
+                "during a",
+                "routine inspection."
+            ],
+            "token_groups": [
+                "The leak",
+                "was detected",
+                "during a",
+                "routine inspection."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 20,
+            "uuid": "pvq-past-simple-b2-g02",
+            "author_id": "B2-g02",
+            "question": "The workers {a1} while the plant was shut down.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Працівників перевели на інше місце, поки завод не працював.",
+            "target_text": "The workers were relocated while the plant was shut down.",
+            "markers": {
+                "a1": {
+                    "answer": "were relocated",
+                    "options": [
+                        "were relocated",
+                        "was relocated",
+                        "are relocated"
+                    ],
+                    "verb_hint": "Перевели на інше місце на час зупинки заводу; утвори минулий пасив від «переміщувати, переводити»."
+                }
+            },
+            "verb_hint": "Перевели на інше місце на час зупинки заводу; утвори минулий пасив від «переміщувати, переводити».",
+            "accepted_target_texts": [
+                "The workers were relocated while the plant was shut down.",
+                "The workers were transferred while the plant was shut down.",
+                "The workers were moved while the plant was shut down."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were transferred",
+                    "were moved"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were transferred",
+                    "were moved"
+                ]
+            },
+            "reorder_groups": [
+                "The workers",
+                "were relocated",
+                "while the plant",
+                "was shut down."
+            ],
+            "token_groups": [
+                "The workers",
+                "were relocated",
+                "while the plant",
+                "was shut down."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 21,
+            "uuid": "pvq-past-simple-b2-g03",
+            "author_id": "B2-g03",
+            "question": "Why {a1} after the calibration check?",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Чому результати вимірювань відкинули після перевірки калібрування?",
+            "target_text": "Why were the measurements discarded after the calibration check?",
+            "markers": {
+                "a1": {
+                    "answer": "were the measurements discarded",
+                    "options": [
+                        "were the measurements discarded",
+                        "was the measurements discarded",
+                        "are the measurements discarded"
+                    ],
+                    "verb_hint": "Запитай про причину відкидання результатів вимірювань; у пропуску потрібні весь підмет і минулий пасив від «відкидати дані»."
+                }
+            },
+            "verb_hint": "Запитай про причину відкидання результатів вимірювань; у пропуску потрібні весь підмет і минулий пасив від «відкидати дані».",
+            "accepted_target_texts": [
+                "Why were the measurements discarded after the calibration check?",
+                "Why were the measurements rejected after the calibration check?",
+                "Why were the measurements excluded after the calibration check?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were the measurements rejected",
+                    "were the measurements excluded"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were the measurements rejected",
+                    "were the measurements excluded"
+                ]
+            },
+            "reorder_groups": [
+                "Why",
+                "were the measurements",
+                "discarded",
+                "after the",
+                "calibration check?"
+            ],
+            "token_groups": [
+                "Why",
+                "were the measurements",
+                "discarded",
+                "after the",
+                "calibration check?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 22,
+            "uuid": "pvq-past-simple-b2-g04",
+            "author_id": "B2-g04",
+            "question": "The nearby houses {a1} until the fire officer arrived.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Із сусідніх будинків не евакуювали людей до прибуття пожежного інспектора.",
+            "target_text": "The nearby houses were not evacuated until the fire officer arrived.",
+            "markers": {
+                "a1": {
+                    "answer": "were not evacuated",
+                    "options": [
+                        "were not evacuated",
+                        "was not evacuated",
+                        "are not evacuated"
+                    ],
+                    "verb_hint": "Не евакуювали до прибуття відповідальної особи; утвори заперечний минулий пасив від «евакуювати»."
+                }
+            },
+            "verb_hint": "Не евакуювали до прибуття відповідальної особи; утвори заперечний минулий пасив від «евакуювати».",
+            "accepted_target_texts": [
+                "The nearby houses were not evacuated until the fire officer arrived.",
+                "The nearby houses weren't evacuated until the fire officer arrived."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "weren't evacuated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "weren't evacuated"
+                ]
+            },
+            "reorder_groups": [
+                "The nearby houses",
+                "were not evacuated",
+                "until the",
+                "fire officer arrived."
+            ],
+            "token_groups": [
+                "The nearby houses",
+                "were not evacuated",
+                "until the",
+                "fire officer arrived."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 23,
+            "uuid": "pvq-past-simple-b2-g05",
+            "author_id": "B2-g05",
+            "question": "The packaging {a1} to reduce plastic waste.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Дизайн паковання змінили, щоб зменшити кількість пластикових відходів.",
+            "target_text": "The packaging was redesigned to reduce plastic waste.",
+            "markers": {
+                "a1": {
+                    "answer": "was redesigned",
+                    "options": [
+                        "was redesigned",
+                        "were redesigned",
+                        "is redesigned"
+                    ],
+                    "verb_hint": "Переробили дизайн для зменшення відходів; потрібен минулий пасив від «перепроєктовувати, змінювати дизайн»."
+                }
+            },
+            "verb_hint": "Переробили дизайн для зменшення відходів; потрібен минулий пасив від «перепроєктовувати, змінювати дизайн».",
+            "accepted_target_texts": [
+                "The packaging was redesigned to reduce plastic waste."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "The packaging",
+                "was redesigned",
+                "to reduce",
+                "plastic waste."
+            ],
+            "token_groups": [
+                "The packaging",
+                "was redesigned",
+                "to reduce",
+                "plastic waste."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 24,
+            "uuid": "pvq-past-simple-b2-g06",
+            "author_id": "B2-g06",
+            "question": "Several staff accounts {a1} in the phishing attack.",
+            "level": "B2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Під час фішингової атаки було скомпрометовано кілька облікових записів працівників.",
+            "target_text": "Several staff accounts were compromised in the phishing attack.",
+            "markers": {
+                "a1": {
+                    "answer": "were compromised",
+                    "options": [
+                        "were compromised",
+                        "was compromised",
+                        "are compromised"
+                    ],
+                    "verb_hint": "Скомпрометували облікові записи під час атаки; утвори минулий пасив від «компрометувати, порушувати захищеність»."
+                }
+            },
+            "verb_hint": "Скомпрометували облікові записи під час атаки; утвори минулий пасив від «компрометувати, порушувати захищеність».",
+            "accepted_target_texts": [
+                "Several staff accounts were compromised in the phishing attack."
+            ],
+            "answer_synonyms": {
+                "a1": []
+            },
+            "display_answer_synonyms": [],
+            "reorder_groups": [
+                "Several staff accounts",
+                "were compromised",
+                "in the",
+                "phishing attack."
+            ],
+            "token_groups": [
+                "Several staff accounts",
+                "were compromised",
+                "in the",
+                "phishing attack."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 25,
+            "uuid": "pvq-past-simple-c1-g01",
+            "author_id": "C1-g01",
+            "question": "The audit trail {a1} from archived server logs.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Історію аудиту відновили з архівних журналів сервера.",
+            "target_text": "The audit trail was reconstructed from archived server logs.",
+            "markers": {
+                "a1": {
+                    "answer": "was reconstructed",
+                    "options": [
+                        "was reconstructed",
+                        "were reconstructed",
+                        "is reconstructed"
+                    ],
+                    "verb_hint": "Відновили історію подій із журналів; утвори минулий пасив від «реконструювати, відновлювати»."
+                }
+            },
+            "verb_hint": "Відновили історію подій із журналів; утвори минулий пасив від «реконструювати, відновлювати».",
+            "accepted_target_texts": [
+                "The audit trail was reconstructed from archived server logs.",
+                "The audit trail was restored from archived server logs.",
+                "The audit trail was rebuilt from archived server logs."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was restored",
+                    "was rebuilt"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was restored",
+                    "was rebuilt"
+                ]
+            },
+            "reorder_groups": [
+                "The audit trail",
+                "was reconstructed",
+                "from archived",
+                "server logs."
+            ],
+            "token_groups": [
+                "The audit trail",
+                "was reconstructed",
+                "from archived",
+                "server logs."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 26,
+            "uuid": "pvq-past-simple-c1-g02",
+            "author_id": "C1-g02",
+            "question": "The claim {a1} on procedural grounds at the preliminary hearing.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Позов відхилили з процесуальних підстав на попередньому слуханні.",
+            "target_text": "The claim was dismissed on procedural grounds at the preliminary hearing.",
+            "markers": {
+                "a1": {
+                    "answer": "was dismissed",
+                    "options": [
+                        "was dismissed",
+                        "were dismissed",
+                        "is dismissed"
+                    ],
+                    "verb_hint": "Відхилили позов із процесуальних підстав; утвори минулий пасив від «відхиляти»."
+                }
+            },
+            "verb_hint": "Відхилили позов із процесуальних підстав; утвори минулий пасив від «відхиляти».",
+            "accepted_target_texts": [
+                "The claim was dismissed on procedural grounds at the preliminary hearing.",
+                "The claim was rejected on procedural grounds at the preliminary hearing."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was rejected"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was rejected"
+                ]
+            },
+            "reorder_groups": [
+                "The claim",
+                "was dismissed",
+                "on procedural grounds",
+                "at the",
+                "preliminary hearing."
+            ],
+            "token_groups": [
+                "The claim",
+                "was dismissed",
+                "on procedural grounds",
+                "at the",
+                "preliminary hearing."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 27,
+            "uuid": "pvq-past-simple-c1-g03",
+            "author_id": "C1-g03",
+            "question": "Why {a1} following the consultation?",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Чому після консультацій відклали впровадження?",
+            "target_text": "Why was implementation deferred following the consultation?",
+            "markers": {
+                "a1": {
+                    "answer": "was implementation deferred",
+                    "options": [
+                        "was implementation deferred",
+                        "were implementation deferred",
+                        "is implementation deferred"
+                    ],
+                    "verb_hint": "Запитай про причину відкладення впровадження; додай підмет «впровадження» та минулий пасив від «відкладати»."
+                }
+            },
+            "verb_hint": "Запитай про причину відкладення впровадження; додай підмет «впровадження» та минулий пасив від «відкладати».",
+            "accepted_target_texts": [
+                "Why was implementation deferred following the consultation?",
+                "Why was implementation postponed following the consultation?",
+                "Why was implementation delayed following the consultation?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was implementation postponed",
+                    "was implementation delayed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was implementation postponed",
+                    "was implementation delayed"
+                ]
+            },
+            "reorder_groups": [
+                "Why",
+                "was implementation",
+                "deferred",
+                "following the consultation?"
+            ],
+            "token_groups": [
+                "Why",
+                "was implementation",
+                "deferred",
+                "following the consultation?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 28,
+            "uuid": "pvq-past-simple-c1-g04",
+            "author_id": "C1-g04",
+            "question": "The conclusions {a1} because the methodological objections remained unresolved.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Висновки не схвалили, оскільки методологічні заперечення залишилися невирішеними.",
+            "target_text": "The conclusions were not endorsed because the methodological objections remained unresolved.",
+            "markers": {
+                "a1": {
+                    "answer": "were not endorsed",
+                    "options": [
+                        "were not endorsed",
+                        "was not endorsed",
+                        "are not endorsed"
+                    ],
+                    "verb_hint": "Не схвалили висновки через невирішені заперечення; утвори заперечний минулий пасив від «схвалювати, підтримувати офіційно»."
+                }
+            },
+            "verb_hint": "Не схвалили висновки через невирішені заперечення; утвори заперечний минулий пасив від «схвалювати, підтримувати офіційно».",
+            "accepted_target_texts": [
+                "The conclusions were not endorsed because the methodological objections remained unresolved.",
+                "The conclusions weren't endorsed because the methodological objections remained unresolved.",
+                "The conclusions were not approved because the methodological objections remained unresolved.",
+                "The conclusions weren't approved because the methodological objections remained unresolved."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "weren't endorsed",
+                    "were not approved",
+                    "weren't approved"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "weren't endorsed",
+                    "were not approved",
+                    "weren't approved"
+                ]
+            },
+            "reorder_groups": [
+                "The conclusions",
+                "were not endorsed",
+                "because the",
+                "methodological objections",
+                "remained unresolved."
+            ],
+            "token_groups": [
+                "The conclusions",
+                "were not endorsed",
+                "because the",
+                "methodological objections",
+                "remained unresolved."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 29,
+            "uuid": "pvq-past-simple-c1-g05",
+            "author_id": "C1-g05",
+            "question": "The experimental design {a1} subject to an additional safety review.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "План експерименту схвалили за умови додаткової перевірки безпеки.",
+            "target_text": "The experimental design was approved subject to an additional safety review.",
+            "markers": {
+                "a1": {
+                    "answer": "was approved",
+                    "options": [
+                        "was approved",
+                        "were approved",
+                        "is approved"
+                    ],
+                    "verb_hint": "Схвалили за умови додаткової перевірки; утвори минулий пасив від «схвалювати»."
+                }
+            },
+            "verb_hint": "Схвалили за умови додаткової перевірки; утвори минулий пасив від «схвалювати».",
+            "accepted_target_texts": [
+                "The experimental design was approved subject to an additional safety review.",
+                "The experimental design was authorised subject to an additional safety review.",
+                "The experimental design was authorized subject to an additional safety review."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was authorised",
+                    "was authorized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was authorised",
+                    "was authorized"
+                ]
+            },
+            "reorder_groups": [
+                "The experimental design",
+                "was approved",
+                "subject to",
+                "an additional",
+                "safety review."
+            ],
+            "token_groups": [
+                "The experimental design",
+                "was approved",
+                "subject to",
+                "an additional",
+                "safety review."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 30,
+            "uuid": "pvq-past-simple-c1-g06",
+            "author_id": "C1-g06",
+            "question": "The redacted transcript {a1} following an appeal against the refusal of access.",
+            "level": "C1",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Стенограму з вилученими фрагментами оприлюднили після оскарження відмови в доступі.",
+            "target_text": "The redacted transcript was released following an appeal against the refusal of access.",
+            "markers": {
+                "a1": {
+                    "answer": "was released",
+                    "options": [
+                        "was released",
+                        "were released",
+                        "is released"
+                    ],
+                    "verb_hint": "Оприлюднили стенограму після оскарження відмови; утвори минулий пасив від «оприлюднювати»."
+                }
+            },
+            "verb_hint": "Оприлюднили стенограму після оскарження відмови; утвори минулий пасив від «оприлюднювати».",
+            "accepted_target_texts": [
+                "The redacted transcript was released following an appeal against the refusal of access.",
+                "The redacted transcript was disclosed following an appeal against the refusal of access.",
+                "The redacted transcript was published following an appeal against the refusal of access."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was disclosed",
+                    "was published"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was disclosed",
+                    "was published"
+                ]
+            },
+            "reorder_groups": [
+                "The redacted transcript",
+                "was released",
+                "following an appeal",
+                "against the refusal",
+                "of access."
+            ],
+            "token_groups": [
+                "The redacted transcript",
+                "was released",
+                "following an appeal",
+                "against the refusal",
+                "of access."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 31,
+            "uuid": "pvq-past-simple-c2-g01",
+            "author_id": "C2-g01",
+            "question": "The residuary bequest {a1} ineffective in the final judgment.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "В остаточному судовому рішенні заповідальне розпорядження щодо залишку спадщини визнали нечинним.",
+            "target_text": "The residuary bequest was held to be ineffective in the final judgment.",
+            "markers": {
+                "a1": {
+                    "answer": "was held to be",
+                    "options": [
+                        "was held to be",
+                        "were held to be",
+                        "is held to be"
+                    ],
+                    "verb_hint": "Визнали нечинним в остаточному судовому рішенні у справі про спадщину; утвори минулий пасив від «вважати, визнавати рішенням» із наступною інфінітивною зв’язкою."
+                }
+            },
+            "verb_hint": "Визнали нечинним в остаточному судовому рішенні у справі про спадщину; утвори минулий пасив від «вважати, визнавати рішенням» із наступною інфінітивною зв’язкою.",
+            "accepted_target_texts": [
+                "The residuary bequest was held to be ineffective in the final judgment.",
+                "The residuary bequest was deemed to be ineffective in the final judgment.",
+                "The residuary bequest was considered to be ineffective in the final judgment.",
+                "The residuary bequest was found to be ineffective in the final judgment."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was deemed to be",
+                    "was considered to be",
+                    "was found to be"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was deemed to be",
+                    "was considered to be",
+                    "was found to be"
+                ]
+            },
+            "reorder_groups": [
+                "The residuary bequest",
+                "was held",
+                "to be ineffective",
+                "in the",
+                "final judgment."
+            ],
+            "token_groups": [
+                "The residuary bequest",
+                "was held",
+                "to be ineffective",
+                "in the",
+                "final judgment."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 32,
+            "uuid": "pvq-past-simple-c2-g02",
+            "author_id": "C2-g02",
+            "question": "Contingent liabilities {a1} in the revised balance sheet.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Умовні зобов’язання не визнали в переглянутому бухгалтерському балансі.",
+            "target_text": "Contingent liabilities were not recognised in the revised balance sheet.",
+            "markers": {
+                "a1": {
+                    "answer": "were not recognised",
+                    "options": [
+                        "were not recognised",
+                        "was not recognised",
+                        "are not recognised"
+                    ],
+                    "verb_hint": "Не визнали зобов’язання в бухгалтерському балансі; утвори заперечний минулий пасив від «визнавати в обліку». Можливі два нормативні написання."
+                }
+            },
+            "verb_hint": "Не визнали зобов’язання в бухгалтерському балансі; утвори заперечний минулий пасив від «визнавати в обліку». Можливі два нормативні написання.",
+            "accepted_target_texts": [
+                "Contingent liabilities were not recognised in the revised balance sheet.",
+                "Contingent liabilities weren't recognised in the revised balance sheet.",
+                "Contingent liabilities were not recognized in the revised balance sheet.",
+                "Contingent liabilities weren't recognized in the revised balance sheet."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "weren't recognised",
+                    "were not recognized",
+                    "weren't recognized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "weren't recognised",
+                    "were not recognized",
+                    "weren't recognized"
+                ]
+            },
+            "reorder_groups": [
+                "Contingent liabilities",
+                "were not recognised",
+                "in the",
+                "revised balance sheet."
+            ],
+            "token_groups": [
+                "Contingent liabilities",
+                "were not recognised",
+                "in the",
+                "revised balance sheet."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 33,
+            "uuid": "pvq-past-simple-c2-g03",
+            "author_id": "C2-g03",
+            "question": "To what extent {a1} in the expert's final memorandum?",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Якою мірою конкуруючі оцінки узгодили в остаточному меморандумі експерта?",
+            "target_text": "To what extent were competing valuations reconciled in the expert's final memorandum?",
+            "markers": {
+                "a1": {
+                    "answer": "were competing valuations reconciled",
+                    "options": [
+                        "were competing valuations reconciled",
+                        "was competing valuations reconciled",
+                        "are competing valuations reconciled"
+                    ],
+                    "verb_hint": "Запитай про ступінь узгодження конкуруючих оцінок; у пропуску потрібні весь підмет і минулий пасив від «узгоджувати, усувати розбіжності»."
+                }
+            },
+            "verb_hint": "Запитай про ступінь узгодження конкуруючих оцінок; у пропуску потрібні весь підмет і минулий пасив від «узгоджувати, усувати розбіжності».",
+            "accepted_target_texts": [
+                "To what extent were competing valuations reconciled in the expert's final memorandum?",
+                "To what extent were competing valuations harmonised in the expert's final memorandum?",
+                "To what extent were competing valuations harmonized in the expert's final memorandum?"
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "were competing valuations harmonised",
+                    "were competing valuations harmonized"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "were competing valuations harmonised",
+                    "were competing valuations harmonized"
+                ]
+            },
+            "reorder_groups": [
+                "To what extent",
+                "were competing valuations",
+                "reconciled",
+                "in the expert's",
+                "final memorandum?"
+            ],
+            "token_groups": [
+                "To what extent",
+                "were competing valuations",
+                "reconciled",
+                "in the expert's",
+                "final memorandum?"
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 34,
+            "uuid": "pvq-past-simple-c2-g04",
+            "author_id": "C2-g04",
+            "question": "The evidentiary deficiency {a1} by the late affidavit.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Пізно подана письмова заява під присягою не усунула недоліку доказової бази.",
+            "target_text": "The evidentiary deficiency was not remedied by the late affidavit.",
+            "markers": {
+                "a1": {
+                    "answer": "was not remedied",
+                    "options": [
+                        "was not remedied",
+                        "were not remedied",
+                        "is not remedied"
+                    ],
+                    "verb_hint": "Не усунули недолік доказової бази; потрібен заперечний минулий пасив від «усувати недолік, виправляти»."
+                }
+            },
+            "verb_hint": "Не усунули недолік доказової бази; потрібен заперечний минулий пасив від «усувати недолік, виправляти».",
+            "accepted_target_texts": [
+                "The evidentiary deficiency was not remedied by the late affidavit.",
+                "The evidentiary deficiency wasn't remedied by the late affidavit.",
+                "The evidentiary deficiency was not rectified by the late affidavit.",
+                "The evidentiary deficiency wasn't rectified by the late affidavit.",
+                "The evidentiary deficiency was not cured by the late affidavit.",
+                "The evidentiary deficiency wasn't cured by the late affidavit."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "wasn't remedied",
+                    "was not rectified",
+                    "wasn't rectified",
+                    "was not cured",
+                    "wasn't cured"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "wasn't remedied",
+                    "was not rectified",
+                    "wasn't rectified",
+                    "was not cured",
+                    "wasn't cured"
+                ]
+            },
+            "reorder_groups": [
+                "The evidentiary deficiency",
+                "was not remedied",
+                "by the",
+                "late affidavit."
+            ],
+            "token_groups": [
+                "The evidentiary deficiency",
+                "was not remedied",
+                "by the",
+                "late affidavit."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 35,
+            "uuid": "pvq-past-simple-c2-g05",
+            "author_id": "C2-g05",
+            "question": "The counterparty's obligation {a1} by the settlement.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Зобов’язання контрагента припинили мировою угодою.",
+            "target_text": "The counterparty's obligation was extinguished by the settlement.",
+            "markers": {
+                "a1": {
+                    "answer": "was extinguished",
+                    "options": [
+                        "was extinguished",
+                        "were extinguished",
+                        "is extinguished"
+                    ],
+                    "verb_hint": "Припинили зобов’язання мировою угодою; утвори минулий пасив від «припиняти юридичну дію»."
+                }
+            },
+            "verb_hint": "Припинили зобов’язання мировою угодою; утвори минулий пасив від «припиняти юридичну дію».",
+            "accepted_target_texts": [
+                "The counterparty's obligation was extinguished by the settlement.",
+                "The counterparty's obligation was discharged by the settlement.",
+                "The counterparty's obligation was terminated by the settlement."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was discharged",
+                    "was terminated"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was discharged",
+                    "was terminated"
+                ]
+            },
+            "reorder_groups": [
+                "The counterparty's obligation",
+                "was extinguished",
+                "by the settlement."
+            ],
+            "token_groups": [
+                "The counterparty's obligation",
+                "was extinguished",
+                "by the settlement."
+            ],
+            "quality_revision": "pvq-v1"
+        },
+        {
+            "id": 36,
+            "uuid": "pvq-past-simple-c2-g06",
+            "author_id": "C2-g06",
+            "question": "The implicit assumption {a1} as untenable during cross-examination.",
+            "level": "C2",
+            "type": 0,
+            "source": "passive_voice_quality_past_simple",
+            "translation_uk": "Під час перехресного допиту неявне припущення викрили як неспроможне.",
+            "target_text": "The implicit assumption was exposed as untenable during cross-examination.",
+            "markers": {
+                "a1": {
+                    "answer": "was exposed",
+                    "options": [
+                        "was exposed",
+                        "were exposed",
+                        "is exposed"
+                    ],
+                    "verb_hint": "Викрили неспроможне припущення під час допиту; утвори минулий пасив від «викривати, показувати справжній стан»."
+                }
+            },
+            "verb_hint": "Викрили неспроможне припущення під час допиту; утвори минулий пасив від «викривати, показувати справжній стан».",
+            "accepted_target_texts": [
+                "The implicit assumption was exposed as untenable during cross-examination.",
+                "The implicit assumption was revealed as untenable during cross-examination."
+            ],
+            "answer_synonyms": {
+                "a1": [
+                    "was revealed"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a1": [
+                    "was revealed"
+                ]
+            },
+            "reorder_groups": [
+                "The implicit assumption",
+                "was exposed",
+                "as untenable",
+                "during cross-examination."
+            ],
+            "token_groups": [
+                "The implicit assumption",
+                "was exposed",
+                "as untenable",
+                "during cross-examination."
+            ],
+            "quality_revision": "pvq-v1"
+        }
+    ]
+}

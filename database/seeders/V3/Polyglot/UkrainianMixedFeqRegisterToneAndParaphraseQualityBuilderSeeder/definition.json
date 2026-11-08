@@ -1,0 +1,1755 @@
+{
+    "schema_version": 1,
+    "quality_revision": "feq-v1",
+    "compiled_from": {
+        "path": "docs/content/formal-english-quality/register-tone-and-paraphrase.v1.json",
+        "sha256": "59bbb0c57605ca5547d5f4f2e8fd5eaa967457e4a2f0ff5cef2694ae9c1c2860"
+    },
+    "seeder": {
+        "class": "Database\\Seeders\\V3\\Polyglot\\UkrainianMixedFeqRegisterToneAndParaphraseQualityBuilderSeeder",
+        "uuid_namespace": "formal-english-quality-register-tone-and-paraphrase-builder"
+    },
+    "defaults": {
+        "default_locale": "uk",
+        "flag": 0,
+        "type": 4,
+        "level_difficulty": {
+            "A1": 1,
+            "A2": 2,
+            "B1": 3,
+            "B2": 4,
+            "C1": 5,
+            "C2": 5
+        }
+    },
+    "category": {
+        "name": "English Sentence Builder"
+    },
+    "sources": {
+        "formal_english_quality_register_tone_and_paraphrase": {
+            "name": "Formal English Quality: Register, Tone and Paraphrase"
+        }
+    },
+    "tags": {
+        "register_tone_and_paraphrase": {
+            "name": "register tone and paraphrase",
+            "category": "topic"
+        },
+        "level_a1": {
+            "name": "A1",
+            "category": "level"
+        },
+        "level_a2": {
+            "name": "A2",
+            "category": "level"
+        },
+        "level_b1": {
+            "name": "B1",
+            "category": "level"
+        },
+        "level_b2": {
+            "name": "B2",
+            "category": "level"
+        },
+        "level_c1": {
+            "name": "C1",
+            "category": "level"
+        },
+        "level_c2": {
+            "name": "C2",
+            "category": "level"
+        },
+        "polyglot_compose_tokens": {
+            "name": "Sentence Builder compose tokens",
+            "category": "mode"
+        },
+        "formal_tone": {
+            "name": "formal tone",
+            "category": "grammar"
+        },
+        "neutral_paraphrase": {
+            "name": "neutral paraphrase",
+            "category": "grammar"
+        },
+        "avoid_slang": {
+            "name": "avoid slang",
+            "category": "grammar"
+        },
+        "softening_claims": {
+            "name": "softening claims",
+            "category": "grammar"
+        },
+        "precise_academic_verbs": {
+            "name": "precise academic verbs",
+            "category": "grammar"
+        },
+        "preserve_meaning": {
+            "name": "preserve meaning",
+            "category": "grammar"
+        },
+        "register_transformation": {
+            "name": "register transformation",
+            "category": "grammar"
+        },
+        "concise_reformulation": {
+            "name": "concise reformulation",
+            "category": "grammar"
+        },
+        "avoid_over_formality": {
+            "name": "avoid over formality",
+            "category": "grammar"
+        },
+        "typical_mistakes": {
+            "name": "typical mistakes",
+            "category": "grammar"
+        }
+    },
+    "default_tag_keys": [],
+    "questions": [
+        {
+            "id": 1,
+            "uuid": "feq-ton-a1-c01",
+            "author_id": "A1-c01",
+            "question": "Дякую за чіткі вказівки, як дістатися.",
+            "level": "A1",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Дякую за чіткі вказівки, як дістатися.",
+            "target_text": "Thank you for the clear directions.",
+            "markers": {
+                "a1": {
+                    "answer": "Thank",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "Thank",
+                        "Teacher",
+                        "School",
+                        "Sister"
+                    ]
+                },
+                "a2": {
+                    "answer": "you",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "you",
+                        "yourself",
+                        "herself",
+                        "ourselves"
+                    ]
+                },
+                "a3": {
+                    "answer": "for",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "for",
+                        "under",
+                        "through",
+                        "across"
+                    ]
+                },
+                "a4": {
+                    "answer": "the",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "the",
+                        "every",
+                        "no",
+                        "another"
+                    ]
+                },
+                "a5": {
+                    "answer": "clear",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "clear",
+                        "useful",
+                        "helpful",
+                        "small"
+                    ]
+                },
+                "a6": {
+                    "answer": "directions.",
+                    "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+                    "options": [
+                        "directions",
+                        "keys",
+                        "rooms",
+                        "maps"
+                    ]
+                }
+            },
+            "verb_hint": "Звернися з подякою до співрозмовника; збережи чіткі вказівки щодо шляху, а не загальні інструкції.",
+            "accepted_target_texts": [
+                "Thank you for the clear directions.",
+                "Thank you for the clear instructions."
+            ],
+            "answer_synonyms": {
+                "a6": [
+                    "instructions."
+                ]
+            },
+            "display_answer_synonyms": {
+                "a6": [
+                    "instructions."
+                ]
+            },
+            "reorder_groups": [
+                "Thank you",
+                "for the",
+                "clear directions."
+            ],
+            "token_groups": [
+                "Thank you",
+                "for the",
+                "clear directions."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Thank",
+                "you",
+                "for",
+                "the",
+                "clear",
+                "directions."
+            ],
+            "options": [
+                "Thank",
+                "Teacher",
+                "School",
+                "Sister",
+                "you",
+                "yourself",
+                "herself",
+                "ourselves",
+                "for",
+                "under",
+                "through",
+                "across",
+                "the",
+                "every",
+                "no",
+                "another",
+                "clear",
+                "useful",
+                "helpful",
+                "small",
+                "directions",
+                "keys",
+                "rooms",
+                "maps"
+            ],
+            "source_text_uk": "Дякую за чіткі вказівки, як дістатися.",
+            "options_by_marker": {
+                "a1": [
+                    "Thank",
+                    "Teacher",
+                    "School",
+                    "Sister"
+                ],
+                "a2": [
+                    "you",
+                    "yourself",
+                    "herself",
+                    "ourselves"
+                ],
+                "a3": [
+                    "for",
+                    "under",
+                    "through",
+                    "across"
+                ],
+                "a4": [
+                    "the",
+                    "every",
+                    "no",
+                    "another"
+                ],
+                "a5": [
+                    "clear",
+                    "useful",
+                    "helpful",
+                    "small"
+                ],
+                "a6": [
+                    "directions",
+                    "keys",
+                    "rooms",
+                    "maps"
+                ]
+            },
+            "slot_roles": {
+                "a1": "aone_subject",
+                "a2": "aone_subject",
+                "a3": "aone_verb",
+                "a4": "aone_verb",
+                "a5": "aone_object",
+                "a6": "aone_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 2,
+            "uuid": "feq-ton-a2-c01",
+            "author_id": "A2-c01",
+            "question": "Ми не можемо повернути гроші без квитанції.",
+            "level": "A2",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Ми не можемо повернути гроші без квитанції.",
+            "target_text": "We cannot offer a refund without a receipt.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "We",
+                        "She",
+                        "It",
+                        "They"
+                    ]
+                },
+                "a2": {
+                    "answer": "cannot",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "cannot",
+                        "couldn't",
+                        "won't",
+                        "wouldn't"
+                    ]
+                },
+                "a3": {
+                    "answer": "offer",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "offer",
+                        "accept",
+                        "process",
+                        "school"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "a",
+                        "some",
+                        "any",
+                        "this"
+                    ]
+                },
+                "a5": {
+                    "answer": "refund",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "refund",
+                        "payment",
+                        "replacement",
+                        "discount"
+                    ]
+                },
+                "a6": {
+                    "answer": "without",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "without",
+                        "for",
+                        "of",
+                        "in"
+                    ]
+                },
+                "a7": {
+                    "answer": "a",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "a",
+                        "the",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a8": {
+                    "answer": "receipt.",
+                    "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+                    "options": [
+                        "receipt",
+                        "invoice",
+                        "label",
+                        "approval"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з нас і збережи неможливість повернення грошей без квитанції. Приймаються скорочене заперечення й чотири природні дієслова повернення коштів.",
+            "accepted_target_texts": [
+                "We cannot offer a refund without a receipt.",
+                "We cannot provide a refund without a receipt.",
+                "We cannot issue a refund without a receipt.",
+                "We cannot give a refund without a receipt.",
+                "We can't offer a refund without a receipt.",
+                "We can't provide a refund without a receipt.",
+                "We can't issue a refund without a receipt.",
+                "We can't give a refund without a receipt."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "provide",
+                    "issue",
+                    "give"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "provide",
+                    "issue",
+                    "give"
+                ],
+                "a2": [
+                    "can't"
+                ]
+            },
+            "reorder_groups": [
+                "We cannot",
+                "offer a refund",
+                "without a receipt."
+            ],
+            "token_groups": [
+                "We cannot",
+                "offer a refund",
+                "without a receipt."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "We",
+                "cannot",
+                "offer",
+                "a",
+                "refund",
+                "without",
+                "a",
+                "receipt."
+            ],
+            "options": [
+                "We",
+                "She",
+                "It",
+                "They",
+                "cannot",
+                "couldn't",
+                "won't",
+                "wouldn't",
+                "offer",
+                "accept",
+                "process",
+                "school",
+                "a",
+                "some",
+                "any",
+                "this",
+                "refund",
+                "payment",
+                "replacement",
+                "discount",
+                "without",
+                "for",
+                "of",
+                "in",
+                "the",
+                "that",
+                "these",
+                "receipt",
+                "invoice",
+                "label",
+                "approval"
+            ],
+            "source_text_uk": "Ми не можемо повернути гроші без квитанції.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "She",
+                    "It",
+                    "They"
+                ],
+                "a2": [
+                    "cannot",
+                    "couldn't",
+                    "won't",
+                    "wouldn't"
+                ],
+                "a3": [
+                    "offer",
+                    "accept",
+                    "process",
+                    "school"
+                ],
+                "a4": [
+                    "a",
+                    "some",
+                    "any",
+                    "this"
+                ],
+                "a5": [
+                    "refund",
+                    "payment",
+                    "replacement",
+                    "discount"
+                ],
+                "a6": [
+                    "without",
+                    "for",
+                    "of",
+                    "in"
+                ],
+                "a7": [
+                    "a",
+                    "the",
+                    "that",
+                    "these"
+                ],
+                "a8": [
+                    "receipt",
+                    "invoice",
+                    "label",
+                    "approval"
+                ]
+            },
+            "slot_roles": {
+                "a1": "atwo_subject",
+                "a2": "atwo_subject",
+                "a3": "atwo_verb",
+                "a4": "atwo_verb",
+                "a5": "atwo_verb",
+                "a6": "atwo_object",
+                "a7": "atwo_object",
+                "a8": "atwo_object"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 3,
+            "uuid": "feq-ton-b1-c01",
+            "author_id": "B1-c01",
+            "question": "На жаль, запасної деталі більше немає в наявності.",
+            "level": "B1",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "На жаль, запасної деталі більше немає в наявності.",
+            "target_text": "Unfortunately, the replacement part is no longer available.",
+            "markers": {
+                "a1": {
+                    "answer": "Unfortunately,",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "Unfortunately",
+                        "Surprisingly",
+                        "Thankfully",
+                        "Unexpectedly"
+                    ]
+                },
+                "a2": {
+                    "answer": "the",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "the",
+                        "another",
+                        "either",
+                        "neither"
+                    ]
+                },
+                "a3": {
+                    "answer": "replacement",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "replacement",
+                        "original",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a4": {
+                    "answer": "part",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "part",
+                        "unit",
+                        "component",
+                        "model"
+                    ]
+                },
+                "a5": {
+                    "answer": "is",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a6": {
+                    "answer": "no",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "no",
+                        "each",
+                        "every",
+                        "all"
+                    ]
+                },
+                "a7": {
+                    "answer": "longer",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "longer",
+                        "yet",
+                        "on",
+                        "in"
+                    ]
+                },
+                "a8": {
+                    "answer": "available.",
+                    "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+                    "options": [
+                        "available",
+                        "young",
+                        "cold",
+                        "warm"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з жалю про ситуацію; збережи те, що деталь була доступною раніше, але вже ні. Для жалю й запасної деталі приймаються близькі відповідники.",
+            "accepted_target_texts": [
+                "Unfortunately, the replacement part is no longer available.",
+                "Unfortunately, the spare part is no longer available.",
+                "Regrettably, the replacement part is no longer available.",
+                "Regrettably, the spare part is no longer available."
+            ],
+            "answer_synonyms": {
+                "a3": [
+                    "spare"
+                ],
+                "a1": [
+                    "Regrettably,"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a3": [
+                    "spare"
+                ],
+                "a1": [
+                    "Regrettably,"
+                ]
+            },
+            "reorder_groups": [
+                "Unfortunately,",
+                "the replacement part",
+                "is",
+                "no longer available."
+            ],
+            "token_groups": [
+                "Unfortunately,",
+                "the replacement part",
+                "is",
+                "no longer available."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "Unfortunately,",
+                "the",
+                "replacement",
+                "part",
+                "is",
+                "no",
+                "longer",
+                "available."
+            ],
+            "options": [
+                "Unfortunately",
+                "Surprisingly",
+                "Thankfully",
+                "Unexpectedly",
+                "the",
+                "another",
+                "either",
+                "neither",
+                "replacement",
+                "original",
+                "bread",
+                "milk",
+                "part",
+                "unit",
+                "component",
+                "model",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "no",
+                "each",
+                "every",
+                "all",
+                "longer",
+                "yet",
+                "on",
+                "in",
+                "available",
+                "young",
+                "cold",
+                "warm"
+            ],
+            "source_text_uk": "На жаль, запасної деталі більше немає в наявності.",
+            "options_by_marker": {
+                "a1": [
+                    "Unfortunately",
+                    "Surprisingly",
+                    "Thankfully",
+                    "Unexpectedly"
+                ],
+                "a2": [
+                    "the",
+                    "another",
+                    "either",
+                    "neither"
+                ],
+                "a3": [
+                    "replacement",
+                    "original",
+                    "bread",
+                    "milk"
+                ],
+                "a4": [
+                    "part",
+                    "unit",
+                    "component",
+                    "model"
+                ],
+                "a5": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a6": [
+                    "no",
+                    "each",
+                    "every",
+                    "all"
+                ],
+                "a7": [
+                    "longer",
+                    "yet",
+                    "on",
+                    "in"
+                ],
+                "a8": [
+                    "available",
+                    "young",
+                    "cold",
+                    "warm"
+                ]
+            },
+            "slot_roles": {
+                "a1": "bone_subject",
+                "a2": "bone_verb",
+                "a3": "bone_verb",
+                "a4": "bone_verb",
+                "a5": "bone_object",
+                "a6": "bone_context",
+                "a7": "bone_context",
+                "a8": "bone_context"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 4,
+            "uuid": "feq-ton-b2-c01",
+            "author_id": "B2-c01",
+            "question": "Цифри вказують на можливу помилку, а не навмисний обман.",
+            "level": "B2",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Цифри вказують на можливу помилку, а не навмисний обман.",
+            "target_text": "The figures suggest a possible error rather than deliberate deception.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "The",
+                        "Every",
+                        "No",
+                        "Another"
+                    ]
+                },
+                "a2": {
+                    "answer": "figures",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "figures",
+                        "records",
+                        "findings",
+                        "estimates"
+                    ]
+                },
+                "a3": {
+                    "answer": "suggest",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "suggest",
+                        "disprove",
+                        "establish",
+                        "confirm"
+                    ]
+                },
+                "a4": {
+                    "answer": "a",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "a",
+                        "either",
+                        "neither",
+                        "all"
+                    ]
+                },
+                "a5": {
+                    "answer": "possible",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "possible",
+                        "clerical",
+                        "unavoidable",
+                        "serious"
+                    ]
+                },
+                "a6": {
+                    "answer": "error",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "error",
+                        "omission",
+                        "change",
+                        "child"
+                    ]
+                },
+                "a7": {
+                    "answer": "rather",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "rather",
+                        "together",
+                        "bread",
+                        "milk"
+                    ]
+                },
+                "a8": {
+                    "answer": "than",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "than",
+                        "with",
+                        "room",
+                        "map"
+                    ]
+                },
+                "a9": {
+                    "answer": "deliberate",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "deliberate",
+                        "accidental",
+                        "window",
+                        "phone"
+                    ]
+                },
+                "a10": {
+                    "answer": "deception.",
+                    "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+                    "options": [
+                        "deception",
+                        "fraud",
+                        "concealment",
+                        "misconduct"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з числових даних; збережи обережний висновок про можливу помилку та протиставлення навмисному обману. Для цифр, висновку й наміру приймаються близькі відповідники.",
+            "accepted_target_texts": [
+                "The figures suggest a possible error rather than deliberate deception.",
+                "The figures suggest a possible error rather than intentional deception.",
+                "The figures indicate a possible error rather than deliberate deception.",
+                "The figures indicate a possible error rather than intentional deception.",
+                "The numbers suggest a possible error rather than deliberate deception.",
+                "The numbers suggest a possible error rather than intentional deception.",
+                "The numbers indicate a possible error rather than deliberate deception.",
+                "The numbers indicate a possible error rather than intentional deception."
+            ],
+            "answer_synonyms": {
+                "a9": [
+                    "intentional"
+                ],
+                "a3": [
+                    "indicate"
+                ],
+                "a2": [
+                    "numbers"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a9": [
+                    "intentional"
+                ],
+                "a3": [
+                    "indicate"
+                ],
+                "a2": [
+                    "numbers"
+                ]
+            },
+            "reorder_groups": [
+                "The figures",
+                "suggest",
+                "a possible error",
+                "rather than",
+                "deliberate deception."
+            ],
+            "token_groups": [
+                "The figures",
+                "suggest",
+                "a possible error",
+                "rather than",
+                "deliberate deception."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "figures",
+                "suggest",
+                "a",
+                "possible",
+                "error",
+                "rather",
+                "than",
+                "deliberate",
+                "deception."
+            ],
+            "options": [
+                "The",
+                "Every",
+                "No",
+                "Another",
+                "figures",
+                "records",
+                "findings",
+                "estimates",
+                "suggest",
+                "disprove",
+                "establish",
+                "confirm",
+                "a",
+                "either",
+                "neither",
+                "all",
+                "possible",
+                "clerical",
+                "unavoidable",
+                "serious",
+                "error",
+                "omission",
+                "change",
+                "child",
+                "rather",
+                "together",
+                "bread",
+                "milk",
+                "than",
+                "with",
+                "room",
+                "map",
+                "deliberate",
+                "accidental",
+                "window",
+                "phone",
+                "deception",
+                "fraud",
+                "concealment",
+                "misconduct"
+            ],
+            "source_text_uk": "Цифри вказують на можливу помилку, а не навмисний обман.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "Every",
+                    "No",
+                    "Another"
+                ],
+                "a2": [
+                    "figures",
+                    "records",
+                    "findings",
+                    "estimates"
+                ],
+                "a3": [
+                    "suggest",
+                    "disprove",
+                    "establish",
+                    "confirm"
+                ],
+                "a4": [
+                    "a",
+                    "either",
+                    "neither",
+                    "all"
+                ],
+                "a5": [
+                    "possible",
+                    "clerical",
+                    "unavoidable",
+                    "serious"
+                ],
+                "a6": [
+                    "error",
+                    "omission",
+                    "change",
+                    "child"
+                ],
+                "a7": [
+                    "rather",
+                    "together",
+                    "bread",
+                    "milk"
+                ],
+                "a8": [
+                    "than",
+                    "with",
+                    "room",
+                    "map"
+                ],
+                "a9": [
+                    "deliberate",
+                    "accidental",
+                    "window",
+                    "phone"
+                ],
+                "a10": [
+                    "deception",
+                    "fraud",
+                    "concealment",
+                    "misconduct"
+                ]
+            },
+            "slot_roles": {
+                "a1": "btwo_subject",
+                "a2": "btwo_subject",
+                "a3": "btwo_verb",
+                "a4": "btwo_object",
+                "a5": "btwo_object",
+                "a6": "btwo_object",
+                "a7": "btwo_context",
+                "a8": "btwo_context",
+                "a9": "btwo_ending",
+                "a10": "btwo_ending"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 5,
+            "uuid": "feq-ton-c1-c01",
+            "author_id": "C1-c01",
+            "question": "Ми визнаємо ваше занепокоєння, але нинішні свідчення не підтверджують такого висновку.",
+            "level": "C1",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Ми визнаємо ваше занепокоєння, але нинішні свідчення не підтверджують такого висновку.",
+            "target_text": "We recognise your concern, but current evidence does not support that conclusion.",
+            "markers": {
+                "a1": {
+                    "answer": "We",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "We",
+                        "It",
+                        "They",
+                        "Me"
+                    ]
+                },
+                "a2": {
+                    "answer": "recognise",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "recognise",
+                        "dispute",
+                        "question",
+                        "understand"
+                    ]
+                },
+                "a3": {
+                    "answer": "your",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "your",
+                        "mine",
+                        "yours",
+                        "hers"
+                    ]
+                },
+                "a4": {
+                    "answer": "concern,",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "concern",
+                        "request",
+                        "complaint",
+                        "objection"
+                    ]
+                },
+                "a5": {
+                    "answer": "but",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "but",
+                        "while",
+                        "if",
+                        "whether"
+                    ]
+                },
+                "a6": {
+                    "answer": "current",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "current",
+                        "recent",
+                        "earlier",
+                        "friend"
+                    ]
+                },
+                "a7": {
+                    "answer": "evidence",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "evidence",
+                        "interpretation",
+                        "testimony",
+                        "picture"
+                    ]
+                },
+                "a8": {
+                    "answer": "does",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "does",
+                        "had",
+                        "haven't",
+                        "hasn't"
+                    ]
+                },
+                "a9": {
+                    "answer": "not",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "not",
+                        "even",
+                        "almost",
+                        "never"
+                    ]
+                },
+                "a10": {
+                    "answer": "support",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "support",
+                        "contradict",
+                        "explain",
+                        "child"
+                    ]
+                },
+                "a11": {
+                    "answer": "that",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "that",
+                        "these",
+                        "those",
+                        "each"
+                    ]
+                },
+                "a12": {
+                    "answer": "conclusion.",
+                    "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+                    "options": [
+                        "conclusion",
+                        "prediction",
+                        "allegation",
+                        "recommendation"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з визнання занепокоєння, а не згоди з висновком; збережи протиставлення й відсутність підтвердження. Для визнання приймаються три форми, включно з двома нормативними написаннями.",
+            "accepted_target_texts": [
+                "We recognise your concern, but current evidence does not support that conclusion.",
+                "We recognize your concern, but current evidence does not support that conclusion.",
+                "We acknowledge your concern, but current evidence does not support that conclusion."
+            ],
+            "answer_synonyms": {
+                "a2": [
+                    "recognize",
+                    "acknowledge"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a2": [
+                    "recognize",
+                    "acknowledge"
+                ]
+            },
+            "reorder_groups": [
+                "We recognise",
+                "your concern,",
+                "but",
+                "current evidence",
+                "does not support",
+                "that conclusion."
+            ],
+            "token_groups": [
+                "We recognise",
+                "your concern,",
+                "but",
+                "current evidence",
+                "does not support",
+                "that conclusion."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "We",
+                "recognise",
+                "your",
+                "concern,",
+                "but",
+                "current",
+                "evidence",
+                "does",
+                "not",
+                "support",
+                "that",
+                "conclusion."
+            ],
+            "options": [
+                "We",
+                "It",
+                "They",
+                "Me",
+                "recognise",
+                "dispute",
+                "question",
+                "understand",
+                "your",
+                "mine",
+                "yours",
+                "hers",
+                "concern",
+                "request",
+                "complaint",
+                "objection",
+                "but",
+                "while",
+                "if",
+                "whether",
+                "current",
+                "recent",
+                "earlier",
+                "friend",
+                "evidence",
+                "interpretation",
+                "testimony",
+                "picture",
+                "does",
+                "had",
+                "haven't",
+                "hasn't",
+                "not",
+                "even",
+                "almost",
+                "never",
+                "support",
+                "contradict",
+                "explain",
+                "child",
+                "that",
+                "these",
+                "those",
+                "each",
+                "conclusion",
+                "prediction",
+                "allegation",
+                "recommendation"
+            ],
+            "source_text_uk": "Ми визнаємо ваше занепокоєння, але нинішні свідчення не підтверджують такого висновку.",
+            "options_by_marker": {
+                "a1": [
+                    "We",
+                    "It",
+                    "They",
+                    "Me"
+                ],
+                "a2": [
+                    "recognise",
+                    "dispute",
+                    "question",
+                    "understand"
+                ],
+                "a3": [
+                    "your",
+                    "mine",
+                    "yours",
+                    "hers"
+                ],
+                "a4": [
+                    "concern",
+                    "request",
+                    "complaint",
+                    "objection"
+                ],
+                "a5": [
+                    "but",
+                    "while",
+                    "if",
+                    "whether"
+                ],
+                "a6": [
+                    "current",
+                    "recent",
+                    "earlier",
+                    "friend"
+                ],
+                "a7": [
+                    "evidence",
+                    "interpretation",
+                    "testimony",
+                    "picture"
+                ],
+                "a8": [
+                    "does",
+                    "had",
+                    "haven't",
+                    "hasn't"
+                ],
+                "a9": [
+                    "not",
+                    "even",
+                    "almost",
+                    "never"
+                ],
+                "a10": [
+                    "support",
+                    "contradict",
+                    "explain",
+                    "child"
+                ],
+                "a11": [
+                    "that",
+                    "these",
+                    "those",
+                    "each"
+                ],
+                "a12": [
+                    "conclusion",
+                    "prediction",
+                    "allegation",
+                    "recommendation"
+                ]
+            },
+            "slot_roles": {
+                "a1": "cone_subject",
+                "a2": "cone_subject",
+                "a3": "cone_verb",
+                "a4": "cone_verb",
+                "a5": "cone_object",
+                "a6": "cone_context",
+                "a7": "cone_context",
+                "a8": "cone_ending",
+                "a9": "cone_ending",
+                "a10": "cone_ending",
+                "a11": "cone_condition",
+                "a12": "cone_condition"
+            },
+            "builder_word_slots_version": 1
+        },
+        {
+            "id": 6,
+            "uuid": "feq-ton-c2-c01",
+            "author_id": "C2-c01",
+            "question": "Заперечення стосується зробленого висновку, а не надійності вимірювань.",
+            "level": "C2",
+            "type": 4,
+            "source": "formal_english_quality_register_tone_and_paraphrase",
+            "translation_uk": "Заперечення стосується зробленого висновку, а не надійності вимірювань.",
+            "target_text": "The objection is to the inference drawn, not to the reliability of the measurements.",
+            "markers": {
+                "a1": {
+                    "answer": "The",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "The",
+                        "All",
+                        "Both",
+                        "A"
+                    ]
+                },
+                "a2": {
+                    "answer": "objection",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "objection",
+                        "concern",
+                        "reservation",
+                        "criticism"
+                    ]
+                },
+                "a3": {
+                    "answer": "is",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "is",
+                        "been",
+                        "being",
+                        "isn't"
+                    ]
+                },
+                "a4": {
+                    "answer": "to",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "to",
+                        "from",
+                        "for",
+                        "in"
+                    ]
+                },
+                "a5": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "the",
+                        "an",
+                        "some",
+                        "any"
+                    ]
+                },
+                "a6": {
+                    "answer": "inference",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "inference",
+                        "assumption",
+                        "evidence",
+                        "terminology"
+                    ]
+                },
+                "a7": {
+                    "answer": "drawn,",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "drawn",
+                        "chosen",
+                        "adopted",
+                        "made"
+                    ]
+                },
+                "a8": {
+                    "answer": "not",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "not",
+                        "almost",
+                        "never",
+                        "always"
+                    ]
+                },
+                "a9": {
+                    "answer": "to",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "to",
+                        "with",
+                        "without",
+                        "into"
+                    ]
+                },
+                "a10": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "the",
+                        "this",
+                        "that",
+                        "these"
+                    ]
+                },
+                "a11": {
+                    "answer": "reliability",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "reliability",
+                        "consistency",
+                        "relevance",
+                        "validity"
+                    ]
+                },
+                "a12": {
+                    "answer": "of",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "of",
+                        "on",
+                        "at",
+                        "by"
+                    ]
+                },
+                "a13": {
+                    "answer": "the",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "the",
+                        "those",
+                        "each",
+                        "every"
+                    ]
+                },
+                "a14": {
+                    "answer": "measurements.",
+                    "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+                    "options": [
+                        "measurements",
+                        "estimates",
+                        "responses",
+                        "observations"
+                    ]
+                }
+            },
+            "verb_hint": "Почни з конкретного заперечення; збережи його спрямованість на висновок, а не на надійність вимірювань. Приймаються близькі іменники та паралельні прийменникові моделі; не змішуй їх.",
+            "accepted_target_texts": [
+                "The objection is to the inference drawn, not to the reliability of the measurements.",
+                "The objection is to the inference drawn, rather than to the reliability of the measurements.",
+                "The objection is about the inference drawn, not about the reliability of the measurements.",
+                "The objection is to the conclusion drawn, not to the reliability of the measurements.",
+                "The objection is to the conclusion drawn, rather than to the reliability of the measurements.",
+                "The objection is about the conclusion drawn, not about the reliability of the measurements."
+            ],
+            "answer_synonyms": {
+                "a4": [
+                    "about"
+                ],
+                "a9": [
+                    "about"
+                ],
+                "a6": [
+                    "conclusion"
+                ]
+            },
+            "display_answer_synonyms": {
+                "a4": [
+                    "about"
+                ],
+                "a9": [
+                    "about"
+                ],
+                "a6": [
+                    "conclusion"
+                ]
+            },
+            "reorder_groups": [
+                "The objection",
+                "is to",
+                "the inference drawn,",
+                "not to",
+                "the reliability",
+                "of the measurements."
+            ],
+            "token_groups": [
+                "The objection",
+                "is to",
+                "the inference drawn,",
+                "not to",
+                "the reliability",
+                "of the measurements."
+            ],
+            "quality_revision": "feq-v1",
+            "tokens_correct": [
+                "The",
+                "objection",
+                "is",
+                "to",
+                "the",
+                "inference",
+                "drawn,",
+                "not",
+                "to",
+                "the",
+                "reliability",
+                "of",
+                "the",
+                "measurements."
+            ],
+            "options": [
+                "The",
+                "All",
+                "Both",
+                "A",
+                "objection",
+                "concern",
+                "reservation",
+                "criticism",
+                "is",
+                "been",
+                "being",
+                "isn't",
+                "to",
+                "from",
+                "for",
+                "in",
+                "the",
+                "an",
+                "some",
+                "any",
+                "inference",
+                "assumption",
+                "evidence",
+                "terminology",
+                "drawn",
+                "chosen",
+                "adopted",
+                "made",
+                "not",
+                "almost",
+                "never",
+                "always",
+                "with",
+                "without",
+                "into",
+                "this",
+                "that",
+                "these",
+                "reliability",
+                "consistency",
+                "relevance",
+                "validity",
+                "of",
+                "on",
+                "at",
+                "by",
+                "those",
+                "each",
+                "every",
+                "measurements",
+                "estimates",
+                "responses",
+                "observations"
+            ],
+            "source_text_uk": "Заперечення стосується зробленого висновку, а не надійності вимірювань.",
+            "options_by_marker": {
+                "a1": [
+                    "The",
+                    "All",
+                    "Both",
+                    "A"
+                ],
+                "a2": [
+                    "objection",
+                    "concern",
+                    "reservation",
+                    "criticism"
+                ],
+                "a3": [
+                    "is",
+                    "been",
+                    "being",
+                    "isn't"
+                ],
+                "a4": [
+                    "to",
+                    "from",
+                    "for",
+                    "in"
+                ],
+                "a5": [
+                    "the",
+                    "an",
+                    "some",
+                    "any"
+                ],
+                "a6": [
+                    "inference",
+                    "assumption",
+                    "evidence",
+                    "terminology"
+                ],
+                "a7": [
+                    "drawn",
+                    "chosen",
+                    "adopted",
+                    "made"
+                ],
+                "a8": [
+                    "not",
+                    "almost",
+                    "never",
+                    "always"
+                ],
+                "a9": [
+                    "to",
+                    "with",
+                    "without",
+                    "into"
+                ],
+                "a10": [
+                    "the",
+                    "this",
+                    "that",
+                    "these"
+                ],
+                "a11": [
+                    "reliability",
+                    "consistency",
+                    "relevance",
+                    "validity"
+                ],
+                "a12": [
+                    "of",
+                    "on",
+                    "at",
+                    "by"
+                ],
+                "a13": [
+                    "the",
+                    "those",
+                    "each",
+                    "every"
+                ],
+                "a14": [
+                    "measurements",
+                    "estimates",
+                    "responses",
+                    "observations"
+                ]
+            },
+            "slot_roles": {
+                "a1": "ctwo_subject",
+                "a2": "ctwo_subject",
+                "a3": "ctwo_verb",
+                "a4": "ctwo_verb",
+                "a5": "ctwo_object",
+                "a6": "ctwo_object",
+                "a7": "ctwo_object",
+                "a8": "ctwo_context",
+                "a9": "ctwo_context",
+                "a10": "ctwo_ending",
+                "a11": "ctwo_ending",
+                "a12": "ctwo_condition",
+                "a13": "ctwo_condition",
+                "a14": "ctwo_condition"
+            },
+            "builder_word_slots_version": 1
+        }
+    ]
+}
