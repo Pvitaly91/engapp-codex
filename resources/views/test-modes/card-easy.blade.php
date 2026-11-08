@@ -1077,7 +1077,11 @@ function manualAnswerIsComplete(q, slotIndex, value) {
 
 function collectManualAnswer(group) {
   if (!group) return '';
-  return Array.from(group.querySelectorAll('input[data-manual-gap]'))
+  const inputs = Array.from(group.querySelectorAll('input[data-manual-gap]'));
+  // A displayed tail from a wrong choice is not part of the editable retry.
+  const active = group.dataset?.manualPrefixSubmit === 'true'
+    ? inputs.findIndex(input => input.dataset.manualActive === 'true') : -1;
+  return (active < 0 ? inputs : inputs.slice(0, active + 1))
     .map((input) => String(input.value ?? '').trim())
     .filter(Boolean)
     .join(' ');
@@ -1135,10 +1139,11 @@ function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
   const wholePhraseInput = (isPassivePhraseGapQuestion(q) && !isPassivePhraseGapQuestion(q, true))
     || (isReviewedComposePhraseSlot(q, slotIndex) && Number(q.manualWordIndexBySlot[slotIndex] || 0) === 0);
   const values = wholePhraseInput ? [draft] : draft.split(/\s+/).filter(Boolean);
-  // The inversion page may resume a draft from its previous one-field UI.
-  // Keep the editable suffix together; don't count it as confirmed progress.
+  const scopedWordInputs = isPassivePhraseGapQuestion(q, true) && q.passive_phrase_word_inputs !== true;
+  // Wrong choices and old drafts keep one word per box. Move to the first
+  // word after the valid prefix, without merging the still-unconfirmed tail.
   let requestedWordIndex = Number(q.manualWordIndexBySlot[slotIndex] || 0);
-  if (isPassivePhraseGapQuestion(q, true) && q.passive_phrase_word_inputs !== true && requestedWordIndex === 0 && values.length > 1) {
+  if (scopedWordInputs && requestedWordIndex === 0 && values.length > 1) {
     const normalize = EnglishAnswerVariants.normalize;
     const accepted = acceptedTestAnswers(q, slotIndex).map(normalize);
     while (requestedWordIndex < values.length - 1 && accepted.some(answer =>
@@ -1146,7 +1151,6 @@ function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
       requestedWordIndex++;
     }
     q.manualWordIndexBySlot[slotIndex] = requestedWordIndex;
-    values.splice(requestedWordIndex, values.length - requestedWordIndex, values.slice(requestedWordIndex).join(' '));
   }
   const wordCount = manualAnswerWords(q, slotIndex).length;
   const activeWordIndex = Math.max(0, Math.min(wordCount - 1, requestedWordIndex));
@@ -1190,7 +1194,7 @@ function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
   }).join('');
 
   return `
-    <span class="relative inline-flex flex-wrap items-center gap-1 align-middle" data-manual-input-group data-question="${idx}" data-gap="${slotIndex}" data-context="${context}">
+    <span class="relative inline-flex flex-wrap items-center gap-1 align-middle" data-manual-input-group data-question="${idx}" data-gap="${slotIndex}" data-context="${context}"${scopedWordInputs ? ' data-manual-prefix-submit="true"' : ''}>
       ${inputs}
     </span>
   `;

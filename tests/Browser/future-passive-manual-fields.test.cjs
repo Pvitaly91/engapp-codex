@@ -231,6 +231,48 @@ for (const mode of ['card-easy', 'step-easy']) {
         assert.equal(cant.state.correct, 1);
     });
 
+    test(`${mode}: wrong inversion choice displays each word and lets the learner retry its first invalid word`, t => {
+        const f = inversionFixture(t, mode, 'B1-g06');
+        const wrong = 'no works longer';
+        if (mode === 'card-easy') f.context.onChoose(0, wrong);
+        else f.context.onChoose(wrong);
+        assert.deepEqual(f.inputs().map(input => input.value), ['no', 'works', 'longer']);
+        assert.deepEqual(f.inputs().map(input => input.disabled), [true, false, true]);
+        assert.equal(f.context.document.activeElement, f.inputs()[1]);
+        assert.equal(f.question.feedbackMeta.submittedAnswer, wrong);
+        assert.equal(f.question.feedbackMeta.displayedAnswer, 'no longer works');
+        assert.equal(f.question.attemptsBySlot[0], 1);
+        assert.equal(f.question.chosen[0], null);
+        assert.equal(f.state.correct, 0);
+
+        // A saved snapshot from the former layout can already be at word 2.
+        const restored = inversionFixture(t, mode, 'B1-g06', JSON.parse(JSON.stringify(f.question)));
+        assert.deepEqual(restored.inputs().map(input => input.value), ['no', 'works', 'longer']);
+        assert.equal(restored.inputs()[1].disabled, false);
+        assert.equal(restored.question.attemptsBySlot[0], 1);
+
+        f.commit('longer');
+        assert.deepEqual(f.inputs().map(input => input.value), ['no', 'longer', '']);
+        assert.equal(f.context.document.activeElement, f.inputs()[2]);
+        assert.equal(f.question.done, false);
+        f.commit('works');
+        assert.equal(f.question.chosen[0], 'no longer works');
+        assert.equal(f.question.done, true);
+        assert.equal(f.state.correct, 0, 'The previous incorrect choice still counts');
+    });
+
+    test(`${mode}: longer wrong inversion choices keep the canonical field count`, t => {
+        const f = inversionFixture(t, mode, 'A1-g02');
+        const wrong = 'never angry is';
+        if (mode === 'card-easy') f.context.onChoose(0, wrong);
+        else f.context.onChoose(wrong);
+        assert.deepEqual(f.inputs().map(input => input.value), ['never', 'angry']);
+        assert.equal(f.context.document.activeElement, f.inputs()[0]);
+        assert.equal(f.question.feedbackMeta.submittedAnswer, wrong);
+        assert.equal(f.question.chosen[0], null);
+        assert.equal(f.state.correct, 0);
+    });
+
     test(`${mode}: only the requested mixed page opts its canonical gaps in`, t => {
         const other = inversionFixture(t, mode, 'A1-g01', {}, 'word-order/inversion-basics');
         assert.equal(other.inputs().length, 1);
