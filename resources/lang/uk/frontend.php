@@ -124,6 +124,7 @@ return [
             'translation_slot_pending' => '...',
             'translation_completed' => 'Переклад завершено. Можна переходити до наступної фрази.',
             'answer_options' => 'Варіанти відповіді',
+            'no_article' => 'Без артикля',
             'hotkey' => 'Натисни :key',
             'drop_zone' => 'Зона відповіді :index:slot',
         ],

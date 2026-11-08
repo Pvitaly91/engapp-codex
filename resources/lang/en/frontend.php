@@ -124,6 +124,7 @@ return [
             'translation_slot_pending' => '...',
             'translation_completed' => 'Translation completed. You can move to the next phrase.',
             'answer_options' => 'Answer options',
+            'no_article' => 'No article',
             'hotkey' => 'Press :key',
             'drop_zone' => 'Drop zone :index:slot',
         ],

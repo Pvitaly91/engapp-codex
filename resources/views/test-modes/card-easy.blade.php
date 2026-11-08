@@ -1135,8 +1135,20 @@ function renderManualGapInput(q, idx, slotIndex, context = 'sentence') {
   const wholePhraseInput = (isPassivePhraseGapQuestion(q) && !isPassivePhraseGapQuestion(q, true))
     || (isReviewedComposePhraseSlot(q, slotIndex) && Number(q.manualWordIndexBySlot[slotIndex] || 0) === 0);
   const values = wholePhraseInput ? [draft] : draft.split(/\s+/).filter(Boolean);
+  // The inversion page may resume a draft from its previous one-field UI.
+  // Keep the editable suffix together; don't count it as confirmed progress.
+  let requestedWordIndex = Number(q.manualWordIndexBySlot[slotIndex] || 0);
+  if (isPassivePhraseGapQuestion(q, true) && q.passive_phrase_word_inputs !== true && requestedWordIndex === 0 && values.length > 1) {
+    const normalize = EnglishAnswerVariants.normalize;
+    const accepted = acceptedTestAnswers(q, slotIndex).map(normalize);
+    while (requestedWordIndex < values.length - 1 && accepted.some(answer =>
+      answer.startsWith(`${normalize(values.slice(0, requestedWordIndex + 1).join(' '))} `))) {
+      requestedWordIndex++;
+    }
+    q.manualWordIndexBySlot[slotIndex] = requestedWordIndex;
+    values.splice(requestedWordIndex, values.length - requestedWordIndex, values.slice(requestedWordIndex).join(' '));
+  }
   const wordCount = manualAnswerWords(q, slotIndex).length;
-  const requestedWordIndex = Number(q.manualWordIndexBySlot[slotIndex] || 0);
   const activeWordIndex = Math.max(0, Math.min(wordCount - 1, requestedWordIndex));
   q.manualWordIndexBySlot[slotIndex] = activeWordIndex;
   const isPreview = context === 'preview';

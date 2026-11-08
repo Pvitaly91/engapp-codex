@@ -1058,6 +1058,7 @@ class GrammarTestController extends Controller
             }
 
             $questionData[$index] = \App\Support\QuestionsNegationsPracticeQuality::restoreClarifiedHints($question,app()->getLocale());
+            $questionData[$index] = \App\Support\NounsArticlesQuantityPracticeQuality::restoreGenericReferenceHint($questionData[$index],app()->getLocale());
             $questionData[$index] = \App\Support\AdjectivesAdverbsPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
             $questionData[$index] = \App\Support\SomeAnyPracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());
             $questionData[$index] = \App\Support\PassiveVoicePracticeQuality::restoreClarifiedHints($questionData[$index],app()->getLocale());

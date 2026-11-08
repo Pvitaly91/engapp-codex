@@ -124,6 +124,7 @@ return [
             'translation_slot_pending' => '...',
             'translation_completed' => 'Tlumaczenie zakonczone. Mozesz przejsc do kolejnej frazy.',
             'answer_options' => 'Opcje odpowiedzi',
+            'no_article' => 'Bez przedimka',
             'hotkey' => 'Naciśnij :key',
             'drop_zone' => 'Pole odpowiedzi :index:slot',
         ],

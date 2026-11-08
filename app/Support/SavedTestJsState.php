@@ -41,6 +41,7 @@ class SavedTestJsState
         'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers',
         'passive_gap_phrase_input', 'passive_phrase_word_inputs', 'gap_compactness_revision',
         'gap_previous_question', 'gap_previous_answer', 'gap_previous_accepted_answers', 'fsp_compose_options_revision',
+        'naqq_generic_reference_caption_revision',
     ];
 
     public static function isStarted(mixed $state): bool

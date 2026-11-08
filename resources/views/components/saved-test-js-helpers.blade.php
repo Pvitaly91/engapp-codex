@@ -305,7 +305,25 @@ function acceptedTestAnswers(question, slotIndex) {
             && composeSentenceChoiceMatches(question, slotIndex, variant));
 }
 
+function genericReferenceAnswerCaptionsEnabled(question) {
+    const revision = String(question?.psp_content_revision ?? '');
+    return String(question?.type) === '0'
+        && /^naqq-generic-reference-(?:a1|a2|b1|b2|c1|c2)-g[0-9]{2}$/.test(String(question?.uuid ?? ''))
+        && /^[a-f0-9]{64}$/.test(revision)
+        && question?.naqq_generic_reference_caption_revision === revision;
+}
+
+function genericReferenceNoArticleLabel() {
+    return typeof testUi === 'function' ? testUi('question.no_article', {}, 'Без артикля') : 'Без артикля';
+}
+
 function testAnswerMatches(question, slotIndex, value) {
+    if (typeof genericReferenceAnswerCaptionsEnabled === 'function' && genericReferenceAnswerCaptionsEnabled(question)
+        && question.presentation !== 'sentence_reorder'
+        && EnglishAnswerVariants.normalize(value) === EnglishAnswerVariants.normalize(genericReferenceNoArticleLabel())) {
+        // Keep the canonical omission value for grading; never accept a blank.
+        value = '-';
+    }
     const normalized = canonicalTestAnswer(value);
 
     return normalized !== '' && acceptedTestAnswers(question, slotIndex)
@@ -317,7 +335,12 @@ function isPassivePhraseGapQuestion(question, requireWordInputs = false) {
         && /^[a-f0-9]{64}$/.test(String(question.psp_content_revision || ''))
         && String(question.type) === '0'
         && question.presentation !== 'sentence_reorder'
-        && (!requireWordInputs || question.passive_phrase_word_inputs === true);
+        // The same bank can appear in other tests. Only this mixed page opts
+        // its reviewed gap rows into the existing word-by-word phrase UI.
+        && (!requireWordInputs || question.passive_phrase_word_inputs === true
+            || (typeof TEST_SLUG !== 'undefined'
+                && TEST_SLUG === 'word-order/inversion-after-negative-adverbials'
+                && /^woq-negative-adverbial-inve-[a-f0-9]{8}$/.test(String(question.uuid || ''))));
 }
 
 function isReviewedComposePhraseSlot(question, slotIndex = Number(question?.activeSlot ?? 0)) {
@@ -367,6 +390,10 @@ function composeManualAnswerWords(question, slotIndex) {
 // Raw options remain untouched for click handling, aliases, grading and saved progress.
 function finitePracticeOptionCaption(question, value) {
     const raw = String(value ?? '');
+    if (typeof genericReferenceAnswerCaptionsEnabled === 'function' && genericReferenceAnswerCaptionsEnabled(question)) {
+        if (raw.trim() === '-') return genericReferenceNoArticleLabel();
+        return EnglishAnswerVariants.withoutSentencePunctuation(raw);
+    }
     const revision = String(question?.psp_content_revision ?? '');
     const uuid = String(question?.uuid ?? '');
     const ownsAdjectives = /^aaq-(?:adverbs|degrees|comparative|equality|order|eding|intensifiers)-(?:a1|a2|b1|b2|c1|c2)-(?:g|c)[0-9]{2}$/.test(uuid)
@@ -2741,7 +2768,7 @@ function mergeFreshQuestionContentIntoSavedState(state) {
                 'presentation', 'reorder_prompt', 'reorder_answer', 'reorder_tokens', 'reorder_source_question', 'reorder_template_constraint',
                 'reorder_manual_input', 'reorder_groups', 'reorder_accepted_answers', 'passive_gap_phrase_input',
                 'passive_phrase_word_inputs', 'gap_compactness_revision', 'gap_previous_question', 'gap_previous_answer', 'gap_previous_accepted_answers',
-                'fsp_compose_options_revision', 'qnq_strict_slot_surfaces', 'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision', 'pvq_word_slots', 'finite_word_slots', 'mvq_option_caption_revision', 'cqq_option_caption_revision', 'rsq_option_caption_revision', 'clq_option_caption_revision', 'ppq_option_caption_revision', 'cmq_option_caption_revision', 'stq_option_caption_revision', 'stq_reused_hint_revision', 'vpq_option_caption_revision', 'mrq_option_caption_revision', 'aeq_option_caption_revision', 'aqv_option_caption_revision', 'feq_option_caption_revision', 'rcq_option_caption_revision', 'ssq_option_caption_revision', 'vcq_option_caption_revision']
+                'naqq_generic_reference_caption_revision', 'fsp_compose_options_revision', 'qnq_strict_slot_surfaces', 'aaq_option_caption_revision', 'saq_option_caption_revision', 'pvq_option_caption_revision', 'pvq_word_slots', 'finite_word_slots', 'mvq_option_caption_revision', 'cqq_option_caption_revision', 'rsq_option_caption_revision', 'clq_option_caption_revision', 'ppq_option_caption_revision', 'cmq_option_caption_revision', 'stq_option_caption_revision', 'stq_reused_hint_revision', 'vpq_option_caption_revision', 'mrq_option_caption_revision', 'aeq_option_caption_revision', 'aqv_option_caption_revision', 'feq_option_caption_revision', 'rcq_option_caption_revision', 'ssq_option_caption_revision', 'vcq_option_caption_revision']
             : canonicalQuestionFields;
         fields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(freshQuestion, field)) {

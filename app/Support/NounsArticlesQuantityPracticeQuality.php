@@ -262,6 +262,10 @@ final class NounsArticlesQuantityPracticeQuality extends FinitePracticeQualityCa
             && ($payload['psp_content_revision'] ?? null) === hash('sha256', json_encode($source, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
             && ($payload['answer_map'] ?? null) === array_map(static fn ($marker) => $marker['answer'], $source['markers'])) {
             $payload['passive_phrase_word_inputs'] = true;
+            if (self::isGenericReferenceGap($source)) {
+                $payload['naqq_generic_reference_caption_revision'] = $payload['psp_content_revision'];
+                $payload = self::restoreGenericReferenceHint($payload, 'uk');
+            }
         }
         if (self::reorderSentence($payload) !== null) {
             // Never accept a dash inside an English reordered sentence.
@@ -271,6 +275,28 @@ final class NounsArticlesQuantityPracticeQuality extends FinitePracticeQualityCa
         return NounsArticlesQuantityComposeOptions::decorate($payload, $source);
     }
 
+    private static function isGenericReferenceGap(array $source): bool
+    {
+        return (string) ($source['type'] ?? '') === '0'
+            && preg_match('/^naqq-generic-reference-(?:a1|a2|b1|b2|c1|c2)-g[0-9]{2}$/D', $source['uuid'] ?? '') === 1;
+    }
+
+    /** Keep canonical dash answers and saved attempts, but explain the learner-facing option. */
+    public static function restoreGenericReferenceHint(array $payload, string $locale): array
+    {
+        if ($locale !== 'uk' || !self::isGenericReferenceGap($payload)
+            || ($payload['naqq_generic_reference_caption_revision'] ?? null) !== ($payload['psp_content_revision'] ?? null)
+            || self::reorderSentence($payload) === null) { return $payload; }
+
+        $source = self::questions()[$payload['uuid']];
+        $hint = preg_replace('/[,;]\s*(?:введи дефіс(?: замість артикля)?|познач його дефісом|нульовий артикль познач дефісом)\.$/u', '.', $source['verb_hint']);
+        if ($hint === null || $hint === $source['verb_hint']) { return $payload; }
+        $hint .= ' Обери або введи «Без артикля».';
+        $payload['verb_hint'] = $hint;
+        $payload['verb_hints']['a1'] = $hint;
+        return $payload;
+    }
+
     public static function cachedNeedsRefresh(array $payloads): bool
     {
         if (parent::cachedNeedsRefresh($payloads)) { return true; }
@@ -278,6 +304,8 @@ final class NounsArticlesQuantityPracticeQuality extends FinitePracticeQualityCa
         foreach ($payloads as $payload) {
             $source = $sources[$payload['uuid'] ?? ''] ?? null;
             if ($source && (string) $source['type'] === '0' && ($payload['passive_phrase_word_inputs'] ?? null) !== true) { return true; }
+            if ($source && self::isGenericReferenceGap($source)
+                && ($payload['naqq_generic_reference_caption_revision'] ?? null) !== ($payload['psp_content_revision'] ?? null)) { return true; }
         }
         return NounsArticlesQuantityComposeOptions::cachedNeedsRefresh($payloads, $sources);
     }

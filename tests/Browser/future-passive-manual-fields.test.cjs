@@ -18,7 +18,7 @@ function sourceFunction(source, name) {
     return tail.slice(0, end + 1);
 }
 
-function fixture(t, mode, expected = 'will be made', overrides = {}) {
+function fixture(t, mode, expected = 'will be made', overrides = {}, testSlug = 'fixture') {
     const source = fs.readFileSync(path.join(root, `resources/views/test-modes/${mode}.blade.php`), 'utf8');
     const dom = new JSDOM('<!doctype html><body></body>', { url: 'http://gramlyze.loc/test/fixture' });
     t.after(() => dom.window.close());
@@ -32,7 +32,7 @@ function fixture(t, mode, expected = 'will be made', overrides = {}) {
     const state = {items: [question], current: 0, answered: 0, correct: 0};
     const context = vm.createContext({ EnglishAnswerVariants: variants, window: dom.window,
         document: dom.window.document, console, state, COMPOSE_TOKENS_QUESTION_TYPE: 'compose_tokens',
-        IS_POLYGLOT_STEP_PREVIEW: false, testUi: key => key, persistState() {},
+        TEST_SLUG: testSlug, IS_POLYGLOT_STEP_PREVIEW: false, testUi: key => key, persistState() {},
         setTimeout(fn) {fn(); return 0;}, renderManualSuggestions: () => '',
         buildExplanationKey: () => 'test', ensureExplanation: () => Promise.resolve(''),
         updateProgress() {}, checkAllDone() {}, isPastPerfectContinuousQuestion: () => false });
@@ -175,6 +175,84 @@ for (const mode of ['card-easy', 'step-easy']) {
             }
         }
         assert.ok(completed >= 72);
+    });
+}
+
+const inversionSlug = 'word-order/inversion-after-negative-adverbials';
+const inversionQuestions = JSON.parse(fs.readFileSync(path.join(root,
+    'database/seeders/V3/WordOrder/UkrainianMixedInversionAfterNegativeAdverbialsQualityStandardSeeder/definition.json'), 'utf8')).questions;
+function inversionFixture(t, mode, authorId, overrides = {}, slug = inversionSlug) {
+    const row = inversionQuestions.find(question => question.author_id === authorId);
+    assert.ok(row, authorId);
+    return fixture(t, mode, row.markers.a1.answer, {
+        uuid: row.uuid, question: row.question, passive_phrase_word_inputs: false,
+        accepted_answers_by_marker: {a1: [row.markers.a1.answer, ...(row.answer_synonyms?.a1 || [])]},
+        ...overrides,
+    }, slug);
+}
+
+for (const mode of ['card-easy', 'step-easy']) {
+    test(`${mode}: inversion keeps one marker, splits never eats and retains whole-phrase choices`, t => {
+        const f = inversionFixture(t, mode, 'A1-g01');
+        assert.equal(f.inputs().length, 2);
+        f.commit('never');
+        assert.equal(f.inputs()[1].disabled, false);
+        assert.equal(f.question.done, false);
+        assert.equal(f.state.correct, 0);
+        f.commit('eats');
+        assert.deepEqual(Array.from(f.question.chosen), ['never eats']);
+        assert.equal(f.state.correct, 1);
+
+        const choice = inversionFixture(t, mode, 'A1-g01');
+        if (mode === 'card-easy') choice.context.onChoose(0, 'never eats');
+        else choice.context.onChoose('never eats');
+        assert.deepEqual(Array.from(choice.question.chosen), ['never eats']);
+        assert.equal(choice.state.correct, 1);
+    });
+
+    test(`${mode}: inversion preserves contracted and expanded phrases`, t => {
+        const shorter = inversionFixture(t, mode, 'A2-g04');
+        assert.equal(shorter.inputs().length, 3);
+        shorter.commit('didn’t');
+        assert.equal(shorter.inputs().length, 2);
+        assert.equal(shorter.question.done, false);
+        shorter.commit('hear');
+        assert.equal(shorter.question.chosen[0], 'didn’t hear');
+        assert.equal(shorter.state.correct, 1);
+
+        const expanded = inversionFixture(t, mode, 'A2-g04');
+        expanded.commit('did'); expanded.commit('not'); expanded.commit('hear');
+        assert.equal(expanded.question.chosen[0], 'did not hear');
+        assert.equal(expanded.state.correct, 1);
+
+        const cant = inversionFixture(t, mode, 'A1-g06');
+        cant.commit('can’t'); cant.commit('find');
+        assert.equal(cant.question.chosen[0], 'can’t find');
+        assert.equal(cant.state.correct, 1);
+    });
+
+    test(`${mode}: only the requested mixed page opts its canonical gaps in`, t => {
+        const other = inversionFixture(t, mode, 'A1-g01', {}, 'word-order/inversion-basics');
+        assert.equal(other.inputs().length, 1);
+        const foreign = inversionFixture(t, mode, 'A1-g01', {uuid: 'woq-inversion-basics-a1-g01'});
+        assert.equal(foreign.inputs().length, 1);
+        const reorder = inversionFixture(t, mode, 'A1-g01', {presentation: 'sentence_reorder'});
+        assert.equal(reorder.context.isPassivePhraseGapQuestion(reorder.question, true), false);
+    });
+
+    test(`${mode}: a saved old phrase draft remains editable without awarding progress`, t => {
+        const f = inversionFixture(t, mode, 'A1-g01', {
+            manualInputsBySlot: ['never eat'], wrongAttempt: true, attemptsBySlot: [2],
+        });
+        assert.deepEqual(f.inputs().map(input => input.value), ['never', 'eat']);
+        assert.equal(f.inputs()[1].disabled, false);
+        assert.equal(f.question.manualInputsBySlot[0], 'never eat');
+        assert.equal(f.question.attemptsBySlot[0], 2);
+        assert.equal(f.question.done, false);
+        assert.equal(f.state.correct, 0);
+        f.commit('eats');
+        assert.equal(f.question.chosen[0], 'never eats');
+        assert.equal(f.state.correct, 0);
     });
 }
 
