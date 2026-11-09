@@ -320,6 +320,9 @@ final class QuestionsNegationsPracticeQuality extends FinitePracticeQualityCatal
     public static function savedBuilderDisplayCount(string $uuid,string $slug,array $filters,string $locale): ?int
     {
         if ($locale !== 'uk') { return null; }
+        // Only these frozen builder identities can match metadataPatches().
+        // Owned tests still verify the complete catalog and all context guards.
+        if (!in_array($uuid, array_column(array_column(self::ORIGINALS, 'builder'), 0), true)) { return null; }
         try {
             foreach (self::metadataPatches() as $patch) {
                 if ($patch['kind'] !== 'builder' || $uuid !== $patch['before']['uuid'] || $slug !== $patch['before']['slug']

@@ -163,6 +163,13 @@ abstract class FinitePracticeQualityCatalog
         return (new QuestionUuidResolver)->toPersistent(static::UUID_PREFIX.$topic.'-'.strtolower($authorId));
     }
 
+    /** Routing prefilter only; matching IDs still require the full source guards. */
+    public static function mayOwnQuestionUuid(mixed $uuid): bool
+    {
+        // Preserve the original lookup/error semantics for malformed callers.
+        return !is_string($uuid) || str_starts_with($uuid, static::UUID_PREFIX);
+    }
+
     /** Pure compilation of canonical author data; never boots Laravel or writes files/DB. */
     public static function compile(string $topic, string $kind): array
     {

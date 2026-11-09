@@ -17,13 +17,22 @@ final class PassivePracticeQuality
 
     public static function decorateKnown(array $payload): array
     {
-        foreach (self::CATALOGS as $catalog) { $payload = $catalog::decorate($payload); }
+        foreach (self::CATALOGS as $catalog) {
+            if (is_subclass_of($catalog, FinitePracticeQualityCatalog::class)
+                && !$catalog::mayOwnQuestionUuid($payload['uuid'] ?? '')) { continue; }
+            $payload = $catalog::decorate($payload);
+        }
         return $payload;
     }
 
     public static function knownCatalogNeedsRefresh(array $payloads): bool
     {
-        foreach (self::CATALOGS as $catalog) { if ($catalog::cachedNeedsRefresh($payloads)) { return true; } }
+        foreach (self::CATALOGS as $catalog) {
+            if (is_subclass_of($catalog, FinitePracticeQualityCatalog::class)
+                && !array_any($payloads, static fn ($payload): bool => !is_array($payload)
+                    || $catalog::mayOwnQuestionUuid($payload['uuid'] ?? ''))) { continue; }
+            if ($catalog::cachedNeedsRefresh($payloads)) { return true; }
+        }
         return false;
     }
 
