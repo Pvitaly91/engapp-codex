@@ -1,26 +1,38 @@
 @php
-    $categories = $categories ?? collect();
     $selectedCategory = $selectedCategory ?? null;
-    $categoryPages = $categoryPages ?? collect();
     $currentPage = $currentPage ?? null;
     $routePrefix = $routePrefix ?? 'theory';
-    $mobileNavigationUrl = localized_route($routePrefix . '.navigation') . '?' . http_build_query(array_filter([
-        'category' => $selectedCategory?->getKey(),
-        'page' => $currentPage?->getKey(),
-    ]));
+    if (!array_key_exists('theoryMenu', get_defined_vars())) {
+        $theoryMenu = app(\App\Services\TheoryMenuStore::class)->active(
+            app(\App\Support\SiteMode::class)->current(), app()->getLocale(), $routePrefix
+        );
+    }
+    $revision = $theoryMenu['revision'] ?? null;
+    $mobileNavigationUrl = $revision === null ? null
+        : localized_route($routePrefix . '.navigation', [], false) . '?' . http_build_query(['revision' => $revision]);
 @endphp
+@include('theory.partials.menu-cache-assets')
 
 <div
     class="mb-8 lg:hidden"
+    data-theory-menu-context="mobile"
+    data-theory-menu-current-page="{{ $currentPage?->getKey() }}"
+    data-theory-menu-selected-category="{{ $selectedCategory?->getKey() }}"
+    data-theory-menu-revision="{{ $revision }}"
+    data-theory-menu-url="{{ $mobileNavigationUrl }}"
     x-data="{
         open: false,
-        loaded: false,
+        loaded: {{ $mobileNavigationUrl === null ? 'true' : 'false' }},
         loading: false,
         error: false,
         async toggle() {
             this.open = !this.open;
 
-            if (!this.open || this.loaded || this.loading) {
+            if (!this.open || this.loading) {
+                return;
+            }
+            if (this.loaded) {
+                this.$nextTick(() => window.showTheoryMenu?.(this.$root));
                 return;
             }
 
@@ -28,21 +40,9 @@
             this.error = false;
 
             try {
-                const response = await fetch(@js($mobileNavigationUrl), {
-                    headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                this.$refs.content.innerHTML = await response.text();
-                window.Alpine?.initTree(this.$refs.content);
+                await window.loadTheoryMenu(this.$root, this.$refs.content);
                 this.loaded = true;
-                this.$nextTick(() => {
-                    window.initTheorySidebarSearch?.();
-                    window.initTheorySidebarAutoscroll?.();
-                });
+                this.$nextTick(() => window.showTheoryMenu?.(this.$root));
             } catch (error) {
                 this.error = true;
             } finally {
@@ -57,6 +57,7 @@
         class="flex w-full items-center justify-between rounded-[24px] border px-4 py-4 shadow-card surface-card-strong"
         style="border-color: var(--line);"
         data-theory-mobile-nav-toggle
+        aria-expanded="false"
         :aria-expanded="open.toString()"
         aria-controls="theory-mobile-navigation"
     >
@@ -75,7 +76,13 @@
         </div>
         <div x-show="error" x-cloak class="px-3 py-8 text-center text-sm" style="color: var(--muted);" role="alert">
             {{ __('public.common.error') }}
+            @include('theory.partials.menu-cache-fallback')
         </div>
-        <div x-ref="content" x-show="loaded && !loading && !error" x-cloak class="flex min-h-0 flex-1 flex-col overflow-hidden"></div>
+        <div x-ref="content" x-show="loaded && !loading && !error" x-cloak class="flex min-h-0 flex-1 flex-col overflow-hidden">
+            @if($mobileNavigationUrl === null)
+                @include('theory.partials.menu-cache-fallback')
+            @endif
+        </div>
     </div>
+    <noscript>@include('theory.partials.menu-cache-fallback')</noscript>
 </div>

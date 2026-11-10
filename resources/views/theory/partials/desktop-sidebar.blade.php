@@ -2,7 +2,16 @@
     $lessonToc = $lessonToc ?? [];
     $sidebarTags = $sidebarTags ?? collect();
     $sidebarSticky = $sidebarSticky ?? false;
+    $selectedCategory = $selectedCategory ?? null;
+    $currentPage = $currentPage ?? null;
+    $routePrefix = $routePrefix ?? 'theory';
+    if (!array_key_exists('theoryMenu', get_defined_vars())) {
+        $theoryMenu = app(\App\Services\TheoryMenuStore::class)->read(
+            app(\App\Support\SiteMode::class)->current(), app()->getLocale(), 'desktop', null, $routePrefix
+        );
+    }
 @endphp
+@include('theory.partials.menu-cache-assets')
 
 <div class="{{ $sidebarSticky ? 'sticky top-24 space-y-6' : 'space-y-6' }}" data-theory-sidebar-legacy>
     <section
@@ -27,12 +36,20 @@
                 </svg>
             </button>
         </div>
-        @include('theory.partials.desktop-navigation-loader', [
-            'selectedCategory' => $selectedCategory ?? null,
-            'currentPage' => $currentPage ?? null,
-            'routePrefix' => $routePrefix,
-        ])
-        <noscript><p class="text-sm"><a href="{{ localized_route($routePrefix . '.index') }}">{{ __('public.common.categories') }}</a></p></noscript>
+        <div class="flex min-h-0 flex-1 flex-col overflow-hidden" data-theory-menu-context="desktop"
+            data-theory-menu-current-page="{{ $currentPage?->getKey() }}"
+            data-theory-menu-selected-category="{{ $selectedCategory?->getKey() }}"
+            data-theory-menu-revision="{{ $theoryMenu['revision'] ?? '' }}"
+            data-theory-menu-status="{{ $theoryMenu === null ? 'miss' : ($theoryMenu['fallback'] ? 'fallback' : 'hit') }}">
+            @if($theoryMenu !== null)
+                {!! $theoryMenu['html'] !!}
+            @else
+                @include('theory.partials.menu-cache-fallback')
+            @endif
+        </div>
+        @if($theoryMenu !== null)
+            <noscript>@include('theory.partials.menu-cache-fallback')</noscript>
+        @endif
     </section>
 
     @if($lessonToc !== [])

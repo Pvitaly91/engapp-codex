@@ -6,7 +6,7 @@ import postcss from 'postcss';
 
 const read = file => fs.readFileSync(file, 'utf8');
 const css = postcss.parse(read('resources/css/catalog-public.css'));
-const desktop = read('resources/views/theory/partials/desktop-navigation-loader.blade.php');
+const desktop = read('resources/views/theory/partials/desktop-sidebar.blade.php');
 const mobile = read('resources/views/theory/partials/mobile-navigation.blade.php');
 
 function rules(selector) {
@@ -15,7 +15,7 @@ function rules(selector) {
     return found;
 }
 
-describe('lazy theory navigation geometry', () => {
+describe('theory navigation geometry', () => {
     it('reserves the existing viewport-bounded desktop footprint, only at desktop widths', () => {
         const found = rules('[data-theory-aside] [data-theory-sidebar]');
         expect(found).toHaveLength(1);
@@ -32,13 +32,20 @@ describe('lazy theory navigation geometry', () => {
         expect(mobile).toContain('x-transition');
     });
 
-    it('hides initially false error/content states and preserves the loading indicator', () => {
-        for (const template of [desktop, mobile]) {
-            expect(template).toMatch(/x-show="error"\s+x-cloak/);
-            expect(template).toMatch(/x-ref="content"\s+x-show="[^\"]*!loading[^\"]*!error[^\"]*"\s+x-cloak/);
-            expect(template).toContain('x-show="loading"');
-            expect(template).toContain('window.Alpine?.initTree(this.$refs.content)');
-        }
+    it('includes the ready desktop tree without a network loader or an x-cloak on its wrapper', () => {
+        expect(desktop).toMatch(/<div[^>]+data-theory-menu-context="desktop"[^>]*>/);
+        expect(desktop).toMatch(/{!!\s*\$theoryMenu\[['"]html['"]\]\s*!!}/);
+        expect(desktop).not.toContain('desktop-navigation-loader');
+        expect(desktop).not.toMatch(/<div[^>]+data-theory-menu-context="desktop"[^>]*x-cloak/);
+        expect(desktop).not.toContain('fetch(');
+    });
+
+    it('keeps mobile loading, error and content scoped to the panel without reinitializing Alpine', () => {
+        expect(mobile).toMatch(/x-show="error"\s+x-cloak/);
+        expect(mobile).toMatch(/x-ref="content"\s+x-show="[^\"]*!loading[^\"]*!error[^\"]*"\s+x-cloak/);
+        expect(mobile).toContain('x-show="loading"');
+        expect(mobile).toContain('window.showTheoryMenu?.(this.$root)');
+        expect(mobile).not.toContain('Alpine?.initTree');
     });
 });
 
@@ -66,7 +73,7 @@ describe('pre-paint saved sidebar state', () => {
     });
 
     it('limits the early CSS fallback to the period before Alpine owns data-collapsed', () => {
-        const navigation = read('resources/views/theory/partials/tree-nav.blade.php');
+        const navigation = read('resources/views/theory/partials/menu-cache-assets.blade.php');
         expect(navigation).toContain('html[data-theory-sidebar-collapsed="true"] [data-theory-layout]:not([data-collapsed]) [data-theory-aside]');
         expect(navigation).toContain('[data-theory-layout][data-collapsed="true"] [data-theory-aside]');
     });

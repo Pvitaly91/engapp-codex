@@ -141,9 +141,7 @@
             </section>
 
             @include('theory.partials.mobile-navigation', [
-                'categories' => $categories,
                 'selectedCategory' => $selectedCategory ?? null,
-                'categoryPages' => $categoryPages,
                 'currentPage' => $page,
                 'routePrefix' => $routePrefix,
             ])

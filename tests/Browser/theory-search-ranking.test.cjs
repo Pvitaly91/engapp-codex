@@ -113,7 +113,7 @@ test('sidebar ranks nested branches by their best title, keeps ancestors and res
         ${branch('Nouns', '', true)}</div></div>`);
     const {window} = dom;
     window.Alpine = {mutateDom: callback => callback()};
-    window.eval(inline('resources/views/theory/partials/tree-nav.blade.php'));
+    window.eval(fs.readFileSync('public/js/theory-menu.js', 'utf8'));
     window.initTheorySidebarSearch();
     const original = texts(window.document, '[data-theory-sidebar-highlight]');
     fill(window, 'input', 'Present Perfect');

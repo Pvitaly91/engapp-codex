@@ -4,8 +4,9 @@ namespace Tests\Feature\Theory;
 
 use App\Models\Page;
 use App\Models\PageCategory;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Testing\TestResponse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
 use Tests\Support\RebuildsComposeTestSchema;
 use Tests\TestCase;
 
@@ -15,6 +16,8 @@ class TheorySidebarActiveStateTest extends TestCase
 
     private PageCategory $presentPerfect;
 
+    private string $menuPath;
+
     /** @var array<int, Page> */
     private array $lessons = [];
 
@@ -22,7 +25,12 @@ class TheorySidebarActiveStateTest extends TestCase
     {
         parent::setUp();
 
-        config(['coming-soon.enabled' => false]);
+        $this->menuPath = storage_path('framework/testing/theory-menu-http-'.bin2hex(random_bytes(8)));
+        config([
+            'app.url' => 'http://gramlyze.loc',
+            'coming-soon.enabled' => false,
+            'theory-menu.path' => $this->menuPath,
+        ]);
         $this->rebuildComposeTestSchema();
 
         $tenses = PageCategory::query()->create([
@@ -54,117 +62,103 @@ class TheorySidebarActiveStateTest extends TestCase
             ]);
         }
 
-        Cache::flush();
     }
 
-    public function test_desktop_loader_keeps_the_lazy_tree_scrollable(): void
+    protected function tearDown(): void
     {
-        $html = view('theory.partials.desktop-navigation-loader', [
-            'selectedCategory' => $this->presentPerfect,
-            'currentPage' => null,
-            'routePrefix' => 'theory',
-        ])->render();
-
-        $xpath = $this->xpath($html);
-        $loader = $xpath->query('//*[@data-theory-desktop-navigation-loader]')->item(0);
-
-        $this->assertNotNull($loader);
-        $this->assertClassTokens($loader, ['flex', 'min-h-0', 'flex-1', 'flex-col', 'overflow-hidden']);
-
-        $content = $xpath->query('.//*[@x-ref="content"]', $loader)->item(0);
-
-        $this->assertNotNull($content);
-        $this->assertClassTokens($content, ['flex', 'min-h-0', 'flex-1', 'flex-col', 'overflow-hidden']);
-        $this->assertStringContainsString(
-            'container.querySelector(\'[data-theory-nav-current-page="true"]\')',
-            $html
-        );
-    }
-
-    public function test_category_overview_is_the_only_active_sidebar_destination(): void
-    {
-        foreach (['mobile', 'desktop'] as $variant) {
-            $response = $this->navigationResponse($variant, null);
-
-            $this->assertNavigationState($response, null);
+        if (isset($this->menuPath) && str_starts_with($this->menuPath, storage_path('framework/testing/theory-menu-http-'))) {
+            File::deleteDirectory($this->menuPath);
         }
+        parent::tearDown();
     }
 
-    public function test_every_present_perfect_lesson_is_active_in_both_sidebar_variants(): void
+    public function test_desktop_tree_is_in_the_first_response_and_page_state_stays_outside_the_fragment(): void
     {
-        $this->assertCount(4, $this->lessons);
+        $this->buildMenu();
+        View::composer('theory.partials.menu-cache-fragment', static fn () => throw new \LogicException('Runtime re-rendered the tree.'));
+
+        $category = $this->get('/theory/present-perfect')->assertOk()
+            ->assertDontSee('data-theory-desktop-navigation-loader', false)
+            ->getContent();
+        $this->assertMatchesRegularExpression('/<div\b[^>]*\sdata-theory-menu-fragment="desktop"/', $category);
+        $this->assertDoesNotMatchRegularExpression('/<div\b[^>]*\sdata-theory-menu-fragment="mobile"/', $category);
+        $this->assertStringContainsString('data-theory-menu-selected-category="'.$this->presentPerfect->getKey().'"', $category);
 
         foreach ($this->lessons as $lesson) {
-            foreach (['mobile', 'desktop'] as $variant) {
-                $response = $this->navigationResponse($variant, $lesson);
+            $lessonUrl = '/theory/tenses/present-perfect/'.$lesson->slug;
+            $lessonHtml = $this->get($lessonUrl)->assertOk()
+                ->assertSee('data-theory-menu-current-page="'.$lesson->getKey().'"', false)
+                ->assertSee($lessonUrl, false)
+                ->getContent();
+            $this->assertMatchesRegularExpression('/<div\b[^>]*\sdata-theory-menu-fragment="desktop"/', $lessonHtml);
+        }
+    }
 
-                $this->assertNavigationState($response, $lesson);
+    public function test_fragment_bytes_are_neutral_identical_and_not_rebuilt_at_runtime(): void
+    {
+        $this->buildMenu();
+        View::composer('theory.partials.menu-cache-fragment', static fn () => throw new \LogicException('Runtime re-rendered the tree.'));
+        $queries = [];
+        DB::listen(static function ($query) use (&$queries) {
+            if (preg_match('/\b(?:page_categories|pages|site_tree_variants|site_tree_items|text_blocks)\b/i', $query->sql)) {
+                $queries[] = $query->sql;
             }
+        });
+
+        foreach (['mobile', 'desktop'] as $variant) {
+            $response = $this->get('/theory/navigation?variant='.$variant)->assertOk()
+                ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive')
+                ->assertHeader('X-Theory-Menu-Cache', 'hit');
+            $html = $response->getContent();
+            $this->assertStringContainsString('data-theory-menu-fragment="'.$variant.'"', $html);
+            $this->assertStringNotContainsString('aria-current=', $html);
+            $this->assertStringNotContainsString('data-theory-nav-active="true"', $html);
+            $this->assertStringNotContainsString('<script', $html);
+            $revision = $response->headers->get('X-Theory-Menu-Revision');
+            $etag = $response->headers->get('ETag');
+            $this->assertMatchesRegularExpression('/^[a-f0-9]{64}$/D', $revision);
+            foreach ($this->lessons as $lesson) {
+                $legacyUrl = '/theory/navigation?variant='.$variant.'&category='.$this->presentPerfect->getKey().'&page='.$lesson->getKey();
+                $this->assertSame($html, $this->get($legacyUrl)->assertOk()->getContent());
+                $this->assertStringContainsString('/theory/tenses/present-perfect/'.$lesson->slug, $html);
+            }
+            $this->get('/theory/navigation?variant='.$variant.'&revision='.$revision, ['If-None-Match' => $etag])
+                ->assertStatus(304);
         }
+        $this->assertSame([], $queries);
     }
 
-    public function test_mobile_lazy_navigation_runs_active_item_autoscroll_after_loading(): void
+    public function test_missing_or_untrusted_snapshot_requests_never_trigger_a_build(): void
     {
-        $html = view('theory.partials.mobile-navigation', [
-            'categories' => collect(),
-            'selectedCategory' => $this->presentPerfect,
-            'categoryPages' => collect($this->lessons),
-            'currentPage' => $this->lessons[0],
-            'routePrefix' => 'theory',
-        ])->render();
-
-        $this->assertStringContainsString('window.initTheorySidebarAutoscroll?.();', $html);
+        View::composer('theory.partials.menu-cache-fragment', static fn () => throw new \LogicException('Runtime attempted to build.'));
+        $this->get('/theory/navigation')->assertOk()
+            ->assertHeader('X-Theory-Menu-Cache', 'miss')
+            ->assertSee('data-theory-menu-fallback', false)
+            ->assertSee('href="/theory"', false);
+        $this->get('/theory/navigation?variant=../mobile')->assertNotFound();
+        $this->get('/theory/navigation?variant[]=mobile')->assertNotFound();
+        $this->get('/theory/navigation?revision=../../active.json')->assertNotFound();
+        $this->get('/theory/navigation?revision='.str_repeat('a', 64))->assertNotFound();
+        $this->assertDirectoryDoesNotExist($this->menuPath);
     }
 
-    private function navigationResponse(string $variant, ?Page $page): TestResponse
+    public function test_production_profile_isolated_from_development_and_private(): void
     {
-        $query = http_build_query(array_filter([
-            'variant' => $variant === 'desktop' ? 'desktop' : null,
-            'category' => $this->presentPerfect->getKey(),
-            'page' => $page?->getKey(),
-        ]));
-
-        return $this->get('/theory/navigation?'.$query)
-            ->assertOk()
-            ->assertHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
+        config(['site-mode.production_domains' => ['perf-production.test']]);
+        $this->buildMenu();
+        $this->get('http://perf-production.test/theory/navigation')->assertOk()
+            ->assertHeader('X-Theory-Menu-Cache', 'miss');
+        config(['app.url' => 'http://perf-production.test']);
+        $this->buildMenu();
+        $response = $this->get('http://perf-production.test/theory/navigation')->assertOk()
+            ->assertHeader('X-Theory-Menu-Cache', 'hit');
+        $this->assertStringContainsString('private', $response->headers->get('Cache-Control'));
+        $this->assertStringContainsString('no-cache', $response->headers->get('Cache-Control'));
+        $this->assertStringNotContainsString('gramlyze.loc', $response->getContent());
     }
 
-    private function assertNavigationState(TestResponse $response, ?Page $page): void
+    private function buildMenu(): void
     {
-        $xpath = $this->xpath($response->getContent());
-        $activeCategories = $xpath->query('//a[@data-theory-nav-active="true"]');
-        $currentPages = $xpath->query('//a[@data-theory-nav-current-page="true" and @aria-current="page"]');
-
-        $this->assertCount(1, $activeCategories);
-
-        if (! $page) {
-            $this->assertCount(0, $currentPages);
-
-            return;
-        }
-
-        $this->assertCount(1, $currentPages);
-        $this->assertStringEndsWith('/'.$page->slug, $currentPages->item(0)->getAttribute('href'));
-    }
-
-    private function xpath(string $html): \DOMXPath
-    {
-        $document = new \DOMDocument;
-        $previous = libxml_use_internal_errors(true);
-        $document->loadHTML('<?xml encoding="utf-8" ?>'.$html);
-        libxml_clear_errors();
-        libxml_use_internal_errors($previous);
-
-        return new \DOMXPath($document);
-    }
-
-    /** @param array<int, string> $expected */
-    private function assertClassTokens(\DOMNode $node, array $expected): void
-    {
-        $classes = preg_split('/\s+/', trim((string) $node->attributes?->getNamedItem('class')?->nodeValue)) ?: [];
-
-        foreach ($expected as $class) {
-            $this->assertContains($class, $classes);
-        }
+        $this->artisan('theory:menu-build', ['--locale' => 'uk'])->assertSuccessful();
     }
 }

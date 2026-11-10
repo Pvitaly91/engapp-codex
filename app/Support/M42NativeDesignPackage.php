@@ -138,6 +138,38 @@ final class M42NativeDesignPackage
     /** Accepted payload references only. Frozen files are read, never changed. */
     public static function sourceTargets(?string $root = null): array
     {
+        return self::requestArtifact('targets', $root, self::readSourceTargets(...));
+    }
+
+    /**
+     * Only the routed request can reuse an already verified artifact. Explicit
+     * fixture/CLI roots and the next HTTP request run the original guards.
+     */
+    private static function requestArtifact(string $artifact, ?string $root, callable $read): array
+    {
+        if ($root !== null || !app()->bound('request')) {
+            return $read($root);
+        }
+        $request = app('request');
+        $route = $request instanceof \Illuminate\Http\Request ? $request->route() : null;
+        if (!$route instanceof \Illuminate\Routing\Route
+            || !in_array($route->getName(), ['theory.show', 'theory.category'], true)) {
+            return $read($root);
+        }
+
+        $root = base_path();
+        $key = self::class.'|'.$artifact.'|'.$root.'|'.self::REGISTRY_SHA.'|'.self::SOURCE_SHA;
+        if ($request->attributes->has($key)) {
+            return $request->attributes->get($key);
+        }
+        $verified = $read($root);
+        $request->attributes->set($key, $verified);
+
+        return $verified;
+    }
+
+    private static function readSourceTargets(?string $root): array
+    {
         $root ??= base_path(); $out = [];
         static $cache = [];
         $signature = self::sourceSignature($root);
@@ -163,7 +195,7 @@ final class M42NativeDesignPackage
         return $out;
     }
 
-    /** Request-local memoization is invalidated by every protected source-file byte. */
+    /** Each fresh verification keys the decoded cache by all protected source-file bytes. */
     private static function sourceSignature(string $root): string
     {
         $hashes = [];
@@ -344,6 +376,11 @@ final class M42NativeDesignPackage
     }
 
     public static function load(?string $root = null): array
+    {
+        return self::requestArtifact('mapping', $root, self::readMapping(...));
+    }
+
+    private static function readMapping(?string $root): array
     {
         $root ??= base_path();
         static $cache = [];
