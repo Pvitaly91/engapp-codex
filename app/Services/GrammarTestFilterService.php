@@ -21,9 +21,14 @@ class GrammarTestFilterService
 
     public function prepare(array $input): array
     {
+        return $this->prepareData($input, true);
+    }
+
+    private function prepareData(array $input, bool $includeFormMetadata): array
+    {
         $filters = $this->normalize($input);
 
-        $categories = Category::all();
+        $categories = $includeFormMetadata ? Category::all() : null;
         $minDifficulty = 1;
         $maxDifficulty = 10;
         $maxQuestions = 999999;
@@ -65,16 +70,17 @@ class GrammarTestFilterService
             : [];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
+        if (($isTheoryCategoryPageTest && $theoryCategoryPageGroups !== [])
+            || ! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
             $groupBy = null;
             $groups = [null];
         } else {
-            $groups = ! empty($selectedCategories)
-                ? $selectedCategories
-                : $categories->pluck('id')->toArray();
-
             if ($groupBy === 'source_id') {
                 $groups = $selectedSources;
+            } else {
+                $groups = ! empty($selectedCategories)
+                    ? $selectedCategories
+                    : ($categories ?? Category::all())->pluck('id')->toArray();
             }
 
             $groups = array_values($groups);
@@ -145,6 +151,10 @@ class GrammarTestFilterService
             $questions = $questions->values();
         } else {
             $questions = $questions->sortBy('id')->values();
+        }
+
+        if (! $includeFormMetadata) {
+            return ['questions' => $questions];
         }
 
         $categoryNames = $questions->pluck('category.name')->filter()->unique()->values();
@@ -340,7 +350,7 @@ class GrammarTestFilterService
 
     public function questionsFromFilters(array $filters): Collection
     {
-        $data = $this->prepare($filters);
+        $data = $this->prepareData($filters, false);
 
         return $data['questions'];
     }

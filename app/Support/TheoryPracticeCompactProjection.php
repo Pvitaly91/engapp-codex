@@ -19,6 +19,11 @@ abstract class TheoryPracticeCompactProjection
 
     public static function load(): array
     {
+        return self::documentForOwner(null);
+    }
+
+    private static function documentForOwner(?string $owner): ?array
+    {
         $path = base_path(static::SOURCE);
         if (!is_file($path) || is_link($path) || !hash_equals(static::SOURCE_SHA, hash_file('sha256', $path))) {
             throw new RuntimeException('Compact practice source differs.');
@@ -26,10 +31,27 @@ abstract class TheoryPracticeCompactProjection
         $provider = static::class;
         if (!isset(self::$documents[$provider])) {
             $candidate = json_decode(file_get_contents($path), true, flags: JSON_THROW_ON_ERROR);
+            // The pinned document lists all possible bindings. An unrelated
+            // owner cannot match, even if its supplement is fully compiled.
+            if ($owner !== null && is_array($candidate) && !self::mayBindOwner($candidate, $owner)) {
+                return null;
+            }
             static::validate($candidate);
             self::$documents[$provider] = $candidate;
         }
         return self::$documents[$provider];
+    }
+
+    private static function mayBindOwner(array $candidate, string $owner): bool
+    {
+        $targets = $candidate['targets'] ?? null;
+        if (!is_array($targets) || $targets === []) { return true; }
+        foreach ($targets as $target) {
+            $seeder = $target['binding']['seeder'] ?? null;
+            // Unknown shapes retain the original validation/fallback path.
+            if (!is_string($seeder) || $seeder === '' || $seeder === $owner) { return true; }
+        }
+        return false;
     }
 
     public static function validate(array $document): void
@@ -134,7 +156,10 @@ abstract class TheoryPracticeCompactProjection
         if (!$canonicalCaller || app()->getLocale() !== 'uk') { return null; }
         $supplement = static::SUPPLEMENT;
         try {
-            foreach (static::load()['targets'] as $target) {
+            $owner = $block->seeder ?? null;
+            $document = is_string($owner) && $owner !== ''
+                ? self::documentForOwner($owner) : static::load();
+            foreach ($document['targets'] ?? [] as $target) {
                 foreach ($target['binding'] as $field => $expected) {
                     if ($field === 'body_sha256') { continue; }
                     if (($block->$field ?? null) !== $expected) { continue 2; }
