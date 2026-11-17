@@ -448,8 +448,9 @@ class TestJsV2Controller extends Controller
         $controller = $this;
 
         $preferredVerbHintLocales = $this->preferredVerbHintLocales();
+        $markerTagsByQuestionId = $this->markerTheoryMatcher->getAllMarkerTagsForQuestions($questions->pluck('id')->all());
 
-        $payload = $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales) {
+        $payload = $questions->map(function ($q) use ($controller, $technicalInfoByQuestionId, $preferredVerbHintLocales, $markerTagsByQuestionId) {
             $answers = $controller->sortAnswersByMarker($q->answers)
                 ->map(function ($a) {
                     return [
@@ -644,9 +645,6 @@ class TestJsV2Controller extends Controller
 
             $theoryBlock = $theoryBlocks[0] ?? null;
 
-            // Load marker tags for each answer marker
-            $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
-
             $serialized = [
                 'id' => $q->id,
                 'uuid' => $q->uuid,
@@ -672,7 +670,7 @@ class TestJsV2Controller extends Controller
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
                 'theory_blocks' => $theoryBlocks,
-                'marker_tags' => $markerTags,
+                'marker_tags' => $markerTagsByQuestionId[$q->id] ?? [],
                 'tech_info' => $technicalInfoByQuestionId[$q->id] ?? null,
             ];
             if (($revision = \App\Support\LocalizedComposeText::revision($q)) !== null) {

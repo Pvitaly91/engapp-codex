@@ -134,7 +134,7 @@ abstract class SeededPublicFlowTestCase extends TestCase
 
         $markerTheoryMatcher = Mockery::mock(MarkerTheoryMatcherService::class);
         $markerTheoryMatcher
-            ->shouldReceive('getAllMarkerTags')
+            ->shouldReceive('getAllMarkerTags', 'getAllMarkerTagsForQuestions')
             ->andReturn([]);
         $this->app->instance(MarkerTheoryMatcherService::class, $markerTheoryMatcher);
     }
